@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>西班牙 vs 沙特 · 数据模型报告</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:-apple-system,'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;
+  background:#0d0f14;display:flex;justify-content:center;padding:20px;min-height:100vh
+}
+.wrap{width:1100px;max-width:100%}
+.header{
+  background:linear-gradient(135deg,#1a1d24,#0d0f14);
+  border-radius:12px 12px 0 0;padding:20px 28px 16px;
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid rgba(255,255,255,0.05)
+}
+.header .brand{font-size:12px;color:#3884ff;font-weight:700;letter-spacing:2px}
+.header .brand span{color:#5a6488;font-weight:400}
+.header .time{font-size:11px;color:#4a5270}
+
+/* 对阵条 */
+.match-strip{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 28px;background:#161a22;
+  border-bottom:1px solid rgba(255,255,255,0.04)
+}
+.team{text-align:center;flex:1}
+.team .name{font-size:22px;font-weight:800;letter-spacing:1px}
+.team .name.spain{color:#c60b1e}
+.team .name.saudi{color:#006c35}
+.team .rank{font-size:11px;color:#5a6488;margin-top:4px}
+.vs{font-size:28px;font-weight:900;color:#3884ff;padding:0 24px;letter-spacing:2px}
+
+/* 卡片网格 */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 0}
+.card{
+  background:#1a1d24;border-radius:8px;padding:20px 24px;
+  border:1px solid rgba(255,255,255,0.04);position:relative
+}
+.card.full{grid-column:span 2}
+.card-title{font-size:12px;color:#5a6488;font-weight:600;letter-spacing:1px;margin-bottom:16px}
+.card-title .emoji{margin-right:6px}
+
+/* 胜平负概率条 */
+.prob-bar{display:flex;height:48px;border-radius:6px;overflow:hidden;margin-bottom:12px}
+.prob-bar .seg{display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;transition:width 0.5s ease}
+.prob-bar .seg.win{background:#c60b1e}
+.prob-bar .seg.draw{background:#3884ff}
+.prob-bar .seg.lose{background:#006c35}
+.prob-label{display:flex;justify-content:space-around;font-size:13px;color:#8892b0}
+.prob-label span strong{color:#e8e8e8;font-weight:700}
+
+/* 表格 */
+.stat-tbl{width:100%;border-collapse:collapse;font-size:13px}
+.stat-tbl th{text-align:left;color:#5a6488;font-weight:500;padding:6px 8px 6px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.stat-tbl td{padding:8px 8px 8px 0;border-bottom:1px solid rgba(255,255,255,0.03)}
+.stat-tbl .val{font-weight:700;color:#e8e8e8}
+.stat-tbl .pct{color:#5a6488}
+.stat-tbl tr:last-child td{border:none}
+
+/* 敏感性分析热力 */
+.sense-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sense-cell{
+  background:#0d0f14;border-radius:6px;padding:10px;text-align:center;
+  border:1px solid rgba(255,255,255,0.04)
+}
+.sense-cell .label{font-size:10px;color:#5a6488}
+.sense-cell .vals{font-size:11px;margin-top:4px;color:#8892b0}
+.sense-cell .vals strong{font-weight:700}
+.sense-cell.high{background:rgba(197,11,30,0.08);border-color:rgba(197,11,30,0.15)}
+.sense-cell.mid{background:rgba(56,132,255,0.08);border-color:rgba(56,132,255,0.15)}
+.sense-cell.low{background:rgba(0,108,53,0.08);border-color:rgba(0,108,53,0.15)}
+
+/* 模拟按钮 */
+.sim-controls{display:flex;gap:12px;align-items:center;margin-bottom:14px}
+.btn{
+  background:#2a2e3a;border:none;color:#e8e8e8;padding:8px 20px;
+  border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;
+  transition:all 0.2s
+}
+.btn:hover{background:#3884ff}
+.btn:disabled{opacity:0.4;cursor:not-allowed}
+.btn.running{background:#c60b1e;animation:pulse 1s infinite}
+@keyframes pulse{0%{opacity:1}50%{opacity:0.6}100%{opacity:1}}
+.sim-status{font-size:12px;color:#5a6488}
+.sim-status .n{color:#3884ff;font-weight:700}
+
+/* 实时指标 */
+.live-row{display:flex;gap:16px;margin-top:12px}
+.live-metric{flex:1;text-align:center;background:#0d0f14;border-radius:6px;padding:10px;border:1px solid rgba(255,255,255,0.04)}
+.live-metric .lbl{font-size:10px;color:#5a6488;letter-spacing:1px}
+.live-metric .num{font-size:24px;font-weight:800;margin-top:2px}
+
+/* Chart容器 */
+.chart-wrap{position:relative;height:220px}
+.chart-wrap.tall{height:280px}
+
+/* 颜色变量 */
+:root{
+  --red:#c60b1e;
+  --blue:#3884ff;
+  --green:#006c35;
+  --gold:#ffd700;
+  --text:#e8e8e8;
+  --muted:#5a6488;
+  --bg:#0d0f14;
+  --card:#1a1d24;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- 头部 -->
+<div class="header">
+  <div class="brand">⚽ 阿飞·赛博聊球 <span>| 数据模型报告</span></div>
+  <div class="time">2026世界杯 H组第2轮 · 06-22 00:00</div>
+</div>
+
+<!-- 对阵 -->
+<div class="match-strip">
+  <div class="team">
+    <div class="name spain">🇪🇸 西班牙</div>
+    <div class="rank">FIFA排名 #2 · 欧洲冠军</div>
+  </div>
+  <div class="vs">VS</div>
+  <div class="team">
+    <div class="name saudi">🇸🇦 沙特</div>
+    <div class="rank">FIFA排名 #60 · 2022年曾胜阿根廷</div>
+  </div>
+</div>
+
+<!-- 概率条 -->
+<div class="grid">
+  <div class="card full">
+    <div class="card-title"><span class="emoji">📊</span>胜平负概率（泊松分布 + 蒙特卡洛 10万次模拟）</div>
+    <div class="prob-bar">
+      <div class="seg win" id="barWin" style="width:70%">70%</div>
+      <div class="seg draw" id="barDraw" style="width:23%">23%</div>
+      <div class="seg lose" id="barLose" style="width:7%">7%</div>
+    </div>
+    <div class="prob-label">
+      <span>🇪🇸 西班牙胜 <strong>70%</strong></span>
+      <span>🤝 平局 <strong>23%</strong></span>
+      <span>🇸🇦 沙特胜 <strong>7%</strong></span>
+    </div>
+  </div>
+
+  <!-- 实时蒙特卡洛模拟 -->
+  <div class="card">
+    <div class="card-title"><span class="emoji">🎲</span>蒙特卡洛实时模拟</div>
+    <div class="sim-controls">
+      <button class="btn" id="simBtn">▶ 开始模拟</button>
+      <button class="btn" id="resetBtn" disabled>↺ 重置</button>
+      <div class="sim-status">已模拟 <span class="n" id="simCount">0</span> 次</div>
+    </div>
+    <div class="live-row">
+      <div class="live-metric"><div class="lbl">西班牙胜</div><div class="num" id="liveWin" style="color:var(--red)">—</div></div>
+      <div class="live-metric"><div class="lbl">平局</div><div class="num" id="liveDraw" style="color:var(--blue)">—</div></div>
+      <div class="live-metric"><div class="lbl">沙特胜</div><div class="num" id="liveLose" style="color:var(--green)">—</div></div>
+      <div class="live-metric"><div class="lbl">大2.5</div><div class="num" id="liveOv" style="color:var(--gold)">—</div></div>
+    </div>
+  </div>
+
+  <!-- 大小球 -->
+  <div class="card">
+    <div class="card-title"><span class="emoji">⚽</span>总进球分布</div>
+    <div class="chart-wrap" id="goalChartWrap"><canvas id="goalChart"></canvas></div>
+  </div>
+
+  <!-- 比分分布 -->
+  <div class="card full">
+    <div class="card-title"><span class="emoji">🏆</span>最可能比分 Top 8</div>
+    <div class="chart-wrap tall" id="scoreChartWrap"><canvas id="scoreChart"></canvas></div>
+  </div>
+
+  <!-- 敏感性分析 -->
+  <div class="card full">
+    <div class="card-title"><span class="emoji">🔬</span>敏感性分析 · xG浮动 ±0.2</div>
+    <div class="sense-grid" id="senseGrid"></div>
+  </div>
+
+  <!-- 数据表格 -->
+  <div class="card">
+    <div class="card-title"><span class="emoji">📋</span>模型参数</div>
+    <table class="stat-tbl">
+      <tr><th>参数</th><th>数值</th></tr>
+      <tr><td>西班牙 λ (xG)</td><td class="val">1.6</td></tr>
+      <tr><td>沙特 λ (xG)</td><td class="val">0.3</td></tr>
+      <tr><td>模拟次数</td><td class="val">100,000</td></tr>
+      <tr><td>西班牙胜率</td><td class="val">70%</td></tr>
+      <tr><td>平局率</td><td class="val">23%</td></tr>
+      <tr><td>沙特胜率</td><td class="val">7%</td></tr>
+      <tr><td>大2.5概率</td><td class="val">29%</td></tr>
+      <tr><td>小2.5概率</td><td class="val">71%</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="emoji">📝</span>分布详情</div>
+    <table class="stat-tbl" id="detailTbl">
+      <tr><th>总进球</th><th>概率</th></tr>
+    </table>
+  </div>
+
+</div>
+</div>
+
+<script>
+// ============= 泊松计算 + 蒙特卡洛引擎 =============
+const LAM_H = 1.6, LAM_A = 0.3;
+const MAX_H = 7, MAX_A = 6;
+
+function poisson(k, lam) {
+  return Math.exp(-lam) * Math.pow(lam, k) / factorial(k);
+}
+function factorial(n){return n<=1?1:n*factorial(n-1)}
+
+// 计算完整分布
+let scoreProbs = [];
+let winP = 0, drawP = 0, loseP = 0;
+let goalDist = {};
+
+for(let h=0;h<=MAX_H;h++){
+  for(let a=0;a<=MAX_A;a++){
+    let p = poisson(h, LAM_H) * poisson(a, LAM_A);
+    scoreProbs.push({h,a,p});
+    if(h>a) winP+=p; else if(h===a) drawP+=p; else loseP+=p;
+    let total = h+a;
+    goalDist[total] = (goalDist[total]||0)+p;
+  }
+}
+scoreProbs.sort((a,b)=>b.p-a.p);
+
+// 蒙特卡洛引擎
+function mcSim(n){
+  let w=0,d=0,l=0,ov=0;
+  for(let i=0;i<n;i++){
+    let hg=0,ag=0;
+    for(let j=0;j<1000;j++){if(Math.random()<LAM_H/1000) hg++}
+    for(let j=0;j<1000;j++){if(Math.random()<LAM_A/1000) ag++}
+    if(hg>ag) w++; else if(hg===ag) d++; else l++;
+    if(hg+ag>=3) ov++;
+  }
+  return {w:w/n,d:d/n,l:l/n,ov:ov/n};
+}
+
+// ============= 渲染图表 =============
+// 全局配置
+Chart.defaults.color = '#8892b0';
+Chart.defaults.font.family = "-apple-system,'PingFang SC','Microsoft YaHei',sans-serif";
+
+// 1. 比分柱状图
+const scoreCtx = document.getElementById('scoreChart').getContext('2d');
+const scoreLabels = scoreProbs.slice(0,8).map(s=>`${s.h}-${s.a}`);
+const scoreData = scoreProbs.slice(0,8).map(s=>+(s.p*100).toFixed(1));
+const scoreColors = scoreProbs.slice(0,8).map(s=>{
+  if(s.h>s.a) return '#c60b1e';
+  if(s.h===s.a) return '#3884ff';
+  return '#006c35';
+});
+
+new Chart(scoreCtx, {
+  type: 'bar',
+  data: {
+    labels: scoreLabels,
+    datasets: [{
+      data: scoreData,
+      backgroundColor: scoreColors,
+      borderRadius: 4,
+      borderSkipped: false,
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: {display: false},
+      tooltip: {
+        callbacks: {
+          label: ctx => `${ctx.raw}%`
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true, max: 28,
+        ticks: {callback: v => v+'%', color: '#5a6488'},
+        grid: {color: 'rgba(255,255,255,0.04)'}
+      },
+      x: {
+        ticks: {color: '#5a6488', font:{size:12}},
+        grid: {display: false}
+      }
+    }
+  }
+});
+
+// 2. 大小球饼图
+const goalCtx = document.getElementById('goalChart').getContext('2d');
+new Chart(goalCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['0球', '1球', '2球', '3球', '4球', '5球+'],
+    datasets: [{
+      data: [
+        +(goalDist[0]*100).toFixed(1),
+        +(goalDist[1]*100).toFixed(1),
+        +(goalDist[2]*100).toFixed(1),
+        +(goalDist[3]*100).toFixed(1),
+        +(goalDist[4]*100).toFixed(1),
+        +((goalDist[5]||0)+ (goalDist[6]||0)+ (goalDist[7]||0)+ (goalDist[8]||0)) * 100
+      ],
+      backgroundColor: ['#1a1d24','#2a2e3a','#3884ff','#c60b1e','#ffd700','#006c35'],
+      borderWidth: 2,
+      borderColor: '#0d0f14',
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    cutout: '65%',
+    plugins: {
+      legend: {
+        position: 'right',
+        labels: {color: '#8892b0', padding: 12, font:{size:12}, usePointStyle:true}
+      },
+      tooltip: {
+        callbacks: {
+          label: ctx => `${ctx.label}: ${ctx.raw}%`
+        }
+      }
+    }
+  }
+});
+
+// 3. 敏感性分析
+const senseGrid = document.getElementById('senseGrid');
+const senseData = [
+  {xh:1.4,xa:0.2,win:69,draw:26,lose:5},
+  {xh:1.4,xa:0.3,win:65,draw:27,lose:8},
+  {xh:1.4,xa:0.4,win:62,draw:27,lose:10},
+  {xh:1.6,xa:0.2,win:73,draw:22,lose:4},
+  {xh:1.6,xa:0.3,win:70,draw:23,lose:7,base:true},
+  {xh:1.6,xa:0.4,win:67,draw:24,lose:9},
+  {xh:1.8,xa:0.2,win:78,draw:19,lose:4},
+  {xh:1.8,xa:0.3,win:75,draw:20,lose:5},
+  {xh:1.8,xa:0.4,win:72,draw:21,lose:8},
+];
+
+senseData.forEach(s=>{
+  let cls = s.base ? 'sense-cell high' : (s.win>=70 ? 'sense-cell high' : s.win>=65 ? 'sense-cell mid' : 'sense-cell low');
+  let label = s.base ? `λ西=${s.xh} λ沙=${s.xa} ← 基准` : `λ西=${s.xh} λ沙=${s.xa}`;
+  senseGrid.innerHTML += `
+    <div class="${cls}">
+      <div class="label">${label}</div>
+      <div class="vals">
+        <strong style="color:#c60b1e">胜${s.win}%</strong>
+        <span style="color:#3884ff"> / 平${s.draw}%</span>
+        <span style="color:#006c35"> / 负${s.lose}%</span>
+      </div>
+    </div>
+  `;
+});
+
+// 4. 总进球分布表格
+Object.keys(goalDist).sort((a,b)=>+a-b).forEach(k=>{
+  let p = +(goalDist[k]*100).toFixed(1);
+  document.getElementById('detailTbl').innerHTML += `<tr><td>${k} 球</td><td class="val">${p}%</td></tr>`;
+});
+
+// ============= 实时蒙特卡洛 =============
+let running = false, simCount = 0, totalSims = 0;
+let liveW=0,liveD=0,liveL=0,liveOv=0;
+const BATCH = 500, TARGET = 1000000;
+
+function updateLive(){
+  document.getElementById('liveWin').textContent = totalSims ? (liveW/totalSims*100).toFixed(1)+'%' : '—';
+  document.getElementById('liveDraw').textContent = totalSims ? (liveD/totalSims*100).toFixed(1)+'%' : '—';
+  document.getElementById('liveLose').textContent = totalSims ? (liveL/totalSims*100).toFixed(1)+'%' : '—';
+  document.getElementById('liveOv').textContent = totalSims ? (liveOv/totalSims*100).toFixed(1)+'%' : '—';
+  document.getElementById('simCount').textContent = totalSims.toLocaleString();
+}
+
+function runBatch(){
+  if(!running) return;
+  for(let i=0;i<BATCH;i++){
+    let hg=0,ag=0;
+    for(let j=0;j<1000;j++){if(Math.random()<LAM_H/1000) hg++}
+    for(let j=0;j<1000;j++){if(Math.random()<LAM_A/1000) ag++}
+    if(hg>ag) liveW++; else if(hg===ag) liveD++; else liveL++;
+    if(hg+ag>=3) liveOv++;
+    totalSims++;
+  }
+  updateLive();
+  if(totalSims<TARGET && running) requestAnimationFrame(runBatch);
+  else if(totalSims>=TARGET){
+    running=false;
+    document.getElementById('simBtn').textContent = '✅ 完成';
+    document.getElementById('simBtn').disabled = true;
+    document.getElementById('resetBtn').disabled = false;
+  }
+}
+
+document.getElementById('simBtn').addEventListener('click', function(){
+  if(running) return;
+  running=true;
+  this.textContent = '⏳ 模拟中…';
+  this.classList.add('running');
+  document.getElementById('resetBtn').disabled = true;
+  runBatch();
+});
+
+document.getElementById('resetBtn').addEventListener('click', function(){
+  running=false; totalSims=0; liveW=0; liveD=0; liveL=0; liveOv=0;
+  updateLive();
+  document.getElementById('simBtn').textContent = '▶ 开始模拟';
+  document.getElementById('simBtn').disabled = false;
+  document.getElementById('simBtn').classList.remove('running');
+  this.disabled = true;
+});
+
+// 初始化
+updateLive();
+
+// 5. 概率条动画（入场）
+setTimeout(()=>{
+  document.getElementById('barWin').style.width='70%';
+  document.getElementById('barDraw').style.width='23%';
+  document.getElementById('barLose').style.width='7%';
+}, 200);
+</script>
+</body>
+</html>

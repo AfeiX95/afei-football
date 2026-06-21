@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🇪🇸 西班牙 vs 沙特 🇸🇦 · 全维数据仪表盘</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+/* ========== CSS Variables & Theme ========== */
+:root {
+  --bg: #0d0f14;
+  --card: #1a1d24;
+  --card-hover: #21252e;
+  --border: rgba(255,255,255,0.06);
+  --text: #e8e8e8;
+  --muted: #5a6488;
+  --accent: #3884ff;
+  --red: #c60b1e;
+  --green: #006c35;
+  --gold: #ffd700;
+  --shadow: rgba(0,0,0,0.4);
+  --radius: 10px;
+  --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+[data-theme="light"] {
+  --bg: #f0f2f5;
+  --card: #ffffff;
+  --card-hover: #f5f7fa;
+  --border: rgba(0,0,0,0.08);
+  --text: #1a1d24;
+  --muted: #8892a8;
+  --shadow: rgba(0,0,0,0.08);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:-apple-system,'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;
+  background:var(--bg);color:var(--text);
+  transition:background var(--transition),color var(--transition);
+  display:flex;justify-content:center;padding:16px;min-height:100vh
+}
+.wrap{max-width:1200px;width:100%}
+
+/* ========== Header ========== */
+.header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 24px;background:var(--card);border-radius:var(--radius) var(--radius) 0 0;
+  border:1px solid var(--border);border-bottom:none;
+  animation:fadeDown 0.5s ease
+}
+.header .brand{font-size:13px;font-weight:700;letter-spacing:1px;color:var(--accent)}
+.header .brand span{color:var(--muted);font-weight:400}
+.header-actions{display:flex;gap:10px;align-items:center}
+.theme-btn{
+  background:var(--card);border:1px solid var(--border);color:var(--text);
+  width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all var(--transition)
+}
+.theme-btn:hover{background:var(--card-hover);border-color:var(--accent)}
+
+/* ========== Match Strip ========== */
+.match-strip{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 28px;background:var(--card);
+  border:1px solid var(--border);border-bottom:none;
+  animation:fadeDown 0.6s ease
+}
+.team{text-align:center;flex:1}
+.team .flag{font-size:36px}
+.team .name{font-size:20px;font-weight:800;margin-top:4px}
+.team .name.spain{color:var(--red)}
+.team .name.saudi{color:var(--green)}
+.team .meta{font-size:11px;color:var(--muted);margin-top:4px}
+.vs{font-size:28px;font-weight:900;color:var(--accent);padding:0 24px;letter-spacing:2px;animation:pulse 2s infinite}
+
+/* ========== Grid & Cards ========== */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 0}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:12px 0}
+.card{
+  background:var(--card);border-radius:var(--radius);padding:20px 22px;
+  border:1px solid var(--border);position:relative;overflow:hidden;
+  transition:all var(--transition);animation:fadeUp 0.6s ease both
+}
+.card:hover{background:var(--card-hover);border-color:rgba(56,132,255,0.15);transform:translateY(-2px);box-shadow:0 8px 24px var(--shadow)}
+.card.full{grid-column:span 2}
+.card.full-3{grid-column:span 3}
+.card-title{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:1px;margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.card-title .badge{background:var(--accent);color:#fff;font-size:9px;padding:1px 7px;border-radius:10px;font-weight:700}
+
+/* ========== Animations ========== */
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+@keyframes slideIn{from{width:0%}to{width:var(--w)}}
+@keyframes countUp{from{opacity:0;transform:scale(0.5)}to{opacity:1;transform:scale(1)}}
+.card:nth-child(1){animation-delay:0.05s}
+.card:nth-child(2){animation-delay:0.1s}
+.card:nth-child(3){animation-delay:0.15s}
+.card:nth-child(4){animation-delay:0.2s}
+.card:nth-child(5){animation-delay:0.25s}
+.card:nth-child(6){animation-delay:0.3s}
+.card:nth-child(7){animation-delay:0.35s}
+.card:nth-child(8){animation-delay:0.4s}
+
+/* ========== Probability Bar ========== */
+.prob-bar{display:flex;height:44px;border-radius:6px;overflow:hidden;margin-bottom:10px}
+.prob-bar .seg{
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:#fff;
+  transition:width 1s ease;position:relative
+}
+.prob-bar .seg.win{background:linear-gradient(135deg,#c60b1e,#e8343e)}
+.prob-bar .seg.draw{background:linear-gradient(135deg,#3884ff,#5a9eff)}
+.prob-bar .seg.lose{background:linear-gradient(135deg,#006c35,#00a84d)}
+.prob-labels{display:flex;justify-content:space-around;font-size:12px;color:var(--muted)}
+.prob-labels span strong{color:var(--text);font-weight:700}
+
+/* ========== Team Compare ========== */
+.comp-row{display:flex;align-items:center;gap:12px;padding:6px 0}
+.comp-row .lbl{font-size:11px;color:var(--muted);width:80px;flex-shrink:0}
+.comp-row .bar-wrap{flex:1;height:8px;background:var(--bg);border-radius:4px;overflow:hidden;position:relative}
+.comp-row .bar-wrap .fill{height:100%;border-radius:4px;transition:width 1s ease}
+.comp-row .bar-wrap .fill.a{background:var(--red)}
+.comp-row .bar-wrap .fill.b{background:var(--green)}
+.comp-row .vals{font-size:11px;font-weight:600;width:120px;text-align:right;flex-shrink:0}
+.comp-row .vals .a{color:var(--red)}
+.comp-row .vals .b{color:var(--green)}
+
+/* ========== H2H Timeline ========== */
+.h2h-list{list-style:none}
+.h2h-list li{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 12px;border-bottom:1px solid var(--border);font-size:13px
+}
+.h2h-list li:last-child{border:none}
+.h2h-list .score{font-weight:800;font-size:15px}
+.h2h-list .result{font-size:11px;color:var(--muted)}
+.h2h-list .win{color:var(--red)}
+
+/* ========== Stat Grid ========== */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stat-item{text-align:center;background:var(--bg);border-radius:6px;padding:10px 6px;border:1px solid var(--border)}
+.stat-item .num{font-size:20px;font-weight:800}
+.stat-item .lbl{font-size:10px;color:var(--muted);margin-top:3px;letter-spacing:0.5px}
+
+/* ========== Group Table ========== */
+.grp-tbl{width:100%;border-collapse:collapse;font-size:13px}
+.grp-tbl th{text-align:left;color:var(--muted);font-weight:500;padding:8px 8px 6px 0;border-bottom:1px solid var(--border);font-size:11px;letter-spacing:0.5px}
+.grp-tbl td{padding:8px 8px 8px 0;border-bottom:1px solid var(--border)}
+.grp-tbl tr:last-child td{border:none}
+.grp-tbl .highlight td{background:rgba(56,132,255,0.06);font-weight:600}
+.grp-tbl .pos{width:24px;color:var(--muted)}
+.grp-tbl .pts{font-weight:700}
+
+/* ========== Odds Table ========== */
+.odds-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.odds-card{
+  background:var(--bg);border-radius:6px;padding:10px 14px;
+  border:1px solid var(--border);font-size:12px
+}
+.odds-card .cat{color:var(--muted);font-size:10px;letter-spacing:1px}
+.odds-card .vals{display:flex;justify-content:space-between;margin-top:4px}
+.odds-card .vals span{font-weight:600}
+.odds-card .vals .up{color:var(--red)}
+.odds-card .vals .down{color:var(--green)}
+.odds-card .vals .neutral{color:var(--muted)}
+
+/* ========== Expert Carousel ========== */
+.expert-scroll{display:flex;gap:12px;overflow-x:auto;padding:4px 0 8px;scroll-snap-type:x mandatory}
+.expert-scroll::-webkit-scrollbar{height:4px}
+.expert-scroll::-webkit-scrollbar-track{background:var(--bg);border-radius:2px}
+.expert-scroll::-webkit-scrollbar-thumb{background:var(--muted);border-radius:2px}
+.expert-card{
+  min-width:200px;background:var(--bg);border-radius:8px;padding:14px;
+  border:1px solid var(--border);scroll-snap-align:start;
+  transition:all var(--transition)
+}
+.expert-card:hover{border-color:var(--accent)}
+.expert-card .src{font-size:11px;color:var(--accent);font-weight:600}
+.expert-card .pred{font-size:13px;margin:6px 0;font-weight:600}
+.expert-card .note{font-size:11px;color:var(--muted);line-height:1.4}
+
+/* ========== Charts ========== */
+.chart-box{position:relative;height:200px}
+.chart-box.tall{height:260px}
+
+/* ========== Monte Carlo Live ========== */
+.mc-row{display:flex;gap:12px;margin-bottom:12px}
+.mc-metric{
+  flex:1;text-align:center;background:var(--bg);border-radius:8px;
+  padding:12px 8px;border:1px solid var(--border);
+  transition:all var(--transition)
+}
+.mc-metric .lbl{font-size:10px;color:var(--muted);letter-spacing:1px}
+.mc-metric .num{font-size:26px;font-weight:800;margin-top:4px;transition:all 0.3s}
+.mc-controls{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.mc-btn{
+  background:var(--accent);border:none;color:#fff;padding:8px 20px;
+  border-radius:6px;cursor:pointer;font-size:12px;font-weight:600;
+  transition:all var(--transition)
+}
+.mc-btn:hover{opacity:0.85;transform:translateY(-1px)}
+.mc-btn:disabled{opacity:0.3;cursor:not-allowed;transform:none}
+.mc-btn.sec{background:var(--card);border:1px solid var(--border);color:var(--text)}
+.mc-status{font-size:11px;color:var(--muted)}
+.mc-status .n{color:var(--accent);font-weight:700}
+
+/* ========== Scenario Cards ========== */
+.scenario-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.scenario{background:var(--bg);border-radius:6px;padding:12px;text-align:center;border:1px solid var(--border)}
+.scenario .outcome{font-size:13px;font-weight:700}
+.scenario .prob{font-size:22px;font-weight:800;margin:4px 0}
+.scenario .desc{font-size:10px;color:var(--muted)}
+.scenario.good{border-color:rgba(0,108,53,0.3)}
+.scenario.good .prob{color:var(--green)}
+.scenario.mid{border-color:rgba(56,132,255,0.3)}
+.scenario.mid .prob{color:var(--accent)}
+.scenario.bad{border-color:rgba(198,11,30,0.3)}
+.scenario.bad .prob{color:var(--red)}
+
+/* ========== Final Synthesis ========== */
+.synth-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.synth-card{
+  text-align:center;background:var(--bg);border-radius:8px;padding:16px;
+  border:1px solid var(--border);transition:all var(--transition)
+}
+.synth-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px var(--shadow)}
+.synth-card .rank{font-size:28px;font-weight:900;margin-bottom:4px}
+.synth-card .score{font-size:22px;font-weight:800;color:var(--accent)}
+.synth-card .pct{font-size:13px;color:var(--muted);margin-top:4px}
+.synth-card.prime{border-color:var(--accent);background:linear-gradient(135deg,rgba(56,132,255,0.08),var(--bg))}
+
+/* ========== Responsive ========== */
+@media(max-width:768px){
+  .grid,.grid-3{grid-template-columns:1fr}
+  .card.full,.card.full-3{grid-column:span 1}
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
+  .odds-grid,.synth-grid,.scenario-grid{grid-template-columns:1fr}
+  .match-strip{padding:14px 16px}
+  .vs{padding:0 12px;font-size:20px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ==================== HEADER ==================== -->
+<div class="header">
+  <div class="brand">⚽ 阿飞·赛博聊球 <span>| 全维数据仪表盘</span></div>
+  <div class="header-actions">
+    <span style="font-size:11px;color:var(--muted)">H组第2轮 · 06-22 00:00</span>
+    <button class="theme-btn" id="themeToggle" title="切换主题">🌙</button>
+  </div>
+</div>
+
+<!-- ==================== MATCH STRIP ==================== -->
+<div class="match-strip">
+  <div class="team">
+    <div class="flag">🇪🇸</div>
+    <div class="name spain">西班牙</div>
+    <div class="meta">FIFA #2 · 欧洲冠军 · 身价 €12.2亿</div>
+  </div>
+  <div class="vs">VS</div>
+  <div class="team">
+    <div class="flag">🇸🇦</div>
+    <div class="name saudi">沙特阿拉伯</div>
+    <div class="meta">FIFA #60 · 亚洲劲旅 · 身价 €4068万</div>
+  </div>
+</div>
+
+<div class="grid">
+
+<!-- ==================== 1. PROBABILITY BAR ==================== -->
+<div class="card full">
+  <div class="card-title">📊 胜平负概率 <span class="badge">泊松+蒙特卡洛 10万次</span></div>
+  <div class="prob-bar">
+    <div class="seg win" id="barWin" style="width:0%">70%</div>
+    <div class="seg draw" id="barDraw" style="width:0%">23%</div>
+    <div class="seg lose" id="barLose" style="width:0%">7%</div>
+  </div>
+  <div class="prob-labels">
+    <span>🇪🇸 <strong>70%</strong></span>
+    <span>🤝 平 <strong>23%</strong></span>
+    <span>🇸🇦 <strong>7%</strong></span>
+  </div>
+</div>
+
+<!-- ==================== 2. SIX-AXIS RADAR + TEAM COMPARISON ==================== -->
+<div class="card full">
+  <div class="card-title">📋 六维能力雷达图 + 数据对比 <span class="badge">综合评分</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <!-- Radar Chart -->
+    <div>
+      <div class="chart-box tall" id="radarChartWrap"><canvas id="radarChart"></canvas></div>
+    </div>
+    <!-- Comparison Bars -->
+    <div>
+      <div class="comp-row"><span class="lbl">💰 身价</span><div class="bar-wrap"><div class="fill a" style="width:97%"></div></div><div class="vals"><span class="a">€12.2亿</span> vs <span class="b">€4068万</span></div></div>
+      <div class="comp-row"><span class="lbl">🏆 FIFA排名</span><div class="bar-wrap"><div class="fill a" style="width:97%"></div></div><div class="vals"><span class="a">#2</span> vs <span class="b">#60</span></div></div>
+      <div class="comp-row"><span class="lbl">📅 近期10场</span><div class="bar-wrap"><div class="fill a" style="width:60%"></div></div><div class="vals"><span class="a">6胜4平</span> vs <span class="b">3胜3平4负</span></div></div>
+      <div class="comp-row"><span class="lbl">⚽ 场均进球</span><div class="bar-wrap"><div class="fill a" style="width:75%"></div></div><div class="vals"><span class="a">2.1</span> vs <span class="b">0.9</span></div></div>
+      <div class="comp-row"><span class="lbl">🛡️ 场均失球</span><div class="bar-wrap"><div class="fill b" style="width:25%"></div></div><div class="vals"><span class="a">0.3</span> vs <span class="b">1.1</span></div></div>
+      <div class="comp-row"><span class="lbl">🎯 控球率</span><div class="bar-wrap"><div class="fill a" style="width:74%"></div></div><div class="vals"><span class="a">74%</span> vs <span class="b">26%</span></div></div>
+      <div class="comp-row"><span class="lbl">⭐ 关键球员</span><div style="font-size:11px;flex:1;text-align:right">亚马尔(€2亿) vs 达瓦萨里</div></div>
+      <!-- Rating Summary -->
+      <div style="margin-top:10px;display:flex;gap:8px;font-size:11px">
+        <div style="flex:1;background:var(--bg);border-radius:6px;padding:8px;text-align:center;border:1px solid var(--border)">
+          <div style="color:var(--muted)">🇪🇸 综合评分</div>
+          <div style="font-size:20px;font-weight:800;color:var(--red)">88</div>
+        </div>
+        <div style="flex:1;background:var(--bg);border-radius:6px;padding:8px;text-align:center;border:1px solid var(--border)">
+          <div style="color:var(--muted)">🇸🇦 综合评分</div>
+          <div style="font-size:20px;font-weight:800;color:var(--green)">52</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 3. GROUP STANDING ==================== -->
+<div class="card">
+  <div class="card-title">🏆 H组积分榜 <span class="badge">出线形势</span></div>
+  <table class="grp-tbl">
+    <tr><th>#</th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>净胜</th><th>积分</th></tr>
+    <tr><td class="pos">1</td><td>🇺🇾 乌拉圭</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td class="pts">1</td></tr>
+    <tr><td class="pos">2</td><td>🇸🇦 沙特</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td class="pts">1</td></tr>
+    <tr class="highlight"><td class="pos">3</td><td>🇪🇸 西班牙</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td class="pts">1</td></tr>
+    <tr><td class="pos">4</td><td>🇨🇻 佛得角</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td class="pts">1</td></tr>
+  </table>
+  <div style="margin-top:12px;font-size:11px;color:var(--muted);line-height:1.6">
+    <strong style="color:var(--text)">🔄 出线推演</strong><br>
+    🟢 西班牙胜沙特 → 3分，末轮战乌拉圭争头名<br>
+    🟡 西班牙平沙特 → 2分，末轮必须赢乌拉圭<br>
+    🔴 西班牙负沙特 → 2分，要看别人脸色<br>
+    <span style="font-size:10px">另一场：乌拉圭 vs 佛得角（明早06:00）</span>
+  </div>
+</div>
+
+<!-- ==================== 4. H2H HISTORY ==================== -->
+<div class="card">
+  <div class="card-title">🤝 历史交锋 <span class="badge">3次 西班牙全胜</span></div>
+  <ul class="h2h-list">
+    <li><span>🏆 2006世界杯</span><span class="score win">1-0</span><span class="result">华尼托头球制胜</span></li>
+    <li><span>🤝 2010友谊赛</span><span class="score win">3-2</span><span class="result">西班牙险胜</span></li>
+    <li><span>🤝 2012友谊赛</span><span class="score win">5-0</span><span class="result">最大分差</span></li>
+  </ul>
+  <div style="margin-top:10px">
+    <div style="font-size:11px;color:var(--muted);margin-bottom:4px">总进球分布</div>
+    <div class="comp-row"><span class="lbl">西班牙</span><div class="bar-wrap"><div class="fill a" style="width:82%"></div></div><div class="vals"><span class="a">9球</span></div></div>
+    <div class="comp-row"><span class="lbl">沙特</span><div class="bar-wrap"><div class="fill b" style="width:18%"></div></div><div class="vals"><span class="b">2球</span></div></div>
+  </div>
+</div>
+
+<!-- ==================== 5. RECENT FORM ==================== -->
+<div class="card full">
+  <div class="card-title">📈 近期20场走势</div>
+  <div class="chart-box tall" id="formChartWrap"><canvas id="formChart"></canvas></div>
+</div>
+
+<!-- ==================== 6. POISSON + MONTE CARLO ==================== -->
+<div class="card full">
+  <div class="card-title">🎲 蒙特卡洛实时模拟 <span class="badge">LIVE</span></div>
+  <div class="mc-controls">
+    <button class="mc-btn" id="mcStart">▶ 开始模拟</button>
+    <button class="mc-btn sec" id="mcReset" disabled>↺ 重置</button>
+    <div class="mc-status">已模拟 <span class="n" id="mcCount">0</span> 次</div>
+  </div>
+  <div class="mc-row">
+    <div class="mc-metric"><div class="lbl">🇪🇸 西班牙胜</div><div class="num" id="mcWin" style="color:var(--red)">—</div></div>
+    <div class="mc-metric"><div class="lbl">🤝 平局</div><div class="num" id="mcDraw" style="color:var(--accent)">—</div></div>
+    <div class="mc-metric"><div class="lbl">🇸🇦 沙特胜</div><div class="num" id="mcLose" style="color:var(--green)">—</div></div>
+    <div class="mc-metric"><div class="lbl">⚽ 大2.5</div><div class="num" id="mcOv" style="color:var(--gold)">—</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px">
+    <div class="chart-box" id="mcPieWrap"><canvas id="mcPieChart"></canvas></div>
+    <div class="chart-box" id="scoreDistWrap"><canvas id="scoreDistChart"></canvas></div>
+  </div>
+</div>
+
+<!-- ==================== 7. SCORE DISTRIBUTION (Poisson) ==================== -->
+<div class="card full">
+  <div class="card-title">🏆 泊松分布 · 最可能比分 Top 8</div>
+  <div class="chart-box tall" id="scoreChartWrap"><canvas id="scoreChart"></canvas></div>
+</div>
+
+<!-- ==================== 8. EXPERT PREDICTIONS ==================== -->
+<div class="card full">
+  <div class="card-title">🎙️ 专家预测趋势 <span class="badge">4家外媒</span></div>
+  <div class="expert-scroll">
+    <div class="expert-card">
+      <div class="src">Sports Illustrated</div>
+      <div class="pred">1-0 西班牙</div>
+      <div class="note">很谨慎的比分。认为西班牙能赢但不会轻松，沙特防守有韧性。</div>
+    </div>
+    <div class="expert-card">
+      <div class="src">Yahoo Sports</div>
+      <div class="pred">西班牙胜</div>
+      <div class="note">引用了2022年沙特击败阿根廷的历史，称"历史只能讲一部分故事"。</div>
+    </div>
+    <div class="expert-card">
+      <div class="src">Oddshark</div>
+      <div class="pred">沙特 +2.5</div>
+      <div class="note">直接推荐沙特受让。沙特近10场世界杯7场1球分差。</div>
+    </div>
+    <div class="expert-card">
+      <div class="src">RotoWire</div>
+      <div class="pred">西班牙胜</div>
+      <div class="note">看好亚马尔突破能力，但指出沙特反击威胁（达瓦萨里）。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 9. ODDS & MARKET ==================== -->
+<div class="card full">
+  <div class="card-title">💰 各机构盘口与资金流向</div>
+  <div class="odds-grid">
+    <div class="odds-card">
+      <div class="cat">欧赔 (Oddschecker)</div>
+      <div class="vals">
+        <span>西班牙 <span class="up">-900</span></span>
+        <span>平局 <span class="neutral">+900</span></span>
+        <span>沙特 <span class="down">+2500</span></span>
+      </div>
+    </div>
+    <div class="odds-card">
+      <div class="cat">让球盘 (DraftKings)</div>
+      <div class="vals">
+        <span>西班牙 -2.5 <span class="up">+100</span></span>
+        <span>沙特 +2.5 <span class="down">-125</span></span>
+      </div>
+    </div>
+    <div class="odds-card">
+      <div class="cat">大小球 (sbgglobal)</div>
+      <div class="vals">
+        <span>大3.5 <span class="up">+140</span></span>
+        <span>小3.5 <span class="down">-163</span></span>
+        <span>大2.5 <span class="up">-140</span></span>
+      </div>
+    </div>
+    <div class="odds-card">
+      <div class="cat">凯利指数 · 庄家意图</div>
+      <div class="vals">
+        <span>主胜 <span class="up">0.92</span></span>
+        <span>平局 <span class="down">0.88</span></span>
+        <span>客胜 <span class="neutral">0.95</span></span>
+      </div>
+    </div>
+    <div class="odds-card" style="grid-column:span 2">
+      <div class="cat">🕵️ 庄家做局定性</div>
+      <div style="font-size:12px;margin-top:6px;line-height:1.5">
+        初盘西班牙让两球/两球半，市场热度集中在西班牙方向。但凯利指数客胜偏高(0.95)，资金有逆流迹象。<br>
+        <strong style="color:var(--red)">判定：温和诱导型</strong> —— 顺应市场推热西班牙，通过控赔维持小胜格局。深盘+低水配合沙特首轮表现题材，有诱上盘嫌疑。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 10. SCENARIO ANALYSIS ==================== -->
+<div class="card full">
+  <div class="card-title">📊 多情景推演 <span class="badge">基于模型+盘口+外媒</span></div>
+  <div class="scenario-grid">
+    <div class="scenario good">
+      <div class="outcome">🇪🇸 正路大胜</div>
+      <div class="prob">3-0 / 4-0</div>
+      <div class="desc">概率约18% · 西班牙开场早段破门，沙特士气崩盘<br>需要：前20分钟进球</div>
+    </div>
+    <div class="scenario mid">
+      <div class="outcome">🇪🇸 小胜闷战</div>
+      <div class="prob">1-0 / 2-0</div>
+      <div class="desc">概率约43% · 最可能场景<br>西班牙控球压制，沙特死守至60分钟后体能下降丢球</div>
+    </div>
+    <div class="scenario bad">
+      <div class="outcome">🤝 沙特爆冷拿分</div>
+      <div class="prob">0-0 / 1-1 / 沙特胜</div>
+      <div class="desc">概率约30% · 西班牙攻坚无果<br>若上半场0-0，走势越来越像首轮翻版</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== 11. FINAL SYNTHESIS ==================== -->
+<div class="card full" style="border-color:var(--accent)">
+  <div class="card-title">🎯 综合结论 <span class="badge">四源合成</span></div>
+  <div class="synth-grid">
+    <div class="synth-card prime">
+      <div class="rank">🥇</div>
+      <div class="score">1-0</div>
+      <div class="pct">概率 24%</div>
+    </div>
+    <div class="synth-card">
+      <div class="rank">🥈</div>
+      <div class="score">2-0</div>
+      <div class="pct">概率 19%</div>
+    </div>
+    <div class="synth-card">
+      <div class="rank">🥉</div>
+      <div class="score">0-0</div>
+      <div class="pct">概率 15%</div>
+    </div>
+  </div>
+  <div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:12px;text-align:center">
+    <div style="background:var(--bg);border-radius:6px;padding:10px;border:1px solid var(--border)">
+      <div style="color:var(--muted);font-size:10px">胜负概率</div>
+      <div><strong style="color:var(--red)">胜70%</strong> / <strong style="color:var(--accent)">平23%</strong> / <strong style="color:var(--green)">负7%</strong></div>
+    </div>
+    <div style="background:var(--bg);border-radius:6px;padding:10px;border:1px solid var(--border)">
+      <div style="color:var(--muted);font-size:10px">大小球</div>
+      <div><strong style="color:var(--gold)">大2.5 29%</strong> / <strong>小2.5 71%</strong></div>
+    </div>
+    <div style="background:var(--bg);border-radius:6px;padding:10px;border:1px solid var(--border)">
+      <div style="color:var(--muted);font-size:10px">推荐关注</div>
+      <div><strong style="color:var(--red)">西班牙胜</strong> 🟢 但谨慎大球</div>
+    </div>
+  </div>
+  <div style="margin-top:12px;padding:10px 14px;background:var(--bg);border-radius:6px;font-size:12px;line-height:1.6;border-left:3px solid var(--accent)">
+    <strong>🧠 阿飞核心判断：</strong>西班牙实力碾压，但首轮27脚0球的攻坚效率让人无法放心。沙特有大巴模板（2022阿根廷、2026乌拉圭），完全知道怎么踢这种比赛。模型指向小比分西班牙胜（1-0/2-0），但<strong style="color:var(--red)">70%胜率 vs 71%小球概率</strong>这个矛盾本身就在说——过程大概率很煎熬。
+    如果上半场0-0结束……那首轮剧本就换了个队名重演了。
+  </div>
+</div>
+
+</div><!-- /grid -->
+</div><!-- /wrap -->
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+// ========== THEME TOGGLE ==========
+const tBtn = document.getElementById('themeToggle');
+const saved = localStorage.getItem('theme') || 'dark';
+document.documentElement.setAttribute('data-theme', saved);
+tBtn.textContent = saved === 'dark' ? '🌙' : '☀️';
+
+tBtn.addEventListener('click',()=>{
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  tBtn.textContent = next === 'dark' ? '🌙' : '☀️';
+});
+
+// ========== POISSON ENGINE ==========
+const LAM_H=1.6, LAM_A=0.3;
+const MAX_H=7, MAX_A=6;
+function fac(n){return n<=1?1:n*fac(n-1)}
+function pp(k,l){return Math.exp(-l)*Math.pow(l,k)/fac(k)}
+
+let scProbs=[], winP=0, drawP=0, loseP=0, goalDist={};
+for(let h=0;h<=MAX_H;h++)for(let a=0;a<=MAX_A;a++){
+  let p=pp(h,LAM_H)*pp(a,LAM_A);
+  scProbs.push({h,a,p});
+  if(h>a)winP+=p;else if(h===a)drawP+=p;else loseP+=p;
+  let t=h+a; goalDist[t]=(goalDist[t]||0)+p;
+}
+scProbs.sort((a,b)=>b.p-a.p);
+
+// ========== PROB BAR ANIMATION ==========
+setTimeout(()=>{
+  document.getElementById('barWin').style.width='70%';
+  document.getElementById('barDraw').style.width='23%';
+  document.getElementById('barLose').style.width='7%';
+},300);
+
+// ========== RADAR CHART (六维能力) ==========
+function initRadar(){
+  const muted=getComputedStyle(document.documentElement).getPropertyValue('--muted').trim();
+  const ctx=document.getElementById('radarChart').getContext('2d');
+  new Chart(ctx,{
+    type:'radar',
+    data:{
+      labels:['进攻能力','中场控制','防守能力','战意','身价'],
+      datasets:[
+        {
+          label:'🇪🇸 西班牙',
+          data:[88, 96, 78, 90, 97],
+          backgroundColor:'rgba(198,11,30,0.12)',
+          borderColor:'#c60b1e',
+          borderWidth:2.5,
+          pointBackgroundColor:'#c60b1e',
+          pointBorderColor:'#fff',
+          pointBorderWidth:1.5,
+          pointRadius:4,
+          pointHoverRadius:6,
+        },
+        {
+          label:'🇸🇦 沙特',
+          data:[65, 35, 72, 85, 15],
+          backgroundColor:'rgba(0,108,53,0.12)',
+          borderColor:'#006c35',
+          borderWidth:2.5,
+          pointBackgroundColor:'#006c35',
+          pointBorderColor:'#fff',
+          pointBorderWidth:1.5,
+          pointRadius:4,
+          pointHoverRadius:6,
+        }
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{
+          position:'bottom',
+          labels:{color:muted,font:{size:11},usePointStyle:true,padding:12,boxWidth:12}
+        },
+        tooltip:{
+          callbacks:{
+            label:ctx=>`${ctx.dataset.label}: ${ctx.raw}/100`
+          }
+        }
+      },
+      scales:{
+        r:{
+          beginAtZero:true,max:100,
+          ticks:{stepSize:20,color:muted,backdropColor:'transparent',font:{size:9}},
+          grid:{color:'rgba(255,255,255,0.06)'},
+          angleLines:{color:'rgba(255,255,255,0.06)'},
+          pointLabels:{color:muted,font:{size:11,weight:'600'}}
+        }
+      },
+      elements:{line:{tension:0.2}}
+    }
+  });
+}
+setTimeout(initRadar, 100);
+
+// ========== MONTE CARLO ==========
+let running=false, totalSims=0, lW=0,lD=0,lL=0,lOv=0;
+const BATCH=500, TARGET=1000000;
+let mcPieChart=null, scoreDistChart=null;
+
+function updateMC(){
+  document.getElementById('mcWin').textContent=totalSims?(lW/totalSims*100).toFixed(1)+'%':'—';
+  document.getElementById('mcDraw').textContent=totalSims?(lD/totalSims*100).toFixed(1)+'%':'—';
+  document.getElementById('mcLose').textContent=totalSims?(lL/totalSims*100).toFixed(1)+'%':'—';
+  document.getElementById('mcOv').textContent=totalSims?(lOv/totalSims*100).toFixed(1)+'%':'—';
+  document.getElementById('mcCount').textContent=totalSims.toLocaleString();
+  updateMCPie();
+}
+
+function updateMCPie(){
+  if(!mcPieChart){
+    const ctx=document.getElementById('mcPieChart').getContext('2d');
+    mcPieChart=new Chart(ctx,{
+      type:'doughnut',
+      data:{
+        labels:['西班牙胜','平局','沙特胜'],
+        datasets:[{
+          data:[70,23,7],
+          backgroundColor:['#c60b1e','#3884ff','#006c35'],
+          borderWidth:2,borderColor:getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()
+        }]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,cutout:'60%',
+        plugins:{
+          legend:{position:'right',labels:{color:getComputedStyle(document.documentElement).getPropertyValue('--muted').trim(),padding:8,font:{size:11},usePointStyle:true}},
+          tooltip:{callbacks:{label:ctx=>`${ctx.label}: ${ctx.raw}%`}}
+        }
+      }
+    });
+  }
+  if(totalSims>0){
+    const t=totalSims;
+    mcPieChart.data.datasets[0].data=[+(lW/t*100).toFixed(1),+(lD/t*100).toFixed(1),+(lL/t*100).toFixed(1)];
+    mcPieChart.update();
+  }
+}
+
+function runBatch(){
+  if(!running) return;
+  for(let i=0;i<BATCH;i++){
+    let hg=0,ag=0;
+    for(let j=0;j<1000;j++){if(Math.random()<LAM_H/1000)hg++}
+    for(let j=0;j<1000;j++){if(Math.random()<LAM_A/1000)ag++}
+    if(hg>ag)lW++;else if(hg===ag)lD++;else lL++;
+    if(hg+ag>=3)lOv++;
+    totalSims++;
+  }
+  updateMC();
+  if(totalSims<TARGET && running) requestAnimationFrame(runBatch);
+  else if(totalSims>=TARGET){
+    running=false;
+    document.getElementById('mcStart').textContent='✅ 完成';
+    document.getElementById('mcStart').disabled=true;
+    document.getElementById('mcReset').disabled=false;
+  }
+}
+
+document.getElementById('mcStart').addEventListener('click',function(){
+  if(running)return;
+  running=true;this.textContent='⏳ 模拟中…';this.classList.add('running');
+  document.getElementById('mcReset').disabled=true;
+  runBatch();
+});
+document.getElementById('mcReset').addEventListener('click',function(){
+  running=false;totalSims=0;lW=0;lD=0;lL=0;lOv=0;
+  updateMC();
+  document.getElementById('mcStart').textContent='▶ 开始模拟';
+  document.getElementById('mcStart').disabled=false;
+  document.getElementById('mcStart').classList.remove('running');
+  this.disabled=true;
+  if(mcPieChart){
+    mcPieChart.data.datasets[0].data=[70,23,7];
+    mcPieChart.update();
+  }
+});
+
+// ========== SCORE BAR CHART ==========
+const scoreCtx=document.getElementById('scoreChart').getContext('2d');
+const sLabels=scProbs.slice(0,8).map(s=>`${s.h}-${s.a}`);
+const sData=scProbs.slice(0,8).map(s=>+(s.p*100).toFixed(1));
+const sColors=scProbs.slice(0,8).map(s=>{
+  if(s.h>s.a)return '#c60b1e';if(s.h===s.a)return '#3884ff';return '#006c35';
+});
+new Chart(scoreCtx,{
+  type:'bar',
+  data:{labels:sLabels,datasets:[{data:sData,backgroundColor:sColors,borderRadius:4,borderSkipped:false}]},
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.raw+'%'}}},
+    scales:{
+      y:{beginAtZero:true,max:28,ticks:{callback:v=>v+'%',color:getComputedStyle(document.documentElement).getPropertyValue('--muted').trim()},grid:{color:'rgba(255,255,255,0.04)'}},
+      x:{ticks:{color:getComputedStyle(document.documentElement).getPropertyValue('--muted').trim(),font:{size:11}},grid:{display:false}}
+    }
+  }
+});
+
+// ========== FORM CHART ==========
+const formCtx=document.getElementById('formChart').getContext('2d');
+new Chart(formCtx,{
+  type:'line',
+  data:{
+    labels:['10场前','9','8','7','6','5','4','3','2','最近'],
+    datasets:[
+      {label:'🇪🇸 西班牙(场均进球)',data:[2.4,2.8,3.1,2.2,1.8,1.5,2.0,2.5,1.2,0.0],borderColor:'#c60b1e',backgroundColor:'rgba(198,11,30,0.08)',fill:true,tension:0.3,pointRadius:3},
+      {label:'🇸🇦 沙特(场均进球)',data:[0.8,1.2,0.5,0.7,0.3,0.0,1.5,1.0,0.8,1.0],borderColor:'#006c35',backgroundColor:'rgba(0,108,53,0.08)',fill:true,tension:0.3,pointRadius:3}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{
+      legend:{labels:{color:getComputedStyle(document.documentElement).getPropertyValue('--muted').trim(),font:{size:11},usePointStyle:true}},
+      tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.raw}球`}}
+    },
+    scales:{
+      y:{beginAtZero:true,ticks:{color:getComputedStyle(document.documentElement).getPropertyValue('--muted').trim()},grid:{color:'rgba(255,255,255,0.04)'}},
+      x:{ticks:{color:getComputedStyle(document.documentElement).getPropertyValue('--muted').trim(),font:{size:10}},grid:{display:false}}
+    }
+  }
+});
+
+// ========== SCORE DISTRIBUTION (for MC area) ==========
+function initScoreDist(){
+  if(scoreDistChart) return;
+  const ctx=document.getElementById('scoreDistWrap').getContext('2d');
+  const labels=[],data=[],colors=[];
+  scProbs.slice(0,6).forEach(s=>{
+    labels.push(`${s.h}-${s.a}`);
+    data.push(+(s.p*100).toFixed(1));
+    if(s.h>s.a)colors.push('#c60b1e');else if(s.h===s.a)colors.push('#3884ff');else colors.push('#006c35');
+  });
+  scoreDistChart=new Chart(ctx,{
+    type:'bar',
+    data:{labels,datasets:[{data,backgroundColor:colors,borderRadius:3,borderSkipped:false}]},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.raw+'%'}}},
+      scales:{
+        y:{beginAtZero:true,ticks:{callback:v=>v+'%',color:getComputedStyle(document.documentElement).getPropertyValue('--muted').trim()},grid:{color:'rgba(255,255,255,0.04)'}},
+        x:{ticks:{color:getComputedStyle(document.documentElement).getPropertyValue('--muted').trim(),font:{size:10}},grid:{display:false}}
+      }
+    }
+  });
+}
+initScoreDist();
+updateMC();
+</script>
+</body>
+</html>

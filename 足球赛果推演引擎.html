@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赛果推演引擎 · 实时联网查战绩</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'PingFang SC','Microsoft YaHei',monospace;background:#0d1117;color:#c9d1d9;padding:20px;display:flex;justify-content:center}
+.container{max-width:1100px;width:100%}
+h1{font-size:20px;color:#58a6ff;border-bottom:2px solid #21262d;padding-bottom:10px;margin-bottom:16px}
+h1 small{font-size:12px;color:#8b949e;font-weight:400}
+.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:18px;margin-bottom:14px}
+.card-title{font-size:11px;color:#58a6ff;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;font-weight:700}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.col{flex:1;min-width:260px}
+.input-group{margin-bottom:10px;position:relative}
+.input-group label{display:block;font-size:10px;color:#8b949e;margin-bottom:3px;text-transform:uppercase;letter-spacing:0.5px}
+.input-group input,.input-group textarea{width:100%;padding:8px 12px;background:#0d1117;border:1px solid #30363d;border-radius:6px;color:#c9d1d9;font-size:13px;font-family:inherit}
+.input-group input:focus,.input-group textarea:focus{outline:none;border-color:#58a6ff}
+.input-group textarea{height:60px;font-size:12px;resize:vertical}
+.btn{padding:10px 28px;border:none;border-radius:6px;cursor:pointer;font-size:14px;font-weight:600;transition:.2s;font-family:inherit}
+.btn-primary{background:#1f6feb;color:#fff}.btn-primary:hover{background:#3884ff}
+.btn-secondary{background:#21262d;color:#c9d1d9;border:1px solid #30363d}.btn-secondary:hover{background:#30363d}
+.btn-success{background:#238636;color:#fff}.btn-success:hover{background:#2ea043}
+.btn-sm{padding:5px 12px;font-size:11px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{text-align:left;color:#8b949e;font-weight:400;padding:4px 8px;border-bottom:1px solid #21262d;font-size:10px}
+td{padding:4px 8px;border-bottom:1px solid #21262d}
+td.num{text-align:right;font-weight:700;font-family:'Courier New',monospace}
+.bar-bg{height:8px;background:#21262d;border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px}
+.home-clr{color:#58a6ff}.away-clr{color:#f97583}.gold{color:#ffd866}.green{color:#3fb950}.grey{color:#8b949e}
+.progress{height:3px;background:#21262d;border-radius:2px;margin:6px 0;overflow:hidden}
+.progress-bar{height:100%;background:#58a6ff;border-radius:2px;transition:width .3s;width:0%}
+.params-disp{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:6px;margin-bottom:10px}
+.param-box{background:#0d1117;border-radius:6px;padding:8px;border:1px solid #21262d;text-align:center}
+.param-label{font-size:8px;color:#484f58;text-transform:uppercase;letter-spacing:0.5px}
+.param-val{font-size:20px;font-weight:700;margin-top:2px}
+.score-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:4px}
+.score-cell{background:#0d1117;border-radius:4px;padding:6px;text-align:center;border:1px solid #21262d}
+.score-cell .s{font-size:14px;font-weight:700}
+.score-cell .p{font-size:10px;color:#8b949e}
+.score-cell.top1{border-color:#ffd866;background:rgba(255,216,102,.04)}.score-cell.top1 .s{color:#ffd866}
+.score-cell.top2{border-color:#58a6ff;background:rgba(88,166,255,.04)}.score-cell.top2 .s{color:#58a6ff}
+.score-cell.top3{border-color:#3fb950;background:rgba(63,185,80,.04)}.score-cell.top3 .s{color:#3fb950}
+.hidden{display:none}
+.fade{color:#484f58;font-size:12px}
+.status-msg{padding:6px 12px;border-radius:4px;font-size:12px;margin:4px 0}
+.status-info{background:rgba(56,102,255,.08);border:1px solid rgba(56,102,255,.15);color:#8b949e}
+.status-err{background:rgba(249,117,131,.08);border:1px solid rgba(249,117,131,.15);color:#f97583}
+.status-ok{background:rgba(63,185,80,.08);border:1px solid rgba(63,185,80,.15);color:#3fb950}
+.form-badge{display:inline-block;padding:2px 5px;border-radius:3px;font-size:10px;margin:1px;font-weight:700}
+.fw{background:rgba(63,185,80,.2);color:#3fb950}
+.fd{background:rgba(139,148,158,.2);color:#8b949e}
+.fl{background:rgba(249,117,131,.2);color:#f97583}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>⚽ 赛果推演引擎 <small>联网实时查战绩 · 泊松+蒙特卡洛</small></h1>
+
+  <div class="card">
+    <div class="card-title">📋 输入比赛信息</div>
+    <div class="row">
+      <div class="col">
+        <div class="input-group">
+          <label>🏠 主队名称（英文）</label>
+          <div style="display:flex;gap:6px;">
+            <input type="text" id="homeTeam" value="Germany" placeholder="例: Germany" style="flex:1">
+            <button class="btn btn-secondary btn-sm" onclick="searchTeam('home')">🔍 查战绩</button>
+          </div>
+        </div>
+        <div class="input-group" id="homeInfo">
+          <div class="fade">输入英文队名，点击「查战绩」从互联网实时获取近期赛果</div>
+        </div>
+        <div class="input-group hidden" id="homeManualGroup">
+          <label>或手动输入主队战绩（格式：2-1,4-0）</label>
+          <textarea id="homeManual" placeholder="2-1, 4-0, 3-1"></textarea>
+        </div>
+      </div>
+      <div class="col">
+        <div class="input-group">
+          <label>✈️ 客队名称（英文）</label>
+          <div style="display:flex;gap:6px;">
+            <input type="text" id="awayTeam" value="Curacao" placeholder="例: Curacao" style="flex:1">
+            <button class="btn btn-secondary btn-sm" onclick="searchTeam('away')">🔍 查战绩</button>
+          </div>
+        </div>
+        <div class="input-group" id="awayInfo">
+          <div class="fade">输入英文队名，点击「查战绩」从互联网实时获取近期赛果</div>
+        </div>
+        <div class="input-group hidden" id="awayManualGroup">
+          <label>或手动输入客队战绩（格式：2-1,4-0）</label>
+          <textarea id="awayManual" placeholder="1-5, 4-0, 7-0"></textarea>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;">
+      <button class="btn btn-primary" onclick="runCalc()">🚀 开始推演</button>
+      <button class="btn btn-secondary" onclick="searchBoth()">🔍 查两队战绩后推演</button>
+    </div>
+  </div>
+
+  <div id="formDisplay" class="hidden">
+    <div class="card" id="homeFormCard"><div class="card-title" id="homeFormTitle"></div><div id="homeFormBadges"></div></div>
+    <div class="card" id="awayFormCard"><div class="card-title" id="awayFormTitle"></div><div id="awayFormBadges"></div></div>
+  </div>
+
+  <div class="card hidden" id="paramsCard">
+    <div class="card-title">📊 计算参数</div>
+    <div class="params-disp" id="paramsDisplay"></div>
+    <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+  </div>
+
+  <div class="row" id="resultsRow" style="display:none;">
+    <div class="col">
+      <div class="card"><div class="card-title">🎯 胜平负概率（蒙特卡洛 × 有效场次）</div><div style="height:200px"><canvas id="spfChart"></canvas></div></div>
+      <div class="card"><div class="card-title">⚽ 总进球分布</div><div style="height:180px"><canvas id="goalsChart"></canvas></div></div>
+    </div>
+    <div class="col">
+      <div class="card"><div class="card-title">🏆 理论高频比分参考 Top 10</div><div class="score-grid" id="scoreGrid"></div></div>
+      <div class="card"><div class="card-title">📊 攻防数据</div><div style="min-height:100px"><table><tr><th>指标</th><th id="hdrH">主队</th><th id="hdrA">客队</th></tr><tbody id="statsTable"></tbody></table></div></div>
+    </div>
+  </div>
+  <div style="text-align:center;font-size:10px;color:#484f58;padding:14px 0;border-top:1px solid #21262d;margin-top:8px">
+    数据来源：TheSportsDB · 实时API查询 · 页面计算不上传
+  </div>
+</div>
+
+<script>
+// ========== API 查询 ==========
+async function searchTeam(side) {
+  const input = document.getElementById(side === 'home' ? 'homeTeam' : 'awayTeam');
+  const info = document.getElementById(side === 'home' ? 'homeInfo' : 'awayInfo');
+  const badges = document.getElementById(side === 'home' ? 'homeFormBadges' : 'awayFormBadges');
+  const title = document.getElementById(side === 'home' ? 'homeFormTitle' : 'awayFormTitle');
+  const manualGroup = document.getElementById(side === 'home' ? 'homeManualGroup' : 'awayManualGroup');
+
+  const name = input.value.trim();
+  if (!name) { info.innerHTML = '<div class="status-msg status-err">请输入队名</div>'; return; }
+
+  info.innerHTML = '<div class="status-msg status-info">⏳ 正在查询服务器...</div>';
+
+  try {
+    // Step 1: 搜索球队
+    const resp = await fetch(`https://www.thesportsdb.com/api/v1/json/3/searchteams.php?t=${encodeURIComponent(name)}`);
+    const data = await resp.json();
+
+    if (!data.teams || data.teams.length === 0) {
+      info.innerHTML = '<div class="status-msg status-err">未找到该球队。试试英文名（如 Germany, Brazil, Japan）或手动输入战绩。<br>支持的国家队已覆盖：https://www.thesportsdb.com/</div>';
+      manualGroup.classList.remove('hidden');
+      return;
+    }
+
+    const team = data.teams[0];
+    const teamId = team.idTeam;
+    const teamName = team.strTeam;
+    const league = team.strLeague || '未指定';
+    const country = team.strCountry || '';
+    const badge = team.strBadge || '';
+    input.value = teamName;
+
+    // 显示球队信息
+    let html = `<div class="status-msg status-ok">✅ 找到：${teamName}（${country} · ${league}）</div>`;
+
+    // Step 2: 获取最近赛果
+    const eventResp = await fetch(`https://www.thesportsdb.com/api/v1/json/3/eventslast.php?id=${teamId}`);
+    const eventData = await eventResp.json();
+
+    if (!eventData.results || eventData.results.length === 0) {
+      html += '<div class="status-msg status-err">未找到近期赛果。请手动输入战绩。</div>';
+      manualGroup.classList.remove('hidden');
+      info.innerHTML = html;
+      return;
+    }
+
+    const events = eventData.results.slice(0, 15);
+    const scores = [];
+    let formHtml = '';
+
+    events.forEach(e => {
+      const home = e.strHomeTeam;
+      const away = e.strAwayTeam;
+      const hScore = parseInt(e.intHomeScore);
+      const aScore = parseInt(e.intAwayScore);
+      if (isNaN(hScore) || isNaN(aScore)) return;
+
+      // 判断哪个是当前球队的进球
+      let gf, ga;
+      if (home === teamName) { gf = hScore; ga = aScore; }
+      else if (away === teamName) { gf = aScore; ga = hScore; }
+      else return;
+
+      scores.push(`${gf}-${ga}`);
+      const cls = gf > ga ? 'fw' : gf === ga ? 'fd' : 'fl';
+      formHtml += `<span class="form-badge ${cls}">${gf}-${ga}</span> `;
+    });
+
+    // Store data for calculation
+    window[`${side}FormData`] = scores.join(', ');
+
+    document.getElementById(side === 'home' ? 'homeFormCard' : 'awayFormCard').classList.remove('hidden');
+    title.innerHTML = `📊 ${teamName} 近期 ${scores.length} 场战绩`;
+    badges.innerHTML = formHtml;
+
+    if (scores.length < 3) {
+      html += '<div class="status-msg status-err">有效赛果不足3场，请手动输入补充</div>';
+      manualGroup.classList.remove('hidden');
+    } else {
+      html += `<div class="status-msg status-ok">✅ 获取 ${scores.length} 场有效赛果</div>`;
+      manualGroup.classList.add('hidden');
+    }
+
+    info.innerHTML = html;
+    document.getElementById('formDisplay').classList.remove('hidden');
+
+  } catch (e) {
+    info.innerHTML = `<div class="status-msg status-err">⚠️ 网络请求失败: ${e.message}。请手动输入战绩。</div>`;
+    manualGroup.classList.remove('hidden');
+  }
+}
+
+async function searchBoth() {
+  await searchTeam('home');
+  await searchTeam('away');
+  setTimeout(runCalc, 500);
+}
+
+// ========== 数学计算 ==========
+function fact(n) { if(n===0||n===1)return 1; let r=1; for(let i=2;i<=n;i++)r*=i; return r; }
+function pois(lam,x){ return Math.exp(-lam)*Math.pow(lam,x)/fact(x); }
+function poisRand(lam){ const L=Math.exp(-lam); let k=0,p=1; do{k++;p*=Math.random();}while(p>L); return k-1; }
+
+function parseFormStr(str){
+  if (!str || !str.trim()) return [];
+  return str.split(/[,，\s]+/).filter(s=>/^\d+-\d+$/.test(s.trim())).map(s=>{
+    const m=s.trim().match(/(\d+)-(\d+)/); return {gf:+m[1],ga:+m[2]};
+  });
+}
+
+function calcStats(arr){
+  if(!arr.length) return {avgGF:0,avgGA:0,matches:0};
+  let gf=0,ga=0; arr.forEach(r=>{gf+=r.gf;ga+=r.ga});
+  return {avgGF:gf/arr.length,avgGA:ga/arr.length,matches:arr.length};
+}
+
+// ========== 运行计算 ==========
+function runCalc(){
+  const hN = document.getElementById('homeTeam').value.trim() || '主队';
+  const aN = document.getElementById('awayTeam').value.trim() || '客队';
+
+  const hAuto = window.homeFormData || '';
+  const aAuto = window.awayFormData || '';
+  const hManual = document.getElementById('homeManual').value;
+  const aManual = document.getElementById('awayManual').value;
+
+  const hStr = hManual.trim() || hAuto;
+  const aStr = aManual.trim() || aAuto;
+
+  const hR = parseFormStr(hStr);
+  const aR = parseFormStr(aStr);
+
+  if (hR.length < 2 || aR.length < 2) {
+    alert(`有效场次不足！请查战绩后再试，或手动输入比分。\n主队: ${hR.length}场, 客队: ${aR.length}场`);
+    return;
+  }
+
+  const hS = calcStats(hR), aS = calcStats(aR);
+  const lam1 = (hS.avgGF + aS.avgGA) / 2;
+  const lam2 = (aS.avgGF + hS.avgGA) / 2;
+
+  document.getElementById('paramsCard').classList.remove('hidden');
+  document.getElementById('paramsDisplay').innerHTML = `
+    <div class="param-box"><div class="param-label">🏠 ${hN} xG</div><div class="param-val home-clr">${lam1.toFixed(3)}</div></div>
+    <div class="param-box"><div class="param-label">✈️ ${aN} xG</div><div class="param-val away-clr">${lam2.toFixed(3)}</div></div>
+    <div class="param-box"><div class="param-label">主队场次</div><div class="param-val gold">${hS.matches}</div></div>
+    <div class="param-box"><div class="param-label">客队场次</div><div class="param-val gold">${aS.matches}</div></div>
+    <div class="param-box"><div class="param-label">总进球预期</div><div class="param-val green">${(lam1+lam2).toFixed(2)}</div></div>
+  `;
+
+  const N = 50000, BS = 5000, BT = N/BS;
+  const pb = document.getElementById('progressBar');
+  const mc = {h:0,d:0,a:0}; const sc={}; const gd={};
+
+  for(let b=0;b<BT;b++){
+    for(let i=0;i<BS;i++){
+      const g1=poisRand(lam1),g2=poisRand(lam2);
+      const k=`${g1}-${g2}`; sc[k]=(sc[k]||0)+1;
+      gd[g1+g2]=(gd[g1+g2]||0)+1;
+      if(g1>g2) mc.h++; else if(g1===g2) mc.d++; else mc.a++;
+    }
+    pb.style.width=((b+1)/BT*100)+'%';
+  }
+
+  // Poisson Top 10
+  const ps={};
+  for(let g1=0;g1<=8;g1++) for(let g2=0;g2<=8;g2++){ const p=pois(lam1,g1)*pois(lam2,g2); if(p>.003) ps[`${g1}-${g2}`]=p; }
+  const sp=Object.entries(ps).sort((a,b)=>b[1]-a[1]).slice(0,10);
+
+  const sg=document.getElementById('scoreGrid'); sg.innerHTML='';
+  sp.forEach(([s,p],i)=>{
+    const c=i===0?'top1':i===1?'top2':i===2?'top3':'';
+    sg.innerHTML+=`<div class="score-cell ${c}"><div class="s">${s}</div><div class="p">${(p*100).toFixed(2)}%</div></div>`;
+  });
+
+  const tot=mc.h+mc.d+mc.a;
+  const spfCtx=document.getElementById('spfChart').getContext('2d');
+  if(window._spfChart) window._spfChart.destroy();
+  window._spfChart = new Chart(spfCtx,{type:'doughnut',data:{labels:[`${hN}胜 ${(mc.h/tot*100).toFixed(1)}%`,`平局 ${(mc.d/tot*100).toFixed(1)}%`,`${aN}胜 ${(mc.a/tot*100).toFixed(1)}%`],datasets:[{data:[mc.h,mc.d,mc.a],backgroundColor:['#58a6ff','#8b949e','#f97583'],borderColor:'#161b22',borderWidth:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'#c9d1d9',font:{size:11},padding:12}}}}});
+
+  const sg2=Object.entries(gd).sort((a,b)=>Number(a[0])-Number(b[0]));
+  const gCtx=document.getElementById('goalsChart').getContext('2d');
+  if(window._goalsChart) window._goalsChart.destroy();
+  window._goalsChart = new Chart(gCtx,{type:'bar',data:{labels:sg2.map(g=>`${g[0]}球`),datasets:[{label:'%',data:sg2.map(g=>g[1]/tot*100),backgroundColor:sg2.map(g=>Number(g[0])>=2?'#3fb950':'#30363d'),borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#8b949e',font:{size:10}}},y:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{color:'#8b949e',font:{size:9}},beginAtZero:true}}}});
+
+  document.getElementById('hdrH').textContent=`🏠 ${hN}`;
+  document.getElementById('hdrA').textContent=`✈️ ${aN}`;
+  document.getElementById('statsTable').innerHTML=`
+    <tr><td>场均进球</td><td class="num home-clr">${hS.avgGF.toFixed(2)}</td><td class="num away-clr">${aS.avgGF.toFixed(2)}</td></tr>
+    <tr><td>场均失球</td><td class="num">${hS.avgGA.toFixed(2)}</td><td class="num">${aS.avgGA.toFixed(2)}</td></tr>
+    <tr><td>有效场次</td><td class="num gold">${hS.matches}</td><td class="num gold">${aS.matches}</td></tr>
+    <tr><td>修正xG</td><td class="num" style="color:#58a6ff;font-weight:700">${lam1.toFixed(3)}</td><td class="num" style="color:#f97583;font-weight:700">${lam2.toFixed(3)}</td></tr>
+  `;
+
+  document.getElementById('resultsRow').style.display='flex';
+  document.getElementById('resultsRow').scrollIntoView({behavior:'smooth'});
+}
+
+// Enter key triggers search
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('homeTeam').addEventListener('keypress', function(e) { if(e.key==='Enter') searchTeam('home'); });
+  document.getElementById('awayTeam').addEventListener('keypress', function(e) { if(e.key==='Enter') searchTeam('away'); });
+});
+</script>
+</body>
+</html>

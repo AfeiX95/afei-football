@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>泊松分布 + 蒙特卡洛 计算引擎 | 德国 VS 库拉索</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Courier New', monospace;
+  background: #0d1117; color: #c9d1d9; padding: 20px;
+  display: flex; justify-content: center;
+}
+.container { max-width: 900px; width: 100%; }
+h1 { font-size: 20px; color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 10px; margin-bottom: 16px; }
+h2 { font-size: 14px; color: #8b949e; margin: 20px 0 10px; }
+.card {
+  background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+  padding: 16px; margin-bottom: 16px;
+}
+.card-title { font-size: 11px; color: #58a6ff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+.row { display: flex; gap: 16px; flex-wrap: wrap; }
+.col { flex: 1; min-width: 200px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; color: #8b949e; font-weight: 400; padding: 4px 8px; border-bottom: 1px solid #21262d; }
+td { padding: 4px 8px; border-bottom: 1px solid #21262d; }
+td.num { text-align: right; font-weight: 700; font-family: 'Courier New', monospace; }
+.germany { color: #58a6ff; }
+.curacao { color: #ffc832; }
+.gold { color: #ffd866; }
+.green { color: #3fb950; }
+.pink { color: #f97583; }
+.bar-bg { height: 10px; background: #21262d; border-radius: 5px; overflow: hidden; margin-top: 4px; }
+.bar-fill { height: 100%; border-radius: 5px; }
+.params-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.param-item { background: #0d1117; border-radius: 6px; padding: 10px; border: 1px solid #21262d; }
+.param-label { font-size: 10px; color: #8b949e; }
+.param-value { font-size: 24px; font-weight: 700; margin-top: 4px; }
+.param-value.germany { color: #58a6ff; }
+.param-value.curacao { color: #ffc832; }
+.footer { text-align: center; font-size: 10px; color: #484f58; margin-top: 20px; padding-top: 12px; border-top: 1px solid #21262d; }
+.controls { display: flex; gap: 8px; margin-bottom: 12px; }
+.btn {
+  padding: 8px 20px; border: 1px solid #30363d; border-radius: 6px;
+  background: #21262d; color: #c9d1d9; cursor: pointer; font-size: 12px;
+}
+.btn:hover { background: #30363d; }
+.btn.primary { background: #1f6feb; border-color: #1f6feb; color: #fff; }
+.btn.primary:hover { background: #3884ff; }
+.progress {
+  height: 4px; background: #21262d; border-radius: 2px; margin: 8px 0; overflow: hidden;
+}
+.progress-bar { height: 100%; background: #58a6ff; border-radius: 2px; transition: width 0.3s; }
+pre { font-size: 12px; color: #8b949e; white-space: pre-wrap; margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>📐 泊松分布 + 蒙特卡洛 计算引擎</h1>
+  <p style="font-size:12px; color:#8b949e;">德国 VS 库拉索 · 2026世界杯E组第1轮 · 真实数学运算</p>
+
+  <!-- Parameters -->
+  <div class="card">
+    <div class="card-title">输入参数</div>
+    <div class="params-grid">
+      <div class="param-item">
+        <div class="param-label">🇩🇪 德国预期进球 xG (λ₁)</div>
+        <div class="param-value germany" id="lambda1">3.15</div>
+      </div>
+      <div class="param-item">
+        <div class="param-label">🇨🇼 库拉索预期进球 xG (λ₂)</div>
+        <div class="param-value curacao" id="lambda2">0.35</div>
+      </div>
+      <div class="param-item">
+        <div class="param-label">模拟次数</div>
+        <div class="param-value gold" id="simCount">100,000</div>
+      </div>
+      <div class="param-item">
+        <div class="param-label">计算状态</div>
+        <div class="param-value green" id="status">✅ 已就绪</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="btn primary" onclick="runSimulation()">▶ 运行完整计算</button>
+    <button class="btn" onclick="runFastSimulation()">⚡ 快速 (10,000次)</button>
+  </div>
+  <div class="progress"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+
+  <!-- Poisson Results -->
+  <div class="card">
+    <div class="card-title">① 泊松分布 · 最可能比分 Top 10</div>
+    <div class="row">
+      <div class="col">
+        <table>
+          <tr><th>比分</th><th>概率</th><th></th></tr>
+          <tbody id="poissonTable"></tbody>
+        </table>
+      </div>
+      <div class="col">
+        <pre id="poissonFormula"></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Monte Carlo Results -->
+  <div class="card">
+    <div class="card-title">② 蒙特卡洛模拟 · 胜平负概率</div>
+    <table>
+      <tr><th>结果</th><th>次数</th><th>概率</th><th style="width:50%">分布</th></tr>
+      <tbody id="mcTable"></tbody>
+    </table>
+  </div>
+
+  <!-- Score Distribution -->
+  <div class="card">
+    <div class="card-title">③ 蒙特卡洛 · 比分频率 Top 15</div>
+    <table>
+      <tr><th>排名</th><th>比分</th><th>出现次数</th><th>频率</th><th style="width:40%">分布</th></tr>
+      <tbody id="mcScoreTable"></tbody>
+    </table>
+  </div>
+
+  <!-- Total Goals -->
+  <div class="card">
+    <div class="card-title">④ 总进球数分布</div>
+    <table>
+      <tr><th>进球数</th><th>概率</th><th style="width:60%">分布</th></tr>
+      <tbody id="goalsTable"></tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    泊松公式 P(x) = (e⁻λ × λˣ) / x! | 蒙特卡洛：每回合根据两队xG随机生成比分 | 真实数学计算，非模型估算
+  </div>
+</div>
+
+<script>
+// 阶乘
+function factorial(n) {
+  if (n === 0 || n === 1) return 1;
+  let r = 1;
+  for (let i = 2; i <= n; i++) r *= i;
+  return r;
+}
+
+// 泊松分布：给定λ和x，返回概率
+function poisson(lambda, x) {
+  return Math.exp(-lambda) * Math.pow(lambda, x) / factorial(x);
+}
+
+// 根据泊松分布生成随机进球数（逆变换法）
+function poissonRandom(lambda) {
+  const L = Math.exp(-lambda);
+  let k = 0;
+  let p = 1;
+  do {
+    k++;
+    p *= Math.random();
+  } while (p > L);
+  return k - 1;
+}
+
+function updateProgress(pct) {
+  document.getElementById('progressBar').style.width = pct + '%';
+}
+
+function runFastSimulation() {
+  document.getElementById('simCount').textContent = '10,000';
+  document.getElementById('status').textContent = '⏳ 运行中...';
+  document.getElementById('status').style.color = '#ffd866';
+  runCalculation(10000);
+}
+
+function runSimulation() {
+  document.getElementById('simCount').textContent = '100,000';
+  document.getElementById('status').textContent = '⏳ 运行中...';
+  document.getElementById('status').style.color = '#ffd866';
+  runCalculation(100000);
+}
+
+function runCalculation(N) {
+  const lambda1 = 3.15; // Germany
+  const lambda2 = 0.35; // Curacao
+
+  // --- 泊松分布计算 ---
+  const poissonResults = {};
+  const maxGoals = 8;
+  for (let g1 = 0; g1 <= maxGoals; g1++) {
+    for (let g2 = 0; g2 <= maxGoals; g2++) {
+      const p = poisson(lambda1, g1) * poisson(lambda2, g2);
+      if (p > 0.001) {
+        poissonResults[`${g1}-${g2}`] = p;
+      }
+    }
+  }
+
+  // 按概率排序
+  const sortedPoisson = Object.entries(poissonResults).sort((a, b) => b[1] - a[1]);
+  const top10 = sortedPoisson.slice(0, 10);
+
+  // 渲染泊松表
+  const poissonTbody = document.getElementById('poissonTable');
+  poissonTbody.innerHTML = '';
+  const maxP = top10[0][1];
+  top10.forEach(([score, prob], i) => {
+    const pct = (prob * 100).toFixed(2);
+    const barPct = (prob / maxP * 100).toFixed(0);
+    const row = document.createElement('tr');
+    const [g1, g2] = score.split('-').map(Number);
+    const isTop3 = i < 3;
+    row.innerHTML = `
+      <td style="font-weight:${isTop3 ? 700 : 400}; color:${isTop3 ? '#58a6ff' : '#c9d1d9'}">${score}</td>
+      <td class="num" style="color:${isTop3 ? '#ffd866' : '#8b949e'}">${pct}%</td>
+      <td style="width:50%"><div class="bar-bg"><div class="bar-fill" style="width:${barPct}%; background:${isTop3 ? '#58a6ff' : '#30363d'}"></div></div></td>
+    `;
+    poissonTbody.appendChild(row);
+  });
+
+  // 泊松公式展示
+  document.getElementById('poissonFormula').textContent =
+`泊松分布公式：P(x) = (e⁻λ × λˣ) / x!
+
+德国 λ₁ = 3.15
+P(0) = ${(poisson(lambda1, 0) * 100).toFixed(2)}%
+P(1) = ${(poisson(lambda1, 1) * 100).toFixed(2)}%
+P(2) = ${(poisson(lambda1, 2) * 100).toFixed(2)}%
+P(3) = ${(poisson(lambda1, 3) * 100).toFixed(2)}%
+P(4) = ${(poisson(lambda1, 4) * 100).toFixed(2)}%
+
+库拉索 λ₂ = 0.35
+P(0) = ${(poisson(lambda2, 0) * 100).toFixed(2)}%
+P(1) = ${(poisson(lambda2, 1) * 100).toFixed(2)}%
+P(2) = ${(poisson(lambda2, 2) * 100).toFixed(2)}%`;
+
+  // --- 蒙特卡洛模拟 ---
+  const batchSize = Math.min(10000, N);
+  const batches = N / batchSize;
+
+  let mcCount = { win_ger: 0, draw: 0, win_cur: 0 };
+  const mcScores = {};
+
+  for (let b = 0; b < batches; b++) {
+    for (let i = 0; i < batchSize; i++) {
+      const g1 = poissonRandom(lambda1);
+      const g2 = poissonRandom(lambda2);
+      const key = `${g1}-${g2}`;
+      mcScores[key] = (mcScores[key] || 0) + 1;
+
+      if (g1 > g2) mcCount.win_ger++;
+      else if (g1 === g2) mcCount.draw++;
+      else mcCount.win_cur++;
+    }
+    updateProgress(((b + 1) / batches) * 100);
+  }
+
+  const total = mcCount.win_ger + mcCount.draw + mcCount.win_cur;
+
+  // 渲染蒙特卡洛胜平负
+  const mcTbody = document.getElementById('mcTable');
+  mcTbody.innerHTML = '';
+  const mcData = [
+    { label: '🇩🇪 德国胜', key: 'win_ger', color: '#58a6ff' },
+    { label: '🤝 平局', key: 'draw', color: '#8b949e' },
+    { label: '🇨🇼 库拉索胜', key: 'win_cur', color: '#ffc832' }
+  ];
+  const maxMC = Math.max(mcCount.win_ger, mcCount.draw, mcCount.win_cur);
+  mcData.forEach(d => {
+    const pct = (mcCount[d.key] / total * 100).toFixed(2);
+    const barPct = (mcCount[d.key] / maxMC * 100).toFixed(0);
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td style="color:${d.color}; font-weight:${d.key === 'win_ger' ? 700 : 400}">${d.label}</td>
+      <td class="num">${mcCount[d.key].toLocaleString()}</td>
+      <td class="num" style="color:${d.key === 'win_ger' ? '#ffd866' : '#8b949e'}">${pct}%</td>
+      <td><div class="bar-bg"><div class="bar-fill" style="width:${barPct}%; background:${d.color}"></div></div></td>
+    `;
+    mcTbody.appendChild(row);
+  });
+
+  // 渲染蒙特卡洛比分Top15
+  const sortedMC = Object.entries(mcScores).sort((a, b) => b[1] - a[1]);
+  const top15 = sortedMC.slice(0, 15);
+  const maxMCScore = top15[0][1];
+  const mcScoreTbody = document.getElementById('mcScoreTable');
+  mcScoreTbody.innerHTML = '';
+  top15.forEach(([score, count], i) => {
+    const pct = (count / total * 100).toFixed(2);
+    const barPct = (count / maxMCScore * 100).toFixed(0);
+    const isTop3 = i < 3;
+    const [g1, g2] = score.split('-').map(Number);
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td style="color:#8b949e">${i + 1}</td>
+      <td style="font-weight:${isTop3 ? 700 : 400}; color:${isTop3 ? '#58a6ff' : '#c9d1d9'}">${score}</td>
+      <td class="num">${count.toLocaleString()}</td>
+      <td class="num" style="color:${isTop3 ? '#ffd866' : '#8b949e'}">${pct}%</td>
+      <td><div class="bar-bg"><div class="bar-fill" style="width:${barPct}%; background:${isTop3 ? '#58a6ff' : '#30363d'}"></div></div></td>
+    `;
+    mcScoreTbody.appendChild(row);
+  });
+
+  // 总进球分布
+  const goalsDist = {};
+  sortedMC.forEach(([score, count]) => {
+    const [g1, g2] = score.split('-').map(Number);
+    const total = g1 + g2;
+    goalsDist[total] = (goalsDist[total] || 0) + count;
+  });
+
+  // 按总进球数排序
+  const sortedGoals = Object.entries(goalsDist).sort((a, b) => Number(a[0]) - Number(b[0]));
+  const maxGoalCount = Math.max(...sortedGoals.map(g => g[1]));
+  const goalsTbody = document.getElementById('goalsTable');
+  goalsTbody.innerHTML = '';
+  sortedGoals.forEach(([goals, count]) => {
+    const pct = (count / total * 100).toFixed(2);
+    const barPct = (count / maxGoalCount * 100).toFixed(0);
+    const isPrimary = goals === '3' || goals === '4';
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td style="font-weight:${isPrimary ? 700 : 400}; color:${isPrimary ? '#ffd866' : '#c9d1d9'}">${goals}球</td>
+      <td class="num" style="color:${isPrimary ? '#3fb950' : '#8b949e'}">${pct}%</td>
+      <td><div class="bar-bg"><div class="bar-fill" style="width:${barPct}%; background:${isPrimary ? '#3fb950' : '#30363d'}"></div></div></td>
+    `;
+    goalsTbody.appendChild(row);
+  });
+
+  // 更新状态
+  document.getElementById('status').textContent = `✅ 完成 · ${total.toLocaleString()}次模拟`;
+  document.getElementById('status').style.color = '#3fb950';
+  updateProgress(100);
+}
+</script>
+</body>
+</html>

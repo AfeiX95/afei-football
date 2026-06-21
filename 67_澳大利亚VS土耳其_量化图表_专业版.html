@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>量化运动报告 | 澳大利亚 vs 土耳其</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'SF Pro Display', 'Helvetica Neue', sans-serif;
+  background: #1a1d24;
+  display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px;
+}
+.slide {
+  width: 1060px; max-width: 100%; background: #1e222b;
+  border-radius: 12px; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.top-bar {
+  background: #0d0f14; padding: 14px 28px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.top-bar .report-title {
+  font-size: 13px; font-weight: 700; letter-spacing: 2px;
+  color: #8892b0;
+}
+.top-bar .report-title span { color: #3884ff; }
+.top-bar .timestamp { font-size: 11px; color: #4a5270; }
+.combat-strip {
+  display: flex; justify-content: space-between; align-items: stretch;
+  padding: 16px 28px; background: #161a22;
+  border-bottom: 1px solid rgba(255,255,255,0.04); gap: 16px;
+}
+.combat-box {
+  flex: 1; padding: 12px 18px; border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.06);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.combat-box.au { background: rgba(255,215,0,0.04); border-color: rgba(255,215,0,0.12); }
+.combat-box.tr { background: rgba(227,10,23,0.04); border-color: rgba(227,10,23,0.12); }
+.combat-box .label { font-size: 10px; color: #5a6488; letter-spacing: 1px; }
+.combat-box .value { font-size: 26px; font-weight: 800; }
+.combat-box.au .value { color: #ffd700; }
+.combat-box.tr .value { color: #e30a17; }
+.combat-box .meta { text-align: right; }
+.combat-box .meta .tag { font-size: 10px; color: #4a5270; }
+.combat-prefix { text-align: center; padding: 0 8px; display: flex; align-items: center; }
+.combat-prefix .vs { font-size: 11px; color: #4a5270; font-weight: 700; letter-spacing: 1px; }
+.main-content { display: grid; grid-template-columns: 1fr 340px; gap: 0; }
+.left-col { padding: 24px 20px 20px 28px; }
+.section-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 2px; color: #3884ff;
+  margin-bottom: 10px;
+}
+.pie-trio { display: flex; gap: 10px; margin-bottom: 24px; }
+.pie-item { flex: 1; background: #161a22; border-radius: 6px; padding: 12px; border: 1px solid rgba(255,255,255,0.03); }
+.pie-item .label { font-size: 9px; color: #5a6488; letter-spacing: 1px; margin-bottom: 8px; }
+.pie-item canvas { height: 100px !important; width: 100% !important; }
+.pie-item .pct { text-align: center; margin-top: 6px; font-size: 18px; font-weight: 700; }
+.pie-item .pct.win-b { color: #e30a17; }
+.pie-item .pct.tie { color: #8892b0; }
+.pie-item .pct.win-a { color: #ffd700; }
+.pie-item .name-tag { text-align: center; font-size: 9px; color: #4a5270; letter-spacing: 0.5px; }
+.score-section { margin-bottom: 24px; }
+.score-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+.score-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 12px; background: #161a22; border-radius: 4px;
+  border-left: 2px solid transparent;
+}
+.score-row.s1 { border-color: #e30a17; }
+.score-row.s2 { border-color: #ff4d4d; }
+.score-row.s3 { border-color: #8892b0; }
+.score-row.s4 { border-color: #4a5270; }
+.score-row .score { font-size: 15px; font-weight: 700; color: #e0e6f0; }
+.score-row .prob { font-size: 12px; color: #5a6488; }
+.score-row .prob strong { color: #c0cae0; }
+.score-row .bar-bg {
+  width: 60px; height: 4px; background: rgba(255,255,255,0.04); border-radius: 2px; overflow: hidden;
+}
+.score-row .bar-fill { height: 100%; border-radius: 2px; }
+.score-row.s1 .bar-fill { background: #e30a17; width: 100%; }
+.score-row.s2 .bar-fill { background: #ff4d4d; width: 70%; }
+.score-row.s3 .bar-fill { background: #8892b0; width: 48%; }
+.score-row.s4 .bar-fill { background: #4a5270; width: 32%; }
+.right-col {
+  background: #161a22; padding: 24px 28px 20px 20px;
+  border-left: 1px solid rgba(255,255,255,0.03);
+}
+.chart-box { margin-bottom: 24px; }
+.chart-box canvas { height: 140px !important; width: 100% !important; }
+.chart-box .chart-note {
+  font-size: 10px; color: #5a6488; text-align: center; margin-top: 6px; letter-spacing: 0.5px;
+}
+.chart-box .chart-note strong { color: #3884ff; }
+.data-block { margin-bottom: 16px; }
+.data-block:last-child { margin-bottom: 0; }
+.data-block .db-label {
+  font-size: 9px; color: #5a6488; letter-spacing: 1px; margin-bottom: 6px;
+}
+.db-row { display: flex; justify-content: space-between; padding: 5px 0; font-size: 12px; border-bottom: 1px solid rgba(255,255,255,0.02); }
+.db-row .key { color: #8892b0; }
+.db-row .val { color: #c0cae0; font-weight: 500; }
+.db-row .val.highlight { color: #ffd866; }
+.db-row .val.danger { color: #ff4d4d; }
+.status-tag {
+  display: inline-block; padding: 2px 10px; border-radius: 10px;
+  font-size: 10px; font-weight: 600; margin-top: 4px;
+}
+.status-tag.low { background: rgba(0,212,170,0.1); color: #00d4aa; border: 1px solid rgba(0,212,170,0.15); }
+.bottom-banner {
+  background: #0d0f14; padding: 12px 28px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.03);
+}
+.bottom-banner .source { font-size: 9px; color: #3a4470; letter-spacing: 1px; }
+.bottom-banner .disclaimer {
+  font-size: 9px; color: #3a4470; letter-spacing: 0.5px;
+  padding: 4px 12px; border: 1px solid rgba(255,77,77,0.06); border-radius: 4px;
+  background: rgba(255,77,77,0.02);
+}
+.bottom-banner .brand { font-size: 10px; color: #4a5270; letter-spacing: 1px; }
+.bottom-banner .brand strong { color: #00d4aa; }
+@media (max-width: 780px) {
+  .main-content { grid-template-columns: 1fr; }
+  .right-col { border-left: none; border-top: 1px solid rgba(255,255,255,0.03); }
+  .combat-strip { flex-direction: column; }
+  .pie-trio { flex-direction: column; }
+  .score-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="top-bar">
+    <div class="report-title">⚡ <span>量化运动报告</span>：澳大利亚 VS 土耳其</div>
+    <div class="timestamp">2026世界杯 · D组 · 第1轮</div>
+  </div>
+
+  <div class="combat-strip">
+    <div class="combat-box au">
+      <div>
+        <div class="label">综合战力指数</div>
+        <div class="value">85<span style="font-size:14px; color:#5a6488;">/100</span></div>
+      </div>
+      <div class="meta">
+        <div style="font-size:12px; color:#ffd700; font-weight:600;">🇦🇺 澳大利亚</div>
+        <div class="tag">FIFA排名：42</div>
+      </div>
+    </div>
+    <div class="combat-prefix"><div class="vs">VS</div></div>
+    <div class="combat-box tr">
+      <div>
+        <div class="label">综合战力指数</div>
+        <div class="value">92<span style="font-size:14px; color:#5a6488;">/100</span></div>
+      </div>
+      <div class="meta">
+        <div style="font-size:12px; color:#e30a17; font-weight:600;">🇹🇷 土耳其</div>
+        <div class="tag">FIFA排名：26</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="left-col">
+      <div class="section-label">预测胜率分布</div>
+      <div class="pie-trio">
+        <div class="pie-item">
+          <div class="label">主胜（澳大利亚）</div>
+          <canvas id="pieA"></canvas>
+          <div class="pct win-a">11.2%</div>
+          <div class="name-tag">澳大利亚取胜</div>
+        </div>
+        <div class="pie-item">
+          <div class="label">平局</div>
+          <canvas id="pieTie"></canvas>
+          <div class="pct tie">19.5%</div>
+          <div class="name-tag">握手言和</div>
+        </div>
+        <div class="pie-item">
+          <div class="label">客胜（土耳其）</div>
+          <canvas id="pieB"></canvas>
+          <div class="pct win-b">69.3%</div>
+          <div class="name-tag">土耳其取胜</div>
+        </div>
+      </div>
+
+      <div class="section-label">最可能比分频次</div>
+      <div class="score-section">
+        <div class="score-grid">
+          <div class="score-row s1">
+            <div>
+              <div class="score">0-2</div>
+              <div class="prob">概率 <strong>25.3%</strong></div>
+            </div>
+            <div class="bar-bg"><div class="bar-fill"></div></div>
+          </div>
+          <div class="score-row s2">
+            <div>
+              <div class="score">1-2</div>
+              <div class="prob">概率 <strong>17.7%</strong></div>
+            </div>
+            <div class="bar-bg"><div class="bar-fill"></div></div>
+          </div>
+          <div class="score-row s3">
+            <div>
+              <div class="score">1-1</div>
+              <div class="prob">概率 <strong>12.3%</strong></div>
+            </div>
+            <div class="bar-bg"><div class="bar-fill"></div></div>
+          </div>
+          <div class="score-row s4">
+            <div>
+              <div class="score">0-1</div>
+              <div class="prob">概率 <strong>11.8%</strong></div>
+            </div>
+            <div class="bar-bg"><div class="bar-fill"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-col">
+      <div class="section-label">敏感性分析 · 概率趋势</div>
+      <div class="chart-box">
+        <canvas id="areaChart"></canvas>
+        <div class="chart-note">📈 <strong>趋势研判：</strong> 合理预期持续强化 · xG ±0.2 波动带</div>
+      </div>
+
+      <div class="section-label">预期进球（xG）</div>
+      <div class="data-block">
+        <div class="db-row"><span class="key">🇦🇺 澳大利亚 xG</span><span class="val" style="color:#ffd700;">0.85</span></div>
+        <div class="db-row"><span class="key">🇹🇷 土耳其 xG</span><span class="val" style="color:#e30a17;">1.75</span></div>
+        <div class="db-row"><span class="key">总预期进球</span><span class="val highlight">2.60</span></div>
+        <div class="db-row"><span class="key">进球主区间</span><span class="val">2球</span></div>
+      </div>
+
+      <div class="section-label">冷门识别 · 风险阈值</div>
+      <div class="data-block">
+        <div class="db-row"><span class="key">冷门概率</span><span class="val" style="color:#00d4aa;">18.2%</span></div>
+        <div class="db-row"><span class="key">风险等级</span><span class="val"><span class="status-tag low">低</span></span></div>
+        <div class="db-row"><span class="key">平局概率</span><span class="val" style="color:#8892b0;">26.2%</span></div>
+        <div class="db-row"><span class="key">关键伤停影响</span><span class="val danger">梅特卡夫伤缺</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-banner">
+    <div class="source">数据来源：国际足球数据中心 · FIFA WORLD CUP 2026™ · OPTA</div>
+    <div class="disclaimer">⚠ 不构成任何投注建议 · 仅供赛事分析参考</div>
+    <div class="brand">“数据不会说谎，但人会。——<strong>阿飞·赛博聊球</strong>”</div>
+  </div>
+</div>
+
+<script>
+const ctxA = document.getElementById('pieA').getContext('2d');
+new Chart(ctxA, {
+  type: 'doughnut',
+  data: { datasets: [{ data: [11.2, 88.8], backgroundColor: ['#ffd700', '#0d0f14'], borderWidth: 0, cutout: '70%' }] },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { enabled: false } } }
+});
+const ctxTie = document.getElementById('pieTie').getContext('2d');
+new Chart(ctxTie, {
+  type: 'doughnut',
+  data: { datasets: [{ data: [19.5, 80.5], backgroundColor: ['#8892b0', '#0d0f14'], borderWidth: 0, cutout: '70%' }] },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { enabled: false } } }
+});
+const ctxB = document.getElementById('pieB').getContext('2d');
+new Chart(ctxB, {
+  type: 'doughnut',
+  data: { datasets: [{ data: [69.3, 30.7], backgroundColor: ['#e30a17', '#0d0f14'], borderWidth: 0, cutout: '70%' }] },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { enabled: false } } }
+});
+const ctxArea = document.getElementById('areaChart').getContext('2d');
+new Chart(ctxArea, {
+  type: 'line',
+  data: {
+    labels: ['T-72h', 'T-48h', 'T-24h', 'T-12h', 'T-6h', 'T-3h', 'T-0h'],
+    datasets: [
+      { label: '土耳其胜率', data: [64, 66, 65, 67, 68, 69, 69.3], borderColor: '#e30a17', backgroundColor: 'rgba(227,10,23,0.08)', fill: true, tension: 0.3, pointRadius: 2, pointBackgroundColor: '#e30a17', borderWidth: 1.5 },
+      { label: '平局', data: [28, 28, 27, 27, 26, 26, 26.2], borderColor: '#8892b0', backgroundColor: 'rgba(136,146,176,0.05)', fill: true, tension: 0.3, pointRadius: 2, pointBackgroundColor: '#8892b0', borderWidth: 1 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { enabled: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { color: '#4a5270', font: { size: 8 } } },
+      y: { min: 0, max: 80, grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#4a5270', font: { size: 8 }, stepSize: 20 } }
+    }
+  }
+});
+</script>
+</body>
+</html>

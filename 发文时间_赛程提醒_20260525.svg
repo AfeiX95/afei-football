@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f7b731"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="diamond" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <linearGradient id="pickup" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="560" rx="16" fill="url(#bg)"/>
+
+  <!-- 标题 -->
+  <text x="400" y="48" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="bold">今晚发文时间提醒</text>
+  <line x1="280" y1="62" x2="520" y2="62" stroke="url(#gold)" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- 停售倒计时背景 -->
+  <rect x="40" y="80" width="720" height="56" rx="10" fill="#dc2626" opacity="0.15"/>
+  <rect x="40" y="80" width="720" height="56" rx="10" stroke="#dc2626" stroke-width="1" fill="none" opacity="0.4"/>
+  <text x="400" y="108" text-anchor="middle" fill="#fca5a5" font-size="14">⏰ 竞彩今晚 22:00 停售 · 距停售还有约</text>
+  <text x="400" y="130" text-anchor="middle" fill="#ef4444" font-size="28" font-weight="bold">4 小时 30 分</text>
+
+  <!-- 时间轴 -->
+  <!-- 钻石档 16:30-17:30 -->
+  <rect x="40" y="160" width="8" height="100" rx="4" fill="url(#diamond)"/>
+  <text x="68" y="186" fill="#f87171" font-size="14" font-weight="bold">🕐 钻石档 · 16:30 - 17:30</text>
+  <text x="68" y="210" fill="#e5e7eb" font-size="13">发 汉坎 vs 利勒斯特 + 埃夫斯堡 vs 赫根</text>
+  <text x="68" y="230" fill="#9ca3af" font-size="12">下班通勤高峰 · 18:00-20:30 流量爆发</text>
+  <text x="68" y="250" fill="#9ca3af" font-size="12">距离 22:00 停售还有 4.5-5.5 小时，出票时间充裕</text>
+
+  <!-- 箭头连接线 -->
+  <line x1="44" y1="268" x2="44" y2="284" stroke="#4b5563" stroke-width="2"/>
+
+  <!-- 捡漏档 20:00-21:00 -->
+  <rect x="40" y="286" width="8" height="100" rx="4" fill="url(#pickup)"/>
+  <text x="68" y="312" fill="#818cf8" font-size="14" font-weight="bold">🕐 捡漏档 · 20:00 - 21:00</text>
+  <text x="68" y="336" fill="#e5e7eb" font-size="13">发 迈阿密国际 vs 费城联合（明早 7:00）</text>
+  <text x="68" y="356" fill="#9ca3af" font-size="12">临场信心补单 · 彩民今晚买或明早 11:00 复牌后补</text>
+  <text x="68" y="376" fill="#9ca3af" font-size="12">⚠️ 21:30 后不发布当晚比赛，流量性价比极低</text>
+
+  <!-- 分隔线 -->
+  <line x1="40" y1="404" x2="760" y2="404" stroke="#374151" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- 深夜微头条 -->
+  <rect x="40" y="422" width="720" height="44" rx="10" fill="#f59e0b" opacity="0.1"/>
+  <text x="68" y="446" fill="#fbbf24" font-size="14" font-weight="bold">🌙 深夜 0:00 - 2:00 · 微头条晒单复盘</text>
+  <text x="68" y="462" fill="#9ca3af" font-size="12">场子关了但球迷还在亢奋期 · 赛后即时晒单锁铁粉</text>
+
+  <!-- 底部 -->
+  <text x="400" y="500" text-anchor="middle" fill="#6b7280" font-size="11">竞彩销售时间：周一至周五 11:00-22:00 ｜ 周六周日 11:00-23:00</text>
+
+  <!-- 标志 -->
+  <rect x="700" y="520" width="60" height="20" rx="4" fill="#374151" opacity="0.5"/>
+  <text x="730" y="534" text-anchor="middle" fill="#6b7280" font-size="9">阿飞说球</text>
+</svg>

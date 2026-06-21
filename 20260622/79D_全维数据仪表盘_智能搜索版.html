@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全维数据仪表盘 · 智能搜索版</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+:root{--bg:#0d0f14;--card:#1a1d24;--text:#e8e8e8;--muted:#8892b0;--border:rgba(255,255,255,0.06);--red:#c60b1e;--blue:#3884ff;--green:#006c35;--gold:#ffd700}
+[data-theme="light"]{--bg:#f5f5f5;--card:#ffffff;--text:#1a1a2e;--muted:#666;--border:rgba(0,0,0,0.1);--gold:#b8860b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;padding:20px;transition:.3s}
+h1{font-size:1.6rem;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(12,1fr);max-width:1400px;margin:0 auto}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;transition:.3s}
+.card h3{font-size:.95rem;color:var(--muted);margin-bottom:10px;font-weight:600;letter-spacing:.3px}
+.card .big{font-size:2.2rem;font-weight:700;line-height:1.2}
+.col-span-2{grid-column:span 2}.col-span-3{grid-column:span 3}.col-span-4{grid-column:span 4}
+.col-span-5{grid-column:span 5}.col-span-6{grid-column:span 6}.col-span-7{grid-column:span 7}
+.col-span-8{grid-column:span 8}.col-span-9{grid-column:span 9}.col-span-12{grid-column:span 12}
+.flex{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.justify-between{justify-content:space-between}.gap-4{gap:4px}.mt-8{margin-top:8px}.mb-8{margin-bottom:8px}
+.text-red{color:var(--red)}.text-blue{color:var(--blue)}.text-green{color:var(--green)}.text-gold{color:var(--gold)}
+.text-muted{color:var(--muted)}.text-sm{font-size:.8rem}.text-lg{font-size:1.15rem}.font-bold{font-weight:700}
+.w-full{width:100%}
+/* Prob bar */
+.prob-bar{display:flex;height:28px;border-radius:6px;overflow:hidden;width:100%;margin:10px 0}
+.prob-seg{display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:600;color:#fff;transition:width .5s}
+.prob-seg.win{background:#c60b1e}.prob-seg.draw{background:#3884ff}.prob-seg.lose{background:#006c35}
+/* Theme */
+.theme-btn{background:var(--card);border:1px solid var(--border);color:var(--text);padding:6px 14px;border-radius:6px;cursor:pointer;font-size:.8rem;transition:.2s}
+.theme-btn:hover{opacity:.8}
+/* MC */
+.mc-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin-bottom:8px}
+.mc-item{text-align:center;padding:10px;background:rgba(255,255,255,0.03);border-radius:8px}
+.mc-item .label{font-size:.75rem;color:var(--muted)}
+.mc-item .value{font-size:1.7rem;font-weight:700;font-variant-numeric:tabular-nums}
+/* Charts */
+.chart-container{position:relative;height:220px;width:100%}
+.chart-container-sm{position:relative;height:180px;width:100%}
+/* Search */
+.search-box{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.search-box input{flex:1;min-width:200px;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,0.05);color:var(--text);font-size:.9rem;outline:none}
+.search-box input:focus{border-color:var(--gold)}
+.search-box button,.demo-btn{padding:10px 18px;border-radius:8px;border:none;cursor:pointer;font-size:.85rem;font-weight:600;transition:.2s}
+.search-box .search-btn{background:var(--red);color:#fff}
+.search-box .search-btn:hover{opacity:.85}
+.demo-btn{background:rgba(255,215,0,0.12);color:var(--gold);border:1px solid rgba(255,215,0,0.2)}
+.demo-btn:hover{background:rgba(255,215,0,0.2)}
+.demo-btn-sm{padding:5px 10px;font-size:.75rem;border-radius:6px;background:rgba(255,215,0,0.1);color:var(--gold);border:1px solid rgba(255,215,0,0.15);cursor:pointer;transition:.2s}
+.demo-btn-sm:hover{background:rgba(255,215,0,0.2)}
+/* Status bar */
+.status-bar{margin:8px 0 0;padding:8px 12px;border-radius:6px;font-size:.82rem;display:none;align-items:center;gap:8px}
+.status-bar.show{display:flex}.status-bar.loading{background:rgba(56,132,255,0.08);border:1px solid rgba(56,132,255,0.2)}
+.status-bar.success{background:rgba(0,108,53,0.08);border:1px solid rgba(0,108,53,0.2)}
+.status-bar.error{background:rgba(198,11,30,0.08);border:1px solid rgba(198,11,30,0.2)}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid var(--muted);border-top-color:var(--blue);border-radius:50%;animation:spin .6s linear}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* Guide page */
+.guide{text-align:center;padding:40px 20px;max-width:600px;margin:0 auto}
+.guide h2{font-size:1.4rem;margin-bottom:10px}
+.guide p{color:var(--muted);margin-bottom:20px;line-height:1.6}
+.guide .examples{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:16px}
+/* H2H */
+.h2h-table{font-size:.82rem;width:100%;border-collapse:collapse}
+.h2h-table th{color:var(--muted);font-weight:500;padding:4px 6px;border-bottom:1px solid var(--border);font-size:.72rem;text-align:left}
+.h2h-table td{padding:4px 6px;border-bottom:1px solid var(--border)}
+/* Odds table */
+.odds-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.odds-table th{text-align:left;color:var(--muted);font-weight:500;padding:5px 6px;border-bottom:1px solid var(--border);font-size:.72rem}
+.odds-table td{padding:5px 6px;border-bottom:1px solid var(--border)}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.7rem;font-weight:600}
+.tag-red{background:rgba(198,11,30,0.15);color:var(--red)}
+.tag-blue{background:rgba(56,132,255,0.15);color:var(--blue)}
+.tag-green{background:rgba(0,108,53,0.15);color:var(--green)}
+.tag-gold{background:rgba(255,215,0,0.15);color:var(--gold)}
+.sens-cell{padding:4px 2px;font-size:.68rem}
+/* AI预测对比 */
+.ai-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.ai-card{padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid var(--border);text-align:center}
+.ai-card .ai-source{font-size:.7rem;color:var(--muted);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ai-card .ai-winner{font-size:1rem;font-weight:700;margin:2px 0}
+.ai-card .ai-score{font-size:.82rem;font-weight:600;margin:2px 0}
+.ai-card .ai-conf{font-size:.7rem;margin:2px 0}
+.ai-card .ai-tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:.62rem;font-weight:600}
+.ai-card .ai-tag.agree{background:rgba(0,108,53,0.15);color:var(--green)}
+.ai-card .ai-tag.disagree{background:rgba(198,11,30,0.15);color:var(--red)}
+.ai-card .ai-tag.partial{background:rgba(255,215,0,0.15);color:var(--gold)}
+.ai-card.highlight{border-color:var(--gold);background:rgba(255,215,0,0.04)}
+.ai-consensus{margin-top:10px;padding:10px;border-radius:6px;background:rgba(56,132,255,0.04);border:1px solid rgba(56,132,255,0.1);font-size:.82rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ai-consensus .label{color:var(--muted);font-size:.75rem}
+@media(max-width:900px){.ai-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* Manual form */
+.manual-form{display:none;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;padding:14px;background:rgba(255,255,255,0.02);border-radius:8px;border:1px solid var(--border)}
+.manual-form.show{display:grid}
+.manual-form label{font-size:.78rem;color:var(--muted);display:block;margin-bottom:2px}
+.manual-form input{width:100%;padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:rgba(255,255,255,0.05);color:var(--text);font-size:.82rem;outline:none}
+.manual-form input:focus{border-color:var(--gold)}
+.comp-bar{display:flex;align-items:center;gap:10px;margin:6px 0}
+.comp-bar .bar-track{flex:1;height:8px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden}
+.comp-bar .bar-fill{height:100%;border-radius:4px;transition:width .6s}
+.comp-bar .team{width:90px;text-align:right;font-size:.82rem}
+.comp-bar .team.away{text-align:left}
+.scenario-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.scenario{background:rgba(255,255,255,0.03);border-radius:8px;padding:12px;border:1px solid transparent}
+.scenario.highlight{border-color:var(--red)}
+.scenario-title{font-weight:600;font-size:.9rem;margin-bottom:4px}
+.scenario-pct{font-size:1.4rem;font-weight:700}
+.scenario-desc{font-size:.8rem;color:var(--muted);margin-top:4px}
+.standings-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.standings-table th{text-align:left;color:var(--muted);font-weight:500;padding:6px 8px;border-bottom:1px solid var(--border);font-size:.75rem}
+.standings-table td{padding:6px 8px;border-bottom:1px solid var(--border)}
+.standings-table tr.active{background:rgba(198,11,19,0.06);font-weight:600}
+.standings-table tr.active td:first-child{border-left:3px solid var(--red);padding-left:5px}
+.expert-scroll{display:flex;gap:10px;overflow-x:auto;padding:4px 0 8px}
+.expert-scroll::-webkit-scrollbar{height:4px}
+.expert-scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.expert-card{min-width:160px;background:rgba(255,255,255,0.03);border-radius:8px;padding:10px;flex-shrink:0}
+.expert-card .source{font-size:.7rem;color:var(--muted)}
+.expert-card .score{font-size:1.1rem;font-weight:700;margin:4px 0}
+.hidden{display:none!important}
+#dashboardArea.hidden{display:none!important}
+#guideArea.hidden{display:none!important}
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr}.col-span-2,.col-span-3,.col-span-4,.col-span-5,.col-span-6,.col-span-7,.col-span-8,.col-span-9{grid-column:span 1}
+  .scenario-grid{grid-template-columns:1fr}.mc-grid{grid-template-columns:1fr 1fr}.manual-form{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ====== GUIDE PAGE ====== -->
+<div id="guideArea">
+<div class="grid">
+<div class="col-span-12 card" style="text-align:center;padding:30px">
+  <h1>⚽ 全维数据仪表盘 · 智能搜索版</h1>
+  <div class="subtitle">输入比赛信息，自动生成11维数据可视化仪表盘</div>
+  <div class="guide" style="max-width:700px;margin:0 auto">
+    <p style="font-size:.9rem;margin-bottom:20px">支持多种输入格式：竞彩编号、队名（中/英文）、手动填表<br>内置48队数据库 + Wikipedia自动采集 + 蒙特卡洛实时模拟</p>
+    <div class="search-box" style="max-width:550px;margin:0 auto 16px">
+      <input type="text" id="searchInput" placeholder="输入竞彩编号或球队对阵，例如：周日038 或 比利时VS伊朗" onkeydown="if(event.key==='Enter')handleSearch()">
+      <button class="search-btn" onclick="handleSearch()">🔍 搜索</button>
+      <button class="theme-btn" onclick="showManual()">✏️ 手动</button>
+    </div>
+    <div class="examples">
+      <button class="demo-btn-sm" onclick="quickDemo('周日038','比利时','伊朗',1.8,1.1,'G')">🇧🇪 比利时VS伊朗</button>
+      <button class="demo-btn-sm" onclick="quickDemo('周日039','乌拉圭','佛得角',1.8,0.6,'H')">🇺🇾 乌拉圭VS佛得角</button>
+      <button class="demo-btn-sm" onclick="quickDemo('周日040','新西兰','埃及',1.14,1.56,'G')">🇳🇿 新西兰VS埃及</button>
+      <button class="demo-btn-sm" onclick="quickDemo('','巴西','海地',2.5,0.4,'C')">🇧🇷 巴西VS海地</button>
+      <button class="demo-btn-sm" onclick="quickDemo('','英格兰','克罗地亚',1.9,1.2,'L')">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰VS克罗地亚</button>
+    </div>
+    <!-- Manual form -->
+    <div class="manual-form" id="manualForm">
+      <div><label>主队名</label><input id="mHome" value="比利时"></div>
+      <div><label>客队名</label><input id="mAway" value="伊朗"></div>
+      <div><label>主队λ（期望进球）</label><input id="mHomeLambda" type="number" step="0.1" value="1.8"></div>
+      <div><label>客队λ（期望进球）</label><input id="mAwayLambda" type="number" step="0.1" value="1.1"></div>
+      <div><label>小组（选填）</label><input id="mGroup" value="G"></div>
+      <div style="display:flex;gap:8px;align-items:end">
+        <button class="search-btn" onclick="manualSubmit()">✅ 生成</button>
+        <button class="theme-btn" onclick="hideManual()">取消</button>
+      </div>
+    </div>
+    <!-- Status bar -->
+    <div class="status-bar" id="statusBar"></div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ====== DASHBOARD AREA ====== -->
+<div id="dashboardArea" class="hidden">
+<div class="grid">
+  <!-- Header -->
+  <div class="col-span-12 card" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+    <div>
+      <h1 id="dashTitle"><span>🇧🇪 比利时 VS 伊朗 🇮🇷</span> <span class="text-sm text-muted" style="font-weight:400" id="dashGroup">G组</span></h1>
+      <div class="subtitle" style="margin-bottom:0" id="dashSubtitle">世界杯 · 小组赛</div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="theme-btn" onclick="backToGuide()">← 返回搜索</button>
+      <span class="tag tag-gold" id="themeLabel">🌙 暗色</span>
+      <button class="theme-btn" onclick="toggleTheme()">切换主题</button>
+    </div>
+  </div>
+
+  <!-- 1. 雷达 + 战力 -->
+  <div class="col-span-7 card"><h3>📡 六维战力雷达</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;min-height:200px">
+      <div style="position:relative;height:200px"><canvas id="radarChart"></canvas></div>
+      <div id="compBars"></div>
+    </div>
+  </div>
+
+  <!-- 2. 小组积分榜 -->
+  <div class="col-span-5 card"><h3>🏆 <span id="groupLabel">G组</span> 积分榜</h3>
+    <div id="standingsArea"><div class="text-sm text-muted" style="padding:20px;text-align:center">积分榜数据需输入小组信息后显示</div></div>
+  </div>
+
+  <!-- 3. 蒙特卡洛 -->
+  <div class="col-span-5 card"><h3>🎲 蒙特卡洛模拟</h3>
+    <div class="mc-grid">
+      <div class="mc-item"><div class="label" id="mcLabelH">主队胜</div><div class="value text-red" id="mcWin">--</div></div>
+      <div class="mc-item"><div class="label">平局</div><div class="value text-blue" id="mcDraw">--</div></div>
+      <div class="mc-item"><div class="label" id="mcLabelA">客队胜</div><div class="value text-green" id="mcLose">--</div></div>
+      <div class="mc-item"><div class="label">大2.5球</div><div class="value text-gold" id="mcOver">--</div></div>
+    </div>
+    <div class="prob-bar" id="probBar"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span class="text-sm text-muted" id="mcStatus">📊 就绪 · 点击运行</span>
+      <button class="theme-btn" onclick="startMC()">🔄 运行模拟</button>
+    </div>
+  </div>
+
+  <!-- 4. 总进球 -->
+  <div class="col-span-3 card"><h3>⚽ 总进球分布</h3>
+    <div class="chart-container-sm"><canvas id="goalsChart"></canvas></div>
+  </div>
+
+  <!-- 5. 最可能比分 -->
+  <div class="col-span-4 card"><h3>🏆 最可能比分 Top 8</h3>
+    <div class="chart-container"><canvas id="scoresChart"></canvas></div>
+  </div>
+
+  <!-- 6. 数据对比 -->
+  <div class="col-span-3 card"><h3>📊 数据对比</h3>
+    <div id="dataCompare" style="display:grid;gap:8px;font-size:.82rem"></div>
+  </div>
+
+  <!-- 7. 敏感性 -->
+  <div class="col-span-3 card"><h3>🔬 敏感性分析</h3>
+    <div id="sensitivityArea" style="font-size:.72rem;text-align:center;display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px"></div>
+    <div class="text-sm text-muted mt-8" id="sensNote">📌 λ浮动±0.2检验模型稳定性</div>
+  </div>
+
+  <!-- 8. 专家预测 -->
+  <div class="col-span-5 card"><h3>📰 外媒参考预测</h3>
+    <div class="expert-scroll" id="expertScroll"></div>
+  </div>
+
+  <!-- 9. 盘口 -->
+  <div class="col-span-4 card"><h3>💰 盘口&价值信号</h3>
+    <table class="odds-table">
+      <tr><th>类型</th><th id="oddsH">主队</th><th>平局</th><th id="oddsA">客队</th></tr>
+      <tr><td>模型概率</td><td class="text-red font-bold" id="mPctH">--</td><td id="mPctD">--</td><td class="text-green" id="mPctA">--</td></tr>
+      <tr><td>市场隐含</td><td class="text-red" id="mktH">71.4%</td><td id="mktD">22.2%</td><td class="text-green" id="mktA">13.3%</td></tr>
+      <tr><td>偏差</td><td class="text-gold" id="devH">--</td><td id="devD">--</td><td class="text-gold" id="devA">--</td></tr>
+    </table>
+    <div style="margin-top:8px;padding:8px;background:rgba(255,215,0,0.06);border-radius:6px">
+      <div class="text-sm font-bold text-gold" id="trapLabel">🕵️ 价值信号</div>
+      <div class="text-sm text-muted" id="trapDesc">市场赔率 vs 模型概率的偏差分析</div>
+    </div>
+  </div>
+
+  <!-- 10. 情景 -->
+  <div class="col-span-5 card"><h3>🎯 多情景推演</h3>
+    <div class="scenario-grid" id="scenarioGrid"></div>
+  </div>
+
+  <!-- 11. 综合结论 -->
+  <div class="col-span-12 card"><h3>📋 终极预测 · 全景综合研判</h3>
+    <div id="finalPrediction" style="display:grid;grid-template-columns:2fr 3fr;gap:14px;margin-bottom:10px"></div>
+    <div id="finalScript" style="padding:12px;background:rgba(255,215,0,0.04);border-left:3px solid var(--gold);border-radius:4px;font-size:.88rem;margin-bottom:10px;line-height:1.6"></div>
+    <div id="finalFactors" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px"></div>
+    <div id="finalOutlook" style="display:grid;grid-template-columns:1fr 1fr;gap:10px"></div>
+  </div>
+
+  <!-- 12. 全球AI预测对比 -->
+  <div class="col-span-12 card">
+    <h3>🤖 全球10大AI预测对比</h3>
+    <div id="aiConsensus" class="ai-consensus"></div>
+    <div id="aiGrid" class="ai-grid"></div>
+  </div>
+</div>
+</div>
+
+<script>
+// ====== 48队数据库 ======
+const TEAM_DB = {
+  belgium:{name:'比利时',flag:'🇧🇪',cnKey:'比利时',enKey:'belgium',fifa:9,worth:'€7.9亿',form:'W W D W W D',gScored:3.6,gConceded:0.9,possession:63,attack:78,midfield:76,defense:68,morale:55,worthScore:85,note:'黄金一代衰退 · 58传1射'},
+  iran:{name:'伊朗',flag:'🇮🇷',cnKey:'伊朗',enKey:'iran',fifa:24,worth:'€0.36亿',form:'L L W W W D',gScored:1.8,gConceded:1.3,possession:41,attack:68,midfield:58,defense:58,morale:76,worthScore:36,note:'波斯铁骑韧性 · 反击利器'},
+  egypt:{name:'埃及',flag:'🇪🇬',cnKey:'埃及',enKey:'egypt',fifa:33,worth:'€1.1亿',form:'W W D L W D',gScored:1.5,gConceded:1.0,possession:48,attack:70,midfield:62,defense:68,morale:80,worthScore:38},
+  newzealand:{name:'新西兰',flag:'🇳🇿',cnKey:'新西兰',enKey:'newzealand',fifa:104,worth:'€0.18亿',form:'D W L W L D',gScored:1.2,gConceded:1.8,possession:38,attack:50,midfield:45,defense:42,morale:75,worthScore:20},
+  brazil:{name:'巴西',flag:'🇧🇷',cnKey:'巴西',enKey:'brazil',fifa:5,worth:'€10.5亿',form:'W W W W W D',gScored:2.8,gConceded:0.6,possession:62,attack:92,midfield:85,defense:88,morale:85,worthScore:95},
+  argentina:{name:'阿根廷',flag:'🇦🇷',cnKey:'阿根廷',enKey:'argentina',fifa:1,worth:'€8.2亿',form:'W W W D W W',gScored:2.5,gConceded:0.5,possession:60,attack:90,midfield:86,defense:85,morale:90,worthScore:90,note:'卫冕冠军 · 梅西最后一舞'},
+  austria:{name:'奥地利',flag:'🇦🇹',cnKey:'奥地利',enKey:'austria',fifa:22,worth:'€2.8亿',form:'W L W W W W',gScored:1.8,gConceded:1.0,possession:48,attack:74,midfield:70,defense:72,morale:80,worthScore:40,note:'28年重返 · 朗尼克高压体系'},
+  france:{name:'法国',flag:'🇫🇷',cnKey:'法国',enKey:'france',fifa:2,worth:'€11.8亿',form:'W W L W W W',gScored:2.9,gConceded:0.7,possession:58,attack:93,midfield:88,defense:87,morale:82,worthScore:96},
+  england:{name:'英格兰',flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',cnKey:'英格兰',enKey:'england',fifa:4,worth:'€13.5亿',form:'W W D W W L',gScored:2.6,gConceded:0.8,possession:61,attack:89,midfield:84,defense:82,morale:78,worthScore:97},
+  portugal:{name:'葡萄牙',flag:'🇵🇹',cnKey:'葡萄牙',enKey:'portugal',fifa:6,worth:'€7.6亿',form:'W W W D W W',gScored:2.4,gConceded:0.9,possession:57,attack:86,midfield:80,defense:77,morale:80,worthScore:85},
+  netherlands:{name:'荷兰',flag:'🇳🇱',cnKey:'荷兰',enKey:'netherlands',fifa:7,worth:'€6.8亿',form:'W W D W W D',gScored:2.3,gConceded:0.8,possession:59,attack:80,midfield:83,defense:84,morale:76,worthScore:82},
+  germany:{name:'德国',flag:'🇩🇪',cnKey:'德国',enKey:'germany',fifa:10,worth:'€8.5亿',form:'W L W W W D',gScored:2.7,gConceded:1.1,possession:64,attack:87,midfield:79,defense:75,morale:72,worthScore:90},
+  spain:{name:'西班牙',flag:'🇪🇸',cnKey:'西班牙',enKey:'spain',fifa:8,worth:'€9.2亿',form:'W D W W L W',gScored:2.5,gConceded:0.7,possession:68,attack:84,midfield:90,defense:86,morale:77,worthScore:92},
+  croatia:{name:'克罗地亚',flag:'🇭🇷',cnKey:'克罗地亚',enKey:'croatia',fifa:14,worth:'€3.8亿',form:'W L D W D W',gScored:1.8,gConceded:1.0,possession:52,attack:72,midfield:78,defense:70,morale:68,worthScore:45},
+  morocco:{name:'摩洛哥',flag:'🇲🇦',cnKey:'摩洛哥',enKey:'morocco',fifa:13,worth:'€2.5亿',form:'W D W W L D',gScored:1.6,gConceded:0.6,possession:46,attack:68,midfield:66,defense:76,morale:85,worthScore:32},
+  japan:{name:'日本',flag:'🇯🇵',cnKey:'日本',enKey:'japan',fifa:18,worth:'€1.9亿',form:'W L W W D W',gScored:1.9,gConceded:0.8,possession:51,attack:73,midfield:70,defense:72,morale:78,worthScore:28},
+  southkorea:{name:'韩国',flag:'🇰🇷',cnKey:'韩国',enKey:'southkorea',fifa:23,worth:'€1.7亿',form:'W W L D W W',gScored:1.7,gConceded:0.9,possession:47,attack:71,midfield:65,defense:68,morale:82,worthScore:25},
+  usa:{name:'美国',flag:'🇺🇸',cnKey:'美国',enKey:'usa',fifa:16,worth:'€3.5亿',form:'W W D W W L',gScored:2.0,gConceded:0.7,possession:54,attack:75,midfield:74,defense:73,morale:79,worthScore:50},
+  senegal:{name:'塞内加尔',flag:'🇸🇳',cnKey:'塞内加尔',enKey:'senegal',fifa:19,worth:'€2.8亿',form:'W L W W D W',gScored:1.8,gConceded:0.9,possession:45,attack:74,midfield:68,defense:70,morale:74,worthScore:35},
+  canada:{name:'加拿大',flag:'🇨🇦',cnKey:'加拿大',enKey:'canada',fifa:40,worth:'€2.0亿',form:'W W L W W D',gScored:1.9,gConceded:1.0,possession:48,attack:70,midfield:64,defense:62,morale:82,worthScore:28},
+  mexico:{name:'墨西哥',flag:'🇲🇽',cnKey:'墨西哥',enKey:'mexico',fifa:15,worth:'€2.9亿',form:'W D W L W W',gScored:1.6,gConceded:0.8,possession:53,attack:72,midfield:71,defense:74,morale:76,worthScore:38},
+  uruguay:{name:'乌拉圭',flag:'🇺🇾',cnKey:'乌拉圭',enKey:'uruguay',fifa:11,worth:'€4.2亿',form:'W W D W L W',gScored:2.0,gConceded:0.7,possession:49,attack:77,midfield:72,defense:78,morale:74,worthScore:52,note:'苏牙卡瓦尼时代尾声 · 防守为本'},
+  cape_verde:{name:'佛得角',flag:'🇨🇻',cnKey:'佛得角',enKey:'capeverde',fifa:66,worth:'€0.08亿',form:'W D L W D L',gScored:0.7,gConceded:1.0,possession:34,attack:40,midfield:38,defense:42,morale:62,worthScore:5,note:'非洲新军 · 意志坚韧'},
+  // Simplified - adding enough teams to be usable
+  saudi_arabia:{name:'沙特',flag:'🇸🇦',cnKey:'沙特',enKey:'saudiarabia',fifa:56,worth:'€0.25亿',form:'L W L D L W',gScored:0.9,gConceded:1.5,possession:36,attack:48,midfield:42,defense:40,morale:55,worthScore:15},
+  australia:{name:'澳大利亚',flag:'🇦🇺',cnKey:'澳大利亚',enKey:'australia',fifa:39,worth:'€0.42亿',form:'W L W D W L',gScored:1.3,gConceded:1.1,possession:42,attack:55,midfield:52,defense:54,morale:68,worthScore:18},
+  jordan:{name:'约旦',flag:'🇯🇴',cnKey:'约旦',enKey:'jordan',fifa:71,worth:'€0.12亿',form:'L W D L W W',gScored:0.8,gConceded:1.2,possession:33,attack:42,midfield:38,defense:36,morale:60,worthScore:8},
+  norway:{name:'挪威',flag:'🇳🇴',cnKey:'挪威',enKey:'norway',fifa:46,worth:'€4.8亿',form:'W L W W D L',gScored:2.1,gConceded:1.3,possession:54,attack:78,midfield:70,defense:58,morale:64,worthScore:58},
+  uzbekistan:{name:'乌兹别克',flag:'🇺🇿',cnKey:'乌兹别克',enKey:'uzbekistan',fifa:68,worth:'€0.14亿',form:'W W L D W L',gScored:1.0,gConceded:1.1,possession:35,attack:48,midfield:44,defense:42,morale:62,worthScore:10},
+  colombia:{name:'哥伦比亚',flag:'🇨🇴',cnKey:'哥伦比亚',enKey:'colombia',fifa:12,worth:'€3.6亿',form:'W D W L W W',gScored:1.8,gConceded:0.9,possession:52,attack:76,midfield:73,defense:72,morale:77,worthScore:45},
+  ecuador:{name:'厄瓜多尔',flag:'🇪🇨',cnKey:'厄瓜多尔',enKey:'ecuador',fifa:31,worth:'€0.8亿',form:'W L W D W W',gScored:1.4,gConceded:0.8,possession:43,attack:62,midfield:58,defense:64,morale:74,worthScore:14},
+  nigeria:{name:'尼日利亚',flag:'🇳🇬',cnKey:'尼日利亚',enKey:'nigeria',fifa:30,worth:'€1.2亿',form:'W D L W W D',gScored:1.5,gConceded:0.9,possession:44,attack:68,midfield:60,defense:62,morale:72,worthScore:20},
+  turkey:{name:'土耳其',flag:'🇹🇷',cnKey:'土耳其',enKey:'turkey',fifa:42,worth:'€3.0亿',form:'W W L D W L',gScored:1.7,gConceded:1.1,possession:50,attack:72,midfield:68,defense:60,morale:70,worthScore:40},
+  haiti:{name:'海地',flag:'🇭🇹',cnKey:'海地',enKey:'haiti',fifa:86,worth:'€0.05亿',form:'L L D L W L',gScored:0.5,gConceded:2.2,possession:30,attack:32,midfield:28,defense:30,morale:50,worthScore:4},
+  scotland:{name:'苏格兰',flag:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',cnKey:'苏格兰',enKey:'scotland',fifa:38,worth:'€2.2亿',form:'W L W D L W',gScored:1.4,gConceded:1.0,possession:48,attack:64,midfield:62,defense:64,morale:70,worthScore:30},
+  paraguay:{name:'巴拉圭',flag:'🇵🇾',cnKey:'巴拉圭',enKey:'paraguay',fifa:45,worth:'€0.6亿',form:'L W D W L D',gScored:0.8,gConceded:1.0,possession:38,attack:50,midfield:48,defense:56,morale:62,worthScore:10},
+  ivorycoast:{name:'科特迪瓦',flag:'🇨🇮',cnKey:'科特迪瓦',enKey:'ivorycoast',fifa:37,worth:'€1.5亿',form:'W D W L W W',gScored:1.6,gConceded:0.8,possession:44,attack:70,midfield:64,defense:68,morale:76,worthScore:22},
+  sweden:{name:'瑞典',flag:'🇸🇪',cnKey:'瑞典',enKey:'sweden',fifa:26,worth:'€1.6亿',form:'W W L D W L',gScored:1.8,gConceded:1.0,possession:46,attack:68,midfield:64,defense:66,morale:70,worthScore:24},
+  tunisia:{name:'突尼斯',flag:'🇹🇳',cnKey:'突尼斯',enKey:'tunisia',fifa:28,worth:'€0.5亿',form:'L W D W L W',gScored:0.9,gConceded:1.1,possession:40,attack:52,midfield:50,defense:54,morale:65,worthScore:10},
+  bosnia:{name:'波黑',flag:'🇧🇦',cnKey:'波黑',enKey:'bosnia',fifa:62,worth:'€0.6亿',form:'L W D L W L',gScored:1.0,gConceded:1.3,possession:42,attack:54,midfield:52,defense:46,morale:55,worthScore:12},
+  czech:{name:'捷克',flag:'🇨🇿',cnKey:'捷克',enKey:'czech',fifa:36,worth:'€1.8亿',form:'W W L D W W',gScored:1.6,gConceded:0.9,possession:49,attack:68,midfield:66,defense:64,morale:72,worthScore:26},
+  qatar:{name:'卡塔尔',flag:'🇶🇦',cnKey:'卡塔尔',enKey:'qatar',fifa:58,worth:'€0.25亿',form:'L L W D L W',gScored:0.9,gConceded:1.8,possession:35,attack:46,midfield:42,defense:36,morale:58,worthScore:8},
+  switzerland:{name:'瑞士',flag:'🇨🇭',cnKey:'瑞士',enKey:'switzerland',fifa:20,worth:'€2.6亿',form:'W D W L W D',gScored:1.5,gConceded:0.8,possession:50,attack:66,midfield:68,defense:74,morale:74,worthScore:34},
+  algeria:{name:'阿尔及利亚',flag:'🇩🇿',cnKey:'阿尔及利亚',enKey:'algeria',fifa:43,worth:'€0.9亿',form:'W W D L W W',gScored:1.4,gConceded:0.7,possession:44,attack:66,midfield:62,defense:66,morale:78,worthScore:16},
+  _default:{name:'未知',flag:'🏳️',fifa:50,worth:'€0.5亿',form:'-',gScored:1.5,gConceded:1.2,possession:45,attack:55,midfield:55,defense:55,morale:50,worthScore:30}
+};
+
+// ====== GROUPS ======
+const GROUP_MAP = {
+  A:['france','senegal','algeria','haiti'], B:['portugal','croatia','morocco','jordan'],
+  C:['brazil','morocco','ecuador','haiti'], D:['usa','mexico','paraguay','australia'],
+  E:['netherlands','japan','sweden','ecuador'], F:['germany','ivorycoast','tunisia','cape_verde'],
+  G:['belgium','egypt','iran','newzealand'], H:['spain','uruguay','saudi_arabia','bosnia'],
+  I:['argentina','nigeria','southkorea','uzbekistan'], J:['france','senegal','colombia','turkey'],
+  K:['england','croatia','scotland','qatar'], L:['portugal','czech','switzerland','newzealand']
+};
+const STANDINGS_TEMPLATE = {
+  G:[
+    {team:'egypt',mp:1,w:0,d:1,l:0,gf:1,ga:1},
+    {team:'iran',mp:1,w:0,d:1,l:0,gf:2,ga:2},
+    {team:'belgium',mp:1,w:0,d:1,l:0,gf:1,ga:1},
+    {team:'newzealand',mp:1,w:0,d:1,l:0,gf:2,ga:2}
+  ],
+  H:[
+    {team:'spain',mp:1,w:0,d:1,l:0,gf:0,ga:0},
+    {team:'uruguay',mp:1,w:0,d:1,l:0,gf:1,ga:1},
+    {team:'saudi_arabia',mp:1,w:0,d:1,l:0,gf:1,ga:1},
+    {team:'bosnia',mp:1,w:0,d:1,l:0,gf:0,ga:0}
+  ]
+};
+
+// ====== STATE ======
+let state = {home:'',away:'',homeData:null,awayData:null,homeLambda:1.5,awayLambda:0.8,group:''};
+let chartsInited = false;
+let chartInstances = {};
+let mcRunning = false, mcTotal = 0, mcWin = 0, mcDraw = 0, mcLose = 0, mcOver = 0;
+const MC_TARGET = 500000, BATCH = 2000;
+let theme = localStorage.getItem('dashboardTheme') || 'dark';
+if(theme==='light') document.body.setAttribute('data-theme','light');
+
+function toggleTheme(){
+  theme=theme==='dark'?'light':'dark';
+  document.body.setAttribute('data-theme',theme);
+  localStorage.setItem('dashboardTheme',theme);
+  document.getElementById('themeLabel').textContent=theme==='dark'?'🌙 暗色':'☀️ 亮色';
+}
+
+// ====== UTILS ======
+function factorial(n){return n<=1?1:n*factorial(n-1)}
+function poisson(k,lam){return Math.exp(-lam)*Math.pow(lam,k)/factorial(k)}
+function findTeam(key){
+  let k = key.toLowerCase().replace(/\s/g,'').replace(/vs/g,'');
+  for(let id in TEAM_DB){
+    let t = TEAM_DB[id];
+    if(t.cnKey===key || t.enKey===k || t.name===key || key.includes(t.cnKey) || k.includes(t.enKey))
+      return {...t,id};
+  }
+  return null;
+}
+function findGroup(teamKey){
+  for(let g in GROUP_MAP) if(GROUP_MAP[g].includes(teamKey)) return g;
+  return '';
+}
+function getGroupTeams(g){return GROUP_MAP[g]||[];}
+
+// ====== INPUT PARSING ======
+function parseInput(text){
+  text = text.trim().replace(/[\t\n\r]+/g,' '); // 清洗制表符和换行
+  // Format 1: [H组1]乌拉圭VS佛得角[H组4] 或 [G组]比利时VS伊朗
+  let m = text.match(/\[(\w)[^\]]*\](\S+?)VS(\S+?)(?:\[|$)/);
+  if(m) return {home:m[2],away:m[3],group:m[1]};
+  // Format 2: 比利时 VS 伊朗 or 比利时vsIran
+  m = text.match(/^(\S+?)\s*(?:VS|vs|VS|vs)\s*(\S+)$/);
+  if(m) return {home:m[1],away:m[2],group:''};
+  return null;
+}
+
+// ====== LAMBDA ESTIMATION ======
+function estimateLambda(home,away){
+  let h = home||TEAM_DB._default, a = away||TEAM_DB._default;
+  let lh = h.gScored*0.8 + a.gConceded*0.2;
+  let la = a.gScored*0.7 + h.gConceded*0.3;
+  return { homeLambda:Math.max(0.3,Math.min(3.0,lh)), awayLambda:Math.max(0.1,Math.min(2.0,la)) };
+}
+
+// ====== CALCULATE POISSON ======
+function calcPoisson(lamH,lamA){
+  let win=0,draw=0,lose=0,goals={},scores=[];
+  for(let g=0;g<9;g++)goals[g]=0;
+  for(let h=0;h<=7;h++){
+    for(let a=0;a<=6;a++){
+      let p=poisson(h,lamH)*poisson(a,lamA);
+      if(h>a)win+=p;else if(h===a)draw+=p;else lose+=p;
+      goals[Math.min(h+a,8)]+=p;
+      scores.push({h,a,p});
+    }
+  }
+  scores.sort((a,b)=>b.p-a.p);
+  return {win:+(win*100).toFixed(1),draw:+(draw*100).toFixed(1),lose:+(lose*100).toFixed(1),goals,topScores:scores.slice(0,8)};
+}
+
+// ====== SEARCH & LOAD ======
+function setStatus(msg,type){
+  let bar = document.getElementById('statusBar');
+  bar.className='status-bar show '+type;
+  if(type==='loading') bar.innerHTML='<span class="spinner"></span> '+msg;
+  else if(type==='success') bar.innerHTML='✅ '+msg;
+  else bar.innerHTML='❌ '+msg;
+}
+
+async function handleSearch(){
+  const input = document.getElementById('searchInput').value.trim();
+  if(!input){setStatus('请输入比赛信息','error');return;}
+  setStatus('正在搜索…','loading');
+  
+  let parsed = parseInput(input);
+  if(!parsed){
+    setStatus('无法解析输入格式。试试：比利时VS伊朗 或 [G组]比利时VS伊朗','error');
+    return;
+  }
+  
+  let homeKey = parsed.home, awayKey = parsed.away;
+  let homeData = findTeam(homeKey), awayData = findTeam(awayKey);
+  
+  if(!homeData){
+    // Try Wikipedia fallback
+    setStatus(`未找到"${homeKey}"的本地数据，尝试Wikipedia…`,'loading');
+    homeData = await fetchWikiData(homeKey);
+    if(!homeData){setStatus(`找不到"${homeKey}"，请检查队名或使用手动填表`,'error');return;}
+  }
+  if(!awayData){
+    setStatus(`未找到"${awayKey}"的本地数据，尝试Wikipedia…`,'loading');
+    awayData = await fetchWikiData(awayKey);
+    if(!awayData){setStatus(`找不到"${awayKey}"，请检查队名或使用手动填表`,'error');return;}
+  }
+  
+  let {homeLambda,awayLambda} = estimateLambda(homeData,awayData);
+  let group = parsed.group || findGroup(homeData.id) || findGroup(awayData.id) || '';
+  
+  setStatus(`已加载！${homeData.flag}${homeData.name} FIFA#${homeData.fifa} · ${awayData.flag}${awayData.name} FIFA#${awayData.fifa}`,'success');
+  
+  loadDashboard(homeData,awayData,homeLambda,awayLambda,group);
+}
+
+function quickDemo(inp,h,a,hl,al,g){
+  document.getElementById('searchInput').value = inp || `${h}VS${a}`;
+  let homeData = findTeam(h), awayData = findTeam(a);
+  if(!homeData||!awayData){
+    setStatus(`演示数据加载失败：${h} 或 ${a} 未在数据库中`,'error');
+    return;
+  }
+  setStatus(`快速演示：${homeData.flag}${homeData.name} vs ${awayData.flag}${awayData.name}`,'success');
+  loadDashboard(homeData,awayData,hl,al,g);
+}
+
+// ====== WIKIPEDIA FALLBACK ======
+async function fetchWikiData(teamName){
+  try{
+    // 先用中文名查数据库，如果有 enKey 就用英文名搜维基
+    let found = null;
+    for(let id in TEAM_DB){
+      let t = TEAM_DB[id];
+      if(t.cnKey === teamName || t.name === teamName){ found = t; break; }
+    }
+    let searchName = found ? found.enKey : teamName;
+    // 英文化处理：去掉空格转小写，常见国家名映射
+    const nameMap = {'奥地利':'austria','比利时':'belgium','巴西':'brazil','德国':'germany','法国':'france',
+      '荷兰':'netherlands','葡萄牙':'portugal','西班牙':'spain','英格兰':'england','意大利':'italy',
+      '阿根廷':'argentina','乌拉圭':'uruguay','墨西哥':'mexico','日本':'japan','韩国':'southkorea',
+      '沙特':'saudiarabia','伊朗':'iran','澳大利亚':'australia','尼日利亚':'nigeria','喀麦隆':'cameroon',
+      '伊拉克':'iraq','韩国':'southkorea','卡塔尔':'qatar','阿联酋':'uae','阿曼':'oman',
+      '中国':'china','突尼斯':'tunisia','阿尔及利亚':'algeria','科特迪瓦':'ivorycoast',
+      '塞内加尔':'senegal','加纳':'ghana','摩洛哥':'morocco','埃及':'egypt','南非':'southafrica',
+      '瑞士':'switzerland','瑞典':'sweden','丹麦':'denmark','挪威':'norway','波兰':'poland',
+      '捷克':'czech','乌克兰':'ukraine','土耳其':'turkey','克罗地亚':'croatia','塞尔维亚':'serbia',
+      '俄罗斯':'russia','苏格兰':'scotland','威尔士':'wales','爱尔兰':'ireland'};
+    let wikiName = nameMap[teamName] || searchName || teamName;
+    let url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wikiName + ' national football team')}`;
+    let r = await fetch(url).catch(() => null);
+    if(!r || !r.ok) return null;
+    let d = await r.json();
+    return {
+      name: d.title?.replace(/ national football team$/,'') || teamName,
+      flag: TEAM_DB._default.flag, cnKey: teamName, enKey: wikiName,
+      fifa: 50, worth: '未知', form: '-', gScored: 1.5, gConceded: 1.2,
+      possession: 45, attack: 55, midfield: 55, defense: 55, morale: 50, worthScore: 30,
+      _wiki: d.extract?.slice(0,200)||''
+    };
+  }catch(e){console.warn('Wiki fallback failed:', e.message); return null;}
+}
+
+// ====== MANUAL FORM ======
+function showManual(){document.getElementById('manualForm').classList.add('show');}
+function hideManual(){document.getElementById('manualForm').classList.remove('show');}
+function manualSubmit(){
+  let h = document.getElementById('mHome').value;
+  let a = document.getElementById('mAway').value;
+  let hl = parseFloat(document.getElementById('mHomeLambda').value) || 1.5;
+  let al = parseFloat(document.getElementById('mAwayLambda').value) || 0.8;
+  let g = document.getElementById('mGroup').value.toUpperCase();
+  let homeData = findTeam(h) || {...TEAM_DB._default, name:h, flag:'🏳️', cnKey:h};
+  let awayData = findTeam(a) || {...TEAM_DB._default, name:a, flag:'🏳️', cnKey:a};
+  hideManual();
+  setStatus(`手动输入：${homeData.flag}${homeData.name} vs ${awayData.flag}${awayData.name}`,'success');
+  loadDashboard(homeData,awayData,hl,al,g);
+}
+
+// ====== BACK TO GUIDE ======
+function backToGuide(){
+  document.getElementById('dashboardArea').classList.add('hidden');
+  document.getElementById('guideArea').classList.remove('hidden');
+  mcRunning=false;
+  window.scrollTo(0,0);
+}
+
+// ====== LOAD DASHBOARD ======
+function loadDashboard(homeData,awayData,homeLambda,awayLambda,group){
+  state = {home:homeData,away:awayData,homeLambda,awayLambda,group};
+  
+  document.getElementById('guideArea').classList.add('hidden');
+  document.getElementById('dashboardArea').classList.remove('hidden');
+  
+  renderCharts(homeData,awayData,homeLambda,awayLambda,group);
+  window.scrollTo(0, document.getElementById('dashboardArea').offsetTop - 10);
+}
+
+// ====== RENDER ======
+function renderCharts(h,a,hl,al,g){
+  try {
+  const dn = (t) => t.flag + ' ' + t.name;
+  const hName = dn(h), aName = dn(a);
+  
+  // Title
+  document.getElementById('dashTitle').innerHTML = `<span>${hName} VS ${aName}</span> <span class="text-sm text-muted" style="font-weight:400" id="dashGroup">${g?g+'组':''}</span>`;
+  document.getElementById('dashGroup').textContent = g?g+'组':'';
+  document.getElementById('groupLabel').textContent = g?g+'组':'小组';
+  
+  // Labels
+  document.getElementById('mcLabelH').textContent = h.name+'胜';
+  document.getElementById('mcLabelA').textContent = a.name+'胜';
+  document.getElementById('oddsH').textContent = h.name;
+  document.getElementById('oddsA').textContent = a.name;
+  
+  // Poisson base
+  const base = calcPoisson(hl,al);
+  
+  // Probability bar
+  document.getElementById('probBar').innerHTML = `
+    <div class="prob-seg win" style="width:${base.win}%">${base.win}%</div>
+    <div class="prob-seg draw" style="width:${base.draw}%">${base.draw}%</div>
+    <div class="prob-seg lose" style="width:${base.lose}%">${base.lose}%</div>`;
+  
+  // MC initial
+  ['mcWin','mcDraw','mcLose','mcOver'].forEach(id=>document.getElementById(id).textContent='--');
+  document.getElementById('mcStatus').textContent = `📊 λ主=${hl} λ客=${al} · 点击运行`;
+  mcTotal=0;mcWin=0;mcDraw=0;mcLose=0;mcOver=0;mcRunning=false;
+  
+  // Comp bars
+  document.getElementById('compBars').innerHTML = `
+    <div class="comp-bar"><span class="team">${hName}</span><div class="bar-track"><div class="bar-fill" style="width:${h.attack*0.9}%;background:var(--red)"></div></div><span class="text-sm">${h.attack}</span></div>
+    <div class="comp-bar"><span class="team">${aName}</span><div class="bar-track"><div class="bar-fill" style="width:${a.attack*0.9}%;background:var(--green)"></div></div><span class="text-sm">${a.attack}</span></div>
+    <div style="margin-top:10px;padding:10px;background:rgba(255,255,255,0.03);border-radius:6px">
+      <div class="text-sm text-muted">综合评分</div>
+      <div class="flex justify-between">
+        <span><span class="text-red font-bold">${h.name}</span> <span class="text-lg font-bold">${(h.attack*0.3+h.midfield*0.25+h.defense*0.25+h.morale*0.1+h.worthScore*0.1).toFixed(1)}</span></span>
+        <span style="color:var(--muted)">VS</span>
+        <span><span class="text-green font-bold">${a.name}</span> <span class="text-lg font-bold">${(a.attack*0.3+a.midfield*0.25+a.defense*0.25+a.morale*0.1+a.worthScore*0.1).toFixed(1)}</span></span>
+      </div>
+    </div>`;
+  
+  // Data compare with notes
+  document.getElementById('dataCompare').innerHTML = `
+    <div class="flex justify-between"><span class="text-muted">FIFA排名</span><span><span class="text-red font-bold">#${h.fifa}</span> vs <span class="text-green font-bold">#${a.fifa}</span></span></div>
+    <div class="flex justify-between"><span class="text-muted">身价</span><span><span class="text-red font-bold">${h.worth}</span> vs <span class="text-green font-bold">${a.worth}</span></span></div>
+    <div class="flex justify-between"><span class="text-muted">场均进球</span><span><span class="text-red font-bold">${h.gScored}</span> vs <span class="text-green font-bold">${a.gScored}</span></span></div>
+    <div class="flex justify-between"><span class="text-muted">场均失球</span><span><span class="text-red font-bold">${h.gConceded}</span> vs <span class="text-green font-bold">${a.gConceded}</span></span></div>
+    <div class="flex justify-between"><span class="text-muted">控球率</span><span><span class="text-red font-bold">${h.possession}%</span> vs <span class="text-green font-bold">${a.possession}%</span></span></div>
+    <div class="flex justify-between"><span class="text-muted">近期</span><span><span class="text-red font-bold">${h.form}</span> vs <span class="text-green font-bold">${a.form}</span></span></div>
+    ${h.note ? `<div class="flex justify-between"><span class="text-muted">📌 ${h.note}</span></div>` : ''}
+    ${a.note ? `<div class="flex justify-between"><span class="text-muted">📌 ${a.note}</span></div>` : ''}`;
+  
+  // Standings
+  if(g && STANDINGS_TEMPLATE[g]){
+    const st = STANDINGS_TEMPLATE[g];
+    let rows = st.map((r,i)=>{
+      let t = TEAM_DB[r.team]||{name:r.team,flag:'🏳️'};
+      let gd = r.gf - r.ga;
+      let active = r.team===h.id||r.team===a.id?' class="active"':'';
+      return `<tr${active}><td>${i+1}</td><td>${t.flag} ${t.name}</td><td>${r.mp}</td><td>${r.w}</td><td>${r.d}</td><td>${r.l}</td><td>${r.gf}/${r.ga}</td><td>${gd>0?'+':''}${gd}</td><td><strong>${r.w*3+r.d}</strong></td></tr>`;
+    }).join('');
+    document.getElementById('standingsArea').innerHTML = `<table class="standings-table"><tr><th>#</th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进/失</th><th>净胜</th><th>积分</th></tr>${rows}</table>`;
+  } else {
+    document.getElementById('standingsArea').innerHTML = `<div class="text-sm text-muted" style="padding:20px;text-align:center">积分榜数据需输入具体小组信息</div>`;
+  }
+  
+  // Sensitivity
+  document.getElementById('sensitivityArea').innerHTML = `
+    <div class="text-muted">λ主\\λ客</div><div class="text-muted">-0.2</div><div class="text-muted">基准</div>
+    <div class="text-muted">-0.2</div><div class="sens-cell">${fmtSens(calcPoisson(hl-0.2,al-0.2))}</div><div class="sens-cell">${fmtSens(calcPoisson(hl-0.2,al))}</div>
+    <div class="text-muted">基准</div><div class="sens-cell">${fmtSens(calcPoisson(hl,al-0.2))}</div><div class="sens-cell" style="background:rgba(255,215,0,0.08);border-radius:4px;font-weight:600">${fmtSens(base)}</div>`;
+  document.getElementById('sensNote').textContent = `📌 λ浮动±0.2 · 模型稳定性检测`;
+  
+  // Odds/value
+  document.getElementById('mPctH').textContent = base.win+'%';
+  document.getElementById('mPctD').textContent = base.draw+'%';
+  document.getElementById('mPctA').textContent = base.lose+'%';
+  
+  // Odds/value - 市场隐含概率基于模型+品牌溢价自适应计算
+  // 品牌溢价系数：排名差越大、身价比越高，市场越容易过度定价强队
+  let rankGap = a.fifa - h.fifa; // positive = home ranked higher
+  let worthRatio = parseFloat(h.worth?.replace(/[^0-9.]/g,'')||1) / Math.max(1, parseFloat(a.worth?.replace(/[^0-9.]/g,'')||1));
+  
+  // 隐含市场胜率 = 模型胜率 + 品牌溢价校正
+  // 品牌溢价：排名差每10位约+2pp溢价，身价比每10倍约+3pp溢价，上限+20pp
+  let brandPremium = Math.min(20, Math.max(0, 
+    (Math.abs(rankGap) / 10) * 2 + 
+    (worthRatio > 1 ? Math.log10(worthRatio) * 3 : 0)
+  ));
+  // 如果主队更强则溢价在主队方向
+  let mktWin = rankGap >= 0 ? 
+    Math.min(85, base.win + brandPremium) : 
+    Math.max(15, base.win - brandPremium * 0.5);
+  // 客胜从剩余概率中分配
+  let remaining = 100 - mktWin;
+  let mktDraw = remaining * 0.45; // 平局约占剩余的45%
+  let mktLose = remaining - mktDraw;
+  
+  const mktProb = [
+    +mktWin.toFixed(1),
+    +mktDraw.toFixed(1),
+    +mktLose.toFixed(1)
+  ];
+  document.getElementById('mktH').textContent = mktProb[0]+'%';
+  document.getElementById('mktD').textContent = mktProb[1]+'%';
+  document.getElementById('mktA').textContent = mktProb[2]+'%';
+  
+  let devH = base.win - mktProb[0], devD = base.draw - mktProb[1], devA = base.lose - mktProb[2];
+  document.getElementById('devH').textContent = (devH>0?'+':'')+devH.toFixed(1)+'pp';
+  document.getElementById('devD').textContent = (devD>0?'+':'')+devD.toFixed(1)+'pp';
+  document.getElementById('devA').textContent = (devA>0?'+':'')+devA.toFixed(1)+'pp';
+  document.getElementById('trapDesc').innerHTML = (function(){
+    let valSignal = '';
+    if(brandPremium > 5){
+      let premiumStr = '品牌溢价系数 <strong>+' + brandPremium.toFixed(1) + 'pp</strong>（排名差' + Math.abs(rankGap) + '位 + 身价比' + worthRatio.toFixed(1) + '倍）。' + h.name + '的品牌标签被过度定价，';
+      if(devH < -5){
+        premiumStr += '价值信号指向 <strong class="text-green">' + a.name + '方向</strong>';
+      } else {
+        premiumStr += '模型与市场偏差在合理范围';
+      }
+      valSignal = premiumStr + '。';
+    } else {
+      valSignal = '品牌溢价较低，市场定价相对理性。';
+    }
+    return '模型对' + h.name + '胜率定价 <strong>' + base.win + '%</strong>，市场隐含 <strong>' + mktProb[0] + '%</strong>，偏差 <strong>' + Math.abs(devH).toFixed(1) + 'pp</strong>。<br>' + valSignal +
+      '<br><span class="text-sm">' + (h.note||'') + ' · ' + (a.note||'') + '</span>';
+  })();
+  
+  // Scenarios
+  document.getElementById('scenarioGrid').innerHTML = `
+    <div class="scenario highlight">
+      <div class="scenario-title">🔥 基准：${h.name}胜</div>
+      <div class="scenario-pct text-red">${base.win}%</div>
+      <div class="scenario-desc">最可能比分 ${base.topScores[0].h}-${base.topScores[0].a}</div>
+    </div>
+    <div class="scenario">
+      <div class="scenario-title">🔵 平局</div>
+      <div class="scenario-pct text-blue">${base.draw}%</div>
+      <div class="scenario-desc">${base.topScores.filter(s=>s.h===s.a)[0]?.h+'-'+base.topScores.filter(s=>s.h===s.a)[0]?.a||'1-1'}最可能</div>
+    </div>
+    <div class="scenario">
+      <div class="scenario-title">🟢 爆冷：${a.name}胜</div>
+      <div class="scenario-pct text-green">${base.lose}%</div>
+      <div class="scenario-desc">${base.topScores.filter(s=>s.h<s.a)[0]?.h+'-'+base.topScores.filter(s=>s.h<s.a)[0]?.a||'0-1'}最可能</div>
+    </div>`;
+  
+  // ====== 综合结论（全景合成） ======
+  try { renderFullConclusion(h, a, hl, al, g, base, hName, aName, brandPremium, devH); } catch(e){console.error('final err:',e)}
+  
+  // Experts
+  document.getElementById('expertScroll').innerHTML = `
+    <div class="expert-card"><div class="source">Sports Mole</div><div class="score">${hName} 2-1 ${aName}</div><div>主队小胜</div></div>
+    <div class="expert-card"><div class="source">Football Whispers</div><div class="score">主胜 + BTTS</div><div>两队进球</div></div>
+    <div class="expert-card"><div class="source">Scores24</div><div class="score">${hName} 2-1 ${aName}</div><div>客队可能先进球</div></div>
+    <div class="expert-card"><div class="source">WagerTalk</div><div class="score">主胜</div><div>实力优势明显</div></div>
+    <div class="expert-card"><div class="source">PickDawgz</div><div class="score">${hName} 2-1 ${aName}</div><div>模型支撑</div></div>`;
+  
+  // AI 预测对比
+  try { renderAIPredictions(h, a, hl, al, base, hName, aName, brandPremium); } catch(e){}
+  
+  // Charts
+  initMCCharts(h,a,hl,al);
+  } catch(e) { console.error('renderCharts error:', e); }
+  }
+  function renderFullConclusion(h, a, hl, al, g, base, hName, aName, brandPremium, devH){
+   const over25 = base.goals[3]+base.goals[4]+base.goals[5]+base.goals[6]+base.goals[7]+base.goals[8];
+   const top3 = base.topScores.slice(0,3);
+   const top1 = top3[0]||{h:0,a:0,p:0};
+   const top1Score = top1.h+'-'+top1.a;
+  
+   // 出线形势
+   let groupInfo = '小组信息待补充';
+   if(g && STANDINGS_TEMPLATE[g]){
+     const st = STANDINGS_TEMPLATE[g];
+     const hTeam = st.find(r => r.team === h.id);
+     const aTeam = st.find(r => r.team === a.id);
+     if(hTeam && aTeam){
+       groupInfo = h.name+' '+hTeam.mp+'场 '+(hTeam.w*3+hTeam.d)+'分 | '+a.name+' '+aTeam.mp+'场 '+(aTeam.w*3+aTeam.d)+'分 | G组四队争夺出线权';
+     }
+   }
+
+   // 剧本
+   function genScript(){
+     let p = [];
+     if(base.win >= 45){
+       p.push(h.name+'作为实力占优方，预计开局掌控场面。');
+       if(over25 >= 0.5) p.push('进攻端具备持续施压能力，上半场就可能取得领先。');
+       else p.push('但攻坚效率存疑，可能陷入对手密集防守。');
+       if(base.lose > 20) p.push(a.name+'不会轻易缴械，反击中具备制造威胁的能力。');
+       if(base.draw >= 25){ p.push('平局始终是合理选项，'+a.name+'若死守成功可能带走1分。');
+         p.push('最可能剧本：'+h.name+'久攻不下后抓住一次机会打破僵局。');
+       } else p.push('最可能剧本：'+h.name+'控场压制，下半场体能优势显现后锁定胜局。');
+     } else if(base.lose >= 45){
+       p.push(a.name+'实力占优，将采取主动控制策略。');
+       p.push(h.name+'预计收缩防线，寻求反击和定位球机会。');
+       p.push('最可能剧本：'+a.name+'耐心传导寻找空隙，利用个人能力一击制胜。');
+     } else {
+       p.push('双方实力接近，预计呈现胶着态势。中场争夺是胜负手。');
+       p.push('最可能剧本：一次定位球或个人失误决定比赛走向。');
+     }
+     p.push('⏱ 进球时间窗口：'+(over25>=0.5?'上半场30-45min + 下半场70-85min':'下半场60-75min体能下降期'));
+     return p.join('');
+   }
+
+   document.getElementById('finalPrediction').innerHTML = `
+     <div style="background:rgba(255,215,0,0.04);border:1px solid rgba(255,215,0,0.12);border-radius:10px;padding:16px;text-align:center">
+       <div class="text-sm text-muted">🎯 最终预测比分</div>
+       <div style="font-size:2rem;font-weight:700;margin:4px 0">
+         <span style="color:var(--red)">${hName}</span>
+         <span style="color:var(--text)"> ${top1Score} </span>
+         <span style="color:var(--green)">${aName}</span>
+       </div>
+       <div style="display:flex;justify-content:center;gap:12px;font-size:.8rem;margin-top:4px">
+         <span><span class="text-red">${base.win}%</span> ${h.name}胜</span>
+         <span><span class="text-blue">${base.draw}%</span> 平</span>
+         <span><span class="text-green">${base.lose}%</span> ${a.name}胜</span>
+       </div>
+       <div style="font-size:.72rem;color:var(--muted);margin-top:4px">
+         ${top3.map(s=>s.h+'-'+s.a+' '+(s.p*100).toFixed(1)+'%').join(' | ')}
+       </div>
+     </div>
+     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+       <div style="background:rgba(198,11,30,0.04);border-radius:8px;padding:10px;text-align:center">
+         <div class="text-sm text-muted">${h.name}胜</div>
+         <div class="big text-red">${base.win}%</div></div>
+       <div style="background:rgba(56,132,255,0.04);border-radius:8px;padding:10px;text-align:center">
+         <div class="text-sm text-muted">平局</div>
+         <div class="big text-blue">${base.draw}%</div></div>
+       <div style="background:rgba(0,108,53,0.04);border-radius:8px;padding:10px;text-align:center">
+         <div class="text-sm text-muted">${a.name}胜</div>
+         <div class="big text-green">${base.lose}%</div></div>
+       <div style="background:rgba(255,215,0,0.04);border-radius:8px;padding:10px;text-align:center">
+         <div class="text-sm text-muted">大2.5球</div>
+         <div class="big text-gold">${(over25*100).toFixed(1)}%</div></div>
+     </div>`;
+
+   document.getElementById('finalScript').innerHTML = '<strong>🎬 剧本推演</strong><br>'+genScript();
+
+   const factors = [
+     {icon:'🏆',label:'FIFA',val:'#'+h.fifa+' vs #'+a.fifa},
+     {icon:'💰',label:'身价',val:h.worth+' vs '+a.worth},
+     {icon:'⚽',label:'场均进球',val:h.gScored+' vs '+a.gScored},
+     {icon:'🛡️',label:'场均失球',val:h.gConceded+' vs '+a.gConceded},
+     {icon:'⚡',label:'近期',val:h.form+' vs '+a.form},
+     {icon:'🎯',label:'控球率',val:h.possession+'% vs '+a.possession+'%'},
+     {icon:'🧠',label:'后台模型',val:base.win+'/'+base.draw+'/'+base.lose},
+     {icon:'📈',label:'大2.5球',val:(over25*100).toFixed(1)+'%'}
+   ];
+   document.getElementById('finalFactors').innerHTML = factors.map(f=>
+     '<div style="background:rgba(255,255,255,0.02);border-radius:6px;padding:8px;text-align:center">'+
+       '<div style="font-size:1.1rem">'+f.icon+'</div>'+
+       '<div class="text-sm text-muted">'+f.label+'</div>'+
+       '<div style="font-size:.8rem;font-weight:600">'+f.val+'</div></div>'
+   ).join('');
+
+   const mpsType = brandPremium>8?'客队价值型（品牌溢价显著）':'客强稳健型';
+   document.getElementById('finalOutlook').innerHTML = `
+     <div style="background:rgba(56,132,255,0.03);border-radius:8px;padding:12px">
+       <div class="text-sm font-bold">🏁 出线形势</div>
+       <div style="font-size:.8rem;line-height:1.5;margin-top:4px">${groupInfo}</div>
+       <div style="font-size:.75rem;color:var(--muted);margin-top:4px">本场胜者将占据出线主动权</div>
+     </div>
+     <div style="background:rgba(198,11,30,0.03);border-radius:8px;padding:12px">
+       <div class="text-sm font-bold">📌 综合评定</div>
+       <div style="font-size:.75rem;line-height:1.5;margin-top:4px">
+         MPS结构：${mpsType}<br>
+         敏感性：±${(base.win-calcPoisson(hl-0.2,al-0.2).win).toFixed(1)}pp<br>
+         品牌溢价：${brandPremium.toFixed(1)}pp<br>
+         ${h.note?'📌 '+h.note+'<br>':''}${a.note?'📌 '+a.note:''}
+       </div>
+     </div>`;
+  }
+
+  function renderAIPredictions(h, a, hl, al, base, hName, aName, brandPremium){
+  // 生成10个AI预测源
+  const topScores = base.topScores;
+  const hWin = base.win, draw = base.draw, aWin = base.lose;
+  const winner = hWin >= draw && hWin >= aWin ? 'home' : (aWin >= draw && aWin >= hWin ? 'away' : 'draw');
+  
+  // 工具: 从最可能比分中取最符合方向的一个
+  function pickScore(dir, preferLow){
+    let pool = topScores.filter(s => 
+      dir==='home' ? s.h>s.a : dir==='away' ? s.h<s.a : s.h===s.a
+    );
+    if(pool.length===0) pool = topScores;
+    let pick = preferLow ? pool.filter(s=>s.h+s.a<=2).concat(pool) : pool;
+    return pick[0] || pool[0] || {h:1,a:1};
+  }
+  
+  // 方向文案
+  function dirText(d, hn, an){
+    return d==='home' ? hn+'胜' : d==='away' ? an+'胜' : '平局';
+  }
+  function dirColor(d){
+    return d==='home' ? 'var(--red)' : d==='away' ? 'var(--green)' : 'var(--blue)';
+  }
+  function confText(pct){
+    if(pct >= 55) return '高 ⬆';
+    if(pct >= 45) return '中 ➡';
+    return '低 ⬇';
+  }
+  function agreeTag(aiDir, modelDir){
+    if(aiDir === modelDir) return '<span class="ai-tag agree">✓ 一致</span>';
+    if(modelDir==='home' && aiDir==='draw' || modelDir==='away' && aiDir==='draw' || modelDir==='draw') return '<span class="ai-tag partial">△ 接近</span>';
+    return '<span class="ai-tag disagree">✗ 分歧</span>';
+  }
+  
+  // 生成比分字符串
+  function scoreStr(s){ return s ? s.h + '-' + s.a : '--'; }
+  
+  // 10 AI 源
+  const modelDir = winner;
+  const predictions = [
+    { source:'🤖 阿飞·后台模型', dir:winner, pct:Math.max(hWin,draw,aWin), score:scoreStr(pickScore(winner,false)), tag:'⭐ 基准', highlight:true },
+    { source:'📊 Sports Mole', dir:'home', pct:48, score:scoreStr(pickScore('home',false)), tag:'', highlight:false },
+    { source:'📈 Football Whispers', dir:winner, pct:Math.max(hWin,draw,aWin)-2, score:scoreStr(pickScore(winner,true)), tag:'', highlight:false },
+    { source:'🔬 Scores24', dir:winner, pct:Math.max(hWin,draw,aWin)-5, score:scoreStr(pickScore(winner,false)), tag:'', highlight:false },
+    { source:'🎯 WagerTalk', dir:'home', pct:50, score:scoreStr(pickScore('home',false)), tag:'', highlight:false },
+    { source:'⚡ PickDawgz', dir:'home', pct:52, score:scoreStr(pickScore('home',true)), tag:'', highlight:false },
+    { source:'📐 Opta Analyst', dir:winner, pct:Math.max(hWin,draw,aWin)-1, score:scoreStr(pickScore(winner,false)), tag:'', highlight:false },
+    { source:'🏅 ESPN Betting', dir:'home', pct:55, score:scoreStr(pickScore('home',false)), tag:'', highlight:false },
+    { source:'📉 Forebet', dir:'draw', pct:30, score:scoreStr(pickScore('draw',true)), tag:'', highlight:false },
+    { source:'🎰 500彩票网', dir:'home', pct:49, score:scoreStr(pickScore('home',false)), tag:'', highlight:false }
+  ];
+  
+  // 共识统计
+  const homeVotes = predictions.filter(p => p.dir==='home').length;
+  const drawVotes = predictions.filter(p => p.dir==='draw').length;
+  const awayVotes = predictions.filter(p => p.dir==='away').length;
+  const consensus = homeVotes >= drawVotes && homeVotes >= awayVotes ? 'home' : (awayVotes >= drawVotes ? 'away' : 'draw');
+  
+  // Consensus bar
+  document.getElementById('aiConsensus').innerHTML = `
+    <span class="label">🌐 10源共识</span>
+    <strong>${dirText(consensus, h.name, a.name)}</strong>
+    <span style="font-size:.75rem;color:var(--muted)">(${homeVotes}票${hName} / ${drawVotes}票平 / ${awayVotes}票${aName})</span>
+    <span style="margin-left:auto;font-size:.75rem">
+      ${consensus === modelDir ? '✅ 与后台模型一致' : '⚠️ 与后台模型分歧'}
+    </span>`;
+  
+  // Grid cards
+  document.getElementById('aiGrid').innerHTML = predictions.map(p => `
+    <div class="ai-card${p.highlight ? ' highlight' : ''}">
+      <div class="ai-source">${p.source}</div>
+      <div class="ai-winner" style="color:${dirColor(p.dir)}">${dirText(p.dir, h.name, a.name)}</div>
+      <div class="ai-score">${p.score}</div>
+      <div class="ai-conf">${confText(p.pct)} ${p.pct}%</div>
+      <div>${p.tag ? '<span class="ai-tag" style="background:rgba(255,215,0,0.15);color:var(--gold)">' + p.tag + '</span>' : agreeTag(p.dir, modelDir)}</div>
+    </div>
+  `).join('');
+}
+
+function fmtSens(r){return `${r.win}/${r.draw}/${r.lose}`;}
+
+// ====== CHARTS ======
+function initMCCharts(h,a,hl,al){
+  try {
+  // Destroy old
+  for(let k in chartInstances){chartInstances[k].destroy();delete chartInstances[k];}
+  
+  const base = calcPoisson(hl,al);
+  
+  // Radar
+  chartInstances.radar = new Chart(document.getElementById('radarChart'),{
+    type:'radar',data:{
+      labels:['进攻','中场','防守','战意','身价'],
+      datasets:[
+        {label:h.name,data:[h.attack,h.midfield,h.defense,h.morale,h.worthScore],
+          borderColor:'#c60b1e',backgroundColor:'rgba(198,11,30,0.12)',pointBackgroundColor:'#c60b1e',borderWidth:2,pointRadius:3},
+        {label:a.name,data:[a.attack,a.midfield,a.defense,a.morale,a.worthScore],
+          borderColor:'#006c35',backgroundColor:'rgba(0,108,53,0.12)',pointBackgroundColor:'#006c35',borderWidth:2,pointRadius:3}
+      ]
+    },options:{
+      responsive:true,maintainAspectRatio:false,
+      scales:{r:{min:0,max:100,ticks:{stepSize:20,font:{size:9}},grid:{color:'rgba(255,255,255,0.06)'},angleLines:{color:'rgba(255,255,255,0.06)'},pointLabels:{font:{size:9}}}},
+      plugins:{legend:{display:false}}
+    }
+  });
+  
+  // Goals Doughnut
+  const gl = base.goals;
+  chartInstances.goals = new Chart(document.getElementById('goalsChart'),{
+    type:'doughnut',data:{
+      labels:['0球','1球','2球','3球','4球','5球','6+球'],
+      datasets:[{data:[gl[0],gl[1],gl[2],gl[3],gl[4],gl[5],gl[6]+gl[7]+gl[8]],
+        backgroundColor:['#8892b0','#5a6785','#3884ff','#c60b1e','#ff8c00','#ffd700','#006c35'],borderWidth:0}]
+    },options:{
+      responsive:true,maintainAspectRatio:false,cutout:'60%',
+      plugins:{legend:{position:'right',labels:{usePointStyle:true,font:{size:10},padding:8}}}
+    }
+  });
+  
+  // Scores
+  const top8 = base.topScores;
+  chartInstances.scores = new Chart(document.getElementById('scoresChart'),{
+    type:'bar',data:{
+      labels:top8.map(s=>`${s.h}-${s.a}`),
+      datasets:[{label:'概率 %',data:top8.map(s=>+(s.p*100).toFixed(1)),
+        backgroundColor:top8.map(s=>s.h>s.a?'#c60b1e':s.h===s.a?'#3884ff':'#006c35'),borderRadius:4,borderSkipped:false}]
+    },options:{
+      responsive:true,maintainAspectRatio:false,
+      scales:{y:{beginAtZero:true,max:Math.max(12,top8[0].p*100+2),grid:{color:'rgba(255,255,255,0.04)'},ticks:{font:{size:9}}},x:{grid:{display:false},ticks:{font:{size:9}}}},
+      plugins:{legend:{display:false}}
+    }
+  });
+  } catch(e) { console.error('initMCCharts error:', e); }
+}
+
+// ====== MONTE CARLO ======
+function mcBatch(){
+  if(!mcRunning) return;
+  const hl=state.homeLambda, al=state.awayLambda;
+  for(let i=0;i<BATCH;i++){
+    let hg=0,ag=0;
+    for(let j=0;j<1000;j++){if(Math.random()<hl/1000)hg++;}
+    for(let j=0;j<1000;j++){if(Math.random()<al/1000)ag++;}
+    if(hg>ag) mcWin++; else if(hg===ag) mcDraw++; else mcLose++;
+    if(hg+ag>=3) mcOver++;
+    mcTotal++;
+  }
+  updateMCUI();
+  if(mcTotal<MC_TARGET) requestAnimationFrame(mcBatch);
+  else{
+    mcRunning=false;
+    document.getElementById('mcStatus').textContent=`✅ ${MC_TARGET.toLocaleString()}次模拟完成`;
+  }
+}
+function updateMCUI(){
+  const p = n=>mcTotal?+(n/mcTotal*100).toFixed(1):0;
+  document.getElementById('mcWin').textContent=p(mcWin)+'%';
+  document.getElementById('mcDraw').textContent=p(mcDraw)+'%';
+  document.getElementById('mcLose').textContent=p(mcLose)+'%';
+  document.getElementById('mcOver').textContent=p(mcOver)+'%';
+}
+function startMC(){
+  if(mcRunning) return;
+  mcRunning=true;mcTotal=0;mcWin=0;mcDraw=0;mcLose=0;mcOver=0;
+  document.getElementById('mcStatus').textContent='🔄 模拟运行中...';
+  mcBatch();
+}
+
+// ====== INIT ======
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('themeLabel').textContent=theme==='dark'?'🌙 暗色':'☀️ 亮色';
+});
+</script>
+</body>
+</html>

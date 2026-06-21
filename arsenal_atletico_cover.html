@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{display:flex;justify-content:center;align-items:center;min-height:100vh;background:#0a0a0f;font-family:'Noto Sans SC',sans-serif;padding:20px;}
+.card{
+  width:800px;height:450px;
+  background:radial-gradient(ellipse at 30% 40%,#1a0a1a,#080008);
+  border:1px solid rgba(200,0,255,0.2);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  box-shadow:0 0 60px rgba(200,0,255,0.08);
+}
+/* grid */
+.card::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(200,0,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(200,0,255,0.04) 1px,transparent 1px);background-size:20px 20px;}
+/* top bar */
+.topbar{position:absolute;top:0;left:0;right:0;padding:12px 24px;display:flex;justify-content:space-between;align-items:center;z-index:2;border-bottom:1px solid rgba(200,0,255,0.1);}
+.topbar .tag{font-size:11px;color:rgba(200,0,255,0.4);letter-spacing:2px;font-family:'Orbitron',sans-serif;}
+.topbar .tag span{color:rgba(200,0,255,0.6);}
+/* vs container */
+.vs-container{display:flex;align-items:center;gap:40px;z-index:2;margin-top:20px;}
+.team{text-align:center;}
+.team .name{font-size:42px;font-weight:700;color:#fff;letter-spacing:2px;text-shadow:0 0 20px rgba(200,0,255,0.2);}
+.team .name small{font-size:16px;font-weight:300;color:rgba(255,255,255,0.3);display:block;margin-top:4px;letter-spacing:1px;}
+.team .badge{width:80px;height:80px;border-radius:50%;border:2px solid rgba(200,0,255,0.2);margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:36px;}
+.team .stat{font-size:12px;color:rgba(255,255,255,0.3);margin-top:6px;letter-spacing:1px;}
+.vs{font-size:28px;font-weight:900;color:rgba(200,0,255,0.3);font-family:'Orbitron',sans-serif;}
+/* bottom bar */
+.bottombar{position:absolute;bottom:0;left:0;right:0;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;z-index:2;border-top:1px solid rgba(200,0,255,0.1);}
+.bottombar .info{font-size:12px;color:rgba(200,0,255,0.35);letter-spacing:1px;}
+.bottombar .info strong{color:rgba(200,0,255,0.5);}
+.bottombar .brand{font-size:11px;color:rgba(200,0,255,0.25);letter-spacing:2px;font-family:'Orbitron',sans-serif;}
+/* ring decor */
+.ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:380px;height:380px;border-radius:50%;border:1px solid rgba(200,0,255,0.06);z-index:0;}
+.ring2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;border-radius:50%;border:1px solid rgba(200,0,255,0.04);z-index:0;}
+.arsenal-color{color:#EF0107;}
+.atleti-color{color:#CB3524;}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="topbar">
+    <div class="tag">UEFA <span>CHAMPIONS LEAGUE</span></div>
+    <div class="tag">SF · 2ND LEG</div>
+  </div>
+  <div class="ring"></div>
+  <div class="ring2"></div>
+  <div class="vs-container">
+    <div class="team">
+      <div class="badge" style="background:rgba(239,1,7,0.1);border-color:rgba(239,1,7,0.3);">🔴</div>
+      <div class="name">阿森纳<small>ARSENAL</small></div>
+      <div class="stat">英超第1 · 欧冠不败</div>
+    </div>
+    <div class="vs">VS</div>
+    <div class="team">
+      <div class="badge" style="background:rgba(203,53,36,0.1);border-color:rgba(203,53,36,0.3);">🔵</div>
+      <div class="name">马德里竞技<small>ATLÉTICO</small></div>
+      <div class="stat">西甲第4 · 客场防守堪忧</div>
+    </div>
+  </div>
+  <div class="bottombar">
+    <div class="info"><strong>首回合</strong> 马竞 1-1 阿森纳</div>
+    <div class="info"><strong>05.06</strong> 03:00 · 酋长球场</div>
+    <div class="brand">阿飞·赛博聊球</div>
+  </div>
+</div>
+</body>
+</html>
