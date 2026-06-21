@@ -142,6 +142,7 @@ h1{font-size:1.6rem;font-weight:700;margin-bottom:4px;display:flex;align-items:c
     <div class="search-box" style="max-width:550px;margin:0 auto 16px">
       <input type="text" id="searchInput" placeholder="输入竞彩编号或球队对阵，例如：周日038 或 比利时VS伊朗" onkeydown="if(event.key==='Enter')handleSearch()">
       <button class="search-btn" onclick="handleSearch()">🔍 搜索</button>
+      <button class="theme-btn" onclick="fetchFromLottery()" style="background:rgba(0,229,255,0.1);border-color:rgba(0,229,255,0.2);color:var(--accent2)" title="从竞彩网实时拉取数据">📡 实时</button>
       <button class="theme-btn" onclick="showManual()">✏️ 手动</button>
     </div>
     <div class="examples">
@@ -428,6 +429,66 @@ function setStatus(msg,type){
   if(type==='loading') bar.innerHTML='<span class="spinner"></span> '+msg;
   else if(type==='success') bar.innerHTML='✅ '+msg;
   else bar.innerHTML='❌ '+msg;
+}
+
+// ====== 竞彩网实时数据获取 ======
+async function fetchFromLottery(){
+  const input = document.getElementById('searchInput').value.trim();
+  if(!input){setStatus('请输入竞彩编号','error');return;}
+  setStatus('正在从竞彩网获取实时数据…','loading');
+  try{
+    const url = 'https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c';
+    const resp = await fetch(url);
+    if(!resp.ok) throw new Error('API请求失败');
+    const data = await resp.json();
+    if(Number(data.errorCode)!==0) throw new Error(data.errorMessage||'API返回错误');
+    
+    // 搜索匹配
+    const q = input.replace(/[^\d]/g,'');
+    let found = null;
+    for(const group of (data.value?.matchInfoList||[])){
+      for(const sub of (group.subMatchList||[])){
+        const num = String(sub.matchNum||sub.matchNumStr||'');
+        if(num.replace(/[^\d]/g,'')===q || num.includes(q)){ found = sub; break; }
+      } if(found) break;
+    }
+    if(!found) throw new Error('未找到编号为 '+input+' 的赛事');
+    
+    const hName = found.homeTeamAllName||found.homeTeamAbbName||'主队';
+    const aName = found.awayTeamAllName||found.awayTeamAbbName||'客队';
+    const league = found.leagueAllName||found.leagueAbbName||'';
+    const date = found.matchDate||'';
+    const time = (found.matchTime||'').substring(0,5);
+    const goalLine = (found.hhad?.goalLine&&found.hhad.goalLine!=='0')?' [让'+found.hhad.goalLine+']':'';
+    
+    // 从赔率反推λ
+    let hl = 1.5, al = 0.8;
+    const odds = found.had||found.hhad;
+    if(odds && odds.h && odds.h!=='-'){
+      const hOdds=parseFloat(odds.h), dOdds=parseFloat(odds.d), aOdds=parseFloat(odds.a);
+      if(hOdds && dOdds && aOdds){
+        const total=1/hOdds+1/dOdds+1/aOdds;
+        const fairH=(1/hOdds)/total, fairA=(1/aOdds)/total;
+        hl=Math.max(0.5,Math.min(3.5,0.4+fairH*3.2));
+        al=Math.max(0.3,Math.min(3.0,0.2+fairA*3.2));
+      }
+    }
+    
+    setStatus(`✅ ${found.matchNumStr||q} ${league} ${hName}vs${aName}${goalLine} · ${date} ${time}`,'success');
+    
+    // 查找或估算球队数据，加载仪表盘
+    let hd = findTeam(hName) || {...TEAM_DB._default, name:hName, flag:'🏳️', cnKey:hName, fifa:50, worth:'实时', form:'-', gScored:1.5, gConceded:1.2, possession:45, attack:55, midfield:55, defense:55, morale:50, worthScore:30};
+    let ad = findTeam(aName) || {...TEAM_DB._default, name:aName, flag:'🏳️', cnKey:aName, fifa:50, worth:'实时', form:'-', gScored:1.2, gConceded:1.5, possession:45, attack:50, midfield:50, defense:50, morale:55, worthScore:25};
+    
+    // 提取组别
+    let group = '';
+    if(found.groupName){ let m=found.groupName.match(/[A-Z]/); if(m) group=m[0]; }
+    
+    loadDashboard(hd, ad, hl, al, group);
+  } catch(e){
+    setStatus('❌ '+e.message,'error');
+    console.error('Lottery fetch error:', e);
+  }
 }
 
 async function handleSearch(){
