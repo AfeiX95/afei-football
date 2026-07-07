@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>三场模型投注方案 · 07-02</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#0f0f1a;color:#e0e0e0;padding:16px}
+.container{max-width:720px;margin:0 auto}
+h1{font-size:20px;font-weight:700;color:#fff;margin-bottom:4px}
+.subtitle{font-size:13px;color:#888;margin-bottom:16px}
+.match-card{background:#1a1a2e;border-radius:10px;padding:16px;margin-bottom:14px;border:1px solid #2a2a3e}
+.match-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.match-id{font-size:12px;color:#666;background:#252540;padding:2px 8px;border-radius:4px}
+.match-time{font-size:12px;color:#888}
+.match-vs{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.team{font-size:16px;font-weight:600;color:#fff}
+.team.home{color:#4fc3f7}
+.team.away{color:#ff8a65}
+.vs-text{color:#555;font-size:13px;margin:0 8px}
+.match-note{font-size:12px;color:#999;margin-bottom:8px;padding:6px 10px;background:#252540;border-radius:6px;border-left:3px solid #ff9800}
+.kpi-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px}
+.kpi-item{background:#252540;border-radius:6px;padding:8px;text-align:center}
+.kpi-label{font-size:11px;color:#888}
+.kpi-value{font-size:16px;font-weight:700;color:#fff}
+.kpi-value.green{color:#4caf50}
+.kpi-value.red{color:#ef5350}
+.kpi-value.orange{color:#ff9800}
+.kpi-value.blue{color:#4fc3f7}
+.prob-bar{display:flex;height:20px;border-radius:4px;overflow:hidden;margin-bottom:8px;font-size:11px;font-weight:600}
+.prob-bar .seg{display:flex;align-items:center;justify-content:center;color:#fff;transition:width 0.3s}
+.prob-bar .seg.h{background:#4fc3f7}
+.prob-bar .seg.d{background:#ffb74d}
+.prob-bar .seg.a{background:#ff8a65}
+.prob-compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.prob-box{background:#252540;border-radius:6px;padding:8px;text-align:center}
+.prob-box .label{font-size:11px;color:#888;margin-bottom:2px}
+.prob-box .val{font-size:14px;font-weight:600}
+.prob-box .delta{font-size:12px;font-weight:600;margin-top:2px}
+.delta.pos{color:#4caf50}
+.delta.neg{color:#ef5350}
+.delta.neutral{color:#888}
+.score-table{width:100%;border-collapse:collapse;margin-bottom:10px;font-size:13px}
+.score-table th{background:#252540;color:#888;font-weight:500;padding:6px 4px;border:1px solid #2a2a3e;text-align:center}
+.score-table td{padding:5px 4px;border:1px solid #2a2a3e;text-align:center;color:#ccc}
+.score-table tr:nth-child(1) td{color:#4fc3f7;font-weight:600}
+.signal-card{background:#1a1a2e;border-radius:10px;padding:14px;margin-bottom:14px;border-left:4px solid #ef5350}
+.signal-card.green{border-left-color:#4caf50}
+.signal-card.orange{border-left-color:#ff9800}
+.signal-card .signal-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
+.signal-card .signal-desc{font-size:13px;color:#aaa;line-height:1.6}
+.plan-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:14px}
+.plan-card{background:#1a1a2e;border-radius:10px;padding:14px;border:1px solid #2a2a3e}
+.plan-card .plan-title{font-size:14px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.plan-card .plan-title .badge{font-size:11px;padding:1px 6px;border-radius:3px;font-weight:600}
+.plan-card .plan-items{font-size:13px;color:#bbb;line-height:1.7}
+.plan-card .plan-items li{margin-left:16px;margin-bottom:3px}
+.tag{display:inline-block;font-size:11px;padding:2px 7px;border-radius:4px;font-weight:500}
+.tag.red{background:#3a1520;color:#ef5350}
+.tag.green{background:#1a3a1a;color:#4caf50}
+.tag.orange{background:#3a2a10;color:#ff9800}
+.tag.blue{background:#102a3a;color:#4fc3f7}
+.section-title{font-size:16px;font-weight:700;color:#fff;margin:18px 0 10px;padding-left:12px;border-left:3px solid #4fc3f7}
+.section-title.warn{border-left-color:#ff9800}
+.section-title.danger{border-left-color:#ef5350}
+.footer{text-align:center;font-size:11px;color:#555;margin-top:20px;padding-top:12px;border-top:1px solid #2a2a3e;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📊 三场模型运算 + 投注方案</h1>
+<div class="subtitle">2026-07-02 · 世界杯1/16决赛 · 英格兰/比利时/美国</div>
+
+<!-- ===================== MATCH 1 ===================== -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-id">周三080</span>
+    <span class="match-time">⏱ 00:00</span>
+  </div>
+  <div class="match-vs">
+    <span class="team home">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰</span>
+    <span class="vs-text">VS</span>
+    <span class="team away">🇨🇩 刚果金</span>
+  </div>
+  <div class="match-note">英格兰已出线但需正名 · 刚果金首次淘汰赛 · 市场效率⚪</div>
+
+  <div class="kpi-grid">
+    <div class="kpi-item"><div class="kpi-label">λ 值</div><div class="kpi-value">1.987 <span style="font-size:12px;color:#888">/</span> 0.468</div></div>
+    <div class="kpi-item"><div class="kpi-label">大2.5球</div><div class="kpi-value orange">44.6%</div></div>
+    <div class="kpi-item"><div class="kpi-label">双方进球</div><div class="kpi-value" style="color:#b0b0b0">32.3%</div></div>
+  </div>
+
+  <!-- Probability bar -->
+  <div style="font-size:11px;color:#888;margin-bottom:4px">模型概率</div>
+  <div class="prob-bar">
+    <div class="seg h" style="width:73.6%">73.6%</div>
+    <div class="seg d" style="width:18.6%">18.6%</div>
+    <div class="seg a" style="width:7.8%">7.8%</div>
+  </div>
+
+  <!-- Market vs Model -->
+  <div class="prob-compare">
+    <div class="prob-box">
+      <div class="label">市场隐含</div>
+      <div class="val" style="color:#4fc3f7">75.7%</div>
+      <div class="val" style="color:#ffb74d;font-size:12px">17.3%</div>
+      <div class="val" style="color:#ff8a65;font-size:12px">7.1%</div>
+    </div>
+    <div class="prob-box">
+      <div class="label">模型 vs 市场</div>
+      <div class="delta neg">英格兰 -2.0pp ⚪</div>
+      <div class="delta pos" style="font-size:12px">平 +1.3pp</div>
+      <div class="delta pos" style="font-size:12px">刚果金 +0.7pp</div>
+    </div>
+  </div>
+
+  <table class="score-table">
+    <tr><th>排名</th><th>比分</th><th>模型概率</th><th>累计</th></tr>
+    <tr><td>🥇</td><td>1-0</td><td>17.0%</td><td>17.0%</td></tr>
+    <tr><td>🥈</td><td>2-0</td><td>16.8%</td><td>33.8%</td></tr>
+    <tr><td>🥉</td><td>3-0</td><td>11.3%</td><td>45.1%</td></tr>
+    <tr><td>4</td><td>2-1</td><td>6.2%</td><td>51.3%</td></tr>
+    <tr><td>5</td><td>0-0</td><td>5.7%</td><td>57.0%</td></tr>
+    <tr><td>6</td><td>1-1</td><td>5.3%</td><td>62.3%</td></tr>
+  </table>
+</div>
+
+<!-- ===================== MATCH 2 ===================== -->
+<div class="match-card">
+  <div class="match-header">
+    <span class="match-id">周三081</span>
+    <span class="match-time">⏱ 04:00</span>
+  </div>
+  <div class="match-vs">
+    <span class="team home">🇧🇪 比利时</span>
+    <span class="vs-text">VS</span>
+    <span class="team away">🇸🇳 塞内加尔</span>
+  </div>
+  <div class="match-note">比利时内讧(球员排除教练加西亚) · 门迪伤缺 · 市场效率⚪</div>
+
+  <div class="kpi-grid">
+    <div class="kpi-item"><div class="kpi-label">λ 值</div><div class="kpi-value">1.325 <span style="font-size:12px;color:#888">/</span> 0.978</div></div>
+    <div class="kpi-item"><div class="kpi-label">大2.5球</div><div class="kpi-value" style="color:#b0b0b0">40.5%</div></div>
+    <div class="kpi-item"><div class="kpi-label">双方进球</div><div class="kpi-value orange">45.9%</div></div>
+  </div>
+
+  <!-- Probability bar -->
+  <div style="font-size:11px;color:#888;margin-bottom:4px">模型概率</div>
+  <div class="prob-bar">
+    <div class="seg h" style="width:44.5%">44.5%</div>
+    <div class="seg d" style="width:28.0%">28.0%</div>
+    <div class="seg a" style="width:27.5%">27.5%</div>
+  </div>
+
+  <!-- Market vs Model -->
+  <div class="prob-compare">
+    <div class="prob-box">
+      <div class="label">市场隐含</div>
+      <div class="val" style="color:#4fc3f7">44.9%</div>
+      <div class="val" style="color:#ffb74d;font-size:12px">29.7%</div>
+      <div class="val" style="color:#ff8a65;font-size:12px">25.4%</div>
+    </div>
+    <div class="prob-box">
+      <div class="label">模型 vs 市场</div>
+      <div class="delta neutral">比利时 -0.4pp ⚪</div>
+      <div class="delta neg" style="font-size:12px">平 -1.7pp</div>
+      <div class="delta pos" style="font-size:12px">塞内加尔 +2.1pp</div>
+    </div>
+  </div>
+
+  <table class="score-table">
+    <tr><th>排名</th><th>比分</th><th>模型概率</th><th>累计</th></tr>
+    <tr><td>🥇</td><td>1-0</td><td>13.3%</td><td>13.3%</td></tr>
+    <tr><td>🥈</td><td>1-1</td><td>13.1%</td><td>26.4%</td></tr>
+    <tr><td>🥉</td><td>0-0</td><td>10.0%</td><td>36.4%</td></tr>
+    <tr><td>4</td><td>2-0</td><td>7.7%</td><td>44.1%</td></tr>
+    <tr><td>5</td><td>0-1</td><td>7.2%</td><td>51.3%</td></tr>
+    <tr><td>6</td><td>2-1</td><td>7.0%</td><td>58.3%</td></tr>
+  </table>
+</div>
+
+<!-- ===================== MATCH 3 ===================== -->
+<div class="match-card" style="border-color:#ef5350">
+  <div class="match-header">
+    <span class="match-id">周三082</span>
+    <span class="match-time">⏱ 08:00</span>
+    <span class="tag red" style="margin-left:auto">极端信号 ⚡</span>
+  </div>
+  <div class="match-vs">
+    <span class="team home">🇺🇸 美国</span>
+    <span class="vs-text">VS</span>
+    <span class="team away">🇧🇦 波黑</span>
+  </div>
+  <div class="match-note" style="border-left-color:#ef5350">哲科❌+科拉希纳茨❌伤缺 · 穆哈雷莫维奇复出 · 市场偏差-29.6pp⚠️</div>
+
+  <div class="kpi-grid">
+    <div class="kpi-item"><div class="kpi-label">λ 值</div><div class="kpi-value">1.695 <span style="font-size:12px;color:#888">/</span> 1.469</div></div>
+    <div class="kpi-item"><div class="kpi-label">大2.5球</div><div class="kpi-value green">61.3%</div></div>
+    <div class="kpi-item"><div class="kpi-label">双方进球</div><div class="kpi-value green">62.7%</div></div>
+  </div>
+
+  <!-- Probability bar -->
+  <div style="font-size:11px;color:#888;margin-bottom:4px">模型概率</div>
+  <div class="prob-bar">
+    <div class="seg h" style="width:42.9%">42.9%</div>
+    <div class="seg d" style="width:23.4%">23.4%</div>
+    <div class="seg a" style="width:33.6%">33.6%</div>
+  </div>
+
+  <!-- Market vs Model -->
+  <div class="prob-compare">
+    <div class="prob-box">
+      <div class="label">市场隐含</div>
+      <div class="val" style="color:#ef5350">72.6%</div>
+      <div class="val" style="color:#ffb74d;font-size:12px">18.0%</div>
+      <div class="val" style="color:#ff8a65;font-size:12px">9.4%</div>
+    </div>
+    <div class="prob-box" style="border:1px solid #ef5350">
+      <div class="label">模型 vs 市场 ← 极端</div>
+      <div class="delta neg" style="font-size:16px">美国 -29.6pp</div>
+      <div class="delta pos" style="font-size:13px">平 +5.4pp</div>
+      <div class="delta pos" style="font-size:13px;color:#4caf50;font-weight:700">波黑 +24.2pp ✅</div>
+    </div>
+  </div>
+
+  <table class="score-table">
+    <tr><th>排名</th><th>比分</th><th>模型概率</th><th>累计</th><th>参考赔率</th></tr>
+    <tr><td>🥇</td><td style="color:#ffb74d;font-weight:700">1-1</td><td style="color:#ffb74d">10.5%</td><td>10.5%</td><td>@10.00</td></tr>
+    <tr><td>🥈</td><td>2-1</td><td>9.0%</td><td>19.5%</td><td>@7.25</td></tr>
+    <tr><td>🥉</td><td style="color:#ff8a65;font-weight:700">1-2</td><td style="color:#ff8a65">7.8%</td><td>27.3%</td><td>@30.00</td></tr>
+    <tr><td>4</td><td>1-0</td><td>7.2%</td><td>34.5%</td><td>@7.20</td></tr>
+    <tr><td>5</td><td>2-2</td><td>6.6%</td><td>41.1%</td><td>@30.00</td></tr>
+    <tr><td>6</td><td>0-1</td><td>6.2%</td><td>47.3%</td><td>@25.00</td></tr>
+  </table>
+</div>
+
+<!-- ===================== SIGNAL RANKING ===================== -->
+<div class="section-title danger">⚡ 价值信号排序</div>
+
+<div class="signal-card" style="border-left-color:#ef5350">
+  <div class="signal-title">🥇 周三082 美国 VS 波黑 <span class="tag red">Edge -29.6pp</span></div>
+  <div class="signal-desc">
+    全场唯一极端信号。市场给美国<b>72.6%</b>，模型仅<b>42.9%</b>，偏差29.6个百分点。<br>
+    <b>波黑不败率57%</b>（平23.4%+胜33.6%），市场仅给27.4%。<br>
+    关键变量：哲科+科拉希纳茨伤缺但穆哈雷莫维奇复出，美国后防场均失1.8球。
+  </div>
+</div>
+
+<div class="signal-card orange">
+  <div class="signal-title">🥈 周三080 英格兰 VS 刚果金 <span class="tag orange">Edge -2.0pp</span></div>
+  <div class="signal-desc">
+    市场基本有效。模型73.6% vs 市场75.7%，偏差极小。<br>
+    最可能1-0或2-0，小2.5概率55.4%。刚果金进球概率仅32.3%。
+  </div>
+</div>
+
+<div class="signal-card green">
+  <div class="signal-title">🥉 周三081 比利时 VS 塞内加尔 <span class="tag green">Edge -0.4pp</span></div>
+  <div class="signal-desc">
+    市场极其有效。三方向几乎等概率（44.5%/28.0%/27.5%），偏差可忽略。<br>
+    1-0(13.3%)和1-1(13.1%)几乎一样高，小2.5偏59.5%。
+  </div>
+</div>
+
+<!-- ===================== THREE-MATCH OVERVIEW ===================== -->
+<div class="section-title">📋 三场总览表</div>
+
+<table class="score-table" style="width:100%">
+  <tr><th>场次</th><th>时间</th><th>模型</th><th>市场</th><th>Edge</th><th>最可能</th></tr>
+  <tr><td>周三080</td><td>00:00</td><td style="color:#4fc3f7">英73.6%</td><td style="color:#4fc3f7">75.7%</td><td>-2.0pp</td><td>1-0(17.0%)</td></tr>
+  <tr><td>周三081</td><td>04:00</td><td>比44.5%/平28.0%/塞27.5%</td><td>44.9%/29.7%/25.4%</td><td>-0.4pp</td><td>1-0(13.3%)=1-1(13.1%)</td></tr>
+  <tr><td>周三082</td><td>08:00</td><td style="color:#ff8a65">美42.9%/平23.4%/波33.6%</td><td style="color:#ef5350">美72.6%</td><td style="color:#ef5350;font-weight:700">-29.6pp</td><td style="color:#ffb74d">1-1(10.5%)</td></tr>
+</table>
+
+<!-- ===================== COMBINED PLAN ===================== -->
+<div class="section-title">🎯 三场投注方案</div>
+
+<div class="plan-grid">
+
+<div class="plan-card" style="border-left:4px solid #4caf50">
+  <div class="plan-title">
+    <span>🟢 方案A — 稳健</span>
+    <span class="badge" style="background:#1a3a1a;color:#4caf50">低风险</span>
+  </div>
+  <div class="plan-items">
+    核心逻辑：三场均避开热门方直胜，抓价值侧。<br>
+    <ul>
+      <li><b>周三080</b> 刚果金+2（让球方不败），小2.5球</li>
+      <li><b>周三081</b> 平局（模型28.0% vs 市场29.7%，实际五五开）</li>
+      <li><b>周三082</b> 波黑不败（平或胜，模型57% vs 市场27.4%）</li>
+    </ul>
+  </div>
+</div>
+
+<div class="plan-card" style="border-left:4px solid #ff9800">
+  <div class="plan-title">
+    <span>🟡 方案B — 进取</span>
+    <span class="badge" style="background:#3a2a10;color:#ff9800">中风险</span>
+  </div>
+  <div class="plan-items">
+    核心逻辑：聚焦高价值单场，放弃低价值场次。<br>
+    <ul>
+      <li><b>周三082</b> 波黑不败（核心场，Edge最大）</li>
+      <li><b>周三080</b> 英格兰-1平或负（刚果金输1球以内）</li>
+      <li><b>周三081</b> 跳过（市场已充分定价，无价值）</li>
+    </ul>
+  </div>
+</div>
+
+<div class="plan-card" style="border-left:4px solid #ef5350">
+  <div class="plan-title">
+    <span>🔴 方案C — 激进</span>
+    <span class="badge" style="background:#3a1520;color:#ef5350">高赔率</span>
+  </div>
+  <div class="plan-items">
+    核心逻辑：直接博冷比分串关。<br>
+    <ul>
+      <li><b>周三080</b> 0-0（模型5.7%，刚果金死守90分钟）</li>
+      <li><b>周三081</b> 1-1（模型13.1%，内讧+淘汰赛拖入胶着）</li>
+      <li><b>周三082</b> 1-2波黑胜（模型7.8%，市场完全忽略的冷门）</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+
+<!-- ===================== KEY INSIGHT ===================== -->
+<div class="section-title warn">🔑 核心结论</div>
+
+<div class="match-card" style="border-color:#ff9800;background:#1a1510">
+  <div style="font-size:14px;color:#ffb74d;font-weight:700;margin-bottom:6px">一句话拆解这三天</div>
+  <div style="font-size:13px;color:#bbb;line-height:1.7">
+    <b>00:00 英格兰VS刚果金</b> — 市场有效，英格兰稳但不会大屠杀。1-0或2-0结束战斗。<br>
+    <b>04:00 比利时VS塞内加尔</b> — 被"名气"忽悠了，这是五五开局。内讧抵消了实力差。<br>
+    <b>08:00 美国VS波黑</b> — <span style="color:#ef5350;font-weight:700">全场唯一价值洼地。</span>市场把美国当皇马打西乙了，实际上波黑近10场才输1场，防守比美国还好。波黑不败57%——别忘了这句话。
+  </div>
+</div>
+
+<div class="footer">
+  数据来源：竞彩网 · 后台模型（10万次蒙特卡洛模拟）<br>
+  纯数据分析参考，不构成任何投注建议。<br>
+  Generated 2026-07-01
+</div>
+
+</div>
+</body>
+</html>

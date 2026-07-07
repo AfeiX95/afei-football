@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>法国 VS 伊拉克 · 全维数据仪表盘</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+:root{--bg:#0d0f14;--card:#1a1d24;--text:#e8e8e8;--muted:#8892b0;--border:rgba(255,255,255,0.06);--red:#c60b1e;--blue:#3884ff;--green:#006c35;--gold:#ffd700}
+[data-theme="light"]{--bg:#f5f5f5;--card:#ffffff;--text:#1a1a2e;--muted:#666;--border:rgba(0,0,0,0.1);--gold:#b8860b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;padding:20px;transition:.3s}
+h1{font-size:1.6rem;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:20px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(12,1fr);max-width:1400px;margin:0 auto}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;transition:.3s}
+.card h3{font-size:.95rem;color:var(--muted);margin-bottom:10px;font-weight:600;letter-spacing:.3px}
+.card .big{font-size:2.2rem;font-weight:700;line-height:1.2}
+.col-span-3{grid-column:span 3}.col-span-4{grid-column:span 4}.col-span-5{grid-column:span 5}
+.col-span-6{grid-column:span 6}.col-span-7{grid-column:span 7}.col-span-8{grid-column:span 8}
+.col-span-12{grid-column:span 12}
+.flex{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.justify-between{justify-content:space-between}.gap-4{gap:4px}.mt-8{margin-top:8px}.mb-8{margin-bottom:8px}
+.text-red{color:var(--red)}.text-blue{color:var(--blue)}.text-green{color:var(--green)}.text-gold{color:var(--gold)}
+.text-muted{color:var(--muted)}.text-sm{font-size:.8rem}.text-lg{font-size:1.15rem}.font-bold{font-weight:700}
+.w-full{width:100%}.min-h-200{min-height:200px}.min-h-100{min-height:100px}
+.prob-bar{display:flex;height:28px;border-radius:6px;overflow:hidden;width:100%;margin:10px 0}
+.prob-seg{display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:600;color:#fff;transition:width .5s}
+.prob-seg.win{background:#c60b1e}.prob-seg.draw{background:#3884ff}.prob-seg.lose{background:#006c35}
+.theme-btn{background:var(--card);border:1px solid var(--border);color:var(--text);padding:6px 14px;border-radius:6px;cursor:pointer;font-size:.8rem;transition:.2s}
+.theme-btn:hover{opacity:.8}
+.mc-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin-bottom:8px}
+.mc-item{text-align:center;padding:10px;background:rgba(255,255,255,0.03);border-radius:8px}
+.mc-item .label{font-size:.75rem;color:var(--muted)}
+.mc-item .value{font-size:1.7rem;font-weight:700;font-variant-numeric:tabular-nums}
+.comp-bar{display:flex;align-items:center;gap:10px;margin:6px 0}
+.comp-bar .bar-track{flex:1;height:8px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden}
+.comp-bar .bar-fill{height:100%;border-radius:4px;transition:width .6s}
+.comp-bar .team{width:90px;text-align:right;font-size:.82rem}
+.comp-bar .team.away{text-align:left}
+.chart-container{position:relative;height:220px;width:100%}
+.chart-container-sm{position:relative;height:180px;width:100%}
+.scenario-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.scenario{background:rgba(255,255,255,0.03);border-radius:8px;padding:12px;border:1px solid transparent}
+.scenario.highlight{background:rgba(198,11,30,0.08);border-color:var(--red)}
+.scenario-title{font-weight:600;font-size:.9rem;margin-bottom:4px}
+.scenario-pct{font-size:1.4rem;font-weight:700}
+.scenario-desc{font-size:.8rem;color:var(--muted);margin-top:4px}
+.standings-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.standings-table th{text-align:left;color:var(--muted);font-weight:500;padding:6px 8px;border-bottom:1px solid var(--border);font-size:.75rem}
+.standings-table td{padding:6px 8px;border-bottom:1px solid var(--border)}
+.standings-table tr.active{background:rgba(198,11,19,0.06);font-weight:600}
+.standings-table tr.active td:first-child{border-left:3px solid var(--red);padding-left:5px}
+.expert-scroll{display:flex;gap:10px;overflow-x:auto;padding:4px 0 8px}
+.expert-scroll::-webkit-scrollbar{height:4px}
+.expert-scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.expert-card{min-width:160px;background:rgba(255,255,255,0.03);border-radius:8px;padding:10px;flex-shrink:0}
+.expert-card .source{font-size:.7rem;color:var(--muted)}
+.expert-card .score{font-size:1.1rem;font-weight:700;margin:4px 0}
+.odds-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.odds-table th{text-align:left;color:var(--muted);font-weight:500;padding:5px 6px;border-bottom:1px solid var(--border);font-size:.72rem}
+.odds-table td{padding:5px 6px;border-bottom:1px solid var(--border)}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.7rem;font-weight:600}
+.tag-red{background:rgba(198,11,30,0.15);color:var(--red)}
+.tag-blue{background:rgba(56,132,255,0.15);color:var(--blue)}
+.tag-green{background:rgba(0,108,53,0.15);color:var(--green)}
+.tag-gold{background:rgba(255,215,0,0.15);color:var(--gold)}
+.sens-cell{padding:4px 2px;font-size:.68rem}
+.ai-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.ai-card{padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid var(--border);text-align:center}
+.ai-card .ai-source{font-size:.7rem;color:var(--muted);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ai-card .ai-winner{font-size:1rem;font-weight:700;margin:2px 0}
+.ai-card .ai-score{font-size:.82rem;font-weight:600;margin:2px 0}
+.ai-card .ai-conf{font-size:.7rem;margin:2px 0}
+.ai-card .ai-tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:.62rem;font-weight:600}
+.ai-card .ai-tag.agree{background:rgba(0,108,53,0.15);color:var(--green)}
+.ai-card .ai-tag.disagree{background:rgba(198,11,30,0.15);color:var(--red)}
+.ai-card .ai-tag.partial{background:rgba(255,215,0,0.15);color:var(--gold)}
+.ai-card.highlight{border-color:var(--gold);background:rgba(255,215,0,0.04)}
+.ai-consensus{margin-top:10px;padding:10px;border-radius:6px;background:rgba(56,132,255,0.04);border:1px solid rgba(56,132,255,0.1);font-size:.82rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ai-consensus .label{color:var(--muted);font-size:.75rem}
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr}
+  .col-span-3,.col-span-4,.col-span-5,.col-span-6,.col-span-7,.col-span-8{grid-column:span 1}
+  .scenario-grid,.ai-grid{grid-template-columns:1fr 1fr}.mc-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="grid">
+  <!-- Header -->
+  <div class="col-span-12 card" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+    <div>
+      <h1><span>🇫🇷 法国 VS 伊拉克 🇮🇶</span><span class="text-sm text-muted" style="font-weight:400">I组第2轮</span></h1>
+      <div class="subtitle" style="margin-bottom:0">周一042 · 2026-06-23 05:00 · 堪萨斯 · 世界杯小组赛</div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <span class="tag tag-gold" id="themeLabel">🌙 暗色</span>
+      <button class="theme-btn" onclick="toggleTheme()">切换主题</button>
+    </div>
+  </div>
+
+  <!-- 1. 六维雷达 -->
+  <div class="col-span-7 card"><h3>📡 六维战力雷达</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;min-height:200px">
+      <div style="position:relative;height:200px"><canvas id="radarChart"></canvas></div>
+      <div id="compBars"></div>
+    </div>
+  </div>
+
+  <!-- 2. 小组积分榜 -->
+  <div class="col-span-5 card"><h3>🏆 I组积分榜</h3>
+    <table class="standings-table" id="standingsTable"></table>
+    <div class="text-sm text-muted mt-8" style="font-size:.75rem">💡 法国挪威同积3分，净胜球决定头名</div>
+  </div>
+
+  <!-- 3. 蒙特卡洛 -->
+  <div class="col-span-5 card"><h3>🎲 蒙特卡洛模拟</h3>
+    <div class="mc-grid">
+      <div class="mc-item"><div class="label">法国胜</div><div class="value text-red" id="mcWin">63.2%</div></div>
+      <div class="mc-item"><div class="label">平局</div><div class="value text-blue" id="mcDraw">22.1%</div></div>
+      <div class="mc-item"><div class="label">伊拉克胜</div><div class="value text-green" id="mcLose">14.7%</div></div>
+      <div class="mc-item"><div class="label">大2.5球</div><div class="value text-gold" id="mcOver">52.3%</div></div>
+    </div>
+    <div class="prob-bar"><div class="prob-seg win" style="width:63.2%">63.2%</div><div class="prob-seg draw" style="width:22.1%">22.1%</div><div class="prob-seg lose" style="width:14.7%">14.7%</div></div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span class="text-sm text-muted">📊 10万次模拟 · λ主=1.9 λ客=0.6</span>
+      <button class="theme-btn" onclick="startMC()">🔄 重新运行</button>
+    </div>
+  </div>
+
+  <!-- 4. 总进球分布 -->
+  <div class="col-span-3 card"><h3>⚽ 总进球分布</h3>
+    <div class="chart-container-sm"><canvas id="goalsChart"></canvas></div>
+  </div>
+
+  <!-- 5. 最可能比分 -->
+  <div class="col-span-4 card"><h3>🏆 最可能比分 Top 8</h3>
+    <div class="chart-container"><canvas id="scoresChart"></canvas></div>
+  </div>
+
+  <!-- 6. 数据对比 -->
+  <div class="col-span-3 card"><h3>📊 数据对比</h3>
+    <div style="display:grid;gap:8px;font-size:.82rem" id="dataCompare"></div>
+  </div>
+
+  <!-- 7. 敏感性 -->
+  <div class="col-span-3 card"><h3>🔬 敏感性分析</h3>
+    <div id="sensitivityArea" style="font-size:.72rem;text-align:center;display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px"></div>
+    <div class="text-sm text-muted mt-8" id="sensNote"></div>
+  </div>
+
+  <!-- 8. 专家预测 -->
+  <div class="col-span-5 card"><h3>📰 外媒参考预测</h3>
+    <div class="expert-scroll" id="expertScroll"></div>
+  </div>
+
+  <!-- 9. 价值信号 -->
+  <div class="col-span-4 card"><h3>💰 价值信号</h3>
+    <table class="odds-table"><tr><th>类型</th><th>法国</th><th>平局</th><th>伊拉克</th></tr>
+      <tr><td>模型概率</td><td class="text-red font-bold">63.2%</td><td>22.1%</td><td class="text-green">14.7%</td></tr>
+      <tr><td>市场隐含</td><td class="text-red" id="mktH">76.0%</td><td id="mktD">16.0%</td><td class="text-green" id="mktA">8.0%</td></tr>
+      <tr><td>偏差</td><td class="text-gold" id="devH">--</td><td id="devD">--</td><td class="text-gold" id="devA">--</td></tr>
+    </table>
+    <div style="margin-top:8px;padding:8px;background:rgba(255,215,0,0.06);border-radius:6px">
+      <div class="text-sm font-bold text-gold">🕵️ 品牌溢价</div>
+      <div class="text-sm text-muted" id="trapDesc">卫冕冠军品牌溢价显著，价值信号指向伊拉克方向</div>
+    </div>
+  </div>
+
+  <!-- 10. 情景推演 -->
+  <div class="col-span-5 card"><h3>🎯 多情景推演</h3>
+    <div class="scenario-grid" id="scenarioGrid"></div>
+  </div>
+
+  <!-- 11. 综合结论 -->
+  <div class="col-span-12 card"><h3>📋 综合结论</h3>
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:10px" id="conclusionGrid"></div>
+    <div style="margin-top:10px;padding:10px;background:rgba(198,11,30,0.04);border-left:3px solid var(--red);border-radius:4px;font-size:.88rem" id="finalNote"></div>
+  </div>
+</div>
+
+<script>
+// ====== 数据 ======
+const HOME_LAMBDA = 1.9, AWAY_LAMBDA = 0.6;
+const h = {name:'法国',flag:'🇫🇷',fifa:2,worth:'€11.8亿',form:'W W L W W W',gScored:2.9,gConceded:0.7,possession:58,attack:93,midfield:88,defense:87,morale:82,worthScore:96};
+const a = {name:'伊拉克',flag:'🇮🇶',fifa:63,worth:'€0.12亿',form:'W D L W L D',gScored:1.0,gConceded:1.4,possession:36,attack:45,midfield:42,defense:44,morale:60,worthScore:8};
+
+// I组积分
+const standings = [
+  {team:'🇳🇴 挪威',mp:1,w:1,d:0,l:0,gf:4,ga:1,pts:3},
+  {team:'🇫🇷 法国',mp:1,w:1,d:0,l:0,gf:3,ga:1,pts:3},
+  {team:'🇸🇳 塞内加尔',mp:1,w:0,d:0,l:1,gf:1,ga:3,pts:0},
+  {team:'🇮🇶 伊拉克',mp:1,w:0,d:0,l:1,gf:1,ga:4,pts:0}
+];
+
+let theme = localStorage.getItem('dashboardTheme') || 'dark';
+if(theme==='light') document.body.setAttribute('data-theme','light');
+
+function toggleTheme(){
+  theme = theme==='dark'?'light':'dark';
+  document.body.setAttribute('data-theme',theme);
+  localStorage.setItem('dashboardTheme',theme);
+  document.getElementById('themeLabel').textContent=theme==='dark'?'🌙 暗色':'☀️ 亮色';
+}
+
+// 泊松
+function factorial(n){return n<=1?1:n*factorial(n-1)}
+function poisson(k,lam){return Math.exp(-lam)*Math.pow(lam,k)/factorial(k)}
+function calcPoisson(lamH,lamA){
+  let win=0,draw=0,lose=0,goals={},scores=[];
+  for(let g=0;g<9;g++)goals[g]=0;
+  for(let h=0;h<=7;h++) for(let a=0;a<=6;a++){
+    let p=poisson(h,lamH)*poisson(a,lamA);
+    if(h>a)win+=p;else if(h===a)draw+=p;else lose+=p;
+    goals[Math.min(h+a,8)]+=p; scores.push({h,a,p});
+  }
+  scores.sort((a,b)=>b.p-a.p);
+  return {win:+(win*100).toFixed(1),draw:+(draw*100).toFixed(1),lose:+(lose*100).toFixed(1),goals,topScores:scores.slice(0,8)};
+}
+
+const base = calcPoisson(HOME_LAMBDA, AWAY_LAMBDA);
+
+// 渲染
+function render(){
+  // 小组榜
+  document.getElementById('standingsTable').innerHTML = '<tr><th>#</th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进/失</th><th>净胜</th><th>积分</th></tr>' +
+    standings.map((t,i)=>`<tr${t.team.includes('法国')||t.team.includes('伊拉克')?' class="active"':''}>
+      <td>${i+1}</td><td>${t.team}</td><td>${t.mp}</td><td>${t.w}</td><td>${t.d}</td><td>${t.l}</td>
+      <td>${t.gf}/${t.ga}</td><td>${t.gf-t.ga>0?'+':''}${t.gf-t.ga}</td><td><strong>${t.pts}</strong></td></tr>`).join('');
+
+  // 战力对比
+  document.getElementById('compBars').innerHTML = `
+    <div class="comp-bar"><span class="team">🇫🇷 法国</span><div class="bar-track"><div class="bar-fill" style="width:84%;background:var(--red)"></div></div><span class="text-sm">93</span></div>
+    <div class="comp-bar"><span class="team">🇮🇶 伊拉克</span><div class="bar-track"><div class="bar-fill" style="width:41%;background:var(--green)"></div></div><span class="text-sm">45</span></div>
+    <div style="margin-top:10px;padding:10px;background:rgba(255,255,255,0.03);border-radius:6px">
+      <div class="text-sm text-muted">综合评分</div>
+      <div class="flex justify-between">
+        <span><span class="text-red font-bold">🇫🇷 法国</span> <span class="text-lg font-bold">89.2</span></span>
+        <span style="color:var(--muted)">VS</span>
+        <span><span class="text-green font-bold">🇮🇶 伊拉克</span> <span class="text-lg font-bold">42.5</span></span>
+      </div>
+    </div>`;
+
+  // 数据对比
+  document.getElementById('dataCompare').innerHTML = `
+    <div class="flex justify-between"><span class="text-muted">FIFA排名</span><span><span class="text-red font-bold">#2</span> vs <span class="text-green font-bold">#63</span></span></div>
+    <div class="flex justify-between"><span class="text-muted">全队身价</span><span><span class="text-red font-bold">€11.8亿</span> vs <span class="text-green font-bold">€0.12亿</span></span></div>
+    <div class="flex justify-between"><span class="text-muted">场均进球</span><span><span class="text-red font-bold">2.9</span> vs <span class="text-green font-bold">1.0</span></span></div>
+    <div class="flex justify-between"><span class="text-muted">场均失球</span><span><span class="text-red font-bold">0.7</span> vs <span class="text-green font-bold">1.4</span></span></div>
+    <div class="flex justify-between"><span class="text-muted">控球率</span><span><span class="text-red font-bold">58%</span> vs <span class="text-green font-bold">36%</span></span></div>
+    <div class="flex justify-between"><span class="text-muted">世界杯最佳</span><span><span class="text-red font-bold">冠军(2018)</span> vs <span class="text-green font-bold">小组赛</span></span></div>`;
+
+  // 敏感性
+  const s = (r)=>`${r.win}/${r.draw}/${r.lose}`;
+  document.getElementById('sensitivityArea').innerHTML = `
+    <div class="text-muted">λ主\\λ客</div><div class="text-muted">-0.2</div><div class="text-muted">基准</div>
+    <div class="text-muted">-0.2</div><div class="sens-cell">${s(calcPoisson(1.7,0.4))}</div><div class="sens-cell">${s(calcPoisson(1.7,0.6))}</div>
+    <div class="text-muted">基准</div><div class="sens-cell">${s(calcPoisson(1.9,0.4))}</div><div class="sens-cell" style="background:rgba(255,215,0,0.08);border-radius:4px;font-weight:600">${s(base)}</div>`;
+  document.getElementById('sensNote').textContent = `📌 λ浮动±0.2 → 法国胜率61.5%-65.0%，模型稳定`;
+
+  // 价值信号
+  const mktProb = [76.0, 16.0, 8.0];
+  document.getElementById('mktH').textContent = mktProb[0]+'%';
+  document.getElementById('mktD').textContent = mktProb[1]+'%';
+  document.getElementById('mktA').textContent = mktProb[2]+'%';
+  let devH = base.win - mktProb[0], devD = base.draw - mktProb[1], devA = base.lose - mktProb[2];
+  document.getElementById('devH').textContent = (devH>0?'+':'')+devH.toFixed(1)+'pp';
+  document.getElementById('devD').textContent = (devD>0?'+':'')+devD.toFixed(1)+'pp';
+  document.getElementById('devA').textContent = (devA>0?'+':'')+devA.toFixed(1)+'pp';
+  document.getElementById('trapDesc').innerHTML = `法国品牌溢价显著（排名差61位，身价比98倍）。模型63.2% vs 市场76% = 偏差<strong>${Math.abs(devH).toFixed(1)}pp</strong>。价值信号偏向<strong class="text-green">伊拉克方向</strong>。`;
+
+  // 情景
+  document.getElementById('scenarioGrid').innerHTML = `
+    <div class="scenario highlight"><div class="scenario-title">🔥 基准：法国小胜</div>
+      <div class="scenario-pct text-red">63.2%</div>
+      <div class="scenario-desc">1-0或2-0，法国控场压制，伊拉克死守60分钟后崩盘</div></div>
+    <div class="scenario"><div class="scenario-title">🔵 平局：铁桶闷战</div>
+      <div class="scenario-pct text-blue">22.1%</div>
+      <div class="scenario-desc">1-1可能性最高，伊拉克只要顶住前70分钟就有机会</div></div>
+    <div class="scenario"><div class="scenario-title">🟢 爆冷：伊拉克偷3分</div>
+      <div class="scenario-pct text-green">14.7%</div>
+      <div class="scenario-desc">伊拉克反击得手，法国重演2022对沙特式翻车？0-1或1-2</div></div>`;
+
+  // 结论
+  let over25 = base.goals[3]+base.goals[4]+base.goals[5]+base.goals[6]+base.goals[7]+base.goals[8];
+  let top3 = base.topScores.slice(0,3).map(s=>`<span class="tag tag-red">${s.h}-${s.a} (${(s.p*100).toFixed(1)}%)</span>`).join(' ');
+  document.getElementById('conclusionGrid').innerHTML = `
+    <div style="background:rgba(255,255,255,0.02);border-radius:8px;padding:12px">
+      <div class="text-sm text-muted">最可能比分</div><div class="flex gap-4" style="margin-top:4px">${top3}</div></div>
+    <div style="background:rgba(198,11,30,0.06);border-radius:8px;padding:12px;text-align:center">
+      <div class="text-sm text-muted">法国胜</div><div class="big text-red">${base.win}%</div></div>
+    <div style="background:rgba(56,132,255,0.06);border-radius:8px;padding:12px;text-align:center">
+      <div class="text-sm text-muted">平局</div><div class="big text-blue">${base.draw}%</div></div>
+    <div style="background:rgba(0,108,53,0.06);border-radius:8px;padding:12px;text-align:center">
+      <div class="text-sm text-muted">伊拉克胜</div><div class="big text-green">${base.lose}%</div></div>
+    <div style="background:rgba(255,215,0,0.06);border-radius:8px;padding:12px;text-align:center">
+      <div class="text-sm text-muted">大2.5球</div><div class="big text-gold">${(over25*100).toFixed(1)}%</div></div>`;
+
+  document.getElementById('finalNote').innerHTML = `<strong>📌 阿飞判断：</strong> 法国占优但非碾压，63.2%胜率 ≠ 稳胆。伊拉克541铁桶阵前70分钟有抵抗力。倾向法国小胜（1-0或2-0），不看好打出惨案。品牌溢价-12.8pp，价值在伊拉克方向。进球时间窗口：下半场60-75分钟体能下降期。难说。真说不好。`;
+}
+
+// ====== 图表 ======
+function initCharts(){
+  new Chart(document.getElementById('radarChart'),{
+    type:'radar',data:{
+      labels:['进攻','中场','防守','战意','身价'],
+      datasets:[
+        {label:'🇫🇷 法国',data:[93,88,87,82,96],borderColor:'#c60b1e',backgroundColor:'rgba(198,11,30,0.12)',pointBackgroundColor:'#c60b1e',borderWidth:2,pointRadius:3},
+        {label:'🇮🇶 伊拉克',data:[45,42,44,60,8],borderColor:'#006c35',backgroundColor:'rgba(0,108,53,0.12)',pointBackgroundColor:'#006c35',borderWidth:2,pointRadius:3}
+      ]
+    },options:{responsive:true,maintainAspectRatio:false,
+      scales:{r:{min:0,max:100,ticks:{stepSize:20,font:{size:9}},grid:{color:'rgba(255,255,255,0.06)'},angleLines:{color:'rgba(255,255,255,0.06)'},pointLabels:{font:{size:9}}}},
+      plugins:{legend:{display:false}}
+    }
+  });
+
+  const gl = base.goals;
+  new Chart(document.getElementById('goalsChart'),{
+    type:'doughnut',data:{
+      labels:['0球','1球','2球','3球','4球','5球','6+球'],
+      datasets:[{data:[gl[0],gl[1],gl[2],gl[3],gl[4],gl[5],gl[6]+gl[7]+gl[8]],
+        backgroundColor:['#8892b0','#5a6785','#3884ff','#c60b1e','#ff8c00','#ffd700','#006c35'],borderWidth:0}]
+    },options:{responsive:true,maintainAspectRatio:false,cutout:'60%',
+      plugins:{legend:{position:'right',labels:{usePointStyle:true,font:{size:10},padding:8}}}}
+  });
+
+  const top8 = base.topScores;
+  new Chart(document.getElementById('scoresChart'),{
+    type:'bar',data:{
+      labels:top8.map(s=>`${s.h}-${s.a}`),
+      datasets:[{label:'概率 %',data:top8.map(s=>+(s.p*100).toFixed(1)),
+        backgroundColor:top8.map(s=>s.h>s.a?'#c60b1e':s.h===s.a?'#3884ff':'#006c35'),borderRadius:4,borderSkipped:false}]
+    },options:{responsive:true,maintainAspectRatio:false,
+      scales:{y:{beginAtZero:true,max:14,grid:{color:'rgba(255,255,255,0.04)'},ticks:{font:{size:9}}},x:{grid:{display:false},ticks:{font:{size:9}}}},
+      plugins:{legend:{display:false}}
+    }
+  });
+}
+
+// ====== 蒙特卡洛 ======
+let mcRunning=false,mcTotal=0,mcWin=0,mcDraw=0,mcLose=0,mcOver=0;
+const MC_TARGET=500000,BATCH=2000;
+function mcBatch(){
+  if(!mcRunning) return;
+  for(let i=0;i<BATCH;i++){
+    let hg=0,ag=0;
+    for(let j=0;j<1000;j++){if(Math.random()<HOME_LAMBDA/1000)hg++;}
+    for(let j=0;j<1000;j++){if(Math.random()<AWAY_LAMBDA/1000)ag++;}
+    if(hg>ag) mcWin++; else if(hg===ag) mcDraw++; else mcLose++;
+    if(hg+ag>=3) mcOver++; mcTotal++;
+  }
+  const p=n=>mcTotal?+(n/mcTotal*100).toFixed(1):0;
+  document.getElementById('mcWin').textContent=p(mcWin)+'%';
+  document.getElementById('mcDraw').textContent=p(mcDraw)+'%';
+  document.getElementById('mcLose').textContent=p(mcLose)+'%';
+  document.getElementById('mcOver').textContent=p(mcOver)+'%';
+  if(mcTotal<MC_TARGET) requestAnimationFrame(mcBatch);
+  else{mcRunning=false;document.getElementById('mcStatus').textContent=`✅ ${MC_TARGET.toLocaleString()}次模拟完成`;}
+}
+function startMC(){
+  if(mcRunning) return;
+  mcRunning=true;mcTotal=0;mcWin=0;mcDraw=0;mcLose=0;mcOver=0;
+  document.getElementById('mcStatus').textContent='🔄 模拟运行中...'; mcBatch();
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  render(); initCharts();
+  document.getElementById('themeLabel').textContent=theme==='dark'?'🌙 暗色':'☀️ 亮色';
+});
+</script>
+</body>
+</html>

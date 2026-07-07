@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>南非vs加拿大 v4.1全维度模型分析</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0d1117; color:#e6edf3; font-family:'Segoe UI',sans-serif; padding:20px; }
+.container { max-width:1200px; margin:0 auto; }
+.header { text-align:center; padding:30px 0; border-bottom:1px solid #30363d; margin-bottom:30px; }
+.header h1 { font-size:28px; color:#58a6ff; margin-bottom:8px; }
+.header .sub { color:#8b949e; font-size:14px; }
+.header .badge { display:inline-block; background:#238636; color:#fff; padding:4px 12px; border-radius:20px; font-size:12px; margin-top:8px; }
+
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px; }
+.grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-bottom:20px; }
+.full { grid-column:1/-1; }
+
+.card { background:#161b22; border:1px solid #30363d; border-radius:12px; padding:20px; }
+.card h2 { font-size:16px; color:#58a6ff; margin-bottom:15px; padding-bottom:10px; border-bottom:1px solid #21262d; }
+.card h3 { font-size:14px; color:#8b949e; margin-bottom:10px; }
+
+.stat-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #21262d; }
+.stat-row:last-child { border-bottom:none; }
+.stat-label { color:#8b949e; font-size:13px; }
+.stat-value { font-weight:bold; font-size:15px; }
+.stat-value.home { color:#f85149; }
+.stat-value.away { color:#58a6ff; }
+.stat-value.neutral { color:#e6edf3; }
+
+.vs-card { display:flex; align-items:center; justify-content:center; gap:30px; padding:20px; }
+.team { text-align:center; }
+.team .flag { font-size:48px; }
+.team .name { font-size:20px; font-weight:bold; margin-top:8px; }
+.team .rank { color:#8b949e; font-size:12px; }
+.vs { font-size:36px; color:#f0883e; font-weight:bold; }
+
+.chart-container { position:relative; height:280px; }
+
+.edge-box { background:#1c2128; border-left:4px solid #238636; padding:12px 16px; border-radius:0 8px 8px 0; margin-top:15px; }
+.edge-box.danger { border-left-color:#f85149; }
+.edge-box .label { color:#8b949e; font-size:12px; }
+.edge-box .value { font-size:24px; font-weight:bold; color:#3fb950; }
+.edge-box.danger .value { color:#f85149; }
+
+.signal { display:inline-block; padding:4px 12px; border-radius:20px; font-size:12px; font-weight:bold; }
+.signal.strong { background:#238636; color:#fff; }
+.signal.medium { background:#9e6a03; color:#fff; }
+.signal.weak { background:#30363d; color:#8b949e; }
+
+.kelly-bar { background:#21262d; border-radius:8px; height:24px; margin-top:8px; overflow:hidden; }
+.kelly-fill { height:100%; border-radius:8px; display:flex; align-items:center; padding-left:8px; font-size:11px; font-weight:bold; color:#fff; }
+
+.conclusion { background:linear-gradient(135deg,#161b22,#1c2128); border:1px solid #f0883e; border-radius:12px; padding:20px; margin-top:20px; }
+.conclusion h2 { color:#f0883e; border-bottom-color:#f0883e; }
+.rec { background:#21262d; border-radius:8px; padding:12px 16px; margin-top:10px; }
+.rec .title { font-weight:bold; color:#58a6ff; margin-bottom:4px; }
+.rec .detail { color:#8b949e; font-size:13px; }
+
+.footer { text-align:center; color:#484f58; font-size:12px; margin-top:30px; padding-top:20px; border-top:1px solid #21262d; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>🇿🇦 南非 vs 加拿大 🇨🇦</h1>
+  <div class="sub">周日073 | 世界杯1/16决赛 | 2026-06-29 03:00</div>
+  <div class="badge">v4.1 全维度模型分析</div>
+</div>
+
+<!-- 对阵信息 -->
+<div class="card full" style="margin-bottom:20px">
+  <div class="vs-card">
+    <div class="team">
+      <div class="flag">🇿🇦</div>
+      <div class="name">南非</div>
+      <div class="rank">A组第2 | FIFA #58</div>
+    </div>
+    <div class="vs">VS</div>
+    <div class="team">
+      <div class="flag">🇨🇦</div>
+      <div class="name">加拿大</div>
+      <div class="rank">B组第2 | FIFA #43</div>
+    </div>
+  </div>
+</div>
+
+<!-- 核心指标 -->
+<div class="grid-3">
+  <div class="card">
+    <h2>📊 λ值（进球强度）</h2>
+    <div class="chart-container"><canvas id="lambdaChart"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>🎯 胜平负概率</h2>
+    <div class="chart-container"><canvas id="resultChart"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>⚡ Edge价值信号</h2>
+    <div class="chart-container"><canvas id="edgeChart"></canvas></div>
+  </div>
+</div>
+
+<!-- 比分分布 -->
+<div class="grid">
+  <div class="card">
+    <h2>🏆 比分概率分布 Top 8</h2>
+    <div class="chart-container" style="height:320px"><canvas id="scoreChart"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>⚽ 进球数区间</h2>
+    <div class="chart-container" style="height:320px"><canvas id="goalChart"></canvas></div>
+  </div>
+</div>
+
+<!-- 关键数据对比 -->
+<div class="grid">
+  <div class="card">
+    <h2>🔬 关键数据对比</h2>
+    <div class="stat-row">
+      <span class="stat-label">场均进球</span>
+      <span class="stat-value home">0.9</span>
+      <span style="color:#30363d">|</span>
+      <span class="stat-value away">1.6</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">场均失球</span>
+      <span class="stat-value home">1.1</span>
+      <span style="color:#30363d">|</span>
+      <span class="stat-value away">0.6</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">近10场胜率</span>
+      <span class="stat-value home">30%</span>
+      <span style="color:#30363d">|</span>
+      <span class="stat-value away">40%</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">小组赛净胜球</span>
+      <span class="stat-value home">-1</span>
+      <span style="color:#30363d">|</span>
+      <span class="stat-value away">+5</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">核心射手</span>
+      <span class="stat-value home" style="font-size:12px">Maseko 1球</span>
+      <span style="color:#30363d">|</span>
+      <span class="stat-value away" style="font-size:12px">戴维3球+拉林2球</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">零封概率</span>
+      <span class="stat-value home">45.4%</span>
+      <span style="color:#30363d">|</span>
+      <span class="stat-value away">19.5%</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-label">状态修正(Form)</span>
+      <span class="stat-value home">+0.10</span>
+      <span style="color:#30363d">|</span>
+      <span class="stat-value away">+0.37</span>
+    </div>
+  </div>
+  <div class="card">
+    <h2>📈 模型 vs 市场</h2>
+    <div class="chart-container" style="height:320px"><canvas id="compareChart"></canvas></div>
+  </div>
+</div>
+
+<!-- Edge信号 -->
+<div class="card full">
+  <h2>🎯 Edge价值信号汇总</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px;margin-top:10px">
+    <div class="edge-box danger">
+      <div class="label">南非胜 Edge</div>
+      <div class="value">-0.2pp</div>
+      <div style="color:#8b949e;font-size:12px">无价值</div>
+    </div>
+    <div class="edge-box danger">
+      <div class="label">平局 Edge</div>
+      <div class="value">-2.8pp</div>
+      <div style="color:#8b949e;font-size:12px">无价值</div>
+    </div>
+    <div class="edge-box">
+      <div class="label">加拿大胜 Edge</div>
+      <div class="value">+3.0pp</div>
+      <span class="signal medium">中等价值</span>
+    </div>
+  </div>
+</div>
+
+<!-- 结论 -->
+<div class="conclusion">
+  <h2>🏁 赛博模型复盘总结</h2>
+  <div class="rec">
+    <div class="title">🟢 稳健推荐：0-1 加拿大</div>
+    <div class="detail">概率14.5% | 概率最高比分 | 加拿大铁桶防守+南非进攻哑火=小胜收场</div>
+  </div>
+  <div class="rec">
+    <div class="title">🟡 进取推荐：0-2 加拿大</div>
+    <div class="detail">概率11.8% | 南非下半场压出来后防空虚再丢一个</div>
+  </div>
+  <div class="rec">
+    <div class="title">🔴 冷门方向：1-0 南非</div>
+    <div class="detail">概率约5% | 小燕子偷一个，命硬到底</div>
+  </div>
+  <div style="margin-top:15px;padding:12px;background:#21262d;border-radius:8px">
+    <div style="color:#f0883e;font-weight:bold">📌 核心判断</div>
+    <div style="color:#8b949e;font-size:13px;margin-top:4px">
+      加拿大胜率57.3% vs 市场54.3% → Edge +3.0pp（中等价值）<br>
+      南非被零封概率45.4% → 进攻端几乎无威胁<br>
+      凯利仓位：不建议重仓（Edge<5pp，凯利为0）<br>
+      仓位等级：B级（观望为主，小注加拿大胜）
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  阿飞·赛博聊球 | v4.1全维度模型 | 数据来源：竞彩网、咪咕视频、懂球帝<br>
+  本文仅为赛事数据分析，不构成任何投注建议。竞猜有风险，请理性参与。
+</div>
+
+</div>
+
+<script>
+Chart.defaults.color = '#8b949e';
+Chart.defaults.borderColor = '#21262d';
+
+// λ值柱状图
+new Chart(document.getElementById('lambdaChart'), {
+  type: 'bar',
+  data: {
+    labels: ['南非 λ', '加拿大 λ'],
+    datasets: [{
+      data: [0.79, 1.64],
+      backgroundColor: ['#f85149', '#58a6ff'],
+      borderRadius: 8,
+      barThickness: 50
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false },
+      tooltip: { callbacks: { label: ctx => 'λ = ' + ctx.raw } }
+    },
+    scales: { y: { beginAtZero: true, max: 2.5, grid: { color: '#21262d' } }, x: { grid: { display: false } } }
+  }
+});
+
+// 胜平负饼图
+new Chart(document.getElementById('resultChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['南非胜 18.2%', '平局 24.4%', '加拿大胜 57.3%'],
+    datasets: [{
+      data: [18.2, 24.4, 57.3],
+      backgroundColor: ['#f85149', '#f0883e', '#58a6ff'],
+      borderWidth: 0,
+      hoverOffset: 8
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    cutout: '55%',
+    plugins: {
+      legend: { position: 'bottom', labels: { padding: 12, font: { size: 11 } } }
+    }
+  }
+});
+
+// Edge柱状图
+new Chart(document.getElementById('edgeChart'), {
+  type: 'bar',
+  data: {
+    labels: ['南非胜', '平局', '加拿大胜'],
+    datasets: [{
+      data: [-0.2, -2.8, 3.0],
+      backgroundColor: ctx => ctx.raw >= 0 ? '#3fb950' : '#f85149',
+      borderRadius: 8,
+      barThickness: 40
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    indexAxis: 'y',
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => 'Edge: ' + (ctx.raw > 0 ? '+' : '') + ctx.raw + 'pp' } }
+    },
+    scales: { x: { grid: { color: '#21262d' }, ticks: { callback: v => v + 'pp' } }, y: { grid: { display: false } } }
+  }
+});
+
+// 比分分布
+new Chart(document.getElementById('scoreChart'), {
+  type: 'bar',
+  data: {
+    labels: ['0-1', '0-2', '1-1', '1-2', '0-0', '1-0', '0-3', '2-1'],
+    datasets: [{
+      data: [14.5, 11.8, 11.3, 9.3, 8.9, 6.8, 5.2, 4.8],
+      backgroundColor: ['#58a6ff','#58a6ff','#f0883e','#58a6ff','#f0883e','#f85149','#58a6ff','#f85149'],
+      borderRadius: 6
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true, grid: { color: '#21262d' }, ticks: { callback: v => v + '%' } }, x: { grid: { display: false } } }
+  }
+});
+
+// 进球数区间
+new Chart(document.getElementById('goalChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['0-1球 (23.4%)', '2-3球 (45.3%)', '4球+ (31.3%)'],
+    datasets: [{
+      data: [23.4, 45.3, 31.3],
+      backgroundColor: ['#484f58', '#3fb950', '#f0883e'],
+      borderWidth: 0
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    cutout: '55%',
+    plugins: { legend: { position: 'bottom', labels: { padding: 12, font: { size: 11 } } } }
+  }
+});
+
+// 模型 vs 市场对比
+new Chart(document.getElementById('compareChart'), {
+  type: 'bar',
+  data: {
+    labels: ['南非胜', '平局', '加拿大胜'],
+    datasets: [
+      { label: '模型概率', data: [18.2, 24.4, 57.3], backgroundColor: '#58a6ff', borderRadius: 6 },
+      { label: '市场隐含', data: [18.4, 27.2, 54.3], backgroundColor: '#484f58', borderRadius: 6 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'top', labels: { padding: 15 } } },
+    scales: {
+      y: { beginAtZero: true, grid: { color: '#21262d' }, ticks: { callback: v => v + '%' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+</script>
+</body>
+</html>

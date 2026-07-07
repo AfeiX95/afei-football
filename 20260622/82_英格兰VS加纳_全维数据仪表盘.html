@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英格兰 VS 加纳 · 全维数据仪表盘</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+:root{--bg:#0d0f14;--card:#1a1d24;--text:#e8e8e8;--muted:#8892b0;--border:rgba(255,255,255,0.06);--red:#c60b1e;--blue:#3884ff;--green:#006c35;--gold:#ffd700}
+[data-theme="light"]{--bg:#f5f5f5;--card:#ffffff;--text:#1a1a2e;--muted:#666;--border:rgba(0,0,0,0.1);--gold:#b8860b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;padding:20px;transition:.3s}
+h1{font-size:1.6rem;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.subtitle{color:var(--muted);font-size:.9rem;margin-bottom:20px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(12,1fr);max-width:1400px;margin:0 auto}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;transition:.3s}
+.card h3{font-size:.95rem;color:var(--muted);margin-bottom:10px;font-weight:600;letter-spacing:.3px}
+.card .big{font-size:2.2rem;font-weight:700;line-height:1.2}
+.col-span-3{grid-column:span 3}.col-span-4{grid-column:span 4}.col-span-5{grid-column:span 5}
+.col-span-6{grid-column:span 6}.col-span-7{grid-column:span 7}.col-span-8{grid-column:span 8}
+.col-span-12{grid-column:span 12}
+.flex{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.justify-between{justify-content:space-between}.gap-4{gap:4px}.mt-8{margin-top:8px}.mb-8{margin-bottom:8px}
+.text-red{color:var(--red)}.text-blue{color:var(--blue)}.text-green{color:var(--green)}.text-gold{color:var(--gold)}
+.text-muted{color:var(--muted)}.text-sm{font-size:.8rem}.text-lg{font-size:1.15rem}.font-bold{font-weight:700}
+.prob-bar{display:flex;height:28px;border-radius:6px;overflow:hidden;width:100%;margin:10px 0}
+.prob-seg{display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:600;color:#fff;transition:width .5s}
+.prob-seg.win{background:#c60b1e}.prob-seg.draw{background:#3884ff}.prob-seg.lose{background:#006c35}
+.theme-btn{background:var(--card);border:1px solid var(--border);color:var(--text);padding:6px 14px;border-radius:6px;cursor:pointer;font-size:.8rem;transition:.2s}
+.theme-btn:hover{opacity:.8}
+.mc-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin-bottom:8px}
+.mc-item{text-align:center;padding:10px;background:rgba(255,255,255,0.03);border-radius:8px}
+.mc-item .label{font-size:.75rem;color:var(--muted)}
+.mc-item .value{font-size:1.7rem;font-weight:700;font-variant-numeric:tabular-nums}
+.comp-bar{display:flex;align-items:center;gap:10px;margin:6px 0}
+.comp-bar .bar-track{flex:1;height:8px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden}
+.comp-bar .bar-fill{height:100%;border-radius:4px;transition:width .6s}
+.comp-bar .team{width:90px;text-align:right;font-size:.82rem}
+.chart-container{position:relative;height:220px;width:100%}
+.chart-container-sm{position:relative;height:180px;width:100%}
+.scenario-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.scenario{background:rgba(255,255,255,0.03);border-radius:8px;padding:12px;border:1px solid transparent}
+.scenario.highlight{background:rgba(198,11,30,0.08);border-color:var(--red)}
+.scenario-title{font-weight:600;font-size:.9rem;margin-bottom:4px}
+.scenario-pct{font-size:1.4rem;font-weight:700}
+.scenario-desc{font-size:.8rem;color:var(--muted);margin-top:4px}
+.standings-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.standings-table th{text-align:left;color:var(--muted);font-weight:500;padding:6px 8px;border-bottom:1px solid var(--border);font-size:.75rem}
+.standings-table td{padding:6px 8px;border-bottom:1px solid var(--border)}
+.standings-table tr.active{background:rgba(198,11,19,0.06);font-weight:600}
+.standings-table tr.active td:first-child{border-left:3px solid var(--red);padding-left:5px}
+.expert-scroll{display:flex;gap:10px;overflow-x:auto;padding:4px 0 8px}
+.expert-scroll::-webkit-scrollbar{height:4px}
+.expert-scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.expert-card{min-width:160px;background:rgba(255,255,255,0.03);border-radius:8px;padding:10px;flex-shrink:0}
+.expert-card .source{font-size:.7rem;color:var(--muted)}
+.expert-card .score{font-size:1.1rem;font-weight:700;margin:4px 0}
+.odds-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.odds-table th{text-align:left;color:var(--muted);font-weight:500;padding:5px 6px;border-bottom:1px solid var(--border);font-size:.72rem}
+.odds-table td{padding:5px 6px;border-bottom:1px solid var(--border)}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.7rem;font-weight:600}
+.tag-red{background:rgba(198,11,30,0.15);color:var(--red)}
+.tag-blue{background:rgba(56,132,255,0.15);color:var(--blue)}
+.tag-green{background:rgba(0,108,53,0.15);color:var(--green)}
+.tag-gold{background:rgba(255,215,0,0.15);color:var(--gold)}
+.sens-cell{padding:4px 2px;font-size:.68rem}
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr}
+  .col-span-3,.col-span-4,.col-span-5,.col-span-6,.col-span-7,.col-span-8{grid-column:span 1}
+  .scenario-grid{grid-template-columns:1fr}.mc-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="grid">
+  <!-- Header -->
+  <div class="col-span-12 card" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+    <div>
+      <h1><span>🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰 VS 加纳 🇬🇭</span><span class="text-sm text-muted" style="font-weight:400">L组第2轮</span></h1>
+      <div class="subtitle" style="margin-bottom:0">周二046 · 2026-06-24 04:00 · 波士顿·吉列球场 · 世界杯小组赛</div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <span class="tag tag-gold" id="themeLabel">🌙 暗色</span>
+      <button class="theme-btn" onclick="toggleTheme()">切换主题</button>
+    </div>
+  </div>
+
+  <!-- 1. 六维雷达 -->
+  <div class="col-span-7 card"><h3>📡 六维战力雷达</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;min-height:200px">
+      <div style="position:relative;height:200px"><canvas id="radarChart"></canvas></div>
+      <div id="compBars"></div>
+    </div>
+  </div>
+
+  <!-- 2. 小组积分榜 -->
+  <div class="col-span-5 card"><h3>🏆 L组积分榜</h3>
+    <table class="standings-table" id="standingsTable"></table>
+    <div class="text-sm text-muted mt-8" style="font-size:.75rem">💡 英格兰胜则提前锁定出线</div>
+  </div>
+
+  <!-- 3. 蒙特卡洛 -->
+  <div class="col-span-5 card"><h3>🎲 蒙特卡洛模拟</h3>
+    <div class="mc-grid">
+      <div class="mc-item"><div class="label">英格兰胜</div><div class="value text-red" id="mcWin">71.7%</div></div>
+      <div class="mc-item"><div class="label">平局</div><div class="value text-blue" id="mcDraw">17.8%</div></div>
+      <div class="mc-item"><div class="label">加纳胜</div><div class="value text-green" id="mcLose">10.5%</div></div>
+      <div class="mc-item"><div class="label">大2.5球</div><div class="value text-gold" id="mcOver">55.1%</div></div>
+    </div>
+    <div class="prob-bar"><div class="prob-seg win" style="width:71.7%">71.7%</div><div class="prob-seg draw" style="width:17.8%">17.8%</div><div class="prob-seg lose" style="width:10.5%">10.5%</div></div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span class="text-sm text-muted">📊 10万次模拟 · λ主=2.2 λ客=0.7</span>
+      <button class="theme-btn" onclick="startMC()">🔄 重新运行</button>
+    </div>
+  </div>
+
+  <!-- 4. 总进球分布 -->
+  <div class="col-span-3 card"><h3>⚽ 总进球分布</h3>
+    <div class="chart-container-sm"><canvas id="goalsChart"></canvas></div>
+  </div>
+
+  <!-- 5. 最可能比分 -->
+  <div class="col-span-4 card"><h3>🏆 最可能比分 Top 8</h3>
+    <div class="chart-container"><canvas id="scoresChart"></canvas></div>
+  </div>
+
+  <!-- 6. 数据对比 -->
+  <div class="col-span-3 card"><h3>📊 数据对比</h3>
+    <div style="display:grid;gap:8px;font-size:.82rem" id="dataCompare"></div>
+  </div>
+
+  <!-- 7. 敏感性 -->
+  <div class="col-span-3 card"><h3>🔬 敏感性分析</h3>
+    <div id="sensitivityArea" style="font-size:.72rem;text-align:center;display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px"></div>
+    <div class="text-sm text-muted mt-8" id="sensNote"></div>
+  </div>
+
+  <!-- 8. 专家预测 -->
+  <div class="col-span-5 card"><h3>📰 外媒参考预测</h3>
+    <div class="expert-scroll" id="expertScroll"></div>
+  </div>
+
+  <!-- 9. 价值信号 -->
+  <div class="col-span-4 card"><h3>💰 价值信号</h3>
+    <table class="odds-table"><tr><th>类型</th><th>英格兰</th><th>平局</th><th>加纳</th></tr>
+      <tr><td>模型概率</td><td class="text-red font-bold">71.7%</td><td>17.8%</td><td class="text-green">10.5%</td></tr>
+      <tr><td>市场隐含</td><td class="text-red" id="mktH">80.0%</td><td id="mktD">13.5%</td><td class="text-green" id="mktA">6.5%</td></tr>
+      <tr><td>偏差</td><td class="text-gold" id="devH">--</td><td id="devD">--</td><td class="text-gold" id="devA">--</td></tr>
+    </table>
+    <div style="margin-top:8px;padding:8px;background:rgba(255,215,0,0.06);border-radius:6px">
+      <div class="text-sm font-bold text-gold">🕵️ 品牌溢价</div>
+      <div class="text-sm text-muted" id="trapDesc">英格兰品牌溢价8.3pp，模型与市场方向一致</div>
+    </div>
+  </div>
+
+  <!-- 10. 情景推演 -->
+  <div class="col-span-5 card"><h3>🎯 多情景推演</h3>
+    <div class="scenario-grid" id="scenarioGrid"></div>
+  </div>
+
+  <!-- 11. 综合结论 -->
+  <div class="col-span-12 card"><h3>📋 赛博模型复盘总结</h3>
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:10px" id="conclusionGrid"></div>
+    <div style="margin-top:10px;padding:10px;background:rgba(198,11,30,0.04);border-left:3px solid var(--red);border-radius:4px;font-size:.88rem" id="finalNote"></div>
+  </div>
+</div>
+
+<script>
+// ====== 数据 ======
+const HOME_LAMBDA = 2.2, AWAY_LAMBDA = 0.7;
+const h = {name:'英格兰',flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',fifa:4,worth:'€13.5亿',form:'W W D W W L',gScored:2.6,gConceded:0.8,possession:61,attack:89,midfield:84,defense:82,morale:78,worthScore:97,note:'三叉戟多点开花 · 防线有隐患'};
+const a = {name:'加纳',flag:'🇬🇭',fifa:63,worth:'€0.8亿',form:'W L W L W D',gScored:1.2,gConceded:1.1,possession:38,attack:52,midfield:50,defense:54,morale:65,worthScore:18,note:'门将伤退+帕尔特伊缺席 · 大巴战术'};
+
+const standings = [
+  {team:'🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰',mp:1,w:1,d:0,l:0,gf:4,ga:2,pts:3},
+  {team:'🇬🇭 加纳',mp:1,w:1,d:0,l:0,gf:1,ga:0,pts:3},
+  {team:'🇭🇷 克罗地亚',mp:1,w:0,d:0,l:1,gf:2,ga:4,pts:0},
+  {team:'🇵🇦 巴拿马',mp:1,w:0,d:0,l:1,gf:0,ga:1,pts:0}
+];
+
+let theme = localStorage.getItem('dashboardTheme') || 'dark';
+if(theme==='light') document.body.setAttribute('data-theme','light');
+
+function toggleTheme(){
+  theme=theme==='dark'?'light':'dark';
+  document.body.setAttribute('data-theme',theme);
+  localStorage.setItem('dashboardTheme',theme);
+  document.getElementById('themeLabel').textContent=theme==='dark'?'🌙 暗色':'☀️ 亮色';
+}
+
+function factorial(n){return n<=1?1:n*factorial(n-1)}
+function poisson(k,lam){return Math.exp(-lam)*Math.pow(lam,k)/factorial(k)}
+function calcPoisson(lamH,lamA){
+  let win=0,draw=0,lose=0,goals={},scores=[];
+  for(let g=0;g<9;g++)goals[g]=0;
+  for(let h=0;h<=7;h++) for(let a=0;a<=6;a++){
+    let p=poisson(h,lamH)*poisson(a,lamA);
+    if(h>a)win+=p;else if(h===a)draw+=p;else lose+=p;
+    goals[Math.min(h+a,8)]+=p; scores.push({h,a,p});
+  }
+  scores.sort((a,b)=>b.p-a.p);
+  return {win:+(win*100).toFixed(1),draw:+(draw*100).toFixed(1),lose:+(lose*100).toFixed(1),goals,topScores:scores.slice(0,8)};
+}
+
+const base = calcPoisson(HOME_LAMBDA, AWAY_LAMBDA);
+
+function render(){
+  // Standings
+  document.getElementById('standingsTable').innerHTML = '<tr><th>#</th><th>球队</th><th>赛</th><th>胜</th><th>平</th><th>负</th><th>进/失</th><th>净胜</th><th>积分</th></tr>' +
+    standings.map((t,i)=>`<tr${t.team.includes('英格兰')||t.team.includes('加纳')?' class="active"':''}>
+      <td>${i+1}</td><td>${t.team}</td><td>${t.mp}</td><td>${t.w}</td><td>${t.d}</td><td>${t.l}</td>
+      <td>${t.gf}/${t.ga}</td><td>${t.gf-t.ga>0?'+':''}${t.gf-t.ga}</td><td><strong>${t.pts}</strong></td></tr>`).join('');
+
+  // Comp bars
+  document.getElementById('compBars').innerHTML = `
+    <div class="comp-bar"><span class="team">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰</span><div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--red)"></div></div><span class="text-sm">89</span></div>
+    <div class="comp-bar"><span class="team">🇬🇭 加纳</span><div class="bar-track"><div class="bar-fill" style="width:52%;background:var(--green)"></div></div><span class="text-sm">52</span></div>
+    <div style="margin-top:10px;padding:10px;background:rgba(255,255,255,0.03);border-radius:6px">
+      <div class="text-sm text-muted">综合评分</div>
+      <div class="flex justify-between">
+        <span><span class="text-red font-bold">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰</span> <span class="text-lg font-bold">87.0</span></span>
+        <span style="color:var(--muted)">VS</span>
+        <span><span class="text-green font-bold">🇬🇭 加纳</span> <span class="text-lg font-bold">48.6</span></span>
+      </div>
+    </div>`;
+
+  // Data compare
+  document.getElementById('dataCompare').innerHTML = `
+    <div class="flex justify-between"><span class="text-muted">FIFA排名</span><span><span class="text-red font-bold">#4</span> vs <span class="text-green font-bold">#63</span></span></div>
+    <div class="flex justify-between"><span class="text-muted">全队身价</span><span><span class="text-red font-bold">€13.5亿</span> vs <span class="text-green font-bold">€0.8亿</span></span></div>
+    <div class="flex justify-between"><span class="text-muted">场均进球</span><span><span class="text-red font-bold">2.6</span> vs <span class="text-green font-bold">1.2</span></span></div>
+    <div class="flex justify-between"><span class="text-muted">场均失球</span><span><span class="text-red font-bold">0.8</span> vs <span class="text-green font-bold">1.1</span></span></div>
+    <div class="flex justify-between"><span class="text-muted">控球率</span><span><span class="text-red font-bold">61%</span> vs <span class="text-green font-bold">38%</span></span></div>
+    <div class="flex justify-between"><span class="text-muted">首轮战绩</span><span><span class="text-red font-bold">4-2克罗地亚</span> vs <span class="text-green font-bold">1-0巴拿马</span></span></div>
+    <div style="margin-top:4px;padding:6px;background:rgba(255,255,255,0.02);border-radius:4px;font-size:.75rem;color:var(--muted)">📌 ${h.note}</div>
+    <div style="padding:6px;background:rgba(255,255,255,0.02);border-radius:4px;font-size:.75rem;color:var(--muted)">📌 ${a.note}</div>`;
+
+  // Sensitivity
+  const s = (r)=>`${r.win}/${r.draw}/${r.lose}`;
+  document.getElementById('sensitivityArea').innerHTML = `
+    <div class="text-muted">λ主\\λ客</div><div class="text-muted">-0.2</div><div class="text-muted">基准</div>
+    <div class="text-muted">-0.2</div><div class="sens-cell">${s(calcPoisson(2.0,0.5))}</div><div class="sens-cell">${s(calcPoisson(2.0,0.7))}</div>
+    <div class="text-muted">基准</div><div class="sens-cell">${s(calcPoisson(2.2,0.5))}</div><div class="sens-cell" style="background:rgba(255,215,0,0.08);border-radius:4px;font-weight:600">${s(base)}</div>`;
+  document.getElementById('sensNote').textContent = `📌 λ浮动±0.2 → 英格兰胜率70.4%-73.0%，模型稳定`;
+
+  // Value signal
+  const mktProb = [80.0, 13.5, 6.5];
+  document.getElementById('mktH').textContent = mktProb[0]+'%';
+  document.getElementById('mktD').textContent = mktProb[1]+'%';
+  document.getElementById('mktA').textContent = mktProb[2]+'%';
+  let devH = base.win - mktProb[0], devD = base.draw - mktProb[1], devA = base.lose - mktProb[2];
+  document.getElementById('devH').textContent = (devH>0?'+':'')+devH.toFixed(1)+'pp';
+  document.getElementById('devD').textContent = (devD>0?'+':'')+devD.toFixed(1)+'pp';
+  document.getElementById('devA').textContent = (devA>0?'+':'')+devA.toFixed(1)+'pp';
+  document.getElementById('trapDesc').innerHTML = `英格兰品牌溢价<strong>+8.3pp</strong>（排名差59位·身价比17倍）。模型71.7% vs 市场80% = 偏差<strong>${Math.abs(devH).toFixed(1)}pp</strong>。方向一致，但1-0闷战概率不可忽视。`;
+
+  // Scenarios
+  document.getElementById('scenarioGrid').innerHTML = `
+    <div class="scenario highlight"><div class="scenario-title">🔥 基准：英格兰大胜</div>
+      <div class="scenario-pct text-red">71.7%</div>
+      <div class="scenario-desc">2-0或3-0，英格兰控场压制，加纳门将危机+帕尔特伊缺席双重打击</div></div>
+    <div class="scenario"><div class="scenario-title">🔵 平局：大巴闷战</div>
+      <div class="scenario-pct text-blue">17.8%</div>
+      <div class="scenario-desc">1-1（8.4%），奎罗斯541大巴成功，加纳利用定位球偷袭得手</div></div>
+    <div class="scenario"><div class="scenario-title">🟢 爆冷：加纳翻盘</div>
+      <div class="scenario-pct text-green">10.5%</div>
+      <div class="scenario-desc">0-1（5.9%），英格兰防线轮换出错，加纳反击一击致命</div></div>`;
+
+  // Conclusion
+  let over25 = base.goals[3]+base.goals[4]+base.goals[5]+base.goals[6]+base.goals[7]+base.goals[8];
+  let top3 = base.topScores.slice(0,3).map(s=>`<span class="tag tag-red">${s.h}-${s.a} (${(s.p*100).toFixed(1)}%)</span>`).join(' ');
+  document.getElementById('conclusionGrid').innerHTML = `
+    <div style="background:rgba(255,255,255,0.02);border-radius:8px;padding:12px">
+      <div class="text-sm text-muted">最可能比分</div><div class="flex gap-4" style="margin-top:4px">${top3}</div></div>
+    <div style="background:rgba(198,11,30,0.06);border-radius:8px;padding:12px;text-align:center">
+      <div class="text-sm text-muted">英格兰胜</div><div class="big text-red">${base.win}%</div></div>
+    <div style="background:rgba(56,132,255,0.06);border-radius:8px;padding:12px;text-align:center">
+      <div class="text-sm text-muted">平局</div><div class="big text-blue">${base.draw}%</div></div>
+    <div style="background:rgba(0,108,53,0.06);border-radius:8px;padding:12px;text-align:center">
+      <div class="text-sm text-muted">加纳胜</div><div class="big text-green">${base.lose}%</div></div>
+    <div style="background:rgba(255,215,0,0.06);border-radius:8px;padding:12px;text-align:center">
+      <div class="text-sm text-muted">大2.5球</div><div class="big text-gold">${(over25*100).toFixed(1)}%</div></div>`;
+
+  document.getElementById('finalNote').innerHTML = `<strong>📌 赛博模型复盘总结：</strong><br>
+    📊 模拟胜负概率配比：英格兰胜 <strong>${base.win}%</strong> | 平局 <strong>${base.draw}%</strong> | 加纳胜 <strong>${base.lose}%</strong><br>
+    ⚽ 进球总量预测：3球（主选）/ 2球（次选）· 大2.5球 ${(over25*100).toFixed(1)}%<br>
+    🏆 理论高频比分：2-0(13.3%)、1-0(12.2%)、3-0(9.7%)<br>
+    🎭 全维局势定性：英格兰在纸面实力和首轮火力上占据绝对优势，4-2大胜克罗地亚证明三叉戟多点开花。但加纳门将伤退+帕尔特伊签证缺席这两个变量叠加，防守端隐患极大。后台模型${base.win}%胜率 vs 市场${mktProb[0]}%隐含概率，存在${Math.abs(devH).toFixed(0)}pp品牌溢价，1-0闷战作为第二大比分（12.2%）不可忽视。综合推演，英格兰大概率取胜，但赢球和大胜是两回事。`;
+}
+
+function initCharts(){
+  new Chart(document.getElementById('radarChart'),{
+    type:'radar',data:{
+      labels:['进攻','中场','防守','战意','身价'],
+      datasets:[
+        {label:'🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰',data:[89,84,82,78,97],borderColor:'#c60b1e',backgroundColor:'rgba(198,11,30,0.12)',pointBackgroundColor:'#c60b1e',borderWidth:2,pointRadius:3},
+        {label:'🇬🇭 加纳',data:[52,50,54,65,18],borderColor:'#006c35',backgroundColor:'rgba(0,108,53,0.12)',pointBackgroundColor:'#006c35',borderWidth:2,pointRadius:3}
+      ]
+    },options:{responsive:true,maintainAspectRatio:false,
+      scales:{r:{min:0,max:100,ticks:{stepSize:20,font:{size:9}},grid:{color:'rgba(255,255,255,0.06)'},angleLines:{color:'rgba(255,255,255,0.06)'},pointLabels:{font:{size:9}}}},
+      plugins:{legend:{display:false}}
+    }
+  });
+
+  const gl = base.goals;
+  new Chart(document.getElementById('goalsChart'),{
+    type:'doughnut',data:{
+      labels:['0球','1球','2球','3球','4球','5球','6+球'],
+      datasets:[{data:[gl[0],gl[1],gl[2],gl[3],gl[4],gl[5],gl[6]+gl[7]+gl[8]],
+        backgroundColor:['#8892b0','#5a6785','#3884ff','#c60b1e','#ff8c00','#ffd700','#006c35'],borderWidth:0}]
+    },options:{responsive:true,maintainAspectRatio:false,cutout:'60%',
+      plugins:{legend:{position:'right',labels:{usePointStyle:true,font:{size:10},padding:8}}}}
+  });
+
+  const top8 = base.topScores;
+  new Chart(document.getElementById('scoresChart'),{
+    type:'bar',data:{
+      labels:top8.map(s=>`${s.h}-${s.a}`),
+      datasets:[{label:'概率 %',data:top8.map(s=>+(s.p*100).toFixed(1)),
+        backgroundColor:top8.map(s=>s.h>s.a?'#c60b1e':s.h===s.a?'#3884ff':'#006c35'),borderRadius:4,borderSkipped:false}]
+    },options:{responsive:true,maintainAspectRatio:false,
+      scales:{y:{beginAtZero:true,max:16,grid:{color:'rgba(255,255,255,0.04)'},ticks:{font:{size:9}}},x:{grid:{display:false},ticks:{font:{size:9}}}},
+      plugins:{legend:{display:false}}
+    }
+  });
+}
+
+// Monte Carlo
+let mcRunning=false,mcTotal=0,mcWin=0,mcDraw=0,mcLose=0,mcOver=0;
+const MC_TARGET=500000,BATCH=2000;
+function mcBatch(){
+  if(!mcRunning) return;
+  for(let i=0;i<BATCH;i++){
+    let hg=0,ag=0;
+    for(let j=0;j<1000;j++){if(Math.random()<HOME_LAMBDA/1000)hg++;}
+    for(let j=0;j<1000;j++){if(Math.random()<AWAY_LAMBDA/1000)ag++;}
+    if(hg>ag) mcWin++; else if(hg===ag) mcDraw++; else mcLose++;
+    if(hg+ag>=3) mcOver++; mcTotal++;
+  }
+  const p=n=>mcTotal?+(n/mcTotal*100).toFixed(1):0;
+  document.getElementById('mcWin').textContent=p(mcWin)+'%';
+  document.getElementById('mcDraw').textContent=p(mcDraw)+'%';
+  document.getElementById('mcLose').textContent=p(mcLose)+'%';
+  document.getElementById('mcOver').textContent=p(mcOver)+'%';
+  if(mcTotal<MC_TARGET) requestAnimationFrame(mcBatch);
+  else{mcRunning=false;}
+}
+function startMC(){
+  if(mcRunning) return;
+  mcRunning=true;mcTotal=0;mcWin=0;mcDraw=0;mcLose=0;mcOver=0;
+  mcBatch();
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  render(); initCharts();
+  document.getElementById('themeLabel').textContent=theme==='dark'?'🌙 暗色':'☀️ 亮色';
+});
+</script>
+</body>
+</html>

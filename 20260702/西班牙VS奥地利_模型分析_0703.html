@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>西班牙 vs 奥地利 · 模型分析 · 07-03</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#0f0f1a;color:#e0e0e0;padding:16px}
+.container{max-width:720px;margin:0 auto}
+h1{font-size:20px;font-weight:700;color:#fff;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.subtitle{font-size:13px;color:#888;margin-bottom:16px}
+.match-card{background:#1a1a2e;border-radius:10px;padding:16px;margin-bottom:14px;border:1px solid #2a2a3e}
+.match-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.match-id{font-size:12px;color:#666;background:#252540;padding:2px 8px;border-radius:4px}
+.match-time{font-size:12px;color:#888}
+.match-vs{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.team{font-size:18px;font-weight:700;color:#fff}
+.team.home{color:#c9252b}
+.team.away{color:#e0001b}
+.vs-text{color:#555;font-size:14px;margin:0 8px}
+.badge-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.badge{display:inline-block;font-size:11px;padding:2px 7px;border-radius:4px;font-weight:500}
+.badge.red{background:#3a1520;color:#ef5350}
+.badge.green{background:#1a3a1a;color:#4caf50}
+.badge.orange{background:#3a2a10;color:#ff9800}
+.badge.blue{background:#102a3a;color:#4fc3f7}
+.badge.purple{background:#2a103a;color:#ce93d8}
+.kpi-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px}
+.kpi-item{background:#252540;border-radius:6px;padding:8px;text-align:center}
+.kpi-label{font-size:11px;color:#888}
+.kpi-value{font-size:17px;font-weight:700;color:#fff}
+.kpi-value.green{color:#4caf50}
+.kpi-value.red{color:#ef5350}
+.kpi-value.orange{color:#ff9800}
+.kpi-value.blue{color:#4fc3f7}
+.prob-bar{display:flex;height:22px;border-radius:4px;overflow:hidden;margin-bottom:8px;font-size:11px;font-weight:600}
+.prob-bar .seg{display:flex;align-items:center;justify-content:center;color:#fff}
+.prob-bar .seg.h{background:#c9252b}
+.prob-bar .seg.d{background:#ffb74d}
+.prob-bar .seg.a{background:#e0001b}
+.prob-compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.prob-box{background:#252540;border-radius:6px;padding:10px;text-align:center}
+.prob-box .label{font-size:11px;color:#888;margin-bottom:3px}
+.prob-box .val{font-size:16px;font-weight:700}
+.prob-box .delta{font-size:13px;font-weight:600;margin-top:3px}
+.delta.pos{color:#4caf50}
+.delta.neg{color:#ef5350}
+.delta.neutral{color:#888}
+table{width:100%;border-collapse:collapse;margin-bottom:10px;font-size:13px}
+table th{background:#252540;color:#888;font-weight:500;padding:6px 4px;border:1px solid #2a2a3e;text-align:center}
+table td{padding:5px 4px;border:1px solid #2a2a3e;text-align:center;color:#ccc}
+table tr:nth-child(1) td{color:#c9252b;font-weight:600}
+.section-title{font-size:16px;font-weight:700;color:#fff;margin:18px 0 10px;padding-left:12px;border-left:3px solid #c9252b}
+.section-title.warn{border-left-color:#ff9800}
+.section-title.danger{border-left-color:#ef5350}
+.section-title.blue{border-left-color:#4fc3f7}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.info-card{background:#252540;border-radius:6px;padding:10px}
+.info-card .ic-title{font-size:12px;font-weight:600;margin-bottom:4px;padding-bottom:3px;border-bottom:1px solid #2a2a3e}
+.info-card.esp{border-left:3px solid #c9252b}
+.info-card.aut{border-left:3px solid #e0001b}
+.info-card .ic-item{font-size:12px;color:#bbb;padding:2px 0}
+.info-card .ic-item .tag{font-size:10px;padding:1px 4px;border-radius:2px;margin-right:4px}
+.signal-box{background:#1a1a2e;border-radius:10px;padding:14px;margin-bottom:14px;border-left:4px solid #ef5350}
+.signal-box.green{border-left-color:#4caf50}
+.signal-box.orange{border-left-color:#ff9800}
+.signal-box .sig-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:6px}
+.signal-box .sig-desc{font-size:13px;color:#aaa;line-height:1.6}
+.signal-box .sig-item{padding:4px 0;font-size:13px;color:#bbb;border-bottom:1px solid #252540}
+.signal-box .sig-item:last-child{border-bottom:none}
+.ev-table td:nth-child(4){font-weight:600}
+.ev-table tr.ev-strong td{color:#4caf50!important}
+.ev-table tr.ev-mid td{color:#ff9800!important}
+.ev-table tr.ev-none td{color:#888!important}
+.plan-card{background:#1a1a2e;border-radius:10px;padding:14px;margin-bottom:10px;border:1px solid #2a2a3e}
+.plan-card .plan-title{font-size:14px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.plan-card .plan-items{font-size:13px;color:#bbb;line-height:1.7}
+.plan-card .plan-items li{margin-left:16px;margin-bottom:3px}
+.footer{text-align:center;font-size:11px;color:#555;margin-top:20px;padding-top:12px;border-top:1px solid #2a2a3e;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>🇪🇸 西班牙 vs 奥地利 🇦🇹</h1>
+<div class="subtitle">周四083 · 世界杯1/16决赛 · 2026-07-03 03:00</div>
+
+<!-- 标签行 -->
+<div class="badge-row">
+  <span class="badge red">Edge -13.0pp ⚡</span>
+  <span class="badge purple">西班牙H组第1</span>
+  <span class="badge orange">奥地利J组第2</span>
+  <span class="badge blue">FIFA 3 vs 23</span>
+  <span class="badge green">让球-1: 1.85/3.55/3.25</span>
+</div>
+
+<!-- KPI -->
+<div class="kpi-grid">
+  <div class="kpi-item"><div class="kpi-label">λ 值</div><div class="kpi-value">1.621 <span style="font-size:12px;color:#888">/</span> 0.718</div></div>
+  <div class="kpi-item"><div class="kpi-label">大2.5球</div><div class="kpi-value" style="color:#b0b0b0">41.5%</div></div>
+  <div class="kpi-item"><div class="kpi-label">双方进球</div><div class="kpi-value orange">41.2%</div></div>
+</div>
+
+<!-- 概率条 -->
+<div style="font-size:11px;color:#888;margin-bottom:4px">模型概率（10万次模拟）</div>
+<div class="prob-bar">
+  <div class="seg h" style="width:59.0%">59.0%</div>
+  <div class="seg d" style="width:24.6%">24.6%</div>
+  <div class="seg a" style="width:16.4%">16.4%</div>
+</div>
+
+<!-- 市场vs模型 -->
+<div class="prob-compare">
+  <div class="prob-box">
+    <div class="label">📈 市场隐含概率</div>
+    <div class="val" style="color:#c9252b">72.0%</div>
+    <div style="display:flex;justify-content:space-around;margin-top:4px;font-size:13px">
+      <span style="color:#ffb74d">平18.6%</span>
+      <span style="color:#e0001b">客9.4%</span>
+    </div>
+  </div>
+  <div class="prob-box" style="border:1px solid #ef5350">
+    <div class="label">⚡ 模型 vs 市场</div>
+    <div class="delta neg" style="font-size:18px">西班牙 -13.0pp</div>
+    <div style="display:flex;justify-content:space-around;margin-top:2px;font-size:12px">
+      <span class="delta pos">平 +6.0pp</span>
+      <span class="delta pos">奥地利 +7.0pp</span>
+    </div>
+  </div>
+</div>
+
+<!-- 比分表 -->
+<div class="section-title">🎯 最可能比分</div>
+<table>
+  <tr><th>排名</th><th>比分</th><th>模型概率</th><th>参考赔率</th><th>EV</th></tr>
+  <tr><td>🥇</td><td>1-0</td><td>15.5%</td><td>@7.20</td><td style="color:#ff9800">+0.118 🟡</td></tr>
+  <tr><td>🥈</td><td>2-0</td><td>12.6%</td><td>@5.50</td><td style="color:#888">-0.309 🔴</td></tr>
+  <tr><td>🥉</td><td>1-1</td><td>11.3%</td><td>@10.00</td><td style="color:#ff9800">+0.128 🟡</td></tr>
+  <tr><td>4</td><td style="color:#ffb74d;font-weight:700">0-0</td><td style="color:#ffb74d">9.8%</td><td>@16.00</td><td style="color:#4caf50;font-weight:700">+0.561 ✅</td></tr>
+  <tr><td>5</td><td>2-1</td><td>9.3%</td><td>@7.25</td><td style="color:#888">-0.329 🔴</td></tr>
+  <tr><td>6</td><td style="color:#e0001b;font-weight:700">0-1（奥地利）</td><td style="color:#e0001b">6.9%</td><td>@25.00</td><td style="color:#4caf50;font-weight:700">+0.733 ✅</td></tr>
+  <tr><td>7</td><td>3-0</td><td>6.9%</td><td>@8.00</td><td style="color:#888">-0.450 🔴</td></tr>
+  <tr><td>8</td><td>3-1</td><td>4.8%</td><td>@7.80</td><td style="color:#888">-0.623 🔴</td></tr>
+  <tr><td>9</td><td style="color:#e0001b">1-2（奥地利）</td><td style="color:#e0001b">4.1%</td><td>@30.00</td><td style="color:#ff9800">+0.219 🟡</td></tr>
+  <tr><td>10</td><td>2-2</td><td>3.2%</td><td>@30.00</td><td style="color:#888">-0.042 🔴</td></tr>
+</table>
+
+<!-- 总进球分布 -->
+<div class="section-title blue">⚽ 总进球分布</div>
+<table>
+  <tr><th>0球</th><th>1球</th><th>2球</th><th>3球</th><th>4球</th><th>5球</th><th>6球+</th></tr>
+  <tr>
+    <td style="color:#ffb74d;font-weight:700">9.8%</td>
+    <td><b>22.5%</b></td>
+    <td><b>26.3%</b></td>
+    <td>20.8%</td>
+    <td>11.8%</td>
+    <td>5.6%</td>
+    <td>2.2%</td>
+  </tr>
+</table>
+<div style="font-size:12px;color:#888;text-align:center">0-2球合计 <b>58.6%</b> · 小2.5偏好明显</div>
+
+<!-- 球队对比 -->
+<div class="section-title">📋 数据对比</div>
+<div class="info-grid">
+  <div class="info-card esp">
+    <div class="ic-title" style="color:#c9252b">🇪🇸 西班牙</div>
+    <div class="ic-item">小组赛：7分（2胜1平0负）H组第1</div>
+    <div class="ic-item">得失球：<b>5-0</b>（零失球晋级）</div>
+    <div class="ic-item">近10场：6胜4平0负 不败</div>
+    <div class="ic-item">场均进2.2 / 失0.4</div>
+    <div class="ic-item">头号射手：奥亚萨瓦尔(2球)</div>
+    <div class="ic-item">总身价：€12.2亿</div>
+    <div class="ic-item"><span class="badge green">✅</span> 穆尼奥斯(4000万)伤愈复出</div>
+    <div class="ic-item"><span class="badge orange">⚠️</span> 费兰·托雷斯xG 1.99 零进球</div>
+  </div>
+  <div class="info-card aut">
+    <div class="ic-title" style="color:#e0001b">🇦🇹 奥地利</div>
+    <div class="ic-item">小组赛：4分（1胜1平1负）J组第2</div>
+    <div class="ic-item">得失球：6-6</div>
+    <div class="ic-item">近10场：6胜2平2负</div>
+    <div class="ic-item">场均进2.6 / 失0.9（含10-0圣马力诺）</div>
+    <div class="ic-item">头号射手：阿瑙托维奇(2球)</div>
+    <div class="ic-item">总身价：€2.6亿</div>
+    <div class="ic-item"><span class="badge blue">💪</span> 阿拉巴+莱默+萨比策</div>
+    <div class="ic-item"><span class="badge purple">🆕</span> 历史首次碰面</div>
+  </div>
+</div>
+
+<!-- EV信号 -->
+<div class="section-title danger">⚡ 价值信号</div>
+<div class="signal-box">
+  <div class="sig-title">🥇 核心分歧：Edge -13.0pp</div>
+  <div class="sig-desc">
+    市场给西班牙 <b>72.0%</b>，模型只有 <b>59.0%</b> —— 13个百分点的差距。<br>
+    西班牙防守确实是统治级的（10场4失球、WC零失球），但进攻端并非无懈可击——费兰·托雷斯的xG(1.99)零产出不是偶然，整条锋线在缺少了莫拉塔之后终结效率堪忧。<br>
+    <b>奥地利进球的概率是51.2%</b>——也就是说，西班牙零封奥地利的可能性并不比不零封高多少。
+  </div>
+</div>
+
+<div class="signal-box orange">
+  <div class="sig-title">🥈 EV信号：平局被低估</div>
+  <div class="sig-desc">
+    模型给平局 <b>24.6%</b>，市场只有18.6%。<br>
+    <b>0-0 @16.00 → EV +0.561 ✅ 强价值</b> —— 西班牙的铁桶防守碰上奥地利的中场硬仗，西班牙锋线效率黑洞，0-0概率被市场低估了约4pp。<br>
+    <b>1-1 @10.00 → EV +0.128 🟡 中价值</b>
+  </div>
+</div>
+
+<div class="signal-box">
+  <div class="sig-title">🥉 EV信号：奥地利冷门</div>
+  <div class="sig-desc">
+    模型给奥地利胜 <b>16.4%</b>，市场只有9.4%。<br>
+    <b>0-1 @25.00 → EV +0.733 ✅ 强价值</b> —— 全场最高EV的比分。奥地利3场WC进了6个球，其中对阿根廷是唯一被零封（阿根廷那场的防守水平也是顶级的）。<br>
+    <b>1-2 @30.00 → EV +0.219 🟡 中价值</b>
+  </div>
+</div>
+
+<!-- 敏感性 -->
+<div class="section-title blue">📊 敏感性分析</div>
+<table>
+  <tr><th>西班牙λ变动</th><th>主胜概率</th><th>vs基准</th></tr>
+  <tr><td>-0.2 (1.42)</td><td>53.9%</td><td style="color:#ef5350">-5.1pp</td></tr>
+  <tr><td>-0.1 (1.52)</td><td>56.5%</td><td style="color:#ff9800">-2.5pp</td></tr>
+  <tr><td><b>基准 (1.62)</b></td><td><b>59.0%</b></td><td>—</td></tr>
+  <tr><td>+0.1 (1.72)</td><td>61.5%</td><td style="color:#4caf50">+2.5pp</td></tr>
+  <tr><td>+0.2 (1.82)</td><td>63.7%</td><td style="color:#4caf50">+4.7pp</td></tr>
+</table>
+<div style="font-size:12px;color:#888;text-align:center">结构稳定，±0.2波动不超过5.1pp</div>
+
+<!-- 关键变量 -->
+<div class="section-title warn">🔑 关键变量</div>
+<div class="match-card" style="border-color:#ff9800;background:#1a1510">
+  <div class="sig-item"><span style="color:#4caf50">✅</span> 西班牙10场不败(6胜4平)，WC零失球晋级——防守统治级</div>
+  <div class="sig-item"><span style="color:#4caf50">✅</span> 穆尼奥斯(4000万欧利物浦新援)淘汰赛复出，攻击线有新鲜血液</div>
+  <div class="sig-item"><span style="color:#ff9800">⚠️</span> 费兰·托雷斯xG 1.99但0进球——机会不少就是踢不进</div>
+  <div class="sig-item"><span style="color:#4fc3f7">💡</span> 奥地利3场WC进6球，对阿尔及利亚3-3(3球)，对约旦3-1(3球)，攻击力不虚</div>
+  <div class="sig-item"><span style="color:#4fc3f7">💡</span> 阿拉巴(皇马中卫)+莱默(拜仁)+萨比策(多特)——中后场有五大联赛硬仗经验</div>
+  <div class="sig-item"><span style="color:#888">👤</span> 瑞典裁判奈贝里：场均3黄，少出牌风格，鼓励对抗——对大牌球队不利</div>
+  <div class="sig-item" style="border-bottom:none"><span style="color:#888">🆚</span> 历史首次交锋——没有模板可循</div>
+</div>
+
+<!-- 方案 -->
+<div class="section-title">🎯 方向建议</div>
+
+<div class="plan-card" style="border-left:4px solid #4caf50">
+  <div class="plan-title"><span>🟢 稳健</span></div>
+  <div class="plan-items">
+    <ul>
+      <li><b>西班牙小比分赢或平</b>（双选覆盖83.6%概率）</li>
+      <li><b>小2.5球</b>（模型58.5%，西班牙防守太稳）</li>
+    </ul>
+  </div>
+</div>
+
+<div class="plan-card" style="border-left:4px solid #ff9800">
+  <div class="plan-title"><span>🟡 进取</span></div>
+  <div class="plan-items">
+    <ul>
+      <li><b>平局</b>（模型24.6% vs 市场18.6%，最值得抓的价值方向）</li>
+      <li><b>奥地利+1（让球方不败）</b>（西班牙让1球的赔率1.85/3.55/3.25，偏向奥地利方向）</li>
+    </ul>
+  </div>
+</div>
+
+<div class="plan-card" style="border-left:4px solid #ef5350">
+  <div class="plan-title"><span>🔴 激进</span></div>
+  <div class="plan-items">
+    <ul>
+      <li><b>比分：0-0</b>（9.8% @16.00，EV+0.56，西班牙锋线效率低+奥地利防线不弱）</li>
+      <li><b>比分：0-1</b>（6.9% @25.00，EV+0.73，全场最高EV，奥地利偷一个）</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 核心结论 -->
+<div class="section-title danger">💬 一句话</div>
+<div class="match-card" style="border-color:#c9252b;background:#1a1015">
+  <div style="font-size:14px;color:#ffb74d;font-weight:700;margin-bottom:6px">西班牙的防守是黄金级的，但进攻不是。</div>
+  <div style="font-size:13px;color:#bbb;line-height:1.7">
+    市场把西班牙当成"72%的强队"，但模型说更像"59%的控制型球队"。西班牙确实能控场、能零封，但能不能进球是另一回事——费兰·托雷斯1.99的xG打水漂不是偶然。<br><br>
+    奥地利不是软柿子。阿拉巴领衔的防线、莱默+萨比策的中场拼抢，加上阿瑙托维奇的替补奇袭——他们3场WC进了6个球。<br><br>
+    <b>1-0最可能，但0-0和0-1的赔率太香了，值得一试。</b>
+  </div>
+</div>
+
+<div class="footer">
+  数据来源：竞彩网 · 雷速体育 · 后台模型（10万次蒙特卡洛模拟）<br>
+  λ值：西班牙1.621 / 奥地利0.718 · FIFA排名：3 vs 23 · 身价：€12.2亿 vs €2.6亿<br>
+  纯数据分析参考，不构成任何投注建议。<br>
+  Generated 2026-07-01
+</div>
+
+</div>
+</body>
+</html>

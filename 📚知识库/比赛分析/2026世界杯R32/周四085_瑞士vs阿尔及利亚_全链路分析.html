@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>瑞士 vs 阿尔及利亚 · 全链路分析</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#0f0f1a;color:#e0e0e0;padding:20px}
+.container{max-width:820px;margin:0 auto}
+h1{font-size:22px;font-weight:700;color:#fff;margin-bottom:4px}
+.subtitle{font-size:13px;color:#888;margin-bottom:18px}
+.section{background:#1a1a2e;border-radius:10px;padding:16px;margin-bottom:14px;border:1px solid #2a2a3e}
+.section-title{font-size:15px;font-weight:700;padding-left:12px;border-left:3px solid #c9252b;margin-bottom:12px}
+.section-title.green{border-left-color:#4caf50}
+.section-title.orange{border-left-color:#ff9800}
+.section-title.blue{border-left-color:#4fc3f7}
+.section-title.purple{border-left-color:#ce93d8}
+table{width:100%;border-collapse:collapse;margin-bottom:10px;font-size:13px}
+th{background:#252540;color:#888;font-weight:500;padding:7px 4px;border:1px solid #2a2a3e;text-align:center}
+td{padding:6px 4px;border:1px solid #2a2a3e;text-align:center;color:#ccc}
+tr:nth-child(even){background:#1e1e34}
+.prob-bar{display:flex;height:24px;border-radius:4px;overflow:hidden;margin:8px 0;font-size:12px;font-weight:600}
+.prob-bar .seg{display:flex;align-items:center;justify-content:center;color:#fff}
+.prob-bar .h{background:#2979ff}
+.prob-bar .d{background:#ffb74d}
+.prob-bar .a{background:#009688}
+.edge-card{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.edge-item{background:#252540;border-radius:6px;padding:10px;text-align:center}
+.edge-item .val{font-size:20px;font-weight:700}
+.edge-item .label{font-size:11px;color:#888;margin-top:2px}
+.edge-item .label-sub{font-size:12px;margin-top:2px}
+.signal{display:inline-block;font-size:11px;padding:2px 7px;border-radius:4px;margin:2px}
+.signal.star{background:#3a2a10;color:#ff9800}
+.signal.diamond{background:#1a3a2a;color:#4caf50}
+.signal.x{background:#3a1520;color:#ef5350}
+.signal.check{background:#1a3a1a;color:#4caf50}
+.kpi-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px}
+.kpi-item{background:#252540;border-radius:6px;padding:8px;text-align:center}
+.kpi-label{font-size:11px;color:#888}
+.kpi-value{font-size:18px;font-weight:700;color:#fff}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;margin-right:4px;margin-bottom:4px}
+.tag.red{background:#3a1520;color:#ef5350}
+.tag.green{background:#1a3a1a;color:#4caf50}
+.tag.orange{background:#3a2a10;color:#ff9800}
+.tag.blue{background:#102a3a;color:#4fc3f7}
+.strategy-card{background:#1a1a2e;border-radius:8px;padding:12px;margin-bottom:8px;border-left:4px solid #4caf50}
+.strategy-card.yellow{border-left-color:#ff9800}
+.strategy-card.red{border-left-color:#ef5350}
+.strategy-card .s-title{font-size:14px;font-weight:700;margin-bottom:4px}
+.strategy-card .s-desc{font-size:13px;color:#aaa;line-height:1.6}
+.info-line{font-size:13px;color:#bbb;padding:4px 0;border-bottom:1px solid #252540}
+.info-line:last-child{border-bottom:none}
+.info-line .hl{color:#fff;font-weight:600}
+.footer{text-align:center;font-size:11px;color:#555;margin-top:20px;padding-top:12px;border-top:1px solid #2a2a3e;line-height:1.6}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:8px 0}
+.compare-item{background:#252540;border-radius:6px;padding:8px;text-align:center;font-size:12px}
+.compare-item .c-title{font-size:11px;color:#888}
+.compare-item .c-val{font-size:14px;font-weight:600;margin-top:2px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>🇨🇭 瑞士 vs 阿尔及利亚 🇩🇿</h1>
+<div class="subtitle">周四085 · 世界杯1/16决赛 · 2026-07-03 11:00 · 温哥华室内恒温 ✅</div>
+
+<!-- L0.5 -->
+<div class="section">
+<div class="section-title green">🎯 L0.5 战略目标判断</div>
+<div class="info-line"><span class="hl">比赛阶段：</span>世界杯1/16决赛 · 淘汰赛首轮</div>
+<div class="info-line"><span class="hl">强弱判断：</span>瑞士(B组第1, FIFA 16, €3.3亿) vs 阿尔及利亚(J组第3, FIFA 29, €2.6亿)</div>
+<div class="info-line">→ 有一定差距但非悬殊（瑞士非传统豪门）</div>
+<div class="info-line" style="border-bottom:none">
+  <span class="tag green">✅ 强势方(瑞士) 目标="90分钟解决" → xG×0.90</span>
+  <span class="tag orange">✅ 弱势方(阿尔及利亚) 目标="不输(拖入加时)" → xG×0.55</span>
+  <span class="tag blue">✅ 室内恒温 无天气修正</span>
+  <span class="tag red">⚠️ 威德默伤疑 → 防守弱化×1.05</span>
+</div>
+</div>
+
+<!-- L1 -->
+<div class="section">
+<div class="section-title">📊 L1 xG模型 → λ值</div>
+<table>
+<tr><th>指标</th><th>🇨🇭 瑞士</th><th>🇩🇿 阿尔及利亚</th></tr>
+<tr><td>小组赛成绩</td><td>B组第1（2胜1平0负）</td><td>J组第3（1胜1平1负·出线）</td></tr>
+<tr><td>小组得失球</td><td>进7 失3</td><td>进5 失7</td></tr>
+<tr><td>场均进/失</td><td>2.33 / 1.00</td><td>1.67 / 2.33</td></tr>
+<tr><td>xG代理(×0.92/1.08)</td><td>2.14 / 1.08</td><td>1.53 / 2.52</td></tr>
+<tr><td>✅ 战略修正后</td><td>1.93 / 1.02</td><td>0.84 / 2.14</td></tr>
+<tr style="background:#1e1e34;font-weight:700"><td>⚡ 综合λ</td><td style="color:#2979ff;font-size:16px">2.01</td><td style="color:#009688;font-size:16px">0.92</td></tr>
+</table>
+<div style="text-align:center;color:#888;font-size:13px">期望总进球：<b style="color:#fff">2.92球</b> · 三场中进球期望最高</div>
+</div>
+
+<!-- L2+L3 -->
+<div class="section">
+<div class="section-title">📈 L2+L3 市场隐含 + Edge检测</div>
+
+<div class="prob-bar">
+  <div class="seg h" style="width:62.7%">模型 62.7%</div>
+  <div class="seg d" style="width:20.9%">平20.9%</div>
+  <div class="seg a" style="width:16.5%">客16.5%</div>
+</div>
+
+<div class="edge-card">
+  <div class="edge-item" style="border:1px solid #4caf50">
+    <div class="val" style="color:#4caf50">+13.5pp ⭐</div>
+    <div class="label">瑞士胜 Edge</div>
+    <div class="label-sub" style="color:#4caf50">强价值</div>
+    <div style="font-size:11px;color:#888;margin-top:3px">模型62.7% vs 市场49.2%</div>
+  </div>
+  <div class="edge-item" style="border:1px solid #888">
+    <div class="val" style="color:#888">-8.1pp ✗</div>
+    <div class="label">平局 Edge</div>
+    <div class="label-sub" style="color:#888">无价值</div>
+    <div style="font-size:11px;color:#888;margin-top:3px">模型20.9% vs 市场29.0%</div>
+  </div>
+  <div class="edge-item" style="border:1px solid #888">
+    <div class="val" style="color:#888">-5.3pp ✗</div>
+    <div class="label">阿尔及利亚 Edge</div>
+    <div class="label-sub" style="color:#888">无价值</div>
+    <div style="font-size:11px;color:#888;margin-top:3px">模型16.5% vs 市场21.8%</div>
+  </div>
+</div>
+
+<div class="info-line" style="border-bottom:none">
+  <span class="tag green">🏆 本比赛日最大价值信号</span>
+  瑞士非传统强队(FIFA 16)，市场存在品牌折价。叠加小组头名打小组第三的对阵反差，<b style="color:#4caf50">市场对瑞士定价严重偏低</b>。
+</div>
+</div>
+
+<!-- L4 -->
+<div class="section">
+<div class="section-title orange">💰 L4 比分EV + Kelly仓位</div>
+
+<table>
+<tr><th>排名</th><th>比分</th><th>模型概率</th><th>赔率</th><th>EV</th><th>Kelly</th><th>信号</th></tr>
+<tr><td>1</td><td><b>1-0</b></td><td>10.8%</td><td>6.00</td><td style="color:#ef5350">-0.352</td><td>—</td><td><span class="signal x">✗</span></td></tr>
+<tr><td>2</td><td><b>2-0</b></td><td>10.7%</td><td>7.50</td><td style="color:#ef5350">-0.194</td><td>—</td><td><span class="signal x">✗</span></td></tr>
+<tr><td>3</td><td>2-1</td><td>10.0%</td><td>7.00</td><td style="color:#ef5350">-0.303</td><td>—</td><td><span class="signal x">✗</span></td></tr>
+<tr><td>4</td><td>1-1</td><td>9.8%</td><td>5.20</td><td style="color:#ef5350">-0.490</td><td>—</td><td><span class="signal x">✗</span></td></tr>
+<tr style="background:#1a2a1a"><td><b>5</b></td><td><b>3-0</b></td><td><b>7.3%</b></td><td><b>16.00</b></td><td style="color:#ff9800"><b>+0.163</b></td><td><b>0.54%</b></td><td><span class="signal star">⭐</span></td></tr>
+<tr><td>6</td><td>3-1</td><td>6.7%</td><td>15.00</td><td style="color:#4caf50">+0.009</td><td>0.03%</td><td><span class="signal check">✅</span></td></tr>
+</table>
+
+<div style="margin-top:10px">
+<div class="strategy-card">
+  <div class="s-title" style="color:#4caf50">🟢 主单：瑞士胜 @1.80</div>
+  <div class="s-desc">
+    f* = 16.0% → <b>建议仓位 8.0%</b>（Kelly半凯利）<br>
+    Edge +13.5pp 强价值，本比赛日最明确的胜负方向
+  </div>
+</div>
+<div class="strategy-card yellow">
+  <div class="s-title" style="color:#ff9800">🟡 进取：瑞士-1（让球）</div>
+  <div class="s-desc">
+    瑞士λ=2.01 vs 阿尔及利亚λ=0.92，赢2球概率约45%<br>
+    赔率~2.50，适合组合到过关串中
+  </div>
+</div>
+<div class="strategy-card red">
+  <div class="s-title" style="color:#ef5350">🔴 激进：3-0 @16.00</div>
+  <div class="s-desc">
+    EV+0.163 ⭐，模型7.3%概率，Kelly 0.54%<br>
+    瑞士早进球+阿尔及利亚防线崩溃剧本
+  </div>
+</div>
+</div>
+</div>
+
+<!-- 概率分布 -->
+<div class="section">
+<div class="section-title blue">⚽ 概率分布</div>
+
+<div class="kpi-grid">
+  <div class="kpi-item"><div class="kpi-label">瑞士胜</div><div class="kpi-value" style="color:#2979ff">62.7%</div></div>
+  <div class="kpi-item"><div class="kpi-label">平局</div><div class="kpi-value" style="color:#ffb74d">20.9%</div></div>
+  <div class="kpi-item"><div class="kpi-label">阿尔及利亚胜</div><div class="kpi-value" style="color:#009688">16.5%</div></div>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi-item"><div class="kpi-label">0-1球</div><div class="kpi-value" style="color:#888">21.2%</div></div>
+  <div class="kpi-item"><div class="kpi-label">2-3球</div><div class="kpi-value" style="color:#ffb74d">45.3%</div></div>
+  <div class="kpi-item"><div class="kpi-label">4+球</div><div class="kpi-value" style="color:#4caf50">33.5%</div></div>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi-item"><div class="kpi-label">大2.5球</div><div class="kpi-value" style="color:#4caf50">56.0%</div></div>
+  <div class="kpi-item"><div class="kpi-label">小2.5球</div><div class="kpi-value" style="color:#888">44.0%</div></div>
+  <div class="kpi-item"><div class="kpi-label">期望总进球</div><div class="kpi-value">2.92球</div></div>
+</div>
+
+<table>
+<tr><th>排名</th><th>比分</th><th>概率</th><th>累计</th></tr>
+<tr><td>1</td><td>1-0</td><td>10.8%</td><td>10.8%</td></tr>
+<tr><td>2</td><td>2-0</td><td>10.7%</td><td>21.5%</td></tr>
+<tr><td>3</td><td>2-1</td><td>10.0%</td><td>31.5%</td></tr>
+<tr><td>4</td><td>1-1</td><td>9.8%</td><td>41.3%</td></tr>
+<tr style="background:#1a2a1a"><td>5</td><td><b>3-0</b></td><td><b>7.3%</b></td><td><b>48.6%</b></td></tr>
+<tr><td>6</td><td>3-1</td><td>6.7%</td><td>55.3%</td></tr>
+<tr><td>7</td><td>0-0</td><td>5.4%</td><td>60.7%</td></tr>
+<tr><td>8</td><td>0-1</td><td>5.0%</td><td>65.7%</td></tr>
+</table>
+</div>
+
+<!-- 盘口分析 -->
+<div class="section">
+<div class="section-title orange">📉 盘口分析 · 九大维度</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+<div style="background:#1e1e34;border-radius:6px;padding:10px">
+<div style="font-weight:600;color:#ffb74d;margin-bottom:4px">🎲 让球盘（亚洲盘）</div>
+<div style="font-size:12px;color:#bbb;line-height:1.7">
+<b>主流盘口：</b>瑞士 -0.5（-110）<br>
+<b>竞彩让球+1：</b>瑞士1.45 / 平3.65 / 阿6.05<br>
+<b>解读：</b>国际盘口的-0.5表示瑞士赢球即赢盘。竞彩+1球保护瑞士方向赔付。两市场一致指向瑞士不败。
+</div>
+</div>
+<div style="background:#1e1e34;border-radius:6px;padding:10px">
+<div style="font-weight:600;color:#4fc3f7;margin-bottom:4px">⚽ 大小球盘</div>
+<div style="font-size:12px;color:#bbb;line-height:1.7">
+<b>主流盘口：</b>2/2.5球<br>
+<b>国际倾向：</b>小2.5球（-145）<br>
+<b>模型倾向：</b>大2.5球56.0%<br>
+<b style="color:#ff9800">⚡ 分歧信号：</b>市场看小，模型看大。这是本场盘面的核心矛盾。
+</div>
+</div>
+</div>
+
+<table>
+<tr><th>维度</th><th>数据</th><th>解读</th></tr>
+<tr><td>百家欧赔均值</td><td>瑞士1.92 / 平3.20 / 阿尔及利亚4.50</td><td>多家机构vs竞彩(1.80/3.05/4.06)，竞彩对瑞士赔付压得更低</td></tr>
+<tr><td>赔率时间变化</td><td>竞彩6/30 10:02→7/1 12:50<br>1.85→1.80（↓）3.00→3.05（↑）3.92→4.06（↑）</td><td>瑞士赔率持续走低，市场资金向瑞士方向集中</td></tr>
+<tr><td>让球盘变化</td><td>竞彩-1: 7/1 11:36 3.82/3.30/1.77<br>→7/1 12:50 3.73/3.30/1.79</td><td>让球方赔率从3.82→3.73↓，穿指信心小幅增强</td></tr>
+<tr><td>凯莉指数(模型)</td><td>瑞士胜8.0% / 平0% / 阿0%</td><td>仅瑞士胜方向有正期望Kelly，与让球盘方向一致</td></tr>
+<tr><td>必发指数(估算)</td><td>瑞士约65-70%成交量</td><td>资金分布与模型62.7%接近，非一边倒过热</td></tr>
+<tr><td>晋级盘</td><td>瑞士晋级约1.50 vs 阿尔及利亚约2.60</td><td>市场隐含瑞士晋级概率约67%，高于90分钟胜率(49.2%)</td></tr>
+<tr><td>球员进球盘</td><td>恩博洛/曼赞比首开纪录 6-8倍<br>马赫雷斯进球 4-5倍</td><td>马赫雷斯进球赔率偏低，市场在防他</td></tr>
+</table>
+
+<div style="margin-top:8px;padding:10px;background:#1a1a2e;border-radius:6px;border-left:4px solid #ff9800;font-size:13px;color:#bbb;line-height:1.7">
+<strong style="color:#fff">🔍 盘口综合判断：</strong><br>
+① <b>方向一致：</b>百家欧赔、亚洲盘、凯莉指数均指向瑞士不败方向，无根本分歧<br>
+② <b>核心矛盾：大小球</b> —— 市场(小2.5, -145) vs 模型(大2.5, 56.0%)。瑞士防线场场丢球(零封率0%)是模型看大的关键依据<br>
+③ <b>资金健康：</b>瑞士胜赔率从1.85→1.80平缓下行，非突发性资金涌入，属于正常市场消化<br>
+④ <b>无诱盘迹象：</b>让球盘从3.82→3.73小降而非大跳，盘面干净
+</div>
+</div>
+
+<!-- 敏感性分析 -->
+<div class="section">
+<div class="section-title blue">🔬 敏感性分析（λ±0.2）</div>
+<table>
+<tr><th>λ变动</th><th>瑞士胜</th><th>平局</th><th>阿尔及利亚胜</th><th>vs基准</th></tr>
+<tr><td>-0.2 (1.81/0.72)</td><td>63.2%</td><td>22.5%</td><td>14.3%</td><td style="color:#888">±0.4pp</td></tr>
+<tr style="background:#1e1e34"><td><b>基准 (2.01/0.92)</b></td><td><b>62.8%</b></td><td><b>20.9%</b></td><td><b>16.4%</b></td><td>—</td></tr>
+<tr><td>+0.2 (2.21/1.12)</td><td>62.2%</td><td>19.6%</td><td>18.2%</td><td style="color:#888">±0.6pp</td></tr>
+</table>
+<div style="text-align:center;color:#4caf50;font-size:13px;margin-top:4px">✅ 结构高度稳定，λ波动对胜率影响<1pp，模型可信度高</div>
+</div>
+
+<!-- 外媒+AI预测 -->
+<div class="section">
+<div class="section-title purple">🌐 外媒分析 + AI预测共识</div>
+<table>
+<tr><th>来源</th><th>预测内容</th><th>倾向</th></tr>
+<tr><td>Yahoo Sports</td><td>瑞士-103小热门，Silvan Widmer出战成疑，阿尔及利亚前锋Amoura也存伤</td><td style="color:#4caf50">⚡ 瑞士小胜</td></tr>
+<tr><td>NowNews 今日新聞</td><td>瑞士晋级16強看好度52-55%，扎卡+曼赞比双核驱动，阿爾及利亞反擊有威脅</td><td style="color:#ffb74d">⚠️ 谨慎看好瑞士</td></tr>
+<tr><td>Tips.gg</td><td>双方4-2-3-1阵型，雅克顶替威德默先发，马赫雷斯+古伊里是阿尔及利亚命门</td><td style="color:#888">⚖️ 均衡</td></tr>
+<tr><td>Action Network</td><td>瑞士小组赛2-0-1，大2.5倾向；阿尔及利亚仅1胜出线</td><td style="color:#4caf50">⚡ 瑞士占优</td></tr>
+</table>
+<div style="margin-top:8px;padding:8px;background:#1e1e34;border-radius:6px">
+<div style="font-weight:600;color:#ffb74d;margin-bottom:4px">外媒共识</div>
+<div style="font-size:13px;color:#bbb;line-height:1.6">瑞士被普遍认为占优但非碾压。Yahoo和Action Network方向更明确，NowNews最谨慎(52-55%)。外媒整体倾向<b style="color:#4caf50">瑞士小胜/2-0格局</b>，与模型62.7%的方向一致但幅度更保守。</div>
+</div>
+</div>
+
+<!-- 四源合成 -->
+<div class="section">
+<div class="section-title">🎯 四源比分合成</div>
+<table>
+<tr><th>来源</th><th>瑞士胜</th><th>平局</th><th>阿尔及利亚胜</th><th>首推比分</th></tr>
+<tr><td>① 外媒共识 (4家)</td><td>52-55%</td><td>—</td><td>—</td><td>2-0 / 1-0</td></tr>
+<tr><td>② 赔率隐含</td><td>49.2%</td><td>29.0%</td><td>21.8%</td><td>—</td></tr>
+<tr><td>③ 盘口</td><td colspan="2">瑞士-0.5/1 搭配小2.5球</td><td></td><td>小2.5优先</td></tr>
+<tr style="background:#1a2a1a"><td><b>④ AFEI模型</b></td><td><b>62.7%</b></td><td><b>20.9%</b></td><td><b>16.5%</b></td><td><b>2-0 / 3-0</b></td></tr>
+</table>
+
+<div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div style="background:#1a2a1a;border-radius:6px;padding:10px;border:1px solid #4caf50">
+<div style="font-weight:600;color:#4caf50;margin-bottom:4px">✅ 四源一致</div>
+<div style="font-size:13px;color:#bbb">瑞士胜方向——外媒、赔率、盘口、模型全部指向同侧<br><b>分歧在幅度：</b>外媒52-55%，模型62.7%，市场49.2%</div>
+</div>
+<div style="background:#1e1e34;border-radius:6px;padding:10px;border:1px solid #ff9800">
+<div style="font-weight:600;color:#ff9800;margin-bottom:4px">⚡ 核心判断</div>
+<div style="font-size:13px;color:#bbb">四源一致方向+Edge+13.5pp=<b style="color:#4caf50">最高置信度场次</b><br>瑞士胜是本比赛日最清晰的胜负判断</div>
+</div>
+</div>
+
+<div style="margin-top:8px;padding:10px;background:#1a1a2e;border-radius:6px;border-left:4px solid #ffb74d;font-size:13px;color:#bbb;line-height:1.7">
+<strong style="color:#fff">🏆 最终综合比分预测：</strong><br>
+🥇 <b style="color:#4caf50">瑞士 2-0 阿尔及利亚</b>（模型首推+外媒共识）<br>
+🥈 瑞士 2-1（最现实波动，双方都进球）<br>
+🥉 瑞士 1-0（低效率局，费兰式xG黑洞）<br>
+🔄 瑞士 3-0（早进球+阿尔及利亚防线崩溃，EV最高⭐）
+</div>
+</div>
+<div class="section">
+<div class="section-title purple">🧠 叙事层 · 战术级拆解</div>
+
+<div class="info-line" style="font-size:14px;font-weight:600;color:#ffb74d;border-bottom:2px solid #2a2a3e;padding-bottom:8px">
+比赛本质："稳定体系 vs 神经刀暴击队" · "旧帅倒戈"加成
+</div>
+
+<!-- 关键变量总表 -->
+<div style="margin-top:10px">
+<div style="font-weight:600;margin-bottom:6px">🔍 十维变量全检</div>
+<table>
+<tr><th>维度</th><th>详情</th><th>影响</th></tr>
+<tr>
+  <td>⚽ 关键射手</td>
+  <td>🇨🇭 曼赞比3球43% + 巴尔加斯2球 + 恩博洛1球<br>🇩🇿 马赫雷斯2球 + 古伊里1球 + 阿穆拉10球(全队)</td>
+  <td style="color:#4caf50">✅ 瑞士火力点更分散</td>
+</tr>
+<tr>
+  <td>🧤 门将</td>
+  <td>🇨🇭 科贝尔(多特/4000万) — 28岁，11场国家队<br>🇩🇿 齐达内(格拉纳达/100万) — 28岁，5场国家队</td>
+  <td style="color:#4caf50">✅ 40倍身价差，科贝尔碾压</td>
+</tr>
+<tr>
+  <td>📈 近期状态</td>
+  <td>🇨🇭 近10场4胜5平1负 · 小组赛2胜1平<br>🇩🇿 近10场5胜3平2负 · 小组赛1胜1平1负</td>
+  <td style="color:#ffb74d">⚠️ 瑞士不败率高，阿尔及利亚状态波动</td>
+</tr>
+<tr>
+  <td>🎯 战术风格</td>
+  <td>🇨🇭 4-2-3-1 整体协作，中场双核驱动<br>🇩🇿 4-2-3-1 依赖老将个人能力+反击速度</td>
+  <td style="color:#4caf50">✅ 瑞士体系更成熟</td>
+</tr>
+<tr>
+  <td>🌡️ 天气</td>
+  <td>温哥华BC Place — 室内可伸缩顶棚，恒温17-21°C</td>
+  <td style="color:#4caf50">✅ 完美条件，无外部干扰</td>
+</tr>
+<tr>
+  <td>👨‍⚖️ 裁判</td>
+  <td>🇦🇷 Yael Falcón Pérez (阿根廷)<br>助理: Del Yesso/Rodriguez(阿根廷)<br>第四官员: Kevin Ortega(秘鲁)</td>
+  <td style="color:#ffb74d">⚠️ 阿根廷裁判组，南美风格偏松还是偏严待查</td>
+</tr>
+<tr>
+  <td>🔄 旧帅倒戈</td>
+  <td><b style="color:#ff9800">⚡ 佩特科维奇(阿尔及利亚主帅) = 瑞士前主帅(2014-2021)</b><br>执教瑞士7年，熟悉瑞士每一名球员的技术特点</td>
+  <td style="color:#ff9800">⚡ 核心变量！阿尔及利亚的战术部署可能针对性极强</td>
+</tr>
+<tr>
+  <td>🏠 更衣室</td>
+  <td>🇨🇭 扎卡队长稳军心，曼赞比状态爆棚<br>🇩🇿 <b style="color:#ef5350">⚠️ 传闻佩特科维奇即使晋级也可能被解雇(阿尔及利亚记者报道)</b></td>
+  <td style="color:#ef5350">⚠️ 阿尔及利亚更衣室不稳定因素</td>
+</tr>
+<tr>
+  <td>💪 体能</td>
+  <td>🇨🇭 大本营圣地亚哥→温哥华约1900km<br>🇩🇿 大本营劳伦斯→温哥华约2330km</td>
+  <td style="color:#4caf50">✅ 瑞士路程略短，差距不大</td>
+</tr>
+<tr>
+  <td>📊 身价</td>
+  <td>🇨🇭 €3.325亿 vs 🇩🇿 €2.569亿</td>
+  <td style="color:#4caf50">✅ 瑞士1.3倍</td>
+</tr>
+</table>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+<div style="background:#1a1a2e;border-radius:6px;padding:10px;border:1px solid #2979ff">
+<div style="font-weight:600;color:#2979ff;margin-bottom:4px">🇨🇭 瑞士</div>
+<div style="font-size:12px;color:#bbb;line-height:1.7">
+中场双核：曼赞比5000万💎3球+扎卡<br>
+后防：阿坎吉(国米)+科贝尔(多特)<br>
+边路：恩多耶(森林3200万)冲击<br>
+<b style="color:#ef5350">❌ 防线场场丢球，零封数为0</b>
+</div>
+</div>
+<div style="background:#1a1a2e;border-radius:6px;padding:10px;border:1px solid #009688">
+<div style="font-weight:600;color:#009688;margin-bottom:4px">🇩🇿 阿尔及利亚</div>
+<div style="font-size:12px;color:#bbb;line-height:1.7">
+马赫雷斯(35岁)+古伊里个人能力<br>
+马扎(勒沃库森4500万💎20岁)<br>
+努里(曼城4000万)边路插上<br>
+<b style="color:#ef5350">❌ 防线场均丢2.33，对阿根廷丢3球</b>
+</div>
+</div>
+</div>
+
+<div style="margin-top:10px">
+<div style="font-weight:600;margin-bottom:6px">⏱ 节奏模型</div>
+<table>
+<tr><th>时段</th><th>状态</th><th>说明</th></tr>
+<tr><td>0-30min</td><td style="color:#aaa">试探+消耗</td><td>瑞士围攻，阿尔及利亚蹲坑</td></tr>
+<tr style="background:#1e1e34"><td><b>30-60min</b></td><td style="color:#ff9800;font-weight:600">⚡ 关键窗口</td><td>曼赞比+扎卡中路渗透见效期</td></tr>
+<tr><td>60min+ 领先</td><td style="color:#4caf50">控死模式</td><td>比分容易拉开（3-0/4-0）</td></tr>
+<tr><td>60min+ 僵持</td><td style="color:#ef5350">风险上升</td><td>马赫雷斯反击机会增加</td></tr>
+</table>
+</div>
+
+<div style="margin-top:10px">
+<div style="font-weight:600;margin-bottom:6px">🔑 关键胜负点</div>
+<div class="info-line"><span class="tag orange">①</span> 曼赞比 vs 马扎 — 德甲超新星对决，谁先打破平衡</div>
+<div class="info-line"><span class="tag orange">②</span> 瑞士零封能力 — 场场丢球不是偶然</div>
+<div class="info-line"><span class="tag orange">③</span> 威德默伤势 — 右路可能成马赫雷斯突破口</div>
+<div class="info-line" style="border-bottom:none"><span class="tag orange">④</span> 门将差 — 科贝尔(4000万) vs 齐达内(100万)，40倍</div>
+</div>
+</div>
+
+<!-- 三场对比 -->
+<div class="section">
+<div class="section-title">📋 7月3日三场价值对比</div>
+<table>
+<tr><th>场次</th><th>时间</th><th>Edge强度</th><th>Kelly主单</th><th>推荐</th></tr>
+<tr><td>西班牙 vs 奥地利</td><td>03:00</td><td><span style="color:#ef5350">西班牙-13pp</span></td><td>平局 2.0%</td><td>🟡 小2.5+平局</td></tr>
+<tr><td>葡萄牙 vs 克罗地亚</td><td>07:00</td><td><span style="color:#ff9800">葡萄牙-6pp</span></td><td>—</td><td>⚪ 待做</td></tr>
+<tr style="background:#1a2a1a"><td><b>瑞士 vs 阿尔及利亚</b></td><td><b>11:00</b></td><td><b style="color:#4caf50">瑞士+13.5pp ⭐</b></td><td><b>瑞士胜 8.0%</b></td><td><b>🟢 做胆首选</b></td></tr>
+</table>
+<div style="margin-top:10px;padding:10px;background:#1a2a1a;border-radius:6px;font-size:13px;color:#aaa">
+<strong style="color:#4caf50">🏆 本比赛日核心策略：</strong>
+<br>
+瑞士胜做胆（Edge+13.5pp，Kelly 8.0%）+ 西班牙场小2.5球或0-0（EV+0.578💎）组合过关，风险分散，正期望叠加。
+</div>
+</div>
+
+</div>
+
+<!-- 最终综合预测 -->
+<div class="section" style="border:2px solid #ffb74d;background:#1a1510">
+<div class="section-title orange">🏁 最终综合预测（全因素加权）</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+<div style="background:#1e1e34;border-radius:8px;padding:12px;text-align:center">
+<div style="font-size:12px;color:#888;margin-bottom:4px">🇨🇭 瑞士胜</div>
+<div style="font-size:28px;font-weight:700;color:#4caf50">62.8%</div>
+<div style="font-size:11px;color:#888">Kelly: 8.0% 🟢 主单</div>
+</div>
+<div style="background:#1e1e34;border-radius:8px;padding:12px;text-align:center">
+<div style="font-size:12px;color:#888;margin-bottom:4px">🤝 平局</div>
+<div style="font-size:28px;font-weight:700;color:#ffb74d">20.9%</div>
+<div style="font-size:11px;color:#888">无正期望</div>
+</div>
+<div style="background:#1e1e34;border-radius:8px;padding:12px;text-align:center">
+<div style="font-size:12px;color:#888;margin-bottom:4px">🇩🇿 阿尔及利亚胜</div>
+<div style="font-size:28px;font-weight:700;color:#ef5350">16.4%</div>
+<div style="font-size:11px;color:#888">无正期望</div>
+</div>
+<div style="background:#1e1e34;border-radius:8px;padding:12px;text-align:center">
+<div style="font-size:12px;color:#888;margin-bottom:4px">⚽ 大小球倾向</div>
+<div style="font-size:28px;font-weight:700;color:#4fc3f7">大2.5 56.0%</div>
+<div style="font-size:11px;color:#888">vs 市场偏好小2.5 ⚡</div>
+</div>
+</div>
+
+<table style="margin-bottom:10px">
+<tr><th>优先级</th><th>比分</th><th>概率</th><th>EV</th><th>场景</th></tr>
+<tr style="background:#1a2a1a"><td><b>🥇 最推荐</b></td><td><b>瑞士 2-0</b></td><td><b>10.7%</b></td><td style="color:#ef5350">-0.19</td><td>模型首推+外媒共识+瑞士控场90分钟</td></tr>
+<tr><td>🥈</td><td>瑞士 2-1</td><td>10.0%</td><td style="color:#ef5350">-0.30</td><td>最现实波动，瑞士防线丢球+进攻破局</td></tr>
+<tr><td>🥉</td><td>瑞士 1-0</td><td>10.8%</td><td style="color:#ef5350">-0.35</td><td>低效率局，锋线终结效率不足</td></tr>
+<tr style="background:#1a2a1a"><td><b>⭐ EV最优</b></td><td><b>瑞士 3-0</b></td><td><b>7.3%</b></td><td style="color:#ff9800"><b>+0.163</b></td><td>早进球+阿尔及利亚防线崩溃，EV最高</td></tr>
+<tr style="background:#1a1015"><td><b>🚨 需防范</b></td><td><b>瑞士 1-1</b></td><td><b>9.8%</b></td><td style="color:#ef5350">-0.49</td><td><b>冷门入口：</b>佩特科维奇倒戈战术克制+瑞士久攻不下+马赫雷斯偷一个</td></tr>
+<tr style="background:#1a1015"><td><b>🚨 需防范</b></td><td><b>0-0</b></td><td><b>5.4%</b></td><td style="color:#ef5350">-0.54</td><td><b>冷门入口：</b>极端闷战拖加时，阿尔及利亚大巴成功</td></tr>
+</table>
+
+<div style="padding:10px;background:#1a1a2e;border-radius:6px;border-left:4px solid #4caf50;font-size:13px;color:#bbb;line-height:1.7;margin-bottom:8px">
+<strong style="color:#fff">✅ 核心策略：</strong><br>
+🟢 <b>主单：瑞士胜 @1.80</b> — Edge+13.5pp强价值，四源一致，十维全检无根本性矛盾<br>
+🟡 <b>辅单：大2.5球</b> — 模型56.0% vs 市场小2.5分歧，瑞士防线零封率为0<br>
+🔴 <b>防冷：</b>重点关注1-1（佩特科维奇倒戈变量）和0-0（闷战拖加时）
+</div>
+
+<div style="padding:8px;background:#1a1015;border-radius:6px;border-left:4px solid #ff9800;font-size:12px;color:#888;line-height:1.6">
+<strong>📊 综合加权因素：</strong><br>
+模型62.7% · 外媒52-55% · 盘口瑞士-0.5方向 · 凯莉正期望 · 十维全检8✅1⚠️1❌<br>
+<strong>主要风险：</strong>佩特科维奇倒戈熟知瑞士体系 · 更衣室内乱传闻可能反而激发战斗力 · 大小球市场vs模型分歧<br>
+<strong>置信等级：</strong><b style="color:#4caf50">A级</b>（四源一致 + 模型稳定 + 基本面支持）
+</div>
+</div>
+
+<div class="footer">
+数据层：AFEI引擎v3.0 · 叙事层：战术级拆解v1.0<br>
+10万次蒙特卡洛模拟 · 基准投注单位=总资金的1%<br>
+⚠️ 本分析仅供学习参考，不构成任何投注建议<br>
+生成时间：2026-07-02
+</div>
+
+</div>
+</body>
+</html>

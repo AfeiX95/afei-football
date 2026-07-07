@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>葡萄牙 vs 克罗地亚 · 全链路分析</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#0f0f1a;color:#e0e0e0;padding:20px}
+.container{max-width:820px;margin:0 auto}
+h1{font-size:22px;font-weight:700;color:#fff;margin-bottom:4px}
+.subtitle{font-size:13px;color:#888;margin-bottom:18px}
+.section{background:#1a1a2e;border-radius:10px;padding:16px;margin-bottom:14px;border:1px solid #2a2a3e}
+.section-title{font-size:15px;font-weight:700;padding-left:12px;border-left:3px solid #c9252b;margin-bottom:12px}
+.section-title.green{border-left-color:#4caf50}
+.section-title.orange{border-left-color:#ff9800}
+.section-title.blue{border-left-color:#4fc3f7}
+.section-title.purple{border-left-color:#ce93d8}
+table{width:100%;border-collapse:collapse;margin-bottom:10px;font-size:13px}
+th{background:#252540;color:#888;font-weight:500;padding:7px 4px;border:1px solid #2a2a3e;text-align:center}
+td{padding:6px 4px;border:1px solid #2a2a3e;text-align:center;color:#ccc}
+tr:nth-child(even){background:#1e1e34}
+.prob-bar{display:flex;height:24px;border-radius:4px;overflow:hidden;margin:8px 0;font-size:12px;font-weight:600}
+.prob-bar .seg{display:flex;align-items:center;justify-content:center;color:#fff}
+.prob-bar .h{background:#c9252b}
+.prob-bar .d{background:#ffb74d}
+.prob-bar .a{background:#e0001b}
+.edge-card{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.edge-item{background:#252540;border-radius:6px;padding:10px;text-align:center}
+.edge-item .val{font-size:20px;font-weight:700}
+.edge-item .label{font-size:11px;color:#888;margin-top:2px}
+.kpi-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;margin-bottom:12px}
+.kpi-item{background:#252540;border-radius:6px;padding:8px;text-align:center}
+.kpi-label{font-size:11px;color:#888}
+.kpi-value{font-size:18px;font-weight:700;color:#fff}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;margin-right:4px;margin-bottom:4px}
+.tag.red{background:#3a1520;color:#ef5350}
+.tag.green{background:#1a3a1a;color:#4caf50}
+.tag.orange{background:#3a2a10;color:#ff9800}
+.tag.blue{background:#102a3a;color:#4fc3f7}
+.strategy-card{background:#1a1a2e;border-radius:8px;padding:12px;margin-bottom:8px;border-left:4px solid #4caf50}
+.strategy-card.yellow{border-left-color:#ff9800}
+.strategy-card.red{border-left-color:#ef5350}
+.strategy-card .s-title{font-size:14px;font-weight:700;margin-bottom:4px}
+.strategy-card .s-desc{font-size:13px;color:#aaa;line-height:1.6}
+.info-line{font-size:13px;color:#bbb;padding:4px 0;border-bottom:1px solid #252540}
+.info-line:last-child{border-bottom:none}
+.info-line .hl{color:#fff;font-weight:600}
+.footer{text-align:center;font-size:11px;color:#555;margin-top:20px;padding-top:12px;border-top:1px solid #2a2a3e;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>🇵🇹 葡萄牙 vs 克罗地亚 🇭🇷</h1>
+<div class="subtitle">周四084 · 世界杯1/16决赛 · 2026-07-03 07:00 · 多伦多 ⚠️31-34°C体感40°C</div>
+
+<!-- L0.5 -->
+<div class="section">
+<div class="section-title green">🎯 L0.5 战略目标判断</div>
+<div class="info-line"><span class="hl">比赛阶段：</span>世界杯1/16决赛 · 淘汰赛首轮</div>
+<div class="info-line"><span class="hl">强弱判断：</span>葡萄牙(K组第2, FIFA 5, €10亿) vs 克罗地亚(L组第2, FIFA 11, €4.5亿)</div>
+<div class="info-line">→ 实力接近的淘汰赛（非明显强弱对话，两亚军底蕴）</div>
+<div class="info-line" style="border-bottom:none">
+  <span class="tag green">✅ 双方目标="全力争胜" 弱势方×0.85/强势方×0.95</span>
+  <span class="tag red">⚠️ 高温修正×0.9</span>
+  <span class="tag blue">👨‍⚖️ 裁判: Espen Eskås(挪威)</span>
+</div>
+</div>
+
+<!-- L1 -->
+<div class="section">
+<div class="section-title">📊 L1 xG模型 → λ值（高温修正）</div>
+<table>
+<tr><th>指标</th><th>🇵🇹 葡萄牙</th><th>🇭🇷 克罗地亚</th></tr>
+<tr><td>小组排名</td><td>K组第2（1胜2平0负）</td><td>L组第2（2胜0平1负）</td></tr>
+<tr><td>小组得失球</td><td>进6 失1</td><td>进5 失5</td></tr>
+<tr><td>场均进/失</td><td>2.00 / 0.33</td><td>1.67 / 1.67</td></tr>
+<tr><td>xG代理(×0.92/1.08)</td><td>1.84 / 0.36</td><td>1.53 / 1.80</td></tr>
+<tr><td>战略+高温修正后</td><td>1.57 / 0.29</td><td>1.17 / 1.37</td></tr>
+<tr style="background:#1e1e34;font-weight:700"><td>⚡ 综合λ(×0.9高温)</td><td style="color:#c9252b;font-size:16px">1.52</td><td style="color:#e0001b;font-size:16px">0.76</td></tr>
+</table>
+<div style="text-align:center;color:#888;font-size:13px">期望总进球：<b style="color:#fff">2.27球</b> · 高温压制小比分</div>
+</div>
+
+<!-- L2+L3 -->
+<div class="section">
+<div class="section-title">📈 L2+L3 市场隐含 + Edge检测</div>
+<div class="prob-bar">
+  <div class="seg h" style="width:55.4%">模型 55.4%</div>
+  <div class="seg d" style="width:25.9%">平25.9%</div>
+  <div class="seg a" style="width:18.6%">客18.6%</div>
+</div>
+<div class="edge-card">
+  <div class="edge-item" style="border:1px solid #888">
+    <div class="val" style="color:#888">+0.3pp</div>
+    <div class="label">葡萄牙 Edge</div>
+    <div class="label-sub" style="color:#888">无价值</div>
+    <div style="font-size:11px;color:#888;margin-top:3px">模型55.4% vs 市场55.7%</div>
+  </div>
+  <div class="edge-item" style="border:1px solid #888">
+    <div class="val" style="color:#888">+0.1pp</div>
+    <div class="label">平局 Edge</div>
+    <div class="label-sub" style="color:#888">无价值</div>
+    <div style="font-size:11px;color:#888;margin-top:3px">模型25.9% vs 市场26.0%</div>
+  </div>
+  <div class="edge-item" style="border:1px solid #888">
+    <div class="val" style="color:#888">-0.4pp</div>
+    <div class="label">克罗地亚 Edge</div>
+    <div class="label-sub" style="color:#888">无价值</div>
+    <div style="font-size:11px;color:#888;margin-top:3px">模型18.6% vs 市场18.3%</div>
+  </div>
+</div>
+<div class="info-line" style="border-bottom:none;color:#ffb74d;font-size:13px">
+<b>⚡ 市场高度有效：</b>三向Edge均&lt;0.5pp，胜平负无价值空间。但<b style="color:#4caf50">比分层面存在高EV机会</b>，见L4。
+</div>
+</div>
+
+<!-- L4 -->
+<div class="section">
+<div class="section-title orange">💰 L4 比分EV + Kelly</div>
+<table>
+<tr><th>排名</th><th>比分</th><th>概率</th><th>赔率</th><th>EV</th><th>Kelly</th><th>信号</th></tr>
+<tr><td>1</td><td>1-0</td><td>15.6%</td><td>5.80</td><td style="color:#ef5350">-0.095</td><td>—</td><td>✗</td></tr>
+<tr><td>2</td><td>2-0</td><td>11.8%</td><td>3.90</td><td style="color:#ef5350">-0.539</td><td>—</td><td>✗</td></tr>
+<tr><td>3</td><td>1-1</td><td>11.8%</td><td>11.00</td><td style="color:#ef5350">+0.302</td><td>1.48%</td><td>⭐</td></tr>
+<tr><td>4</td><td>0-0</td><td>10.4%</td><td>12.50</td><td style="color:#ff9800">+0.301</td><td>1.31%</td><td>⭐</td></tr>
+<tr style="background:#1a1015"><td><b>5</b></td><td><b>0-1</b></td><td><b>7.8%</b></td><td><b>30.00</b></td><td style="color:#4caf50"><b>+1.342</b></td><td><b>2.31%</b></td><td><b>💎</b></td></tr>
+<tr style="background:#1a1015"><td>6</td><td>1-2</td><td>4.4%</td><td>50.00</td><td style="color:#4caf50">+1.222</td><td>1.25%</td><td>💎</td></tr>
+<tr style="background:#1a1015"><td>7</td><td>0-2</td><td>3.0%</td><td>110.00</td><td style="color:#4caf50">+2.320</td><td>1.06%</td><td>💎</td></tr>
+</table>
+<div style="padding:8px;background:#1a1015;border-radius:6px;font-size:13px;color:#bbb;line-height:1.6">
+<b style="color:#ff9800">⚡ 关键发现：</b>胜平负无价值，但<b style="color:#4caf50">所有正EV比分集中在克罗地亚方向</b>（0-1💎/1-2💎/0-2💎）+ 平局（0-0⭐/1-1⭐）。<br>市场认为葡萄牙赢球概率55.7%，但高赔率比分中克罗地亚方向的EV远高于葡萄牙方向。
+</div>
+</div>
+
+<!-- 十维变量 -->
+<div class="section">
+<div class="section-title purple">🔍 十维变量全检</div>
+<table>
+<tr><th>维度</th><th>详情</th><th>影响</th></tr>
+<tr><td>⚽ 关键射手</td><td>🇵🇹 C罗2球(组)+B费+B席+莱奥<br>🇭🇷 弗拉西奇1球+苏西奇1球+布迪米尔1球</td><td style="color:#4caf50">✅ 葡萄牙火力点更分散</td></tr>
+<tr><td>🧤 门将</td><td>🇵🇹 迪奥戈·科斯塔(波尔图) — 关键扑救多<br>🇭🇷 利瓦科维奇(——) — 2022世界杯点球英雄</td><td style="color:#ffb74d">⚠️ 利瓦科维奇大赛经验丰富</td></tr>
+<tr><td>📈 近期状态</td><td>🇵🇹 近10场9胜1平，小组赛1W2D不败<br>🇭🇷 近10场11胜1平3负，末轮2-1加纳关键胜</td><td style="color:#4caf50">✅ 葡萄牙不败金身</td></tr>
+<tr><td>🎯 战术风格</td><td>🇵🇹 4-3-3 B费+维蒂尼亚+内维斯中场<br>🇭🇷 4-3-3 莫德里奇+科瓦契奇+布罗佐维奇</td><td style="color:#ffb74d">⚠️ 克罗地亚中场经验碾压，但年龄偏大</td></tr>
+<tr><td>🌡️ 天气</td><td>多伦多BMO Field — ⚠️31-34°C，体感近40°C，无顶棚</td><td style="color:#ef5350">⚠️ 极端不利条件，λ降10%</td></tr>
+<tr><td>👨‍⚖️ 裁判</td><td>🇳🇴 Espen Eskås (挪威) — 38岁，执法U17/U20世界杯半决赛经验</td><td style="color:#ffb74d">⚠️ 北欧裁判，风格待查</td></tr>
+<tr><td>🔄 最后一舞</td><td><b style="color:#ff9800">⚡ C罗(41岁) vs 莫德里奇(40岁) — 极可能是两人世界杯谢幕战</b></td><td style="color:#ff9800">⚡ 情感加成+战意MAX</td></tr>
+<tr><td>🏠 更衣室</td><td>🇵🇹 C罗领袖，B费+B席双核<br>🇭🇷 莫德里奇精神领袖，格子军团结</td><td style="color:#4caf50">✅ 双方更衣室稳定</td></tr>
+<tr><td>💪 体能/年龄</td><td>🇵🇹 平均28.1岁 — 高龄阵容<br>🇭🇷 平均28.4岁 — 本届最老之一</td><td style="color:#ef5350">⚠️ 高温+高龄=下半场强度骤降</td></tr>
+<tr><td>📊 身价</td><td>🇵🇹 €10亿 vs 🇭🇷 €4.5亿</td><td style="color:#4caf50">✅ 葡萄牙2.2倍</td></tr>
+</table>
+</div>
+
+<!-- 盘口分析 -->
+<div class="section">
+<div class="section-title orange">📉 盘口分析</div>
+<table>
+<tr><th>维度</th><th>数据</th><th>解读</th></tr>
+<tr><td>让球盘</td><td>葡萄牙-0.5/1 竞彩-1: 3.11/3.12/2.05</td><td>葡萄牙-0.5属合理盘，-1偏高</td></tr>
+<tr><td>大小球</td><td>2/2.5球，小2.5倾向</td><td>模型39.6%大2.5，小2.5主导</td></tr>
+<tr><td>百家欧赔</td><td>葡萄牙1.59~1.65区间</td><td>竞彩赔付压得最低</td></tr>
+<tr><td>赔率时间变化</td><td>竞彩6/30 10:02开出，近期无大幅波动</td><td>市场稳定，无异常资金</td></tr>
+<tr><td>凯莉指数</td><td>胜平负均无正期望</td><td>市场高度有效</td></tr>
+</table>
+</div>
+
+<!-- 敏感性分析 -->
+<div class="section">
+<div class="section-title blue">🔬 敏感性分析（λ±0.2）</div>
+<table>
+<tr><th>λ变动</th><th>葡萄牙胜</th><th>平局</th><th>克罗地亚胜</th><th>vs基准</th></tr>
+<tr><td>-0.2</td><td>55.4%</td><td>29.1%</td><td>15.5%</td><td style="color:#888">平局↑3.2pp</td></tr>
+<tr style="background:#1e1e34"><td><b>基准</b></td><td><b>55.4%</b></td><td><b>25.9%</b></td><td><b>18.6%</b></td><td>—</td></tr>
+<tr><td>+0.2</td><td>54.9%</td><td>24.0%</td><td>21.1%</td><td style="color:#888">克罗地亚↑2.5pp</td></tr>
+</table>
+<div style="text-align:center;color:#888;font-size:13px;margin-top:4px">⚡ λ↓时平局概率上升显著，λ↑时克罗地亚胜率上升——对葡萄牙来说λ低≠更好</div>
+</div>
+
+<!-- 外媒 -->
+<div class="section">
+<div class="section-title purple">🌐 外媒分析</div>
+<table>
+<tr><th>来源</th><th>预测内容</th><th>倾向</th></tr>
+<tr><td>ESPN</td><td>克罗地亚2-1加纳关键胜出线，莫德里奇200场里程碑后状态正佳</td><td style="color:#ffb74d">⚠️ 谨慎</td></tr>
+<tr><td>Yahoo Sports</td><td>葡萄牙小组不败防守稳固，C罗vs魔笛两代传奇对决</td><td style="color:#4caf50">⚡ 葡萄牙占优</td></tr>
+<tr><td>Al Jazeera</td><td>哥伦比亚0-0葡萄牙闷战，葡萄牙攻击线效率存疑</td><td style="color:#888">⚖️ 均衡</td></tr>
+<tr><td>Croatia当地媒体</td><td>克罗地亚淘汰赛基因强大，上届季军+2018亚军底蕴</td><td style="color:#e0001b">⚡ 力挺克罗地亚</td></tr>
+</table>
+<div style="margin-top:8px;padding:8px;background:#1e1e34;border-radius:6px;font-size:13px;color:#bbb;line-height:1.6">
+<b>外媒共识：</b>分歧明显。葡萄牙名气和身价占优，克罗地亚大赛经验和淘汰赛基因不可忽视。高温是双方共同的敌人。
+</div>
+</div>
+
+<!-- 四源合成 -->
+<div class="section">
+<div class="section-title">🎯 四源比分合成</div>
+<table>
+<tr><th>来源</th><th>葡萄牙胜</th><th>平局</th><th>克罗地亚胜</th><th>首推比分</th></tr>
+<tr><td>① 外媒共识</td><td colspan="2">分歧明显，双方都有支持者</td><td></td><td>无统一意见</td></tr>
+<tr><td>② 赔率隐含</td><td>55.7%</td><td>26.0%</td><td>18.3%</td><td>—</td></tr>
+<tr><td>③ 盘口</td><td colspan="2">葡萄牙-0.5搭配小2.5球</td><td></td><td>小2.5优先</td></tr>
+<tr style="background:#1e1e34"><td><b>④ AFEI模型</b></td><td><b>55.4%</b></td><td><b>25.9%</b></td><td><b>18.6%</b></td><td><b>1-0 / 0-0</b></td></tr>
+</table>
+<div style="margin-top:8px;padding:8px;background:#1a1a2e;border-radius:6px;font-size:13px;color:#aaa;line-height:1.6">
+<b>🏆 综合判断：</b>市场高度有效，胜平负无价值空间。<b style="color:#4caf50">本场的真正价值在比分层面</b>——克罗地亚胜的高赔率比分EV远超合理水平。<br>
+<b>推荐：</b>小2.5球是唯一干净方向（60.4%），1-1和0-0的比分EV+0.30⭐有正期望。
+</div>
+</div>
+
+<!-- 叙事层 -->
+<div class="section">
+<div class="section-title purple">🧠 叙事层 · 战术级拆解</div>
+<div class="info-line" style="font-size:14px;font-weight:600;color:#ffb74d;border-bottom:2px solid #2a2a3e;padding-bottom:8px">
+比赛本质："最后一舞"+ "高温消耗战"
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+<div style="background:#1a1a2e;border-radius:6px;padding:10px;border:1px solid #c9252b">
+<div style="font-weight:600;color:#c9252b;margin-bottom:4px">🇵🇹 葡萄牙</div>
+<div style="font-size:12px;color:#bbb;line-height:1.7">
+4-3-3 B费组织核心<br>
+C罗终结者，2球状态回升<br>
+防线仅失1球——小组最强防守之一<br>
+<b style="color:#ef5350">❌ 高温下体能存疑(28.1岁)</b>
+</div>
+</div>
+<div style="background:#1a1a2e;border-radius:6px;padding:10px;border:1px solid #e0001b">
+<div style="font-weight:600;color:#e0001b;margin-bottom:4px">🇭🇷 克罗地亚</div>
+<div style="font-size:12px;color:#bbb;line-height:1.7">
+莫德里奇40岁领袖<br>
+中场控制力仍在线<br>
+淘汰赛基因：2018亚军/2022季军<br>
+<b style="color:#ef5350">❌ 防线场均失1.67球</b>
+</div>
+</div>
+</div>
+<div style="margin-top:10px">
+<div style="font-weight:600;margin-bottom:6px">⏱ 节奏模型</div>
+<table>
+<tr><th>时段</th><th>状态</th><th>说明</th></tr>
+<tr><td>0-30min</td><td style="color:#aaa">试探</td><td>高温下双方都不会全力冲刺，节奏偏慢</td></tr>
+<tr style="background:#1e1e34"><td><b>30-60min</b></td><td style="color:#ff9800;font-weight:600">⚡ 关键窗口</td><td>体能开始下降，防线出现空档</td></tr>
+<tr><td>60min+</td><td style="color:#ff9800">高温决战</td><td>老将们咬牙时段，一个失误定胜负</td></tr>
+</table>
+</div>
+</div>
+
+<!-- 最终综合预测 -->
+<div class="section" style="border:2px solid #ffb74d;background:#1a1510">
+<div class="section-title orange">🏁 最终综合预测（全因素加权）</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+<div style="background:#1e1e34;border-radius:8px;padding:12px;text-align:center">
+<div style="font-size:12px;color:#888;margin-bottom:4px">🇵🇹 葡萄牙胜</div>
+<div style="font-size:28px;font-weight:700;color:#c9252b">55.4%</div>
+<div style="font-size:11px;color:#888">无Kelly价值</div>
+</div>
+<div style="background:#1e1e34;border-radius:8px;padding:12px;text-align:center">
+<div style="font-size:12px;color:#888;margin-bottom:4px">🤝 平局</div>
+<div style="font-size:28px;font-weight:700;color:#ffb74d">25.9%</div>
+<div style="font-size:11px;color:#888">⭐ 0-0 EV+0.30</div>
+</div>
+<div style="background:#1e1e34;border-radius:8px;padding:12px;text-align:center">
+<div style="font-size:12px;color:#888;margin-bottom:4px">🇭🇷 克罗地亚胜</div>
+<div style="font-size:28px;font-weight:700;color:#e0001b">18.6%</div>
+<div style="font-size:11px;color:#888">💎 0-1 EV+1.34</div>
+</div>
+<div style="background:#1e1e34;border-radius:8px;padding:12px;text-align:center">
+<div style="font-size:12px;color:#888;margin-bottom:4px">⚽ 大小球</div>
+<div style="font-size:28px;font-weight:700;color:#4fc3f7">小2.5 60.4%</div>
+<div style="font-size:11px;color:#888">高温压制</div>
+</div>
+</div>
+<table style="margin-bottom:10px">
+<tr><th>优先级</th><th>比分</th><th>概率</th><th>EV</th><th>场景</th></tr>
+<tr style="background:#1e1e34"><td><b>🥇 最推荐</b></td><td><b>1-0</b></td><td><b>15.6%</b></td><td style="color:#ef5350">-0.10</td><td>葡萄牙控场+高温闷战，最可能结果</td></tr>
+<tr><td>🥈</td><td>1-1</td><td>11.8%</td><td style="color:#ff9800">+0.30 ⭐</td><td>双方各进一个，高温下各取所需</td></tr>
+<tr><td>🥉</td><td>0-0</td><td>10.4%</td><td style="color:#ff9800">+0.30 ⭐</td><td>极端闷战，40°C下谁都不想跑</td></tr>
+<tr style="background:#1a1015"><td><b>💎 高EV</b></td><td><b>0-1</b></td><td><b>7.8%</b></td><td style="color:#4caf50"><b>+1.34 💎</b></td><td><b>克罗地亚偷一个+葡萄牙久攻不下</b></td></tr>
+<tr style="background:#1a1015"><td><b>🚨 防范</b></td><td><b>0-2</b></td><td><b>3.0%</b></td><td style="color:#4caf50"><b>+2.32 💎</b></td><td><b>克罗地亚反击双杀，全场最高EV</b></td></tr>
+</table>
+<div style="padding:10px;background:#1a1a2e;border-radius:6px;border-left:4px solid #4caf50;font-size:13px;color:#bbb;line-height:1.7;margin-bottom:8px">
+<strong style="color:#fff">✅ 核心策略：</strong><br>
+🟢 <b>主单：小2.5球</b>（60.4%，高温+高龄=进球难）<br>
+🟡 <b>辅单：1-1 @11.00</b>（EV+0.30⭐）或 <b>0-0 @12.50</b>（EV+0.30⭐）<br>
+🔴 <b>激进：0-1 @30.00</b>（EV+1.34💎，克罗地亚偷胜剧本）
+</div>
+<div style="padding:8px;background:#1a1015;border-radius:6px;border-left:4px solid #ff9800;font-size:12px;color:#888;line-height:1.6">
+<strong>📊 综合加权：</strong>模型55.4% · 外媒分歧 · 盘口葡萄牙-0.5 · 高温λ-10%<br>
+<strong>主要风险：</strong>C罗魔笛最后一舞战意MAX可能超常发挥 · 高温对老将影响不可预测 · 克罗地亚淘汰赛基因<br>
+<strong>置信等级：</strong><b style="color:#ffb74d">B级</b>（胜平负市场有效+比分机会在冷门侧）
+</div>
+</div>
+
+<div class="footer">
+数据层：AFEI引擎v3.0 · 叙事层：战术级拆解v1.0<br>
+10万次蒙特卡洛模拟 · 基准投注单位=总资金的1%<br>
+⚠️ 本分析仅供学习参考，不构成任何投注建议<br>
+生成时间：2026-07-02
+</div>
+
+</div>
+</body>
+</html>
