@@ -1,0 +1,22 @@
+{
+  "match_id": "demo_001",
+  "home_team": "西雅图",
+  "away_team": "波特兰",
+  "match_time": "2026-07-17T07:54:30.290408",
+  "context_type": "normal_league",
+  "prediction": {
+    "home_pct": 63,
+    "draw_pct": 21,
+    "away_pct": 16
+  },
+  "actual": {
+    "score": "1-0",
+    "winner": "home"
+  },
+  "predicted_winner": "home",
+  "correct": true,
+  "error": {
+    "primary_cause": "direction_wrong",
+    "confidence_error": 2.6
+  }
+}

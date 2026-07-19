@@ -1,0 +1,22 @@
+{
+  "match_id": "demo_002",
+  "home_team": "法国",
+  "away_team": "西班牙",
+  "match_time": "2026-07-17T07:54:30.298042",
+  "context_type": "normal_league",
+  "prediction": {
+    "home_pct": 38,
+    "draw_pct": 30,
+    "away_pct": 32
+  },
+  "actual": {
+    "score": "0-2",
+    "winner": "away"
+  },
+  "predicted_winner": "home",
+  "correct": false,
+  "error": {
+    "primary_cause": "direction_wrong_favored_home",
+    "confidence_error": 2.4
+  }
+}

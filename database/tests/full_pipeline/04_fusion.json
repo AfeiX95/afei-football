@@ -1,0 +1,25 @@
+{
+  "fusion_version": "1.0",
+  "context_type": "normal_league",
+  "scores": {
+    "model": 50,
+    "analysis": 51,
+    "market": 41,
+    "intel": 50
+  },
+  "final_score": 48.5,
+  "data_confidence_penalty": 1.0,
+  "prediction": {
+    "home_pct": 31.5,
+    "draw_pct": 30.0,
+    "away_pct": 38.5
+  },
+  "confidence": 0.93,
+  "risks": [],
+  "_weights": {
+    "model": 0.35,
+    "analysis": 0.3,
+    "market": 0.2,
+    "info": 0.15
+  }
+}

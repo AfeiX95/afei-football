@@ -1,0 +1,96 @@
+{
+  "match_context": {
+    "match_id": "法国vs西班",
+    "match_type": "cup_knockout",
+    "match_importance": "normal",
+    "data_confidence": 0.9,
+    "market_efficiency": 0.8,
+    "home_advantage_modifier": 1.05,
+    "weight_profile": "cup",
+    "derby": false,
+    "is_qualifier": false,
+    "season_phase": "mid_season"
+  },
+  "team_basic": {
+    "home": {},
+    "away": {}
+  },
+  "performance": {
+    "home": {
+      "form_score": 0.0,
+      "trend": "stable"
+    },
+    "away": {
+      "form_score": 0.0,
+      "trend": "stable"
+    }
+  },
+  "tactical": {
+    "home_formation": "",
+    "away_formation": "",
+    "home_play_style": "",
+    "away_play_style": "",
+    "tactical_advantage": ""
+  },
+  "players": {
+    "home": [],
+    "away": []
+  },
+  "injury": {
+    "home": [],
+    "away": [],
+    "overall_impact_home": "medium",
+    "overall_impact_away": "none"
+  },
+  "schedule": {
+    "home_rest_days": 7,
+    "away_rest_days": 7,
+    "away_travel_km": 0,
+    "home_double_week": false,
+    "away_double_week": false
+  },
+  "environment": {
+    "weather": {
+      "temperature_c": 20,
+      "rain_probability": 0.0,
+      "wind_kmh": 0,
+      "impact_on_goals": "neutral"
+    },
+    "pitch_type": "natural",
+    "referee": {}
+  },
+  "odds": {
+    "source": "jingcai",
+    "snapshots": [
+      {
+        "home": 2.07,
+        "draw": 3.1,
+        "away": 3.1
+      }
+    ],
+    "implied_prob": {
+      "home_pct": 42.8,
+      "draw_pct": 28.6,
+      "away_pct": 28.6
+    }
+  },
+  "market": {
+    "overheating": false,
+    "overheating_score": 0.0,
+    "consensus_level": 0.5,
+    "trend_pattern": "unknown",
+    "odds_model_conflict": false,
+    "conflict_gap_pp": 0.0,
+    "market_efficiency_score": 0.75
+  },
+  "model": {
+    "lambda_home": 0,
+    "lambda_away": 0,
+    "home_pct": 12.3,
+    "draw_pct": 10.2,
+    "away_pct": 9.0,
+    "over25_pct": 0,
+    "scores": []
+  },
+  "prediction": {}
+}

@@ -1,0 +1,29 @@
+{
+  "calibration_version": "1.0",
+  "score_probability_mapping": [
+    {"score": 85, "win_prob": 0.70, "draw_prob": 0.18, "loss_prob": 0.12},
+    {"score": 75, "win_prob": 0.60, "draw_prob": 0.22, "loss_prob": 0.18},
+    {"score": 65, "win_prob": 0.50, "draw_prob": 0.26, "loss_prob": 0.24},
+    {"score": 55, "win_prob": 0.38, "draw_prob": 0.30, "loss_prob": 0.32},
+    {"score": 45, "win_prob": 0.28, "draw_prob": 0.30, "loss_prob": 0.42},
+    {"score": 35, "win_prob": 0.20, "draw_prob": 0.26, "loss_prob": 0.54}
+  ],
+  "confidence_factors": {
+    "data_quality_weight": 0.40,
+    "market_alignment_weight": 0.30,
+    "model_stability_weight": 0.30
+  },
+  "fusion_weights": {
+    "normal_league":  {"model": 0.35, "analysis": 0.30, "market": 0.20, "info": 0.15},
+    "key_match":      {"model": 0.30, "analysis": 0.25, "market": 0.25, "info": 0.20},
+    "cup_knockout":   {"model": 0.25, "analysis": 0.25, "market": 0.15, "info": 0.35},
+    "derby":          {"model": 0.30, "analysis": 0.20, "market": 0.20, "info": 0.30},
+    "qualifier":      {"model": 0.25, "analysis": 0.30, "market": 0.25, "info": 0.20}
+  },
+  "data_confidence_penalty": {
+    "0.90": 1.0,
+    "0.70": 0.85,
+    "0.55": 0.75,
+    "0.30": 0.50
+  }
+}

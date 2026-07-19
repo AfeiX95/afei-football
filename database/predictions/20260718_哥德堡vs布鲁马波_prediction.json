@@ -1,0 +1,43 @@
+{
+  "prediction": {
+    "home_pct": 23.3,
+    "draw_pct": 27.6,
+    "away_pct": 49.1
+  },
+  "mc": {
+    "home_pct": 33.1,
+    "draw_pct": 25.5,
+    "away_pct": 41.3,
+    "over25_pct": 52.2,
+    "expected_goals": 2.76
+  },
+  "scores": {
+    "model": 46,
+    "analysis": 45,
+    "market": 10,
+    "intel": 50
+  },
+  "confidence": 0.84,
+  "risks": [],
+  "features": {
+    "strength_gap": -0.1034,
+    "point_gap": 0.0,
+    "home_advantage": 0.08,
+    "form_home": -0.03,
+    "form_away": 0.16,
+    "form_gap": -0.19,
+    "attack_home": 0.0,
+    "attack_away": 0.0,
+    "defense_home": 0.0,
+    "defense_away": 0.0,
+    "injury_home": 0.05,
+    "injury_away": 0.05,
+    "injury_gap": 0.0,
+    "market_confidence": 0.0,
+    "market_warning": 0.0,
+    "is_cup": 0.0,
+    "is_qualifier": 0.0,
+    "is_derby": 0.0,
+    "data_confidence": 0.9
+  }
+}

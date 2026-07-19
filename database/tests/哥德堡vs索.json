@@ -1,0 +1,96 @@
+{
+  "match_context": {
+    "match_id": "哥德堡vs索",
+    "match_type": "normal_league",
+    "match_importance": "normal",
+    "data_confidence": 0.9,
+    "market_efficiency": 0.75,
+    "home_advantage_modifier": 1.05,
+    "weight_profile": "normal",
+    "derby": false,
+    "is_qualifier": false,
+    "season_phase": "mid_season"
+  },
+  "team_basic": {
+    "home": {},
+    "away": {}
+  },
+  "performance": {
+    "home": {
+      "form_score": 0.0,
+      "trend": "stable"
+    },
+    "away": {
+      "form_score": 0.0,
+      "trend": "stable"
+    }
+  },
+  "tactical": {
+    "home_formation": "",
+    "away_formation": "",
+    "home_play_style": "",
+    "away_play_style": "",
+    "tactical_advantage": ""
+  },
+  "players": {
+    "home": [],
+    "away": []
+  },
+  "injury": {
+    "home": [],
+    "away": [],
+    "overall_impact_home": "none",
+    "overall_impact_away": "none"
+  },
+  "schedule": {
+    "home_rest_days": 7,
+    "away_rest_days": 7,
+    "away_travel_km": 0,
+    "home_double_week": false,
+    "away_double_week": false
+  },
+  "environment": {
+    "weather": {
+      "temperature_c": 20,
+      "rain_probability": 0.0,
+      "wind_kmh": 0,
+      "impact_on_goals": "neutral"
+    },
+    "pitch_type": "natural",
+    "referee": {}
+  },
+  "odds": {
+    "source": "jingcai",
+    "snapshots": [
+      {
+        "home": 2.14,
+        "draw": 3.35,
+        "away": 2.75
+      }
+    ],
+    "implied_prob": {
+      "home_pct": 41.4,
+      "draw_pct": 26.4,
+      "away_pct": 32.2
+    }
+  },
+  "market": {
+    "overheating": false,
+    "overheating_score": 0.0,
+    "consensus_level": 0.5,
+    "trend_pattern": "unknown",
+    "odds_model_conflict": false,
+    "conflict_gap_pp": 0.0,
+    "market_efficiency_score": 0.75
+  },
+  "model": {
+    "lambda_home": 0,
+    "lambda_away": 0,
+    "home_pct": 31.9,
+    "draw_pct": 23.0,
+    "away_pct": 45.1,
+    "over25_pct": 0,
+    "scores": []
+  },
+  "prediction": {}
+}

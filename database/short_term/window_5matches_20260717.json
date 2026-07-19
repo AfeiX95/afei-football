@@ -1,0 +1,22 @@
+{
+  "window_size": 5,
+  "accuracy": 0.4,
+  "timestamp": "2026-07-17T07:54:20.048918",
+  "cause_distribution": {
+    "draw_underestimated": 2,
+    "direction_wrong": 2,
+    "direction_wrong_favored_home": 1
+  },
+  "alerts": [
+    {
+      "cause": "draw_underestimated",
+      "frequency": 0.4,
+      "suggestion": "提高平局校准概率下限"
+    },
+    {
+      "cause": "direction_wrong",
+      "frequency": 0.4,
+      "suggestion": "检查基础特征权重是否合理"
+    }
+  ]
+}

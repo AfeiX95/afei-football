@@ -1,0 +1,24 @@
+{
+  "feature_version": "1.0",
+  "features": {
+    "strength_gap": 0.0345,
+    "point_gap": 0.0,
+    "home_advantage": 0.085,
+    "form_home": 0.0,
+    "form_away": 0.0,
+    "form_gap": 0.0,
+    "attack_home": 0.0,
+    "attack_away": 0.0,
+    "defense_home": 0.0,
+    "defense_away": 0.0,
+    "injury_home": 0.13,
+    "injury_away": 0.13,
+    "injury_gap": 0.0,
+    "market_confidence": 0.43,
+    "market_warning": 0.0,
+    "is_cup": 1.0,
+    "is_qualifier": 0.0,
+    "is_derby": 0.0,
+    "data_confidence": 0.9
+  }
+}

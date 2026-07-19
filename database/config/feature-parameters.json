@@ -1,0 +1,25 @@
+{
+  "feature_version": "1.0",
+  "normalization": {
+    "max_rank": 30,
+    "max_rank_gap": 29,
+    "max_point_gap": 60,
+    "form_win": 0.08,
+    "form_draw": 0.02,
+    "form_loss": -0.05,
+    "form_max": 0.25,
+    "injury_max": 0.35,
+    "confidence_power": 0.85
+  },
+  "league_averages": {
+    "default_goals_per_game": 2.8,
+    "default_home_win_rate": 0.45,
+    "default_away_win_rate": 0.28
+  },
+  "attack_defense": {
+    "home_attack_weight": 0.45,
+    "away_defense_weight": 0.55,
+    "away_attack_weight": 0.40,
+    "home_defense_weight": 0.60
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "model_version": "2.0",
+  "lambda": {
+    "home": 1.407,
+    "away": 1.402
+  },
+  "mc": {
+    "home_pct": 37.2,
+    "draw_pct": 25.3,
+    "away_pct": 37.4,
+    "over25_pct": 53.3,
+    "expected_goals": 2.81
+  },
+  "scores": [
+    {
+      "score": "1-1",
+      "prob": 11.9
+    },
+    {
+      "score": "1-0",
+      "prob": 8.5
+    },
+    {
+      "score": "0-1",
+      "prob": 8.4
+    },
+    {
+      "score": "2-1",
+      "prob": 8.4
+    },
+    {
+      "score": "1-2",
+      "prob": 8.3
+    },
+    {
+      "score": "0-0",
+      "prob": 6.0
+    },
+    {
+      "score": "2-0",
+      "prob": 6.0
+    },
+    {
+      "score": "0-2",
+      "prob": 5.9
+    },
+    {
+      "score": "2-2",
+      "prob": 5.9
+    },
+    {
+      "score": "3-1",
+      "prob": 3.9
+    }
+  ],
+  "top3_scores": [
+    "1-1",
+    "1-0",
+    "0-1"
+  ]
+}

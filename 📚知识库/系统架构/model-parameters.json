@@ -1,0 +1,75 @@
+{
+  "h2h": {
+    "factor_max": 0.12,
+    "squad_overlap_min": 0.6,
+    "recency_weight_last_5": 0.6
+  },
+  "mc_simulation": {
+    "runs": 100000,
+    "seed": 42
+  },
+  "overheat": {
+    "threshold_odds": 1.40,
+    "penalty_per_0_01_drop": 0.015,
+    "consensus_warning": 0.80
+  },
+  "confidence": {
+    "min_threshold": 0.30,
+    "full_data": 0.90,
+    "partial_data": 0.70,
+    "qualifier": 0.55,
+    "no_data": 0.30
+  },
+  "market_efficiency": {
+    "top5_league": 0.90,
+    "world_cup": 0.85,
+    "champions_league": 0.80,
+    "nordic_league": 0.75,
+    "qualifier": 0.60,
+    "small_league": 0.45
+  },
+  "weight_profiles": {
+    "normal": {
+      "model": 0.30,
+      "strength": 0.25,
+      "squad": 0.10,
+      "tactics": 0.10,
+      "psychology": 0.05,
+      "odds_base": 0.20
+    },
+    "cup": {
+      "model": 0.25,
+      "strength": 0.20,
+      "squad": 0.25,
+      "tactics": 0.15,
+      "psychology": 0.10,
+      "odds_base": 0.05
+    },
+    "derby": {
+      "model": 0.30,
+      "strength": 0.20,
+      "squad": 0.10,
+      "tactics": 0.10,
+      "psychology": 0.20,
+      "odds_base": 0.10
+    },
+    "qualifier": {
+      "model": 0.25,
+      "strength": 0.25,
+      "squad": 0.10,
+      "tactics": 0.10,
+      "psychology": 0.05,
+      "odds_base": 0.25
+    }
+  },
+  "feedback": {
+    "short_term_window": 20,
+    "long_term_window": 100,
+    "trigger_consecutive_errors": 3
+  },
+  "anomaly_detection": {
+    "odds_model_conflict_pp": 15,
+    "consensus_overheat_pct": 80,
+    "popularity_gap_threshold": 15
+  }
+}
