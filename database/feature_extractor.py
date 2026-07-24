@@ -91,13 +91,19 @@ def _point_gap(tb):
 
 
 def _home_advantage(tb):
-    """基于主场vs客场排名推算主场优势"""
+    """基于主场vs客场排名推算主场优势，联动对手排名"""
     h_rank = tb.get("home", {}).get("rank", 0)
     a_rank = tb.get("away", {}).get("rank", 0)
     if h_rank and a_rank:
-        # 排名越接近，主场优势越重要；排名差越大，强队优势越明显
         gap = a_rank - h_rank
-        return round(0.08 + max(0, gap) * 0.005, 4)
+        # 排名差越大，主场优势越被对方排名削弱
+        # 当主队排名高且对手弱时(gap大)，主场优势被加强
+        base = 0.08
+        if gap >= 8:
+            base += 0.08  # 主场对弱队加成
+        elif gap >= 4:
+            base += 0.04
+        return round(base + max(0, gap) * 0.005, 4)
     return 0.08  # 默认主场优势
 
 

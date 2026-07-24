@@ -31,7 +31,7 @@ def parse_14dim_to_json(md_text, match_id=None):
         "prediction": {}
     }
     # market依赖odds和context，后处理
-    result["market"] = parse_market(result["odds"], result["match_context"], result["model"])
+    result["market"] = parse_market(result["odds"], result["match_context"], result["model"], result["team_basic"])
     if match_id:
         result["match_context"]["match_id"] = match_id
     return result
@@ -180,7 +180,7 @@ def parse_injury(md):
 
 # ===== P1: market =====
 
-def parse_market(odds_data, context, model_data):
+def parse_market(odds_data, context, model_data, team_basic=None):
     """
     赔率市场异常检测。
     三条规则：过热 / 赔率反向移动 / 模型vs赔率冲突。
@@ -205,8 +205,16 @@ def parse_market(odds_data, context, model_data):
     market_home_pct = mp.get("home_pct", 50)
     model_home_pct = model.get("home_pct", 50)
 
-    # 规则1：热门过热（赔率<1.40 且 模型胜率 < 市场隐含-10pp）
-    if home_odds < 1.40:
+    # 规则1：热门过热——考虑排名差修正
+    # 当主队排名远高于客队(rank_gap>=8)时，低赔属于合理定价而非过热
+    h_rank = 0
+    a_rank = 0
+    if team_basic:
+        h_rank = team_basic.get("home", {}).get("rank", 0)
+        a_rank = team_basic.get("away", {}).get("rank", 0)
+    rank_gap = a_rank - h_rank if h_rank and a_rank else 0
+    overheat_threshold = 1.50 if rank_gap >= 8 else 1.40
+    if home_odds < overheat_threshold:
         gap = market_home_pct - model_home_pct
         if gap > 10:
             result["overheating"] = True

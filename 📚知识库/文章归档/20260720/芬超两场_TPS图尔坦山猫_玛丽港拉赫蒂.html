@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#1a1d24;color:#d1d5db;line-height:1.8;padding:30px 20px}
+.container{max-width:720px;margin:0 auto;background:#23272e;border-radius:16px;padding:40px 32px}
+h2{font-size:19px;color:#f0f4f8;font-weight:700;line-height:1.4;margin-bottom:10px;border-left:4px solid #5b8def;padding-left:14px}
+.subhead{color:#8892a0;font-size:13px;margin-bottom:24px}
+hr{border:none;border-top:1px solid #353b45;margin:22px 0}
+p{margin-bottom:14px;font-size:15px;color:#c8cdd5}
+table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:13px;border-radius:10px;overflow:hidden}
+th{background:#2e3540;color:#b0c4de;font-weight:600;padding:8px 10px;text-align:left}
+td{padding:7px 10px;border-bottom:1px solid #2e3540;color:#c8cdd5}
+tr:nth-child(even) td{background:#262b34}
+.st{font-size:15px;font-weight:700;color:#e8edf4;margin:16px 0 8px;display:flex;align-items:center;gap:8px}
+.st::before{content:'';display:inline-block;width:18px;height:2px;background:#5b8def}
+.hb{background:#2a3140;border-left:4px solid #f0b34b;border-radius:0 10px 10px 0;padding:14px 16px;margin:12px 0;font-size:14px}
+.gb{background:#1e2d26;border-left:4px solid #5bbf7a;border-radius:0 10px 10px 0;padding:14px 16px;margin:12px 0;font-size:14px}
+.ab{background:#2d2430;border-left:4px solid #e85454;border-radius:0 10px 10px 0;padding:14px 16px;margin:12px 0;font-size:14px}
+footer{margin-top:24px;padding-top:18px;border-top:1px solid #353b45;font-size:12px;color:#6b7280;text-align:center}
+.tags{color:#8892a0;font-size:12px;margin-bottom:20px}
+.tags span{display:inline-block;background:#2e3540;padding:3px 10px;border-radius:12px;margin-right:6px;margin-bottom:4px}
+@media(max-width:600px){.container{padding:20px 16px}h2{font-size:16px}table{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<p class="tags"><span>#芬超</span><span>#TPS图尔</span><span>#坦山猫</span><span>#玛丽港</span><span>#拉赫蒂</span></p>
+
+<h2>芬超两场：9连败的魔咒遇上15场0胜的尴尬——谁先破局？</h2>
+<p class="subhead">周一201-202 芬超第16轮 | 2026-07-20/21</p>
+<hr>
+
+<p>芬超两场，两种极端叙事。TPS图尔主场对坦山猫已经9连败——魔咒级的H2H。而玛丽港15场联赛0胜——全欧洲主流联赛最差的战绩。一支想打破魔咒，一支想终结尴尬。</p>
+
+<hr>
+
+<div class="st">🎯 第一场：TPS图尔(#7) vs 坦山猫(#9) | 07-20 23:00</div>
+
+<p><strong>恩怨情仇·魔咒纪录：</strong> TPS图尔主场6胜1平1负(75%)的数据很好看，但遇上坦山猫就自动变成另一支球队——近9次交手0胜0平9负，100%输球率。上一次TPS赢坦山猫还要追溯到2018年5月。用说句不好听的，这已经不是实力问题，是心魔。</p>
+
+<table>
+<tr><th>维度</th><th>🇫🇮 TPS图尔(#7)</th><th>🇫🇮 坦山猫(#9)</th></tr>
+<tr><td>总战绩</td><td>6胜4平5负(40%)</td><td>4胜4平7负(27%)</td></tr>
+<tr><td>主场/客场</td><td><strong>主场6胜1平1负(75%🔥)</strong></td><td><strong>客场0胜3平5负(0%💀)</strong></td></tr>
+<tr><td>H2H近9场</td><td><strong>0胜0平9负(0%💀🔥)</strong></td><td><strong>9胜0平0负(100%🔥)</strong></td></tr>
+<tr><td>近10场</td><td>3胜1平6负(30%)</td><td>4胜2平4负(40%)</td></tr>
+<tr><td>核心射手</td><td>Muzaci 7球(37%)</td><td><strong>Kanga 8球(32%)</strong></td></tr>
+<tr><td>伤停</td><td><strong>扎尔(中场·15场全勤)伤缺❌</strong></td><td>✅无</td></tr>
+</table>
+
+<p><strong>外媒观点：</strong> 竞彩市场给坦山猫37.7%略高于TPS的36.3%，说明市场已经认可了H2H魔咒的含金量。北欧当地媒体也提到：坦山猫的Kanga(8球)面对TPS已经连续4场进球，算得上是TPS的头号克星。</p>
+
+<p><strong>关键对位：</strong> TPS核心中场扎尔(15场全勤)伤缺，对球队中场控制力影响巨大。他不仅是防守屏障，也是由守转攻的第一出球点。没了扎尔，坦山猫的高位压迫更容易得手。</p>
+
+<h3>数学模型：泊松分布 & Monte Carlo模拟（10万次）</h3>
+
+<table>
+<tr><th>λ进球期望</th><th>TPS图尔</th><th>坦山猫</th></tr>
+<tr><td>λ值</td><td><strong>1.528</strong></td><td>1.243</td></tr>
+</table>
+
+<p><strong>泊松比分概率Top8（10万次MC模拟结果）：</strong></p>
+<table>
+<tr><th>排名</th><th>比分</th><th>泊松概率</th><th>MC频率</th><th>累计</th></tr>
+<tr><td>1</td><td><strong>1-1</strong></td><td>11.89%</td><td>12.1%</td><td>12.1%</td></tr>
+<tr><td>2</td><td>1-0</td><td>9.57%</td><td>9.4%</td><td>21.5%</td></tr>
+<tr><td>3</td><td>2-1</td><td>9.08%</td><td>8.9%</td><td>30.4%</td></tr>
+<tr><td>4</td><td>0-1</td><td>7.78%</td><td>8.0%</td><td>38.4%</td></tr>
+<tr><td>5</td><td>1-2</td><td>7.39%</td><td>7.2%</td><td>45.6%</td></tr>
+<tr><td>6</td><td>2-0</td><td>7.31%</td><td>7.1%</td><td>52.7%</td></tr>
+<tr><td>7</td><td>0-0</td><td>6.26%</td><td>6.4%</td><td>59.1%</td></tr>
+<tr><td>8</td><td>2-2</td><td>5.65%</td><td>5.5%</td><td>64.6%</td></tr>
+</table>
+<p><strong>三向汇总：</strong> 主胜43.4% / 平局25.1% / 客胜30.8% | 期望进球2.77球 | >2.5球概率54.5%</p>
+
+<table>
+<tr><th>项目</th><th>TPS图尔</th><th>坦山猫</th></tr>
+<tr><td>零封概率</td><td>28.8%</td><td>21.7%</td></tr>
+<tr><td>至少进2球</td><td>37.1%</td><td>24.2%</td></tr>
+</table>
+
+<table>
+<tr><th>项目</th><th>数值</th></tr>
+<tr><td>市场</td><td>TPS 36.3% / 平26.0% / <strong>坦山猫37.7%</strong></td></tr>
+<tr><td>模型</td><td>TPS 36.6% / 平30.0% / 坦山猫33.4%</td></tr>
+<tr><td>λ值</td><td>1.53 / 1.24</td></tr>
+</table>
+
+<div class="hb"><strong>方向：</strong>⚪三向均等不推。坦山猫方向有H2H碾压+市场认可+对手核心伤缺的三重支撑，比主场数据更值得信任。比分：1-1(7.00) > 0-1(10.50) > 1-2(7.50)</div>
+
+<hr>
+
+<div class="st">🎯 第二场：玛丽港(#12·0胜💀) vs 拉赫蒂(#8) | 07-21 00:00</div>
+
+<p><strong>双方战意：</strong> 玛丽港15场0胜4平11负，是全欧洲主流联赛里最差的球队之一。场均只进0.4球、丢2.5球——说句不好听的，这数据放在任何联赛都是降级都不够格。拉赫蒂#8排名中游但仍有向上抢分的空间，面对垫底队不容有失。</p>
+
+<table>
+<tr><th>维度</th><th>🇫🇮 玛丽港(#12·0胜💀)</th><th>🇫🇮 拉赫蒂(#8)</th></tr>
+<tr><td>总战绩</td><td><strong>0胜4平11负(0%💀)</strong></td><td>5胜4平6负(33%)</td></tr>
+<tr><td>积分</td><td><strong>4分(垫底)</strong></td><td><strong>19分(领先15分)</strong></td></tr>
+<tr><td>近10场</td><td><strong>0胜1平9负(0%💀)</strong></td><td>4胜2平4负(40%)</td></tr>
+<tr><td>场均进/失</td><td><strong>0.4球 / 2.5球💀</strong></td><td>1.5球 / 1.2球</td></tr>
+<tr><td>H2H近10场</td><td>2胜4平4负(20%)</td><td>4胜4平2负(40%)</td></tr>
+</table>
+
+<p><strong>魔咒 vs 数据：</strong> 玛丽港唯一能拿出手的是联赛杯4-0赢过拉赫蒂(今年3月)，但正规联赛中近6场1平5负完全被压制。15场0胜意味着什么？球队已经连续4个月没在联赛赢过球。这种心理包袱对更衣室的消耗是毁灭性的。</p>
+
+<p><strong>关键对位：</strong> 拉赫蒂的O. Koskinen(3球)和Neemias Barbosa(3球)虽然进球数不高，但面对场均失2.5球的防线，不进球才是新闻。正常发挥2球起步。</p>
+
+<table>
+<tr><th>项目</th><th>数值</th></tr>
+<tr><td>市场</td><td>玛丽港16.9% / 平21.6% / <strong>拉赫蒂61.5%</strong></td></tr>
+<tr><td>模型</td><td>24.3% / 28.2% / <strong>47.5%</strong></td></tr>
+<tr><td>λ值</td><td>1.24 / 1.50</td></tr>
+</table>
+
+<h3>数学模型：泊松分布 & Monte Carlo模拟（10万次）</h3>
+<table>
+<tr><th>λ进球期望</th><th>玛丽港</th><th>拉赫蒂</th></tr>
+<tr><td>λ值</td><td><strong>1.240</strong></td><td><strong>1.499</strong></td></tr>
+</table>
+
+<p><strong>泊松比分概率Top8：</strong></p>
+<table>
+<tr><th>排名</th><th>比分</th><th>泊松概率</th><th>MC频率</th><th>累计</th></tr>
+<tr><td>1</td><td><strong>1-1</strong></td><td>12.01%</td><td>12.2%</td><td>12.2%</td></tr>
+<tr><td>2</td><td>0-1</td><td>9.69%</td><td>9.8%</td><td>22.0%</td></tr>
+<tr><td>3</td><td>1-2</td><td>9.00%</td><td>8.7%</td><td>30.7%</td></tr>
+<tr><td>4</td><td>1-0</td><td>8.01%</td><td>8.2%</td><td>38.9%</td></tr>
+<tr><td>5</td><td>2-1</td><td>7.45%</td><td>7.3%</td><td>46.2%</td></tr>
+<tr><td>6</td><td>0-2</td><td>7.26%</td><td>7.1%</td><td>53.3%</td></tr>
+<tr><td>7</td><td>0-0</td><td>6.46%</td><td>6.6%</td><td>59.9%</td></tr>
+<tr><td>8</td><td>2-2</td><td>5.58%</td><td>5.4%</td><td>65.3%</td></tr>
+</table>
+<p><strong>三向汇总：</strong> 主胜31.2% / 平局25.4% / <strong>客胜42.8%</strong> | 期望进球2.74球 | >2.5球概率52.4%</p>
+
+<table>
+<tr><th>项目</th><th>玛丽港</th><th>拉赫蒂</th></tr>
+<tr><td>零封概率</td><td>29.0%</td><td>22.3%</td></tr>
+<tr><td>至少进2球</td><td>23.5%</td><td>36.5%</td></tr>
+</table>
+
+<div class="gb"><strong>方向：</strong>🟡拉赫蒂方向。0胜队不该被信任。1.44接近过热线但对手0胜的垫底队属于合理定价。比分：0-1(7.80) > 1-2(6.75) > 1-1(7.50)</div>
+
+<hr>
+
+<footer>
+<p>以上内容仅为赛事数据分析，仅供参考。</p>
+<p>数据来源：中国体育彩票官方平台 | AFEI v3.0</p>
+</footer>
+</div>
+</body>
+</html>
