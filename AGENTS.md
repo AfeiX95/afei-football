@@ -50,3 +50,41 @@
 - 竞彩数据只统计90分钟常规时间赛果，加时+点球不计入彩果
 - 文章末尾不出现"数据采集：用户手动提取自中国体育彩票官方平台"
 - 模型数据在文中称"后台模型"，不暴露具体算法名
+
+## Skills 知识库（16个足球技能 + 2个写作技能）
+
+所有 Hermes 积累的技能文件存放在 `📚知识库/skills/` 目录下，每个文件夹含 `SKILL.md` 主文件和 `references/`、`scripts/`、`templates/` 子目录。
+
+### 核心技能（按优先级）
+
+| 技能 | 用途 | 何时读取 |
+|------|------|---------|
+| `match-model-pipeline` | 后台模型全流程（λ/MC/EV/修正规则） | 跑任何模型前 |
+| `afei-writing-standards` | 写作偏好覆盖层（R1-R18规则） | 写文章前 |
+| `football-match-preview-article` | 文章写作完整工作流 | 写文章前 |
+| `football-match-preview-pipeline` | 赛事前瞻全流程管线 | 单场/多场合集 |
+| `jingcai-data-acquisition` | 竞彩网数据获取方法 | 采集赔率数据时 |
+| `football-lottery-assistant` | 深度分析（七层漏斗+十二维） | 用户要求深度分析时 |
+| `football-calibration-batch` | 赛后校验经验库 | 赛后复盘时 |
+| `football-14dim-full-analysis` | 11维全维度分析管线 | 用户要求14维分析时 |
+| `football-publishing-calendar` | 发文日历管理 | 决定何时发什么时 |
+| `afei-model-framework-v3` | 模型升级路线图 | 改进模型时 |
+| `season-transition-analysis` | 休赛期vs赛季中修正 | 分析欧战资格赛时 |
+| `humanizer-zh` | 降AI写作（中文） | 降AI检测时 |
+
+### 使用方式
+
+读取某个技能的完整内容：
+```
+read_file("📚知识库/skills/match-model-pipeline/SKILL.md")
+```
+
+读取技能的参考文件：
+```
+read_file("📚知识库/skills/match-model-pipeline/references/post-match-calibration.md")
+```
+
+读取技能的脚本：
+```
+read_file("📚知识库/skills/match-model-pipeline/scripts/mc-simulation.py")
+```

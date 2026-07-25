@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>{{主队}} vs {{客队}} · 模型分析 · {{MMDD}}</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#0f0f1a;color:#e0e0e0;padding:16px}
+.container{max-width:720px;margin:0 auto}
+h1{font-size:20px;font-weight:700;color:#fff;margin-bottom:4px}
+.subtitle{font-size:13px;color:#888;margin-bottom:16px}
+.match-card{background:#1a1a2e;border-radius:10px;padding:16px;margin-bottom:14px;border:1px solid #2a2a3e}
+.match-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.match-id{font-size:12px;color:#666;background:#252540;padding:2px 8px;border-radius:4px}
+.match-time{font-size:12px;color:#888}
+.team{font-size:18px;font-weight:700}
+.team.home{color:{{主队色}}}
+.team.away{color:{{客队色}}}
+.vs-text{color:#555;font-size:14px;margin:0 8px}
+.badge-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.badge{display:inline-block;font-size:11px;padding:2px 7px;border-radius:4px;font-weight:500}
+.badge.red{background:#3a1520;color:#ef5350}
+.badge.green{background:#1a3a1a;color:#4caf50}
+.badge.orange{background:#3a2a10;color:#ff9800}
+.badge.blue{background:#102a3a;color:#4fc3f7}
+.badge.purple{background:#2a103a;color:#ce93d8}
+.kpi-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:12px}
+.kpi-item{background:#252540;border-radius:6px;padding:8px;text-align:center}
+.kpi-label{font-size:11px;color:#888}
+.kpi-value{font-size:17px;font-weight:700;color:#fff}
+.kpi-value.green{color:#4caf50}
+.kpi-value.red{color:#ef5350}
+.kpi-value.orange{color:#ff9800}
+.prob-bar{display:flex;height:22px;border-radius:4px;overflow:hidden;margin-bottom:8px;font-size:11px;font-weight:600}
+.prob-bar .seg{display:flex;align-items:center;justify-content:center;color:#fff}
+.prob-bar .seg.h{background:{{主队色}}}
+.prob-bar .seg.d{background:#ffb74d}
+.prob-bar .seg.a{background:{{客队色}}}
+.prob-compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.prob-box{background:#252540;border-radius:6px;padding:10px;text-align:center}
+.prob-box .label{font-size:11px;color:#888;margin-bottom:3px}
+.prob-box .val{font-size:16px;font-weight:700}
+.prob-box .delta{font-size:13px;font-weight:600;margin-top:3px}
+.delta.pos{color:#4caf50}
+.delta.neg{color:#ef5350}
+table{width:100%;border-collapse:collapse;margin-bottom:10px;font-size:13px}
+table th{background:#252540;color:#888;font-weight:500;padding:6px 4px;border:1px solid #2a2a3e;text-align:center}
+table td{padding:5px 4px;border:1px solid #2a2a3e;text-align:center;color:#ccc}
+table tr:nth-child(1) td{color:{{主队色}};font-weight:600}
+.section-title{font-size:16px;font-weight:700;color:#fff;margin:18px 0 10px;padding-left:12px;border-left:3px solid {{主队色}}}
+.section-title.danger{border-left-color:#ef5350}
+.section-title.warn{border-left-color:#ff9800}
+.section-title.blue{border-left-color:#4fc3f7}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.info-card{background:#252540;border-radius:6px;padding:10px}
+.info-card .ic-title{font-size:12px;font-weight:600;margin-bottom:4px;padding-bottom:3px;border-bottom:1px solid #2a2a3e}
+.info-card .ic-item{font-size:12px;color:#bbb;padding:2px 0}
+.signal-box{background:#1a1a2e;border-radius:10px;padding:14px;margin-bottom:14px;border-left:4px solid #ef5350}
+.signal-box.orange{border-left-color:#ff9800}
+.signal-box.green{border-left-color:#4caf50}
+.signal-box .sig-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:6px}
+.signal-box .sig-desc{font-size:13px;color:#aaa;line-height:1.6}
+.plan-card{background:#1a1a2e;border-radius:10px;padding:14px;margin-bottom:10px;border:1px solid #2a2a3e}
+.plan-card .plan-title{font-size:14px;font-weight:700;margin-bottom:6px}
+.plan-card .plan-items{font-size:13px;color:#bbb;line-height:1.7}
+.plan-card .plan-items li{margin-left:16px;margin-bottom:3px}
+.footer{text-align:center;font-size:11px;color:#555;margin-top:20px;padding-top:12px;border-top:1px solid #2a2a3e;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>{{主队emoji}} {{主队}} vs {{客队}} {{客队emoji}}</h1>
+<div class="subtitle">{{竞彩编号}} · {{赛事名称}} · {{赛事时间}}</div>
+
+<div class="badge-row">
+  <span class="badge {{极端信号css类}}">Edge {{Edge值}}pp ⚡</span>
+  <span class="badge purple">{{主队小组名次}}</span>
+  <span class="badge orange">{{客队小组名次}}</span>
+  <span class="badge blue">FIFA {{主队FIFA排名}} vs {{客队FIFA排名}}</span>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi-item"><div class="kpi-label">λ 值</div><div class="kpi-value">{{主队λ}} <span style="font-size:12px;color:#888">/</span> {{客队λ}}</div></div>
+  <div class="kpi-item"><div class="kpi-label">大2.5球</div><div class="kpi-value {{大2.5颜色类}}">{{大2.5%}}%</div></div>
+  <div class="kpi-item"><div class="kpi-label">双方进球</div><div class="kpi-value {{双方进球颜色类}}">{{双方进球%}}%</div></div>
+</div>
+
+<div style="font-size:11px;color:#888;margin-bottom:4px">模型概率（10万次模拟）</div>
+<div class="prob-bar">
+  <div class="seg h" style="width:{{主队胜率%}}%">{{主队胜率%}}%</div>
+  <div class="seg d" style="width:{{平局%}}%">{{平局%}}%</div>
+  <div class="seg a" style="width:{{客队胜率%}}%">{{客队胜率%}}%</div>
+</div>
+
+<div class="prob-compare">
+  <div class="prob-box">
+    <div class="label">📈 市场隐含概率</div>
+    <div class="val" style="color:{{主队色}}">{{市场主胜%}}%</div>
+    <div style="display:flex;justify-content:space-around;margin-top:4px;font-size:13px">
+      <span style="color:#ffb74d">平{{市场平%}}%</span>
+      <span style="color:{{客队色}}">客{{市场客%}}%</span>
+    </div>
+  </div>
+  <div class="prob-box {{极端信号边框}}">
+    <div class="label">⚡ 模型 vs 市场</div>
+    <div class="delta neg" style="font-size:18px">{{Edge方向}} {{Edge绝对值}}pp</div>
+    <div style="display:flex;justify-content:space-around;margin-top:2px;font-size:12px">
+      <span class="delta pos">平 +{{平局偏差}}pp</span>
+      <span class="delta pos">{{客队}} +{{客队偏差}}pp</span>
+    </div>
+  </div>
+</div>
+
+<div class="section-title">🎯 最可能比分</div>
+<table>
+  <tr><th>排名</th><th>比分</th><th>模型概率</th><th>参考赔率</th><th>EV</th></tr>
+  {{每行: | <tr><td>🥇🥈🥉/数字</td><td>{{比分}}</td><td>{{概率%}}%</td><td>@{{赔率}}</td><td style="color:{{EV颜色}}">{{EV值}}</td></tr>}}
+</table>
+
+<div class="section-title blue">⚽ 总进球分布</div>
+<table>
+  <tr><th>0球</th><th>1球</th><th>2球</th><th>3球</th><th>4球</th><th>5球</th><th>6球+</th></tr>
+  <tr>
+    <td {{0球高亮}}>{{0球%}}%</td>
+    <td><b>{{1球%}}%</b></td>
+    <td><b>{{2球%}}%</b></td>
+    <td>{{3球%}}%</td>
+    <td>{{4球%}}%</td>
+    <td>{{5球%}}%</td>
+    <td>{{6球+%}}%</td>
+  </tr>
+</table>
+<div style="font-size:12px;color:#888;text-align:center">0-2球合计 <b>{{0-2球合计%}}%</b> · {{大小球偏好}}</div>
+
+<div class="section-title">📋 数据对比</div>
+<div class="info-grid">
+  <div class="info-card" style="border-left:3px solid {{主队色}}">
+    <div class="ic-title" style="color:{{主队色}}">{{主队emoji}} {{主队}}</div>
+    <div class="ic-item">小组赛：{{主队小组战绩}}</div>
+    <div class="ic-item">得失球：<b>{{主队得失球}}</b></div>
+    <div class="ic-item">近10场：{{主队近10场}}</div>
+    <div class="ic-item">场均进{{主队场均进}} / 失{{主队场均失}}</div>
+    <div class="ic-item">头号射手：{{主队射手}}</div>
+    <div class="ic-item">总身价：€{{主队身价}}亿</div>
+    <div class="ic-item">{{主队伤停信息}}</div>
+  </div>
+  <div class="info-card" style="border-left:3px solid {{客队色}}">
+    <div class="ic-title" style="color:{{客队色}}">{{客队emoji}} {{客队}}</div>
+    <div class="ic-item">小组赛：{{客队小组战绩}}</div>
+    <div class="ic-item">得失球：{{客队得失球}}</div>
+    <div class="ic-item">近10场：{{客队近10场}}</div>
+    <div class="ic-item">场均进{{客队场均进}} / 失{{客队场均失}}</div>
+    <div class="ic-item">头号射手：{{客队射手}}</div>
+    <div class="ic-item">总身价：€{{客队身价}}亿</div>
+    <div class="ic-item">{{客队伤停信息}}</div>
+  </div>
+</div>
+
+<div class="section-title danger">⚡ 价值信号</div>
+<div class="signal-box">
+  <div class="sig-title">🥇 核心分歧：Edge {{Edge值}}pp</div>
+  <div class="sig-desc">{{核心分歧描述}}</div>
+</div>
+<div class="signal-box orange">
+  <div class="sig-title">🥈 EV信号：{{第二信号标题}}</div>
+  <div class="sig-desc">{{第二信号描述}}</div>
+</div>
+<div class="signal-box">
+  <div class="sig-title">🥉 {{第三信号标题}}</div>
+  <div class="sig-desc">{{第三信号描述}}</div>
+</div>
+
+<div class="section-title blue">📊 敏感性分析</div>
+<table>
+  <tr><th>{{主队}}λ变动</th><th>主胜概率</th><th>vs基准</th></tr>
+  <tr><td>-0.2 ({{λ减0.2}})</td><td>{{λ减0.2胜率%}}%</td><td style="color:#ef5350">{{λ减0.2波动}}pp</td></tr>
+  <tr><td>-0.1 ({{λ减0.1}})</td><td>{{λ减0.1胜率%}}%</td><td style="color:#ff9800">{{λ减0.1波动}}pp</td></tr>
+  <tr><td><b>基准 ({{λ基准}})</b></td><td><b>{{λ基准胜率%}}%</b></td><td>—</td></tr>
+  <tr><td>+0.1 ({{λ加0.1}})</td><td>{{λ加0.1胜率%}}%</td><td style="color:#4caf50">+{{λ加0.1波动}}pp</td></tr>
+  <tr><td>+0.2 ({{λ加0.2}})</td><td>{{λ加0.2胜率%}}%</td><td style="color:#4caf50">+{{λ加0.2波动}}pp</td></tr>
+</table>
+
+<div class="section-title warn">🔑 关键变量</div>
+<div class="match-card" style="border-color:#ff9800;background:#1a1510">
+  {{每项: <div class="sig-item"><span style="color:{{变量颜色}}">{{图标}}</span> {{变量描述}}</div>}}
+</div>
+
+<div class="section-title">🎯 方向建议</div>
+<div class="plan-card" style="border-left:4px solid #4caf50">
+  <div class="plan-title"><span>🟢 稳健</span></div>
+  <div class="plan-items"><ul>
+    {{每项: <li><b>{{方向}}</b>{{详情}}</li>}}
+  </ul></div>
+</div>
+<div class="plan-card" style="border-left:4px solid #ff9800">
+  <div class="plan-title"><span>🟡 进取</span></div>
+  <div class="plan-items"><ul>
+    {{每项: <li><b>{{方向}}</b>{{详情}}</li>}}
+  </ul></div>
+</div>
+<div class="plan-card" style="border-left:4px solid #ef5350">
+  <div class="plan-title"><span>🔴 激进</span></div>
+  <div class="plan-items"><ul>
+    {{每项: <li><b>{{方向}}</b>{{详情}}</li>}}
+  </ul></div>
+</div>
+
+<div class="section-title danger">💬 一句话</div>
+<div class="match-card" style="border-color:{{主队色}};background:#1a1015">
+  <div style="font-size:14px;color:#ffb74d;font-weight:700;margin-bottom:6px">{{核心金句标题}}</div>
+  <div style="font-size:13px;color:#bbb;line-height:1.7">{{核心金句正文}}</div>
+</div>
+
+<div class="footer">
+  数据来源：竞彩网 · 雷速体育 · 后台模型（10万次蒙特卡洛模拟）<br>
+  λ值：{{主队}} {{主队λ}} / {{客队}} {{客队λ}} · FIFA排名：{{主队FIFA排名}} vs {{客队FIFA排名}} · 身价：€{{主队身价}}亿 vs €{{客队身价}}亿<br>
+  纯数据分析参考，不构成任何投注建议。<br>
+  Generated {{生成日期}}
+</div>
+
+</div>
+</body>
+</html>
