@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="100%" style="max-width:600px">
+<rect width="600" height="420" fill="#1a1a2e" rx="8"/>
+<text x="300" y="28" text-anchor="middle" fill="#e0e0e0" font-size="16" font-weight="bold">后台模型 vs 市场定价</text>
+<rect x="120" y="185.5" width="55" height="184.5" fill="#4fc3f7" rx="3"/>
+<text x="147.5" y="180.5" text-anchor="middle" fill="#4fc3f7" font-size="13">52.7%</text>
+<rect x="183" y="120.1" width="55" height="249.9" fill="#ffd93d" rx="3"/>
+<text x="210.5" y="115.1" text-anchor="middle" fill="#ffd93d" font-size="13">71.4%</text>
+<text x="179" y="400" text-anchor="middle" fill="#aaa" font-size="12">主胜</text>
+<text x="179" y="360" text-anchor="middle" fill="#ff6b6b" font-size="11">-18.7pp</text>
+<rect x="280" y="272.4" width="55" height="97.6" fill="#4fc3f7" rx="3"/>
+<text x="307.5" y="267.4" text-anchor="middle" fill="#4fc3f7" font-size="13">27.9%</text>
+<rect x="343" y="308.8" width="55" height="61.2" fill="#ffd93d" rx="3"/>
+<text x="370.5" y="303.8" text-anchor="middle" fill="#ffd93d" font-size="13">17.5%</text>
+<text x="339" y="400" text-anchor="middle" fill="#aaa" font-size="12">平局</text>
+<text x="339" y="360" text-anchor="middle" fill="#4fc3f7" font-size="11">+10.4pp</text>
+<rect x="440" y="302.1" width="55" height="67.9" fill="#4fc3f7" rx="3"/>
+<text x="467.5" y="297.1" text-anchor="middle" fill="#4fc3f7" font-size="13">19.4%</text>
+<rect x="503" y="331.1" width="55" height="38.9" fill="#ffd93d" rx="3"/>
+<text x="530.5" y="326.1" text-anchor="middle" fill="#ffd93d" font-size="13">11.1%</text>
+<text x="499" y="400" text-anchor="middle" fill="#aaa" font-size="12">客胜</text>
+<text x="499" y="360" text-anchor="middle" fill="#4fc3f7" font-size="11">+8.3pp</text>
+<line x1="100" y1="372" x2="540" y2="372" stroke="#555" stroke-width="1"/>
+<rect x="180" y="8" width="10" height="10" fill="#4fc3f7" rx="2"/><text x="195" y="18" fill="#e0e0e0" font-size="12">后台模型</text>
+<rect x="330" y="8" width="10" height="10" fill="#ffd93d" rx="2"/><text x="345" y="18" fill="#e0e0e0" font-size="12">市场定价</text>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="100%" style="max-width:600px">
+<rect width="600" height="420" fill="#1a1a2e" rx="8"/>
+<text x="300" y="28" text-anchor="middle" fill="#e0e0e0" font-size="16" font-weight="bold">模型概率分布 &amp; 高概率比分</text>
+<path d="M170,215 L170.0,105.0 A110,110 0 0,1 275.0,247.7 Z" fill="#4fc3f7" stroke="#1a1a2e" stroke-width="2"/>
+<line x1="274.7" y1="137.9" x2="298.8" y2="120.1" stroke="#4fc3f7" stroke-width="1"/>
+<text x="298.8" y="124.1" text-anchor="start" fill="#4fc3f7" font-size="11">主队胜 29.8%</text>
+<path d="M170,215 L275.0,247.7 A110,110 0 0,1 73.6,268.0 Z" fill="#ffd93d" stroke="#1a1a2e" stroke-width="2"/>
+<line x1="183.0" y1="344.3" x2="186.1" y2="374.2" stroke="#ffd93d" stroke-width="1"/>
+<text x="186.1" y="378.2" text-anchor="start" fill="#ffd93d" font-size="11">平局 37.2%</text>
+<path d="M170,215 L73.6,268.0 A110,110 0 0,1 170.0,105.0 Z" fill="#ff6b6b" stroke="#1a1a2e" stroke-width="2"/>
+<line x1="58.1" y1="148.8" x2="32.3" y2="133.6" stroke="#ff6b6b" stroke-width="1"/>
+<text x="32.3" y="137.6" text-anchor="end" fill="#ff6b6b" font-size="11">客队胜 33.0%</text>
+<path d="M420,210 L420.0,135.0 A75,75 0 0,1 490.6,184.6 Z" fill="#4fc3f7" stroke="#1a1a2e" stroke-width="2"/>
+<text x="445.9" y="176.2" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">0-0 19.5%</text>
+<path d="M420,210 L490.6,184.6 A75,75 0 0,1 473.7,262.4 Z" fill="#ffd93d" stroke="#1a1a2e" stroke-width="2"/>
+<text x="464.0" y="222.5" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">1-0 17.8%</text>
+<path d="M420,210 L473.7,262.4 A75,75 0 0,1 413.9,284.7 Z" fill="#ff6b6b" stroke="#1a1a2e" stroke-width="2"/>
+<text x="435.8" y="255.1" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">0-1 14.0%</text>
+<path d="M420,210 L413.9,284.7 A75,75 0 0,1 420.0,135.0 Z" fill="#555" stroke="#1a1a2e" stroke-width="2"/>
+<text x="420" y="315" text-anchor="middle" fill="#aaa" font-size="12">高概率比分</text>
+</svg>

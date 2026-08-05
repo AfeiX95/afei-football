@@ -1,87 +1,164 @@
-{
-  "model_version": "2.4.2",
-  "calibration_batch": 7,
-  "last_calibration": "2026-07-20",
-  "cumulative_accuracy": {
-    "total_matches": 45,
-    "direction_correct": 29,
-    "direction_rate": 0.644
-  },
-  "lambda_formula": {
-    "base_lambda": 1.4,
-    "strength_gap_weight": 0.35,
-    "point_gap_weight": 0.15,
-    "home_advantage_weight": 0.20,
-    "form_weight": 0.20,
-    "injury_weight": -0.30,
-    "attack_weight": 0.15,
-    "defense_weight": -0.12,
-    "qualifier_penalty": 0.85
-  },
-  "match_type_corrections": {
-    "final": {
-      "description": "决赛极端防守叠加修正",
-      "home_lambda_factor": 0.90,
-      "away_lambda_factor": 0.90,
-      "note": "叠加在淘汰赛修正(×0.9)之上, 总计进攻×0.81"
+﻿{
+    "model_version": "2.7.0",
+    "calibration_batch": 16,
+    "last_calibration": "2026-08-02",
+    "cumulative_accuracy": {
+        "total_matches": 69,
+        "direction_correct": 27,
+        "direction_rate": 0.391
     },
-    "third_place_playoff": {
-      "description": "三四名决赛/已出局双方无压力开放进攻",
-      "home_lambda_factor": 1.25,
-      "away_lambda_factor": 1.25,
-      "note": "2026-07-19法国4-6英格兰验证"
+    "lambda_formula": {
+        "base_lambda": 1.4,
+        "strength_gap_weight": 0.35,
+        "point_gap_weight": 0.15,
+        "home_advantage_weight": 0.2,
+        "form_weight": 0.2,
+        "injury_weight": -0.3,
+        "attack_weight": 0.15,
+        "defense_weight": -0.12,
+        "qualifier_penalty": 0.85
     },
-    "group_stage_eliminated": {
-      "description": "小组赛已出局球队荣誉之战",
-      "home_lambda_factor": 1.10,
-      "away_lambda_factor": 1.10,
-      "note": "无压力状态下进攻效率提升"
+    "match_type_corrections": {
+        "final": {
+            "description": "决赛极端防守叠加修正",
+            "home_lambda_factor": 0.9,
+            "away_lambda_factor": 0.9
+        },
+        "third_place_playoff": {
+            "description": "三四名决赛开放进攻",
+            "home_lambda_factor": 1.25,
+            "away_lambda_factor": 1.25
+        },
+        "group_stage_eliminated": {
+            "description": "已出局球队荣誉之战",
+            "home_lambda_factor": 1.1,
+            "away_lambda_factor": 1.1
+        },
+        "group_stage_qualified": {
+            "description": "已出线球队轮换保守",
+            "home_lambda_factor": 0.85,
+            "away_lambda_factor": 0.85
+        }
     },
-    "group_stage_qualified": {
-      "description": "已出线球队轮换保守",
-      "home_lambda_factor": 0.85,
-      "away_lambda_factor": 0.85,
-      "note": "保持原有修正"
-    }
-  },
-  "overheat_rules": {
-    "general": {
-      "threshold_base": 1.40,
-      "rank_gap_threshold": 8,
-      "threshold_wide_gap": 1.50,
-      "ultra_low_odds_exception": {
-        "min_rank_gap": 12,
-        "max_odds": 1.20,
-        "description": "排名差≥12且赔率≤1.20时属于合理低赔, 不触发过热"
-      }
+    "overheat_rules": {
+        "general": {
+            "threshold_base": 1.4,
+            "rank_gap_threshold": 8,
+            "threshold_wide_gap": 1.5,
+            "ultra_low_odds_exception": {
+                "min_rank_gap": 12,
+                "max_odds": 1.2
+            }
+        },
+        "k_league": {
+            "threshold_narrow_gap": 1.25,
+            "threshold_mid_gap": 1.35,
+            "threshold_wide_gap": 1.5,
+            "narrow_gap_max_rank_diff": 6,
+            "mid_gap_max_rank_diff": 10,
+            "note": "Batch15: 三场冷门率高,阈值从1.30收紧至1.25"
+        },
+        "champions_qualifier": {
+            "threshold_base": 1.2,
+            "note": "Batch14校准"
+        },
+        "brazil_serie_a": {
+            "threshold_base": 1.25,
+            "note": "Batch14校准"
+        },
+        "europa_qualifier": {
+            "threshold_base": 1.2,
+            "note": "Batch14校准"
+        },
+        "norway_eliteserien": {
+            "threshold_base": 1.3,
+            "note": "Batch15: 瓦勒伦加让-1输0-3验证"
+        }
     },
-    "k_league": {
-      "description": "K联赛过热阈值收紧(2026-07-20校准)",
-      "threshold_narrow_gap": 1.30,
-      "threshold_mid_gap": 1.40,
-      "threshold_wide_gap": 1.50,
-      "narrow_gap_max_rank_diff": 6,
-      "mid_gap_max_rank_diff": 10,
-      "note": "rank_gap<6时阈值收紧至1.30, 安养1.49平光州验证"
-    }
-  },
-  "mc_simulation": {
-    "runs": 100000,
-    "seed": 42
-  },
-  "poisson_max_goals": 10,
-  "calibration_history": [
-    {
-      "batch": 7,
-      "date": "2026-07-20",
-      "matches": 10,
-      "key_findings": [
-        "三四名决赛λ×1.25规则 (法国4-6英格兰验证)",
-        "决赛极端防守λ×0.90规则 (西班牙0-0阿根廷验证)",
-        "K联赛过热阈值收紧至1.30(rank_gap<6时)",
-        "rank_gap≥12且赔率≤1.20为合理低赔(哈马比1.13→4-0验证)"
-      ],
-      "accuracy": 0.625
-    }
-  ]
+    "market_consensus_rules": {
+        "description": "市场共识校准规则(v3架构预留)",
+        "market_direction_priority": "当市场最低赔率方向与模型方向相反时，检查模型是否过度修正",
+        "handicap_trust": "市场让球方赔率<1.80时，让球方赢盘概率>55%",
+        "low_odds_protection": "市场最低赔率<1.60时，该方向实际概率>60%，模型修正上限-10pp",
+        "draw_identification": "市场平局赔率2.80-3.50且模型平局>30%时，保留模型值",
+        "market_weight_in_14dim": 0.12,
+        "deviation_threshold_for_review": 20
+    },
+    "mc_simulation": {
+        "runs": 100000,
+        "seed": 42
+    },
+    "poisson_max_goals": 10,
+    "corrections": {
+        "draw_base_probability": 0.41,
+        "draw_base_probability_range": [0.40, 0.42],
+        "handicap_minus1_reduction": [-0.15, -0.20],
+        "hot_home_handicap_reduction": [-0.20, -0.25],
+        "hot_home_trigger_odds": 1.50,
+        "champions_qualifier_handicap_reduction": [-0.20, -0.25],
+        "europa_qualifier_lambda_factor": 0.85,
+        "small_league_lambda_factor": 0.7,
+        "low_odds_home_reduction": [-0.03, -0.05],
+        "low_odds_away_reduction": [-0.03, -0.05],
+        "half_time_00_draw_boost": 0.10,
+        "five_fifty_draw_boost": [0.05, 0.08],
+        "brazil_draw_coefficient": 0.30,
+        "strong_vs_strong_draw_boost": [0.08, 0.12],
+        "away_win_rate_regression_threshold": 0.70,
+        "away_win_rate_regression_reduction": [-0.10, -0.15],
+        "injury_impact_decay_factor": 0.50,
+        "home_curse_reversal_boost": [0.10, 0.15],
+        "both_injured_big_ball_boost": [0.10, 0.15]
+    },
+    "calibration_history": [
+        {
+            "batch": 12,
+            "date": "2026-07-20",
+            "matches": 40,
+            "accuracy": 0.475,
+            "key_findings": ["基础校准", "K联赛/巴甲修正"]
+        },
+        {
+            "batch": 13,
+            "date": "2026-07-29",
+            "matches": 7,
+            "accuracy": 0.143,
+            "key_findings": ["平局低估", "欧冠小联赛失效"]
+        },
+        {
+            "batch": 14,
+            "date": "2026-07-30",
+            "matches": 10,
+            "accuracy": 0.40,
+            "key_findings": ["让球-1溃败", "平局持续高位"]
+        },
+        {
+            "batch": 15,
+            "date": "2026-08-02",
+            "matches": 9,
+            "accuracy": 0.222,
+            "key_findings": [
+                "大热主队让-1冷门陷阱: 江原1.44输0-3, 瓦勒伦加1.53输0-3",
+                "强强对话平局低估: 全北0-0首尔, 模型23%市场31%",
+                "客场胜率回归均值: 首尔80%客场胜率近3场不胜",
+                "欧罗巴让球方比欧冠好: 帕福斯-1赢盘"
+            ],
+            "new_rules": ["C15-大热主队让-1冷门陷阱", "C16-强强对话平局上浮", "C17-客场胜率回归均值"]
+        },
+        {
+            "batch": 16,
+            "date": "2026-08-02",
+            "matches": 3,
+            "accuracy": 0.0,
+            "key_findings": [
+                "模型对伤停影响严重高估: 蔚山2人缺阵3-1, 大田4人缺阵2-0",
+                "主场魔咒不可靠: 大田主场0胜魔咒被打破",
+                "伤停双方都多时进球反而多: 济州3-3仁川(6球)",
+                "半场0-0后下半场爆发: 三场均下半场进球爆发"
+            ],
+            "new_rules": ["C18-伤停影响衰减修正", "C19-主场魔咒不可靠修正", "C20-伤停双方都多时进球数上浮"]
+        }
+    ]
 }
+
+

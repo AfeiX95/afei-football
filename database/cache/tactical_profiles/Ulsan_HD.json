@@ -1,0 +1,14 @@
+{
+  "team": "Ulsan HD",
+  "last_updated": "2026-08-02",
+  "primary_formation": "4-3-3",
+  "formation_history": {
+    "4-3-3": 2,
+    "4-2-3-1": 1
+  },
+  "style_profile": {
+    "style": "平衡型",
+    "possession_avg": 51.7
+  },
+  "matches_analyzed": 3
+}
