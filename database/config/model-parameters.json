@@ -1,11 +1,11 @@
 ﻿{
-    "model_version": "2.7.0",
-    "calibration_batch": 16,
-    "last_calibration": "2026-08-02",
+    "model_version": "2.7.1",
+    "calibration_batch": 17,
+    "last_calibration": "2026-08-07",
     "cumulative_accuracy": {
-        "total_matches": 69,
-        "direction_correct": 27,
-        "direction_rate": 0.391
+        "total_matches": 71,
+        "direction_correct": 28,
+        "direction_rate": 0.394
     },
     "lambda_formula": {
         "base_lambda": 1.4,
@@ -91,24 +91,72 @@
     "poisson_max_goals": 10,
     "corrections": {
         "draw_base_probability": 0.41,
-        "draw_base_probability_range": [0.40, 0.42],
-        "handicap_minus1_reduction": [-0.15, -0.20],
-        "hot_home_handicap_reduction": [-0.20, -0.25],
-        "hot_home_trigger_odds": 1.50,
-        "champions_qualifier_handicap_reduction": [-0.20, -0.25],
+        "draw_base_probability_range": [
+            0.4,
+            0.42
+        ],
+        "handicap_minus1_reduction": [
+            -0.15,
+            -0.2
+        ],
+        "hot_home_handicap_reduction": [
+            -0.2,
+            -0.25
+        ],
+        "hot_home_trigger_odds": 1.5,
+        "champions_qualifier_handicap_reduction": [
+            -0.2,
+            -0.25
+        ],
         "europa_qualifier_lambda_factor": 0.85,
         "small_league_lambda_factor": 0.7,
-        "low_odds_home_reduction": [-0.03, -0.05],
-        "low_odds_away_reduction": [-0.03, -0.05],
-        "half_time_00_draw_boost": 0.10,
-        "five_fifty_draw_boost": [0.05, 0.08],
-        "brazil_draw_coefficient": 0.30,
-        "strong_vs_strong_draw_boost": [0.08, 0.12],
-        "away_win_rate_regression_threshold": 0.70,
-        "away_win_rate_regression_reduction": [-0.10, -0.15],
-        "injury_impact_decay_factor": 0.50,
-        "home_curse_reversal_boost": [0.10, 0.15],
-        "both_injured_big_ball_boost": [0.10, 0.15]
+        "low_odds_home_reduction": [
+            -0.03,
+            -0.05
+        ],
+        "low_odds_away_reduction": [
+            -0.03,
+            -0.05
+        ],
+        "half_time_00_draw_boost": 0.1,
+        "five_fifty_draw_boost": [
+            0.05,
+            0.08
+        ],
+        "brazil_draw_coefficient": 0.3,
+        "strong_vs_strong_draw_boost": [
+            0.08,
+            0.12
+        ],
+        "away_win_rate_regression_threshold": 0.7,
+        "away_win_rate_regression_reduction": [
+            -0.1,
+            -0.15
+        ],
+        "injury_impact_decay_factor": 0.5,
+        "home_curse_reversal_boost": [
+            0.1,
+            0.15
+        ],
+        "both_injured_big_ball_boost": [
+            0.1,
+            0.15
+        ],
+        "ultra_low_hot_handicap_restore": {
+            "trigger_odds": 1.3,
+            "action": "取消C13下调，让球方恢复市场值±5pp",
+            "note": "C21 Batch17: 费内巴切1.24让-1打出2-0"
+        },
+        "draw_cap_when_ultra_low_home": {
+            "trigger_home_odds": 1.6,
+            "draw_cap": 0.32,
+            "home_floor_boost": 0.15,
+            "note": "C22 Batch17: 奥胡斯1.57主胜被压29.8%仍打出2-1"
+        },
+        "qualifier_home_lambda_no_cut": {
+            "action": "欧冠/欧联资格赛主队不再×0.85，仅客队小联赛×0.90",
+            "note": "C23 Batch17: 费内巴切2-0、奥胡斯2-1"
+        }
     },
     "calibration_history": [
         {
@@ -116,21 +164,30 @@
             "date": "2026-07-20",
             "matches": 40,
             "accuracy": 0.475,
-            "key_findings": ["基础校准", "K联赛/巴甲修正"]
+            "key_findings": [
+                "基础校准",
+                "K联赛/巴甲修正"
+            ]
         },
         {
             "batch": 13,
             "date": "2026-07-29",
             "matches": 7,
             "accuracy": 0.143,
-            "key_findings": ["平局低估", "欧冠小联赛失效"]
+            "key_findings": [
+                "平局低估",
+                "欧冠小联赛失效"
+            ]
         },
         {
             "batch": 14,
             "date": "2026-07-30",
             "matches": 10,
-            "accuracy": 0.40,
-            "key_findings": ["让球-1溃败", "平局持续高位"]
+            "accuracy": 0.4,
+            "key_findings": [
+                "让球-1溃败",
+                "平局持续高位"
+            ]
         },
         {
             "batch": 15,
@@ -143,7 +200,11 @@
                 "客场胜率回归均值: 首尔80%客场胜率近3场不胜",
                 "欧罗巴让球方比欧冠好: 帕福斯-1赢盘"
             ],
-            "new_rules": ["C15-大热主队让-1冷门陷阱", "C16-强强对话平局上浮", "C17-客场胜率回归均值"]
+            "new_rules": [
+                "C15-大热主队让-1冷门陷阱",
+                "C16-强强对话平局上浮",
+                "C17-客场胜率回归均值"
+            ]
         },
         {
             "batch": 16,
@@ -156,9 +217,29 @@
                 "伤停双方都多时进球反而多: 济州3-3仁川(6球)",
                 "半场0-0后下半场爆发: 三场均下半场进球爆发"
             ],
-            "new_rules": ["C18-伤停影响衰减修正", "C19-主场魔咒不可靠修正", "C20-伤停双方都多时进球数上浮"]
+            "new_rules": [
+                "C18-伤停影响衰减修正",
+                "C19-主场魔咒不可靠修正",
+                "C20-伤停双方都多时进球数上浮"
+            ]
+        },
+        {
+            "batch": 17,
+            "date": "2026-08-07",
+            "matches": 2,
+            "accuracy": 0.5,
+            "key_findings": [
+                "C13欧冠让球方零胜被证伪: 费内巴切1.24让-1打出2-0赢盘",
+                "C14平局上浮遇超低赔主胜过猛: 奥胡斯1.57主胜被压29.8%仍打出2-1",
+                "市场低赔保护再次验证: 1.57/1.24主胜均打出",
+                "欧战主队λ普调证伪: 两场主队均赢球且进球2+",
+                "大小球1/2: 费内巴切小球对、奥胡斯大球错"
+            ],
+            "new_rules": [
+                "C21-超低赔大热让-1恢复信任",
+                "C22-平局上浮遇超低赔封顶",
+                "C23-欧战主队λ不再普调"
+            ]
         }
     ]
 }
-
-
