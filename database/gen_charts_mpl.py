@@ -1,4 +1,4 @@
-﻿import matplotlib
+import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
@@ -25,15 +25,15 @@ else:
     plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
 
-# Color scheme
+# Color scheme (白底版 R19: 头条docx图表背景一律白色)
 C_BLUE = '#4fc3f7'
 C_RED = '#ff6b6b'
 C_YELLOW = '#ffd93d'
 C_GREEN = '#4caf50'
-C_BG = '#1a1a2e'
-C_TEXT = '#e0e0e0'
-C_GRID = '#333333'
-C_DARK = '#0f0f1a'
+C_BG = '#ffffff'      # 白底
+C_TEXT = '#333333'    # 深色文字
+C_GRID = '#dddddd'    # 浅灰网格
+C_DARK = '#666666'
 
 output_dir = r'I:\阿飞说球\📝文章\20260731\charts'
 os.makedirs(output_dir, exist_ok=True)
