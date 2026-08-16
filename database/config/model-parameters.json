@@ -1,11 +1,11 @@
-﻿{
-    "model_version": "2.7.1",
-    "calibration_batch": 17,
-    "last_calibration": "2026-08-07",
+{
+    "model_version": "2.8.0",
+    "calibration_batch": 18,
+    "last_calibration": "2026-08-16",
     "cumulative_accuracy": {
-        "total_matches": 71,
+        "total_matches": 73,
         "direction_correct": 28,
-        "direction_rate": 0.394
+        "direction_rate": 0.384
     },
     "lambda_formula": {
         "base_lambda": 1.4,
@@ -156,6 +156,27 @@
         "qualifier_home_lambda_no_cut": {
             "action": "欧冠/欧联资格赛主队不再×0.85，仅客队小联赛×0.90",
             "note": "C23 Batch17: 费内巴切2-0、奥胡斯2-1"
+        },
+        "h2h_kryptonite_to_win": {
+            "trigger": "主队H2H不败率≥75% + 客队近10场胜率<35%",
+            "home_win_boost": [
+                0.08,
+                0.12
+            ],
+            "note": "C24 Batch18: 富川3-2全北，H2H克星从平局信号升级为胜信号"
+        },
+        "k_league_season_start_over": {
+            "trigger": "韩职赛季前5轮",
+            "over25_boost": [
+                0.1,
+                0.15
+            ],
+            "note": "C25 Batch18: 批信号92%大球率+富川3-2五球"
+        },
+        "k_league_handicap_minus1_tough": {
+            "trigger": "K联赛让球-1方定价≥1.70",
+            "cover_prob_reduction": -0.05,
+            "note": "C26 Batch18: 仁川-1让球负，连续4批次验证打穿难"
         }
     },
     "calibration_history": [
@@ -239,6 +260,24 @@
                 "C21-超低赔大热让-1恢复信任",
                 "C22-平局上浮遇超低赔封顶",
                 "C23-欧战主队λ不再普调"
+            ]
+        },
+        {
+            "batch": 18,
+            "date": "2026-08-16",
+            "matches": 2,
+            "accuracy": 0.0,
+            "key_findings": [
+                "看空大热方2/2: 全北53.7%被高估没赢、仁川-1打穿难",
+                "让球方向2/2: 富川+1不败82.4%验证、仁川-1让球负验证",
+                "H2H克星升级为胜信号: 富川H2H近4场2胜2平0负直接3-2赢全北(非平局)",
+                "比分1/2: 仁川次选1-1命中",
+                "大小球1/2: 富川场5球大球(赛季初大球率92%批信号延续)"
+            ],
+            "new_rules": [
+                "C24-H2H克星升级为胜信号",
+                "C25-赛季初韩职大球上浮",
+                "C26-让球-1打穿难加严"
             ]
         }
     ]
