@@ -1,7 +1,7 @@
 {
-    "model_version": "2.8.0",
-    "calibration_batch": 18,
-    "last_calibration": "2026-08-16",
+    "model_version": "2.9.0",
+    "calibration_batch": 19,
+    "last_calibration": "2026-08-17",
     "cumulative_accuracy": {
         "total_matches": 73,
         "direction_correct": 28,
@@ -104,6 +104,18 @@
             -0.25
         ],
         "hot_home_trigger_odds": 1.5,
+        "hot_home_handicap_reduction_b": {
+            "trigger_odds_range": [
+                1.5,
+                2.0
+            ],
+            "reduction": [
+                -0.1,
+                -0.15
+            ],
+            "conditions": "客队近3场不败 或 主队近3场<2胜",
+            "note": "C15b 08-17全量: 1.50-2.00档19场翻车8场(42.1%)"
+        },
         "champions_qualifier_handicap_reduction": [
             -0.2,
             -0.25
@@ -124,10 +136,6 @@
             0.08
         ],
         "brazil_draw_coefficient": 0.3,
-        "strong_vs_strong_draw_boost": [
-            0.08,
-            0.12
-        ],
         "away_win_rate_regression_threshold": 0.7,
         "away_win_rate_regression_reduction": [
             -0.1,
@@ -144,14 +152,24 @@
         ],
         "ultra_low_hot_handicap_restore": {
             "trigger_odds": 1.3,
-            "action": "取消C13下调，让球方恢复市场值±5pp",
-            "note": "C21 Batch17: 费内巴切1.24让-1打出2-0"
+            "action": "仅顶级豪门+近10场不败+无欧战周中分心时取消C15a下调；与C15冲突时C15绝对优先",
+            "note": "C21收紧 08-17全量: 费耶诺德1.15让-1 2:2平局再次证伪C21"
         },
         "draw_cap_when_ultra_low_home": {
             "trigger_home_odds": 1.6,
             "draw_cap": 0.32,
             "home_floor_boost": 0.15,
-            "note": "C22 Batch17: 奥胡斯1.57主胜被压29.8%仍打出2-1"
+            "handicap_minus1_override": "让-1场景一律走C15，不适用C22",
+            "note": "C22 08-17全量: 非让-1超低赔主胜2/2打出，让-1场景由C15接管"
+        },
+        "strong_vs_strong_draw_boost": {
+            "trigger": "排名差<5 + 赔率差<0.5 + 双方近3场均≤1胜",
+            "boost": [
+                0.08,
+                0.12
+            ],
+            "status": "参考信号",
+            "note": "C16降级 08-17全量: 命中率仅3/10=30%，不再默认自动触发"
         },
         "qualifier_home_lambda_no_cut": {
             "action": "欧冠/欧联资格赛主队不再×0.85，仅客队小联赛×0.90",
@@ -177,6 +195,14 @@
             "trigger": "K联赛让球-1方定价≥1.70",
             "cover_prob_reduction": -0.05,
             "note": "C26 Batch18: 仁川-1让球负，连续4批次验证打穿难"
+        },
+        "season_start_over_boost": {
+            "trigger": "新赛季前4轮（五大联赛+主流联赛）",
+            "over25_boost": [
+                0.1,
+                0.15
+            ],
+            "note": "C27 08-17全量: 大球率54/69=78.3%，连续两批>75%，赛季初大球爆炸确认"
         }
     },
     "calibration_history": [
@@ -278,6 +304,28 @@
                 "C24-H2H克星升级为胜信号",
                 "C25-赛季初韩职大球上浮",
                 "C26-让球-1打穿难加严"
+            ]
+        },
+        {
+            "batch": 19,
+            "date": "2026-08-17",
+            "matches": 69,
+            "accuracy": null,
+            "key_findings": [
+                "市场方向命中率33/67=49.3%，市场本批整体失准(上批66.7%)",
+                "C15分档验证: <1.50让-1翻车5/8(62.5%) vs 1.50-2.00翻车8/19(42.1%)",
+                "C21再次证伪: 费耶诺德1.15让-1 2:2平局，C15与C21冲突时C15绝对优先",
+                "让球-1方赢盘率14/44=31.8%，C09/C12持续成立",
+                "大球率54/69=78.3%，连续两批>75%，赛季初大球爆炸",
+                "上批待开奖5场前瞻验证: 规则视角4/5(80%) vs 市场1/5(20%)",
+                "大冷门: 阿森纳3-0曼城(社区盾)、米亚尔比4-3天狼星"
+            ],
+            "new_rules": [
+                "C15a-大热让-1陷阱(<1.50)置信度升极高",
+                "C15b-大热让-1陷阱(1.50-2.00)新增",
+                "C16降级为参考信号",
+                "C21大幅收紧(仅顶级豪门)",
+                "C27-赛季初大球上浮(全联赛)"
             ]
         }
     ]
