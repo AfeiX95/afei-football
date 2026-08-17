@@ -177,10 +177,27 @@ Onefootball 直接问了个扎心的问题："里昂真的是弱势方吗？"Le 
 
 ---
 
-**配图关键词（中英双语）**：
-1. 费内巴切主场赛照 / Fenerbahce home match
-2. 里昂客场赛照 / Lyon away match
-3. 欧冠附加赛对决海报 / UCL playoff poster
-4. 模型vs市场概率对比图 / Model vs market probability chart
-5. 六维雷达图 / Six-dimension radar chart
-6. 两场比分预测汇总图 / Score prediction summary
+**配图关键词（中英双语，可直接搜索真实赛照）**：
+
+**场次一 费内巴切 vs 里昂**
+1. 费内巴切近期赛照 / Fenerbahce recent match 2026
+2. 塔利斯卡 费内巴切 / Talisca Fenerbahce 2026
+3. 格林伍德 费内巴切 / Greenwood Fenerbahce 2026
+4. 卢卡库 费内巴切训练 / Lukaku Fenerbahce training 2026
+5. 里昂近期赛照 / Lyon recent match 2026
+6. 奥彭达 里昂 / Openda Lyon 2026
+7. 里昂欧冠资格赛 / Lyon Champions League qualifier 2026
+8. 卡迪柯伊球场 欧冠之夜 / Kadikoy Sukru Saracoglu UCL night
+
+**场次二 萨格勒布迪纳摩 vs 维京**
+9. 萨格勒布迪纳摩 欧冠 / Dinamo Zagreb Champions League 2026
+10. 马克西米尔球场 / Maksimir stadium Dinamo Zagreb
+11. 萨格勒布 克甲夺冠庆祝 / Dinamo Zagreb HNL 2026
+12. 维京FK 欧冠 / Viking FK Champions League 2026
+13. 维京 挪超卫冕冠军 / Viking FK Eliteserien champion 2025
+14. 维京 Lyse Arena 主场 / Viking Lyse Arena Stavanger
+
+**通用**
+15. 欧冠附加赛对阵海报 / UCL playoff fixture graphic
+16. 两队主帅（卡塔尔/丰塞卡、科瓦切维奇）发布会 / coach press conference UCL playoff
+17. 欧冠官方用球 / UCL match ball 2026

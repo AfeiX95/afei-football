@@ -1,0 +1,91 @@
+{
+  "match_context": {
+    "match_type": "normal_league",
+    "match_importance": "normal",
+    "data_confidence": 0.85,
+    "market_efficiency": 0.7,
+    "home_advantage_modifier": 1.05,
+    "weight_profile": "normal",
+    "derby": false,
+    "is_qualifier": false,
+    "season_phase": "season_opening"
+  },
+  "team_basic": {
+    "home": {
+      "name": "大阪钢巴",
+      "rank": 4,
+      "points": 0
+    },
+    "away": {
+      "name": "浦和红钻",
+      "rank": 17,
+      "points": 0
+    }
+  },
+  "performance": {
+    "home": {
+      "form_score": 0.2,
+      "trend": "rising"
+    },
+    "away": {
+      "form_score": 0.15,
+      "trend": "stable"
+    }
+  },
+  "tactical": {
+    "home_formation": "",
+    "away_formation": "",
+    "tactical_advantage": ""
+  },
+  "players": {
+    "home": [],
+    "away": []
+  },
+  "injury": {
+    "home": {
+      "players_out": 0,
+      "key_player_missing": false,
+      "impact_score": 0.0,
+      "details": []
+    },
+    "away": {
+      "players_out": 0,
+      "key_player_missing": false,
+      "impact_score": 0.0,
+      "details": []
+    }
+  },
+  "schedule": {
+    "home_rest_days": 6,
+    "away_rest_days": 6,
+    "away_travel_km": 0,
+    "home_double_week": false,
+    "away_double_week": false
+  },
+  "environment": {
+    "weather": {
+      "temperature_c": 30,
+      "rain_probability": 0.2,
+      "wind_kmh": 0,
+      "impact_on_goals": "neutral"
+    },
+    "pitch_type": "natural",
+    "referee": {}
+  },
+  "odds": {
+    "source": "jingcai",
+    "snapshots": []
+  },
+  "market": {
+    "overheating": false,
+    "overheating_score": 0.0,
+    "consensus_level": 0.5,
+    "trend_pattern": "unknown",
+    "odds_model_conflict": false,
+    "conflict_gap_pp": 0.0,
+    "market_efficiency_score": 0.7,
+    "alerts": []
+  },
+  "model": {},
+  "prediction": {}
+}
