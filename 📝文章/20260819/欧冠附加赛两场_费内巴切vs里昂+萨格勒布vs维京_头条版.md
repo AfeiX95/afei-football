@@ -177,7 +177,7 @@ Onefootball 直接问了个扎心的问题："里昂真的是弱势方吗？"Le 
 
 ---
 
-**配图关键词（中英双语，可直接搜索真实赛照）**：
+**配图关键词（中英双语，无水印两队近期赛照）**：
 
 **场次一 费内巴切 vs 里昂**
 1. 费内巴切近期赛照 / Fenerbahce recent match 2026
@@ -187,17 +187,17 @@ Onefootball 直接问了个扎心的问题："里昂真的是弱势方吗？"Le 
 5. 里昂近期赛照 / Lyon recent match 2026
 6. 奥彭达 里昂 / Openda Lyon 2026
 7. 里昂欧冠资格赛 / Lyon Champions League qualifier 2026
-8. 卡迪柯伊球场 欧冠之夜 / Kadikoy Sukru Saracoglu UCL night
+8. 卡迪柯伊球场 / Kadikoy Sukru Saracoglu stadium
 
 **场次二 萨格勒布迪纳摩 vs 维京**
 9. 萨格勒布迪纳摩 欧冠 / Dinamo Zagreb Champions League 2026
 10. 马克西米尔球场 / Maksimir stadium Dinamo Zagreb
-11. 萨格勒布 克甲夺冠庆祝 / Dinamo Zagreb HNL 2026
-12. 维京FK 欧冠 / Viking FK Champions League 2026
-13. 维京 挪超卫冕冠军 / Viking FK Eliteserien champion 2025
-14. 维京 Lyse Arena 主场 / Viking Lyse Arena Stavanger
+11. 维京FK 欧冠 / Viking FK Champions League 2026
+12. 维京 挪超卫冕冠军 / Viking FK Eliteserien champion
+13. 维京 Lyse Arena 主场 / Viking Lyse Arena Stavanger
 
 **通用**
-15. 欧冠附加赛对阵海报 / UCL playoff fixture graphic
-16. 两队主帅（卡塔尔/丰塞卡、科瓦切维奇）发布会 / coach press conference UCL playoff
-17. 欧冠官方用球 / UCL match ball 2026
+14. 两队主帅发布会（卡塔尔/丰塞卡、科瓦切维奇） / UCL playoff coach press conference
+15. 两队队徽（无水印） / Fenerbahce Lyon Dinamo Viking crest
+
+> 无水印图源建议：懂球帝/新球体育赛事图（无角标）、俱乐部官方社媒、维基共享（Wikimedia Commons，免费可商用）。
