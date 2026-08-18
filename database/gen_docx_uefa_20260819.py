@@ -15,7 +15,7 @@ from docx.oxml.ns import qn
 
 MD_PATH = r'I:\阿飞说球\📝文章\20260819\欧冠附加赛两场_费内巴切vs里昂+萨格勒布vs维京_头条版.md'
 CHART_DIR = r'I:\阿飞说球\database\charts_uefa_20260819'
-OUT_PATH = r'I:\阿飞说球\database\欧冠附加赛两场_费内巴切vs里昂+萨格勒布vs维京_头条版.docx'
+OUT_PATH = r'I:\阿飞说球\📝文章\20260819\欧冠附加赛两场_费内巴切vs里昂+萨格勒布vs维京_头条版.docx'
 
 C_PRIMARY = RGBColor(0x1a, 0x3a, 0x5c)   # 深蓝
 C_ACCENT = RGBColor(0x0e, 0x66, 0x55)    # 深绿
@@ -167,7 +167,7 @@ add_para(doc, '两场都是"主场热门但热得有水分"——费内巴切靠
 
 # ===== 数据来源+免责 =====
 add_para(doc, '数据来源：竞彩官方及新球体育（titan007）、外媒多源交叉。', size=9, color=C_GRAY)
-add_para(doc, '行文仓促，里面的图片和数据都是从官方渠道和权威媒体上整过来的，侵删。这都是我个人图一乐的瞎琢磨，千万别当真，理智看球、远离赌博才是正道。', size=9, color=C_GRAY)
+add_para(doc, '纯属个人瞎琢磨，理性看球，远离赌博。', size=9, color=C_GRAY)
 
 doc.save(OUT_PATH)
 print(f'DOCX saved: {OUT_PATH}')
