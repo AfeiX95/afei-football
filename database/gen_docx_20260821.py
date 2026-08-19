@@ -1,0 +1,129 @@
+# -*- coding: utf-8 -*-
+"""
+周四002 巴列卡诺vs阿拉维斯 头条版 docx 生成 (R19: 白底图/独立交付)
+输出: 📝文章/20260821/周四002_巴列卡诺vs阿拉维斯_头条版.docx
+"""
+import sys, os
+sys.stdout.reconfigure(encoding='utf-8')
+
+from docx import Document
+from docx.shared import Pt, Inches, RGBColor
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.oxml.ns import qn
+
+CHART_DIR = r'I:\阿飞说球\database\charts_20260821'
+OUT = r'I:\阿飞说球\📝文章\20260821\周四002_巴列卡诺vs阿拉维斯_头条版.docx'
+C_PRIMARY = RGBColor(0x0e, 0x66, 0x55)
+C_DARK = RGBColor(0x33, 0x33, 0x33)
+C_GRAY = RGBColor(0x88, 0x88, 0x88)
+
+TITLE = '周四002巴列卡诺VS阿拉维斯：3-0大胜撞上四连杀克星'
+TAGS = '#巴列卡诺 #阿拉维斯 #西甲 #足球前瞻 #数据分析 #赛博聊球 #西甲第2轮 #足球推荐 #体育头条 #足球分析'
+
+BODY = [
+    ('p', '阿拉维斯首轮3-0大胜赫塔费，暂列西甲第2，热度直接拉满；巴列卡诺首轮1-2客场告负，0分垫底第18。表面看，这是一支大胜的球队，客场挑战一支刚输球的球队。很多人第一反应是"客队状态好，至少不败"。'),
+    ('p', '但后台模型跑完，这场藏着被大多数人忽略的变量：历史交锋。近10次交手，巴列卡诺7胜3负，一场平局都没有；近4次坐镇主场打阿拉维斯，1-0、1-0、2-0、2-0，全胜。客队的热度是新的，主队的压制是旧的。新热度撞上老克星，到底谁赢？'),
+    ('h', '🔪 第一刀：量化基本面，主场龙对客场虫'),
+    ('p', '先看数据。巴列卡诺近10个主场6胜3平1负，主场是基本盘，场均进1.2球、失1.3球；阿拉维斯近10场战况5胜3平2负确实更漂亮，但拆开看：客场4胜3平3负，抗压能力平平，场均进1.5球、失0.9球。大胜的底色是主场，客场的成色要打问号。'),
+    ('p', '伤停这边，阿拉维斯主力后卫F. Garcés停赛，防空和二点球保护直接打折。巴列卡诺暂无伤停，但射手高度集中。Álvaro García一个人进了全队100%的球，被锁死就难破门。'),
+    ('h', '🔪 第二刀：战术克制，风格压制有数据支撑'),
+    ('p', '巴列卡诺主场是高位逼抢+肋部快速推进的打法，专克中下游球队的阵地推进；阿拉维斯客场习惯收缩打反击，后卫减员后更不敢压出去。这套对位，和近10次交锋的结果对得上：7胜3负，主场4连胜，全是1-2球的小胜。'),
+    ('p', '最关键的信号是：交锋0平局。近10次交手要么主胜、要么客胜，一场都没平过。市场却给平局开了31.2%的概率，这个定价有明显水分。'),
+    ('h', '🔪 第三刀：市场博弈，题材热度没换来真金白银'),
+    ('p', '客队带着3-0大胜的题材，数据端给了什么？客胜定价从3.70降到3.58，只是象征性降水；主胜维持在2.01的低阻力（市场隐含44.1%），根本没破2.0。机构借客队热度分流主胜筹码的意图很明显，并未真正倒向客队。'),
+    ('p', '再看得分预期：主队让一球，净胜2球才19.3%，市场54.7%看客队+1不败。这和历史交锋"全胜但都是小胜"的形态完全吻合。总进球盘2球最低3.20，市场强烈预期1-2球小比分，这也和历史交锋场均1.6球互相印证。'),
+    ('h', '📊 数据速览'),
+    ('p', '巴列卡诺(主)：第18名0分，近10场4胜2平4负，同主客6胜3平1负，场均进1.2/失1.3，近10场交锋7胜0平3负，主场交锋近4次全胜，暂无伤停'),
+    ('p', '阿拉维斯(客)：第2名3分，近10场5胜3平2负，同主客4胜3平3负，场均进1.5/失0.9，交锋3胜0平7负，F. Garcés(后卫)停赛'),
+    ('c', 'bar_rayo'),
+    ('h', '🧮 模型'),
+    ('p', '后台模型跑完（λ主1.45 / λ客0.95，H2H克星修正）：巴列卡诺胜48.7%、平局26.6%、阿拉维斯胜24.7%、大2.5概率43.0%。模型主胜比市场高4.6个百分点，平局比市场低4.6个百分点。核心分歧就是平局的水分。客胜两边完全一致，没有价值信号。'),
+    ('c', 'radar_rayo'),
+    ('h', '🌍 外媒'),
+    ('p', '外媒方向一致看主队不败：Sports Mole倾向主队小胜，Dailysports数学模型给主队45-50%，Meczyki对主队让一球能否净胜两球持保留。唯一分歧在净胜幅度。有外媒喊"主队大胜"，但历史交锋全胜都是1-2球小胜，大胜是外媒的乐观，不是数据的结论。'),
+    ('h', '💰 信号'),
+    ('p', '说白了，这场的基本盘就一句话：克星压制+主场优势+对手后卫停赛，三个因素叠加，主队不败概率约75%。但主胜Edge只有4.6pp，中价值，不是强信号。巴列卡诺首轮刚输球、射手被锁死就难破门，别把这场当"闭眼赢"看。'),
+    ('p', '让球方向更清楚：主队让-1净胜2球只有19.3%概率，客队+1有价值。历史交锋4个主场2场净胜1球、2场净胜2球，让一球正好卡在走盘边缘，没有便宜可占。'),
+    ('h', '🎬 剧本'),
+    ('p', '剧本A（主队控制小胜，约45%）：巴列卡诺主场高压压制，阿拉维斯收缩+后防减员顶不住，1-0/2-0，历史交锋最熟悉的剧本。→ 支持主胜、小球。'),
+    ('p', '剧本B（闷平或客队偷袭，约30%）：巴列卡诺破密集乏力，前60分钟打不开，0-0/1-1；若被阿拉维斯反击得手，0-1。→ 支持平局、小球、冷门方向。'),
+    ('p', '剧本C（客队爆冷，约25%）：阿拉维斯延续首轮状态，M.Díaz领衔反击，1-2。→ 支持客胜。概率低但题材真实，别完全无视。'),
+    ('h', '🎯 推荐'),
+    ('c', 'score_rayo'),
+    ('p', '推荐比分：首选 1-0（14.1%）→ 次选 2-0（10.2%）→ 留意 1-1（9.9%）。冷门方向 0-1（7.4%）。四重落脚：方向 主队保平争胜（不败75%）｜门槛 主队让-1难净胜两球，客队+1有价值｜进球 胶着小比分1-2球｜比分 1-0/2-0/1-1。'),
+    ('h', '互动'),
+    ('p_bold', '近10次交锋一场平局都没有，市场却把平局定到31.2%。你们觉得是交锋规律要终结了，还是市场这次又看走眼？评论区留个比分，赛后回来验证。我先来——我押1-0，理由：克星主场全胜的剧本，最不容易被改写。'),
+    ('p_gray', '数据来源：竞彩官方及新球体育（titan007）。'),
+    ('p_gray', '纯属个人瞎琢磨，理性看球，远离赌博。'),
+]
+
+
+def set_font(run, size=11, bold=False, color=C_DARK, name='微软雅黑'):
+    run.font.size = Pt(size)
+    run.font.bold = bold
+    run.font.color.rgb = color
+    run.font.name = name
+    run._element.rPr.rFonts.set(qn('w:eastAsia'), name)
+
+
+def build_doc():
+    doc = Document()
+    style = doc.styles['Normal']
+    style.font.name = '微软雅黑'
+    style.font.size = Pt(11)
+    style.element.rPr.rFonts.set(qn('w:eastAsia'), '微软雅黑')
+
+    p = doc.add_paragraph()
+    p.paragraph_format.space_after = Pt(6)
+    run = p.add_run(TITLE)
+    set_font(run, size=16, bold=True, color=C_PRIMARY)
+
+    p = doc.add_paragraph()
+    run = p.add_run(TAGS)
+    set_font(run, size=9, color=C_GRAY)
+
+    p = doc.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    run = p.add_run('数据不会说谎，但人会。——阿飞·赛博聊球')
+    set_font(run, size=10, color=C_GRAY)
+
+    for item in BODY:
+        kind = item[0]
+        if kind == 'p':
+            p = doc.add_paragraph()
+            p.paragraph_format.space_after = Pt(6)
+            run = p.add_run(item[1])
+            set_font(run, size=11)
+        elif kind == 'p_bold':
+            p = doc.add_paragraph()
+            p.paragraph_format.space_after = Pt(6)
+            run = p.add_run(item[1])
+            set_font(run, size=11, bold=True)
+        elif kind == 'p_gray':
+            p = doc.add_paragraph()
+            p.paragraph_format.space_after = Pt(6)
+            run = p.add_run(item[1])
+            set_font(run, size=9, color=C_GRAY)
+        elif kind == 'h':
+            p = doc.add_paragraph()
+            p.paragraph_format.space_before = Pt(10)
+            p.paragraph_format.space_after = Pt(4)
+            run = p.add_run(item[1])
+            set_font(run, size=13, bold=True, color=C_PRIMARY)
+        elif kind == 'c':
+            fname = item[1] + '.png'
+            path = os.path.join(CHART_DIR, fname)
+            if os.path.exists(path):
+                doc.add_picture(path, width=Inches(5.5))
+                doc.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
+            else:
+                p = doc.add_paragraph()
+                run = p.add_run('[图表缺失: %s]' % fname)
+                set_font(run, size=10, color=C_GRAY)
+
+    doc.save(OUT)
+    print('DOCX saved: %s (%d KB)' % (OUT, os.path.getsize(OUT) // 1024))
+
+
+build_doc()
+print('完成')
