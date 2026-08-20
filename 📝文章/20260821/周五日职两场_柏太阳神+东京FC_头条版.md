@@ -90,3 +90,17 @@
 数据来源：竞彩官方。
 
 注：本文为基于两队技战术、历史数据与赛事背景的客观模型推演，仅供足球运动战术探讨与交流，请理性看待比赛。
+
+---
+
+**配图关键词（中英双语，无水印两队近期赛照）**：
+1. 柏太阳神近期比赛照 / Kashiwa Reysol 2026 match
+2. 柏太阳神主场（三协体育场） / Kashiwa Reysol Sankyo Frontier Kashiwa Stadium
+3. 长崎航海近期比赛照 / V-Varen Nagasaki 2026 match
+4. 东京FC近期比赛照 / FC Tokyo 2026 match
+5. 东京FC主场（味之素体育场） / FC Tokyo Ajinomoto Stadium
+6. 千叶市原近期比赛照 / JEF United Chiba 2026 match
+7. 日职联赛积分榜（前6） / J1 League 2026 table top six
+8. 两队队徽/海报（无水印） / Kashiwa vs Nagasaki / FC Tokyo vs JEF United crest
+
+> 无水印图源建议：懂球帝/新球体育赛事图（无角标）、俱乐部官方社媒、维基共享（Wikimedia Commons，免费可商用）。

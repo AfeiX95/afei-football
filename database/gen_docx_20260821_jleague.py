@@ -67,6 +67,7 @@ BODY = [
     ('p_bold', '周五两场日职，一场定价精准没油水，一场深热藏雷。你们觉得东京FC这1.37，是市场真觉得它能赢，还是忘了3个月前被千叶3-0的账？评论区留个比分，赛后回来验证。我先押：柏太阳神2-1，东京FC1-1。理由：一个赢但赢不轻松，一个干脆被克。'),
     ('p_gray', '数据来源：竞彩官方。'),
     ('p_gray', '注：本文为基于两队技战术、历史数据与赛事背景的客观模型推演，仅供足球运动战术探讨与交流，请理性看待比赛。'),
+    ('p_gray', '配图关键词（中英双语，无水印两队近期赛照）：1.柏太阳神近期比赛照/Kashiwa Reysol 2026 match 2.柏太阳神主场（三协体育场）/Sankyo Frontier Kashiwa Stadium 3.长崎航海近期比赛照/V-Varen Nagasaki 2026 match 4.东京FC近期比赛照/FC Tokyo 2026 match 5.东京FC主场（味之素体育场）/Ajinomoto Stadium 6.千叶市原近期比赛照/JEF United Chiba 2026 match 7.日职积分榜前6/J1 League 2026 table 8.两队队徽（无水印）/Kashiwa vs Nagasaki crest。无水印图源：懂球帝/新球体育（无角标）、俱乐部官方社媒、维基共享。'),
 ]
 
 
