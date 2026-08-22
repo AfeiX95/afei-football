@@ -481,6 +481,9 @@ def _fmt_kwargs(m):
         prom_90=f"{m['pH']*100:.1f}", prom_pen=f"{m['pD']*50:.1f}",
         net1=f"{m['p_net1']*100:.1f}", net2=f"{m['p_net2']*100:.1f}",
         net2exact=f"{m['p_net2exact']*100:.1f}", net3=f"{m['p_net3']*100:.1f}",
+        # 净胜球反向(受让盘视角, 2026-08-22): net_neg1=恰好输1球, net_neg2=输2球+
+        net_neg1=f"{sum(p for (h, a), p in m['probs'].items() if a - h == 1)*100:.1f}",
+        net_neg2=f"{sum(p for (h, a), p in m['probs'].items() if a - h >= 2)*100:.1f}",
         # 让球盘占位符(2026-08-22): hcH/hcD/hcA=模型让球盘概率, net1_under=净胜≤1(让球负),
         # hc_edgeX_cal=让球盘Edge校准(带符号)
         hcH=f"{m['hc']['H']*100:.1f}", hcD=f"{m['hc']['D']*100:.1f}", hcA=f"{m['hc']['A']*100:.1f}",
