@@ -374,6 +374,60 @@ def make_charts(cfg, m, out_dir):
         fp = os.path.join(out_dir, 'chart5_晋级概率.png')
         plt.savefig(fp); plt.close(); made.append(fp)
 
+    # 图6 身价对比(2026-08-22 新增模块: 全队身价 + 队内标王)
+    if cfg['charts'].get('value', False) and cfg.get('squad_value'):
+        import re as _re
+        def _sv_num(s):
+            m = _re.search(r'([\d.]+)\s*([亿万])', str(s))
+            if not m:
+                return 0.0
+            v = float(m.group(1))
+            return v if m.group(2) == '亿' else v / 10000.0
+        sv = cfg['squad_value']
+        h_val, a_val = _sv_num(sv.get('home', '0')), _sv_num(sv.get('away', '0'))
+        if h_val or a_val:
+            fig, ax = plt.subplots(figsize=(7.8, 4.0))
+            teams = [th['name'], ta['name']]
+            vals = [h_val, a_val]
+            bars = ax.bar(teams, vals, 0.45, color=['#2e9e5b', '#d64541'])
+            for b, v in zip(bars, vals):
+                ax.text(b.get_x() + b.get_width() / 2, v, f'{v:.2f}亿欧',
+                        ha='center', va='bottom', fontsize=12, fontweight='bold')
+            if sv.get('home_top'):
+                ax.text(0, h_val * 0.55, sv['home_top'], ha='center', fontsize=10, color='#444')
+            if sv.get('away_top'):
+                ax.text(1, a_val * 0.55, sv['away_top'], ha='center', fontsize=10, color='#444')
+            ax.set_ylim(0, max(vals) * 1.38)
+            ax.set_ylabel('全队身价(欧元)')
+            ax.set_title('全队身价对比', fontsize=13, fontweight='bold')
+            ax.spines[['top', 'right']].set_visible(False)
+            plt.tight_layout()
+            fp = os.path.join(out_dir, 'chart6_身价对比.png')
+            plt.savefig(fp); plt.close(); made.append(fp)
+
+    # 图7 关键射手对比(2026-08-22 新增模块: 两队 top3 射手进球数)
+    if cfg['charts'].get('scorers', False) and cfg.get('scorers'):
+        sc = cfg['scorers']
+        names, goals, colors = [], [], []
+        for side, team, col in (('home', th['name'], '#2e9e5b'), ('away', ta['name'], '#d64541')):
+            for p in sc.get(side, [])[:3]:
+                names.append(f"{p['name']}({team})")
+                goals.append(float(p.get('goals', 0)))
+                colors.append(col)
+        if names:
+            fig, ax = plt.subplots(figsize=(7.8, 4.2))
+            y = np.arange(len(names))[::-1]
+            ax.barh(y, goals, 0.55, color=colors)
+            for yi, g in zip(y, goals):
+                ax.text(g + 0.1, yi, f'{g:g}', va='center', fontsize=10, fontweight='bold')
+            ax.set_yticks(y); ax.set_yticklabels(names, fontsize=10)
+            ax.set_xlabel('进球数(上赛季/近期)')
+            ax.set_title('关键射手对比', fontsize=13, fontweight='bold')
+            ax.spines[['top', 'right']].set_visible(False)
+            plt.tight_layout()
+            fp = os.path.join(out_dir, 'chart7_射手对比.png')
+            plt.savefig(fp); plt.close(); made.append(fp)
+
     return made
 
 # ---------------- 文章渲染(md + docx) ----------------
@@ -383,7 +437,20 @@ CHART_FILES = {
     'heatmap': 'chart3_泊松比分热力图.png',
     'edge': 'chart4_模型vs市场Edge.png',
     'promote': 'chart5_晋级概率.png',
+    'value': 'chart6_身价对比.png',
+    'scorers': 'chart7_射手对比.png',
 }
+
+def _scorer_rows(cfg):
+    """从 cfg['scorers'] 生成射手对比表格行(两队各取前3)。"""
+    sc = cfg.get('scorers', {})
+    rows = []
+    for side, team in (('home', cfg['teams']['home']['name']),
+                       ('away', cfg['teams']['away']['name'])):
+        for p in sc.get(side, [])[:3]:
+            rows.append([team, p['name'], p.get('goals', '-'),
+                         p.get('assists', '-'), p.get('note', '')])
+    return rows
 
 def resolve_chart(key):
     return CHART_FILES.get(key, key)
@@ -502,6 +569,23 @@ def render_md(cfg, m, out_dir, out_name):
             # 数据型段落:自动填模型数字
             text = _safe_fill(sec['text'], _fmt_kwargs(m))
             lines += [text, '']
+        elif t == 'scorer_table':
+            # 关键射手对比表(2026-08-22 新增模块)
+            rows = _scorer_rows(cfg)
+            if rows:
+                lines += ['| 球队 | 球员 | 进球 | 助攻 | 备注 |', '|:----:|:----:|:---:|:---:|:----|']
+                for r in rows:
+                    lines.append('| ' + ' | '.join(str(x) for x in r) + ' |')
+                lines.append('')
+        elif t == 'value_para':
+            # 身价对比段(2026-08-22 新增模块)
+            sv = cfg.get('squad_value')
+            if sv:
+                lines += [f"【身价天平】{th['name']}全队身价{sv.get('home', '—')} vs {ta['name']}全队身价{sv.get('away', '—')}, 差{sv.get('ratio', '—')}倍。队内标王: {sv.get('home_top', '—')} vs {sv.get('away_top', '—')}。来源: {sv.get('source', '德转/雷速')}。", '']
+        elif t == 'player_matchup':
+            # 关键球员对位(2026-08-22 新增模块): [主球员, 客球员, 分析]
+            for h, a, note in cfg.get('player_matchup', []):
+                lines += [f"{h} vs {a}——{note}", '']
         elif t == 'hook':
             lines += [sec['text'], '']
     lines += ['数据不会说谎,但人会。——阿飞·赛博聊球', '']
@@ -650,6 +734,20 @@ def render_docx(cfg, m, out_dir, out_name):
         elif t == 'data_para':
             text = _safe_fill(sec['text'], _fmt_kwargs(m))
             add_para(text)
+        elif t == 'scorer_table':
+            # 关键射手对比表(2026-08-22 新增模块)
+            rows = _scorer_rows(cfg)
+            if rows:
+                add_table(['球队', '球员', '进球', '助攻', '备注'], rows)
+        elif t == 'value_para':
+            # 身价对比段(2026-08-22 新增模块)
+            sv = cfg.get('squad_value')
+            if sv:
+                add_para(f"【身价天平】{th['name']}全队身价{sv.get('home', '—')} vs {ta['name']}全队身价{sv.get('away', '—')}, 差{sv.get('ratio', '—')}倍。队内标王: {sv.get('home_top', '—')} vs {sv.get('away_top', '—')}。来源: {sv.get('source', '德转/雷速')}。")
+        elif t == 'player_matchup':
+            # 关键球员对位(2026-08-22 新增模块)
+            for h, a, note in cfg.get('player_matchup', []):
+                add_para(f"{h} vs {a}——{note}")
         elif t == 'hook':
             add_para(sec['text'])
 
