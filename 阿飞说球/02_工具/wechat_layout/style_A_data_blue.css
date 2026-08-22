@@ -1,0 +1,143 @@
+/* ============================================================
+   style A · 数据蓝 (Data Blue)
+   气质: 理性 / 专业 / 可信 — 模型偏差大、数据卖点强的场次
+   主色: #1B4B8C 深蓝 | 强调: #E8A33D 琥珀 | 背景: #FFFFFF
+   轮换记录: (空)
+   ============================================================ */
+
+#content {
+  color: #2C3E50;
+  font-size: 16px;
+  line-height: 1.75;
+  letter-spacing: 0.5px;
+}
+
+/* 大标题(文章标题, 手动用 h1) */
+#content h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1B4B8C;
+  text-align: left;
+  border-left: 6px solid #1B4B8C;
+  padding: 6px 0 6px 14px;
+  margin: 28px 0 20px;
+  background: linear-gradient(90deg, rgba(27,75,140,0.08), transparent);
+}
+
+/* 章节标题 */
+#content h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1B4B8C;
+  margin: 30px 0 14px;
+  padding-left: 12px;
+  border-left: 4px solid #E8A33D;
+  position: relative;
+}
+#content h2::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(27,75,140,0.25), transparent);
+  margin-top: 6px;
+}
+
+/* 三级标题 */
+#content h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1B4B8C;
+  margin: 22px 0 10px;
+}
+
+/* 正文强调: 加粗=深蓝, 高亮=琥珀底 */
+#content strong {
+  color: #1B4B8C;
+  font-weight: 700;
+}
+#content strong.hl {
+  background: rgba(232,163,61,0.22);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+/* 引用块: 数据来源/声明/关键提示 */
+#content blockquote {
+  margin: 16px 0;
+  padding: 12px 16px;
+  background: #F4F7FB;
+  border-left: 4px solid #1B4B8C;
+  border-radius: 0 6px 6px 0;
+  color: #4A6A8A;
+  font-size: 14.5px;
+}
+
+/* 表格: 蓝头+斑马纹 */
+#content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 16px 0;
+}
+#content table th {
+  background: #1B4B8C;
+  color: #fff;
+  font-weight: 600;
+  padding: 9px 10px;
+  border: 1px solid #1B4B8C;
+}
+#content table td {
+  padding: 8px 10px;
+  border: 1px solid #D6E0EC;
+  color: #2C3E50;
+}
+#content table tr:nth-child(even) td {
+  background: #F4F7FB;
+}
+
+/* 分隔线: 数据感短横 */
+#content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(27,75,140,0.4), transparent);
+  margin: 28px 0;
+}
+#content hr::after {
+  content: "◆";
+  display: block;
+  text-align: center;
+  color: #E8A33D;
+  font-size: 10px;
+  margin-top: -7px;
+}
+
+/* 图片与图注 */
+#content img {
+  width: 100%;
+  border-radius: 8px;
+  margin: 12px 0 4px;
+}
+#content em {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #8CA3BC;
+  font-style: normal;
+  margin-bottom: 16px;
+}
+
+/* 信息卡(手动用 blockquote 加 class="info") */
+#content blockquote.info {
+  background: #fff;
+  border: 1px solid #D6E0EC;
+  border-left: 4px solid #1B4B8C;
+  font-size: 14px;
+}
+
+/* 链接 */
+#content a {
+  color: #1B4B8C;
+  text-decoration: underline;
+  text-decoration-color: rgba(27,75,140,0.4);
+}

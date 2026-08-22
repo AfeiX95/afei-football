@@ -1,0 +1,109 @@
+{
+  "title": "解放者杯双场:帕梅拉斯1.20迎战头名克星,普拉滕斯让球负1.86",
+  "tags": [
+    "#解放者杯",
+    "#帕梅拉斯",
+    "#波特诺"
+  ],
+  "competition": "解放者杯2026 1/8决赛(8th Finals)",
+  "first_leg": "首回合(两回合制,总比分定晋级)",
+  "match_time": "8月13日(周四)06:00 北京时间",
+  "venue": "帕梅拉斯主场(巴西圣保罗)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "odds": {
+    "H": 1.2,
+    "D": 4.9,
+    "A": 11.0
+  },
+  "score_odds": [],
+  "strategy": {
+    "home_mult": 0.95,
+    "away_mult": 0.78,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 2,
+      "d": 1,
+      "l": 2
+    },
+    "away_form": {
+      "w": 2,
+      "d": 0,
+      "l": 3
+    }
+  },
+  "teams": {
+    "home": {
+      "name": "帕梅拉斯",
+      "league": "巴甲",
+      "gf": 2.1,
+      "ga": 0.88,
+      "gf_special": 2.0,
+      "ga_special": 1.0,
+      "special_label": "小组赛主场(3场6进3失)",
+      "recent": {
+        "gf": 2.1,
+        "ga": 0.88
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "波特诺",
+      "league": "巴拉圭甲",
+      "gf": 1.2,
+      "ga": 0.8,
+      "gf_special": 0.67,
+      "ga_special": 0.33,
+      "special_label": "小组赛客场(3场2进1失)",
+      "recent": {
+        "gf": 1.2,
+        "ga": 0.8
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [60, 10, 30],
+    "h_home": [60, 0, 40],
+    "a_all": [50, 10, 40],
+    "a_away": [67, 0, 33]
+  },
+  "charts": {
+    "wdl": true,
+    "goals": true,
+    "heatmap": true,
+    "edge": true,
+    "promote": false
+  },
+  "sections": [
+    {
+      "type": "para",
+      "text": "【数据偏差池】市场给帕梅拉斯1.20(隐含主胜约八成),泊松模型测算主胜{pH}%。让球盘-1:让胜1.80/让平3.40/让负3.58,和欧赔的绝对热度相比,盘口明显温和。"
+    },
+    {
+      "type": "dash"
+    },
+    {
+      "type": "para",
+      "text": "【战术胜负手】同组冤家再碰头:本赛季小组赛,波特诺对帕梅拉斯1胜1平不败,还在帕梅拉斯主场带走0-1。波特诺是小组头名(13分),帕梅拉斯被压在第二(11分)。淘汰赛再遇,帕梅拉斯带着复仇任务,但后防线4人伤停,战力打折。"
+    },
+    {
+      "type": "para",
+      "text": "【比分演算倾向】模型期望总进球{exp}球,首选比分参考下方表格。"
+    }
+  ],
+  "ending_hook": "数据不会说谎,但人会。——阿飞·赛博聊球",
+  "ending_line": "8月13日凌晨6点,赛后见。",
+  "skeleton": "双场串烧·首回合",
+  "hook_type": "数据实战",
+  "illustration": [
+    "[英文·优先锁真实赛照] 1) Palmeiras vs Cerro Porteno Copa Libertadores round of 16 first leg August 2026",
+    "[英文] 2) Cerro Porteno 1-0 Palmeiras Copa Libertadores group stage May 2026 (今年小组赛客胜旧账,话题图)",
+    "[英文] 3) Palmeiras Allianz Parque home match 2026 (主场氛围)",
+    "[英文] 4) Cerro Porteno P. Vegetti No.19 goal celebration Copa Libertadores 2026 (射手维格蒂)",
+    "[英文] 5) Copa Libertadores trophy 2026 / Palmeiras fans 2026 (奖杯/球迷氛围替补)",
+    "[中文] 帕梅拉斯主场 近期比赛 2026 / 帕梅拉斯球迷 主场氛围 / 波特诺 解放者杯 2026 / 波特诺维格蒂 进球庆祝",
+    "[提醒] 优先官方赛事图/球队官网;勿用带台标水印图;球员图搜不到就不配,用赛场氛围图替代"
+  ]
+}

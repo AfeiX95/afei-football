@@ -1,0 +1,129 @@
+/* ============================================================
+   style D · 墨绿 (Pine Green)
+   气质: 沉稳 / 复盘 / 深度 — 赛后复盘、赛季总结、深度长文
+   主色: #1E6B52 墨绿 | 背景: #F7F9F7 灰白 | 强调: #C9A227 苔金
+   轮换记录: (空)
+   ============================================================ */
+
+#content {
+  color: #2F3B37;
+  font-size: 16px;
+  line-height: 1.82;
+  letter-spacing: 0.5px;
+  background: #F7F9F7;
+  padding: 4px 0;
+}
+
+/* 大标题: 墨绿极简下划线 */
+#content h1 {
+  font-size: 21px;
+  font-weight: 700;
+  color: #1E6B52;
+  text-align: left;
+  margin: 28px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #C9A227;
+  letter-spacing: 1px;
+}
+
+/* 章节标题: 编号块+墨绿, 克制留白 */
+#content h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1E6B52;
+  margin: 34px 0 14px;
+  padding: 6px 0 6px 12px;
+  border-left: 4px solid #C9A227;
+  background: linear-gradient(90deg, rgba(30,107,82,0.07), transparent);
+}
+
+/* 三级标题 */
+#content h3 {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #1E6B52;
+  margin: 22px 0 10px;
+}
+
+/* 强调: 墨绿加粗 + 苔金高亮 */
+#content strong {
+  color: #1E6B52;
+  font-weight: 700;
+}
+#content strong.hl {
+  background: rgba(201,162,39,0.20);
+  color: #7A6210;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* 引用块: 浅绿底, 复盘笔记感 */
+#content blockquote {
+  margin: 16px 0;
+  padding: 14px 18px;
+  background: #EDF3EF;
+  border-left: 4px solid #1E6B52;
+  border-radius: 0 8px 8px 0;
+  color: #55705F;
+  font-size: 14.5px;
+}
+
+/* 表格: 绿头+浅绿斑马 */
+#content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 16px 0;
+}
+#content table th {
+  background: #1E6B52;
+  color: #fff;
+  font-weight: 600;
+  padding: 9px 10px;
+  border: 1px solid #1E6B52;
+}
+#content table td {
+  padding: 8px 10px;
+  border: 1px solid #D4E2DA;
+  color: #2F3B37;
+}
+#content table tr:nth-child(even) td {
+  background: #EDF3EF;
+}
+
+/* 分隔线: 苔金细线 */
+#content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C9A227 30%, #C9A227 70%, transparent);
+  margin: 32px 0;
+}
+
+/* 图片与图注 */
+#content img {
+  width: 100%;
+  border-radius: 6px;
+  margin: 12px 0 4px;
+}
+#content em {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #93A79C;
+  font-style: normal;
+  margin-bottom: 16px;
+}
+
+/* 信息卡 */
+#content blockquote.info {
+  background: #fff;
+  border: 1px solid #D4E2DA;
+  border-left: 4px solid #1E6B52;
+  font-size: 14px;
+}
+
+/* 链接 */
+#content a {
+  color: #1E6B52;
+  text-decoration: underline;
+}
