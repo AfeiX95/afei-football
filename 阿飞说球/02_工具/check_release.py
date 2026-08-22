@@ -110,18 +110,21 @@ def check(path, config_path=None):
     if '免责声明' not in full:
         problems.append('❌ 缺【免责声明】')
 
-    # 6. 标题
+    # 6. 标题(2026-08-22: 深度版 config 走公众号 60 字 SEO 上限, 其余按头条 30 字)
+    cfg = {}
+    if config_path and os.path.exists(config_path):
+        with open(config_path, encoding='utf-8') as f:
+            cfg = json.load(f)
     title = paras[0] if paras else ''
-    if len(title) > TITLE_MAX:
-        problems.append(f'❌ 标题 {len(title)} 字 > {TITLE_MAX}')
+    title_max = 60 if cfg.get('skeleton') == '深度叙事式' else TITLE_MAX
+    if len(title) > title_max:
+        problems.append(f'❌ 标题 {len(title)} 字 > {title_max}')
     bw = [w for w in BANNED_TITLE if w in title]
     if bw:
         problems.append(f'❌ 标题俗语: {bw}')
 
     # 7. 钩子类型去重 + 骨架去重
-    if config_path and os.path.exists(config_path):
-        with open(config_path, encoding='utf-8') as f:
-            cfg = json.load(f)
+    if cfg:
         recent = []
         cfgs = sorted(
             (os.path.join(CONFIG_DIR, fn) for fn in os.listdir(CONFIG_DIR) if fn.endswith('.json')),
