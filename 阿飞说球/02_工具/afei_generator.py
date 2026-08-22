@@ -169,6 +169,9 @@ def run_model(cfg):
         'promote_h': promote_h, 'promote_a': promote_a,
         'draw_pen': draw_pen,
         'p_net1': p_net1, 'p_net2': p_net2, 'p_net2exact': p_net2exact, 'p_net3': p_net3,
+        # 让球盘维度(2026-08-22): 模型侧净胜球概率, 供 market_type=handicap 时与让球盘隐含对比
+        # H=净胜3+(让球胜) D=恰好净胜2(让球平) A=净胜≤1(让球负)
+        'hc': {'H': p_net3, 'D': p_net2exact, 'A': 1 - p_net2},
         'evs': evs, 'kelly': kelly,
         'exp_goals': lam_h + lam_a,
     }
@@ -288,7 +291,13 @@ def make_charts(cfg, m, out_dir):
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10.5, 4.4),
                                        gridspec_kw={'width_ratios': [1.15, 1]})
         labels = ['主胜', '平局', '客胜']
-        model = [m['pH'] * 100, m['pD'] * 100, m['pA'] * 100]
+        if cfg.get('market_type') == 'handicap':
+            # 让球盘: 模型侧用净胜球概率(2026-08-22 修正)
+            hc = m['hc']
+            model = [hc['H'] * 100, hc['D'] * 100, hc['A'] * 100]
+            labels = ['让胜\n(净胜3+)', '让平\n(恰好净胜2)', '让负\n(净胜≤1)']
+        else:
+            model = [m['pH'] * 100, m['pD'] * 100, m['pA'] * 100]
         market = [m['pM']['H'] * 100, m['pM']['D'] * 100, m['pM']['A'] * 100]
         x = np.arange(3); w = 0.34
         b1 = ax1.bar(x - w / 2, model, w, color='#2e9e5b', label='模型概率')
@@ -301,10 +310,17 @@ def make_charts(cfg, m, out_dir):
         ax1.set_title('模型概率 vs 市场隐含概率', fontsize=13, fontweight='bold')
         ax1.legend(frameon=False, fontsize=10)
         ax1.spines[['top', 'right']].set_visible(False)
-        edges = [(m['pH'] - m['pM']['H']) * 100, (m['pD'] - m['pM']['D']) * 100,
-                 (m['pA'] - m['pM']['A']) * 100]
+        if cfg.get('market_type') == 'handicap':
+            hc = m['hc']
+            edges = [(hc['H'] - m['pM']['H']) * 100, (hc['D'] - m['pM']['D']) * 100,
+                     (hc['A'] - m['pM']['A']) * 100]
+            edge_labels = ['让胜', '让平', '让负']
+        else:
+            edges = [(m['pH'] - m['pM']['H']) * 100, (m['pD'] - m['pM']['D']) * 100,
+                     (m['pA'] - m['pM']['A']) * 100]
+            edge_labels = labels
         colors = ['#d64541' if e > 0 else '#95a5a6' for e in edges]
-        bars = ax2.bar(labels, edges, 0.5, color=colors)
+        bars = ax2.bar(edge_labels, edges, 0.5, color=colors)
         for b, e in zip(bars, edges):
             ax2.text(b.get_x() + b.get_width() / 2, e + (0.5 if e >= 0 else -1.6),
                      f'{e:+.1f}%', ha='center', fontsize=11, fontweight='bold')
@@ -398,6 +414,13 @@ def _fmt_kwargs(m):
         prom_90=f"{m['pH']*100:.1f}", prom_pen=f"{m['pD']*50:.1f}",
         net1=f"{m['p_net1']*100:.1f}", net2=f"{m['p_net2']*100:.1f}",
         net2exact=f"{m['p_net2exact']*100:.1f}", net3=f"{m['p_net3']*100:.1f}",
+        # 让球盘占位符(2026-08-22): hcH/hcD/hcA=模型让球盘概率, net1_under=净胜≤1(让球负),
+        # hc_edgeX_cal=让球盘Edge校准(带符号)
+        hcH=f"{m['hc']['H']*100:.1f}", hcD=f"{m['hc']['D']*100:.1f}", hcA=f"{m['hc']['A']*100:.1f}",
+        net1_under=f"{(1-m['p_net2'])*100:.1f}",
+        hc_edgeH_cal=f"{(m['hc']['H']-m['pM_cal']['H'])*100:+.1f}",
+        hc_edgeD_cal=f"{(m['hc']['D']-m['pM_cal']['D'])*100:+.1f}",
+        hc_edgeA_cal=f"{(m['hc']['A']-m['pM_cal']['A'])*100:+.1f}",
     )
 
 
@@ -661,7 +684,7 @@ def main():
     hits = [w for w in banned if w in title]
     if hits:
         print(f"⚠ 标题含俗语({','.join(hits)})——无信息增量,头条展现会受影响。")
-        print(f"  建议公式: 「赛事+极端数据/偏差值+市场预期冲突」, 如「欧联预警:主胜被低估23个百分点,不败黑马今晚验真金」")
+        print(f"  建议公式: 「赛事+极端数据/偏差值+市场预期冲突」, 如「意甲首轮:国米让2球深盘,盘口数据已亮翻车信号」")
     if len(title) > 30:
         print(f"⚠ 标题 {len(title)} 字,超头条 SEO 上限 30 字,建议压缩。")
 
@@ -675,7 +698,13 @@ def main():
     print(f"  P_market: 主胜{m['pM']['H']*100:.1f}% / 平{m['pM']['D']*100:.1f}% / 客胜{m['pM']['A']*100:.1f}%")
     print(f"  Edge: 主{(m['pH']-m['pM']['H'])*100:+.1f}% / 平{(m['pD']-m['pM']['D'])*100:+.1f}% / 客{(m['pA']-m['pM']['A'])*100:+.1f}%")
     print(f"  P_market校准: 主{m['pM_cal']['H']*100:.1f}% / 平{m['pM_cal']['D']*100:.1f}% / 客{m['pM_cal']['A']*100:.1f}%")
-    print(f"  Edge校准: 主{(m['pH']-m['pM_cal']['H'])*100:+.1f}% / 平{(m['pD']-m['pM_cal']['D'])*100:+.1f}% / 客{(m['pA']-m['pM_cal']['A'])*100:+.1f}%  ← 价值判断用此")
+    if cfg.get('market_type') == 'handicap':
+        # 让球盘: Edge 用净胜球维度对比(2026-08-22 修正, 避免标准胜平负vs让球盘的假Edge)
+        hc = m['hc']
+        print(f"  P_model(让球盘): 让胜{hc['H']*100:.1f}% / 让平{hc['D']*100:.1f}% / 让负{hc['A']*100:.1f}%")
+        print(f"  Edge校准(让球盘): 让胜{(hc['H']-m['pM_cal']['H'])*100:+.1f}% / 让平{(hc['D']-m['pM_cal']['D'])*100:+.1f}% / 让负{(hc['A']-m['pM_cal']['A'])*100:+.1f}%  ← 价值判断用此")
+    else:
+        print(f"  Edge校准: 主{(m['pH']-m['pM_cal']['H'])*100:+.1f}% / 平{(m['pD']-m['pM_cal']['D'])*100:+.1f}% / 客{(m['pA']-m['pM_cal']['A'])*100:+.1f}%  ← 价值判断用此")
     print(f"  大2.5球 {m['p_over25']*100:.1f}% | 晋级(主) {m['promote_h']*100:.1f}%")
     print(f"  比分EV Top3: " + ' | '.join(
         f"{s[1][0]}-{s[1][1]} EV={s[0]:+.2f}" for s in m['evs'][:3]))
