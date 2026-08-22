@@ -138,11 +138,8 @@ for k, name in [("H", "主胜"), ("A", "客胜")]:
 
 # ============ 蒙特卡洛模拟 ============
 N = 20000
-res = {"H": 0, "D": 0, "A": 0, "over25": 0, "btss": 0}
-for _ in range(N):
-    gh = random.expovariate(1 / lam_h)  # 用泊松近似采样
-    # 用正态近似?直接泊松采样:
-# 修正:泊松采样
+# 2026-08-22 修复:旧段误用指数分布 random.expovariate 且 res 被覆盖,
+# 前 20000 次模拟纯属空转——已删除,统一走下方泊松采样
 def poisson_sample(lam):
     L = math.exp(-lam); k = 0; p = 1.0
     while p > L:

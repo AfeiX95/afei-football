@@ -181,9 +181,17 @@ def make_charts(cfg, m, out_dir):
     import matplotlib.font_manager as fm
     import numpy as np
 
-    for fp in (r'C:\Windows\Fonts\msyh.ttc', r'C:\Windows\Fonts\msyhbd.ttc'):
+    # 中文字体自动探测(2026-08-22:不再硬编码单一路径,跨机器/系统可用)
+    _font_candidates = [
+        r'C:\Windows\Fonts\msyh.ttc', r'C:\Windows\Fonts\msyhbd.ttc',
+        r'C:\Windows\Fonts\simhei.ttf', r'C:\Windows\Fonts\simsun.ttc',
+        '/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc',  # Linux
+        '/System/Library/Fonts/PingFang.ttc',                      # macOS
+    ]
+    for fp in _font_candidates:
         try:
-            fm.fontManager.addfont(fp)
+            if os.path.exists(fp):
+                fm.fontManager.addfont(fp)
         except Exception:
             pass
     plt.rcParams['font.sans-serif'] = ['Microsoft YaHei', 'SimHei']
@@ -479,9 +487,15 @@ def render_md(cfg, m, out_dir, out_name):
     lines += ['【数据来源】基础数据取自竞彩官方及海外主流体育数据库,由阿飞个人足球数据模型独立推演。', '']
     lines += ['【免责声明】本文为个人数据模型推演,属体育赛事分析交流,不构成任何购彩及投注建议,请理性看待,适度娱乐。', '']
     if cfg.get('illustration'):
-        lines += ['', '=== Illustration Suggestions ===', '']
-        for s in cfg['illustration']:
-            lines += [s, '']
+        # 2026-08-22 修复:illustration 为 dict 时遍历出键名(en/cn)的 bug
+        lines += ['', '=== 配图关键词(供编辑检索,勿发布) ===', '']
+        ill = cfg['illustration']
+        if isinstance(ill, dict):
+            for s in ill.values():      # {en:..., cn:...} 取关键词串
+                lines += [s, '']
+        else:
+            for s in ill:               # 兼容 list 结构
+                lines += [s, '']
     md_path = os.path.join(out_dir, out_name)
     with open(md_path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines))
@@ -633,7 +647,7 @@ def main():
     ap = argparse.ArgumentParser(description='AFEI 比赛分析通用生成器')
     ap.add_argument('--config', required=True, help='JSON 配置文件路径')
     ap.add_argument('--model-only', action='store_true', help='只跑模型+打印,不生成文件')
-    ap.add_argument('--kb', type=int, nargs='?', const=5, default=0, metavar='TOPK',
+    ap.add_argument('--kb', type=int, nargs='?', const=5, default=5, metavar='TOPK',
                     help='检索历史案例参考(知识库, 仅终端提示, 不写入文章), 默认5条, 如 --kb 3')
     args = ap.parse_args()
 

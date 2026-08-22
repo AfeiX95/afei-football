@@ -73,8 +73,8 @@
 【免责声明】本文为个人数据模型推演,属体育赛事分析交流,不构成任何购彩及投注建议,请理性看待,适度娱乐。
 
 
-=== Illustration Suggestions ===
+=== 配图关键词(供编辑检索,勿发布) ===
 
-en
+Burnley vs West Ham United Championship August 2026 | Turf Moor first matchday 2026 | West Ham away Championship 2026
 
-cn
+伯恩利 主场 英冠 2026 | 特夫摩尔球场 | 西汉姆联 客场 英冠 2026
