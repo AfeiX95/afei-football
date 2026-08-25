@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="//images.china.cn/images1/resource/styles/reset-1.0.css" />
+    <title>
+            Deportivo coach Hidalgo signs new contract
+</title>
+    <link rel="stylesheet" href="https://images.china.cn/images1/en/2024news/css/top_footer.min.css" />
+    <link rel="stylesheet" href="https://images.china.cn/images1/en/2024news/css/content.min.css" />
+    <script type="text/javascript" src="http://www.china.com.cn/player/video.js"></script>
+    <style type="text/css">
+        .zzzcur a {
+            background: #0046ae !important;
+            color: #fff;
+        }
+
+        @media screen and (min-width: 770px) {
+            .top {
+                margin: 0 auto 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top padBottom">
+    <a href="http://www.china.org.cn/"><img src="https://images.china.cn/images1/en/2024news/img/logo.jpg"
+            class="logo" /></a>
+    <div class="top_right">
+        <div class="lang">
+            <a href="http://www.china.com.cn/index.htm">中文</a>
+            |
+            <a href="http://french.china.org.cn">Français</a>
+            |
+            <a href="http://german.china.org.cn/">Deutsch</a>
+            |
+            <a href="http://japanese.china.org.cn">日本語</a>
+            |
+            <a href="http://russian.china.org.cn">Русский язык</a>
+            |
+            <a href="http://spanish.china.org.cn">Español</a>
+            |
+            <a href="http://arabic.china.org.cn">عربي</a>
+            |
+            <a href="http://esperanto.china.org.cn">Esperanto</a>
+            |
+            <a href="http://korean.china.org.cn/">한국어</a>
+            |
+            <a href="http://big5.china.com.cn/">BIG5</a>
+        </div>
+        <div class="search">
+            <form id="form" name="searchform" onsubmit="return dosearch();"
+                action="http://query.china.com.cn/query/en.html" method="get" target="_top">
+                <input type="text" name="kw" class="kw" /><input type="submit" name="button" class="tj" value="" />
+            </form>
+        </div>
+    </div>
+</div>
+
+
+            <div class="top_adv">
+            <a href="http://www.china.org.cn/2026-06/11/content_118543593.shtml"><img src="//images.china.cn/site1007/2026-06/11/118543593_f5252734-605f-4564-8244-ccfa02547414copy.jpg" /></a>
+        </div>
+
+
+    <div class="nav">
+        <div class="nav_wrap">
+            
+                                    <p data-id="9013860" class="mmm"><a href="http://www.china.org.cn/index.shtml">Home</a></p>
+
+            
+                                    <p data-id="9013863" class="mmm"><a href="http://www.china.org.cn/node_9013863.shtml">China</a></p>
+
+            
+                                    <p data-id="9013864" class="mmm"><a href="http://www.china.org.cn/node_9013864.shtml">World</a></p>
+
+            
+                                    <p data-id="9013865" class="mmm"><a href="http://www.china.org.cn/node_9013865.shtml">Business</a></p>
+
+            
+                                    <p data-id="9013866" class="mmm"><a href="http://www.china.org.cn/node_9013866.shtml">Sport</a></p>
+
+            
+                                    <p data-id="9013867" class="mmm"><a href="http://www.china.org.cn/node_9013867.shtml">Special Coverage</a></p>
+
+            
+                                    <p data-id="9013868" class="mmm"><a href="http://www.china.org.cn/node_9013868.shtml">双语</a></p>
+
+            
+                                    <p data-id="7156715" class="mmm" style="display:none;">7156699</p>
+
+        </div>
+    </div>
+
+    <div class="m_nav">
+        <div class="topNav">
+            <img src="http://images.china.cn/images1/ch/20221220/img/nav1.png" class="topNav_logo1">
+            <a href="http://www.china.org.cn/" target="_blank">
+                <img src="https://images.china.cn/images1/en/2024news/img/logo.jpg" class="topNav_logo2"></a>
+            <div class="topNav_menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="pushNav">
+            <div class="languages">
+                <h2>LANGUAGE</h2>
+                <ul>
+                    <li class="nowLanguage"><a href="http://www.china.org.cn/" target="_blank">English</a></li>
+                    <li><a href="http://www.china.com.cn/" target="_blank">中文</a></li>
+                    <li><a href="http://french.china.org.cn/" target="_blank">Français</a></li>
+                    <li><a href="http://german.china.org.cn/" target="_blank">Deutsch</a></li>
+                    <li><a href="http://japanese.china.org.cn/" target="_blank">日本語</a></li>
+                    <li><a href="http://russian.china.org.cn/" target="_blank">Русский язык</a></li>
+                    <li><a href="http://spanish.china.org.cn/" target="_blank">Español</a></li>
+                    <li><a href="http://arabic.china.org.cn/" target="_blank" class="arabic">العربية</a></li>
+                    <li><a href="http://esperanto.china.org.cn/" target="_blank">Esperanto</a></li>
+                    <li><a href="http://korean.china.org.cn/" target="_blank">한국어</a></li>
+
+                </ul>
+            </div>
+            <div class="channel none">
+                <form id="FindForm" class="search form" name="form1" method="get"
+                    action="http://query.china.com.cn/query/en.html" target="_blank">
+                    <input type="text" placeholder="Search" name="kw" id="kw" value="" class="kw">
+                    <input type="submit" value="" class="btn">
+                </form>
+                <p>
+                    <span class="zzz">
+                                                            <a data-id="9013860" href="http://www.china.org.cn/index.shtml">Home</a>
+</span>
+
+                    <span class="zzz">
+                                                            <a data-id="9013863" href="http://www.china.org.cn/node_9013863.shtml">China</a>
+</span>
+
+                    <span class="zzz">
+                                                            <a data-id="9013864" href="http://www.china.org.cn/node_9013864.shtml">World</a>
+</span>
+
+                    <span class="zzz">
+                                                            <a data-id="9013865" href="http://www.china.org.cn/node_9013865.shtml">Business</a>
+</span>
+
+                    <span class="zzz">
+                                                            <a data-id="9013866" href="http://www.china.org.cn/node_9013866.shtml">Sport</a>
+</span>
+
+                    <span class="zzz">
+                                                            <a data-id="9013867" href="http://www.china.org.cn/node_9013867.shtml">Special Coverage</a>
+</span>
+
+                    <span class="zzz">
+                                                            <a data-id="9013868" href="http://www.china.org.cn/node_9013868.shtml">双语</a>
+</span>
+
+
+                    <span class="zzz" style="display:none;">
+                                                            7156699
+</span>
+
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bread">
+        
+                            <p data-id="7156715" style="display:none;">7156699</p>
+
+        <a href="http://www.china.org.cn/">Home</a><span> - </span>
+
+    </div>
+
+    <div class="conTit">
+        
+            <h1>Deportivo coach Hidalgo signs new contract</h1>
+
+        <div class="txt_info">
+            <div class="date">
+                
+                    
+                    Xinhua<div class="en">
+                        |&nbsp;August 14, 2026
+                    </div>
+                    <div class="ch">
+                        2026-08-14
+                    </div>
+
+            </div>
+            <div class="share">Share: <img src="https://images.china.cn/images1/en/2024news/img/fb.jpg" id="fb" /> <img
+                    src="https://images.china.cn/images1/en/2024news/img/x1.jpg" id="tw" /></div>
+        </div>
+    </div>
+    <div class="content_wrap">
+        <div id="vf">
+            <div id="videoarea" style="width: 900px; height: 505px;" align="center"></div>
+        </div>
+        
+            <div class="content">
+                <!--enpcontent--><p style="MARGIN: 0px 3px 15px">MADRID, Aug. 13 (Xinhua) -- Deportivo A Coruna has extended coach Antonio Hidalgo's contract until June 2028 after he led the club back to La Liga last season.</p> <p style="MARGIN: 0px 3px 15px">The new deal adds a year to the 47-year-old's previous contract, which was due to expire in June 2027, as Deportivo prepares for its first season in Spain's top flight since 2018.</p> <p style="MARGIN: 0px 3px 15px">Hidalgo took charge of Deportivo a year ago after two seasons with Huesca and guided the Galician club to promotion with a second-place finish in the second division.</p> <p style="MARGIN: 0px 3px 15px">Deportivo had the division's best away record and lost only nine of its 42 league matches, conceding 44 goals.</p> <p style="MARGIN: 0px 3px 15px">The club has strengthened its squad ahead of its return to La Liga, bringing in Pierre-Emerick Aubameyang, goalkeeper Leo Roman and midfielder Lorenzo Amatucci.</p> <p style="MARGIN: 0px 3px 15px">Deportivo opens its La Liga campaign at home to Elche on Monday. Enditem</p><!--/enpcontent--><!--enpproperty <articleid>118647323</articleid><date>2026-08-14 09:37:51:120</date><author></author><title>Deportivo coach Hidalgo signs new contract</title><keyword>Sports-Soccer-Spain</keyword><subtitle></subtitle><introtitle></introtitle><siteid>1007</siteid><nodeid>7156715</nodeid><nodename>Sports</nodename><nodesearchname>Sports</nodesearchname><picurl></picurl><picbig></picbig><picmiddle></picmiddle><picsmall></picsmall><url>http://www.china.org.cn/world/Off_the_Wire/2026-08/14/content_118647323.shtml</url><urlpad>null</urlpad><sourcename>Xinhua</sourcename><abstract>Deportivo coach Hidalgo signs new contract</abstract><channel>1</channel><journalist></journalist><type>0</type><countPic>0</countPic><liability></liability><tag></tag>/enpproperty-->
+            </div>
+
+    </div>
+
+
+    
+    <div class="footer_wrap">
+    <div class="footer">
+        <div class="footer_left">
+            <a href="http://www.china.org.cn/">
+                <img src="https://images.china.cn/images1/en/2024news/img/f_logo.png" /></a>
+        </div>
+        <div class="footer_right">
+            <p>Follow China.org.cn
+                <a href="https://www.facebook.com/chinaorgcn" target="_blank"><img
+                        src="https://images.china.cn/images1/en/2024news/img/faceBook.png" /></a>
+                <a href="https://x.com/chinaorgcn" target="_blank"><img
+                        src="https://images.china.cn/images1/en/2024news/img/x.png" />
+                </a>
+            </p>
+            <p><a href="http://newsletter.china.org.cn/">China.org.cn Newsletter: Subscribe for Free.</a></p>
+            <p>
+                
+                                            <a href="http://www.china.org.cn/2024-11/08/content_117535069.shtml">About</a>
+                        |
+                        <a href="http://www.china.org.cn/2024-11/08/content_117535073.shtml">Contact</a>
+                        |
+                        <a href="http://www.china.org.cn/2024-10/29/content_117513593.shtml">Careers</a>
+                        
+
+            </p>
+            <div class="partners">
+                
+                                            <a href="http://www.china.org.cn/2024-10/29/content_117513728.shtml" target="_blank"
+                            >State Council Information Office of China</a>
+                        <a href="http://www.china.org.cn/2024-10/29/content_117513727.shtml" target="_blank"
+                            >China International Communications Group</a>
+                        <a href="http://www.china.org.cn/2024-10/29/content_117513722.shtml" target="_blank"
+                            >China Development Gateway</a>
+                        <a href="http://www.china.org.cn/2024-10/29/content_117513719.shtml" target="_blank"
+                            >Translators Association of China</a>
+                        <a href="http://www.china.org.cn/2024-10/29/content_117513716.shtml" target="_blank"
+                            >Beijing Review</a>
+                        <a href="http://www.china.org.cn/2024-10/29/content_117513712.shtml" target="_blank"
+                            >China Today</a>
+                        <a href="http://www.china.org.cn/2024-10/29/content_117513711.shtml" target="_blank"
+                            >China Pictorial</a>
+                        <a href="http://www.china.org.cn/2024-10/29/content_117513670.shtml" target="_blank"
+                            >Xinhua</a>
+                        <a href="http://www.china.org.cn/2024-10/29/content_117513664.shtml" target="_blank"
+                            >CGTN</a>
+                        <a href="http://www.china.org.cn/2024-10/29/content_117513661.shtml" target="_blank"
+                            >PLA Daily</a>
+                        <a href="http://www.china.org.cn/2024-10/29/content_117513665.shtml" target="_blank"
+                            >China Daily</a>
+                        <a href="http://www.china.org.cn/2024-10/29/content_117513659.shtml" target="_blank"
+                            >Women of China</a>
+                        <a href="http://www.china.org.cn/2024-10/29/content_117513654.shtml" target="_blank"
+                            >Tibet.cn</a>
+                        <a href="http://www.china.org.cn/2024-10/29/content_117513651.shtml" target="_blank"
+                            >Taiwan.cn</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer_bottom">
+    <span>Copyright © China.org.cn. All Rights Reserved 京ICP证 040089号-1</span>
+    <span><img src="https://images.china.cn/images1/en/2024news/img/gongan.png" />京公网安备 11010802027341号</span>
+    <span>网络传播视听节目许可证号：0105123</span>
+</div>
+    
+
+
+    <div class="cur_column">
+        
+            7156715
+
+    </div>
+
+    
+        <img src="" id="vdoPic" class="none" />
+
+
+    <script type="text/javascript"
+        src="http://images.china.cn/images1/resource/scripts/jquery/jquery-3.7.0.min.js"></script>
+    <script src="https://images.china.cn/images1/en/2024news/js/nav.js"></script>
+    <script src="https://images.china.cn/images1/en/2024news/js/cont.js"></script>
+
+    <script type="text/javascript">
+        $(".mmm:contains(7156707)").siblings("p:eq(3)").addClass("cur");
+        $(".zzz:contains(7156707)").siblings("span:eq(3)").addClass("zzzcur");
+
+        $(".mmm:contains(7156702)").siblings("p:eq(4)").addClass("cur");
+        $(".zzz:contains(7156702)").siblings("span:eq(4)").addClass("zzzcur");
+
+        $(".mmm:contains(7156700)").siblings("p:eq(1)").addClass("cur");
+        $(".zzz:contains(7156700)").siblings("span:eq(1)").addClass("zzzcur");
+
+        $(".mmm:contains(7156699)").siblings("p:eq(2)").addClass("cur");
+        $(".zzz:contains(7156699)").siblings("span:eq(2)").addClass("zzzcur");
+
+
+        $(".bread:contains(7156707)").append(" <a href='http://www.china.org.cn/'>Home</a><span> - </span><a href='http://www.china.org.cn/node_9013865.shtml' style='color:#0759b4'>Business</a><span> - </span><a href='http://www.china.org.cn/china/Off_the_Wire/node_7156707.shtml'>Latest</a>");
+
+        $(".bread:contains(7156700)").append(" <a href='http://www.china.org.cn/'>Home</a><span> - </span><a href='http://www.china.org.cn/node_9013863.shtml' style='color:#0759b4'>China</a><span> - </span><a href='http://www.china.org.cn/china/Off_the_Wire/node_7156713.shtml'>Latest</a>");
+
+        $(".bread:contains(7156702)").append(" <a href='http://www.china.org.cn/'>Home</a><span> - </span><a href='http://www.china.org.cn/node_9013866.shtml' style='color:#0759b4'>Sport</a><span> - </span><a href='http://www.china.org.cn/china/Off_the_Wire/node_7156702.shtml'>Latest</a>");
+
+        $(".bread:contains(7156699)").append(" <a href='http://www.china.org.cn/'>Home</a><span> - </span><a href='http://www.china.org.cn/node_9013864.shtml' style='color:#0759b4'>World</a><span> - </span><a href='http://www.china.org.cn/world/Off_the_Wire/node_7156726.shtml'>Latest</a>");
+    </script>
+</body>
+
+</html>

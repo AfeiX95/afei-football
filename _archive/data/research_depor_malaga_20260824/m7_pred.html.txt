@@ -1,0 +1,434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="//www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>马拉加 vs 拉科鲁尼亚 赛事推介 - 7M足球新闻</title>
+<meta name="keywords" content="马拉加 vs 拉科鲁尼亚 赛事推介" />
+<meta name="description" content="马拉加 vs 拉科鲁尼亚 赛事推介" />
+<link href="/css/1.1/style.css?1695" rel="stylesheet" type="text/css" />
+<link href="/css/1.1/nav.css" rel="stylesheet" type="text/css" />
+<link href="/css/1.1/ny.css" rel="stylesheet" type="text/css" />
+<link href="/css/1.1/tipbj.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/header.js"></script>
+<script type="text/javascript" src="/js/1.1/search.js"></script>
+<script type="text/javascript" src="/js/1.1/scrollimg.js"></script>
+<script type="text/javascript" src="/js/1.1/commom.js"></script>
+<script type="text/javascript" src="/js/1.1/vote.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="/js/1.1/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript">
+	DD_belatedPNG.fix('.icos,.play,.play_btn,.tim,.pure');
+</script>
+<![endif]-->
+<script>
+var sUserAgent = navigator.userAgent.toLowerCase();
+var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+var bIsAndroid = sUserAgent.match(/android/i) == "android";
+var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+var bIsMobile = bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM;
+if(bIsMobile){
+	try{
+		var loc = window.location.toString().split("/");
+		var bhdir = loc[5].replace(".shtml","").split("_");
+		var bhnum = bhdir[0].split("?");
+		//window.location = "//3g.7m.com.cn/news/content/"+loc[4].substr(0,6)+"/"+loc[5].replace(".shtml","")+"/1.html";
+		//window.location = "//m.7m.com.cn/news/article.php?"+loc[4]+"_"+bhnum[0];
+	}catch(e){
+	}
+	
+}
+</script>
+
+<script language="javascript" src="//data.7m.com.cn/analyse/gb/nline_up/5097321.js"></script>
+<script language="javascript">
+function ImageResize(img,width,height)
+{
+	var tmpImg = new Image();
+	tmpImg.src = img.src;
+	var oW,oH;
+	oW=tmpImg.width;
+	oH=tmpImg.height;
+	if(tmpImg.width>width)
+	{
+		img.width=width;
+		img.height=tmpImg.height=oH*width/oW;
+		
+	}
+	if(tmpImg.height>height)
+	{
+		img.height=height;
+		img.width=oW*height/oH;
+	}
+	img.style.display= "";
+}
+</script>
+</head>
+<body>
+<script type="text/javascript" src="//check.7m.com.cn/acpl.aspx"></script>
+<script type="text/javascript" src="//static.7m.com.cn/js/database/os_hidden_flag.js"></script>
+
+<div class="t_bg_t">
+    <div class="header">
+        <div class="t_menu">
+            <div style="float:left; margin-left:10px;">
+                <a href="//www.7m.com.cn/" class="white_lnk12">7M首页</a>
+            </div>
+        </div>
+        <div class="m_menu">
+            <div class="t_m_logo"><a href="//news.7m.com.cn/"><img src="/images/news_logo.gif?v2" border="0"></a>
+            </div>
+            <div class="t_m_text">
+                <table border="0" cellpadding="2" cellspacing="0" width="100%" class="head">
+                    <tr>
+                        <td width="100%">
+                            <div id="divMenu1" style="position: absolute; display: none;"></div>
+                            <div id="divMenu2" style="position: absolute; display: none; "></div>
+                            <div id="divMenu">
+                                <table border="0" width="100%" align="right">
+                                    <tr>
+                                        <td class="head1">
+                                            <a href="//bf.7m.com.cn/" target="_blank" onmouseover="ShowMenu(this)" style="position:relative" onmouseout="CloseMenu()">足球比分</a>|
+                                            <a href="//data.7m.com.cn/result_data/index_gb.shtml" target="_blank">足球完场</a>|
+                                            <a href="//data.7m.com.cn/fixture_data/default_gb.shtml?date=1" target="_blank">足球赛程</a>|
+                                            <a href="//news.7m.com.cn/" target="_blank">足球资讯</a>|
+                                            <a href="//data.7m.com.cn/database/index_gb.htm" target="_blank">资料库</a>|
+                                            <a href="//freelive.7m.com.cn/apply_jt.shtm" target="_blank">免费调用</a>|
+                                            <a href="https://app2.7mtc.com/soccer/" target="_blank">APP下载</a>|
+                                            <a href="//www.7m.com.cn/2026worldcup/" target="_blank" style="color: #ff0000;">2026世界杯</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="head2">
+                                            <a href="//basket.7m.com.cn/default_gb.aspx" target="_blank">篮球比分</a>|
+                                            <a href="//bdata.7m.com.cn/Result_data/index_gb.htm" target="_blank">篮球完场</a>|
+                                            <a href="//bdata.7m.com.cn/Fixture_data/default_gb.aspx?date=1" target="_blank">篮球赛程</a>|
+                                            <a href="//lq.7m.com.cn/" target="_blank">篮球资讯</a>|
+                                            <a href="//bab.7m.com.cn/default_gb.aspx" target="_blank">棒球比分</a>|
+                                            <a href="//amf.7m.com.cn/default_gb.aspx" target="_blank">美式足球比分</a>|
+                                            <a href="//tennis.7m.com.cn/" target="_blank">网球比分</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <script language="javascript">
+                                    showheader();
+                                </script>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        if ((typeof (WORDS_HIDDEN_ALL) != 'undefined' && WORDS_HIDDEN_ALL.BASE_HIDDEN_ALL != true) || os_hidden_flag != 'true') {
+            //$("#header_odds0,#header_odds1,#header_odds2,#header_odds3,#header_odds4").show();
+            //$("#header_span0,#header_span1,#header_span2,#header_span3,#header_span4").show();
+        }
+    });
+</script> 
+<div class="menu">
+    <ul>
+        <li class="m_li">
+            <a href="/index.shtml">首页</a>
+        </li>
+        <li class="m_li">
+            <a href="/list/1/index.shtml">国际足球</a>
+        </li>
+        <li class="m_li">
+            <a href="/list/2/index.shtml">中国足球</a>
+        </li>
+        <li class="m_li">
+            <a href="/list/3/index.shtml">转会动态</a>
+        </li>
+        <li class="m_li">
+            <a href="/list/5/index.shtml">赛前分析</a>
+        </li>
+        <li class="m_li">
+            <a href="/list/7m/index.shtml">7M制造</a>
+        </li>
+        <li class="m_li_a">
+            <a href="/prediction/index.shtml">赛事推介</a>
+        </li>
+        <li class="m_li">
+            <a href="/report/index_gb.shtml">足球情报</a>
+        </li>
+        <li class="rss_li" style="width: 50px;">
+            <a href="/rss.xml" target="_blank">
+                <img src="/images/rss.gif">
+            </a>
+        </li>
+        <li class="rss_li" style="width: 118px;padding-top: 6px;">
+            <a href="//www.7m.com.cn/2026worldcup/" target="_blank">
+                <img src="//img.7mdt.com/bf/wc2026_n.png">
+            </a>
+        </li>
+    </ul>
+</div>
+<div>
+    <ul class="smenu">
+    </ul>
+</div>
+
+<div class="news">
+	<div class="n_t">
+		<div class="n_tz">
+			<div class="ad_a"><!--a href="https://item.taobao.com/item.htm?spm=a1z09.5.0.0.pnPcJg&id=525150678850&_u=fjqovg9ec43" rel="nofollow" target="_blank" title="T1" style="display:block;height:40px;margin-bottom:10px;"><img src="//7mad.7m.com.cn/taobao_714x40_20160317.gif" width="710" height="40" border="0" /></a--></div>
+			<div class="ny_bt"> 您的位置:<a href="/index.shtml">7M足球新闻</a>&gt; 赛事推介 </div>
+			<div class="ny_pr">
+				<div class="p_list">
+					<div class="prd_d_ob">
+						<div class="p_team_l"><a href="//team.7m.com.cn/252/index_gb.shtml" target="_blank">马拉加</a><br /><span class="o_d">[和]</span><span class="o_l">[负]</span><span class="o_w">[胜]</span><span class="o_d">[和]</span><span class="o_d">[和]</span><span class="o_w">[胜]</span></div>
+						<div class="p_t_img"><img src="//data.7m.com.cn/team_data/252/logo_img/club_logo.jpg" alt="马拉加" onload="ImageResize(this,45,45)" style="display:none"  border="0"/></div>
+						<div class="p_t_vs">VS</div>
+						<div class="p_t_img"><img src="//data.7m.com.cn/team_data/307/logo_img/club_logo.jpg" alt="拉科鲁尼亚" onload="ImageResize(this,45,45)"  style="display:none"  border="0"/></div>
+						<div class="p_team_r"><a href="//team.7m.com.cn/307/index_gb.shtml" target="_blank">拉科鲁尼亚</a><br /><span class="o_l">[负]</span><span class="o_w">[胜]</span><span class="o_d">[和]</span><span class="o_d">[和]</span><span class="o_w">[胜]</span><span class="o_d">[和]</span></div>
+					</div>
+					<div class="p_t_bar"> 
+						<span style="" id="spnTime">2026-08-25 03:30</span> | 
+						<a href="//analyse.7m.com.cn/5097321/index_gb.shtml" target="_blank">往绩分析</a> | 
+						<a href="https://data.7m.com.cn/goaldata/jt/5097321.shtml" target="_blank">现场赛事情况</a>
+						 
+					</div>
+					<div class="tb_io_b"> 
+						
+						<p><strong>澳门推介： </strong>马拉加 (★★★★)</p><p>两队上赛季都在西乙征战，彼此间瞭解程度更深，而且马拉加在近6次西乙面对拉科鲁尼亚录得3胜3和，此番来到西甲赛场对决，马拉加当然希望凭藉对赛优势取得关键的3分。</p> 
+					</div>
+					<div id="divLineup" style="display:none">
+						<table width="688" border="0" cellspacing="0" cellpadding="0" class="p_zr_tb">
+							<tr class="pred_zrt">
+								<td id="e_lineup_h">马拉加 阵型: </td>
+								<td id="e_lineup_a">拉科鲁尼亚 阵型: </td>
+							</tr>
+						</table>
+						<table border="1" cellspacing="0" cellpadding="0" class="pred_zr" id="lineup_tb">
+							<tr class="zr_t1">
+								<td colspan="3" width="344">马拉加 </td>
+								<td colspan="3" width="344">拉科鲁尼亚 </td>
+							</tr>
+							<tr class="zr_sm">
+								<td colspan="3">守门</td>
+								<td colspan="3">守门</td>
+							</tr>
+							<tr class="zr_mj">
+								<td colspan="3" id="lineup_A1"></td>
+								<td colspan="3" id="lineup_B1"></td>
+							</tr>
+							<tr class="zr_title">
+								<td>前锋</td>
+								<td>中场</td>
+								<td>后卫</td>
+								<td>前锋</td>
+								<td>中场</td>
+								<td>后卫</td>
+							</tr>
+							<tr class="zr_nlst">
+								<td id="lineup_A2" class="bg1"></td>
+								<td id="lineup_A3" class="bg2"></td>
+								<td id="lineup_A4" class="bg1"></td>
+								<td id="lineup_B2" class="bg2"></td>
+								<td id="lineup_B3" class="bg1"></td>
+								<td id="lineup_B4" class="bg2"></td>
+							</tr>
+							<tr class="sfzr" style="display:none" id="Line_Age">
+								<td colspan="3"><strong>首发球员平均年龄:<span id="lineup_age1">0</span></strong></td>
+								<td colspan="3"><strong>首发球员平均年龄: <span id="lineup_age2">0</span></strong></td>
+							</tr>
+							<tr class="pre_bz">
+								<td colspan="6"><span class="tl5">红色：首发球员</span>  |  <span class="tl0">蓝色：后备球员</span>  |  <span class="tl1">黑色：停赛球员</span>  |  <span class="tl2">灰色：伤病球员</span>  |  <span class="tl4">绿色：其它原因缺阵球员</span></td>
+							</tr>
+						</table>
+						<script language="javascript" src="/js/lineup.js"></script> 
+					</div>
+					
+				</div>
+			</div>
+			<!----> 
+		</div>
+		<div class="n_ty"> 
+			<!--div class="yb_ggk" style="padding:0 0 3px 0;"><a href="//m.7m.com.cn/news/" target="_blank"><img src="//7mad.7m.com.cn/s/news_r1.jpg" border="0"></a></div-->
+<!--div class="yb_ggk" style="padding:3px 0 3px 0;"><a href="//news.7m.com.cn/report/index_gb.shtml"  rel="nofollow" title="R2" target="_blank" style="display: block;"><img src="//7mad.7m.com.cn/zxny_250_70.gif" border="0"></a></div-->
+
+<script>
+function CheckIsPhone(posa, posi, posn, posw, urla, urli, urln, urlw) {
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    var isWeixin = window.navigator.userAgent.toLowerCase().match(/MicroMessenger/i);
+    var a = '';
+    if(isAndroid && isWeixin != 'micromessenger'){
+        a = urla;
+    }else if(isiOS && isWeixin != 'micromessenger'){
+        a = urli;
+    }else if(isWeixin == 'micromessenger'){
+        a = urlw;
+    }else{
+        a = urln;
+    }
+    window.open(a);
+}
+</script> 
+			<!---->
+			<script type="text/javascript">
+    function changePLeague(value) {
+        if (value != "0") window.location.href = "/prediction/" + value + "/";
+    }
+</script>
+<div style="" class="b_b"><strong class="fx_z">赛事</strong></div>
+<div style="padding:0;" class="ny_tt">
+    <table width="100%" cellspacing="0" cellpadding="0" border="0" class="pred_l_tb">
+        <tr>
+            <td><a href="/prediction/engpr/" title="英格兰超级联赛"><img alt="英格兰超级联赛" src="/images/pred/92.gif"></a></td>
+            <td><a href="/prediction/itad1/" title="意大利甲级联赛"><img alt="意大利甲级联赛" src="/images/pred/34.gif"></a></td>
+            <td><a href="/prediction/spad1/" title="西班牙甲级联赛"><img alt="西班牙甲级联赛" src="/images/pred/85.gif"></a></td>
+            <td><a href="/prediction/gerd1/" title="德国甲级联赛"><img alt="德国甲级联赛" src="/images/pred/39.gif"></a></td>
+        </tr>
+        <tr>
+            <td><a href="/prediction/frad1/" title="法国甲级联赛"><img alt="法国甲级联赛" src="/images/pred/93.gif"></a></td>
+            <td><a href="/prediction/affsc/" title="东南亚足球锦标赛(铃木杯)"><img alt="东南亚足球锦标赛(铃木杯)" src="/images/pred/243.gif"></a>
+            </td>
+            <td><a href="/prediction/uefacl/" title="欧洲联赛冠军杯"><img alt="欧洲联赛冠军杯" src="/images/pred/74.gif"></a></td>
+            <td><a href="/prediction/uefael/" title="欧罗巴联赛"><img alt="欧罗巴联赛" src="/images/pred/58.gif"></a></td>
+        </tr>
+        <tr>
+            <td><a href="/prediction/hold1/" title="荷兰甲级联赛"><img alt="荷兰甲级联赛" src="/images/pred/99.gif"></a></td>
+            <td><a href="/prediction/brad1/" title="巴西甲组联赛"><img alt="巴西甲组联赛" src="/images/pred/160.gif"></a></td>
+            <td><a href="/prediction/scopr/" title="苏格兰超级联赛"><img alt="苏格兰超级联赛" src="/images/pred/76.gif"></a></td>
+            <td><a href="/prediction/pord1/" title="葡萄牙超級联赛"><img alt="葡萄牙超級联赛" src="/images/pred/88.gif"></a></td>
+        </tr>
+        <tr>
+            <td><a href="/prediction/argd1/" title="阿根廷甲组联赛"><img alt="阿根廷甲组联赛" src="/images/pred/108.gif"></a></td>
+            <td><a href="/prediction/turd1/" title="土耳其超級联赛"><img alt="土耳其超級联赛" src="/images/pred/180.gif"></a></td>
+            <td><a href="/prediction/ausd1/" title="澳大利亚甲级联赛"><img alt="澳大利亚甲级联赛" src="/images/pred/339.gif"></a></td>
+            <td><a href="/prediction/usamls/" title="美国职业大联盟联赛"><img alt="美国职业大联盟联赛" src="/images/pred/107.gif"></a>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="/prediction/autd1/" title="奥地利甲组联赛"><img alt="奥地利甲组联赛" src="/images/pred/130.gif"></a></td>
+            <td><a href="/prediction/rusd1/" title="俄罗斯超级联赛"><img alt="俄罗斯超级联赛" src="/images/pred/165.gif"></a></td>
+            <td><a href="/prediction/engfac/" title="英格兰足总杯"><img alt="英格兰足总杯" src="/images/pred/55.gif"></a></td>
+            <td><a href="/prediction/itacup/" title="意大利杯"><img alt="意大利杯" src="/images/pred/332.gif"></a></td>
+        </tr>
+        <tr>
+            <td><a href="/prediction/spacup/" title="西班牙国王杯"><img alt="西班牙国王杯" src="/images/pred/54.gif"></a></td>
+            <td><a href="/prediction/gerc/" title="德国杯"><img alt="德国杯" src="/images/pred/52.gif"></a></td>
+            <td><a href="/prediction/frac/" title="法国杯"><img alt="法国杯" src="/images/pred/101.gif"></a></td>
+            <td><a href="/prediction/bracup/" title="巴西杯"><img alt="巴西杯" src="/images/pred/266.gif"></a></td>
+        </tr>
+    </table>
+    <div class="md_foot">
+        <table cellspacing="0" cellpadding="0" class="ss_sel">
+            <tbody>
+            <tr>
+                <td class="ss_s_r">
+                    <select onchange="changePLeague(this.value)" id="sp_League">
+                        <option value="0">选择赛事</option>
+                        <option value="engpr">英格兰超级联赛</option>
+                        <option value="itad1">意大利甲级联赛</option>
+                        <option value="spad1">西班牙甲级联赛</option>
+                        <option value="gerd1">德国甲级联赛</option>
+                        <option value="frad1">法国甲级联赛</option>
+                        <option value="affsc">东南亚足球锦标赛(铃木杯)</option>
+                        <option value="uefacl">欧洲联赛冠军杯</option>
+                        <option value="uefael">欧罗巴联赛</option>
+                        <option value="hold1">荷兰甲级联赛</option>
+                        <option value="brad1">巴西甲组联赛</option>
+                        <option value="scopr">苏格兰超级联赛</option>
+                        <option value="pord1">葡萄牙超級联赛</option>
+                        <option value="argd1">阿根廷甲组联赛</option>
+                        <option value="turd1">土耳其超級联赛</option>
+                        <option value="ausd1">澳大利亚甲级联赛</option>
+                        <option value="usamls">美国职业大联盟联赛</option>
+                        <option value="autd1">奥地利甲组联赛</option>
+                        <option value="rusd1">俄罗斯超级联赛</option>
+                        <option value="engfac">英格兰足总杯</option>
+                        <option value="itacup">意大利杯</option>
+                        <option value="spacup">西班牙国王杯</option>
+                        <option value="gerc">德国杯</option>
+                        <option value="frac">法国杯</option>
+                        <option value="bracup">巴西杯</option>
+                        <option value="engcc">英格兰联赛杯</option>
+                        <option value="interf">国际友谊赛</option>
+                        <option value="euro">欧洲足球锦标赛</option>
+                        <option value="other">其它赛事</option>
+                    </select>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="clear"></div>
+<script type="text/javascript">if (typeof(Prediction_League) != "undefined") {
+    document.getElementById("sp_League").value = Prediction_League;
+}</script>
+ 
+			<!---->
+			<div class="ad_c"> 
+				<!-- content.b --> 
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<div class="bottom">
+  <div class="bottom_a">
+   <a href="javascript:" onclick="window.open('//help.7m.com.cn/sm_gb.htm','','width=560,height=260,scrollbars=yes');">本站声明</a>|
+
+    <a href="javascript:" onclick="window.open('//help.7m.com.cn/jump.aspx?l=gb&page=sentmessage&t=0','','width=450,height=528,scrollbars=yes');">联系我们</a>|
+
+    <a href="javascript:" onclick="window.open('//help.7m.com.cn/jump.aspx?l=gb&page=sentmessage&t=1','','width=450,height=528,scrollbars=yes');">报告错误</a>|
+
+    <a href="//sitemap.7m.com.cn/" target="_blank">网站导航</a>|
+
+    <a href="#top">返回页顶</a>
+  </div>
+  <p>提醒：第三方机构可能在7M体育宣传他们的产品或服务，7M体育将不保证其宣传信息的准确。
+<br />您跟第三方机构的任何交易与7M体育无关，7M体育将不会对可能引起的任何损失负责。
+<br />Copyright © 2003 - <script language="javascript">document.write((new Date()).getFullYear());</script> 版权所有 www.7m.com.cn All Rights Reserved. 保留全部权利.
+</p>
+<a href="//www.miibeian.gov.cn/" target="_blank">粤ICP备08004827号</a>
+</div>
+<div style="position:absolute;display:none; width:300px; height:100px;filter:alpha(opacity=80); opacity: 0.8;z-index:999;" id="divTip" onmouseover="clearTimeout(timer);this.style.display=''" onmouseout="timer=setTimeout('hideTip()',1000)" >
+	<div id="tipbj1"></div>
+	<div id="tipbg1" >
+		<a target="_blank" id="a1" style="padding-left: 20px;">本站搜索<font style="color:#FF0000;font-weight:bold" id="f1"></font>的资料</a><br />
+		<a target="_blank" id="a2" style="background: url(//img.7m.com.cn/img7/sicon1.gif) no-repeat left;padding-left: 20px;">搜索百度关于<font style="color:#FF0000;font-weight:bold" id="f2"></font>的新闻</a><br />
+		<a target="_blank" id="a3" style="background: url(//img.7m.com.cn/img7/sicon2.gif) no-repeat left;padding-left: 20px;">搜索Google关于<font style="color:#FF0000;font-weight:bold" id="f3"></font>的新闻</a>
+	</div>
+	<div id="tipbj2"></div>
+</div>
+<script type="text/javascript" src="/js/1.1/newstip.js?v=24.6.11"></script>
+<div style="display:none">
+    <script type="text/javascript" src="//count.7m.com.cn/count.js"></script>
+    <script>
+        var loc = window.location.toString();
+        //新闻
+        if (loc.indexOf("/news/") != -1) {
+            var regMatch = /([0-9]+).shtml/.exec(loc);
+            if (regMatch != null) {
+                document.write('<script type="text/javascript" src="https://count.7mdt.com/flowstats/count.js?type=3&lang=1&dataId=' + regMatch[1] + '"><\/script>');
+            }
+        }
+        //推介
+        if (loc.indexOf("/prediction/data/") != -1) {
+            var regMatch = /([0-9]+).shtml/.exec(loc);
+            if (regMatch != null) {
+                document.write('<script type="text/javascript" src="https://count.7mdt.com/flowstats/count.js?type=5&lang=1&dataId=' + regMatch[1] + '"><\/script>');
+            }
+        }
+    </script>
+</div>
+<!-- designed on 2010-11-15, by fhx,xy,wdf, ver 1.1.0 -->
+</body>
+</html>
+<script type="text/javascript" language="javascript" src="//7m.com.cn/js/addmessagediv.js?l=gb" id="spt_message"></script>

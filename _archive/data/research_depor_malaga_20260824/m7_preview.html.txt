@@ -1,0 +1,1008 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="//www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>鍗囩彮棣嫝鍧囧姏鏁靛崥鍜屽眬 - 7M瓒崇悆鏂伴椈</title>
+    <meta name="keywords" content="棣媺鍔?鎷夌榄凹浜?>
+    <meta name="description" content="鍗囩彮棣嫝鍧囧姏鏁靛崥鍜屽眬">
+    <link href="/css/1.1/style.css?1695" rel="stylesheet" type="text/css" />
+<link href="/css/1.1/nav.css" rel="stylesheet" type="text/css" />
+<link href="/css/1.1/ny.css" rel="stylesheet" type="text/css" />
+<link href="/css/1.1/tipbj.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/header.js"></script>
+<script type="text/javascript" src="/js/1.1/search.js"></script>
+<script type="text/javascript" src="/js/1.1/scrollimg.js"></script>
+<script type="text/javascript" src="/js/1.1/commom.js"></script>
+<script type="text/javascript" src="/js/1.1/vote.js"></script>
+<!--[if IE 6]>
+<script type="text/javascript" src="/js/1.1/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript">
+	DD_belatedPNG.fix('.icos,.play,.play_btn,.tim,.pure');
+</script>
+<![endif]-->
+<script>
+var sUserAgent = navigator.userAgent.toLowerCase();
+var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+var bIsAndroid = sUserAgent.match(/android/i) == "android";
+var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+var bIsMobile = bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM;
+if(bIsMobile){
+	try{
+		var loc = window.location.toString().split("/");
+		var bhdir = loc[5].replace(".shtml","").split("_");
+		var bhnum = bhdir[0].split("?");
+		//window.location = "//3g.7m.com.cn/news/content/"+loc[4].substr(0,6)+"/"+loc[5].replace(".shtml","")+"/1.html";
+		//window.location = "//m.7m.com.cn/news/article.php?"+loc[4]+"_"+bhnum[0];
+	}catch(e){
+	}
+	
+}
+</script>
+
+    
+    <script>var playCorr = '5097321';</script>
+</head>
+<body oncontextmenu="return false" onselectstart="return false" oncopy="return false">
+<script type="text/javascript" src="//check.7m.com.cn/acpl.aspx"></script>
+<script type="text/javascript" src="//static.7m.com.cn/js/database/os_hidden_flag.js"></script>
+
+<div class="t_bg_t">
+    <div class="header">
+        <div class="t_menu">
+            <div style="float:left; margin-left:10px;">
+                <a href="//www.7m.com.cn/" class="white_lnk12">7M棣栭〉</a>
+            </div>
+        </div>
+        <div class="m_menu">
+            <div class="t_m_logo"><a href="//news.7m.com.cn/"><img src="/images/news_logo.gif?v2" border="0"></a>
+            </div>
+            <div class="t_m_text">
+                <table border="0" cellpadding="2" cellspacing="0" width="100%" class="head">
+                    <tr>
+                        <td width="100%">
+                            <div id="divMenu1" style="position: absolute; display: none;"></div>
+                            <div id="divMenu2" style="position: absolute; display: none; "></div>
+                            <div id="divMenu">
+                                <table border="0" width="100%" align="right">
+                                    <tr>
+                                        <td class="head1">
+                                            <a href="//bf.7m.com.cn/" target="_blank" onmouseover="ShowMenu(this)" style="position:relative" onmouseout="CloseMenu()">瓒崇悆姣斿垎</a>|
+                                            <a href="//data.7m.com.cn/result_data/index_gb.shtml" target="_blank">瓒崇悆瀹屽満</a>|
+                                            <a href="//data.7m.com.cn/fixture_data/default_gb.shtml?date=1" target="_blank">瓒崇悆璧涚▼</a>|
+                                            <a href="//news.7m.com.cn/" target="_blank">瓒崇悆璧勮</a>|
+                                            <a href="//data.7m.com.cn/database/index_gb.htm" target="_blank">璧勬枡搴?/a>|
+                                            <a href="//freelive.7m.com.cn/apply_jt.shtm" target="_blank">鍏嶈垂璋冪敤</a>|
+                                            <a href="https://app2.7mtc.com/soccer/" target="_blank">APP涓嬭浇</a>|
+                                            <a href="//www.7m.com.cn/2026worldcup/" target="_blank" style="color: #ff0000;">2026涓栫晫鏉?/a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="head2">
+                                            <a href="//basket.7m.com.cn/default_gb.aspx" target="_blank">绡悆姣斿垎</a>|
+                                            <a href="//bdata.7m.com.cn/Result_data/index_gb.htm" target="_blank">绡悆瀹屽満</a>|
+                                            <a href="//bdata.7m.com.cn/Fixture_data/default_gb.aspx?date=1" target="_blank">绡悆璧涚▼</a>|
+                                            <a href="//lq.7m.com.cn/" target="_blank">绡悆璧勮</a>|
+                                            <a href="//bab.7m.com.cn/default_gb.aspx" target="_blank">妫掔悆姣斿垎</a>|
+                                            <a href="//amf.7m.com.cn/default_gb.aspx" target="_blank">缇庡紡瓒崇悆姣斿垎</a>|
+                                            <a href="//tennis.7m.com.cn/" target="_blank">缃戠悆姣斿垎</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <script language="javascript">
+                                    showheader();
+                                </script>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="clr"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        if ((typeof (WORDS_HIDDEN_ALL) != 'undefined' && WORDS_HIDDEN_ALL.BASE_HIDDEN_ALL != true) || os_hidden_flag != 'true') {
+            //$("#header_odds0,#header_odds1,#header_odds2,#header_odds3,#header_odds4").show();
+            //$("#header_span0,#header_span1,#header_span2,#header_span3,#header_span4").show();
+        }
+    });
+</script>
+<div class="menu"><ul><li class="m_li"><a href="/index.shtml">棣栭〉</a></li><li class="m_li"><a href="/list/1/index.shtml">鍥介檯瓒崇悆</a></li><li class="m_li"><a href="/list/2/index.shtml">涓浗瓒崇悆</a></li><li class="m_li"><a href="/list/3/index.shtml">杞細鍔ㄦ€?/a></li><li class="m_li_a"><a href="/list/5/index.shtml">璧涘墠鍒嗘瀽</a></li><li class="m_li"><a href="/list/7m/index.shtml">7M鍒堕€?/a></li><li class="m_li"><a href="/prediction/index.shtml">璧涗簨鎺ㄤ粙</a></li><li class="m_li"><a href="/report/index_gb.shtml">瓒崇悆鎯呮姤</a></li><li class="rss_li" style="width: 50px;"><a href="/rss.xml" target="_blank"><img src="/images/rss.gif"></a></li><li class="rss_li" style="width: 118px;padding-top: 6px;"><a href="//www.7m.com.cn/2026worldcup/" target="_blank"><img src="//img.7mdt.com/bf/wc2026_n.png"></a></li></ul></div><div>
+			<ul class="smenu">
+			<li class="s_li">
+			<a href="/list/31/index.shtml" class="">鍒嗘瀽</a><a href="/list/28/index.shtml" class="">鐮旂┒</a><a href="/list/29/index.shtml" class="">璐村＋</a><a href="/list/30/index.shtml" class="">鏀荤暐</a></li></ul></div>
+<div class="news">
+    <div class="n_t">
+        <div class="n_tz">
+            <div class="ad_a"><!--a href="https://item.taobao.com/item.htm?spm=a1z09.5.0.0.pnPcJg&id=525150678850&_u=fjqovg9ec43" rel="nofollow" target="_blank" title="T1" style="display:block;height:40px;margin-bottom:10px;"><img src="//7mad.7m.com.cn/taobao_714x40_20160317.gif" width="710" height="40" border="0" /></a--></div>
+            <div class="ny_bt"> 鎮ㄧ殑浣嶇疆:<a href="/index.shtml">7M瓒崇悆鏂伴椈</a>&gt; <a href="/list/5/index.shtml">璧涘墠鍒嗘瀽</a>&gt;
+                <a href="/list/30/index.shtml">鏀荤暐</a>   &gt;
+                姝ｆ枃
+            </div>
+            <div class="ny_zw">
+                <div class="zw_bt">
+                    <p class="ba">鍗囩彮棣嫝鍧囧姏鏁靛崥鍜屽眬</p>
+                    <p class="bb"><a href="//www.7m.com.cn" target="_blank">www.7m.com.cn</a> &nbsp;&nbsp;2026骞?8鏈?3鏃?                        &nbsp;&nbsp;鏉ユ簮锛氶兘甯傛棩鎶?</p>
+                </div>
+                <div class="zw"> 銆€銆€鎺ㄤ粙:&nbsp;&nbsp;涓诲鍜?nbsp;鈥?nbsp;鍜屽眬<br />
+銆€銆€鎺ㄤ粙:&nbsp;&nbsp;鍗婂牬涓诲鍜?nbsp;鈥?nbsp;瀹㈠嫕<br />
+<br />
+銆€銆€杌嶆儏&nbsp;<br />
+<br />
+銆€銆€棣媺鍔犱笂浠楄伅璩戒互銆?-1-4-1銆嶉櫍寮忓嚭鎴帮紝鍌欏彈鏈熷緟鐨勫墠閶掔姣旇开琛ㄧ従浠や汉澶辨湜锛屽垵娆℃寫鎴拌タ鐢诧紝鏆檪鏈鐝紝浣嗕粖鍫存渻绻肩簩鎿旀鎺涘弗銆備腑鍫磋壘鏈楀ェ绁栦簽娉㈢洠鍒戞豢锛屼粖鍫村彲浠ュ京鍑烘摂姝ｏ紝鍔犲挤鏀诲畧鑱公銆傜悆闅婇槻绶氫笂浠楃櫦鎻竴鑸紝涓爡瀹夌鍒楁柉濂ц〃鐝炬瑺浣筹紝鐢╂紡涓嶅皯銆?br />
+<br />
+銆€銆€鎷夌榄凹浜炰笂浠楄伅璩戒互銆?-2-3-1銆嶉櫍寮忎綔鎴帮紝鎿旀鎺涘弗鐨勬槸鏂板叺鍓嶉嫆濂у反缇庢彋锛涢€欎綅鍚嶅皣鍓嶉嫆鐐虹悆闅婂厛闁嬬磤閷勶紝鐩￠’灏勬墜鏈壊锛屽鍒€鏈€併€傚彟涓€鏂板叺闁€灏囧凹濂ф礇鏂囧悓鍫村乏椋涘彸鎾诧紝灞㈡晳闅悆锛岃〃鐝惧嚭鑹诧紝浠ら槻绶氳畩绌┿€?br />
+<br />
+銆€銆€棣媺鍔?br />
+銆€銆€鍙楀偡锛氳不铇害鍗″埄璺紙寰岃锛夈€佺﹩娌欒开浜炶矾锛堝緦琛涳級銆佽开楂樻鍒╄矾锛堝緦琛涳級銆佹鐨紙涓牬锛夈€侀樋绁栧畨閫ｅゴ锛堝墠閶掞級<br />
+銆€銆€鍋滆辰锛氾紡<br />
+<br />
+銆€銆€鎷夌榄凹浜?br />
+銆€銆€鍙楀偡锛氳矾鐖惧崱鍒╄矾锛堜腑鍫达級銆佽€跺埄缇庨澊鍗楄开鏂紙鍓嶉嫆锛?br />
+銆€銆€鍋滆辰锛氾紡<br />
+<br />
+銆€銆€杩戞硜&nbsp;<br />
+<br />
+銆€銆€鍗囩彮棣皪鎴般€傞Μ鎷夊姞涓婁粭鑱辰娣ㄥ悶棣痉閲岄珨鑲叉渻鍏╄泲锛屾埌鍔涙湁寰呮彁鍗囷紝鐙€鎱嬫湭瓒筹紝浠婂牬鍥炲斧涓诲牬锛屼篃缂轰箯璐忔尝鏈將锛屾渻鍏堟眰鍋氬ソ闃插畧姹傚嫕銆傛媺绉戦灏间簽涓婁粭鑱辰鑸囪壘鐖惧垏鎵撳拰1姣?锛岃〃鐝惧悎鏍硷紝鏁撮珨瀵﹀姏鏈绐佸嚭锛岃繎骞翠氦鎵嬬◢铏曚笅棰紝浠婂牬瀹㈡埌闆ｄ綌鍎嫝銆傞洐鏂瑰悇鏈夌己榛烇紝浠婂牬鍙竴瑭﹀拰灞€銆傛媺绉戦灏间簽鏈夐爞绱氬皠鎵嬪闄ｏ紝鏈夊姏绻间笂鎴颁竴妯ｏ紝鍦ㄤ笂鍗婂牬鍙栧緱闋樺厛锛屻€屽崐鍫淬€嶅鍕濅害鍙吋鍙栥€?br />
+<br />
+銆€銆€寰€绺?br />
+<br />
+銆€銆€?闆欐柟杩?娆′氦鎵嬶紝棣媺鍔?鍕?鍜岋紱涓婃1姣?锛屼笂娆′氦鎵嬭鐞?0鍊嬨€?br />
+&nbsp;
+                    
+                </div>
+                <!--鏂囧瓧-->
+                
+                <!--鎶曠エ-->
+                
+                <div class="ny_tbox">
+                    <p class="bc" style="display:;">鏇村鍏充簬"<a href="https://www.baidu.com/s?wd=%E9%A6%AC%E6%8B%89%E5%8A%A0+site%3Anews.7m.com.cn" target="_blank">棣媺鍔?/a> <a href="https://www.baidu.com/s?wd=%E6%8B%89%E7%A7%91%E9%AD%AF%E5%B0%BC%E4%BA%9E+site%3Anews.7m.com.cn" target="_blank">鎷夌榄凹浜?/a>"鐨勬柊闂?</p>
+                    <!--    <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare" t="baidu">-->
+<!--        <span class="bds_more">鍒嗕韩鍒帮細</span>-->
+<!--        <a class="bds_qzone"></a>-->
+<!--        <a class="bds_tsina"></a>-->
+<!--        <a class="bds_tqq"></a>-->
+<!--        <a class="bds_renren"></a>-->
+<!--		<a class="shareCount"></a>-->
+<!--    </div>-->
+
+<!--<div class="wb_box" t="7m" style="display:none;">-->
+<!--	<span class="more_wb icos" title="鍒嗕韩鏇村"></span>-->
+<!--	<span class="qqkj icos" title="鑵捐QQ绌洪棿"></span>-->
+<!--	<span class="wy_wb icos" title="缃戞槗寰崥"></span>-->
+<!--	<span class="xl_wb icos" title="鏂版氮寰崥"></span>-->
+<!--	<span class="tx_wb icos" title="鑵捐寰崥"></span>-->
+<!--	<span>鍒嗕韩鍒帮細</span>-->
+<!--</div>-->
+<!--<div id="share_more" class="m_share" style="z-index: 100;position: absolute;right: 0; top: 68px; display:none;">-->
+<!--	<div class="m_share_box">-->
+<!--		<div class="share_b_t"><span class="share_bt">鍒嗕韩鍒?..</span></div>-->
+<!--		<div class="icos_box">-->
+<!--			<ul>-->
+<!--				<li><a href="javascript:share_to(5);" class="icotitle" ><span class="rrw icos" title="浜轰汉缃?>浜轰汉缃?/span></a></li>-->
+<!--				<li><a href="javascript:share_to(6);" class="icotitle" ><span class="bdsc icos" title="鐧惧害鎼滆棌">鐧惧害鎼滆棌</span></a></li>-->
+<!--				<li><a href="javascript:share_to(7);" class="icotitle" ><span class="mptk icos" title="鐚墤鎺ㄥ">鐚墤鎺ㄥ</span></a></li>-->
+<!--				<li><a href="javascript:share_to(8);" class="icotitle" ><span class="db icos" title="璞嗙摚">璞嗙摚</span></a></li>-->
+<!--				<li><a href="javascript:share_to(9);" class="icotitle" ><span class="fhwb icos" title="鍑ゅ嚢寰崥">鍑ゅ嚢寰崥</span></a></li>-->
+<!--				<li><a href="javascript:share_to(10);" class="icotitle" ><span class="msn icos" title="MSN">MSN</span></a></li>-->
+<!--				<li><a href="javascript:share_to(11);" class="icotitle" ><span class="tjh icos" title="娣樻睙婀?>娣樻睙婀?/span></a></li>-->
+<!--				<li><a href="javascript:share_to(12);" class="icotitle" ><span class="pyw icos" title="鏈嬪弸缃?>鏈嬪弸缃?/span></a></li>-->
+<!--				<div class="clear"></div>-->
+<!--			</ul>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--</div>-->
+<div class="clear"></div>
+
+                </div>
+                <!--鏇村鍏充簬缁撴潫-->
+                <div class="ad_e">
+                    <!-- content.a -->
+                </div>
+                <!--鐩稿叧鎺ㄤ粙-->
+<style>
+    .clearfix {
+        display: block;
+    }
+
+    .more_a {
+        font-size: 12px;
+        color: #323232;
+        position: absolute;
+        right: 10px;
+        height: 30px;
+        line-height: 28px;
+        font-weight: normal;
+        background: url('/images/icon_right.png') no-repeat right center;
+        padding-right: 12px
+    }
+
+    /* 鍒楄〃 */
+    .infoUl {
+        padding-bottom: 20px;
+        width: 650px;
+        margin: 0 auto;
+    }
+
+    .infoUl ul {
+        padding-top: 10px;
+    }
+
+    .infoUl ul li {
+        border: 1px solid #e8e8e8;
+        padding: 0 20px;
+        background-color: #fff;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+
+    /* 鍒楄〃椤堕儴 */
+    .infoUl ul .li_top {
+        padding: 14px 0;
+        border-bottom: 1px solid #efefef;
+        overflow: hidden;
+    }
+
+    .infoUl ul .li_top .a_more {
+        display: block;
+        float: left;
+        min-height: 60px;
+        padding-left: 70px;
+        position: relative;
+    }
+
+    .infoUl ul .li_top .am_img {
+        height: 60px;
+        width: 60px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .infoUl ul .li_top .am_img img {
+        display: block;
+        width: 60px;
+        height: 60px;
+        position: relative;
+        z-index: 1;
+        -moz-border-radius: 60px;
+        -webkit-border-radius: 60px;
+        -khtml-border-radius: 60px;
+        border-radius: 60px;
+    }
+
+    .infoUl ul .li_top .am_img em {
+        display: block;
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 100;
+        background-image: url(/images/level-icon.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .infoUl ul .li_top .p1 {
+        font-size: 0;
+        white-space: nowrap;
+        padding-top: 8px;
+    }
+
+    .infoUl ul .li_top .p1 b {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 16px;
+        line-height: 24px;
+        color: #333333;
+    }
+
+    .infoUl ul .li_top .p1 i {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 12px;
+        line-height: 18px;
+        color: #FF8317;
+        padding: 0 10px;
+        border: 1px solid #FF8317;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -khtml-border-radius: 4px;
+        border-radius: 4px;
+        margin-top: 2px;
+        margin-left: 10px;
+        font-style: normal;
+    }
+
+    .infoUl ul .li_top .p_middle {
+        padding-top: 22px;
+    }
+
+    .infoUl ul .li_top .p2 {
+        font-size: 0;
+        white-space: nowrap;
+        padding-top: 6px;
+    }
+
+    .infoUl ul .li_top .p2 span {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 14px;
+        line-height: 20px;
+        color: #b3b3b3;
+    }
+
+    .infoUl ul .li_top .p2 i {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 12px;
+        line-height: 20px;
+        color: #fff;
+        padding: 0 10px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -khtml-border-radius: 4px;
+        border-radius: 4px;
+        margin-left: 10px;
+        background-color: #D41610;
+        font-style: normal;
+    }
+
+    /* 鍒楄〃椤堕儴 */
+    .li_info {
+        padding: 12px 0;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .info_l {
+        float: left;
+    }
+
+    .info_l .p1 {
+        font-size: 14px;
+        line-height: 22px;
+        color: #b3b3b3;
+        margin-bottom: 10px;
+    }
+
+    .info_l .p1 i {
+        color: #db323b;
+        display: inline-block;
+        vertical-align: top;
+        padding-left: 10px;
+    }
+
+    .info_l .p2 {
+        font-size: 0;
+        white-space: nowrap;
+        color: #333333;
+    }
+
+    .info_l .p2 i {
+        font-style: normal;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 14px;
+        line-height: 20px;
+        border: 1px solid #333;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -khtml-border-radius: 4px;
+        border-radius: 4px;
+        margin-right: 10px;
+        padding: 0 10px;
+    }
+
+    .info_l .p2 span {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    /*鍙宠竟鎸夐挳*/
+    .info_r {
+        float: right;
+        padding-top: 6px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .infoUl .btPay {
+        border: 1px solid #D31510;
+        background-color: #D31510;
+        display: block;
+        width: 120px;
+        text-align: center;
+        font-size: 14px;
+        color: #ffffff;
+    }
+
+    .infoUl .btPayWhiteBg {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        background-color: #fff;
+        color: #D31510;
+    }
+
+    .infoUl .btPayHeightSingle {
+        height: 40px;
+        border-radius: 4px;
+        line-height: 40px;
+    }
+
+    .infoUl .btMissOut {
+        display: none;
+        line-height: 26px;
+        height: 26px;
+        width: 120px;
+        text-align: center;
+        font-size: 14px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border: 1px solid #D31510;
+        position: absolute;
+        bottom: -16px;
+        background-color: #ffffff;
+        color: #D31510;
+        left: 0;
+        z-index: 100
+    }
+
+    .infoUl .on {
+        padding-top: 0px
+    }
+
+    .infoUl .on .btPayHeightSingle {
+        line-height: 30px;
+    }
+
+    .infoUl .on .btMissOut {
+        display: block;
+    }
+</style>
+<script type="text/javascript">
+    /*
+    function toRecommend(id) {
+        location = 'https://tips.7m.com.cn/gameInside.html?lan=gb&id=' + id;
+    }
+    function toRecommendMore() {
+        location = 'https://tips.7m.com.cn/';
+    }
+    $(document).ready(function () {
+        var mid = 0;
+        if (typeof(playCorr) != 'undefined' && playCorr != '') {
+            mid = playCorr.split(',')[0];
+        }
+        $.ajax({
+            type: "GET",
+            url: "//txt-api.7m.com.cn/tips/recommend/relatedRecommendForNews?mid=" + mid + "&lan=1&ballType=1&v=" + Number(new Date()),
+            dataType: "json",
+            success: function (json) {
+                if (json.status != 1) {
+                    return;
+                }
+                var arrUserType = ["鏅€氱敤鎴?, "缃戠孩鎶曟墜", "7M鍒嗘瀽甯?, "7M鐗归個涓撳", "濂芥尝鍚嶅"];
+                var sHtml = '';
+                for (var i = 0; i < json.data.length; i++) {
+                    var row = json.data[i];
+                    var reType = '';//鎺ㄤ粙绫诲瀷 1:璁╃悆 2:澶у皬鐞?3:鑳滆礋骞?
+                    if (row[25] == '1') {
+                        reType = '璁╃悆';
+                    } else if (row[25] == '2') {
+                        reType = '澶у皬鐞?;
+                    } else if (row[25] == '3') {
+                        reType = '鑳滃钩璐?;
+                    }
+                    var startDate = row[16];
+                    startDate = startDate.substring(0, startDate.length - 3);
+                    var _btn = '';
+                    if (row[20] > 0) {//瑙ｉ攣鎵€闇€M閽诲ぇ浜?
+                        _btn = '<div class="info_r' + (row[26] == 2 ? ' on' : '') + '"><div class="btPay btPayHeightSingle"><span>' + row[20] + 'M閽?/span><div class="btMissOut">涓嶄腑閫€閽?/div></div></div>';
+                    }
+                    else {//鍏嶈垂鏌ョ湅
+                        _btn = '<div class="info_r"><div class="btPay btPayHeightSingle"><span>鍏嶈垂</span><div class="btMissOut">涓嶄腑閫€閽?/div></div></div>';
+                    }
+
+                    sHtml += '<li>';
+                    sHtml += '<div class="li_top clearfix">';
+                    sHtml += '<a href="javascript:void(0);" class="a_more" target="_blank">';
+                    sHtml += '<i class="am_img"><img src="' + row[2] + '" alt=""><em></em></i>';
+                    sHtml += '<p class="p1 p_middle"><b>' + row[3] + '</b><i>' + arrUserType[row[17]] + '</i></p><p class="p2"><span></span></p>';
+                    sHtml += '</a>';
+                    sHtml += '</div>';
+                    sHtml += '<div class="li_info clearfix" onclick="toRecommend(' + row[8] + ');">';
+                    sHtml += '<div class="info_l"><p class="p1">' + row[27] + ' ' + startDate + '<i></i></p><p class="p2"><i>' + reType + '</i><span>' + row[9] + ' VS ' + row[10] + '</span></p></div>';
+                    sHtml += _btn;
+                    sHtml += '</div>';
+                    sHtml += '</li>';
+                }
+                $('#ul-recommend').html(sHtml);
+            }
+        });
+    });
+    */
+</script>
+<div id="div-recommend" style="display: none;">
+    <div class="ny_b" style="position: relative;margin-top: 40px">鐩稿叧鎺ㄤ粙<a class="more_a" href="javascript:void(0)"
+                                                                         onclick="toRecommendMore()">鏇村鎺ㄤ粙</a></div>
+    <div class="infoUl">
+        <ul id="ul-recommend"></ul>
+    </div>
+    <div class="clear"></div>
+</div>
+                <div class="ny_b"  style="display:none" >鐩稿叧鏂伴椈</div>
+                <div class="ny_xg"  style="display:none" > 
+			
+			<ul>
+				
+			</ul>
+		</div>
+                <div class="clear"></div>
+                <div class="ny_b">鏀荤暐鍔ㄦ€?/div>
+                <div class="ny_xg"> 
+			
+					<div class="ny_pbt">
+						<a href="/news/20260823/736368.shtml" target="_blank"><img src="/photo/20260823/202608230338428245.jpg" /></a>
+						<p><a href="/news/20260823/736368.shtml" target="_blank">鍩虹董杈涜开閬囧急鍙€ｆ嵎</a></p>
+						<div class="jxa">鎺ㄤ粙:涓诲鍜屸€撲富鍕濇帹浠?鍗婂牬涓诲鍜?涓诲嫕杌嶆儏鍩虹董杈涜开涓婅吉鑱辰楝ュ竷鎷夊姞锛屽洜灏嶆柟澶ц粛鐞冨摗鍙楃梾姣掓劅鏌撹€屽欢鏈熴€傜悆闅婂墠涓€杓伅璩介閲屽ェ鑹剧董锛屽煁闁€娆℃暩杓冨锛屼絾宸﹂枠闊嬭彲鑷ｄ笂鍗婂牬涓鍗诲偡鍑?鈥︹€?a href="/news/20260823/736368.shtml" target="_blank">[璇︾粏]</a></div>
+					</div>	
+				
+					<div class="ny_pbt">
+						<a href="/news/20260823/736367.shtml" target="_blank"><img src="/photo/20260823/2026082303374820180.jpg" /></a>
+						<p><a href="/news/20260823/736367.shtml" target="_blank">鍏╄粛灏嶆敾闆ｅ垎楂樹笅</a></p>
+						<div class="jxa">鎺ㄤ粙:涓诲鍜屸€撳拰灞€鎺ㄤ粙:鍗婂牬涓诲鍜屸€撳拰灞€杌嶆儏缇呴Μ浠婂鐐洪嫆灏囩妤靛鍏碉紝闄や簡姝ｅ紡璨峰叆绠牠鍞愯€剁埦棣€锛屼害鏀惰臣浜嗗崥娲涘凹浜炵殑骞磋紩閶掑皣杈涜开浜為珮鍗℃柉杩矾锛涗簩浜鸿繎鏃ュ湪鐞冩渻璩戒害鏈変笂闄ｏ紝閰?鈥︹€?a href="/news/20260823/736367.shtml" target="_blank">[璇︾粏]</a></div>
+					</div>	
+				
+			<ul>
+				
+					<li>
+						<a href="/news/20260823/736366.shtml" target="_blank">濂ф矙杈涙嬁鐧诲牬閬囧急鏈夈€屽埄銆?/a>
+						<span class= "gz_fa">08-23</span>
+					</li>
+				
+					<li>
+						<a href="/news/20260823/736365.shtml" target="_blank">棣ā鎺冮櫎璐忔尝銆屼綈銆嶅姏</a>
+						<span class= "gz_fa">08-23</span>
+					</li>
+				
+					<li>
+						<a href="/news/20260823/736364.shtml" target="_blank">閭︽瘮瓒呯彮鍕㈠媮绌╁嫕</a>
+						<span class= "gz_fa">08-23</span>
+					</li>
+				
+					<li>
+						<a href="/news/20260823/736362.shtml" target="_blank">鎷夌礌鍜屽眬銆屽崥銆嶅緱閬?/a>
+						<span class= "gz_fa">08-23</span>
+					</li>
+				
+					<li>
+						<a href="/news/20260823/736361.shtml" target="_blank">钖╁崱鐗瑰崱鏂皪璩戒綌鍎?/a>
+						<span class= "gz_fa">08-23</span>
+					</li>
+				
+					<li>
+						<a href="/news/20260823/736360.shtml" target="_blank">灏煎崱娌欓洠閫冭伅璩?閫ｆ晽</a>
+						<span class= "gz_fa">08-23</span>
+					</li>
+				
+					<li>
+						<a href="/news/20260823/736358.shtml" target="_blank">楂樿矾楂樿矾鐖銆屾櫤銆嶅湪蹇呭緱</a>
+						<span class= "gz_fa">08-23</span>
+					</li>
+				
+			</ul>
+		</div>
+                <div class="clear"></div>
+            </div>
+            <!--
+<iframe width="710" height="400" class="share_self"  frameborder="0" scrolling="no" src="//widget.weibo.com/weiboshow/index.php?language=&width=710&height=400&fansRow=2&ptype=1&speed=0&skin=9&isTitle=0&noborder=1&isWeibo=1&isFans=0&uid=1845054955&verifier=6deb1a8d&dpc=1"></iframe>-->
+
+        </div>
+        <div class="n_ty">
+            <!--div class="yb_ggk" style="padding:0 0 3px 0;"><a href="//m.7m.com.cn/news/" target="_blank"><img src="//7mad.7m.com.cn/s/news_r1.jpg" border="0"></a></div-->
+<!--div class="yb_ggk" style="padding:3px 0 3px 0;"><a href="//news.7m.com.cn/report/index_gb.shtml"  rel="nofollow" title="R2" target="_blank" style="display: block;"><img src="//7mad.7m.com.cn/zxny_250_70.gif" border="0"></a></div-->
+
+<script>
+function CheckIsPhone(posa, posi, posn, posw, urla, urli, urln, urlw) {
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    var isWeixin = window.navigator.userAgent.toLowerCase().match(/MicroMessenger/i);
+    var a = '';
+    if(isAndroid && isWeixin != 'micromessenger'){
+        a = urla;
+    }else if(isiOS && isWeixin != 'micromessenger'){
+        a = urli;
+    }else if(isWeixin == 'micromessenger'){
+        a = urlw;
+    }else{
+        a = urln;
+    }
+    window.open(a);
+}
+</script>
+            <div class="box">
+                <ul class="tab_nav" id="search" style="display: none;">
+		<li id="search_news" index="0">鏂?nbsp;闂?/li>
+		<li id="search_team" index="1" style="display:none;"><a href="javascript:">鐞?nbsp;闃?/a></li>
+		<li id="search_player" index="2" style="display:none;"><a href="javascript:">鐞?nbsp;鍛?/a></li>
+</ul>
+<div class="tab_content" style="display: none;">
+		<div id="t_1">
+				<div class="srk">
+					<form action="http://so.7m.com.cn/cse/search" method="get" target="_blank" class="bdcs-search-form" id="bdcs-search-form">
+							<input type="hidden" name="s" id="bdcs-search-form-s" value="13413958429287951139">
+							<input type="hidden" name="entry" id="bdcs-search-form-entry" value="1">
+							<input type="text" name="q" class="searchinput" id="bdcs-search-form-input" placeholder="璇疯緭鍏ュ叧閿瘝">
+							<input type="submit" class="searchaction" id="bdcs-search-form-submit" value="">
+					</form>
+					<form action="//search.7m.com.cn/search_gb.aspx" method="get" id="search_form" style="display:none;">
+						<input type="text" name="key" class="searchinput" id="key" tip="7m绔欏唴鎼滅储锛岃杈撳叆鐩稿叧鏂囧瓧" onblur="searchBlur()" onfocus="searchFocus()" value="7m绔欏唴鎼滅储锛岃杈撳叆鐩稿叧鏂囧瓧"/>
+						<input type="submit" class="searchaction" value="" />
+						<input type="hidden" name="news" index="0" value="on" />
+						<input type="hidden" name="team" index="1" value="" />
+						<input type="hidden" name="player" index="2" value="" />
+						<input type="hidden" id="searchVal" value="0" />
+					</form>
+				</div>
+				<!--鍏抽敭瀛楁樉绀轰笉鑳借繃琛?->
+				<div index="0" type="key" id="bdcs-search-form-keyword">
+					<script type="text/javascript">
+					if(typeof(loadJs)!='undefined'){
+						loadJs('//news.7m.com.cn/js/1.1/search_key.js?'+Number(new Date()),function(){
+							if(typeof(search_key)!='undefined')
+								$("#bdcs-search-form-keyword").html(search_key);
+						});
+					}
+					</script>
+				</div>
+				<div index="1" type="key" style="display:none">
+					<a href="javascript:search('宸村缃楅偅 ',1)">宸村缃楅偅</a>
+					<a href="javascript:search('鐨囧椹痉閲?,1)">鐨囧椹痉閲?/a>
+					<a href="javascript:search('鏇艰仈',1)">鏇艰仈</a>
+					<a href="javascript:search('鍒囧皵瑗?,1)">鍒囧皵瑗?/a>
+				</div>
+				<div index="2" type="key" style="display:none">
+					<a href="javascript:search('姊呰タ',2)">姊呰タ</a>
+					<a href="javascript:search('C缃?,2)">C缃?/a>
+					<a href="javascript:search('鑼冧僵瑗?,2)">鑼冧僵瑗?/a>
+					<a href="javascript:search('椴佸凹',2)">椴佸凹</a>
+				</div>
+		</div>
+</div>
+<style>.box{display: none!important;}</style>
+            </div>
+            <!--
+<div class="b_b"><strong class="fx_z">7M浣撹偛瀹樻柟寰崥</strong></div>
+<div class="wb_att">
+    <a href="//weibo.com/7msport" class="xlwb" target="_blank">鍔犲叧娉?/a>
+    <a href="//t.qq.com/sport-7m" class="txwb" target="_blank">鍔犲叧娉?/a>
+</div>
+-->
+
+
+            <div class="b_b" style=""><strong class="fx_z">浠婃棩璧涘墠鍒嗘瀽澶存潯</strong>
+                <p class="fx_y"><a href="/list/5/">鏇村</a>
+            </div>
+            <div class="ny_tt" style="">
+                
+				<div class="ny_yba">
+					<p><a href="/news/20260823/736416.shtml" target="_blank" title="鎰忕敳鍓嶇灮锛氶兘鐏?VS AC绫冲叞">鍓嶇灮锛氶兘鐏?VS AC绫冲叞</a></p>
+					<a href="/news/20260823/736416.shtml" target="_blank" title="鎰忕敳鍓嶇灮锛氶兘鐏?VS AC绫冲叞"><img src="/photo/20260823/2026082307393211190.jpg" /></a>
+					<div class="ny_bw">鍖椾含鏃堕棿8鏈?4鏃ュ噷鏅?2:45锛?026-27璧涘鎰忕敳鑱旇禌 鈥︹€?a href="/news/20260823/736416.shtml" target="_blank">[璇︾粏]</a></div>
+				</div>
+			<ul>
+				<li><a href="/news/20260823/736395.shtml" target="_blank" title="鍏╄粛鍌峰叺婊跨嚐鏁插拰娉?>鍏╄粛鍌峰叺婊跨嚐鏁插拰娉?/a></li>
+			
+				<li><a href="/news/20260823/736394.shtml" target="_blank" title="甯曚笜鍗′綔瀹笉銆岃仏銆嶇劇姝?>甯曚笜鍗′綔瀹笉銆岃仏銆嶇劇姝?/a></li>
+			
+				<li><a href="/news/20260823/736393.shtml" target="_blank" title="闃跨壒铇ぇ鑱參鐔卞惣銆屽崐鍜屻€?>闃跨壒铇ぇ鑱參鐔卞惣銆屽崐鍜屻€?/a></li>
+			
+				<li><a href="/news/20260823/736392.shtml" target="_blank" title="鏌忓埄鏂ぉ濂存湁绐佺牬銆屽笇銆嶆湜">鏌忓埄鏂ぉ濂存湁绐佺牬銆屽笇銆嶆湜</a></li>
+			
+				<li><a href="/news/20260823/736391.shtml" target="_blank" title="涓父灏嶇鍗氬拰">涓父灏嶇鍗氬拰</a></li>
+			</ul>
+            </div>
+            <div class="clear" style=""></div>
+
+            <div class="b_b"><strong class="fx_z">鐑偣鎺ㄨ崘</strong></div>
+            <div class="ny_tt">
+                <div class="gz_xb"><h6>璧涘墠</h6></div>
+					<div class="ny_yba">
+						<p><a href="/news/20260823/736331.shtml" target="_blank" title="鑻辫秴璧涗簨鍓嶇灮鍒嗘瀽锛氭浖鍩?VS 浼仼濂ユ柉">鏇煎煄 VS 浼仼濂ユ柉</a></p>
+						<a href="/news/20260823/736331.shtml" target="_blank" title="鑻辫秴璧涗簨鍓嶇灮鍒嗘瀽锛氭浖鍩?VS 浼仼濂ユ柉"><img src="/photo/20260823/2026082301394321556.jpg" /></a>
+						<div class="ny_bw">
+							鏇煎煄姝ｅ浜庘€滃悗鐡滆开濂ユ媺鏃朵唬鈥濈殑杞瀷鏈熴€傚姛鍕嬩富甯呯摐杩ゥ鎷変粖澶?鈥︹€?
+							<a href="/news/20260823/736331.shtml" target="_blank" title="鑻辫秴璧涗簨鍓嶇灮鍒嗘瀽锛氭浖鍩?VS 浼仼濂ユ柉">[璇︾粏]</a>
+						</div>
+					</div>
+				
+					<div class="ny_yba">
+						<p><a href="/news/20260823/736332.shtml" target="_blank" title="鑻辫秴鍓嶇灮锛氱航鍗℃柉灏旇仈 VS 鍒╃墿娴?>鑻辫秴鍓嶇灮锛氱航鍗?VS 鍒╃墿娴?/a></p>
+						<a href="/news/20260823/736332.shtml" target="_blank" title="鑻辫秴鍓嶇灮锛氱航鍗℃柉灏旇仈 VS 鍒╃墿娴?><img src="/photo/20260823/2026082302320729219.jpg" /></a>
+						<div class="ny_bw">
+							鍖椾含鏃堕棿8鏈?3鏃?3:30锛?026/27璧涘鑻辨牸鍏拌秴绾?鈥︹€?
+							<a href="/news/20260823/736332.shtml" target="_blank" title="鑻辫秴鍓嶇灮锛氱航鍗℃柉灏旇仈 VS 鍒╃墿娴?>[璇︾粏]</a>
+						</div>
+					</div>
+				
+					<div class="ny_yba">
+						<p><a href="/news/20260823/736345.shtml" target="_blank" title="鏃ヨ仈鍓嶇灮锛氱敽鐢版辰缁翠簹 vs 娴﹀拰绾㈤捇">鐢虹敯娉界淮浜?vs 娴﹀拰绾㈤捇</a></p>
+						<a href="/news/20260823/736345.shtml" target="_blank" title="鏃ヨ仈鍓嶇灮锛氱敽鐢版辰缁翠簹 vs 娴﹀拰绾㈤捇"><img src="/photo/20260823/202608230307168704.jpg" /></a>
+						<div class="ny_bw">
+							鍖椾含鏃堕棿2026骞?鏈?3鏃?8:30锛屾棩鏈亴涓氳仈璧涚3杞?鈥︹€?
+							<a href="/news/20260823/736345.shtml" target="_blank" title="鏃ヨ仈鍓嶇灮锛氱敽鐢版辰缁翠簹 vs 娴﹀拰绾㈤捇">[璇︾粏]</a>
+						</div>
+					</div>
+				
+					<div class="ny_yba">
+						<p><a href="/news/20260823/736308.shtml" target="_blank" title="鏇煎煄闈炲悓涓€銆岃埇銆?>鏇煎煄闈炲悓涓€銆岃埇銆?/a></p>
+						<a href="/news/20260823/736308.shtml" target="_blank" title="鏇煎煄闈炲悓涓€銆岃埇銆?><img src="/photo/20260823/2026082310474117392.jpg" /></a>
+						<div class="ny_bw">
+							閫辨棩鏅氫笂锛岃嫳瓒呮湁濂芥埐涓婃紨锛屽眴鏅傜敱鏇煎煄涓诲牬杩庢埌鑸凹鑼呭か銆傛浖鍩?鈥︹€?
+							<a href="/news/20260823/736308.shtml" target="_blank" title="鏇煎煄闈炲悓涓€銆岃埇銆?>[璇︾粏]</a>
+						</div>
+					</div>
+				
+					<div class="ny_yba">
+						<p><a href="/news/20260823/736303.shtml" target="_blank" title="缍媺鍏堛€岀Ξ銆嶅緦鍏?>缍媺鍏堛€岀Ξ銆嶅緦鍏?/a></p>
+						<a href="/news/20260823/736303.shtml" target="_blank" title="缍媺鍏堛€岀Ξ銆嶅緦鍏?><img src="/photo/20260823/202608231040494386.jpg" /></a>
+						<div class="ny_bw">
+							閫辨棩鏅氫笂锛岃嫳瓒呴杓辜绾屼笂婕斿ソ鎴诧紝鍏朵腑鐧界Ξ闋撳皣涓诲牬杩庢埌闃垮＋鏉?鈥︹€?
+							<a href="/news/20260823/736303.shtml" target="_blank" title="缍媺鍏堛€岀Ξ銆嶅緦鍏?>[璇︾粏]</a>
+						</div>
+					</div>
+				
+					<div class="ny_yba">
+						<p><a href="/news/20260823/736309.shtml" target="_blank" title="棣珨鏈冩懅鏋€屾媺銆嶆溄">棣珨鏈冩懅鏋€屾媺銆嶆溄</a></p>
+						<a href="/news/20260823/736309.shtml" target="_blank" title="棣珨鏈冩懅鏋€屾媺銆嶆溄"><img src="/photo/20260823/2026082310493826818.jpg" /></a>
+						<div class="ny_bw">
+							閫辨棩娣卞锛岃タ鐢茬辜绾屽睍闁嬪皪姹猴紝棣痉閲岄珨鑲叉渻灏囦富鍫磋繋鎴扮董鎷夊埄鐖?鈥︹€?
+							<a href="/news/20260823/736309.shtml" target="_blank" title="棣珨鏈冩懅鏋€屾媺銆嶆溄">[璇︾粏]</a>
+						</div>
+					</div>
+				<div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+            <div class="ad_c">
+                <!-- content.b -->
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="bottom">
+  <div class="bottom_a">
+   <a href="javascript:" onclick="window.open('//help.7m.com.cn/sm_gb.htm','','width=560,height=260,scrollbars=yes');">鏈珯澹版槑</a>|
+
+    <a href="javascript:" onclick="window.open('//help.7m.com.cn/jump.aspx?l=gb&page=sentmessage&t=0','','width=450,height=528,scrollbars=yes');">鑱旂郴鎴戜滑</a>|
+
+    <a href="javascript:" onclick="window.open('//help.7m.com.cn/jump.aspx?l=gb&page=sentmessage&t=1','','width=450,height=528,scrollbars=yes');">鎶ュ憡閿欒</a>|
+
+    <a href="//sitemap.7m.com.cn/" target="_blank">缃戠珯瀵艰埅</a>|
+
+    <a href="#top">杩斿洖椤甸《</a>
+  </div>
+  <p>鎻愰啋锛氱涓夋柟鏈烘瀯鍙兘鍦?M浣撹偛瀹ｄ紶浠栦滑鐨勪骇鍝佹垨鏈嶅姟锛?M浣撹偛灏嗕笉淇濊瘉鍏跺浼犱俊鎭殑鍑嗙‘銆?
+<br />鎮ㄨ窡绗笁鏂规満鏋勭殑浠讳綍浜ゆ槗涓?M浣撹偛鏃犲叧锛?M浣撹偛灏嗕笉浼氬鍙兘寮曡捣鐨勪换浣曟崯澶辫礋璐ｃ€?
+<br />Copyright 漏 2003 - <script language="javascript">document.write((new Date()).getFullYear());</script> 鐗堟潈鎵€鏈?www.7m.com.cn All Rights Reserved. 淇濈暀鍏ㄩ儴鏉冨埄.
+</p>
+<a href="//www.miibeian.gov.cn/" target="_blank">绮CP澶?8004827鍙?/a>
+</div>
+<div style="position:absolute;display:none; width:300px; height:100px;filter:alpha(opacity=80); opacity: 0.8;z-index:999;" id="divTip" onmouseover="clearTimeout(timer);this.style.display=''" onmouseout="timer=setTimeout('hideTip()',1000)" >
+	<div id="tipbj1"></div>
+	<div id="tipbg1" >
+		<a target="_blank" id="a1" style="padding-left: 20px;">鏈珯鎼滅储<font style="color:#FF0000;font-weight:bold" id="f1"></font>鐨勮祫鏂?/a><br />
+		<a target="_blank" id="a2" style="background: url(//img.7m.com.cn/img7/sicon1.gif) no-repeat left;padding-left: 20px;">鎼滅储鐧惧害鍏充簬<font style="color:#FF0000;font-weight:bold" id="f2"></font>鐨勬柊闂?</a><br />
+		<a target="_blank" id="a3" style="background: url(//img.7m.com.cn/img7/sicon2.gif) no-repeat left;padding-left: 20px;">鎼滅储Google鍏充簬<font style="color:#FF0000;font-weight:bold" id="f3"></font>鐨勬柊闂?</a>
+	</div>
+	<div id="tipbj2"></div>
+</div>
+<script type="text/javascript" src="/js/1.1/newstip.js?v=24.6.11"></script>
+<div style="display:none">
+    <script type="text/javascript" src="//count.7m.com.cn/count.js"></script>
+    <script>
+        var loc = window.location.toString();
+        //鏂伴椈
+        if (loc.indexOf("/news/") != -1) {
+            var regMatch = /([0-9]+).shtml/.exec(loc);
+            if (regMatch != null) {
+                document.write('<script type="text/javascript" src="https://count.7mdt.com/flowstats/count.js?type=3&lang=1&dataId=' + regMatch[1] + '"><\/script>');
+            }
+        }
+        //鎺ㄤ粙
+        if (loc.indexOf("/prediction/data/") != -1) {
+            var regMatch = /([0-9]+).shtml/.exec(loc);
+            if (regMatch != null) {
+                document.write('<script type="text/javascript" src="https://count.7mdt.com/flowstats/count.js?type=5&lang=1&dataId=' + regMatch[1] + '"><\/script>');
+            }
+        }
+    </script>
+</div>
+<!-- designed on 2010-11-15, by fhx,xy,wdf, ver 1.1.0 -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=676133"></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">//<![CDATA[ 
+var __ud = '736369';
+var NewsUrl = 'https://news.7m.com.cn/news/20260823/736369.shtml';
+var NewsTitle = '鍗囩彮棣嫝鍧囧姏鏁靛崥鍜屽眬';
+var NewsContent = '鎺ㄤ粙:涓诲鍜屸€撳拰灞€鎺ㄤ粙:鍗婂牬涓诲鍜屸€撳鍕濊粛鎯呴Μ鎷夊姞涓婁粭鑱辰浠ャ€?-1-4-1銆嶉櫍寮忓嚭鎴帮紝鍌欏彈鏈熷緟鐨勫墠閶掔姣旇开琛ㄧ従浠や汉澶辨湜锛屽垵娆℃寫鎴拌タ鐢诧紝鏆檪鏈鐝紝浣嗕粖鍫存渻绻肩簩鎿旀鎺涘弗銆備腑 鈥︹€?璇︾粏:';
+var NewsPic;
+function loadJs(fileUrl, callback, jsID) {
+    var oHead = document.getElementsByTagName('HEAD').item(0);
+    if (jsID) try {
+        oHead.removeChild(document.getElementById(jsID));
+    } catch (e) {
+    }
+    var oScript = document.createElement("script");
+    if (jsID) oScript.id = jsID;
+    if (document.addEventListener) {
+        oScript.onload = callback;
+        oScript.onerror = callback;
+    } else {
+        oScript.onreadystatechange = function () {
+            loadJsReady(oScript, callback);
+        };
+    }
+    oScript.charset = "utf-8";
+    oScript.type = "text/javascript";
+    oScript.src = fileUrl;
+    oHead.appendChild(oScript);
+}
+
+function loadJsReady(obj, callBack) {
+    if (obj.readyState == "loaded") {
+        callBack();
+    }
+}
+
+function readGetReady() {
+
+}
+
+loadJs("//news.7m.com.cn/news/read-get.php?__ud=" + __ud + "&" + Number(new Date()), readGetReady);
+
+if (jQuery) {
+    $(document).ready(function () {
+        var imgSrc = $('img', 'div.zw').attr('src');
+        if (imgSrc) {
+            imgSrc = encodeURIComponent('//news.7m.com.cn' + imgSrc.toString());
+            $('#sina_url').attr('href', $('#sina_url').attr('href') + '&pic=' + imgSrc);
+            $('#qq_url').attr('href', $('#qq_url').attr('href') + '&pic=' + imgSrc);
+            NewsPic = imgSrc;
+            //$('#wangyi_url').attr('href',$('#wangyi_url').attr('href')+'&images='+imgSrc);
+        }
+        $("span.tx_wb", "div.wb_box").click(function () {
+            share_to(1);
+        });
+        $("span.xl_wb", "div.wb_box").click(function () {
+            share_to(2);
+        });
+        $("span.wy_wb", "div.wb_box").click(function () {
+            share_to(3);
+        });
+        $("span.qqkj", "div.wb_box").click(function () {
+            share_to(4);
+        });
+        $("span.more_wb").mouseover(function () {
+            $("#share_more").show();
+        });
+        $("span.more_wb").mouseleave(function () {
+            $("#share_more").hide();
+        });
+        $("#share_more").mouseover(function () {
+            $("#share_more").show();
+        });
+        $("#share_more").mouseleave(function () {
+            $("#share_more").hide();
+        });
+
+        var url = location.toString();
+        if (url.indexOf("?wb") == -1) {
+            $("div[t='7m']").hide();
+            $("div[t='baidu']").show();
+        } else {
+            $("div[t='7m']").show();
+            $("div[t='baidu']").hide();
+        }
+
+    });
+}
+
+function on_Wangyi() {
+    var url = 'link=//www.7m.com.cn/&source=' + encodeURIComponent('7M') + '&info=' + encodeURIComponent(Wangyi_content) + ' ' + encodeURIComponent(document.location.href);
+    var imgSrc = $('img', 'div.zw').attr('src');
+    if (imgSrc) {
+        imgSrc = encodeURIComponent('//news.7m.com.cn' + imgSrc.toString());
+        url = url + '&togImg=true&images=' + imgSrc;
+    }
+    window.open('//t.163.com/article/user/checkLogin.do?' + url + '&' + new Date().getTime(), 'newwindow', 'height=330,width=550,top=' + (screen.height - 280) / 2 + ',left=' + (screen.width - 550) / 2 + ', toolbar=no, menubar=no, scrollbars=no,resizable=yes,location=no, status=no');
+}
+
+
+function share_to(type) {
+    var webNewsUrl = encodeURIComponent(NewsUrl);
+    var webNewsTitle = encodeURIComponent(NewsTitle);
+    var webNewsContent = encodeURIComponent(NewsContent);
+    var webNewsPic = NewsPic;
+    var picStr = (webNewsPic) ? '&pic=' + webNewsPic : '';
+
+    var webUrl = encodeURIComponent('//news.7m.com.cn');
+    var enter = encodeURIComponent(String.fromCharCode(13));
+    var space = encodeURIComponent(' ');
+    var share_to_url = '';
+    switch (type) {
+        case 1://腾讯微博
+            share_to_url = '//share.v.t.qq.com/index.php?c=share&a=index&url=' + webNewsUrl + '&appkey=801095887' + picStr + '&assname=sport-7m&title=' + webNewsTitle + enter + webNewsContent;
+            break;
+        case 2://新浪微博
+            share_to_url = '//v.t.sina.com.cn/share/share.php?url=' + webNewsUrl + '&ralateUid=1845054955&appkey=1159106614' + picStr + '&title=' + webNewsTitle + enter + webNewsContent;
+            break;
+        case 3://网易微博
+            var imagesStr = (webNewsPic) ? '&images=' + webNewsPic : '';
+            share_to_url = '//t.163.com/article/user/checkLogin.do?link=//www.7m.com.cn/&source=' + encodeURIComponent('7M') + '&info=' + webNewsTitle + space + webNewsContent + webNewsUrl + '&togImg=true' + imagesStr + '&' + new Date().getTime();
+            break;
+        case 4://QQ空间
+            var picsStr = (webNewsPic) ? '&pics=' + webNewsPic : '';
+            share_to_url = '//sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + webNewsUrl + '&showcount=0&summary=' + webNewsContent + webNewsUrl + '&title=' + webNewsTitle + '&site=7M足球新闻' + picsStr;
+            break;
+        case 5://人人网
+            share_to_url = '//share.renren.com/share/buttonshare.do?link=' + webNewsUrl + '&title=' + webNewsTitle;
+            break;
+        case 6://百度搜藏
+            share_to_url = '//cang.baidu.com/do/add?it=' + NewsTitle + '&iu=' + NewsUrl + '&dc=' + NewsContent + webNewsUrl + '&tn=足球新闻,体育新闻,7M体育';
+            break;
+        case 7://猫扑推客
+            share_to_url = '//tk.mop.com/api/post.htm?url=' + webNewsUrl + '&desc=' + webNewsContent + webNewsUrl + '&title=' + webNewsTitle;
+            break;
+        case 8://豆瓣
+            //share_to_url = '//www.douban.com/recommend/?url='+webNewsUrl+'&sel='+webNewsContent+webNewsUrl+'&title='+webNewsTitle+'&v=1';
+            //方式2：
+            share_to_url = '//shuo.douban.com/!service/share?href=' + webNewsUrl + '&name=' + webNewsTitle + '&image=' + webNewsPic;
+            break;
+        case 9://凤凰微博
+            share_to_url = '//t.ifeng.com/interface.php?_c=share&_a=share&sourceUrl=' + webNewsUrl + '&title=' + webNewsTitle + picStr + '&source=1';
+            break;
+        case 10://MSN
+            share_to_url = 'https://profile.live.com/P.mvc#!/badge?url=' + webNewsUrl;
+            break;
+        case 11://淘江湖
+            share_to_url = '//share.jianghu.taobao.com/share/addShare.htm?url=' + webNewsUrl;
+            break;
+        case 12://QQ校友/朋友网
+            share_to_url = '//sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?to=pengyou&url=' + webNewsUrl + '&summary=' + webNewsContent + webNewsUrl + '&title=' + webNewsTitle + '&site=news.7m.com.cn&pics=' + webNewsPic;
+            break;
+        default:
+
+            break;
+    }
+    window.open(share_to_url);
+}
+
+function share_exit() {
+    $('#share_more').hide();
+}
+
+//加载2022世界杯Banner引导
+function loadWc2022imgReady() {
+    if (typeof (wc2022img) != 'undefined' && wc2022img != '') {
+        $('.zw').append('<p align="center"><br/><a href="https://2022.7m.com.cn/gb/intelligencePromotion/?from=cnnews" target="_blank"><img src="' + wc2022img + '"></a></p>');
+    }
+}
+
+loadJs('/interface/getwc2022img.php', loadWc2022imgReady);
+</script>
+</body>
+</html>
+<script type="text/javascript" language="javascript" src="//www.7m.com.cn/js/addmessagediv.js?l=gb"
+        id="spt_message"></script>

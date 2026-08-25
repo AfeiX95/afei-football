@@ -1,0 +1,746 @@
+===== jsonData =====
+{
+ "scheduleId": 3000414,
+ "currentPoints": {
+  "homePoints": {
+   "teamId": 209,
+   "teamName": "柏太阳神",
+   "reductPoint": 0,
+   "points": [
+    {
+     "name": "总",
+     "total": 2,
+     "win": 2,
+     "draw": 0,
+     "loss": 0,
+     "getGoal": 5,
+     "lossGoal": 2,
+     "netGoal": 3,
+     "point": 6,
+     "rank": 3,
+     "winScale": 100,
+     "pointsKind": "ALL"
+    },
+    {
+     "name": "主",
+     "total": 1,
+     "win": 1,
+     "draw": 0,
+     "loss": 0,
+     "getGoal": 2,
+     "lossGoal": 1,
+     "netGoal": 1,
+     "point": 3,
+     "rank": 4,
+     "winScale": 100,
+     "pointsKind": "HOME"
+    },
+    {
+     "name": "客",
+     "total": 1,
+     "win": 1,
+     "draw": 0,
+     "loss": 0,
+     "getGoal": 3,
+     "lossGoal": 1,
+     "netGoal": 2,
+     "point": 3,
+     "rank": 3,
+     "winScale": 100,
+     "pointsKind": "AWAY"
+    },
+    {
+     "name": "近",
+     "total": 2,
+     "win": 2,
+     "draw": 0,
+     "loss": 0,
+     "getGoal": 5,
+     "lossGoal": 2,
+     "netGoal": 3,
+     "point": 6,
+     "rank": 0,
+     "winScale": 100,
+     "pointsKind": "NEAR"
+    }
+   ],
+   "sclassId": 25,
+   "curSeason": "2026-2027",
+   "sclassSubId": 943,
+   "teamNameShort": ""
+  },
+  "awayPoints": {
+   "teamId": 10031,
+   "teamName": "长崎成功丸",
+   "reductPoint": 0,
+   "points": [
+    {
+     "name": "总",
+     "total": 2,
+     "win": 1,
+     "draw": 0,
+     "loss": 1,
+     "getGoal": 2,
+     "lossGoal": 2,
+     "netGoal": 0,
+     "point": 3,
+     "rank": 10,
+     "winScale": 50,
+     "pointsKind": "ALL"
+    },
+    {
+     "name": "主",
+     "total": 1,
+     "win": 1,
+     "draw": 0,
+     "loss": 0,
+     "getGoal": 2,
+     "lossGoal": 1,
+     "netGoal": 1,
+     "point": 3,
+     "rank": 7,
+     "winScale": 100,
+     "pointsKind": "HOME"
+    },
+    {
+     "name": "客",
+     "total": 1,
+     "win": 0,
+     "draw": 0,
+     "loss": 1,
+     "getGoal": 0,
+     "lossGoal": 1,
+     "netGoal": -1,
+     "point": 0,
+     "rank": 18,
+     "winScale": 0,
+     "pointsKind": "AWAY"
+    },
+    {
+     "name": "近",
+     "total": 2,
+     "win": 1,
+     "draw": 0,
+     "loss": 1,
+     "getGoal": 2,
+     "lossGoal": 2,
+     "netGoal": 0,
+     "point": 3,
+     "rank": 0,
+     "winScale": 50,
+     "pointsKind": "NEAR"
+    }
+   ],
+   "sclassId": 25,
+   "curSeason": "2026-2027",
+   "sclassSubId": 943,
+   "teamNameShort": ""
+  },
+  "halfHomePoints": {
+   "teamId": 209,
+   "teamName": "柏太阳神",
+   "reductPoint": 0,
+   "points": [
+    {
+     "name": "总",
+     "total": 2,
+     "win": 1,
+     "draw": 1,
+     "loss": 0,
+     "getGoal": 3,
+     "lossGoal": 1,
+     "netGoal": 2,
+     "point": 4,
+     "rank": 3,
+     "winScale": 50,
+     "pointsKind": "ALL"
+    },
+    {
+     "name": "主",
+     "total": 1,
+     "win": 1,
+     "draw": 0,
+     "loss": 0,
+     "getGoal": 2,
+     "lossGoal": 0,
+     "netGoal": 2,
+     "point": 3,
+     "rank": 1,
+     "winScale": 100,
+     "pointsKind": "HOME"
+    },
+    {
+     "name": "客",
+     "total": 1,
+     "win": 0,
+     "draw": 1,
+     "loss": 0,
+     "getGoal": 1,
+     "lossGoal": 1,
+     "netGoal": 0,
+     "point": 1,
+     "rank": 5,
+     "winScale": 0,
+     "pointsKind": "AWAY"
+    },
+    {
+     "name": "近",
+     "total": 2,
+     "win": 1,
+     "draw": 1,
+     "loss": 0,
+     "getGoal": 3,
+     "lossGoal": 1,
+     "netGoal": 2,
+     "point": 4,
+     "rank": 0,
+     "winScale": 50,
+     "pointsKind": "NEAR"
+    }
+   ],
+   "sclassId": 25,
+   "curSeason": "2026-2027",
+   "sclassSubId": 943,
+   "teamNameShort": ""
+  },
+  "halfAwayPoints": {
+   "teamId": 10031,
+   "teamName": "长崎成功丸",
+   "reductPoint": 0,
+   "points": [
+    {
+     "name": "总",
+     "total": 2,
+     "win": 1,
+     "draw": 1,
+     "loss": 0,
+     "getGoal": 2,
+     "lossGoal": 0,
+     "netGoal": 2,
+     "point": 4,
+     "rank": 4,
+     "winScale": 50,
+     "pointsKind": "ALL"
+    },
+    {
+     "name": "主",
+     "total": 1,
+     "win": 1,
+     "draw": 0,
+     "loss": 0,
+     "getGoal": 2,
+     "lossGoal": 0,
+     "netGoal": 2,
+     "point": 3,
+     "rank": 2,
+     "winScale": 100,
+     "pointsKind": "HOME"
+    },
+    {
+     "name": "客",
+     "total": 1,
+     "win": 0,
+     "draw": 1,
+     "loss": 0,
+     "getGoal": 0,
+     "lossGoal": 0,
+     "netGoal": 0,
+     "point": 1,
+     "rank": 9,
+     "winScale": 0,
+     "pointsKind": "AWAY"
+    },
+    {
+     "name": "近",
+     "total": 2,
+     "win": 1,
+     "draw": 1,
+     "loss": 0,
+     "getGoal": 2,
+     "lossGoal": 0,
+     "netGoal": 2,
+     "point": 4,
+     "rank": 0,
+     "winScale": 50,
+     "pointsKind": "NEAR"
+    }
+   ],
+   "sclassId": 25,
+   "curSeason": "2026-2027",
+   "sclassSubId": 943,
+   "teamNameShort": ""
+  }
+ },
+ "cupPoints": null,
+ "vsMatches": {
+  "homeTeamId": 209,
+  "awayTeamId": 10031,
+  "matches": [
+   {
+    "id": 1662383,
+    "leagueId": 284,
+    "leagueName": "日职乙",
+    "matchTime": "1566032400",
+    "homeTeam": {
+     "id": 10031,
+     "name": "长崎成功丸",
+     "score": 1,
+     "halfScore": 0,
+     "corner": 2,
+     "yellowCard": 3,
+     "redCard": 0,
+     "halfCorner": 2,
+     "nameShort": "",
+     "teamFlag": "images/10031/1kgrc0dmcj1a.png",
+     "isFirstGoal": false,
+     "shotOnTarget": 0
+    },
+    "awayTeam": {
+     "id": 209,
+     "name": "柏太阳神",
+     "score": 2,
+     "halfScore": 1,
+     "corner": 12,
+     "yellowCard": 2,
+     "redCard": 0,
+     "halfCorner": 3,
+     "nameShort": "",
+     "teamFlag": "images/209/1gtzcts3612j.png",
+     "isFirstGoal": true,
+     "shotOnTarget": 0
+    },
+    "letgoal": [
+     {
+      "kind": "FULL_TIME",
+      "panKou": -0.75,
+      "result": "赢",
+      "resultValue": "Win"
+     },
+     {
+      "kind": "HALF_TIME",
+      "panKou": -0.25,
+      "result": "赢",
+      "resultValue": "Win"
+     }
+    ],
+    "ou": [
+     {
+      "kind": "FULL_TIME",
+      "panKou": 2.75,
+      "result": "大",
+      "resultValue": "Win"
+     },
+     {
+      "kind": "HALF_TIME",
+      "panKou": 1,
+      "result": "走",
+      "resultValue": "Draw"
+     }
+    ],
+    "isNeutrality": false,
+    "leaugsKind": 1,
+    "leagueNameFull": "日本职业联赛J2",
+    "leagueColor": "#33CC99",
+    "countryId": 46,
+    "rating": 0,
+    "hasCorner": true,
+    "hasHalfCorner": true,
+    "isShowDb": true
+   },
+   {
+    "id": 1662153,
+    "leagueId": 284,
+    "leagueName": "日职乙",
+    "matchTime": "1554285600",
+    "homeTeam": {
+     "id": 209,
+     "name": "柏太阳神",
+     "score": 3,
+     "halfScore": 3,
+     "corner": 8,
+     "yellowCard": 1,
+     "redCard": 0,
+     "halfCorner": 3,
+     "nameShort": "",
+     "teamFlag": "images/209/1gtzcts3612j.png",
+     "isFirstGoal": true,
+     "shotOnTarget": 0
+    },
+    "awayTeam": {
+     "id": 10031,
+     "name": "长崎成功丸",
+     "score": 0,
+     "halfScore": 0,
+     "corner": 4,
+     "yellowCard": 3,
+     "redCard": 0,
+     "halfCorner": 1,
+     "nameShort": "",
+     "teamFlag": "images/10031/1kgrc0dmcj1a.png",
+     "isFirstGoal": false,
+     "shotOnTarget": 0
+    },
+    "letgoal": [
+     {
+      "kind": "FULL_TIME",
+      "panKou": 0.75,
+      "result": "赢",
+      "resultValue": "Win"
+     },
+     {
+      "kind": "HALF_TIME",
+      "panKou": 0.25,
+      "result": "赢",
+      "resultValue": "Win"
+     }
+    ],
+    "ou": [
+     {
+      "kind": "FULL_TIME",
+      "panKou": 2.25,
+      "result": "大",
+      "resultValue": "Win"
+     },
+     {
+      "kind": "HALF_TIME",
+      "panKou": 0.75,
+      "result": "大",
+      "resultValue": "Win"
+     }
+    ],
+    "isNeutrality": false,
+    "leaugsKind": 1,
+    "leagueNameFull": "日本职业联赛J2",
+    "leagueColor": "#33CC99",
+    "countryId": 46,
+    "rating": 0,
+    "hasCorner": true,
+    "hasHalfCorner": true,
+    "isShowDb": true
+   },
+   {
+    "id": 1496814,
+    "leagueId": 25,
+    "leagueName": "日职联",
+    "matchTime": "1535191200",
+    "homeTeam": {
+     "id": 209,
+     "name": "柏太阳神",
+     "score": 5,
+     "halfScore": 2,
+     "corner": 3,
+     "yellowCard": 0,
+     "redCard": 0,
+     "halfCorner": 2,
+     "nameShort": "",
+     "teamFlag": "images/209/1gtzcts3612j.png",
+     "isFirstGoal": false,
+     "shotOnTarget": 0
+    },
+    "awayTeam": {
+     "id": 10031,
+     "name": "长崎成功丸",
+     "score": 1,
+     "halfScore": 1,
+     "corner": 1,
+     "yellowCard": 0,
+     "redCard": 0,
+     "halfCorner": 1,
+     "nameShort": "",
+     "teamFlag": "images/10031/1kgrc0dmcj1a.png",
+     "isFirstGoal": true,
+     "shotOnTarget": 0
+    },
+    "letgoal": [
+     {
+      "kind": "FULL_TIME",
+      "panKou": 0.75,
+      "result": "赢",
+      "resultValue": "Win"
+     },
+     {
+      "kind": "HALF_TIME",
+      "panKou": 0.25,
+      "result": "赢",
+      "resultValue": "Win"
+     }
+    ],
+    "ou": [
+     {
+      "kind": "FULL_TIME",
+      "panKou": 2.5,
+      "result": "大",
+      "resultValue": "Win"
+     },
+     {
+      "kind": "HALF_TIME",
+      "panKou": 1,
+      "result": "大",
+      "resultValue": "Win"
+     }
+    ],
+    "isNeutrality": false,
+    "leaugsKind": 1,
+    "leagueNameFull": "日本职业联赛J1",
+    "leagueColor": "#009900",
+    "countryId": 46,
+    "rating": 0,
+    "hasCorner": true,
+    "hasHalfCorner": true,
+    "isShowDb": true
+   },
+   {
+    "id": 1496685,
+    "leagueId": 25,
+    "l
+
+===== radarJsonData =====
+{
+ "matchComparison": {
+  "scheduleId": 3000414,
+  "strength": [
+   {
+    "type": "VERSUS",
+    "typeName": "交锋",
+    "details": [
+     {
+      "detailName": "全部",
+      "homeOption": {
+       "ratio": 75,
+       "detail": "3胜0平1负"
+      },
+      "awayOption": {
+       "ratio": 25,
+       "detail": "1胜0平3负"
+      },
+      "detailType": "记录"
+     },
+     {
+      "detailName": "主客相同",
+      "homeOption": {
+       "ratio": 100,
+       "detail": "2胜0平0负"
+      },
+      "awayOption": {
+       "ratio": 0,
+       "detail": "0胜0平2负"
+      },
+      "detailType": "记录"
+     }
+    ],
+    "homeTotal": {
+     "ratio": 88,
+     "detail": ""
+    },
+    "awayTotal": {
+     "ratio": 12,
+     "detail": ""
+    }
+   },
+   {
+    "type": "STATE",
+    "typeName": "状态",
+    "details": [
+     {
+      "detailName": "全部",
+      "homeOption": {
+       "ratio": 53,
+       "detail": "6胜0平4负"
+      },
+      "awayOption": {
+       "ratio": 47,
+       "detail": "5胜1平4负"
+      },
+      "detailType": "记录"
+     },
+     {
+      "detailName": "主队  客队",
+      "homeOption": {
+       "ratio": 56,
+       "detail": "5胜0平5负"
+      },
+      "awayOption": {
+       "ratio": 44,
+       "detail": "4胜0平6负"
+      },
+      "detailType": "记录"
+     }
+    ],
+    "homeTotal": {
+     "ratio": 54,
+     "detail": ""
+    },
+    "awayTotal": {
+     "ratio": 46,
+     "detail": ""
+    }
+   },
+   {
+    "type": "ATTACK",
+    "typeName": "进攻",
+    "details": [
+     {
+      "detailName": "全部",
+      "homeOption": {
+       "ratio": 58,
+       "detail": "18球/10场"
+      },
+      "awayOption": {
+       "ratio": 42,
+       "detail": "13球/10场"
+      },
+      "detailType": "进球"
+     },
+     {
+      "detailName": "主队  客队",
+      "homeOption": {
+       "ratio": 56,
+       "detail": "14球/10场"
+      },
+      "awayOption": {
+       "ratio": 44,
+       "detail": "11球/10场"
+      },
+      "detailType": "进球"
+     }
+    ],
+    "homeTotal": {
+     "ratio": 57,
+     "detail": ""
+    },
+    "awayTotal": {
+     "ratio": 43,
+     "detail": ""
+    }
+   },
+   {
+    "type": "DEFENCE",
+    "typeName": "防守",
+    "details": [
+     {
+      "detailName": "全部失球",
+      "homeOption": {
+       "ratio": 50,
+       "detail": "失12球/10场"
+      },
+      "awayOption": {
+       "ratio": 50,
+       "detail": "失12球/10场"
+      },
+      "detailType": "失球"
+     },
+     {
+      "detailName": "主队  客队",
+      "homeOption": {
+       "ratio": 57,
+       "detail": "失10球/10场"
+      },
+      "awayOption": {
+       "ratio": 43,
+       "detail": "失13球/10场"
+      },
+      "detailType": "失球"
+     }
+    ],
+    "homeTotal": {
+     "ratio": 54,
+     "detail": ""
+    },
+    "awayTotal": {
+     "ratio": 46,
+     "detail": ""
+    }
+   },
+   {
+    "type": "VALUE",
+    "typeName": "价值",
+    "details": [
+     {
+      "detailName": "价值",
+      "homeOption": {
+       "ratio": 57,
+       "detail": "17.85百万欧元"
+      },
+      "awayOption": {
+       "ratio": 43,
+       "detail": "13.62百万欧元"
+      },
+      "detailType": ""
+     }
+    ],
+    "homeTotal": {
+     "ratio": 57,
+     "detail": ""
+    },
+    "awayTotal": {
+     "ratio": 43,
+     "detail": ""
+    }
+   },
+   {
+    "type": "OTHER",
+    "typeName": "其他",
+    "details": [
+     {
+      "detailName": "场均角球",
+      "homeOption": {
+       "ratio": 56,
+       "detail": "4.8"
+      },
+      "awayOption": {
+       "ratio": 44,
+       "detail": "3.8"
+      },
+      "detailType": ""
+     },
+     {
+      "detailName": "场均黄牌",
+      "homeOption": {
+       "ratio": 39,
+       "detail": "0.7"
+      },
+      "awayOption": {
+       "ratio": 61,
+       "detail": "1.1"
+      },
+      "detailType": ""
+     },
+     {
+      "detailName": "场均犯规",
+      "homeOption": {
+       "ratio": 43,
+       "detail": "7.6"
+      },
+      "awayOption": {
+       "ratio": 57,
+       "detail": "10"
+      },
+      "detailType": ""
+     },
+     {
+      "detailName": "场均控球",
+      "homeOption": {
+       "ratio": 54,
+       "detail": "53"
+      },
+      "awayOption": {
+       "ratio": 46,
+       "detail": "44.9"
+      },
+      "detailType": ""
+     }
+    ],
+    "homeTotal": null,
+    "awayTotal": null
+   }
+  ],
+  "homeStrength": {
+   "ratio": 62,
+   "detail": "柏太阳神"
+  },
+  "awayStrength": {
+   "ratio": 38,
+   "detail": "长崎成功丸"
+  }
+ }
+}
