@@ -31,13 +31,19 @@
   "mle_fit": {
     "date": "2026-08-26",
     "train_size": 32,
-    "alpha_opt": 0.9,
-    "rho_opt": -0.012,
+    "alpha_opt_mle": 0.9,
+    "rho_opt_mle": -0.012,
     "nll_opt": 87.18,
     "nll_exp": 87.73,
     "rps_opt": 0.1528,
     "rps_exp": 0.1568,
-    "key_finding": "α→1.0: 市场λ已含纸面实力信息, 纸面层不提升似然(反事实验证); ρ不可辨识: 32场样本对DC修正无统计力, 需300+场",
-    "note": "λ_power代理与λ_stats相关1.0, α的统计意义需真实纸面评分历史; ρ=-0.012为参考值, 建议保留经验-0.05"
+    "key_finding": "α→1.0含幸存者偏差(训练集λ_stats=市场反推,盘口已含纸面信息); ρ 32场不可辨识需300+场",
+    "final_params": {
+      "alpha_default": 0.7,
+      "alpha_adaptive": "min(0.85, 0.40+0.45*n/15)",
+      "alpha_note": "统计为主保留30%纸面基底; 赛季初n<5→α≈0.43-0.55; n>=15→0.85",
+      "rho": -0.05,
+      "rho_note": "保留Dixon-Coles经典经验值, MLE不可辨识"
+    }
   }
 }

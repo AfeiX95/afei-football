@@ -27,8 +27,26 @@ import math
 LEAGUE_HOME_AVG = 1.45      # 联赛主场场均进球 (西甲基准)
 LEAGUE_AWAY_AVG = 1.15      # 联赛客场场均进球
 PRIOR_WEIGHT = 3.0          # 贝叶斯收缩: 相当于补 N 场联赛基准 (防小样本失真)
-DC_RHO = -0.05              # Dixon-Coles 低比分相关系数 (经验值, 待MLE拟合)
+DC_RHO = -0.05              # Dixon-Coles 低比分相关系数 (经验值, MLE 32场不可辨识, 保留经典值)
 MAX_GOALS = 10              # 泊松截断
+
+# ---- 融合权重 α (2026-08-26 MLE 实验后定稿) ----
+# MLE 在"市场λ反推"训练集上给出 α→0.90, 但存在幸存者偏差:
+#   训练集 lh_stats 本就是市场赔率反推, 机构盘口已含纸面实力 → 纸面层"无增益"是必然结论
+# 实战流水线中 lh_stats 是纯攻防数据, 赛季初/小样本下会失真 → 纸面层必须保留制动能力
+# 定稿: 默认 α=0.70 (统计为主, 保留30%纸面基底), 支持样本量自适应
+DEFAULT_ALPHA = 0.70
+DEFAULT_RHO = DC_RHO
+
+
+def adaptive_alpha(n, min_a=0.40, max_a=0.85, n_sat=15):
+    """
+    条件化自适应 α: 样本量 n 越大, 越信任真实攻防统计 (纸面层退居锚点)
+      n < 5     → α ≈ 0.40~0.55 (联赛初期, 加重纸面)
+      n >= 15   → α → 0.85 (中后期, 数据主导)
+    公式: α = min(max_a, min_a + (max_a-min_a) * n / n_sat)
+    """
+    return round(min(max_a, min_a + (max_a - min_a) * n / n_sat), 3)
 
 
 # ==================== 1. 经典攻防分解 + 贝叶斯收缩 ====================
@@ -113,10 +131,11 @@ class LatentPower:
 
 # ==================== 3. λ 融合 ====================
 def fuse_lambda(lam_base_h, lam_base_a, h_att, h_def, a_att, a_def,
-                alpha=0.30, home_adv=0.10):
+                alpha=DEFAULT_ALPHA, home_adv=0.10):
     """
     融合: log λ = log(分解λ) + α·log(纸面攻防比) + 主场加成
-      α=0.30: 纸面实力占 30% 权重 (数据为主, 纸面校准)
+      alpha: 统计层权重 (0.70 默认; 可用 adaptive_alpha(n) 按样本量动态化)
+      纸面层 (1-alpha) 是锚点/正则化, 防小样本统计失真
     """
     # 纸面攻防比: 主队进攻/客队防守 (相对基准1.0)
     ratio_h = (h_att / max(a_def, 1e-6)) ** alpha
@@ -197,13 +216,19 @@ class EngineV2:
         self.latent = LatentPower()
 
     def full_analysis(self, home_stats, away_stats, home_team, away_team,
-                      handicap=1.0, odds_hk=None, home_adv=0.10):
+                      handicap=1.0, odds_hk=None, home_adv=0.10,
+                      alpha=None, sample_size=None):
         lam_base_h, lam_base_a, strengths = self.poisson.calc(home_stats, away_stats)
         h_att, h_def = self.latent.powers(home_team)
         a_att, a_def = self.latent.powers(away_team)
+        # α 决策: 显式传入 > 样本量自适应 > 默认 0.70
+        if alpha is None:
+            alpha = (adaptive_alpha(sample_size) if sample_size is not None
+                     else DEFAULT_ALPHA)
         lam_h, lam_a = fuse_lambda(lam_base_h, lam_base_a,
-                                   h_att, h_def, a_att, a_def, home_adv=home_adv)
-        matrix = score_matrix_dc(lam_h, lam_a)
+                                   h_att, h_def, a_att, a_def,
+                                   alpha=alpha, home_adv=home_adv)
+        matrix = score_matrix_dc(lam_h, lam_a, rho=DEFAULT_RHO)
         agg = aggregate(matrix, handicap=handicap)
         ev_h = ev_a = None
         if odds_hk:
@@ -213,6 +238,7 @@ class EngineV2:
                          agg["ah"]["full_win"], odds_hk[1])
         return {
             "lambda": {"home": lam_h, "away": lam_a, "total": round(lam_h + lam_a, 2)},
+            "alpha_used": alpha,
             "strengths": strengths,
             "latent": {"home": [round(h_att, 3), round(h_def, 3)],
                        "away": [round(a_att, 3), round(a_def, 3)]},
