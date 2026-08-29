@@ -16,6 +16,7 @@
 
 用法：
   python ai_detect.py 文本文件.md            # 输出报告 + 可疑句 TOP
+  python ai_detect.py 文本文件.md --section  # 逐段评分，定位最需要降AI的段落
   python ai_detect.py 文本文件.md --json      # JSON 输出（供脚本集成）
 """
 import re
@@ -29,6 +30,8 @@ try:
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 except Exception:
     pass
+
+SECTION_MIN = 60   # 逐段评分的最小字符数（太短不评）
 
 # ---------------- 特征词典 ----------------
 AI_PHRASES = [
@@ -212,8 +215,21 @@ def main():
         print("可疑句 TOP（降AI重点）:")
         for s, why in r["suspicious"]:
             print(f"  [{why}] {s[:60]}")
+    if "--section" in sys.argv:
+        print("-" * 46)
+        print("逐段评分（>35 标为降AI重点段）:")
+        paras = [p.strip() for p in re.split(r"\n\s*\n", body) if len(p.strip()) >= SECTION_MIN]
+        ranked = []
+        for p in paras:
+            pr = analyze(p)
+            ranked.append((pr["score"], p))
+        ranked.sort(reverse=True)
+        for score, p in ranked[:6]:
+            flag = "⚠️" if score >= 35 else "  "
+            head = p.replace("\n", " ")[:50]
+            print(f"  {flag} {score:5.1f} | {head}...")
     print()
-    print("提示: 启发式检测=第一道筛, 权威判定请叠加朱雀AIGC检测(云端API)多源交叉")
+    print("提示: 纯本地启发式检测，<30 判低即可发布；≥30 用上面可疑句/段落定位后降AI复测")
 
 
 if __name__ == "__main__":

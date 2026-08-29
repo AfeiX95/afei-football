@@ -1,7 +1,8 @@
 # AI 检测与降 AI 指南（本地工具 + 朱雀云端接入）
 
 > 2026-08-29 建立。目标：发布前自查文章 AI 痕迹，配合 humanizer-zh 完成「检测 → 降AI → 再检测」闭环。
-> 工具：`📚知识库/模型脚本/ai_detect.py`（本地启发式，零依赖）+ 腾讯朱雀 AIGC 检测（云端权威，需密钥）。
+> **定位：纯本地检测，不接任何云端 API**（朱雀接入方案已放弃，保留原理部分仅作了解参考）。
+> 工具：`📚知识库/模型脚本/ai_detect.py`（纯 Python 零依赖，离线可用）。
 
 ---
 
@@ -39,6 +40,7 @@
 
 ```bash
 python 📚知识库/模型脚本/ai_detect.py 文章.md          # 报告 + 可疑句TOP
+python 📚知识库/模型脚本/ai_detect.py 文章.md --section  # 逐段评分，定位最需要降AI的段落
 python 📚知识库/模型脚本/ai_detect.py 文章.md --json     # JSON 输出供脚本集成
 ```
 
@@ -61,7 +63,9 @@ python 📚知识库/模型脚本/ai_detect.py 文章.md --json     # JSON 输�
 - 三场豪门热度扫描：**22.2 低** ✅（可疑句仅剩配图关键词超长句，属正常）
 - 全维度分析文件（未降AI）：21.4 低——**启发式在我们自家文风内不分层**（我们本就句长多变、无套话），它真正防的是典型 AI 文本（句长均匀+连接词+套话密集）
 
-**局限性（诚实说明）**：启发式 ≠ 权威；对不同文体需要重新校准阈值；对"已伪装成人类"的高质量 AI 文本可能漏检。**定位=发布前第一道快速筛，权威判定用朱雀云端 API 交叉。**
+**局限性（诚实说明）**：启发式 ≠ 权威；对不同文体需要重新校准阈值；对"已伪装成人类"的高质量 AI 文本可能漏检。**定位=发布前快速自检的第一道筛；本项目不做云端 API 交叉，够用即可。**
+
+**逐段定位（--section）**：全文总分 <30 判低后，`--section` 会把每个 ≥60 字段落单独评分并排序，>35 标 ⚠️——降AI 时优先处理 ⚠️ 段（叙事段优先，数据清单段可用句式重组降分）。实测利物浦深度版全文 22.1（低），但逐段仍标出 6 段 ⚠️（状态清单/开篇/配图块）——**全文通过 ≠ 每段都像人写，逐段才是降AI 的精确瞄准镜**。
 
 ---
 
@@ -82,27 +86,27 @@ python 📚知识库/模型脚本/ai_detect.py 文章.md --json     # JSON 输�
 
 ---
 
-## 四、朱雀云端 API 接入（占位，需腾讯云密钥）
+## 四、降 AI 闭环（接入写作管线）
 
-1. 开通：腾讯云控制台 → 边缘安全加速平台（EdgeOne）→ AIGC 检测（文档：`https://cloud.tencent.com/document/product/1552/135974`）
-2. 密钥：SecretId / SecretKey（或子账号最小权限），按文档构造请求
-3. 请求：POST 文本检测接口，body 带 content；返回 AI 概率/判定
-4. 本地集成：在 `ai_detect.py` 加 `--api` 模式（requests 已可用），配置项：
-
-```python
-# ai_detect.py --api 模式占位（填密钥后启用）
-TENCENT_SECRET_ID = ""       # 腾讯云 SecretId
-TENCENT_SECRET_KEY = ""      # 腾讯云 SecretKey
-ZHUQUE_API_URL = ""          # 按官方文档填写
+```
+写稿 → humanizer-zh 降AI（R10 手法）
+     → python ai_detect.py 文章.md          # 全文快速筛（<30 判低）
+     → python ai_detect.py 文章.md --section # 逐段定位 ⚠️ 段（>35）
+     → 对 ⚠️ 段按下方"降AI重点"处理 → 复测全文与逐段
 ```
 
-> 接口细节未验证（沙箱网络受限），密钥和 URL 按官方文档填好后，把 `--api` 分支实现补全即可（签名用腾讯云 TC3-HMAC-SHA256）。
+**降 AI 重点（检测器定位的可疑句/段处理）**：
+1. 套话短语（值得注意的是/综上所述/不难发现）→ 直接删或换口语（"说白了"）
+2. 连接词密集句 → 拆短句，去掉 然而/因此/此外，改用破折号或直接并列
+3. 句长均匀区（CV 低）→ 手动制造长短交替：插短句/断句（R10 断句法）
+4. 超长句 → 按意群切开；破折号/冒号过量 → 保留 1-2 处即可
+5. 数据清单段（状态/阵容列表）→ 压缩成 1-2 句口语叙述，别一整段列号
 
 ---
 
-## 五、参考链接
+## 五、参考
 
-- 朱雀 AI 检测助手（网页版）：https://matrix.tencent.com/ai-detect/ai_gen
-- 朱雀 API 说明页：https://matrix.tencent.com/ai-detect/ai-or-not
-- 腾讯云 EdgeOne 朱雀AIGC检测接入文档：https://cloud.tencent.com/document/product/1552/135974
+- 朱雀 AIGC 检测（原理了解参考，**本项目不接入**）：
+  - 网页版：https://matrix.tencent.com/ai-detect/ai_gen
+  - 腾讯云 EdgeOne 接入文档：https://cloud.tencent.com/document/product/1552/135974
 - 项目降AI技能：`📚知识库/skills/humanizer-zh/SKILL.md`
