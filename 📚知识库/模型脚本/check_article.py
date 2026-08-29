@@ -110,6 +110,20 @@ def check(path):
     items.append(("7. AI 评分 <30", ai_pass,
                   f"{ai['score']}（{ai['verdict']}）"))
 
+    # 8. 占位符/乱码（图N占位符、控制字符、乱码星号）
+    ph = re.findall(r"图\s*[0-9一二三四五六七八九十]\s*[ ：]\s*[^。\n]{1,12}", text)  # "图1 场均进失球对比"类；"图一乐"不算
+    ctrl = re.findall(r"[\x00-\x08\x0b\x0c\x0e-\x1f\ufffd]", text)
+    stars = re.findall(r"\*\s+\*", text)   # 单星号+空白+单星号（#足球竞彩#* * 类乱码；**加粗不算）
+    bad = []
+    if ph:
+        bad.append(f"图占位符{len(ph)}处:{ph[:3]}")
+    if ctrl:
+        bad.append(f"控制字符{len(ctrl)}处")
+    if stars:
+        bad.append(f"乱码星号{len(stars)}处")
+    items.append(("8. 占位符/乱码 = 0", not bad,
+                  "0" if not bad else "；".join(bad)))
+
     # 汇总
     fails = [it[0] for it in items if not it[1]]
     warns = [it[0] for it in items if it[2] and isinstance(it[2], str) and ("L" in it[2] or it[0] == "4. 破折号 ≤3" and it[1] is False)]
