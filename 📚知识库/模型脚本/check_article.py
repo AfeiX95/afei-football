@@ -30,6 +30,7 @@ HARD_BANNED = [
 SOFT_BANNED = [
     "投注", "下注", "串关", "过关", "稳胆", "上车", "跟单", "重注", "梭哈",
     "彩票", "博彩", "荐彩", "稳赢", "必中", "私信", "微信号", "赌球", "让球盘", "水位",
+    "赌",  # R20: 口语「赌」字（打赌猜测义）机器可能误判为博彩语境 → 改「更信/更看好」
 ]
 
 REQUIRED_MARKERS = {
@@ -44,8 +45,9 @@ REQUIRED_MARKERS = {
 
 
 def strip_body(text):
-    """去掉代码块/表格行/标题行，只留正文做词检"""
-    t = re.sub(r"```.*?```", "", text, flags=re.S)
+    """去掉代码块/表格行/标题行/配图建议块，只留正文做词检"""
+    t = re.sub(r"<details>.*?</details>", "", text, flags=re.S)   # 配图建议等发布前删除的元信息
+    t = re.sub(r"```.*?```", "", t, flags=re.S)
     t = re.sub(r"\|[^\n]*\|", " ", t)
     t = re.sub(r"^#+.*$", "", t, flags=re.M)
     t = re.sub(r"^>\s*.*$", "", t, flags=re.M)
