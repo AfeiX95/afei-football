@@ -1,8 +1,8 @@
 ---
 name: football-calibration-batch
-description: "足球模型赛后校验批次记录与经验库。每次批量校验后记录结果、发现的偏差模式、新增修正规则。与match-model-pipeline搭配使用。v1.1:Batch#11惨败(2/7=28.6%),累计47/70(67.1%),新增R10(巴甲平率+5pp)。休赛期欧战方差极大+友谊赛不可信+巴甲平率低估三大教训。"
-version: 1.1.0
-updated: 2026-07-24
+description: "足球模型赛后校验批次记录与经验库。每次批量校验后记录结果、发现的偏差模式、新增修正规则。与match-model-pipeline搭配使用。v1.2: 批次记录迁移至 📚知识库/赛后校验/batchNN_calibration.md（batch12起），本文件只保留累计统计+新增规则真源指引；累计统计刷新至 Batch#33（2026-09-06）。"
+version: 1.2.0
+updated: 2026-09-06
 author: afei
 license: MIT
 metadata:
@@ -14,12 +14,19 @@ metadata:
 # 足球模型赛后校验批次记录
 
 ## 用途
-每次批量校验(≥5场)后，在此记录结果、偏差模式、新增修正规则。作为match-model-pipeline的补充知识库。
+每次批量校验(≥5场)后，记录结果、偏差模式、新增修正规则。作为match-model-pipeline的补充知识库。
 
-## 累计统计
-- **总场次:** 70
-- **方向正确:** 47 (67.1%)
-- **比分精确:** ~15% (估)
+## 🔴 记录规范（v1.2，batch12 起）
+- 每批完整记录落盘 `📚知识库/赛后校验/batchNN_calibration.md`（总览表+主打校验+文章主张校验+规则更新+下批清单），本 SKILL 不再逐批内嵌
+- 机器可读统计同步 `state/model-state.json`（batch/total_matches/direction_correct/rate/candidate_rules/active_tasks）
+- 候选规则累计达标 → 回写真源 `📚知识库/模型脚本/修正规则.md` + 索引 `docs/RULES.md`
+- 本文件保留：累计统计 + 历史批次教训（Batch#10/11 + R8/R9/R10 新增规则）
+
+## 累计统计（Batch#33 后，2026-09-06）
+- **总场次:** 254
+- **方向正确:** 128 (50.6%)
+- **最近批次:** Batch#33（49场方向21/45=46.7%、大球31/49=63.3%）
+- **回写里程碑:** C34b 决胜场大球转正（10/11≈91%，修正规则.md v1.4）
 
 ## Batch #10 (2026-07-21~23, 9场)
 

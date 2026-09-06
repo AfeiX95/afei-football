@@ -53,7 +53,9 @@
 
 ### 9. docx 生成（R19 白底图）
 - `gen_docx_*.py` 惯例：白底 `#ffffff`、主队蓝 `#4fc3f7`/平局黄 `#ffd93d`/客队红 `#ff6b6b`；matplotlib 颜色需 `#` 前缀（docx 填充不需要）
-- 🔴 **沙箱惯例**：脚本输出到 ASCII 临时目录（`I:\阿飞说球\_tmp_docx_out`）→ `Copy-Item` 进 `📝文章/YYYYMMDD/`（emoji 路径写操作需一次性 `danger-full-access` 升级）；生成脚本保留在文章目录便于再生成
+- 🔴 **沙箱惯例（2026-09-06 实测修正）**：脚本输出到 ASCII 临时目录 → **Copy-Item / python open() 直写 `📝文章/YYYYMMDD/`（emoji 路径）均被沙箱拒**（PermissionDenied/PermissionError）；write 工具可写 emoji 但 python 不能 → **docx 直接存工作区根纯中文/ASCII 路径**（如 `I:\阿飞说球\YYYYMMDD_编号_队名_赛事前瞻.docx`）→ git 提交正常，用户自行移入文章目录或直接引用
+- md→docx 转换：strip `<details>` 配图段 + `## 标题`/`**加粗**`/`|表格|` 解析；白底图按章节内嵌（图表放对应分析小节后，宽 5.5-5.8 英寸）
+- 门禁 8/8 PASS 才生成 docx；docx 不再出 PDF 预览（R19）
 
 ### 10. 赛后校验闭环（三轨）
 - **轨1 窗口方向统计**：去水最大概率方 vs 实际（90分钟口径）；大球率/平局率
