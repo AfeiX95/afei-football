@@ -5,6 +5,9 @@ __pycache__/
 .venv/
 venv/
 
+# uv 下载/构建缓存(本机缓存, 可重建; 放工作区是因为默认缓存目录被沙箱拒绝)
+.uv-cache/
+
 # Hermes 桌面附件(本机隐私)
 .hermes/
 
