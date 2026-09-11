@@ -53,7 +53,7 @@ def collect():
         s = sum(inv.values())
         p = {k: v/s for k, v in inv.items()}
         gl = int(x.get('goalLine', '0') or 0)
-        net = (sh - gl) - sa
+        net = (sh + gl) - sa    # 2026-09-10 修正: 原为减号, 让球符号反了
         hres = 'H' if net > 0 else ('D' if net == 0 else 'A')
         ht = x.get('sectionsNo1', '')
         rows.append(dict(

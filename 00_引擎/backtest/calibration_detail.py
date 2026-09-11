@@ -21,7 +21,7 @@ def parse_line(line):
             'odds': {'H': float(oh), 'D': float(od), 'A': float(oa)}}
 
 def hcap_result(fh, fa, hcap):
-    net = (fh - hcap) - fa
+    net = (fh + hcap) - fa          # 2026-09-10 修正: 原为减号, 让球符号反了
     return 'H' if net > 0 else ('D' if net == 0 else 'A')
 
 matches = []

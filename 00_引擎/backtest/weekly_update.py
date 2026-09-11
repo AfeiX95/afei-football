@@ -45,8 +45,10 @@ def load_matches():
                                 'odds': {'H': oh, 'D': od, 'A': oa}})
     # 计算让球结果 + 隐含概率
     for m in matches:
-        net = (m['fh'] - m['hcap']) - m['fa']
+        net = (m['fh'] + m['hcap']) - m['fa']   # 2026-09-10 修正: 原为减号, 让球符号反了
         m['result'] = 'H' if net > 0 else ('D' if net == 0 else 'A')
+        # 2026-09-10 口径修正: p 来自胜平负赔率, 校准必须配胜平负结果(不能用让球后结果)
+        m['result_plain'] = 'H' if m['fh'] > m['fa'] else ('A' if m['fh'] < m['fa'] else 'D')
         inv = {k: 1 / v for k, v in m['odds'].items()}
         s = sum(inv.values())
         m['p'] = {k: v / s for k, v in inv.items()}
@@ -58,20 +60,20 @@ def compute_coefs(matches):
         grp = [m for m in matches if lo <= m['p'][kind] < hi]
         if len(grp) < 8:
             return None
-        hits = sum(1 for m in grp if m['result'] == kind)
+        hits = sum(1 for m in grp if m['result_plain'] == kind)   # 2026-09-10: 原用让球后结果, 与胜平负赔率错配
         avg_p = sum(m['p'][kind] for m in grp) / len(grp)
         return hits / len(grp) / avg_p if avg_p > 0 else None
 
-    # 平局: 隐含20-30% 的 ratio(历史 ~0.4)
+    # 平局: 隐含20-30% 的 ratio(2026-09-10 修正口径下历史 ≈1.0, 市场有效)
     draw_r = bucket_ratio('D', 0.20, 0.30)
-    # 热门(胜负方向 ≥40%): ratio(历史 ~1.3)
+    # 热门(胜负方向 ≥40%): ratio(修正口径下历史 ≈1.0)
     hot_parts = []
     for k in 'HA':
         r = bucket_ratio(k, 0.40, 0.70)
         if r:
             hot_parts.append(r)
     hot_r = sum(hot_parts) / len(hot_parts) if hot_parts else None
-    # 冷门(胜负方向 <30%): ratio(历史 ~0.5)
+    # 冷门(胜负方向 <30%): ratio(修正口径下历史 ≈1.0)
     cold_parts = []
     for k in 'HA':
         r = bucket_ratio(k, 0.0, 0.30)
@@ -127,14 +129,21 @@ def main():
         with open(STATE, encoding='utf-8') as f:
             old = json.load(f)
 
+    # 2026-09-10 口径修正: v1 state 由"让球后结果 × 胜平负赔率"错配导出(且让球符号写反), 全部作废重算
+    if old.get('schema') != 2:
+        if old:
+            print("♻ 检测到旧口径 state(schema<2), 已丢弃并按修正口径重算")
+        old = {}
+
     prev_coef = old.get('coef', {})
     new_state = {
+        'schema': 2,
         'updated_at': date.today().isoformat(),
         'sample_size': n,
         'coef': {
-            'draw': round(clamp(0.7 * prev_coef.get('draw', 0.5) + 0.3 * coefs['draw'], 0.30, 0.90), 3) if coefs['draw'] else prev_coef.get('draw', 0.5),
-            'hot': round(clamp(0.7 * prev_coef.get('hot', 1.10) + 0.3 * coefs['hot'], 1.00, 1.35), 3) if coefs['hot'] else prev_coef.get('hot', 1.10),
-            'cold': round(clamp(0.7 * prev_coef.get('cold', 0.85) + 0.3 * coefs['cold'], 0.50, 0.95), 3) if coefs['cold'] else prev_coef.get('cold', 0.85),
+            'draw': round(clamp(0.7 * prev_coef.get('draw', 1.0) + 0.3 * coefs['draw'], 0.85, 1.15), 3) if coefs['draw'] else prev_coef.get('draw', 1.0),
+            'hot': round(clamp(0.7 * prev_coef.get('hot', 1.0) + 0.3 * coefs['hot'], 0.85, 1.15), 3) if coefs['hot'] else prev_coef.get('hot', 1.0),
+            'cold': round(clamp(0.7 * prev_coef.get('cold', 1.0) + 0.3 * coefs['cold'], 0.85, 1.15), 3) if coefs['cold'] else prev_coef.get('cold', 1.0),
         },
         'buckets': {
             'draw_20_30': round(coefs['draw'], 3) if coefs['draw'] else None,
@@ -156,10 +165,16 @@ def main():
              f"- 平局 隐含20-30%: {new_state['buckets']['draw_20_30']}",
              f"- 热门 隐含40-70%: {new_state['buckets']['hot_40_70']}",
              f"- 冷门 隐含<30%: {new_state['buckets']['cold_0_30']}",
-             "\n## 历史结论(见 git 记录/人工复核)",
-             "1. 平局隐含虚高一半(×0.5才是真实概率)——竞彩平局赔率系统性偏低",
-             "2. 热门方向被低估(隐含40-60%实际命中78-83%)——竞彩定价保守",
-             "3. 冷门方向被高估(隐含<30%实际仅6-10%)",
+             "\n## 历史结论(2026-09-10 口径修正后重写, 旧结论全部作废)",
+             "0. ⚠️ 2026-09-10 口径修正: 旧结论(draw×0.5 / hot×1.35 / cold×0.5)作废。",
+             "   旧脚本用【让球后结果】配【胜平负赔率隐含概率】, 且让球公式符号写反(fh-hcap 应为 fh+hcap),",
+             "   双重错误叠加 → 产出伪信号(仅修正符号后同一数据即得 draw0.947 / hot0.564 / cold2.180, 结论完全反转=无意义)。",
+             "1. 修正口径(胜平负结果 vs 胜平负隐含)在全量469场 ratio≈1.0(0.95~1.10): 竞彩胜平负定价基本有效,",
+             "   不要指望从胜平负赔率里挖系统性偏差; 系数应稳定在1.0附近。",
+             "2. 让球盘校准本数据集无法做: 赛果API只返回胜平负赔率(h/d/a)+goalLine, 不返回让球盘赔率。",
+             "   要做让球盘校准必须先另存让球胜平负赔率(hhad), 否则不要声称有让球盘系数。",
+             "3. 让球盘真实结构(修正后469场): 让-1 让球方赢盘27%/走水23%/受让方赢盘50%; 让+1 让球方赢盘32%/走水23%/受让方赢盘45%。",
+             "   → 受让方不败约68~77%, 让球方赢盘仅27~32%(可用作方向判断; 赢盘与走水赔付不同, 不可合成单一投注项)。",
              "\n## 用法",
              "afei_generator.py 校准模块自动读取 calibration_state.json(优先),无则用内置系数。",
              "工具: afei_generator.py --model-only 看 'Edge校准' 行。\n"]

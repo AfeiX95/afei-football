@@ -26,8 +26,8 @@ def parse_line(line):
             'odds': {'H': float(oh), 'D': float(od), 'A': float(oa)}}
 
 def hcap_result(fh, fa, hcap):
-    """让球后结果: 主队净胜 = fh - hcap - fa"""
-    net = (fh - hcap) - fa
+    """让球后结果: 主队净胜 = fh + hcap - fa (goalLine 负=主让; 2026-09-10 修正: 原为减号, 符号反了)"""
+    net = (fh + hcap) - fa
     return 'H' if net > 0 else ('D' if net == 0 else 'A')
 
 def implied(odds):

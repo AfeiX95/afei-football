@@ -64,8 +64,14 @@ def main():
          'brier_m': 0.0, 'brier_k': 0.0,
          'dir': {'H': [0, 0], 'D': [0, 0], 'A': [0, 0]}}  # 按实际结果分桶 [模型命中, 总数]
     lines_detail = []
+    skipped = 0
     for r in revs:
-        cfg = json.load(open(r['config'], encoding='utf-8'))
+        # 轻量版复盘(纯赛果, 无赛前 config)无法重算模型 → 跳过, 不计入统计
+        cfg_path = r.get('config')
+        if not cfg_path or not os.path.exists(cfg_path):
+            skipped += 1
+            continue
+        cfg = json.load(open(cfg_path, encoding='utf-8'))
         m = run_model(cfg)
         sh, sa = parse_score(r['score'])
         a = 'H' if sh > sa else ('D' if sh == sa else 'A')
@@ -99,11 +105,17 @@ def main():
             f"({'✔' if kd==a else '✘'})")
 
     # ---------------- 渲染报告 ----------------
+    n = S['n']   # 分母只用可重算场次(完整版); 轻量版已计入 skipped
+    if n == 0:
+        print(f'⚠ {len(revs)} 篇留档中无可重算场次(均无赛前 config), 跳过统计')
+        return 0
+
     def pct(x, y):
         return f'{x/y*100:.1f}%' if y else '-'
 
     lines = [f"# 模型复盘统计报告",
              f"\n> 更新: {date.today().isoformat()} | 复盘样本: {n} 场(每周自动累积, 来自 review_weekly)",
+             f"> 留档总数: {len(revs)} 篇 | 跳过轻量版(纯赛果, 无赛前 config 无法重算): {skipped} 篇",
              f"> 数据源: 赛后真实赛果(竞彩API) vs 赛前模型/市场概率 | 脚本: review_stats.py",
              f"> {'⚠ 样本 < %d, 结论仅供参考, 用于校准建议积累至 %d+ 场' % (MIN_SAMPLE, MIN_SAMPLE) if n < MIN_SAMPLE else '✅ 样本量充足, 结论可参考' }",
              f"\n## 方向命中率(最高概率方向与实际结果一致)",
