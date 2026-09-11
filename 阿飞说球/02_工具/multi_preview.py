@@ -24,44 +24,79 @@ TOOL_DIR = os.path.join(BASE, '阿飞说球', '02_工具')
 sys.path.insert(0, TOOL_DIR)
 from afei_generator import run_model  # noqa: E402
 
-# ============ 配置区: 每场 = (config路径, 标题段名, 开场时间, 交锋数据, extra段落列表) ============
+# ============ 配置区: 每场 = (config路径, 标题段名, 开场时间, 交锋数据, extra段落列表, 三个小节标题) ============
 CFGS = [
-    (os.path.join(TOOL_DIR, 'match_configs', '帕梅拉斯vs波特诺.json'),
-     "帕梅拉斯 vs 波特诺", "06:00",
-     {'label': '帕梅拉斯 vs 波特诺(近10次交锋)', 'w': 7, 'd': 1, 'l': 2, 'note': '历史碾压,但今年小组赛1胜1平不败'},
+    (os.path.join(TOOL_DIR, 'match_configs', '赫根vs米亚尔比.json'),
+     "赫根 vs 米亚尔比", "01:00",
+     {'label': '赫根 vs 米亚尔比(同主客交锋)', 'w': 4, 'd': 4, 'l': 2,
+      'note': '赫根主场对米亚尔比10次4胜4平2负,但最近两次在自家门口全被零封(0:3、0:1)'},
      [
-         "关键数据:帕梅拉斯近10场场均进2.1球失0.8球,火力在线,但防线是残阵——主力前锋保利尼奥加三名后卫全部挂彩。波特诺近10场5胜1平4负,巴拉圭联赛近4轮1胜3负,状态一般。解放者杯小组赛4胜1平1负拿头名,欧战成色和联赛完全是两副面孔。",
-         "历史交锋:近10次交手帕梅拉斯7胜1平2负,占绝对上风。今年小组赛两回合,波特诺主场1-1、客场1-0,1胜1平不败,还踩着帕梅拉斯拿了小组第一。帕梅拉斯1.20的深热里,藏着0-1的旧账。",
-         "冷门路径:①波特诺复制5月剧本,反击偷一球,帕梅拉斯残阵后防压上再丢。②帕梅拉斯伤停影响发酵,主场久攻不下,1-1平局把悬念留到次回合。③维格蒂(小组赛3球占全队60%)状态在线,是客队最现实的进球点。",
-     ]),
-    (os.path.join(TOOL_DIR, 'match_configs', '普拉滕斯vs科金博联.json'),
-     "普拉滕斯 vs 科金博联", "06:00",
-     {'label': '普拉滕斯 vs 科金博联(历史交锋)', 'w': 0, 'd': 0, 'l': 0, 'note': '首次交锋,白纸对决'},
+         "赫根排第4,20轮8胜8平4负。",
+         "主场10场4胜4平2负,进17失17,说白了是个平手账。",
+         "米亚尔比那边是塌方,近10场1胜1平8负,进6失22。",
+         "场均只进0.6个。讲道理,他们客场能带走1分都算赚。",
+         "所以这场球的矛盾很清楚。一边是米亚尔比五连败、场均0.6球的塌方,一边是赫根主场对他们的两连败。你说这球该信哪一边?",
+         "模型和市场这场没吵架,主胜62.3%对59.1%,Edge校准只剩0.2个点。",
+         "分歧在让1球那道门槛上。",
+         "市场给赫根赢到2球以上35.4%,模型给38.5%,全样本基准27%。",
+         "米亚尔比近10次交手赢了5次,是赫根的真克星。",
+         "两次到访赫根,他们都是零封带分走的。这条老路他们熟。",
+         "赫根赛季8平,20轮里8次没能把优势换成3分。",
+         "平赔4.10落在砍平局那一档,历史平赔3.5以上的场次平局率只有12%。",
+     ],
+     ("赫根那边的账本", "克星这条线", "比分落在哪一档")),
+    (os.path.join(TOOL_DIR, 'match_configs', '柏林联合vs沙尔克04.json'),
+     "柏林联合 vs 沙尔克04", "02:30",
+     {'label': '柏林联合 vs 沙尔克04(近6场)', 'w': 1, 'd': 4, 'l': 1,
+      'note': '近6次交手4平,柏林联合主场3次交手全是平局(0胜3平0负)'},
      [
-         "关键数据:普拉滕斯近10场3胜3平4负,场均进1.0球,进攻偏弱。主力中卫库艾斯塔(5场5首发)缺阵,后防更脆。科金博联近10场4胜5平1负,只输1场,平局占一半,典型的不败体质,场均失0.8球。",
-         "赛制变量:两队历史首次交锋,没有任何对位参考,主场权重被放大。普拉滕斯4天后要在阿甲主场打博卡,会不会分心值得观察。科金博联次回合回主场,首回合可以接受平局。",
-         "冷门路径:①科金博联不败体质发威,0-0或1-1,让球负1.86的低赔应验。②普拉滕斯主场小组赛1胜1平1负并不强势,0-4惨败铁路工场的防守表现再演。③客队拿到进球,把淘汰赛悬念拖回智利。",
-     ]),
+         "两队2轮都没赢过。",
+         "柏林联合1平1负,进3球丢7球;沙尔克04也是1平1负,进0球丢3球。",
+         "上轮沙尔克主场0比0逼平拜仁。防线是硬的,进攻是真哑。",
+         "柏林联合那串近10场数字基本是废的。7月热身赛,他们连阿劳、耶拿这种低级别球队都输,回到联赛才在主场3比3追平法兰克福。沙尔克反过来,数字被热身赛刷高了。",
+         "模型主胜42.0%,市场43.2%。客胜35.6%对31.2%,方向两边一致。",
+         "说白了,这是一场没有热门的均势局。",
+         "让1球这头,市场给柏林联合赢到2球以上只有21.3%,低于全样本的27%。",
+         "沙尔克受让之后不落下风56.0%,高于全样本的50%。",
+         "平局这边的信号是叠着的。交锋6次4平,同主客交锋3次全平,平赔3.45正好落在平局率47%那一档。",
+         "沙尔克联赛2轮零进球,可防线顶住过拜仁。受让1球这条路,他们是走得通的。",
+         "柏林联合近10场1胜4平5负,数字里全是7月热身赛输球的影子。",
+     ],
+     ("两队都还没开张", "交锋簿里的4场平", "沙尔克能不能进球")),
 ]
-TITLE = "解放者杯双场:帕梅拉斯1.20有前科,普拉滕斯主胜高估20点"
-TAGS = "#解放者杯 #帕梅拉斯 #波特诺 #普拉滕斯 #科金博联 #足球前瞻"
+TITLE = "周五004+007:米亚尔比8负却克赫根,双0胜谁先开张?"
+TAGS = "#瑞超 #德甲 #赫根 #米亚尔比 #柏林联合 #沙尔克04"
 INFO_CARD = [
-    "【对阵】帕梅拉斯(主)vs波特诺 — 周三003 | 普拉滕斯(主)vs科金博联 — 周三002",
-    "【赛事】解放者杯2026 1/8决赛首回合(两回合制,总比分定晋级)",
-    "【时间】8月13日(周四)06:00 北京时间(两场同时开球)",
-    "【场地】帕梅拉斯主场(巴西)/普拉滕斯主场(阿根廷)",
+    "【对阵】赫根(主)vs米亚尔比 — 周五004 | 柏林联合(主)vs沙尔克04 — 周五007",
+    "【赛事】瑞超 2026 常规赛第21轮 | 德甲 2026/2027 常规赛第3轮",
+    "【时间】2026-09-12 01:00 / 02:30 北京时间(深夜连场)",
+    "【场地】赫根主场 / 柏林联合主场",
     "【天气】待赛前更新",
 ]
-OPENING = "开篇先甩两组数据。帕梅拉斯1.20的深热背后,藏着0-1的旧账:今年小组赛,波特诺对帕梅拉斯1胜1平不败,还踩着它拿了小组第一。另一边,普拉滕斯1.74的主场定价,模型只认三成,客队科金博联近10场只输过1场。两场1/8决赛首回合,两场主胜都被市场高估20个点,今晚解放者杯最值得盯的信号,就是这个。"
-ENDING_HOOK = "两场都是首回合,你更看好哪边的剧本?评论区留下你的比分,6点赛后回来验。数据不会说谎,但人会。——阿飞·赛博聊球"
+OPENING = "\n\n".join([
+    "周五两场深夜球,先把结论摆出来。",
+    "004那场,市场把赫根压到1.50,可数据里躺着两个反向信号。",
+    "近10次碰面,赫根4胜1平5负,主场近两次还被米亚尔比零封。你说这场有没有门道?",
+    "007那场更怪,柏林联合和沙尔克04都没开张。",
+    "2轮下来,一个进3丢7,一个进0丢3,市场照样把让球线开到柏林联合让1球。",
+    "一边是崩盘客队撞克星魔咒,一边是双0胜球队比谁先开张。",
+    "模型给出的答案都在下面。",
+])
+ENDING_HOOK = "克星魔咒和双0胜的僵局,你觉得哪一边会先破?评论区留下你的判断,周六我们一起复盘这两场。"
+SUMMARY = "\n\n".join([
+    "双场对比,一句话总结。004那场市场是清醒的,1.50的价格和模型几乎重合,分歧只在让1球那道门槛上。真正的变数是米亚尔比这条克星线。",
+    "007那场两队都还没开张,让球线开到1球本身就偏深。平赔3.45又站在平局高产的那一档。",
+    "一个看克星会不会再灵一次,一个看谁先把0胜撕掉。",
+])
+
 FOOTER = [
-    "【数据来源】数据取自竞彩官方及公开体育数据库,测算由阿飞个人足球数据模型独立推演。",
+    "【数据来源】数据取自竞彩官方(竞彩网 sporttery.cn)及公开体育数据库,测算由阿飞个人足球数据模型独立推演。",
     "",
     "【免责声明】本文为个人数据模型推演,属体育赛事分析交流,不构成任何购彩及投注建议。足球是圆的,请理性看待数据,适度娱乐。",
 ]
 
 # 输出目录: 04_赛事文章/<YYYY-MM>/<串烧名> (按产出月份自动归档)
-OUT_DIR = os.path.join(BASE, '阿飞说球', '04_赛事文章', date.today().strftime('%Y-%m'), '解放者杯16强首回合双场串烧')
+OUT_DIR = os.path.join(BASE, '阿飞说球', '04_赛事文章', date.today().strftime('%Y-%m'), '周五深夜双场串烧_瑞超德甲')
 os.makedirs(os.path.join(OUT_DIR, 'charts'), exist_ok=True)
 
 # 中文字体
@@ -76,10 +111,12 @@ BLUE, RED, GRAY = '#2b7bba', '#d62728', '#7f7f7f'
 
 def run_all():
     cfgs, models = [], []
-    for path, name, t, h2h, extra in CFGS:
+    for item in CFGS:
+        path, name, t, h2h, extra = item[0], item[1], item[2], item[3], item[4]
+        labels = item[5] if len(item) > 5 else None
         c = json.load(open(path, encoding='utf-8'))
         m = run_model(c)
-        cfgs.append((c, name, t, h2h, extra))
+        cfgs.append((c, name, t, h2h, extra, labels))
         models.append(m)
     return cfgs, models
 
@@ -92,7 +129,8 @@ def chart_deviation(cfgs, models, out):
     labels = ['主胜', '平局', '客胜']
     x = np.arange(3)
     w = 0.35
-    for ax, (c, name, t, h2h, extra), m in zip(axes, cfgs, models):
+    for ax, it, m in zip(axes, cfgs, models):
+        c, name, t, h2h, extra = it[0], it[1], it[2], it[3], it[4]
         model = [m['pH'] * 100, m['pD'] * 100, m['pA'] * 100]
         mkt = [m['pM']['H'] * 100, m['pM']['D'] * 100, m['pM']['A'] * 100]
         ax.bar(x - w / 2, model, w, label='泊松模型', color=BLUE)
@@ -121,7 +159,8 @@ def chart_h2h(cfgs, out):
     fig, axes = plt.subplots(1, len(cfgs), figsize=(5.6 * len(cfgs), 4.5))
     if len(cfgs) == 1:
         axes = [axes]
-    for ax, (c, name, t, h2h, extra) in zip(axes, cfgs):
+    for ax, it in zip(axes, cfgs):
+        c, name, t, h2h, extra = it[0], it[1], it[2], it[3], it[4]
         r = [h2h['w'], h2h['d'], h2h['l']]
         if sum(r) == 0:
             # 首次交锋: 无历史数据, 画信息卡
@@ -148,7 +187,8 @@ def chart_h2h(cfgs, out):
 def chart_attack(cfgs, out):
     """图3: 四队攻防对比(所有队)"""
     teams, gf, ga = [], [], []
-    for c, name, t, h2h, extra in cfgs:
+    for it in cfgs:
+        c, name, t, h2h, extra = it[0], it[1], it[2], it[3], it[4]
         for k in ['home', 'away']:
             teams.append(c['teams'][k]['name'])
             gf.append(c['teams'][k]['gf'])
@@ -183,7 +223,8 @@ def main():
     # 历史案例参考(知识库检索, 写稿参考, 不进文章)
     try:
         from kb.kb_core import kb_search, match_query
-        for (c, name, t, h2h, extra), m in zip(cfgs, models):
+        for it, m in zip(cfgs, models):
+            c, name, t, h2h, extra = it[0], it[1], it[2], it[3], it[4]
             th, ta = c['teams']['home'], c['teams']['away']
             query = match_query(th['name'], ta['name'], th['league'],
                                 c.get('competition', ''), '盘口 数据 历史交锋')
@@ -207,17 +248,32 @@ def main():
     # 2. 文章内容(md)
     lines = [TITLE, '', TAGS, '']
     lines += INFO_CARD
-    lines += ['', OPENING.format(
-        open1=f"帕梅拉斯主场对波特诺,市场给出1.20的深热赔率(隐含胜率73.9%),模型只算到52.9%,差21个点",
-        open2=f"普拉滕斯主场对科金博联,市场给1.74(隐含50.9%),模型只认30.9%,客胜却被低估22.7个点")]
-    for (c, name, t, h2h, extra), m in zip(cfgs, models):
-        lines += ['', '——', '', f"【{name}】({t}开球)", '',
-                  f"【数据偏差池】机构主胜隐含:{m['pM']['H']*100:.1f}% / 平局{m['pM']['D']*100:.1f}% / 客胜{m['pM']['A']*100:.1f}%。泊松模型测算:主胜{m['pH']*100:.1f}% / 平局{m['pD']*100:.1f}% / 客胜{m['pA']*100:.1f}%。结论:主胜被{'低估' if m['pH'] > m['pM_cal']['H'] else '高估'}{abs((m['pH']-m['pM_cal']['H'])*100):.1f}个百分点。",
-                  '', f"【战术胜负手】{h2h['label']} {h2h['w']}胜{h2h['d']}平{h2h['l']}负——{h2h['note']}。",
-                  '', f"【比分演算倾向】模型期望总进球{m['exp_goals']:.2f}球,首选比分参考下方表格。"]
+    lines += ['', OPENING, '',
+              '![双场模型vs市场偏差对比](charts/cmp1_双场模型vs市场偏差.png)', '*图1 双场模型vs市场偏差对比*', '']
+    for item, m in zip(cfgs, models):
+        c, name, t, h2h, extra = item[0], item[1], item[2], item[3], item[4]
+        labels = item[5] if len(item) > 5 else ('【数据偏差池】', '【战术胜负手】', '【比分演算倾向】')
+        l1, l2, l3 = labels
+        # 小节标题独立带赛事名, 每场比赛成为独立搜索入口(SEO长尾, 2026-08-27)
+        sec_title = "|".join(x for x in (name, c.get('competition', '')) if x)
+        # 截短到60字内,避免被长句检查误判
+        if len(f"【{sec_title}】({t}开球)") > 60:
+            sec_title = name  # 只保留赛事名
+        lines += ['', '|', '', f"【{sec_title}】({t}开球)", '',
+                  l1,
+                  f"机构主胜隐含:{m['pM']['H']*100:.1f}%,平局{m['pM']['D']*100:.1f}%,客胜{m['pM']['A']*100:.1f}%。",
+                  f"泊松模型测算:主胜{m['pH']*100:.1f}%,客胜{m['pA']*100:.1f}%。",
+                  f"结论:主胜被{'低估' if m['pH'] > m['pM_cal']['H'] else '高估'}{abs((m['pH']-m['pM_cal']['H'])*100):.1f}个百分点。",
+                  '', l2,
+                  f"{h2h['label']} {h2h['w']}胜{h2h['d']}平{h2h['l']}负。",
+                  f"{h2h['note']}",
+                  '', l3,
+                  f"模型期望总进球{m['exp_goals']:.2f}球,首选比分参考下方表格。"]
         for ex in extra:
             lines += ['', ex]
-    lines += ['', '——', '', '双场对比,一句话总结:第一场是历史碾压下的旧账未清,市场给1.20的绝对信任,模型只认五成出头。第二场是白纸对决,市场给主队五成信任,模型更信客队的不败体质。两场主胜都被高估20个点,这是今晚解放者杯最值得盯的信号。', '',
+    lines += ['', '|', '', SUMMARY, '',
+              '![双场交锋克星对比](charts/cmp2_双场交锋克星对比.png)', '*图2 双场交锋克星对比*', '',
+              '![四队攻防对比](charts/cmp3_四队攻防对比.png)', '*图3 四队攻防对比*', '',
               ENDING_HOOK, '']
     lines += FOOTER
 
@@ -232,19 +288,29 @@ def main():
     doc.add_paragraph(TAGS)
     for c in INFO_CARD:
         doc.add_paragraph(c)
+    _labels = set()
+    for item in cfgs:
+        if len(item) > 5:
+            _labels.update(item[5])
     for para in lines[10:]:
-        if para == '——':
-            doc.add_paragraph('——')
-        elif para.startswith('【') or para.startswith('第一场') or para.startswith('第二场'):
-            p = doc.add_paragraph()
-            run = p.add_run(para)
-            run.bold = True
-        else:
-            doc.add_paragraph(para)
-        if para.startswith('开篇先甩两组数据'):
+        # 多段字符串(OPENING/SUMMARY)拆成独立段落; md 图片语法行不进 docx(由图片插入逻辑负责)
+        chunks = para.split('\n\n') if para in (OPENING, SUMMARY) else [para]
+        for ch in chunks:
+            ch = ch.strip()
+            if not ch or ch.startswith('![') or ch.startswith('*图'):
+                continue
+            if ch == '|':
+                doc.add_paragraph('·')
+            elif ch.startswith('【') or ch.startswith('第一场') or ch.startswith('第二场') or ch in _labels:
+                p = doc.add_paragraph()
+                run = p.add_run(ch)
+                run.bold = True
+            else:
+                doc.add_paragraph(ch)
+        if para == OPENING:
             doc.add_picture(os.path.join(OUT_DIR, 'charts', 'cmp1_双场模型vs市场偏差.png'), width=Inches(5.9))
             doc.add_paragraph('图1 双场模型vs市场偏差对比(核心卖点)')
-        if para.startswith('双场对比,一句话总结'):
+        if para == SUMMARY:
             doc.add_picture(os.path.join(OUT_DIR, 'charts', 'cmp2_双场交锋克星对比.png'), width=Inches(5.9))
             doc.add_paragraph('图2 双场交锋克星对比')
             doc.add_picture(os.path.join(OUT_DIR, 'charts', 'cmp3_四队攻防对比.png'), width=Inches(5.9))
@@ -256,7 +322,8 @@ def main():
     t.style = 'Light Grid Accent 1'
     for i, h in enumerate(['场次', '模型倾向', '推演概率', '参考赔率']):
         t.rows[0].cells[i].text = h
-    for (c, name, tt, h2h, extra), m in zip(cfgs, models):
+    for it, m in zip(cfgs, models):
+        c, name, tt, h2h, extra = it[0], it[1], it[2], it[3], it[4]
         so = {(int(s[0]), int(s[1])): float(s[2]) for s in c.get('score_odds', [])}
         for (h, a), p in sorted(m['probs'].items(), key=lambda kv: -kv[1])[:3]:
             r = t.add_row().cells

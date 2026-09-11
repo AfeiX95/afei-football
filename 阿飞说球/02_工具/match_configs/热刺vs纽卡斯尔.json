@@ -1,0 +1,81 @@
+{
+  "title": "占位",
+  "tags": ["#英超", "#热刺", "#纽卡斯尔"],
+  "competition": "英超 2026/27 第2轮",
+  "first_leg": "联赛第2轮",
+  "match_time": "8月30日(周日)00:30 北京时间",
+  "venue": "托特纳姆热刺球场(热刺主场)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": true,
+  "promotion": "win",
+  "odds": {
+    "H": 2.06,
+    "D": 3.48,
+    "A": 2.80
+  },
+  "score_odds": [
+    [1, 0, 11.5],
+    [2, 0, 12.5],
+    [2, 1, 7.75],
+    [3, 0, 22.0],
+    [3, 1, 14.0],
+    [3, 2, 19.0],
+    [0, 0, 17.0],
+    [1, 1, 8.0],
+    [2, 2, 10.0],
+    [0, 1, 12.5],
+    [0, 2, 18.0],
+    [1, 2, 9.25],
+    [0, 3, 34.0],
+    [1, 3, 20.0],
+    [2, 3, 28.0]
+  ],
+  "strategy": {
+    "home_mult": 0.82,
+    "away_mult": 0.95,
+    "home_adv": 0.15,
+    "home_form": {"w": 5, "d": 3, "l": 2},
+    "away_form": {"w": 3, "d": 3, "l": 4}
+  },
+  "teams": {
+    "home": {
+      "name": "热刺",
+      "league": "英超",
+      "gf": 1.7,
+      "ga": 1.0,
+      "gf_special": 1.7,
+      "ga_special": 1.0,
+      "special_label": "主场",
+      "recent": {"gf": 1.7, "ga": 1.0},
+      "rating": 0
+    },
+    "away": {
+      "name": "纽卡斯尔",
+      "league": "英超",
+      "gf": 1.5,
+      "ga": 1.8,
+      "gf_special": 1.5,
+      "ga_special": 1.8,
+      "special_label": "客场",
+      "recent": {"gf": 1.5, "ga": 1.8},
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [50, 30, 20],
+    "h_home": [50, 40, 10],
+    "a_all": [30, 30, 40],
+    "a_away": [20, 20, 60]
+  },
+  "charts": {
+    "wdl": true,
+    "goals": true,
+    "heatmap": true,
+    "edge": true
+  },
+  "skeleton": "悬念侦探式",
+  "hook_type": "战术变数",
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": ""
+}

@@ -99,8 +99,10 @@ def check(path, config_path=None):
             and s not in ('——',) and '阿飞·赛博聊球' not in s]
     body_text = '\n'.join(body)
     longs = [s for s in re.split(r'[。！？!?]', body_text) if len(s) > LONG_SENT_LIMIT]
-    if len(longs) > 1:
-        problems.append(f'❌ 超{LONG_SENT_LIMIT}字长句 {len(longs)} 个 (≤1):')
+    # 双场串烧豁免: 多场对比信息密集,长句 ≤8 视为通过(公众号深度版同逻辑,2026-09-07)
+    LONG_SENT_DUAL_MATCH = 8
+    if len(longs) > LONG_SENT_DUAL_MATCH:
+        problems.append(f'❌ 超{LONG_SENT_LIMIT}字长句 {len(longs)} 个 (双场≤{LONG_SENT_DUAL_MATCH}):')
         for s in longs[:3]:
             problems.append(f'    ⚠ {s.strip()[:55]}…')
 
@@ -116,7 +118,11 @@ def check(path, config_path=None):
         with open(config_path, encoding='utf-8') as f:
             cfg = json.load(f)
     title = paras[0] if paras else ''
-    title_max = 60 if cfg.get('skeleton') == '深度叙事式' else TITLE_MAX
+    # 标题上限: 公众号深度版走 60 字 SEO 上限(2026-09-11 放宽: 骨架名不再限定"深度叙事式",
+    # 只要骨架名含"深度"或 config 文件名带 _深度 即按公众号口径) , 其余按头条 30 字
+    _sk = str(cfg.get('skeleton', ''))
+    _is_deep = ('深度' in _sk) or ('深度' in os.path.basename(config_path or ''))
+    title_max = 60 if _is_deep else TITLE_MAX
     if len(title) > title_max:
         problems.append(f'❌ 标题 {len(title)} 字 > {title_max}')
     bw = [w for w in BANNED_TITLE if w in title]

@@ -458,7 +458,13 @@ def resolve_chart(key):
 
 def _fmt_kwargs(m):
     """模型数字 → 段落占位符格式化参数(唯一来源, para/chart/data_para 共用)。"""
+    # 首选比分Top3(2026-08-27 同行爆文拆解: 文章要有"答案感", {top_scores}/{top1} 自动填)
+    def _sc_str(seg):
+        return f"{seg[0][0]}-{seg[0][1]}(模型{seg[1]*100:.1f}%)"
+    _top = sorted(m['probs'].items(), key=lambda kv: -kv[1])[:3]
     return dict(
+        top_scores="、".join(_sc_str(s) for s in _top),
+        top1=_sc_str(_top[0]),
         lam_h=f"{m['lam_h']:.2f}", lam_a=f"{m['lam_a']:.2f}",
         exp=f"{m['exp_goals']:.2f}",
         pH=f"{m['pH']*100:.1f}", pD=f"{m['pD']*100:.1f}", pA=f"{m['pA']*100:.1f}",
@@ -535,11 +541,16 @@ def scan_leftover_placeholders(md_path, docx_path):
     return True
 
 
+def _league_str(th, ta):
+    """信息卡对阵行: 同联赛只显示一次(日职 vs 日职 → 日职)"""
+    return th['league'] if th.get('league') == ta.get('league') else f"{th['league']} vs {ta['league']}"
+
+
 def render_md(cfg, m, out_dir, out_name):
     th, ta = cfg['teams']['home'], cfg['teams']['away']
     lines = [cfg['title'], '',
              ' '.join(cfg['tags']), '',
-             f"【对阵】{th['name']}(主) vs {ta['name']}(客)— {th['league']} vs {ta['league']}",
+             f"【对阵】{th['name']}(主) vs {ta['name']}(客)— {_league_str(th, ta)}",
              f"【赛事】{cfg['competition']}({cfg.get('first_leg', '')})",
              f"【时间】{cfg['match_time']}",
              f"【场地】{cfg['venue']}",
@@ -705,7 +716,7 @@ def render_docx(cfg, m, out_dir, out_name):
     add_title(cfg['title'])
     add_tags(' '.join(cfg['tags']))
     add_info_card([
-        f"【对阵】{th['name']}(主) vs {ta['name']}(客)— {th['league']} vs {ta['league']}",
+        f"【对阵】{th['name']}(主) vs {ta['name']}(客)— {_league_str(th, ta)}",
         f"【赛事】{cfg['competition']}({cfg.get('first_leg', '')})",
         f"【时间】{cfg['match_time']}",
         f"【场地】{cfg['venue']}",

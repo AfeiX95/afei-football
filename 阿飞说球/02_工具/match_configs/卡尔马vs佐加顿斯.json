@@ -1,0 +1,53 @@
+{
+  "title": "周一004:瑞超第20轮,佐加顿斯客场强势但市场加压过度,客胜被高估",
+  "tags": ["#瑞超", "#佐加顿斯", "#卡尔马"],
+  "competition": "瑞超 2026/2027 Regular Season 第20轮",
+  "first_leg": "佐加顿斯主场3-2胜",
+  "match_time": "2026-09-08 01:00 北京时间",
+  "venue": "Guldfågeln Arena(卡尔马主场)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "odds": {"H": 4.70, "D": 4.07, "A": 1.49},
+  "score_odds": [
+    [1,0,15.00],[2,0,26.00],[2,1,14.00],[3,0,80.00],[3,1,40.00],[3,2,35.00],
+    [0,0,17.00],[1,1,8.50],[2,2,14.00],[3,3,60.00],
+    [0,1,8.50],[0,2,8.50],[1,2,7.00],[0,3,13.00],[1,3,10.50],[2,3,18.00],
+    [0,4,26.00],[1,4,22.00],[2,4,45.00]
+  ],
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.10,
+    "home_form": {"w": 3, "d": 3, "l": 4},
+    "away_form": {"w": 7, "d": 1, "l": 2}
+  },
+  "teams": {
+    "home": {
+      "name": "卡尔马", "league": "瑞超", "gf": 1.7, "ga": 1.4,
+      "gf_special": 1.56, "ga_special": 1.22, "special_label": "主场",
+      "recent": {"gf": 1.7, "ga": 1.4}, "rating": 0
+    },
+    "away": {
+      "name": "佐加顿斯", "league": "瑞超", "gf": 2.4, "ga": 0.6,
+      "gf_special": 1.78, "ga_special": 0.78, "special_label": "客场",
+      "recent": {"gf": 2.4, "ga": 0.6}, "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [30, 30, 40],
+    "h_home": [56, 22, 22],
+    "a_all": [70, 10, 20],
+    "a_away": [67, 11, 22]
+  },
+  "charts": {"wdl": true, "goals": true, "heatmap": true, "edge": true, "promote": false},
+  "skeleton": "天平对决式",
+  "hook_type": "战术变数",
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": "",
+  "illustration": {
+    "en": "Kalmar FF vs Djurgården Allsvenskan September 2026 | Kalmar Guldfågeln Arena 2026 | Djurgården Allsvenskan 2026 away",
+    "cn": "卡尔马 主场 瑞超 2026 | Guldfågeln球场 | 佐加顿斯 客场 瑞超 2026"
+  }
+}
