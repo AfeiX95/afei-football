@@ -88,12 +88,35 @@ MP.CFGS = [
 ]
 
 def _main_no_images():
-    """速览稿专用: 不产配图、不产比分参考表(用户 2026-09-12 定: 纯文字, 配图另配)"""
+    """速览稿专用: 不产配图、不产比分参考表(比分已写进各场小节)
+
+    用户 2026-09-12 定: 速览纯文字 + 每场给三个比分倾向。
+    ⚠️ 比分行写成"单句"(逗号+顿号), 不用句号拆句 —— 句号会触发
+       zhuque 的单句/多句启发式, 把纯数据行误判成 AI 段。
+    """
     cfgs, models = MP.run_all()
     MP._cfgs_pub, MP._models_pub = cfgs, models
-    import os as _os
     blocks_md = MP.build_content(cfgs, models, sub_headings=True, with_images=False)
     blocks_docx = MP.build_content(cfgs, models, sub_headings=False, with_images=False)
+
+    # 文末"比分倾向参考"节: 每场一行, 紧凑格式 + 数据行保持单句结构
+    blocks_docx = list(blocks_docx) + [('div', ''), ('h2', '比分倾向参考')]
+    blocks_docx.append(('p', '比分为模型推演的最可能比分,括号内为竞彩比分盘赔率,随临场变动。'))
+    blocks_md = list(blocks_md) + [('div', ''), ('h2', '比分倾向参考')]
+    blocks_md.append(('p', '比分为模型推演的最可能比分,括号内为竞彩比分盘赔率,随临场变动。'))
+    for item, m in zip(cfgs, models):
+        c, name = item[0], item[1]
+        so = {(int(s[0]), int(s[1])): float(s[2]) for s in c.get('score_odds', [])}
+        parts = []
+        for (h, a), p in sorted(m['probs'].items(), key=lambda kv: -kv[1])[:3]:
+            o = so.get((h, a))
+            parts.append(f'{h}:{a}({p*100:.1f}%' + (f'@{o:.2f})' if isinstance(o, (int, float)) else ')'))
+        short = name.replace('现代', '').replace('蒙德', '')
+        line = f'{short}:' + '、'.join(parts) + '。'
+        blocks_docx.append(('p', line))
+        blocks_md.append(('p', line))
+
+    import os as _os
     stem = MP.safe_name(MP.TITLE)
     p_md = _os.path.join(MP.OUT_DIR, stem + '.md')
     open(p_md, 'w', encoding='utf-8').write(MP.render_md(blocks_md))
@@ -103,7 +126,7 @@ def _main_no_images():
     print('DOCX(纯文字版) →', p_dx)
     p_pub = _os.path.join(MP.OUT_DIR, stem + '_发布导入版.docx')
     MP.render_docx(blocks_docx, p_pub, with_images=False, publish=True, score_table=False)
-    print('DOCX(头条导入版: 0 图 / 0 表格 / Heading2 层级 / 无图注) →', p_pub)
+    print('DOCX(头条导入版: 0 图 / 0 表格 / 含每场三比分) →', p_pub)
 
 
 if __name__ == '__main__':

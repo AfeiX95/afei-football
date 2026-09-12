@@ -301,6 +301,7 @@ def render_docx(blocks, out_path, with_images=True, publish=False, score_table=T
         规范(用户 2026-09-12 提供《Word导入头条号完整排版方案》):
         ① 图片不嵌入, 用文字占位符  ② 小标题用 Heading 2  ③ 不用表格
         ④ 不设字体/颜色/缩进  ⑤ 段间空行, 短段
+    score_table=True  → 文末补"比分倾向参考"(纯文本条目)
     """
     doc = Document()
     pic_i = 0
