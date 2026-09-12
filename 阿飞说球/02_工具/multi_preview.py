@@ -246,9 +246,14 @@ def main():
     print('对比图 3 张 →', os.path.join(OUT_DIR, 'charts'))
 
     # 2. 文章内容(md)
+    # ⚠️ 插图位置一律用**显式标记**(<!--IMG1-->/<!--IMG2-->)判断, 不用位置切片、不用对象身份比较。
+    #    2026-09-12 实测踩坑: 原实现是 `for para in lines[10:]` —— 那个 10 是硬编码行数,
+    #    只要增删信息卡行数(本次 5 行→3 行), 开篇段落连它的图1 就会一起被挤出切片而**静默丢失**。
+    #    改文案/改信息卡后, 必查 docx 内嵌图片数是否 = charts 数。
+    _opening, _summary = OPENING, SUMMARY
     lines = [TITLE, '', TAGS, '']
     lines += INFO_CARD
-    lines += ['', OPENING, '',
+    lines += ['', _opening, '', '<!--IMG1-->',
               '![双场模型vs市场偏差对比](charts/cmp1_双场模型vs市场偏差.png)', '*图1 双场模型vs市场偏差对比*', '']
     for item, m in zip(cfgs, models):
         c, name, t, h2h, extra = item[0], item[1], item[2], item[3], item[4]
@@ -271,7 +276,7 @@ def main():
                   f"模型期望总进球{m['exp_goals']:.2f}球,首选比分参考下方表格。"]
         for ex in extra:
             lines += ['', ex]
-    lines += ['', '|', '', SUMMARY, '',
+    lines += ['', '|', '', _summary, '', '<!--IMG2-->',
               '![双场交锋克星对比](charts/cmp2_双场交锋克星对比.png)', '*图2 双场交锋克星对比*', '',
               '![四队攻防对比](charts/cmp3_四队攻防对比.png)', '*图3 四队攻防对比*', '',
               ENDING_HOOK, '']
@@ -279,7 +284,8 @@ def main():
 
     md_path = os.path.join(OUT_DIR, safe_name(TITLE) + '.md')
     with open(md_path, 'w', encoding='utf-8') as f:
-        f.write('\n'.join(lines))
+        # 插图标记只服务于 docx 排版, 不写进 md
+        f.write('\n'.join(l for l in lines if l != '<!--IMG1-->' and l != '<!--IMG2-->'))
     print('MD →', md_path)
 
     # 3. docx(含图)
@@ -292,9 +298,20 @@ def main():
     for item in cfgs:
         if len(item) > 5:
             _labels.update(item[5])
-    for para in lines[10:]:
-        # 多段字符串(OPENING/SUMMARY)拆成独立段落; md 图片语法行不进 docx(由图片插入逻辑负责)
-        chunks = para.split('\n\n') if para in (OPENING, SUMMARY) else [para]
+    for para in lines[4 + len(INFO_CARD):]:     # 跳过标题/标签/信息卡(docx 已单独写入)
+        # 显式插图标记(位置无关)
+        if para == '<!--IMG1-->':
+            doc.add_picture(os.path.join(OUT_DIR, 'charts', 'cmp1_双场模型vs市场偏差.png'), width=Inches(5.9))
+            doc.add_paragraph('图1 双场模型vs市场偏差对比(核心卖点)')
+            continue
+        if para == '<!--IMG2-->':
+            doc.add_picture(os.path.join(OUT_DIR, 'charts', 'cmp2_双场交锋克星对比.png'), width=Inches(5.9))
+            doc.add_paragraph('图2 双场交锋克星对比')
+            doc.add_picture(os.path.join(OUT_DIR, 'charts', 'cmp3_四队攻防对比.png'), width=Inches(5.9))
+            doc.add_paragraph('图3 四队攻防对比')
+            continue
+        # 多段字符串(开篇/结尾总述)拆成独立段落; md 图片语法行不进 docx(由标记负责)
+        chunks = para.split('\n\n') if para in (_opening, _summary) else [para]
         for ch in chunks:
             ch = ch.strip()
             if not ch or ch.startswith('![') or ch.startswith('*图'):
@@ -307,14 +324,6 @@ def main():
                 run.bold = True
             else:
                 doc.add_paragraph(ch)
-        if para == OPENING:
-            doc.add_picture(os.path.join(OUT_DIR, 'charts', 'cmp1_双场模型vs市场偏差.png'), width=Inches(5.9))
-            doc.add_paragraph('图1 双场模型vs市场偏差对比(核心卖点)')
-        if para == SUMMARY:
-            doc.add_picture(os.path.join(OUT_DIR, 'charts', 'cmp2_双场交锋克星对比.png'), width=Inches(5.9))
-            doc.add_paragraph('图2 双场交锋克星对比')
-            doc.add_picture(os.path.join(OUT_DIR, 'charts', 'cmp3_四队攻防对比.png'), width=Inches(5.9))
-            doc.add_paragraph('图3 四队攻防对比')
 
     # 比分参考表(合规措辞: 数据推演参考, 不构成预测)
     doc.add_paragraph('附:各场模型比分倾向(数据推演参考)')
