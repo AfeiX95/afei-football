@@ -164,7 +164,8 @@ def main():
             chunks.append({
                 'text': r['review_text'],
                 'match': r['match'], 'section': '赛后复盘',
-                'source': os.path.join('00_引擎', 'backtest', 'reviews', fn),
+                'source': os.path.relpath(
+                    os.path.join(reviews_dir, fn), ARTICLES_DIR).replace('\\', '/'),
             })
             n_rev += 1
         print(f'  赛后复盘: {n_rev} 块')

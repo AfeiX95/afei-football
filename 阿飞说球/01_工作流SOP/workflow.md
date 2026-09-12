@@ -361,4 +361,7 @@ python "阿飞说球/02_工具/zhuque_local_check.py" --file "文章.md"
 3. 赛后复盘 → reviews/ 归档 → 周更校准自动演进
 4. 发布后后台数据 → 台账.tsv 归档 → 反哺选题/标题
 
+**运行环境(2026-09-12 建档)：** 项目根 `运行.cmd <脚本> <参数>`(或 `run.ps1`)一键跑 —— 自动用 `.venv`(Python 3.11)并设好编码/缓存变量; 依赖清单 `requirements.txt`。⚠️ 本机 PowerShell 执行策略禁止直接运行 `.ps1`, 所以 `.cmd` 入口用 `-ExecutionPolicy Bypass` 转调。
+无头抓取统一走 `采集数据/browser.py`: 它加了 **`--no-proxy-server`**(本机 Chrome/Edge 默认走系统代理, 访问 inter.it/titan007 会 ERR_CONNECTION_CLOSED), 并用 `channel='chrome'`/'msedge' **驱动本机浏览器**(playwright 自带 chromium 的下载器在本机装不上, 也不需要装); 竞彩官方 webapi 用 requests 直连会被 WAF 拦(567) → 改用 `fetch_api()` 经浏览器上下文取。
+
 **坑：** docx 被 Word 打开时另存 `_new.docx`, 关掉 Word 后重跑覆盖; read_file 对中文md误判binary用 cat

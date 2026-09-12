@@ -1,8 +1,10 @@
-# 阿飞·赛博聊球 — 生产管线 Python 依赖 (2026-09-11 建档)
-# 用法(Windows, 项目根):
+# 阿飞·赛博聊球 — 生产管线 Python 依赖 (2026-09-11 建档, 09-12 补 playwright)
+# 用法(Windows, 项目根) —— 推荐直接用一键脚本, 它会把环境变量都设好:
+#   .\run.ps1 阿飞说球\02_工具\afei_generator.py --config "阿飞说球\02_工具\match_configs\xx.json"
+#
+# 手工建环境:
 #   uv venv --python 3.11 .venv
 #   uv pip install --python .venv\Scripts\python.exe -r requirements.txt
-#   .venv\Scripts\python.exe "阿飞说球\02_工具\afei_generator.py" --config <cfg.json>
 #
 # 说明: 用 Python 3.11/3.12(3.14 目前缺 faiss-cpu / sentence-transformers 预编译轮子)。
 # 分层: A=出稿必需(缺了出不了图/docx), B=知识库RAG(缺了 KB 检索降级为静默跳过), C=采集/抓取工具。
@@ -26,6 +28,6 @@ scikit-learn>=1.4
 # ---- C. 数据采集 / 官网抓取(01_数据采集 + titan007/竞彩抓取) ----
 requests>=2.31
 beautifulsoup4>=4.12
-# playwright>=1.44      # 官网无头抓取(需另跑 playwright install chromium)
+playwright>=1.44       # 驱动本机 Chrome/Edge(channel='chrome'), 无需下载 chromium
 # pytesseract           # 验证码识别, 需另装 tesseract-ocr 本体
 # markdown              # md→html 辅助
