@@ -345,6 +345,61 @@ def main():
     doc.save(docx_path)
     print('DOCX →', docx_path)
 
+    # 4. 头条【文档导入】专用版(2026-09-12 按用户提供的《Word导入头条号完整排版方案·方案A》改造)
+    #    规范要点: ①图片全部不嵌入, 改文字占位符 ②小标题用 Heading 2(导入可识别层级)
+    #    ③不用表格(改纯文本条目) ④不设字体/颜色/缩进 ⑤段间空行、短段
+    #    ⚠️ 不要用本文件生成的主 docx 直接导入头条: 内嵌图片导入头条易丢失/错位, 复杂表格会变形
+    pub = Document()
+    pub.add_heading(TITLE, level=1)          # 标题1
+    pub.add_paragraph(TAGS)                  # 标签行(发布时移到话题标签栏)
+    for c in INFO_CARD:                      # 信息卡: 纯文本多行, 不用表格
+        pub.add_paragraph(c)
+    _h2_body = set()
+    for item in cfgs:
+        if len(item) > 5:
+            _h2_body.update(item[5])
+    _info_skip = 4 + len(INFO_CARD)          # 标题/标签/信息卡在 pub 里已单独写入
+    for para in lines[_info_skip:]:           # 从"开篇"起, 避免重复信息卡
+        if para in ('<!--IMG1-->', '<!--IMG2-->'):
+            pub.add_paragraph('【此处插入图1:双场模型vs市场偏差对比 ｜ 传图后删掉本行】'
+                              if para == '<!--IMG1-->' else
+                              '【此处插入图2:双场交锋对位 ｜ 传图后删掉本行】')
+            continue
+        if para in ('![双场交锋克星对比](charts/cmp2_双场交锋克星对比.png)',):
+            continue
+        if para == '![四队攻防对比](charts/cmp3_四队攻防对比.png)':
+            pub.add_paragraph('')
+            pub.add_paragraph('【此处插入图3:四队攻防对比 ｜ 传图后删掉本行】')
+            continue
+        chunks = para.split('\n\n') if para in (_opening, _summary) else [para]
+        for ch in chunks:
+            ch = ch.strip()
+            if not ch or ch.startswith('![') or ch.startswith('*图') or ch.startswith('<!--'):
+                continue
+            if ch == '|':
+                pub.add_paragraph('——')      # 纯文字分割线(不用符号图形)
+            elif ch in _h2_body:
+                pub.add_heading(ch, level=2)  # 小标题 → 标题2
+            else:
+                pub.add_paragraph(ch)
+    # 文末比分参考: 纯文本条目替代表格, 一行一场(段间空行, 符合头条排版规范)
+    pub.add_heading('比分倾向参考', level=2)
+    for it, m in zip(cfgs, models):
+        c, name, tt, h2h, extra = it[0], it[1], it[2], it[3], it[4]
+        so = {(int(s[0]), int(s[1])): float(s[2]) for s in c.get('score_odds', [])}
+        pub.add_paragraph(f'{name}:')
+        for (h, a), p in sorted(m['probs'].items(), key=lambda kv: -kv[1])[:3]:
+            o = so.get((h, a))
+            tail = f",参考赔率{o:.2f}" if isinstance(o, (int, float)) else ''
+            pub.add_paragraph(f'{h}-{a},模型{p*100:.1f}%{tail}')
+    pub.add_paragraph('以上为数据推演参考,不构成预测。')
+    for line in FOOTER:
+        if line.strip():
+            pub.add_paragraph(line)
+    pub_path = os.path.join(OUT_DIR, safe_name(TITLE) + '_发布导入版.docx')
+    pub.save(pub_path)
+    print('DOCX(头条导入版, 无图/无表格/标题2层级) →', pub_path)
+
 
 if __name__ == '__main__':
     main()
