@@ -219,11 +219,12 @@ def safe_name(s):
 # 不再"先拼 md 行、再从行里猜结构"(旧做法导致: 正文重复两遍 / H2 空标题 / 模板套话混入)。
 # 内容序列元素: ('h1'|'h2'|'p'|'div'|'img', 文本或图键)
 
-def build_content(cfgs, models, sub_headings=True):
+def build_content(cfgs, models, sub_headings=True, with_images=True):
     """把模板文案 + 每场(小节标题/独有信号/比分) 组装成一份结构序列
 
     sub_headings=True  → md 留档用(保留三小节标题, 便于公众号复用)
     sub_headings=False → docx 用(拍平: 只留"每场一个 H2", 避免小节标题下面空着)
+    with_images=False   → 不产出任何配图/占位符(多场"速览"类稿件用, 配图由编辑另配)
     """
     blocks = [('h1', TITLE), ('p', TAGS)]
     for c in INFO_CARD:
@@ -231,7 +232,9 @@ def build_content(cfgs, models, sub_headings=True):
     for seg in OPENING.split('\n\n'):
         if seg.strip():
             blocks.append(('p', seg.strip()))
-    blocks.append(('img', 'cmp1'))
+    if with_images:
+        blocks.append(('img', 'cmp1'))
+    _n_match = len(cfgs)
     for idx, (item, m) in enumerate(zip(cfgs, models), 1):
         c, name, t, h2h, extra = item[0], item[1], item[2], item[3], item[4]
         labels = item[5] if len(item) > 5 else ('【数据偏差池】', '【战术胜负手】', '【比分演算倾向】')
@@ -241,19 +244,16 @@ def build_content(cfgs, models, sub_headings=True):
         for i, ex in enumerate(extra):
             if ex.strip():
                 blocks.append(('p', ex.strip()))
-            # 该场最后一段之后配图: 003→交锋对位图(图2), 004→四队攻防图(图3)
-            if i == n - 1 and n > 0:
+            # 配图分配: 2 场时每场配一张(003→交锋对位/004→四队攻防);
+            #   3 场以上(速览)只有 3 张图可用, 不再每场配图, 统一放到末尾
+            if with_images and _n_match == 2 and i == n - 1 and n > 0:
                 blocks.append(('img', 'cmp2' if idx == 1 else 'cmp3'))
         if sub_headings:
             for lab in labels:
                 blocks.append(('h2', lab))
-    if SUMMARY.strip():
+    if with_images and _n_match > 2:
         blocks.append(('div', ''))
-        for seg in SUMMARY.split('\n\n'):
-            if seg.strip():
-                blocks.append(('p', seg.strip()))
-    blocks.append(('p', ENDING_HOOK))
-    return blocks
+        blocks.append(('img', 'cmp3'))                      # 多场速览: 末尾统一放攻防对比图
     if SUMMARY.strip():
         blocks.append(('div', ''))
         for seg in SUMMARY.split('\n\n'):
@@ -293,7 +293,7 @@ def render_md(blocks):
     return '\n'.join(out) + '\n'
 
 
-def render_docx(blocks, out_path, with_images=True, publish=False):
+def render_docx(blocks, out_path, with_images=True, publish=False, score_table=True):
     """docx 渲染。
 
     with_images=True  → 含图正式版(本地审阅/留档)
@@ -320,7 +320,7 @@ def render_docx(blocks, out_path, with_images=True, publish=False):
                 doc.add_paragraph(IMG_CAP[txt])
         else:
             doc.add_paragraph(txt)
-    if publish:
+    if score_table and publish:
         # 比分参考: 纯文本条目替代表格(复杂表格导入易变形)
         doc.add_heading('比分倾向参考', level=2)
         for item, m in zip(_cfgs_pub, _models_pub):
@@ -332,7 +332,7 @@ def render_docx(blocks, out_path, with_images=True, publish=False):
                 tail = f',参考赔率{o:.2f}' if isinstance(o, (int, float)) else ''
                 doc.add_paragraph(f'{h}-{a},模型{p*100:.1f}%{tail}')
         doc.add_paragraph('以上为数据推演参考,不构成预测。')
-    else:
+    elif score_table:
         # 含图正式版保留比分表格
         doc.add_paragraph('附:各场模型比分倾向(数据推演参考)')
         t = doc.add_table(rows=1, cols=4)
