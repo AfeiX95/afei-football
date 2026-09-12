@@ -217,8 +217,151 @@ def safe_name(s):
     return s.replace(':', '：').replace('*', '＊').replace('?', '？').replace('"', '＂').replace('<', '＜').replace('>', '＞').replace('|', '｜')
 
 
+# ============================================================ 内容序列 → md / docx / 导入版
+# 2026-09-12 重构: 三种产出(md, 含图 docx, 头条导入版)统一由 **一份内容序列** 渲染,
+# 不再"先拼 md 行、再从行里猜结构"(旧做法导致: 正文重复两遍 / H2 空标题 / 模板套话混入)。
+# 内容序列元素: ('h1'|'h2'|'p'|'div'|'img', 文本或图键)
+
+def build_content(cfgs, models, sub_headings=True):
+    """把模板文案 + 每场(小节标题/独有信号/比分) 组装成一份结构序列
+
+    sub_headings=True  → md 留档用(保留三小节标题, 便于公众号复用)
+    sub_headings=False → docx 用(拍平: 只留"每场一个 H2", 避免小节标题下面空着)
+    """
+    blocks = [('h1', TITLE), ('p', TAGS)]
+    for c in INFO_CARD:
+        blocks.append(('p', c))
+    for seg in OPENING.split('\n\n'):
+        if seg.strip():
+            blocks.append(('p', seg.strip()))
+    blocks.append(('img', 'cmp1'))
+    for idx, (item, m) in enumerate(zip(cfgs, models), 1):
+        c, name, t, h2h, extra = item[0], item[1], item[2], item[3], item[4]
+        labels = item[5] if len(item) > 5 else ('【数据偏差池】', '【战术胜负手】', '【比分演算倾向】')
+        blocks.append(('div', ''))
+        blocks.append(('h2', f'{name}({t}开球)'))          # 每场独立搜索入口(SEO 长尾)
+        n = len(labels)
+        for i, ex in enumerate(extra):
+            if ex.strip():
+                blocks.append(('p', ex.strip()))
+            # 该场最后一段之后配图: 003→交锋对位图(图2), 004→四队攻防图(图3)
+            if i == n - 1 and n > 0:
+                blocks.append(('img', 'cmp2' if idx == 1 else 'cmp3'))
+        if sub_headings:
+            for lab in labels:
+                blocks.append(('h2', lab))
+    if SUMMARY.strip():
+        blocks.append(('div', ''))
+        for seg in SUMMARY.split('\n\n'):
+            if seg.strip():
+                blocks.append(('p', seg.strip()))
+    blocks.append(('p', ENDING_HOOK))
+    return blocks
+    if SUMMARY.strip():
+        blocks.append(('div', ''))
+        for seg in SUMMARY.split('\n\n'):
+            if seg.strip():
+                blocks.append(('p', seg.strip()))
+    blocks.append(('p', ENDING_HOOK))
+    return blocks
+
+
+IMG_FILE = {
+    'cmp1': 'cmp1_双场模型vs市场偏差.png',
+    'cmp2': 'cmp2_双场交锋克星对比.png',
+    'cmp3': 'cmp3_四队攻防对比.png',
+}
+IMG_CAP = {
+    'cmp1': '图1 双场模型vs市场偏差对比',
+    'cmp2': '图2 双场交锋对位对比',
+    'cmp3': '图3 四队攻防数据对比(近10场)',
+}
+
+
+def render_md(blocks):
+    """md 留档(公众号复用): 保留图片语法"""
+    out = []
+    for kind, txt in blocks:
+        if kind == 'h1':
+            out += [txt, '']
+        elif kind == 'h2':
+            out += ['## ' + txt, '']
+        elif kind == 'div':
+            out += ['---', '']
+        elif kind == 'img':
+            out += [f'![{IMG_CAP[txt]}](charts/{IMG_FILE[txt]})', f'*{IMG_CAP[txt]}*', '']
+        else:
+            out += [txt, '']
+    out += [l for l in FOOTER]
+    return '\n'.join(out) + '\n'
+
+
+def render_docx(blocks, out_path, with_images=True, publish=False):
+    """docx 渲染。
+
+    with_images=True  → 含图正式版(本地审阅/留档)
+    publish=True      → 头条【文档导入】版:
+        规范(用户 2026-09-12 提供《Word导入头条号完整排版方案》):
+        ① 图片不嵌入, 用文字占位符  ② 小标题用 Heading 2  ③ 不用表格
+        ④ 不设字体/颜色/缩进  ⑤ 段间空行, 短段
+    """
+    doc = Document()
+    pic_i = 0
+    for kind, txt in blocks:
+        if kind == 'h1':
+            doc.add_heading(txt, level=1)
+        elif kind == 'h2':
+            doc.add_heading(txt, level=2)
+        elif kind == 'div':
+            doc.add_paragraph('——')          # 纯文字分割线
+        elif kind == 'img':
+            pic_i += 1
+            if publish:
+                doc.add_paragraph(f'【此处插入图{pic_i}:{IMG_CAP[txt]} ｜ 传图后删掉本行】')
+            elif with_images:
+                doc.add_picture(os.path.join(OUT_DIR, 'charts', IMG_FILE[txt]), width=Inches(5.9))
+                doc.add_paragraph(IMG_CAP[txt])
+        else:
+            doc.add_paragraph(txt)
+    if publish:
+        # 比分参考: 纯文本条目替代表格(复杂表格导入易变形)
+        doc.add_heading('比分倾向参考', level=2)
+        for item, m in zip(_cfgs_pub, _models_pub):
+            c, name = item[0], item[1]
+            so = {(int(s[0]), int(s[1])): float(s[2]) for s in c.get('score_odds', [])}
+            doc.add_paragraph(f'{name}:')
+            for (h, a), p in sorted(m['probs'].items(), key=lambda kv: -kv[1])[:3]:
+                o = so.get((h, a))
+                tail = f',参考赔率{o:.2f}' if isinstance(o, (int, float)) else ''
+                doc.add_paragraph(f'{h}-{a},模型{p*100:.1f}%{tail}')
+        doc.add_paragraph('以上为数据推演参考,不构成预测。')
+    else:
+        # 含图正式版保留比分表格
+        doc.add_paragraph('附:各场模型比分倾向(数据推演参考)')
+        t = doc.add_table(rows=1, cols=4)
+        t.style = 'Light Grid Accent 1'
+        for i, h in enumerate(['场次', '模型倾向', '推演概率', '参考赔率']):
+            t.rows[0].cells[i].text = h
+        for item, m in zip(_cfgs_pub, _models_pub):
+            c, name = item[0], item[1]
+            so = {(int(s[0]), int(s[1])): float(s[2]) for s in c.get('score_odds', [])}
+            for (h, a), p in sorted(m['probs'].items(), key=lambda kv: -kv[1])[:3]:
+                r = t.add_row().cells
+                r[0].text = name
+                r[1].text = f'{h}-{a}'
+                r[2].text = f'{p*100:.1f}%'
+                r[3].text = f"{so.get((h, a), '-'):.2f}" if isinstance(so.get((h, a)), (int, float)) else '-'
+    for line in FOOTER:
+        if line.strip():
+            doc.add_paragraph(line)
+    doc.save(out_path)
+    return out_path
+
+
 def main():
+    global _cfgs_pub, _models_pub
     cfgs, models = run_all()
+    _cfgs_pub, _models_pub = cfgs, models
 
     # 历史案例参考(知识库检索, 写稿参考, 不进文章)
     try:
@@ -239,166 +382,29 @@ def main():
     except Exception as e:
         print(f"\n【历史案例参考】检索失败: {e} (先运行 kb/build_kb.py)")
 
-    # 1. 生成3张对比图
+    # 1. 生成 3 张对比图
     chart_deviation(cfgs, models, os.path.join(OUT_DIR, 'charts', 'cmp1_双场模型vs市场偏差.png'))
     chart_h2h(cfgs, os.path.join(OUT_DIR, 'charts', 'cmp2_双场交锋克星对比.png'))
     chart_attack(cfgs, os.path.join(OUT_DIR, 'charts', 'cmp3_四队攻防对比.png'))
     print('对比图 3 张 →', os.path.join(OUT_DIR, 'charts'))
 
-    # 2. 文章内容(md)
-    # ⚠️ 插图位置一律用**显式标记**(<!--IMG1-->/<!--IMG2-->)判断, 不用位置切片、不用对象身份比较。
-    #    2026-09-12 实测踩坑: 原实现是 `for para in lines[10:]` —— 那个 10 是硬编码行数,
-    #    只要增删信息卡行数(本次 5 行→3 行), 开篇段落连它的图1 就会一起被挤出切片而**静默丢失**。
-    #    改文案/改信息卡后, 必查 docx 内嵌图片数是否 = charts 数。
-    _opening, _summary = OPENING, SUMMARY
-    lines = [TITLE, '', TAGS, '']
-    lines += INFO_CARD
-    lines += ['', _opening, '', '<!--IMG1-->',
-              '![双场模型vs市场偏差对比](charts/cmp1_双场模型vs市场偏差.png)', '*图1 双场模型vs市场偏差对比*', '']
-    for item, m in zip(cfgs, models):
-        c, name, t, h2h, extra = item[0], item[1], item[2], item[3], item[4]
-        labels = item[5] if len(item) > 5 else ('【数据偏差池】', '【战术胜负手】', '【比分演算倾向】')
-        l1, l2, l3 = labels
-        # 小节标题独立带赛事名, 每场比赛成为独立搜索入口(SEO长尾, 2026-08-27)
-        sec_title = "|".join(x for x in (name, c.get('competition', '')) if x)
-        # 截短到60字内,避免被长句检查误判
-        if len(f"【{sec_title}】({t}开球)") > 60:
-            sec_title = name  # 只保留赛事名
-        lines += ['', '|', '', f"【{sec_title}】({t}开球)", '',
-                  l1,
-                  f"机构主胜隐含:{m['pM']['H']*100:.1f}%,平局{m['pM']['D']*100:.1f}%,客胜{m['pM']['A']*100:.1f}%。",
-                  f"泊松模型测算:主胜{m['pH']*100:.1f}%,客胜{m['pA']*100:.1f}%。",
-                  f"结论:主胜被{'低估' if m['pH'] > m['pM_cal']['H'] else '高估'}{abs((m['pH']-m['pM_cal']['H'])*100):.1f}个百分点。",
-                  '', l2,
-                  f"{h2h['label']} {h2h['w']}胜{h2h['d']}平{h2h['l']}负。",
-                  f"{h2h['note']}",
-                  '', l3,
-                  f"模型期望总进球{m['exp_goals']:.2f}球,首选比分参考下方表格。"]
-        for ex in extra:
-            lines += ['', ex]
-    lines += ['', '|', '', _summary, '', '<!--IMG2-->',
-              '![双场交锋克星对比](charts/cmp2_双场交锋克星对比.png)', '*图2 双场交锋克星对比*', '',
-              '![四队攻防对比](charts/cmp3_四队攻防对比.png)', '*图3 四队攻防对比*', '',
-              ENDING_HOOK, '']
-    lines += FOOTER
+    blocks_md = build_content(cfgs, models, sub_headings=True)
+    blocks_docx = build_content(cfgs, models, sub_headings=False)
+    stem = safe_name(TITLE)
 
-    md_path = os.path.join(OUT_DIR, safe_name(TITLE) + '.md')
+    md_path = os.path.join(OUT_DIR, stem + '.md')
     with open(md_path, 'w', encoding='utf-8') as f:
-        # 插图标记只服务于 docx 排版, 不写进 md
-        f.write('\n'.join(l for l in lines if l != '<!--IMG1-->' and l != '<!--IMG2-->'))
+        f.write(render_md(blocks_md))
     print('MD →', md_path)
 
-    # 3. docx(含图)
-    doc = Document()
-    doc.add_heading(TITLE, level=1)
-    doc.add_paragraph(TAGS)
-    for c in INFO_CARD:
-        doc.add_paragraph(c)
-    _labels = set()
-    for item in cfgs:
-        if len(item) > 5:
-            _labels.update(item[5])
-    for para in lines[4 + len(INFO_CARD):]:     # 跳过标题/标签/信息卡(docx 已单独写入)
-        # 显式插图标记(位置无关)
-        if para == '<!--IMG1-->':
-            doc.add_picture(os.path.join(OUT_DIR, 'charts', 'cmp1_双场模型vs市场偏差.png'), width=Inches(5.9))
-            doc.add_paragraph('图1 双场模型vs市场偏差对比(核心卖点)')
-            continue
-        if para == '<!--IMG2-->':
-            doc.add_picture(os.path.join(OUT_DIR, 'charts', 'cmp2_双场交锋克星对比.png'), width=Inches(5.9))
-            doc.add_paragraph('图2 双场交锋克星对比')
-            doc.add_picture(os.path.join(OUT_DIR, 'charts', 'cmp3_四队攻防对比.png'), width=Inches(5.9))
-            doc.add_paragraph('图3 四队攻防对比')
-            continue
-        # 多段字符串(开篇/结尾总述)拆成独立段落; md 图片语法行不进 docx(由标记负责)
-        chunks = para.split('\n\n') if para in (_opening, _summary) else [para]
-        for ch in chunks:
-            ch = ch.strip()
-            if not ch or ch.startswith('![') or ch.startswith('*图'):
-                continue
-            if ch == '|':
-                doc.add_paragraph('·')
-            elif ch.startswith('【') or ch.startswith('第一场') or ch.startswith('第二场') or ch in _labels:
-                p = doc.add_paragraph()
-                run = p.add_run(ch)
-                run.bold = True
-            else:
-                doc.add_paragraph(ch)
+    dx = os.path.join(OUT_DIR, stem + '.docx')
+    render_docx(blocks_docx, dx, with_images=True, publish=False)
+    print('DOCX(含图正式版) →', dx)
 
-    # 比分参考表(合规措辞: 数据推演参考, 不构成预测)
-    doc.add_paragraph('附:各场模型比分倾向(数据推演参考)')
-    t = doc.add_table(rows=1, cols=4)
-    t.style = 'Light Grid Accent 1'
-    for i, h in enumerate(['场次', '模型倾向', '推演概率', '参考赔率']):
-        t.rows[0].cells[i].text = h
-    for it, m in zip(cfgs, models):
-        c, name, tt, h2h, extra = it[0], it[1], it[2], it[3], it[4]
-        so = {(int(s[0]), int(s[1])): float(s[2]) for s in c.get('score_odds', [])}
-        for (h, a), p in sorted(m['probs'].items(), key=lambda kv: -kv[1])[:3]:
-            r = t.add_row().cells
-            r[0].text = name
-            r[1].text = f"{h}-{a}"
-            r[2].text = f"{p*100:.1f}%"
-            r[3].text = f"{so.get((h, a), '-'):.2f}" if isinstance(so.get((h, a)), (int, float)) else '-'
-
-    docx_path = os.path.join(OUT_DIR, safe_name(TITLE) + '.docx')
-    doc.save(docx_path)
-    print('DOCX →', docx_path)
-
-    # 4. 头条【文档导入】专用版(2026-09-12 按用户提供的《Word导入头条号完整排版方案·方案A》改造)
-    #    规范要点: ①图片全部不嵌入, 改文字占位符 ②小标题用 Heading 2(导入可识别层级)
-    #    ③不用表格(改纯文本条目) ④不设字体/颜色/缩进 ⑤段间空行、短段
-    #    ⚠️ 不要用本文件生成的主 docx 直接导入头条: 内嵌图片导入头条易丢失/错位, 复杂表格会变形
-    pub = Document()
-    pub.add_heading(TITLE, level=1)          # 标题1
-    pub.add_paragraph(TAGS)                  # 标签行(发布时移到话题标签栏)
-    for c in INFO_CARD:                      # 信息卡: 纯文本多行, 不用表格
-        pub.add_paragraph(c)
-    _h2_body = set()
-    for item in cfgs:
-        if len(item) > 5:
-            _h2_body.update(item[5])
-    _info_skip = 4 + len(INFO_CARD)          # 标题/标签/信息卡在 pub 里已单独写入
-    for para in lines[_info_skip:]:           # 从"开篇"起, 避免重复信息卡
-        if para in ('<!--IMG1-->', '<!--IMG2-->'):
-            pub.add_paragraph('【此处插入图1:双场模型vs市场偏差对比 ｜ 传图后删掉本行】'
-                              if para == '<!--IMG1-->' else
-                              '【此处插入图2:双场交锋对位 ｜ 传图后删掉本行】')
-            continue
-        if para in ('![双场交锋克星对比](charts/cmp2_双场交锋克星对比.png)',):
-            continue
-        if para == '![四队攻防对比](charts/cmp3_四队攻防对比.png)':
-            pub.add_paragraph('')
-            pub.add_paragraph('【此处插入图3:四队攻防对比 ｜ 传图后删掉本行】')
-            continue
-        chunks = para.split('\n\n') if para in (_opening, _summary) else [para]
-        for ch in chunks:
-            ch = ch.strip()
-            if not ch or ch.startswith('![') or ch.startswith('*图') or ch.startswith('<!--'):
-                continue
-            if ch == '|':
-                pub.add_paragraph('——')      # 纯文字分割线(不用符号图形)
-            elif ch in _h2_body:
-                pub.add_heading(ch, level=2)  # 小标题 → 标题2
-            else:
-                pub.add_paragraph(ch)
-    # 文末比分参考: 纯文本条目替代表格, 一行一场(段间空行, 符合头条排版规范)
-    pub.add_heading('比分倾向参考', level=2)
-    for it, m in zip(cfgs, models):
-        c, name, tt, h2h, extra = it[0], it[1], it[2], it[3], it[4]
-        so = {(int(s[0]), int(s[1])): float(s[2]) for s in c.get('score_odds', [])}
-        pub.add_paragraph(f'{name}:')
-        for (h, a), p in sorted(m['probs'].items(), key=lambda kv: -kv[1])[:3]:
-            o = so.get((h, a))
-            tail = f",参考赔率{o:.2f}" if isinstance(o, (int, float)) else ''
-            pub.add_paragraph(f'{h}-{a},模型{p*100:.1f}%{tail}')
-    pub.add_paragraph('以上为数据推演参考,不构成预测。')
-    for line in FOOTER:
-        if line.strip():
-            pub.add_paragraph(line)
-    pub_path = os.path.join(OUT_DIR, safe_name(TITLE) + '_发布导入版.docx')
-    pub.save(pub_path)
-    print('DOCX(头条导入版, 无图/无表格/标题2层级) →', pub_path)
+    pub = os.path.join(OUT_DIR, stem + '_发布导入版.docx')
+    render_docx(blocks_docx, pub, with_images=False, publish=True)
+    imgs = sum(1 for k, _ in blocks_docx if k == 'img')
+    print(f'DOCX(头条导入版: {imgs} 个图片占位符 / 0 表格 / Heading2 层级) →', pub)
 
 
 if __name__ == '__main__':

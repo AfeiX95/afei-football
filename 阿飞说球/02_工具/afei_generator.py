@@ -513,6 +513,50 @@ def _safe_fill(text, kwargs):
 PLACEHOLDER_RE = re.compile(r'\{[a-zA-Z_][a-zA-Z_0-9]*\}')
 
 
+def insert_charts(docx_path, plan, width_in=5.6, caption_prefix='图'):
+    """把配图嵌入 docx 的指定锚点段之后(就地插入, 不改动其它内容)。
+
+    plan: [(锚点文本, 图片路径, 图注文本), ...] —— 锚点按"段落文本 startswith 匹配"。
+    用途(2026-09-12): 把 charts/ 里的图表按占位符位置嵌进头条文稿,
+    即"把配图导入文章"; 也适用于把赛照插到指定段落(替代 insert_photos.py 的固定锚点写法)。
+    返回: (成功数, 未命中锚点列表)
+    """
+    import docx as _docx
+    from docx.shared import Inches, Pt, RGBColor
+    from docx.enum.text import WD_ALIGN_PARAGRAPH
+    d = _docx.Document(docx_path)
+    ok, missed = 0, []
+    for anchor_txt, img, caption in plan:
+        target, ph = None, None
+        for p in d.paragraphs:
+            if target is None and p.text.strip().startswith(anchor_txt):
+                target = p
+            if ph is None and '此处插入图' in p.text and (caption or '')[:1] in p.text:
+                ph = p
+            if target is not None and ph is not None:
+                break
+        if target is None:
+            missed.append(anchor_txt)
+            continue
+        # 有占位符段落 → 图片插在占位符之前, 之后删掉占位符行
+        anchor_el = (ph if ph is not None else target)._p
+        pic_p = d.add_paragraph()
+        pic_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        pic_p.add_run().add_picture(img, width=Inches(width_in))
+        cap_p = d.add_paragraph()
+        cap_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        run = cap_p.add_run(caption)
+        run.font.size = Pt(9)
+        run.font.color.rgb = RGBColor(0x77, 0x77, 0x77)
+        anchor_el.addprevious(pic_p._p)
+        anchor_el.addprevious(cap_p._p)
+        if ph is not None:
+            ph._p.getparent().remove(ph._p)
+        ok += 1
+    d.save(docx_path)
+    return ok, missed
+
+
 def scan_leftover_placeholders(md_path, docx_path):
     """出稿后强制扫描: md + docx(含表格) 是否残留 {xxx} 占位符, 有则报错。"""
     import docx as _docx
