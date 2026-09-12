@@ -106,8 +106,11 @@ def check(path):
         ok_lines.append('✅ 套话清零')
 
     # 5. 数据来源/免责声明 (先把模板行过滤)
-    template_mask = '基础数据取自'  # 数据来源行
-    body_for_long = [l for l in body if template_mask not in l and '免责声明】' not in l]
+    #    ⚠️ 过滤器不能依赖模板的**具体措辞**(2026-09-12 教训: 模板精简后 '基础数据取自' 失效)
+    #       → 改为按"以【数据来源】/【免责声明】开头"识别模板行
+    body_for_long = [l for l in body
+                     if not l.strip().startswith('【数据来源】')
+                     and not l.strip().startswith('【免责声明】')]
     long_lines = []
     for l in body_for_long:
         s = l.strip()

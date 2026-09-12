@@ -24,6 +24,14 @@ import re
 import sys
 from itertools import product
 
+# ---------------- 文末合规模板(单一出处) ----------------
+# 2026-09-12 精简: 两条各压到 30-40 字(用户要求), 但保留合规必需信息 ——
+#   数据来源须含"竞彩官方"; 免责声明须同时含"购彩"与"投注"(check_release 会断言"投注"存在)
+FOOTER_SOURCE = '【数据来源】竞彩官方(sporttery.cn)及公开数据库,阿飞模型推演。'
+FOOTER_DISCLAIMER = '【免责声明】本文为个人数据模型推演,属赛事分析交流,不构成购彩及投注建议。'
+FOOTER = [FOOTER_SOURCE, '', FOOTER_DISCLAIMER]
+
+
 # ---------------- 模型核心 ----------------
 def poisson_pmf(k, lam):
     return (lam ** k) * math.exp(-lam) / math.factorial(k)
@@ -649,8 +657,8 @@ def render_md(cfg, m, out_dir, out_name):
     lines += ['数据不会说谎,但人会。——阿飞·赛博聊球', '']
     lines += [cfg.get('ending_hook', ''), '']
     lines += [cfg.get('ending_line', ''), '']
-    lines += ['【数据来源】基础数据取自竞彩官方及海外主流体育数据库,由阿飞个人足球数据模型独立推演。', '']
-    lines += ['【免责声明】本文为个人数据模型推演,属体育赛事分析交流,不构成任何购彩及投注建议,请理性看待,适度娱乐。', '']
+    lines += [FOOTER_SOURCE, '']
+    lines += [FOOTER_DISCLAIMER, '']
     if cfg.get('illustration'):
         # 2026-08-22 修复:illustration 为 dict 时遍历出键名(en/cn)的 bug
         lines += ['', '=== 配图关键词(供编辑检索,勿发布) ===', '']
@@ -812,8 +820,7 @@ def render_docx(cfg, m, out_dir, out_name):
     for line in ['数据不会说谎,但人会。——阿飞·赛博聊球', '',
                  cfg.get('ending_hook', ''), '',
                  cfg.get('ending_line', ''), '',
-                 '【数据来源】基础数据取自竞彩官方及海外主流体育数据库,由阿飞个人足球数据模型独立推演。',
-                 '【免责声明】本文为个人数据模型推演,属体育赛事分析交流,不构成任何购彩及投注建议,请理性看待,适度娱乐。']:
+                 FOOTER_SOURCE, FOOTER_DISCLAIMER]:
         if line:
             add_para(line)
 

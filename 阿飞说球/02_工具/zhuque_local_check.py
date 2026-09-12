@@ -90,7 +90,11 @@ def paragraph_score(par):
         cv = std / mean_len if mean_len else 0
         a = max(0.0, 3.0 - cv * 6)          # cv<0.2 → 满分3; cv>0.5 → 0
     else:
-        a = 1.5                              # 单句长段直接给嫌疑
+        # ⚠️ 2026-09-12 修正: 原逻辑"单句段一律 1.5 分"会把**单句短段**全判成 AI,
+        #    而按头条排版规范(2-4 行一段)单句短段恰好是人写的强特征 → 属误判。
+        #    改为看句子实际长度: ≤45 字的单句几乎不扣; 长单句(难读)才给嫌疑。
+        a = 0.0 if len(sents[0]) <= 45 else 1.5
+        cv = 0.0
     # B AI高频词
     hits = [w for w in AI_PHRASES if w in par]
     b = min(4.0, len(hits) * 0.8)
@@ -146,7 +150,10 @@ def main():
 
     scored = []
     for i, p in enumerate(paras):
-        if len(p) < 60:      # 标题/信息卡跳过
+        # ⚠️ 2026-09-12 修正: 原阈值 60 字会把"按头条规范压到 2-4 行"的短段全部跳过
+        #    → 一段都没评分却输出 "0.0 分通过"(假阴性, 比高分更危险)。
+        #    改为 24 字起评 + 下面加"评分覆盖率"保护。
+        if len(p) < 24:      # 标题/标签/信息卡/短句跳过
             continue
         sc, detail = paragraph_score(p)
         scored.append((sc, i, p, detail))
@@ -155,8 +162,12 @@ def main():
     avg = sum(s for s, *_ in scored) / max(1, len(scored))
     print('=' * 60)
     print(f'【本地AI嫌疑分】全文均值: {avg:.1f}/10 (校准线: <2.5 可发 | 2.5-4 定点改 | >4 大改; 依据0829朱雀实测校准)')
+    print(f'  评分段落 {len(scored)} 段 / 输入 {len(paras)} 段')
     print('  ⚠ 本地分是启发式代理指标, 与朱雀模型强相关但不等价; 终检用朱雀网页版(每日5次)')
     print('=' * 60)
+    if len(scored) < 3:
+        print('\n⚠ 警告: 参与评分的段落少于 3 段 —— 本分数不具参考性, 请勿据此判断"通过"。')
+        print('  (短段落文体请以朱雀网页版终检为准; 或确认 --file 指向的是正文 md 而非摘要文件)')
     hits = [x for x in scored if x[0] >= args.threshold]
     if hits:
         print(f'\nAI嫌疑段落 Top {min(args.top, len(hits))} (按嫌疑分排序, 先改这些):')
