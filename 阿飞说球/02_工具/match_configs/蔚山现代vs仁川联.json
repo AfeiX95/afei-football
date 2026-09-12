@@ -1,0 +1,57 @@
+{
+  "title": "周六001韩职:蔚山主场对仁川两次1:2,让一球能讨回?",
+  "tags": ["#韩职", "#蔚山现代", "#仁川联"],
+  "competition": "韩职 2026 Regular Season 第29轮",
+  "first_leg": "联赛第29轮",
+  "match_time": "9月12日(周六)15:30 北京时间",
+  "venue": "蔚山文殊足球场(蔚山)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "odds": {"H": 2.02, "D": 3.13, "A": 3.18},
+  "market_type": "european",
+  "score_odds": [
+    ["1", "0", "8.00"], ["2", "0", "10.00"], ["2", "1", "7.75"],
+    ["0", "0", "11.00"], ["1", "1", "6.00"], ["2", "2", "13.50"],
+    ["0", "1", "10.50"], ["0", "2", "17.00"], ["1", "2", "9.00"]
+  ],
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {"w": 5, "d": 1, "l": 4},
+    "away_form": {"w": 3, "d": 4, "l": 3}
+  },
+  "teams": {
+    "home": {
+      "name": "蔚山现代", "league": "韩职",
+      "gf": 1.714, "ga": 1.571,
+      "gf_special": 1.714, "ga_special": 1.571,
+      "special_label": "主场",
+      "recent": {"gf": 1.5, "ga": 1.0},
+      "rating": 0
+    },
+    "away": {
+      "name": "仁川联", "league": "韩职",
+      "gf": 1.385, "ga": 1.154,
+      "gf_special": 1.385, "ga_special": 1.154,
+      "special_label": "客场",
+      "recent": {"gf": 1.2, "ga": 1.2},
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [50, 10, 40],
+    "h_home": [50, 7, 43],
+    "a_all": [30, 40, 30],
+    "a_away": [38, 31, 31]
+  },
+  "charts": {"wdl": true, "goals": true, "heatmap": true, "edge": true, "promote": false},
+  "skeleton": "镜面对照式",
+  "hook_type": "数据反问",
+  "sections": [
+    {"type": "para", "text": "周六001,韩职第29轮。蔚山现代排第2,主场7胜1平6负,账面是强队。市场给它43.8%,却让它让一球。这道门槛,是本场最该盯的地方。"}
+  ],
+  "ending_hook": "",
+  "ending_line": "数据不会说谎,但人会。——阿飞·赛博聊球"
+}

@@ -1,0 +1,57 @@
+{
+  "title": "周六002韩职:全北10平撞首尔客场10胜,4天后都有亚冠",
+  "tags": ["#韩职", "#全北现代", "#首尔FC"],
+  "competition": "韩职 2026 Regular Season 第29轮",
+  "first_leg": "联赛第29轮",
+  "match_time": "9月12日(周六)15:30 北京时间",
+  "venue": "全州世界杯竞技场(全州)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "odds": {"H": 2.80, "D": 3.20, "A": 2.18},
+  "market_type": "european",
+  "score_odds": [
+    ["1", "0", "10.50"], ["2", "0", "15.50"], ["2", "1", "8.75"],
+    ["0", "0", "12.00"], ["1", "1", "6.25"], ["2", "2", "12.00"],
+    ["0", "1", "8.50"], ["0", "2", "12.00"], ["1", "2", "7.75"]
+  ],
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {"w": 3, "d": 5, "l": 2},
+    "away_form": {"w": 5, "d": 2, "l": 3}
+  },
+  "teams": {
+    "home": {
+      "name": "全北现代", "league": "韩职",
+      "gf": 1.538, "ga": 1.0,
+      "gf_special": 1.538, "ga_special": 1.0,
+      "special_label": "主场",
+      "recent": {"gf": 1.2, "ga": 1.0},
+      "rating": 0
+    },
+    "away": {
+      "name": "首尔FC", "league": "韩职",
+      "gf": 2.067, "ga": 0.8,
+      "gf_special": 2.067, "ga_special": 0.8,
+      "special_label": "客场",
+      "recent": {"gf": 1.9, "ga": 1.0},
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [30, 50, 20],
+    "h_home": [40, 20, 40],
+    "a_all": [50, 20, 30],
+    "a_away": [50, 20, 30]
+  },
+  "charts": {"wdl": true, "goals": true, "heatmap": true, "edge": true, "promote": false},
+  "skeleton": "双线挤压式",
+  "hook_type": "战术变数",
+  "sections": [
+    {"type": "para", "text": "周六002,同一时段。全北现代主场,对面是榜首首尔FC。两队的账本差得很远,可市场只给客队40.7%。更有意思的是赛程:本场打完4天,两队都要踢亚冠首轮。"}
+  ],
+  "ending_hook": "",
+  "ending_line": "数据不会说谎,但人会。——阿飞·赛博聊球"
+}
