@@ -1,0 +1,57 @@
+{
+  "title": "周六004日职:钢巴3天后打亚冠,东京客场还没输过",
+  "tags": ["#日职", "#大阪钢巴", "#东京FC"],
+  "competition": "日职 2026 常规赛第7轮",
+  "first_leg": "第7轮",
+  "match_time": "9月12日(周六)18:00 北京时间",
+  "venue": "松下吹田球场(吹田)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "odds": {"H": 3.65, "D": 3.50, "A": 1.76},
+  "market_type": "european",
+  "score_odds": [
+    ["1", "0", "12.50"], ["2", "0", "22.00"], ["2", "1", "11.00"],
+    ["0", "0", "14.00"], ["1", "1", "7.00"], ["2", "2", "13.00"],
+    ["0", "1", "8.00"], ["0", "2", "9.50"], ["1", "2", "6.75"]
+  ],
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {"w": 3, "d": 4, "l": 3},
+    "away_form": {"w": 4, "d": 3, "l": 3}
+  },
+  "teams": {
+    "home": {
+      "name": "大阪钢巴", "league": "日职",
+      "gf": 1.6, "ga": 1.4,
+      "gf_special": 1.6, "ga_special": 1.4,
+      "special_label": "主场",
+      "recent": {"gf": 1.6, "ga": 1.2},
+      "rating": 0
+    },
+    "away": {
+      "name": "东京FC", "league": "日职",
+      "gf": 2.0, "ga": 1.4,
+      "gf_special": 2.0, "ga_special": 1.4,
+      "special_label": "客场",
+      "recent": {"gf": 2.0, "ga": 1.4},
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [30, 40, 30],
+    "h_home": [50, 50, 0],
+    "a_all": [40, 30, 30],
+    "a_away": [33, 67, 0]
+  },
+  "charts": {"wdl": true, "goals": true, "heatmap": true, "edge": true, "promote": false},
+  "skeleton": "双线取舍式",
+  "hook_type": "战术变数",
+  "sections": [
+    {"type": "para", "text": "周六004,同一时段。大阪钢巴排第13,主场只踢了2场;东京FC排第6,赛季客场1胜2平没输过。市场把客队开成1.76并让一球,而这场之后的第3天,钢巴还有一场亚冠精英联赛首轮。"}
+  ],
+  "ending_hook": "",
+  "ending_line": "数据不会说谎,但人会。——阿飞·赛博聊球"
+}

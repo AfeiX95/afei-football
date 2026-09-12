@@ -1,0 +1,57 @@
+{
+  "title": "周六003日职:广岛主场对樱花10战0负,让一球能赢够?",
+  "tags": ["#日职", "#广岛三箭", "#大阪樱花"],
+  "competition": "日职 2026 常规赛第7轮",
+  "first_leg": "第7轮",
+  "match_time": "9月12日(周六)18:00 北京时间",
+  "venue": "爱电王广岛和平之翼(广岛)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "odds": {"H": 1.43, "D": 4.25, "A": 5.12},
+  "market_type": "european",
+  "score_odds": [
+    ["1", "0", "9.00"], ["2", "0", "9.00"], ["2", "1", "6.50"],
+    ["0", "0", "21.00"], ["1", "1", "9.00"], ["2", "2", "13.50"],
+    ["0", "1", "21.00"], ["0", "2", "34.00"], ["1", "2", "14.00"]
+  ],
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {"w": 6, "d": 2, "l": 2},
+    "away_form": {"w": 7, "d": 1, "l": 2}
+  },
+  "teams": {
+    "home": {
+      "name": "广岛三箭", "league": "日职",
+      "gf": 2.5, "ga": 1.2,
+      "gf_special": 2.5, "ga_special": 1.2,
+      "special_label": "主场",
+      "recent": {"gf": 1.5, "ga": 1.3},
+      "rating": 0
+    },
+    "away": {
+      "name": "大阪樱花", "league": "日职",
+      "gf": 1.3, "ga": 0.7,
+      "gf_special": 1.3, "ga_special": 0.7,
+      "special_label": "客场",
+      "recent": {"gf": 1.3, "ga": 0.7},
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [60, 20, 20],
+    "h_home": [67, 33, 0],
+    "a_all": [70, 10, 20],
+    "a_away": [0, 0, 100]
+  },
+  "charts": {"wdl": true, "goals": true, "heatmap": true, "edge": true, "promote": false},
+  "skeleton": "克星解剖式",
+  "hook_type": "数据反问",
+  "sections": [
+    {"type": "para", "text": "周六003,日职第7轮。广岛排第5,赛季主场没输过;大阪樱花排第9,赛季客场没赢过,而且两场客场一球没进。市场给广岛61.9%,让球线是广岛让一球。"}
+  ],
+  "ending_hook": "",
+  "ending_line": "数据不会说谎,但人会。——阿飞·赛博聊球"
+}
