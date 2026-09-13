@@ -1,4 +1,4 @@
-﻿# AGENTS.md — 阿飞说球 足球分析项目（路由总入口）
+# AGENTS.md — 阿飞说球 足球分析项目（路由总入口）
 
 > 任何 agent（Claude Code / Codex / Hermes / DSH）开工先读本文件。
 > **本文件只做路由，不堆细节。长内容都拆到 `docs/` + `state/`，真源在 `📚知识库/skills/`。**
@@ -36,6 +36,17 @@
 - 任务收尾：更新 `docs/HANDOFF.md`（追加一节）+ `state/model-state.json`（如有变化）
 - 提交 git 兜底：`git add docs/ state/ 📚知识库/ 📝文章/ && git commit -m "进度同步 YYYYMMDD"`
 - 多会话并发：先读后写，发现文件比上次新（别人刚写）先重读合并，严禁整文件覆盖
+
+## 🔴 记忆原则（2026-09-13 用户明确：只要本地 + 免费）
+**不使用任何云端记忆服务；Hindsight（`hindsight_*` 工具）一律不要调用**（其 API 需 apiToken，实测返回 401，且须上传数据到云端）。
+
+记忆唯一真源（全部本地、零成本、随 git 提交）：
+1. `docs/HANDOFF.md` — 会话交接（当前状态 / 已知阻碍 / 下一步）
+2. `state/model-state.json` — 机器可读状态（批次 / 累计 / 候选规则 / 待办）
+3. `📚知识库/` — 长期知识（`模型脚本/修正规则.md`、`赛后校验/`、`比赛分析/`、`写作指南/`）
+4. `docs/WORKFLOW.md` + `docs/RULES.md` — 流程与规则索引
+
+会话中学到的经验：**直接写进上述本地文件**（尤其 `修正规则.md`、`WORKFLOW.md`、`afei-writing-standards/SKILL.md`），不依赖任何外部记忆服务。
 
 ## 技能真源
 所有技能在 `📚知识库/skills/<技能名>/SKILL.md`（唯一真源）。27 个技能，按 `match-model-pipeline → football-match-preview-pipeline → afei-writing-standards → humanizer-zh` 顺序调用。

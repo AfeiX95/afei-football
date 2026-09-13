@@ -91,3 +91,4 @@
 1. `docs/HANDOFF.md` 追加一节：当前状态 / 已知阻碍 / 下一步目标（只追加，禁覆盖）
 2. `state/model-state.json` 如有变化同步（先读后写，多会话并发先重读合并）
 3. `git add docs/ state/ 📚知识库/ 📝文章/ && git commit -m "进度同步 YYYYMMDD"`（emoji 路径用 `git add -A` 避免命令行编码问题）
+4. 🔴 **记忆只落本地（2026-09-13 用户明确）**：不使用任何云端记忆服务，**`hindsight_*` 工具一律不调用**（需 apiToken，实测 401）；经验直接写进 `修正规则.md` / 本文件 / `afei-writing-standards/SKILL.md` 等本地真源，随 git 提交沉淀
