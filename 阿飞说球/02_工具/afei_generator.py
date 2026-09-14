@@ -828,6 +828,100 @@ def render_docx(cfg, m, out_dir, out_name):
     doc.save(docx_path)
     return docx_path
 
+# ---------------- 让球盘结构检查(2026-09-14 新增) ----------------
+# 背景: 2026-09-14 复盘八场, 我在 003/007/009/012 四场都把主线写成"热门赢不够/受让方不败"
+# (依据 469 场基准"受让方不败 68-77%"), 结果三场被主场热门零封大胜(6:1/5:0/3:0)打穿。
+# 教训: **全样本基准不是单场方向**。基准只用来判断"市场定价是否异常"; 真正的主线要跟
+#       市场让球盘**更重的那一侧**。此函数把这个判读固化进工具, 不再依赖人工临场记得。
+HH_BASE_LINE = {          # 469 场实测基准: 让球线 → (让球方赢下, 走水, 受让方赢下)
+    # ⚠️ 必须用元组键: Python 里 -1 == 1 且 hash 相同, 用 int 键会让 +1 命中 -1 的基准
+    (-1,): (0.27, 0.23, 0.50),
+    (+1,): (0.32, 0.23, 0.45),
+}
+# 深盘(±2)实测里只有"让球方赢盘 27-32%"这一侧, 另两侧无数据 → 单列, 不编中间数
+HH_BASE_DEEP = (0.27, 0.32)
+
+
+def handicap_check(cfg, m):
+    """让球盘结构判读: 返回 (打印行, 警告行)。无 hhad 数据则返回 ([], [])"""
+    hh = cfg.get('hhad') or cfg.get('handicap_odds')
+    if not hh or not all(k in hh for k in ('H', 'D', 'A')):
+        return [], []
+    try:
+        inv = {k: 1 / float(hh[k]) for k in 'HDA'}
+    except (TypeError, ValueError, ZeroDivisionError):
+        return [], []
+    s = sum(inv.values())
+    if s <= 0:
+        return [], []
+    q = {k: v / s * 100 for k, v in inv.items()}       # 去水
+    line = cfg.get('handicap_line')
+    if line is None:
+        line = (cfg.get('strategy') or {}).get('handicap_line')
+    if line is None:
+        hh_line = cfg.get('hhad_line')
+        if isinstance(hh_line, str):
+            try:
+                line = int(float(hh_line))
+            except ValueError:
+                line = None
+        elif isinstance(hh_line, (int, float)):
+            line = int(hh_line)
+
+    out = [f"  【让球盘结构】线 {line:+d}" if isinstance(line, int) else "  【让球盘结构】",
+           f"    市场(去水): 让胜{q['H']:.1f}% / 走水{q['D']:.1f}% / 让负{q['A']:.1f}%"]
+    warn = []
+
+    gap = abs(q['H'] - q['A'])
+    if gap < 3:
+        # 两侧贴平 → 这场让球盘"没有方向", 主线只能写走水区间, 不许硬选边
+        out.append(f"    两侧几乎持平(差 {gap:.1f} 点) —— 这场让球盘**没有偏向**, 主线只能写"
+                   f"'一球差/走水区间', 不许硬选边")
+        return out, warn
+
+    side = '让负(受让方)' if q['A'] > q['H'] else '让胜(让球方)'
+    out.append(f"    市场更重的一侧: {side}  ({max(q['H'], q['A']):.1f}% vs {min(q['H'], q['A']):.1f}%, 差 {gap:.1f} 点)")
+
+    base = HH_BASE_LINE.get((line,) if isinstance(line, int) else None) if isinstance(line, int) else None
+    if base:
+        b_win, b_push, b_lose = (x * 100 for x in base)
+        out.append(f"    历史基准{line:+d}(469场): 让胜{b_win:.0f}% / 走水{b_push:.0f}% / 让负{b_lose:.0f}%")
+        # ⚠️ 方向**只跟市场**(上面的 side 已定); 基准比较只用于"这场的强度比基准强/弱",
+        #    绝不用来反转方向(2026-09-14 回测发现: 反转会把 007 那种市场偏受让方的场次说反)
+        if q['A'] > q['H']:
+            dev = q['A'] - b_lose
+            if dev >= 5:
+                out.append(f"    偏离基准: 让负{q['A']:.1f}% 高于基准{b_lose:.0f}% {dev:+.1f} 点 "
+                           f"→ 市场比基准更偏受让方, '受让方不败'这一侧被强化")
+            elif dev <= -5:
+                out.append(f"    偏离基准: 让负{q['A']:.1f}% 低于基准{b_lose:.0f}% {dev:+.1f} 点 "
+                           f"→ 仍偏受让方, 但强度弱于基准, '受让方不败'比基准弱一档")
+            else:
+                out.append("    偏离基准: 两侧贴合基准, 无可挖偏差")
+        else:
+            dev = q['H'] - b_win
+            if dev >= 5:
+                out.append(f"    偏离基准: 让胜{q['H']:.1f}% 高于基准{b_win:.0f}% {dev:+.1f} 点 "
+                           f"→ 市场比基准更看好让球方赢够, '热门赢不够'这条线**不成立**")
+            elif dev <= -5:
+                out.append(f"    偏离基准: 让胜{q['H']:.1f}% 低于基准{b_win:.0f}% {dev:+.1f} 点 "
+                           f"→ 仍偏让球方, 但强度弱于基准, 门槛比基准更深(利于受让方)")
+            else:
+                out.append("    偏离基准: 两侧贴合基准, 无可挖偏差")
+    else:
+        if isinstance(line, int) and abs(line) >= 2:
+            out.append(f"    历史基准(469场, 深盘±2): 让球方赢盘仅 {HH_BASE_DEEP[0]*100:.0f}-{HH_BASE_DEEP[1]*100:.0f}%"
+                       f" (走水/受让方两侧无实测, 不编数)")
+        else:
+            out.append("    (该让球线无历史基准; 仅按市场两侧轻重判读)")
+
+    if q['A'] > q['H']:
+        out.append("    → 主线建议: 受让方不败 / 热门赢不够(跟市场这一侧)")
+    else:
+        out.append("    → 主线建议: 让球方赢够(跟市场这一侧); 慎写'受让方不败'")
+    return out, warn
+
+
 # ---------------- 主流程 ----------------
 def main():
     ap = argparse.ArgumentParser(description='AFEI 比赛分析通用生成器')
@@ -869,6 +963,17 @@ def main():
     else:
         print(f"  Edge校准: 主{(m['pH']-m['pM_cal']['H'])*100:+.1f}% / 平{(m['pD']-m['pM_cal']['D'])*100:+.1f}% / 客{(m['pA']-m['pM_cal']['A'])*100:+.1f}%  ← 价值判断用此")
     print(f"  大2.5球 {m['p_over25']*100:.1f}% | 晋级(主) {m['promote_h']*100:.1f}%")
+
+    # 让球盘结构判读(2026-09-14 新增: 防止把"受让方不败"全样本基准当单场方向写)
+    hh_lines, hh_warns = handicap_check(cfg, m)
+    for ln in hh_lines:
+        print(ln)
+    for ln in hh_warns:
+        print(ln)
+    if hh_warns:
+        print("    ⚠ 上面这条是硬提醒: 复盘(0912-0913 八场)显示, 按基准写'受让方不败'被三场"
+              "主场热门零封大胜打穿(6:1/5:0/3:0)。")
+
     print(f"  比分EV Top3: " + ' | '.join(
         f"{s[1][0]}-{s[1][1]} EV={s[0]:+.2f}" for s in m['evs'][:3]))
     print(f"  Kelly: " + ' | '.join(f"{k}@{cfg['odds'][k]:.2f} {v*100:.1f}%" for k, v in m['kelly'].items() if v > 0))
