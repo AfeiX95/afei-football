@@ -1,0 +1,59 @@
+{
+  "title": "周一008意甲:国米让两球,乌迪内斯伤停6人",
+  "tags": ["#意甲", "#国际米兰", "#乌迪内斯"],
+  "competition": "意甲 2026/2027 常规赛第4轮",
+  "first_leg": "第4轮",
+  "match_time": "9月15日(周二)02:45 北京时间",
+  "venue": "梅阿查球场(米兰)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "odds": {"H": 1.14, "D": 6.15, "A": 11.20},
+  "hhad": {"H": 2.62, "D": 3.85, "A": 2.05},
+  "handicap_line": -2,
+  "market_type": "european",
+  "score_odds": [
+    ["1", "0", "8.00"], ["2", "0", "6.50"], ["2", "1", "8.00"],
+    ["3", "0", "7.25"], ["3", "1", "9.50"], ["1", "1", "11.50"],
+    ["0", "0", "22.00"], ["0", "1", "26.00"]
+  ],
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {"w": 6, "d": 3, "l": 1},
+    "away_form": {"w": 3, "d": 3, "l": 4}
+  },
+  "teams": {
+    "home": {
+      "name": "国际米兰", "league": "意甲",
+      "gf": 1.9, "ga": 1.2,
+      "gf_special": 1.9, "ga_special": 1.2,
+      "special_label": "主场",
+      "recent": {"gf": 1.9, "ga": 1.2},
+      "rating": 0
+    },
+    "away": {
+      "name": "乌迪内斯", "league": "意甲",
+      "gf": 1.4, "ga": 1.6,
+      "gf_special": 1.4, "ga_special": 1.6,
+      "special_label": "客场",
+      "recent": {"gf": 1.4, "ga": 1.6},
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [60, 30, 10],
+    "h_home": [80, 20, 0],
+    "a_all": [30, 30, 40],
+    "a_away": [40, 30, 30]
+  },
+  "charts": {"wdl": true, "goals": true, "heatmap": true, "edge": true, "promote": false},
+  "skeleton": "三受让方对照式",
+  "hook_type": "数据反问",
+  "sections": [
+    {"type": "para", "text": "周一008,02:45开球。国米第3、赛季3战全胜,对手乌迪内斯伤停6人;市场给国米77.7%,让球线同样是-2。"}
+  ],
+  "ending_hook": "",
+  "ending_line": "数据不会说谎,但人会。——阿飞·赛博聊球"
+}

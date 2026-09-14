@@ -1,0 +1,59 @@
+{
+  "title": "周一003意甲:科莫让两球,帕尔马赛季只进1个",
+  "tags": ["#意甲", "#科莫", "#帕尔马"],
+  "competition": "意甲 2026/2027 常规赛第4轮",
+  "first_leg": "第4轮",
+  "match_time": "9月15日(周二)00:30 北京时间",
+  "venue": "朱塞佩·西尼加利亚球场(科莫)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "odds": {"H": 1.13, "D": 5.90, "A": 13.50},
+  "hhad": {"H": 2.65, "D": 3.90, "A": 2.02},
+  "handicap_line": -2,
+  "market_type": "european",
+  "score_odds": [
+    ["1", "0", "6.70"], ["2", "0", "5.70"], ["2", "1", "8.25"],
+    ["3", "0", "6.75"], ["1", "1", "10.50"], ["0", "0", "16.00"],
+    ["0", "1", "23.00"], ["1", "2", "30.00"]
+  ],
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {"w": 6, "d": 3, "l": 1},
+    "away_form": {"w": 2, "d": 3, "l": 5}
+  },
+  "teams": {
+    "home": {
+      "name": "科莫", "league": "意甲",
+      "gf": 2.0, "ga": 1.0,
+      "gf_special": 2.0, "ga_special": 1.0,
+      "special_label": "主场",
+      "recent": {"gf": 2.0, "ga": 1.0},
+      "rating": 0
+    },
+    "away": {
+      "name": "帕尔马", "league": "意甲",
+      "gf": 0.6, "ga": 1.1,
+      "gf_special": 0.6, "ga_special": 1.1,
+      "special_label": "客场",
+      "recent": {"gf": 0.6, "ga": 1.1},
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [60, 30, 10],
+    "h_home": [50, 30, 20],
+    "a_all": [20, 30, 50],
+    "a_away": [30, 30, 40]
+  },
+  "charts": {"wdl": true, "goals": true, "heatmap": true, "edge": true, "promote": false},
+  "skeleton": "三受让方对照式",
+  "hook_type": "数据反问",
+  "sections": [
+    {"type": "para", "text": "周一003,意甲第4轮。科莫主场首秀,对手帕尔马本赛季3场只进1个球;市场给科莫78.4%,让球线开到-2。"}
+  ],
+  "ending_hook": "",
+  "ending_line": "数据不会说谎,但人会。——阿飞·赛博聊球"
+}
