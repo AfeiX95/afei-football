@@ -842,19 +842,32 @@ HH_BASE_LINE = {          # 469 场实测基准: 让球线 → (让球方赢下,
 HH_BASE_DEEP = (0.27, 0.32)
 
 
+def handicap_dewater(odds):
+    """{H,D,A} 赔率 → 去水百分比 {H,D,A}(+ 原始和)。公共函数, 工具与脚本共用同一份算法。"""
+    inv = {k: 1 / float(odds[k]) for k in 'HDA'}
+    s = sum(inv.values())
+    return {k: v / s * 100 for k, v in inv.items()}, s
+
+
+def handicap_side(q):
+    """让球盘判读: 返回 (判读文案, 让胜与让负的差)。差<3 点视为无偏向"""
+    gap = abs(q['H'] - q['A'])
+    if gap < 3:
+        return '无偏向(不选边)', gap
+    return ('受让方不败' if q['A'] > q['H'] else '让球方赢够'), gap
+
+
 def handicap_check(cfg, m):
     """让球盘结构判读: 返回 (打印行, 警告行)。无 hhad 数据则返回 ([], [])"""
     hh = cfg.get('hhad') or cfg.get('handicap_odds')
     if not hh or not all(k in hh for k in ('H', 'D', 'A')):
         return [], []
     try:
-        inv = {k: 1 / float(hh[k]) for k in 'HDA'}
+        q, s = handicap_dewater(hh)
     except (TypeError, ValueError, ZeroDivisionError):
         return [], []
-    s = sum(inv.values())
     if s <= 0:
         return [], []
-    q = {k: v / s * 100 for k, v in inv.items()}       # 去水
     line = cfg.get('handicap_line')
     if line is None:
         line = (cfg.get('strategy') or {}).get('handicap_line')
