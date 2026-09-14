@@ -1,0 +1,59 @@
+{
+  "title": "周一011西甲:赔率四次更新全偏向贝蒂斯一边",
+  "tags": ["#西甲", "#比利亚雷", "#贝蒂斯"],
+  "competition": "西甲 2026/2027 常规赛第5轮",
+  "first_leg": "第5轮",
+  "match_time": "9月15日(周二)03:00 北京时间",
+  "venue": "陶瓷球场(比利亚雷亚尔)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "odds": {"H": 1.86, "D": 3.62, "A": 3.17},
+  "hhad": {"H": 3.45, "D": 3.87, "A": 1.72},
+  "handicap_line": -1,
+  "market_type": "european",
+  "score_odds": [
+    ["1", "0", "9.50"], ["2", "0", "10.50"], ["2", "1", "7.50"],
+    ["0", "0", "20.00"], ["1", "1", "7.50"], ["2", "2", "11.00"],
+    ["0", "1", "15.00"], ["0", "2", "22.00"], ["1", "2", "11.50"]
+  ],
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {"w": 3, "d": 2, "l": 5},
+    "away_form": {"w": 7, "d": 1, "l": 2}
+  },
+  "teams": {
+    "home": {
+      "name": "比利亚雷", "league": "西甲",
+      "gf": 1.5, "ga": 1.8,
+      "gf_special": 1.5, "ga_special": 1.8,
+      "special_label": "主场",
+      "recent": {"gf": 1.5, "ga": 1.8},
+      "rating": 0
+    },
+    "away": {
+      "name": "贝蒂斯", "league": "西甲",
+      "gf": 1.8, "ga": 1.1,
+      "gf_special": 1.8, "ga_special": 1.1,
+      "special_label": "客场",
+      "recent": {"gf": 1.8, "ga": 1.1},
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [30, 20, 50],
+    "h_home": [80, 0, 20],
+    "a_all": [70, 10, 20],
+    "a_away": [50, 10, 40]
+  },
+  "charts": {"wdl": true, "goals": true, "heatmap": true, "edge": true, "promote": false},
+  "skeleton": "赔率漂移式",
+  "hook_type": "数据质疑",
+  "sections": [
+    {"type": "para", "text": "周一011,西甲第5轮。这场赔率从中午到下午更新了四次,四次全部朝同一个方向走:主胜往上、客胜往下、让球盘往受让方那边压。"}
+  ],
+  "ending_hook": "",
+  "ending_line": "数据不会说谎,但人会。——阿飞·赛博聊球"
+}

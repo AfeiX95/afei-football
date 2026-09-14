@@ -1,0 +1,59 @@
+{
+  "title": "周一010英超:利兹联主胜40%,让一球却只给19%",
+  "tags": ["#英超", "#利兹联", "#纽卡斯尔"],
+  "competition": "英超 2026/2027 常规赛第4轮",
+  "first_leg": "第4轮",
+  "match_time": "9月15日(周二)03:00 北京时间",
+  "venue": "埃兰路球场(利兹)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "odds": {"H": 2.17, "D": 3.25, "A": 2.77},
+  "hhad": {"H": 4.55, "D": 4.00, "A": 1.52},
+  "handicap_line": -1,
+  "market_type": "european",
+  "score_odds": [
+    ["1", "0", "9.50"], ["2", "0", "12.00"], ["2", "1", "7.50"],
+    ["0", "0", "14.00"], ["1", "1", "6.75"], ["2", "2", "11.50"],
+    ["0", "1", "12.00"], ["0", "2", "17.00"], ["1", "2", "9.00"]
+  ],
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {"w": 6, "d": 3, "l": 1},
+    "away_form": {"w": 4, "d": 3, "l": 3}
+  },
+  "teams": {
+    "home": {
+      "name": "利兹联", "league": "英超",
+      "gf": 1.9, "ga": 1.1,
+      "gf_special": 1.9, "ga_special": 1.1,
+      "special_label": "主场",
+      "recent": {"gf": 1.9, "ga": 1.1},
+      "rating": 0
+    },
+    "away": {
+      "name": "纽卡斯尔", "league": "英超",
+      "gf": 1.6, "ga": 1.7,
+      "gf_special": 1.6, "ga_special": 1.7,
+      "special_label": "客场",
+      "recent": {"gf": 1.6, "ga": 1.7},
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [60, 30, 10],
+    "h_home": [20, 40, 40],
+    "a_all": [40, 30, 30],
+    "a_away": [30, 20, 50]
+  },
+  "charts": {"wdl": true, "goals": true, "heatmap": true, "edge": true, "promote": false},
+  "skeleton": "盘口错位式",
+  "hook_type": "数据反问",
+  "sections": [
+    {"type": "para", "text": "周一010,英超第4轮。利兹联主胜隐含40.8%,让球线却是利兹联让一球,让胜只有19.5%。一个四成的主胜配一条不到两成的让胜线,这是今晚最拧巴的一场。"}
+  ],
+  "ending_hook": "",
+  "ending_line": "数据不会说谎,但人会。——阿飞·赛博聊球"
+}
