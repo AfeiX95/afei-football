@@ -35,6 +35,7 @@
 ## 收工约定
 - 任务收尾：更新 `docs/HANDOFF.md`（追加一节）+ `state/model-state.json`（如有变化）
 - **生成当日日记**：`python scripts/journal.py`（自动汇总当日提交 / 产出 / 状态快照 / 交接指针 → `docs/日记/YYYY-MM-DD.md`；补写历史日加 `--date YYYY-MM-DD`；幂等，手记区永不覆盖）
+  - ⛔ **不挂计划任务、不做自动触发**（用户 2026-09-19 决定）——由 agent 在任务收尾时手动跑一次即可，勿再提议自动化
 - 提交 git 兜底：`git add docs/ state/ 📚知识库/ 📝文章/ && git commit -m "进度同步 YYYYMMDD"`
 - 多会话并发：先读后写，发现文件比上次新（别人刚写）先重读合并，严禁整文件覆盖
 
