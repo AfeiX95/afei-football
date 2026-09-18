@@ -34,8 +34,16 @@
 
 ## 收工约定
 - 任务收尾：更新 `docs/HANDOFF.md`（追加一节）+ `state/model-state.json`（如有变化）
+- **生成当日日记**：`python scripts/journal.py`（自动汇总当日提交 / 产出 / 状态快照 / 交接指针 → `docs/日记/YYYY-MM-DD.md`；补写历史日加 `--date YYYY-MM-DD`；幂等，手记区永不覆盖）
 - 提交 git 兜底：`git add docs/ state/ 📚知识库/ 📝文章/ && git commit -m "进度同步 YYYYMMDD"`
 - 多会话并发：先读后写，发现文件比上次新（别人刚写）先重读合并，严禁整文件覆盖
+
+## 📔 日记 vs 交接 vs 状态（分工，勿混用）
+| 文件 | 定位 | 读者 | 写法 |
+|:---|:---|:---|:---|
+| `docs/HANDOFF.md` | **交接**：当前状态 / 已知阻碍 / 下一步目标 | 下一次会话的 agent | 只追加节，最新在最后 |
+| `docs/日记/YYYY-MM-DD.md` | **日记**：当日提交 / 产出清单 / 状态快照 / 手记 | 往后回看的自己 | 脚本生成 AUTO 区块 + 人工手记区（AUTO:END 之后） |
+| `state/model-state.json` | **机器可读状态** | 脚本与 agent | 结构化字段，随时覆盖更新 |
 
 ## 🔴 记忆原则（2026-09-13 用户明确：只要本地 + 免费）
 **不使用任何云端记忆服务；Hindsight（`hindsight_*` 工具）一律不要调用**（其 API 需 apiToken，实测返回 401，且须上传数据到云端）。

@@ -90,5 +90,9 @@
 ## 收工约定（细化）
 1. `docs/HANDOFF.md` 追加一节：当前状态 / 已知阻碍 / 下一步目标（只追加，禁覆盖）
 2. `state/model-state.json` 如有变化同步（先读后写，多会话并发先重读合并）
-3. `git add docs/ state/ 📚知识库/ 📝文章/ && git commit -m "进度同步 YYYYMMDD"`（emoji 路径用 `git add -A` 避免命令行编码问题）
-4. 🔴 **记忆只落本地（2026-09-13 用户明确）**：不使用任何云端记忆服务，**`hindsight_*` 工具一律不调用**（需 apiToken，实测 401）；经验直接写进 `修正规则.md` / 本文件 / `afei-writing-standards/SKILL.md` 等本地真源，随 git 提交沉淀
+3. 🔴 **生成当日日记**：`python scripts/journal.py`（→ `docs/日记/YYYY-MM-DD.md`；补写历史日 `--date YYYY-MM-DD`；幂等，`<!-- AUTO:END -->` 之后的人工手记区永不覆盖）
+   - 自动汇总：当日提交 / 当日产出（按顶层目录分组，含未提交变更）/ 状态快照（批次·累计·方向率·规则数）/ 交接指针（HANDOFF 最新节 + 下一步首条）
+4. `git add docs/ state/ 📚知识库/ 📝文章/ && git commit -m "进度同步 YYYYMMDD"`（emoji 路径用 `git add -A` 避免命令行编码问题）
+5. 🔴 **记忆只落本地（2026-09-13 用户明确）**：不使用任何云端记忆服务，**`hindsight_*` 工具一律不调用**（需 apiToken，实测 401）；经验直接写进 `修正规则.md` / 本文件 / `afei-writing-standards/SKILL.md` 等本地真源，随 git 提交沉淀
+
+> 📔 **三种记录的分工（勿混用）**：`HANDOFF.md` = 交接（面向下一次会话，只追加节）；`docs/日记/` = 时间线（面向往后回看，脚本生成 AUTO 区块 + 人工手记）；`state/model-state.json` = 机器可读状态（可覆盖更新）。
