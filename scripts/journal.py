@@ -196,7 +196,7 @@ def main():
 
     doc = f"# {day} 工作日记\n\n{build(day)}\n{manual}"
     out_file.write_text(doc, encoding="utf-8")
-    print(f"[OK] journal written: docs/journal/{day}.md")
+    print(f"[OK] journal written: docs/日记/{day}.md")
     print(f"     size={out_file.stat().st_size} bytes")
 
 

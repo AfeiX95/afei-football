@@ -53,6 +53,9 @@ def strip_body(text):
     t = re.sub(r"^>\s*.*$", "", t, flags=re.M)
     # 免责模板中的"合法体育彩票"为允许短语，先摘除避免误报
     t = t.replace("合法体育彩票", "")
+    # 免责劝诫短语（AGENTS.md 铁律要求文末必带）同样豁免：含"赌"字但属劝退语境，非博彩诱导
+    for phrase in ("远离赌博", "远离赌球", "理性购彩", "理性投注"):
+        t = t.replace(phrase, "")
     return t
 
 
