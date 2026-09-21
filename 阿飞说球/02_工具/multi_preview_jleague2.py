@@ -19,7 +19,7 @@ import numpy as np
 from docx import Document
 from docx.shared import Pt, Inches
 
-BASE = r'D:\Hermes\football'
+BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TOOL_DIR = os.path.join(BASE, '阿飞说球', '02_工具')
 sys.path.insert(0, TOOL_DIR)
 from afei_generator import run_model  # noqa: E402

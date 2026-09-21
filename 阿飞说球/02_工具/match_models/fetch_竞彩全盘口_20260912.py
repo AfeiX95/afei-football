@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
 """临时: 抓 09-12 周六候选场次全盘口(had/hhad/ttg/crs/hafu) → JSON 落盘"""
 import json
+import os
 import sys
 
-sys.path.insert(0, r'D:\Hermes\football\采集数据')
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+sys.path.insert(0, os.path.join(ROOT, '采集数据'))
 from browser import fetch_api  # noqa: E402
 
 URL = ('https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry'
        '?channel=c&poolCode=had,hhad,ttg,crs,hafu')
-OUT = r'D:\Hermes\football\.uv-cache\sat_0912_pools.json'
+OUT = os.path.join(ROOT, '.uv-cache', 'sat_0912_pools.json')
 
 d = fetch_api(URL)
 blocks = (d.get('value') or {}).get('matchInfoList') or []

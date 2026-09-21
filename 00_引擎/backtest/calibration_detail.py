@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """细化回测: 按方向(H/D/A)分桶校准, 生成校准函数系数"""
+import os
 import re
 from collections import defaultdict
 
-PATH = r'D:\Hermes\football\00_引擎\backtest\matches_20260707_0802.tsv'
+PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'matches_20260707_0802.tsv')
 
 def parse_line(line):
     parts = line.rstrip('\n').split('\t')

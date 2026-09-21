@@ -8,7 +8,7 @@ import math
 import os
 import sys
 
-ROOT = r'D:\Hermes\football'
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 sys.path.insert(0, os.path.join(ROOT, '阿飞说球', '02_工具'))
 import afei_generator as G  # noqa: E402
 
@@ -32,10 +32,8 @@ print(f'{"编号":8s}{"对阵":20s}{"线":4s}{"让胜/走/让负":16s}{"差":6s}
 print('-' * 90)
 for num, lg, home, away, had, line, hh in M:
     q, _ = G.handicap_dewater({'H': hh[0], 'D': hh[1], 'A': hh[2]})
-    gap = abs(q['H'] - q['A'])
-    side = '受让方不败' if q['A'] > q['H'] else '让球方赢够'
-    if gap < 3:
-        side = '无偏向(不选边)'
+    # 2026-09-15 改用公共函数(带让球线): 手写版不看线的符号, 客队让球的场次会把方向说反(坑#38)
+    side, gap = G.handicap_side(q, line)
     info = '—(未开售)'
     if had and all(v is not None for v in had):
         p, _ = G.handicap_dewater({'H': had[0], 'D': had[1], 'A': had[2]})

@@ -1,15 +1,18 @@
 {
   "schema": 2,
-  "updated_at": "2026-09-14",
-  "sample_size": 491,
+  "updated_at": "2026-09-21",
+  "sample_size": 589,
   "coef": {
-    "draw": 1.088,
-    "hot": 1.012,
-    "cold": 0.899
+    "draw": 1.026,
+    "hot": 1.002,
+    "cold": 0.976
   },
   "buckets": {
-    "draw_20_30": 1.098,
-    "hot_40_70": 1.014,
-    "cold_0_30": 0.877
-  }
+    "draw_20_30": 1.06,
+    "hot_40_70": 1.004,
+    "cold_0_30": 0.952
+  },
+  "basis": "direction-averaged ratio (weekly_update.compute_coefs); coef 由 EWMA(0.7prev+0.3bucket) 更新",
+  "_note": "2026-09-21 手动写回(本机无 Python)。589 场复算 buckets = draw 1.0597 / hot 1.0041 / cold 0.9519(脚本 .uv-cache/_batch_fix.ps1, 已通过口径复现校验: 560 场时逐位重现 1.048/1.022/0.929), 再按 weekly_update 的 EWMA 更新 coef。详见 阿飞说球/01_工作流SOP/自改进总结_20260921.md",
+  "_warning": "① EWMA 会在下次运行时继续把 coef 往 buckets 拉(draw→1.036 / hot→1.003 / cold→0.969); 要持久须把 z^2 收缩写进 compute_coefs()。② 09-20 那次手动 z^2 收缩已被本次 EWMA 部分覆盖 —— 这是用户 2026-09-21 明确选择的代价(与管线行为一致优先)。"
 }

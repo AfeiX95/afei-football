@@ -3,11 +3,12 @@
 竞彩让球胜平负回测 — 市场隐含概率校准分析
 数据: 2026-07-07 ~ 2026-08-02 已开奖场次(竞彩网赛果)
 """
+import os
 import re
 import math
 from collections import defaultdict
 
-PATH = r'D:\Hermes\football\00_引擎\backtest\matches_20260707_0802.tsv'
+PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'matches_20260707_0802.tsv')
 
 def parse_line(line):
     parts = line.rstrip('\n').split('\t')

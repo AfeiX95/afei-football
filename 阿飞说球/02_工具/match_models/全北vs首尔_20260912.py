@@ -20,7 +20,7 @@ import json
 import os
 import sys
 
-ROOT = r'D:\Hermes\football'
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 sys.path.insert(0, os.path.join(ROOT, '阿飞说球', '02_工具'))
 import afei_generator as G  # noqa: E402
 

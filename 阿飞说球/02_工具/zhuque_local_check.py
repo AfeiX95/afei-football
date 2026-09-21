@@ -40,6 +40,12 @@ import math
 import json
 import argparse
 
+try:  # Windows 控制台默认 GBK, emoji/⚠ 一打印就 UnicodeEncodeError 崩掉整轮检查
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    pass
+
 AI_PHRASES = [
     # 中文新闻体/AI高频
     '值得注意的是', '综上所述', '总而言之', '不仅如此', '不仅仅是', '更是',
@@ -131,11 +137,12 @@ def paragraph_score(par):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--file', required=False, help='md/docx/txt')
+    ap.add_argument('path', nargs='?', help='位置参数写法(与 --file 等价)')
     ap.add_argument('--top', type=int, default=8)
     ap.add_argument('--threshold', type=float, default=2.5, help='段落预警阈值')
     args = ap.parse_args()
 
-    path = args.file
+    path = args.file or args.path
     if path and path.lower().endswith('.docx'):
         from docx import Document
         d = Document(path)

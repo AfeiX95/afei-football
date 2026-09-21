@@ -13,7 +13,7 @@
 import os
 import sys
 
-BASE = r'D:\Hermes\football'
+BASE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TOOL = os.path.join(BASE, '阿飞说球', '02_工具')
 sys.path.insert(0, TOOL)
 

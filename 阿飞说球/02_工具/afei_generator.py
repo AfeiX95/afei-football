@@ -849,12 +849,22 @@ def handicap_dewater(odds):
     return {k: v / s * 100 for k, v in inv.items()}, s
 
 
-def handicap_side(q):
-    """让球盘判读: 返回 (判读文案, 让胜与让负的差)。差<3 点视为无偏向"""
+def handicap_side(q, line=None):
+    """让球盘判读: 返回 (判读文案, 让胜与让负的差)。差<3 点视为无偏向
+
+    ⚠️ 2026-09-15 修正(客让球文案说反): q['H'] 是"让胜"(主队让球后赢)那一侧,
+    只有当**主队是让球方**(line<0)时, 让胜重 = 让球方赢够; 主队受让(line>0)时,
+    让胜重 = **主队(受让方)守住**。旧版不分符号, 一律按 line<0 输出文案,
+    于是"客队让球"的场次(如 012 伊普斯+1 vs 阿森纳)会被印成"受让方不败", 方向正好说反。
+    line 缺省 None 时保留旧口径, 只为兼容历史脚本。
+    """
     gap = abs(q['H'] - q['A'])
     if gap < 3:
         return '无偏向(不选边)', gap
-    return ('受让方不败' if q['A'] > q['H'] else '让球方赢够'), gap
+    home_gives = (line is None) or line < 0          # 主队是让球方(或口径未知=旧行为)
+    if q['H'] > q['A']:                              # 让胜(主队侧)更重
+        return ('让球方赢够' if home_gives else '受让方不败'), gap
+    return ('受让方不败' if home_gives else '让球方赢够'), gap
 
 
 def handicap_check(cfg, m):
@@ -892,35 +902,46 @@ def handicap_check(cfg, m):
                    f"'一球差/走水区间', 不许硬选边")
         return out, warn
 
-    side = '让负(受让方)' if q['A'] > q['H'] else '让胜(让球方)'
+    # ⚠️ 2026-09-15 修正: 让球线符号决定"让胜"是谁。line<0=主队让球(让胜=主队赢够);
+    #    line>0=主队受让(让胜=主队守住, 让负=客队让球方赢够)。旧版不分符号, 客让球场次会说反。
+    home_gives = (not isinstance(line, int)) or line < 0
+    if q['H'] > q['A']:
+        side = '让胜(主队让球后赢)' if home_gives else '让胜(主队受让方守住)'
+    else:
+        side = '让负(客队受让方守住)' if home_gives else '让负(客队让球方赢够)'
     out.append(f"    市场更重的一侧: {side}  ({max(q['H'], q['A']):.1f}% vs {min(q['H'], q['A']):.1f}%, 差 {gap:.1f} 点)")
 
-    base = HH_BASE_LINE.get((line,) if isinstance(line, int) else None) if isinstance(line, int) else None
+    base = HH_BASE_LINE.get((line,)) if isinstance(line, int) else None
     if base:
         b_win, b_push, b_lose = (x * 100 for x in base)
-        out.append(f"    历史基准{line:+d}(469场): 让胜{b_win:.0f}% / 走水{b_push:.0f}% / 让负{b_lose:.0f}%")
+        # 基准按"角色"记: (让球方赢下, 走水, 受让方赢下) → 折回主客视角要随符号翻转
+        b_h, b_a = (b_win, b_lose) if home_gives else (b_lose, b_win)
+        out.append(f"    历史基准{line:+d}(469场): 让胜(主队侧){b_h:.0f}% / 走水{b_push:.0f}% / 让负(客队侧){b_a:.0f}%")
         # ⚠️ 方向**只跟市场**(上面的 side 已定); 基准比较只用于"这场的强度比基准强/弱",
         #    绝不用来反转方向(2026-09-14 回测发现: 反转会把 007 那种市场偏受让方的场次说反)
-        if q['A'] > q['H']:
-            dev = q['A'] - b_lose
-            if dev >= 5:
-                out.append(f"    偏离基准: 让负{q['A']:.1f}% 高于基准{b_lose:.0f}% {dev:+.1f} 点 "
+        heavy_home = q['H'] >= q['A']
+        h_val, h_base = (q['H'], b_h) if heavy_home else (q['A'], b_a)
+        dev = h_val - h_base
+        is_receiver = (heavy_home != home_gives)      # 重的一侧是不是受让方
+        role = '受让方' if is_receiver else '让球方'
+        tag = ('让负(受让方)' if home_gives else '让胜(受让方)') if is_receiver else \
+              ('让胜(让球方)' if home_gives else '让负(让球方)')
+        if dev >= 5:
+            if is_receiver:
+                out.append(f"    偏离基准: {tag}{h_val:.1f}% 高于基准{h_base:.0f}% {dev:+.1f} 点 "
                            f"→ 市场比基准更偏受让方, '受让方不败'这一侧被强化")
-            elif dev <= -5:
-                out.append(f"    偏离基准: 让负{q['A']:.1f}% 低于基准{b_lose:.0f}% {dev:+.1f} 点 "
+            else:
+                out.append(f"    偏离基准: {tag}{h_val:.1f}% 高于基准{h_base:.0f}% {dev:+.1f} 点 "
+                           f"→ 市场比基准更看好让球方赢够, '热门赢不够'这条线**不成立**")
+        elif dev <= -5:
+            if is_receiver:
+                out.append(f"    偏离基准: {tag}{h_val:.1f}% 低于基准{h_base:.0f}% {dev:+.1f} 点 "
                            f"→ 仍偏受让方, 但强度弱于基准, '受让方不败'比基准弱一档")
             else:
-                out.append("    偏离基准: 两侧贴合基准, 无可挖偏差")
-        else:
-            dev = q['H'] - b_win
-            if dev >= 5:
-                out.append(f"    偏离基准: 让胜{q['H']:.1f}% 高于基准{b_win:.0f}% {dev:+.1f} 点 "
-                           f"→ 市场比基准更看好让球方赢够, '热门赢不够'这条线**不成立**")
-            elif dev <= -5:
-                out.append(f"    偏离基准: 让胜{q['H']:.1f}% 低于基准{b_win:.0f}% {dev:+.1f} 点 "
+                out.append(f"    偏离基准: {tag}{h_val:.1f}% 低于基准{h_base:.0f}% {dev:+.1f} 点 "
                            f"→ 仍偏让球方, 但强度弱于基准, 门槛比基准更深(利于受让方)")
-            else:
-                out.append("    偏离基准: 两侧贴合基准, 无可挖偏差")
+        else:
+            out.append("    偏离基准: 两侧贴合基准, 无可挖偏差")
     else:
         if isinstance(line, int) and abs(line) >= 2:
             out.append(f"    历史基准(469场, 深盘±2): 让球方赢盘仅 {HH_BASE_DEEP[0]*100:.0f}-{HH_BASE_DEEP[1]*100:.0f}%"
@@ -928,7 +949,7 @@ def handicap_check(cfg, m):
         else:
             out.append("    (该让球线无历史基准; 仅按市场两侧轻重判读)")
 
-    if q['A'] > q['H']:
+    if (q['A'] > q['H']) == home_gives:
         out.append("    → 主线建议: 受让方不败 / 热门赢不够(跟市场这一侧)")
     else:
         out.append("    → 主线建议: 让球方赢够(跟市场这一侧); 慎写'受让方不败'")

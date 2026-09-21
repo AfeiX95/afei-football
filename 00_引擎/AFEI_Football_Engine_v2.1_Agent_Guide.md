@@ -14,7 +14,7 @@
 > | 项目常驻规则 / 出稿铁律 / 当前校准系数 | 仓库根 **`.hermes.md`** |
 > | 全流程总纲 + **坑#1–#37** + 工具清单 | `阿飞说球/01_工作流SOP/workflow.md` |
 > | 引擎实现(泊松/Edge/让球盘维度) | `阿飞说球/02_工具/afei_generator.py` |
-> | 校准 state(平局1.077/热门1.01/冷门0.922, schema 2) | `00_引擎/backtest/calibration_state.json` + `BACKTEST_REPORT.md` |
+> | 校准 state(平局1.011/热门1.001/冷门0.986, 560 场, schema 2) | `00_引擎/backtest/calibration_state.json` + `BACKTEST_REPORT.md` |
 > | 模型 vs 市场实测 | `00_引擎/backtest/REVIEW_REPORT.md` |
 > | 复盘教训增量 | `阿飞说球/01_工作流SOP/自改进总结_YYYYMMDD.md` |
 >
