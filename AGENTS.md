@@ -11,9 +11,10 @@
   (matplotlib 3.11 / numpy 2.5 / pillow 12 / python-docx 1.2 / lxml 6 / jinja2, 全 **cp314** 轮子)。出稿链路已真跑通。
 - 统一入口: `.\运行.cmd <脚本> <参数>`(内部 `run.ps1` 用 `.venv` 并设编码/缓存变量)。⚠️ 本机执行策略禁止直接跑 `.ps1`, 需 `-ExecutionPolicy Bypass` 转调。
 - ⚠️ **B 档(KB RAG)未装**: 缺 faiss / sentence-transformers → `--kb` 打印"检索失败"后**优雅降级**, 不阻断出稿(kb_core 是懒加载)。
-- ⚠️ **无 uv / 无 git**: `.venv` 由 `python -m venv` 建(`ensurepip` 被沙箱拒 → venv 内无 pip), 依赖靠**基础解释器的 pip** 装:
+- ✅ **git 已可用**(2026-09-21 装于 `D:\Git`): 用**全路径** `D:\Git\cmd\git.exe`(未加 PATH)。仓库本地已设
+  `core.autocrlf=false` + `core.eol=lf`, 并有仓库根 `.gitattributes`(`* text=auto eol=lf`)—— **全仓统一 LF, 不要改回 CRLF**。
+- ⚠️ **无 uv**: `.venv` 由 `python -m venv` 建(`ensurepip` 被沙箱拒 → venv 内无 pip), 依赖靠**基础解释器的 pip** 装:
   `python -m pip --python .venv\Scripts\python.exe install ...`(**`--python` 必须放在子命令之前**); 并把 `TEMP/TMP` + `--cache-dir` 指到工作区内。
-  git 缺失 → `.git` 有历史但**无法提交**。
 - ⚠️ **编码纪律(2026-09-21 出过事故: 25 个脚本被 GBK 双重编码毁掉, 从只读归档修复)**:
   批量改文件**禁止** `Get-Content -Raw`(PS 5.1 把无 BOM UTF-8 当 GBK 解码再写回 = 中文全毁); 一律用
   `[System.IO.File]::ReadAllText/WriteAllText(..., UTF8)`; `.ps1` 必须带 **BOM**; 读无 BOM 的 json/tsv 也不能用 `Get-Content | ConvertFrom-Json`。
@@ -23,7 +24,7 @@
 
 | 要知道什么 | 去哪 |
 |---|---|
-| 全流程总纲 + **坑#1–#46** + 工具清单 | `阿飞说球/01_工作流SOP/workflow.md` |
+| 全流程总纲 + **坑#1–#47** + 工具清单 | `阿飞说球/01_工作流SOP/workflow.md` |
 | 公众号平台规则与禁用表 | `阿飞说球/01_工作流SOP/公众号写作规范.md` |
 | 封号实录与双平台分流硬规则 | `阿飞说球/01_工作流SOP/风控_账号被屏蔽处置_20260915.md` |
 | 人工写作 14 特征 / 写作池 / 视频口播矩阵 | `阿飞说球/01_工作流SOP/`(同目录) |
