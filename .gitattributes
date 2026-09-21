@@ -1,0 +1,23 @@
+# 2026-09-21 建立: 统一换行符为 LF
+#
+# 背景: 本仓库的历史 blob 全部是 LF, 而迁移过来的工作区混有 CRLF(343 个文件),
+#       加上拷贝来的 .git 里 stat 缓存与 system 级 core.autocrlf=true,
+#       导致 `git status` 报"干净"、实际工作区与提交并不逐字节一致(差异被掩盖)。
+# 处理: ①工作区 343 个文本文件统一转 LF(仓库 blob 无需改动, 零 churn)
+#       ②仓库本地 core.autocrlf=false / core.eol=lf
+#       ③本文件把规则固化, 防止再漂移
+#
+# 注: 本项目是内容管线, 所有工具(Python 文本模式读 tsv/json/md)对换行不敏感, 统一 LF 无副作用。
+
+* text=auto eol=lf
+
+# 二进制: 禁止任何转换
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.gif  binary
+*.docx binary
+*.xlsx binary
+*.faiss binary
+*.bin  binary
+*.univer binary
