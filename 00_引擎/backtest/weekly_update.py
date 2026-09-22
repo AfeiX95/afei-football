@@ -55,33 +55,52 @@ def load_matches():
     return matches
 
 def compute_coefs(matches):
-    """方向分桶校准 → 推荐系数"""
-    def bucket_ratio(kind, lo, hi):
+    """方向分桶校准 → 推荐系数(**2026-09-21 起按 z² 收缩**)
+
+    每个桶先算"方向平均 ratio", 再按 James-Stein 式权重 w = z²/(1+z²) 向 1.0 收缩:
+      越像噪声(z 小)越拉回 1.0; 真偏差(z 大)保留。
+    由来: BIAS_AUDIT_20260920 §1/§9.1 —— 三个系数在 560 场样本上**没有一个统计显著**(CI 含 1.0),
+          属噪声型点估计; §9.2 指出只改 state 会被下次 EWMA 拉回, 必须写进本函数才持久。
+
+    返回: {draw,hot,cold} = **收缩后**的值(EWMA 的输入); 另附 raw / z / n 供追溯。
+
+    ⚠️ 聚合 SE 的取舍(2026-09-21 实测定): hot/cold 是"H、A 两方向 ratio 取平均", 平均值的 SE 用
+    **独立合并** sqrt(Σse_i²)/k。560 场复算得 z = draw +0.557 / hot +0.467 / cold -0.746;
+    其中 **draw 与 BIAS_AUDIT §9.1 手算的 +0.56 一致**, hot/cold 比审计的 +0.19/-0.49 **收缩更少**
+    (审计未公开其聚合 SE 算法, 疑含方向异质性修正)。raw ratio 与审计完全一致(1.0482/1.022/0.9288),
+    所以差异只在收缩权重上; 两种权重都远小于 1, 都属"与 1.0 无法区分"的区间。
+    """
+    def bucket_stat(kind, lo, hi):
         grp = [m for m in matches if lo <= m['p'][kind] < hi]
-        if len(grp) < 8:
+        n = len(grp)
+        if n < 8:
             return None
-        hits = sum(1 for m in grp if m['result_plain'] == kind)   # 2026-09-10: 原用让球后结果, 与胜平负赔率错配
-        avg_p = sum(m['p'][kind] for m in grp) / len(grp)
-        return hits / len(grp) / avg_p if avg_p > 0 else None
+        hits = sum(1 for m in grp if m['result_plain'] == kind)   # 2026-09-10: 必须配胜平负结果
+        avg_p = sum(m['p'][kind] for m in grp) / n
+        if avg_p <= 0:
+            return None
+        ratio = hits / n / avg_p
+        phat = hits / n
+        se = math.sqrt(phat * (1 - phat) / n) / avg_p             # ratio 的标准误
+        return {'ratio': ratio, 'n': n, 'se': se, 'z': (ratio - 1) / se if se > 0 else 0.0}
 
-    # 平局: 隐含20-30% 的 ratio(2026-09-10 修正口径下历史 ≈1.0, 市场有效)
-    draw_r = bucket_ratio('D', 0.20, 0.30)
-    # 热门(胜负方向 ≥40%): ratio(修正口径下历史 ≈1.0)
-    hot_parts = []
-    for k in 'HA':
-        r = bucket_ratio(k, 0.40, 0.70)
-        if r:
-            hot_parts.append(r)
-    hot_r = sum(hot_parts) / len(hot_parts) if hot_parts else None
-    # 冷门(胜负方向 <30%): ratio(修正口径下历史 ≈1.0)
-    cold_parts = []
-    for k in 'HA':
-        r = bucket_ratio(k, 0.0, 0.30)
-        if r:
-            cold_parts.append(r)
-    cold_r = sum(cold_parts) / len(cold_parts) if cold_parts else None
+    def shrink(parts):
+        parts = [p for p in parts if p]
+        if not parts:
+            return None, None, None, 0
+        ratio = sum(p['ratio'] for p in parts) / len(parts)
+        se = math.sqrt(sum(p['se'] ** 2 for p in parts)) / len(parts)
+        z = (ratio - 1) / se if se > 0 else 0.0
+        w = z * z / (1 + z * z)
+        return 1 + (ratio - 1) * w, ratio, z, sum(p['n'] for p in parts)
 
-    return {'draw': draw_r, 'hot': hot_r, 'cold': cold_r}
+    d_s, d_r, d_z, d_n = shrink([bucket_stat('D', 0.20, 0.30)])
+    h_s, h_r, h_z, h_n = shrink([bucket_stat(k, 0.40, 0.70) for k in 'HA'])
+    c_s, c_r, c_z, c_n = shrink([bucket_stat(k, 0.0, 0.30) for k in 'HA'])
+    return {'draw': d_s, 'hot': h_s, 'cold': c_s,
+            'raw': {'draw': d_r, 'hot': h_r, 'cold': c_r},
+            'z': {'draw': d_z, 'hot': h_z, 'cold': c_z},
+            'n': {'draw': d_n, 'hot': h_n, 'cold': c_n}}
 
 def clamp(v, lo, hi):
     return max(lo, min(hi, v))
@@ -145,11 +164,22 @@ def main():
             'hot': round(clamp(0.7 * prev_coef.get('hot', 1.0) + 0.3 * coefs['hot'], 0.85, 1.15), 3) if coefs['hot'] else prev_coef.get('hot', 1.0),
             'cold': round(clamp(0.7 * prev_coef.get('cold', 1.0) + 0.3 * coefs['cold'], 0.85, 1.15), 3) if coefs['cold'] else prev_coef.get('cold', 1.0),
         },
-        'buckets': {
+        'buckets': {   # 收缩后的桶值(= EWMA 的输入)
             'draw_20_30': round(coefs['draw'], 3) if coefs['draw'] else None,
             'hot_40_70': round(coefs['hot'], 3) if coefs['hot'] else None,
             'cold_0_30': round(coefs['cold'], 3) if coefs['cold'] else None,
         },
+        'buckets_raw': {   # 未收缩的原始 ratio(追溯用)
+            'draw_20_30': round(coefs['raw']['draw'], 4) if coefs['raw']['draw'] else None,
+            'hot_40_70': round(coefs['raw']['hot'], 4) if coefs['raw']['hot'] else None,
+            'cold_0_30': round(coefs['raw']['cold'], 4) if coefs['raw']['cold'] else None,
+        },
+        'z2_shrink': {     # z 与收缩权重(诊断用)
+            'draw': round(coefs['z']['draw'], 3) if coefs['z']['draw'] is not None else None,
+            'hot': round(coefs['z']['hot'], 3) if coefs['z']['hot'] is not None else None,
+            'cold': round(coefs['z']['cold'], 3) if coefs['z']['cold'] is not None else None,
+        },
+        'basis': 'direction-averaged ratio + z^2 shrinkage (compute_coefs)',
     }
 
     changed = (new_state['coef'] != prev_coef)
@@ -162,9 +192,9 @@ def main():
              f"> 数据源: 竞彩网API + 历史手工采集 | 脚本: fetch_results.py / weekly_update.py",
              f"> 当前校准系数(state): 平局×{new_state['coef']['draw']} / 热门(≥40%)×{new_state['coef']['hot']} / 冷门(<30%)×{new_state['coef']['cold']}",
              f"\n## 本周校准桶(原始 ratio)",
-             f"- 平局 隐含20-30%: {new_state['buckets']['draw_20_30']}",
-             f"- 热门 隐含40-70%: {new_state['buckets']['hot_40_70']}",
-             f"- 冷门 隐含<30%: {new_state['buckets']['cold_0_30']}",
+             f"- 平局 隐含20-30%: {new_state['buckets']['draw_20_30']} | 原始 {new_state['buckets_raw']['draw_20_30']} | z {new_state['z2_shrink']['draw']}",
+             f"- 热门 隐含40-70%: {new_state['buckets']['hot_40_70']} | 原始 {new_state['buckets_raw']['hot_40_70']} | z {new_state['z2_shrink']['hot']}",
+             f"- 冷门 隐含<30%: {new_state['buckets']['cold_0_30']} | 原始 {new_state['buckets_raw']['cold_0_30']} | z {new_state['z2_shrink']['cold']}",
              "\n## 历史结论(2026-09-10 口径修正后重写, 旧结论全部作废)",
              "0. ⚠️ 2026-09-10 口径修正: 旧结论(draw×0.5 / hot×1.35 / cold×0.5)作废。",
              "   旧脚本用【让球后结果】配【胜平负赔率隐含概率】, 且让球公式符号写反(fh-hcap 应为 fh+hcap),",

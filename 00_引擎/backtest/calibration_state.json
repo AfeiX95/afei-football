@@ -3,16 +3,26 @@
   "updated_at": "2026-09-21",
   "sample_size": 589,
   "coef": {
-    "draw": 1.026,
-    "hot": 1.002,
-    "cold": 0.976
+    "draw": 1.024,
+    "hot": 1.001,
+    "cold": 0.98
   },
   "buckets": {
-    "draw_20_30": 1.06,
-    "hot_40_70": 1.004,
-    "cold_0_30": 0.952
+    "draw_20_30": 1.02,
+    "hot_40_70": 1.0,
+    "cold_0_30": 0.99
   },
-  "basis": "direction-averaged ratio (weekly_update.compute_coefs); coef 由 EWMA(0.7prev+0.3bucket) 更新",
-  "_note": "2026-09-21 手动写回(本机无 Python)。589 场复算 buckets = draw 1.0597 / hot 1.0041 / cold 0.9519(脚本 .uv-cache/_batch_fix.ps1, 已通过口径复现校验: 560 场时逐位重现 1.048/1.022/0.929), 再按 weekly_update 的 EWMA 更新 coef。详见 阿飞说球/01_工作流SOP/自改进总结_20260921.md",
-  "_warning": "① EWMA 会在下次运行时继续把 coef 往 buckets 拉(draw→1.036 / hot→1.003 / cold→0.969); 要持久须把 z^2 收缩写进 compute_coefs()。② 09-20 那次手动 z^2 收缩已被本次 EWMA 部分覆盖 —— 这是用户 2026-09-21 明确选择的代价(与管线行为一致优先)。"
+  "basis": "direction-averaged ratio + z^2 shrinkage (weekly_update.compute_coefs 内置, 2026-09-21 起)",
+  "_note": "2026-09-21: z² 收缩已写进 compute_coefs(), 不再是手工覆盖 → 校正**持久生效**。本 state = EWMA(旧 coef, 收缩后桶值); 原始 ratio 见 buckets_raw。560 场复算 raw 与 BIAS_AUDIT 一致(1.0482/1.022/0.9288), 收缩权重按独立合并 SE(见函数 docstring)。",
+  "_warning": "EWMA 仍会在每次运行时把 coef 往**收缩后**的桶值拉(现在两者接近, 不会再漂向原始 ratio)。若要更保守的收缩(贴近 BIAS_AUDIT §9.1 手算值), 需把聚合 SE 换成含方向异质性的版本。",
+  "buckets_raw": {
+    "draw_20_30": 1.0597,
+    "hot_40_70": 1.0041,
+    "cold_0_30": 0.9519
+  },
+  "z2_shrink": {
+    "draw": 0.702,
+    "hot": 0.089,
+    "cold": -0.512
+  }
 }
