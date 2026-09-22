@@ -36,6 +36,28 @@ FOOTER = [FOOTER_SOURCE, '', FOOTER_DISCLAIMER]
 def poisson_pmf(k, lam):
     return (lam ** k) * math.exp(-lam) / math.factorial(k)
 
+def _derive_1x2(cfg):
+    """胜平负未开售时的兜底: 由比分固定奖金反推 1X2。
+
+    ⚠️ config 的 `score_odds` 只含具名比分, **不含"胜/平/负其它"聚合项** → 反推出来的
+    热门概率偏低(保守)。仅作市场锚的兜底, 不得当作官方赔率印进稿件
+    (§三·五: 未开售盘口不许印数, 对照表写"未开售/—")。
+    """
+    s = {'H': 0.0, 'D': 0.0, 'A': 0.0}
+    for item in (cfg.get('score_odds') or []):
+        try:
+            h, a, o = int(item[0]), int(item[1]), float(item[2])
+        except (TypeError, ValueError, IndexError):
+            continue
+        if o <= 1.0:
+            continue
+        s['H' if h > a else ('D' if h == a else 'A')] += 1 / o
+    tot = sum(s.values())
+    if tot <= 0:
+        return None
+    return {k: round(tot / s[k], 2) for k in 'HDA' if s[k] > 0}
+
+
 def run_model(cfg):
     """L0→L4 完整模型,返回全部数值"""
     odds = cfg['odds']
@@ -85,6 +107,14 @@ def run_model(cfg):
     pA = sum(p for (h, a), p in probs.items() if h < a)
 
     # 市场去水
+    # 2026-09-21 修: 胜平负未开售时 odds 可能为 None(实例: 周三002 日本vs泰国),
+    # 原写法 `odds.items()` 直接 AttributeError 崩掉 → 改为先由比分盘反推兜底。
+    if not odds:
+        odds = _derive_1x2(cfg)
+        if not odds:
+            raise SystemExit('❌ config 既无 odds(胜平负未开售)又无法由 score_odds 反推。'
+                             '请在 config 里补 odds, 或补 score_odds 后再跑。')
+        print('⚠ 胜平负未开售 → 由比分盘反推 odds %s(不含"其它"聚合项, 偏保守; 不得当官方赔率)' % odds)
     inv = {k: 1 / v for k, v in odds.items()}
     S = sum(inv.values())
     pM = {k: v / S for k, v in inv.items()}

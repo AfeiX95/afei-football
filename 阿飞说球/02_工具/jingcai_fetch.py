@@ -68,4 +68,5 @@ def main():
             print('  %-5s %s' % (p, json.dumps(m.get(p), ensure_ascii=False)))
 
 
-main()
+if __name__ == '__main__':
+    main()
