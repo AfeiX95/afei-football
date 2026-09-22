@@ -22,6 +22,15 @@ import io
 import re
 import sys
 
+# ⚠️ 2026-09-21 修正: 被 gate.py 以管道方式调用时, 子进程 stdout 默认走系统 locale(GBK),
+#    打印 "⚠" 会 UnicodeEncodeError 崩掉 → 退出码 1 → gate 误报"❌ 但列不出失败项"。
+#    与 zhuque_local_check.py 保持同样的兜底。
+try:
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    pass
+
 # ---------------- 词表 ----------------
 # A 级: 直接触线(赌博/投注语境) —— 两个平台都必须为 0(协议红线)
 A = ['买', '押', '下注', '投注', '赢盘', '输盘', '收米', '稳胆', '跟单', '必收', '博彩', '彩票',
