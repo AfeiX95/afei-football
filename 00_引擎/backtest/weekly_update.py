@@ -126,7 +126,7 @@ def main():
                 if len(p) >= 6:
                     existing.add((p[0], p[3]))
     added = 0
-    with open(tsv, 'a', encoding='utf-8') as f:
+    with open(tsv, 'a', encoding='utf-8', newline='\n') as f:
         for m in new:
             hva = f"{(m.get('allHomeTeam') or m.get('homeTeam'))}({m.get('goalLine', '0')})VS{(m.get('allAwayTeam') or m.get('awayTeam'))}"
             key = (m['matchDate'], hva)
@@ -183,7 +183,7 @@ def main():
     }
 
     changed = (new_state['coef'] != prev_coef)
-    with open(STATE, 'w', encoding='utf-8') as f:
+    with open(STATE, 'w', encoding='utf-8', newline='\n') as f:
         json.dump(new_state, f, ensure_ascii=False, indent=2)
 
     # 4. 更新报告
@@ -208,7 +208,7 @@ def main():
              "\n## 用法",
              "afei_generator.py 校准模块自动读取 calibration_state.json(优先),无则用内置系数。",
              "工具: afei_generator.py --model-only 看 'Edge校准' 行。\n"]
-    with open(REPORT, 'w', encoding='utf-8') as f:
+    with open(REPORT, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(lines))
 
     # 5. 输出摘要

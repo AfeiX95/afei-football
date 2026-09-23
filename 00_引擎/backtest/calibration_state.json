@@ -1,28 +1,26 @@
 {
   "schema": 2,
-  "updated_at": "2026-09-21",
-  "sample_size": 589,
+  "updated_at": "2026-09-23",
+  "sample_size": 596,
   "coef": {
     "draw": 1.024,
     "hot": 1.001,
-    "cold": 0.98
+    "cold": 0.984
   },
   "buckets": {
-    "draw_20_30": 1.02,
+    "draw_20_30": 1.024,
     "hot_40_70": 1.0,
-    "cold_0_30": 0.99
+    "cold_0_30": 0.992
   },
-  "basis": "direction-averaged ratio + z^2 shrinkage (weekly_update.compute_coefs 内置, 2026-09-21 起)",
-  "_note": "2026-09-21: z² 收缩已写进 compute_coefs(), 不再是手工覆盖 → 校正**持久生效**。本 state = EWMA(旧 coef, 收缩后桶值); 原始 ratio 见 buckets_raw。560 场复算 raw 与 BIAS_AUDIT 一致(1.0482/1.022/0.9288), 收缩权重按独立合并 SE(见函数 docstring)。",
-  "_warning": "EWMA 仍会在每次运行时把 coef 往**收缩后**的桶值拉(现在两者接近, 不会再漂向原始 ratio)。若要更保守的收缩(贴近 BIAS_AUDIT §9.1 手算值), 需把聚合 SE 换成含方向异质性的版本。",
   "buckets_raw": {
-    "draw_20_30": 1.0597,
-    "hot_40_70": 1.0041,
-    "cold_0_30": 0.9519
+    "draw_20_30": 1.0652,
+    "hot_40_70": 0.9946,
+    "cold_0_30": 0.9559
   },
   "z2_shrink": {
-    "draw": 0.702,
-    "hot": 0.089,
-    "cold": -0.512
-  }
+    "draw": 0.771,
+    "hot": -0.119,
+    "cold": -0.471
+  },
+  "basis": "direction-averaged ratio + z^2 shrinkage (compute_coefs)"
 }
