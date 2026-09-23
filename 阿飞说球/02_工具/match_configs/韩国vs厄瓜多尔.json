@@ -1,0 +1,111 @@
+{
+  "tags": [
+    "#国际赛",
+    "#韩国",
+    "#厄瓜多尔"
+  ],
+  "weather": "暂无公开数据",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "market_type": "handicap",
+  "score_odds": [],
+  "charts": {
+    "wdl": false,
+    "goals": false,
+    "heatmap": false,
+    "edge": false,
+    "promote": false
+  },
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": "",
+  "illustration": [],
+  "title": "周四002 国际赛 韩国 vs 厄瓜多尔：待定",
+  "competition": "国际赛(2026年9月国际比赛日)",
+  "match_time": "9月24日(周四)19:00 北京时间",
+  "venue": "待查官宣场地",
+  "handicap_line": -1,
+  "hhad": {
+    "H": 4.75,
+    "D": 3.5,
+    "A": 1.58
+  },
+  "odds": {
+    "H": 2.08,
+    "D": 2.94,
+    "A": 3.25
+  },
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 6,
+      "d": 0,
+      "l": 4
+    },
+    "away_form": {
+      "w": 4,
+      "d": 4,
+      "l": 2
+    }
+  },
+  "teams": {
+    "home": {
+      "name": "韩国",
+      "league": "国际赛",
+      "gf": 1.3,
+      "ga": 0.8,
+      "gf_special": 1.86,
+      "ga_special": 0.71,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 1.3,
+        "ga": 0.8
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "厄瓜多尔",
+      "league": "国际赛",
+      "gf": 1.1,
+      "ga": 0.7,
+      "gf_special": 0.4,
+      "ga_special": 1.0,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 1.1,
+        "ga": 0.7
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      60,
+      0,
+      40
+    ],
+    "h_home": [
+      86,
+      0,
+      14
+    ],
+    "a_all": [
+      40,
+      40,
+      20
+    ],
+    "a_away": [
+      0,
+      60,
+      40
+    ]
+  },
+  "_口径说明": [
+    "胜平负 2.08/2.94/3.25; 让球线 -1 的 4.75/3.50/1.58 —— 竞彩官方 2026-09-23 09:17 抓取, 与用户贴的一致。",
+    "韩国近10场 6胜0平4负(进13失8), 同主客: 主场7场13:5 / 客场3场0:3 —— 客场 0胜0平3负且一球未进。",
+    "厄瓜多尔近10场 4胜4平2负(进11失7), 同主客: 主场5场9:2 / 客场5场2:5 —— 客场 0胜3平2负。",
+    "⚠ 国际赛的'主'是竞彩排列位, 不等于真主场; '主场6胜1负'能否引用取决于官宣场地。"
+  ]
+}
