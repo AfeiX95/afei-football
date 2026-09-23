@@ -96,19 +96,22 @@ def main():
     # 目标文件: 包含范围的 tsv(按年份月份归档)
     tsv = os.path.join(BASE, f"matches_{begin.replace('-','')}_latest.tsv")
     # 读已有(避免重复)
+    # ⚠️ 2026-09-23 修正(坑#52): 键改 (日期, 编号) —— 本文件 docstring 第 7 行一直写的是"按比赛编号去重",
+    #    但代码按"对阵"去重; 而本脚本吐出的队名是 API **全称**, 库里既有的行是体彩**网页简称**,
+    #    同一天同一场会被当成两场重复追加(实测 24 组)。
     existing = set()
     if os.path.exists(tsv):
         with open(tsv, encoding='utf-8') as f:
             for line in f:
                 parts = line.rstrip('\n').split('\t')
                 if len(parts) >= 6:
-                    existing.add((parts[0], parts[3]))  # (date, 对阵)
+                    existing.add((parts[0], parts[1]))  # (日期, 编号)
 
     added = 0
-    with open(tsv, 'a', encoding='utf-8') as f:
+    with open(tsv, 'a', encoding='utf-8', newline='\n') as f:
         for m in matches:
             hva = f"{(m.get('allHomeTeam') or m.get('homeTeam'))}({m.get('goalLine', '0')})VS{(m.get('allAwayTeam') or m.get('awayTeam'))}"
-            key = (m['matchDate'], hva)
+            key = (m['matchDate'], m.get('matchNumStr', ''))   # (日期, 编号)
             if key in existing:
                 continue
             f.write(to_tsv_line(m) + '\n')

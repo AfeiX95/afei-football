@@ -70,10 +70,10 @@ def load_history(max_mtime_date=None, skip_files=()):
                 continue
         with open(os.path.join(BASE, fn), encoding='utf-8') as f:
             for line in f:
-                p = line.rstrip('\n').split('\t')
+                p = line.rstrip('\r\n').split('\t')   # ⚠️ 见坑#53: 只 rstrip('\n') 会让 CRLF 行被静默跳过
                 if len(p) < 10 or p[9] != 'done':
                     continue
-                key = (p[0], p[3])
+                key = (p[0], p[1])          # ⚠️ (日期, 编号) —— 见坑#52(队名简称/全称漂移会导致双计)
                 if key in seen:
                     continue
                 if not (p[6] and p[7] and p[8]):

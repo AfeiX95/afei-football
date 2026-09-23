@@ -25,10 +25,15 @@ def load_matches():
             continue
         with open(os.path.join(BASE, fn), encoding='utf-8') as f:
             for line in f:
-                parts = line.rstrip('\n').split('\t')
+                # ⚠️ 2026-09-23(坑#53): 必须 rstrip('\r\n') —— 只 rstrip('\n') 会把 CRLF 行尾的 \r 留在
+                #    最后一个字段上, 于是 parts[9] == 'done\r' != 'done', **整行被静默跳过**(实测 10 行)。
+                parts = line.rstrip('\r\n').split('\t')
                 if len(parts) < 10 or parts[9] != 'done':
                     continue
-                key = (parts[0], parts[3])
+                # ⚠️ 2026-09-23 修正(坑#52): 去重键必须用 (日期, 编号) —— 体彩**网页**用简称
+                #    ("米尔顿"/"韩国亚"/"中国女"), fetch_results 的 **API** 用全称
+                #    ("米尔顿凯恩斯"/"韩国亚运男足"/"中国女足"), 同一场会被算成两场(实测 24 组)。
+                key = (parts[0], parts[1])          # (日期, 编号)
                 if key in seen:
                     continue
                 seen.add(key)
@@ -124,12 +129,12 @@ def main():
             for line in f:
                 p = line.rstrip('\n').split('\t')
                 if len(p) >= 6:
-                    existing.add((p[0], p[3]))
+                    existing.add((p[0], p[1]))    # (日期, 编号), 见坑#52
     added = 0
     with open(tsv, 'a', encoding='utf-8', newline='\n') as f:
         for m in new:
             hva = f"{(m.get('allHomeTeam') or m.get('homeTeam'))}({m.get('goalLine', '0')})VS{(m.get('allAwayTeam') or m.get('awayTeam'))}"
-            key = (m['matchDate'], hva)
+            key = (m['matchDate'], m.get('matchNumStr', ''))   # (日期, 编号), 见坑#52
             if key in existing:
                 continue
             f.write(to_tsv_line(m) + '\n')
@@ -155,14 +160,19 @@ def main():
         old = {}
 
     prev_coef = old.get('coef', {})
+    # ⚠️ 2026-09-23(坑#54): 同一批样本重复跑会把 EWMA 反复推进(实测连跑两次: 1.018 → 1.014, 样本没变)。
+    #    → 样本量未变 = 没有新赛果 → 不再 EWMA, 沿用上次系数(桶值/raw/z 仍重算, 这部分是幂等的)。
+    same_batch = bool(old) and old.get('sample_size') == n
+    if same_batch:
+        print(f"⚠ 样本量与上次相同({n} 场): 跳过 EWMA, 沿用上次系数 {prev_coef}")
     new_state = {
         'schema': 2,
         'updated_at': date.today().isoformat(),
         'sample_size': n,
         'coef': {
-            'draw': round(clamp(0.7 * prev_coef.get('draw', 1.0) + 0.3 * coefs['draw'], 0.85, 1.15), 3) if coefs['draw'] else prev_coef.get('draw', 1.0),
-            'hot': round(clamp(0.7 * prev_coef.get('hot', 1.0) + 0.3 * coefs['hot'], 0.85, 1.15), 3) if coefs['hot'] else prev_coef.get('hot', 1.0),
-            'cold': round(clamp(0.7 * prev_coef.get('cold', 1.0) + 0.3 * coefs['cold'], 0.85, 1.15), 3) if coefs['cold'] else prev_coef.get('cold', 1.0),
+            'draw': prev_coef.get('draw', 1.0) if same_batch else (round(clamp(0.7 * prev_coef.get('draw', 1.0) + 0.3 * coefs['draw'], 0.85, 1.15), 3) if coefs['draw'] else prev_coef.get('draw', 1.0)),
+            'hot': prev_coef.get('hot', 1.0) if same_batch else (round(clamp(0.7 * prev_coef.get('hot', 1.0) + 0.3 * coefs['hot'], 0.85, 1.15), 3) if coefs['hot'] else prev_coef.get('hot', 1.0)),
+            'cold': prev_coef.get('cold', 1.0) if same_batch else (round(clamp(0.7 * prev_coef.get('cold', 1.0) + 0.3 * coefs['cold'], 0.85, 1.15), 3) if coefs['cold'] else prev_coef.get('cold', 1.0)),
         },
         'buckets': {   # 收缩后的桶值(= EWMA 的输入)
             'draw_20_30': round(coefs['draw'], 3) if coefs['draw'] else None,
