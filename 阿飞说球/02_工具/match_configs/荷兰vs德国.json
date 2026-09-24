@@ -1,0 +1,112 @@
+{
+  "tags": [
+    "#欧国联",
+    "#荷兰",
+    "#德国"
+  ],
+  "weather": "暂无公开数据",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "market_type": "handicap",
+  "score_odds": [],
+  "charts": {
+    "wdl": false,
+    "goals": false,
+    "heatmap": false,
+    "edge": false,
+    "promote": false
+  },
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": "",
+  "illustration": [],
+  "title": "周四006 欧国联 荷兰 vs 德国：待定",
+  "competition": "欧洲国家联赛 2026",
+  "match_time": "9月25日(周五)02:45 北京时间",
+  "venue": "待查官宣场地",
+  "handicap_line": -1,
+  "hhad": {
+    "H": 4.7,
+    "D": 4.4,
+    "A": 1.45
+  },
+  "odds": {
+    "H": 2.3,
+    "D": 3.55,
+    "A": 2.42
+  },
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 5,
+      "d": 4,
+      "l": 1
+    },
+    "away_form": {
+      "w": 8,
+      "d": 1,
+      "l": 1
+    }
+  },
+  "teams": {
+    "home": {
+      "name": "荷兰",
+      "league": "欧国联",
+      "gf": 2.1,
+      "ga": 1.0,
+      "gf_special": 2.13,
+      "ga_special": 1.0,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 2.1,
+        "ga": 1.0
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "德国",
+      "league": "欧国联",
+      "gf": 3.1,
+      "ga": 1.0,
+      "gf_special": 2.25,
+      "ga_special": 1.5,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 3.1,
+        "ga": 1.0
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      50,
+      40,
+      10
+    ],
+    "h_home": [
+      50,
+      38,
+      12
+    ],
+    "a_all": [
+      80,
+      10,
+      10
+    ],
+    "a_away": [
+      75,
+      0,
+      25
+    ]
+  },
+  "_口径说明": [
+    "胜平负 2.30/3.55/2.42; 让球线 -1 的 4.70/4.40/1.45 —— 竞彩官方 2026-09-24 12:06 抓取。",
+    "荷兰近10场 5胜4平1负(进21失10), 同主客: 主场8场17:8(4胜3平1负) / 客场2场4:2(1胜1平0负)。",
+    "德国近10场 8胜1平1负(进31失10), 同主客: 主场6场22:4(5胜1平0负) / 客场4场9:6(3胜0平1负)。",
+    "⚠ 德国场均3.10球含 7:1 库拉索 / 6:0 斯洛伐克 / 4:0 芬兰 三场低强度大胜, 属虚胖。",
+    "共同对手厄瓜多尔: 荷兰主场 2026-04-01 1:1 平; 德国客场 2026-06-26 1:2 负。"
+  ]
+}
