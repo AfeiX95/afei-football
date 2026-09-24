@@ -1,0 +1,111 @@
+{
+  "tags": [
+    "#欧国联",
+    "#土耳其",
+    "#法国"
+  ],
+  "weather": "暂无公开数据",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "market_type": "handicap",
+  "score_odds": [],
+  "charts": {
+    "wdl": false,
+    "goals": false,
+    "heatmap": false,
+    "edge": false,
+    "promote": false
+  },
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": "",
+  "illustration": [],
+  "title": "周五011 欧国联 土耳其 vs 法国：待定",
+  "competition": "欧洲国家联赛 2026",
+  "match_time": "9月26日(周六)02:45 北京时间",
+  "venue": "待查官宣场地",
+  "handicap_line": 1,
+  "hhad": {
+    "H": 2.58,
+    "D": 3.65,
+    "A": 2.14
+  },
+  "odds": {
+    "H": 5.6,
+    "D": 4.42,
+    "A": 1.38
+  },
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 7,
+      "d": 1,
+      "l": 2
+    },
+    "away_form": {
+      "w": 7,
+      "d": 0,
+      "l": 3
+    }
+  },
+  "teams": {
+    "home": {
+      "name": "土耳其",
+      "league": "欧国联",
+      "gf": 1.9,
+      "ga": 0.9,
+      "gf_special": 2.33,
+      "ga_special": 0.67,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 1.9,
+        "ga": 0.9
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "法国",
+      "league": "欧国联",
+      "gf": 2.4,
+      "ga": 1.3,
+      "gf_special": 2.5,
+      "ga_special": 0.5,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 2.4,
+        "ga": 1.3
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      70,
+      10,
+      20
+    ],
+    "h_home": [
+      83,
+      0,
+      17
+    ],
+    "a_all": [
+      70,
+      0,
+      30
+    ],
+    "a_away": [
+      100,
+      0,
+      0
+    ]
+  },
+  "_口径说明": [
+    "胜平负 5.60/4.42/1.38; 让球线 **+1**(主队受让) 的 2.58/3.65/2.14 —— 竞彩官方(用户提供)。",
+    "土耳其近10场 7胜1平2负(进19失9), 今年内7场(含世界杯 3:2美国、0:1巴拉圭、0:2澳大利亚); 主场6场14:4。",
+    "法国近10场 7胜0平3负(进24失13), 今年内10场(7月世界杯 0:2负西班牙、4:6负英格兰); 客场2场5:1全胜。",
+    "共同对手巴拉圭(世界杯期间): 土耳其 6-20 主场 0:1 负; 法国 7-5 客场 1:0 胜。"
+  ]
+}

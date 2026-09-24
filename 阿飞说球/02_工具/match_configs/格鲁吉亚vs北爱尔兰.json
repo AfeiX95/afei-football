@@ -1,0 +1,111 @@
+{
+  "tags": [
+    "#欧国联",
+    "#格鲁吉亚",
+    "#北爱尔兰"
+  ],
+  "weather": "暂无公开数据",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "market_type": "handicap",
+  "score_odds": [],
+  "charts": {
+    "wdl": false,
+    "goals": false,
+    "heatmap": false,
+    "edge": false,
+    "promote": false
+  },
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": "",
+  "illustration": [],
+  "title": "周五006 欧国联 格鲁吉亚 vs 北爱尔兰：待定",
+  "competition": "欧洲国家联赛 2026",
+  "match_time": "9月26日(周六)00:00 北京时间",
+  "venue": "待查官宣场地",
+  "handicap_line": -1,
+  "hhad": {
+    "H": 3.62,
+    "D": 3.3,
+    "A": 1.82
+  },
+  "odds": {
+    "H": 1.78,
+    "D": 3.2,
+    "A": 3.92
+  },
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 3,
+      "d": 2,
+      "l": 5
+    },
+    "away_form": {
+      "w": 4,
+      "d": 1,
+      "l": 5
+    }
+  },
+  "teams": {
+    "home": {
+      "name": "格鲁吉亚",
+      "league": "欧国联",
+      "gf": 1.4,
+      "ga": 1.8,
+      "gf_special": 1.67,
+      "ga_special": 1.67,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 1.4,
+        "ga": 1.8
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "北爱尔兰",
+      "league": "欧国联",
+      "gf": 1.0,
+      "ga": 1.2,
+      "gf_special": 1.0,
+      "ga_special": 1.83,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 1.0,
+        "ga": 1.2
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      30,
+      20,
+      50
+    ],
+    "h_home": [
+      33,
+      33,
+      33
+    ],
+    "a_all": [
+      40,
+      10,
+      50
+    ],
+    "a_away": [
+      17,
+      17,
+      67
+    ]
+  },
+  "_口径说明": [
+    "胜平负 1.78/3.20/3.92; 让球线 -1 的 3.62/3.30/1.82 —— 竞彩官方(用户提供)。",
+    "格鲁吉亚近10场 3胜2平5负(进14失18), 今年内4场; 主场6场10:10, 客场4场4:8(1胜0平3负)。",
+    "北爱尔兰近10场 4胜1平5负(进10失12), 今年内4场; 主场4场4:1(3胜1负), 客场6场6:11(1胜1平4负)。",
+    "🔗 跨场参照: 北爱尔兰 2026-03-27 客场 0:2 负意大利(= 本包008的主队); 格鲁吉亚 2025 两次碰土耳其(主2:3、客1:4 全负, = 本包011的主队)。"
+  ]
+}

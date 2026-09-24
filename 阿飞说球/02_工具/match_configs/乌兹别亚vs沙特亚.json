@@ -1,0 +1,111 @@
+{
+  "tags": [
+    "#亚运男足",
+    "#乌兹别克",
+    "#沙特"
+  ],
+  "weather": "暂无公开数据",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "market_type": "handicap",
+  "score_odds": [],
+  "charts": {
+    "wdl": false,
+    "goals": false,
+    "heatmap": false,
+    "edge": false,
+    "promote": false
+  },
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": "",
+  "illustration": [],
+  "title": "周五001 亚运男足 乌兹别克亚运男足 vs 沙特阿拉伯亚足：待定",
+  "competition": "亚运男足 2026",
+  "match_time": "9月25日(周五)13:00 北京时间",
+  "venue": "赛会制, 待查官宣场地",
+  "handicap_line": -1,
+  "hhad": {
+    "H": 3.1,
+    "D": 3.17,
+    "A": 2.04
+  },
+  "odds": {
+    "H": 1.61,
+    "D": 3.25,
+    "A": 5.0
+  },
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 7,
+      "d": 1,
+      "l": 2
+    },
+    "away_form": {
+      "w": 4,
+      "d": 2,
+      "l": 4
+    }
+  },
+  "teams": {
+    "home": {
+      "name": "乌兹别克亚运男足",
+      "league": "亚运男足",
+      "gf": 2.5,
+      "ga": 0.7,
+      "gf_special": 3.6,
+      "ga_special": 0.4,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 2.5,
+        "ga": 0.7
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "沙特阿拉伯亚足",
+      "league": "亚运男足",
+      "gf": 1.4,
+      "ga": 1.8,
+      "gf_special": 1.29,
+      "ga_special": 2.14,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 1.4,
+        "ga": 1.8
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      70,
+      10,
+      20
+    ],
+    "h_home": [
+      100,
+      0,
+      0
+    ],
+    "a_all": [
+      40,
+      20,
+      40
+    ],
+    "a_away": [
+      43,
+      0,
+      57
+    ]
+  },
+  "_口径说明": [
+    "胜平负 1.61/3.25/5.00; 让球线 -1 的 3.10/3.17/2.04 —— 竞彩官方(用户提供, 09-24 抓取)。",
+    "乌兹别克近10场 7胜1平2负(进25失7), 但**今年内只有3场**(本届亚运 2:0越南、2:0科威特、5:1菲律宾); 同主客: 主场5场18:2 / 客场5场7:5。",
+    "沙特近10场 4胜2平4负(进14失18), 其中**6场是土伦杯**(对法国/丹麦/马里/巴拿马 U20) → 口径混入 U20 赛事; 本届亚运 0:2负韩国、2:0胜卡塔尔。",
+    "⚠ 两队无同期共同对手(工具给出的韩国亚对照一为2023年、一为本届), 可比性弱。"
+  ]
+}
