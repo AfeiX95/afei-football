@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-发布门禁 check_article.py v1.0（md 文章一体化检查）
+发布门禁 check_article.py v1.1（md 文章一体化检查）
 ==================================================
 把散落的检查点合成一条命令：合规体检 + AI 痕迹检测 + 必备要素 + 数字合规。
 通过标准：硬禁用词 0 / AI 评分 <30 / 必备要素齐全 → PASS 才可发布。
+
+v1.1（2026-10-06）：**外媒从硬性必备降为可选**——用户定「搜索不到就不要」，
+  检索无源时直接不写该段，也不写"查不到/待补"的占位说明；缺外媒不判 FAIL。
 
 用法：
   python check_article.py 文章.md            # 输出检查清单 + 最终门禁结果
@@ -36,11 +39,17 @@ SOFT_BANNED = [
 REQUIRED_MARKERS = {
     "⚔️ 战意": r"战意|⚔️",
     "💰 信号": r"信号|💰",
-    "🌍 外媒": r"外媒|外部视角|🌍",
     "高概率比分": r"高概率比分",
     "数据来源": r"数据来源",
     "免责": r"免责|理性看球|请理性",
     "互动钩子(问号)": r"？|\?",
+}
+
+# 可选要素：有源必写、无源可省。
+# 用户 2026-10-06 定：检索不到外媒源就直接不写，**不要写"查不到/待补"的占位说明**（那是废话）。
+# 因此外媒从硬性必备降为可选——缺了不判 FAIL，只在第 5 项尾部提示。
+OPTIONAL_MARKERS = {
+    "🌍 外媒": r"外媒|外部视角|🌍",
 }
 
 
@@ -94,10 +103,13 @@ def check(path):
     dash = body.count("——")
     items.append(("4. 破折号 ≤3", dash <= 3, f"{dash}"))
 
-    # 5. 必备要素（容忍多种写法）
+    # 5. 必备要素（容忍多种写法）；外媒为"有源必写、无源可省"
     missing = [k for k, pat in REQUIRED_MARKERS.items() if not re.search(pat, text)]
-    items.append(("5. 必备要素齐全", not missing,
-                  "齐" if not missing else "缺：" + "/".join(missing)))
+    opt_missing = [k for k, pat in OPTIONAL_MARKERS.items() if not re.search(pat, text)]
+    d5 = "齐" if not missing else "缺：" + "/".join(missing)
+    if opt_missing:
+        d5 += "（" + "/".join(opt_missing) + "无源，按规则省略）"
+    items.append(("5. 必备要素齐全", not missing, d5))
 
     # 6. 数字合规（裸赔率小数提醒；百分比/场均进球区间不算）
     t6 = re.sub(r"\d\.\d{1,2}-\d", "", body)          # 去掉 "2.75-4" 进球区间
