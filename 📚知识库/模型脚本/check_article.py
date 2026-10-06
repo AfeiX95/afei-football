@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-发布门禁 check_article.py v1.1（md 文章一体化检查）
+发布门禁 check_article.py v1.2（md 文章一体化检查）
 ==================================================
 把散落的检查点合成一条命令：合规体检 + AI 痕迹检测 + 必备要素 + 数字合规。
 通过标准：硬禁用词 0 / AI 评分 <30 / 必备要素齐全 → PASS 才可发布。
+
+v1.2（2026-10-06）：**修补表格豁免漏洞**——原 `strip_body()` 把所有表格行替换成空格，
+  而第 2/3/6 项都跑在它上面，导致 **表格里写「盘口」「北京时间」或 `4.45` 这类裸赔率可完全绕过门禁**
+  （实测 87 篇旧稿有 41 篇靠表格藏违规）。现第 2/3/6 项改跑 `full_body()`（**保留表格与标题行**，
+  只去代码块/details/免责豁免短语）；第 4/7/8 项仍用 `strip_body()`。
 
 v1.1（2026-10-06）：**外媒从硬性必备降为可选**——用户定「搜索不到就不要」，
   检索无源时直接不写该段，也不写"查不到/待补"的占位说明；缺外媒不判 FAIL。
@@ -68,6 +73,20 @@ def strip_body(text):
     return t
 
 
+def full_body(text):
+    """保留表格行与标题行的检查面（用于第 2/3/6 项）。
+
+    与 strip_body() 的唯一区别：**不删表格行 `|…|`、不删标题行 `^#+`**。
+    读者看得见的每一处字面都在这里被检查——表格和标题恰恰是最容易藏违规的地方。
+    """
+    t = re.sub(r"<details>.*?</details>", "", text, flags=re.S)
+    t = re.sub(r"```.*?```", "", t, flags=re.S)
+    t = t.replace("合法体育彩票", "")
+    for phrase in ("远离赌博", "远离赌球", "理性购彩", "理性投注"):
+        t = t.replace(phrase, "")
+    return t
+
+
 def find_hits(text, words):
     hits = []
     for w in words:
@@ -81,6 +100,7 @@ def check(path):
     with open(path, encoding="utf-8") as f:
         text = f.read()
     body = strip_body(text)
+    full = full_body(text)     # 第 2/3/6 项用：表格与标题行照查（v1.2 修漏洞）
     items = []
 
     # 1. 标题
@@ -90,12 +110,12 @@ def check(path):
     items.append(("1. 标题 ≤30字", tlen <= 30, f'"{title[:40]}"（{tlen}字）'))
 
     # 2. 硬禁用词
-    hard = find_hits(body, HARD_BANNED)
+    hard = find_hits(full, HARD_BANNED)
     items.append(("2. 硬禁用词 = 0", len(hard) == 0,
                   "0" if not hard else "；".join(f"{w}@L{ln}" for w, ln in hard)))
 
     # 3. 红线词（需人工确认语境）
-    soft = find_hits(body, SOFT_BANNED)
+    soft = find_hits(full, SOFT_BANNED)
     items.append(("3. 红线词（语境确认）", len(soft) == 0,
                   "0" if not soft else "；".join(f"{w}@L{ln}" for w, ln in soft[:8])))
 
@@ -112,7 +132,7 @@ def check(path):
     items.append(("5. 必备要素齐全", not missing, d5))
 
     # 6. 数字合规（裸赔率小数提醒；百分比/场均进球区间不算）
-    t6 = re.sub(r"\d\.\d{1,2}-\d", "", body)          # 去掉 "2.75-4" 进球区间
+    t6 = re.sub(r"\d\.\d{1,2}-\d", "", full)          # 去掉 "2.75-4" 进球区间
     t6 = re.sub(r"\d\.\d{1,2}(?=球|个|场)", "", t6)    # 去掉 "2.75球" 类
     decimals = re.findall(r"\d\.\d{2}(?!%)", t6)
     items.append(("6. 裸赔率小数 = 0", len(decimals) == 0,
