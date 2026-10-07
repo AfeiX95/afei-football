@@ -1,8 +1,8 @@
 ---
 name: football-calibration-batch
-description: "足球模型赛后校验批次记录与经验库。每次批量校验后记录结果、发现的偏差模式、新增修正规则。与match-model-pipeline搭配使用。v1.2: 批次记录迁移至 📚知识库/赛后校验/batchNN_calibration.md（batch12起），本文件只保留累计统计+新增规则真源指引；累计统计刷新至 Batch#33（2026-09-06）。"
-version: 1.2.0
-updated: 2026-09-06
+description: "足球模型赛后校验批次记录与经验库。每次批量校验后记录结果、发现的偏差模式、新增修正规则。与match-model-pipeline搭配使用。v1.3: 批次记录迁移至 📚知识库/赛后校验/batchNN_calibration.md（batch12起）；🔴 累计统计不再内嵌（会过期），一律读 state/model-state.json 的 calibration（当前 Batch#37 后：396 场 / 方向 190 / 48.0%）。"
+version: 1.3.0
+updated: 2026-10-07
 author: afei
 license: MIT
 metadata:
@@ -22,10 +22,13 @@ metadata:
 - 候选规则累计达标 → 回写真源 `📚知识库/模型脚本/修正规则.md` + 索引 `docs/RULES.md`
 - 本文件保留：累计统计 + 历史批次教训（Batch#10/11 + R8/R9/R10 新增规则）
 
-## 累计统计（Batch#33 后，2026-09-06）
-- **总场次:** 254
-- **方向正确:** 128 (50.6%)
-- **最近批次:** Batch#33（49场方向21/45=46.7%、大球31/49=63.3%）
+## 累计统计（🔴 以 state 为准，勿在此内嵌）
+
+**唯一真源：`state/model-state.json` → `calibration`**（`total_matches` / `direction_correct` / `direction_rate` / `last_batch` / `note`）。
+开工跑 `python scripts/brief.py` 会直接打印，**不要信本节历史上的旧数字**——本文件曾内嵌「Batch#33 后 254 场」，到 batch37 时已过期 142 场（2026-10-07 清理）。
+
+- 当前（Batch#37 后，2026-10-07）：**396 场 / 方向 190 / 48.0%**
+- 另有 **Batch#36b 补录**（窗口 09-19/09-20，见 `📚知识库/赛后校验/batch36b_calibration.md`）暂未并入累计
 - **回写里程碑:** C34b 决胜场大球转正（10/11≈91%，修正规则.md v1.4）
 
 ## Batch #10 (2026-07-21~23, 9场)
