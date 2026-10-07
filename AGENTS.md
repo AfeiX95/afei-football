@@ -6,19 +6,34 @@
 ## 项目一句话
 头条号「阿飞·赛博聊球」+ 公众号「AfeiX聊球」足球赛事分析与内容创作。竞彩数据仅统计 90 分钟常规时间。
 
-## 开工三步（必读）
-1. **读交接**：`docs/HANDOFF.md` 最新一节（当前进度/阻碍/下一步）
-2. **读状态**：`state/model-state.json`（模型版本/批次/候选规则/待办，机器可读）
-3. **跑流程**：`docs/WORKFLOW.md`（10步写作管线速查）
+## 开工一步（必读 · 2026-10-07 起）
+```bash
+python scripts/brief.py
+```
+一条命令出全部开场信息：时间/模型版本/批次统计、真待办 `open_items`、待校验文章、**最新交接节的行号区间**、写文与收工命令、token 纪律。
+
+- 然后**按需**读：`read docs/HANDOFF.md offset=<简报给的行号> limit=<行数>`（🔴 **禁止全量读 HANDOFF**）
+- 需要流程细节再看 `docs/WORKFLOW.md`
+- 旧「开工三步」（全量读 HANDOFF + state + 四个重技能 ≈100K tokens/会话）**已废除**
+
+### Token 纪律（2026-10-07 定）
+1. **开工只跑 `brief.py`**，不要全量读 `docs/HANDOFF.md`（562 行 ≈16K tokens）或 `state/model-state.json`
+2. **技能按需加载**：先看 `📚知识库/skills/INDEX.md`（含分节行号）定位，再 `read SKILL.md offset=<行> limit=<长度>`；行数 >400 的技能**禁止全量读**（`match-model-pipeline` 1243 行 ≈17K tokens）
+3. **冷数据不读**：`state/task-log.json`（闭环历史）、`docs/HANDOFF-archive/` 只在按日期 grep 时读
+4. 写文收工用一键盘：`python scripts/preflight.py <文章.md>`（字数 R32 + 发布门禁）
+5. pwsh 打印中文可能乱码（GBK），**读文件一律用 read 工具**，别信控制台中文
 
 ## 去哪找什么（路由表）
 
 | 需要 | 路径 |
 |------|------|
-| 当前进度/待办/会话交接 | `docs/HANDOFF.md`（最新一节）+ `state/model-state.json` |
+| 当前进度/待办/会话交接 | `python scripts/brief.py`（首选）→ `docs/HANDOFF.md` 最新一节 + `state/model-state.json` |
 | 写作管线（10步） | `docs/WORKFLOW.md` |
-| 修正规则 C01-C33 摘要 | `docs/RULES.md` → 真源 `📚知识库/模型脚本/修正规则.md` |
-| 写作铁律 R1-R28 覆盖层 | 真源 `📚知识库/skills/afei-writing-standards/SKILL.md` |
+| 修正规则 C01-C42 摘要 | `docs/RULES.md` → 真源 `📚知识库/模型脚本/修正规则.md` |
+| 写作铁律 R1-R37 覆盖层 | 真源 `📚知识库/skills/afei-writing-standards/SKILL.md` |
+| **技能清单/分节行号** | `📚知识库/skills/INDEX.md`（按需加载入口，先看这个再读 SKILL.md）|
+| 历史待办/闭环记录（冷） | `state/task-log.json` |
+| 旧会话交接（冷） | `docs/HANDOFF-archive/`（按日期 grep）|
 | 模型全流程（λ/MC/Edge） | 技能 `match-model-pipeline` |
 | 文章写作工作流 | 技能 `football-match-preview-article` |
 | 赛后校验经验库 | 技能 `football-calibration-batch` + `📚知识库/赛后校验/` |
@@ -58,4 +73,18 @@
 会话中学到的经验：**直接写进上述本地文件**（尤其 `修正规则.md`、`WORKFLOW.md`、`afei-writing-standards/SKILL.md`），不依赖任何外部记忆服务。
 
 ## 技能真源
-所有技能在 `📚知识库/skills/<技能名>/SKILL.md`（唯一真源）。27 个技能，按 `match-model-pipeline → football-match-preview-pipeline → afei-writing-standards → humanizer-zh` 顺序调用。
+所有技能在 `📚知识库/skills/<技能名>/SKILL.md`（唯一真源，共 28 个）。**清单与分节行号见 `📚知识库/skills/INDEX.md`**——技能按任务按需加载，不再无脑按固定顺序全量读。
+常用路径：写文 = `afei-writing-standards` → `football-match-preview-article` → `humanizer-zh`；跑模型 = `match-model-pipeline`；赛后校验 = `football-calibration-batch`。
+
+## state 结构（schema v2 · 2026-10-07 冷热分离）
+| 键 | 含义 | 热/冷 |
+|:---|:---|:---|
+| `calibration` | 批次 / 累计场次 / 方向正确数 / 方向率 | 热 |
+| `candidate_rules` | 候选+正式规则表 | 热 |
+| `open_items` | **真待办**（{type, text}），brief.py 按类型分组打印 | 热 |
+| `pending_checks` | 待按 90 分钟口径复核的文章 | 热 |
+| `counters` | 各列表条数 | 热 |
+| `task_log_ref` | → `state/task-log.json`：已闭环任务/已校验文章的历史归档 | 冷 |
+
+> 🔴 改写规则：**已完成/已闭环的条目搬进 `state/task-log.json`，`open_items` 只留真正待办**（保持 ~15 条以内）。
+> 追加待办时同时更新 `counters`。`scripts/journal.py` 读 `open_items`（兼容旧 `active_tasks`）。

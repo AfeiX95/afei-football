@@ -103,6 +103,13 @@ def group_by_top(files):
     return groups
 
 
+def _task_count(s):
+    """待办条数：schema v2 用 open_items，v1 兼容 active_tasks。"""
+    if "open_items" in s:
+        return len(s.get("open_items", []))
+    return len(s.get("active_tasks", []))
+
+
 def state_snapshot():
     p = ROOT / "state" / "model-state.json"
     if not p.exists():
@@ -116,8 +123,9 @@ def state_snapshot():
                 f"- 批次：**batch{c.get('last_batch')}**（{c.get('last_batch_date')}）",
                 f"- 累计场次：**{c.get('total_matches')}**　方向正确：{c.get('direction_correct')}（{rate:.1f}%）",
                 f"- 候选/正式规则：{len(s.get('candidate_rules', {}))} 条　"
-                f"活动任务：{len(s.get('active_tasks', []))} 条　"
-                f"待校验文章：{len(s.get('published_articles_pending_check', []))} 条",
+                # schema v2 起 active_tasks 冷热分离为 open_items（热）+ state/task-log.json（冷）
+                f"待办事项：{_task_count(s)} 条　"
+                f"待校验文章：{len(s.get('pending_checks', s.get('published_articles_pending_check', [])))} 条",
                 f"- 模型版本：{s.get('model_version')}",
             ]
         )

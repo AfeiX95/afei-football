@@ -1,16 +1,30 @@
-# 写作管线速查（10步 · v2.2 — 2026-09-13 细化版）
+# 写作管线速查（10步 · v2.3 — 2026-10-07 token 优化版）
 
 > 完整版在技能 `football-match-preview-pipeline` v3.0。此处为速查卡片，任何 agent 都能照着走。
+> v2.3 变更：**开工改跑 `scripts/brief.py` 一条命令**；技能按需加载（见 INDEX.md）；state 冷热分离（open_items + task-log.json）；新增 `scripts/preflight.py` 一键盘。
 > v2.2 变更（本会话沉淀）：C36/C37 规则标记、双口径失真场放弃入文、R30 每场三比分、R31 结构轮换、门禁乱码星号误报、轨4 市场全量复盘、docx 沙箱 emoji 路径实测修正。
 > v2.1 变更：页面去重惯例、V2 引擎样本权重惯例、模型翻转信号降权、三轨校验闭环、候选规则回写阈值。
 
+## 开工（一条命令 · 2026-10-07 起）
+```bash
+python scripts/brief.py
+```
+输出：时间/模型版本/批次统计 + 真待办 `open_items` + 待校验文章 + **最新交接节行号区间** + 命令速查 + token 纪律。
+- 需要交接细节：`read docs/HANDOFF.md offset=<简报行号> limit=<行数>`（**禁止全量读**）
+- 🔴 先核实系统时间：`Get-Date -Format 'yyyy-MM-dd HH:mm:ss dddd'`（发布窗口判定的第一步）
+
 ## 依赖技能加载顺序（写文章前）
-1. `match-model-pipeline` — 跑 λ/MC/Edge
-2. `general-writing` — 人类写作底层能力（五层地基+8步流程，2026-08-29 新增）
-3. `football-match-preview-article` — 写作工作流
-4. `afei-writing-standards` — R1-R28 偏好覆盖
-5. `humanizer-zh` — 降AI
+> 🔴 **2026-10-07 起：按需加载，不再全量读**。先看 `📚知识库/skills/INDEX.md` 查分节行号，再定点读目标小节。
+> 全量读这 5 个 skill ≈60K tokens/篇；定点读目标小节 ≈8-12K tokens。
+
+1. `match-model-pipeline` — 跑 λ/MC/Edge（1243 行，**只读**：Pipeline Steps / 国内联赛模式 / λ 估算）
+2. `general-writing` — 人类写作底层能力（145 行，可全量）
+3. `football-match-preview-article` — 写作工作流（729 行，**只读**：格式模板 / 二合一格式 / 数据来源标注）
+4. `afei-writing-standards` — R1-R37 偏好覆盖（776 行，**只读**：当前生效规则清单 / 合规替换表）
+5. `humanizer-zh` — 降AI（473 行，读前 30 行 + 目标小节）
 6. `📚知识库/写作指南/叙事池.md` — 选 2-3 维度，选型记录落盘 R11
+
+> 只记账 / 交接 / 改 state 的会话**不需要加载任何技能**。
 
 ## 主流程
 
@@ -71,7 +85,7 @@
 - **轨3 文章主张校验**：md 直接读；docx 解压（Copy 成 .zip → Expand-Archive → 剥 XML）
 - 产出 `📚知识库/赛后校验/batchNN_calibration.md`（总览表+主打校验+规则更新+下批清单）
 - 🔴 **轨4 市场全量复盘（2026-09-13 新增，用户要求"不光模型跑过的，市场定价和赛果全部复盘"）**：每批单独产出一份 `batchNN_market_review.md`——**不看模型只看市场**，用脚本按维度统计：①热门档位分层兑现率（超超热≤1.20 / 超热1.21-1.50 / 中热1.51-2.00 / 微热2.01-2.50）②让球线类型打穿率（主让-1 / 客让-1 / 深盘-2、-3）③联赛维度（五大联赛 vs 亚洲/非主流）④冷门清单全列 ⑤附全量明细表；脚本惯例：ASCII 路径输出 txt → read 后整理进 md，脚本用完即删
-- state/model-state.json 同步（batch/total_matches/direction_correct/rate/candidate_rules/active_tasks/published_articles_pending_check）
+- state/model-state.json 同步（`calibration` 的 batch/total_matches/direction_correct/rate、`candidate_rules`、`open_items`、`pending_checks`、`counters`；🔴 schema v2 起**闭环条目搬去 `state/task-log.json`**，`open_items` 只留真待办）
 - 🔴 **候选规则回写阈值**：累计样本达标（C34b 10/11≈91%、C36 客热分档、C37 主让-1 打穿率、C15b 陷阱档）→ 统一回写 `📚知识库/模型脚本/修正规则.md`（总表+详解+叠加顺序）+ `docs/RULES.md` 索引 + state 标记"✅已转正"；**回写后须跑 JSON 校验**（尾随逗号/重复键是高频事故）
 
 ## 铁律（写进任何文章前必查）
@@ -92,8 +106,9 @@
 - 发文前检查：无「图N ×××」占位符、标签无乱码（门禁第8项）；**交付只出 md**（图表用 md 表格/文字，无图片文件）
 
 ## 收工约定（细化）
+0. 🔴 **写文交付前一键盘**：`python scripts/preflight.py <文章.md>`（字数 R32 + 发布门禁 8 项 + AI 分，退出码 0=可发布）。多篇可一次传多个路径。
 1. `docs/HANDOFF.md` 追加一节：当前状态 / 已知阻碍 / 下一步目标（只追加，禁覆盖）
-2. `state/model-state.json` 如有变化同步（先读后写，多会话并发先重读合并）
+2. `state/model-state.json` 如有变化同步（先读后写，多会话并发先重读合并）；已完成条目搬 `state/task-log.json`，并把 `counters` 一起改对
 3. 🔴 **生成当日日记**：`python scripts/journal.py`（→ `docs/日记/YYYY-MM-DD.md`；补写历史日 `--date YYYY-MM-DD`；幂等，`<!-- AUTO:END -->` 之后的人工手记区永不覆盖）
    - 自动汇总：当日提交 / 当日产出（按顶层目录分组，含未提交变更）/ 状态快照（批次·累计·方向率·规则数）/ 交接指针（HANDOFF 最新节 + 下一步首条）
 4. `git add docs/ state/ 📚知识库/ 📝文章/ && git commit -m "进度同步 YYYYMMDD"`（emoji 路径用 `git add -A` 避免命令行编码问题）
