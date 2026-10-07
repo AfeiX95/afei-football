@@ -46,7 +46,11 @@ def git(*args):
             capture_output=True,
             cwd=str(ROOT),
         )
-        return r.stdout.decode("utf-8", errors="replace").strip()
+        # 注意：只能 rstrip（去尾部换行），不能 strip ——
+        # `git status --porcelain` 的首行带前导空格（如 " M docs/x.md"），
+        # 整体 strip 会把那个空格吃掉，导致 line[3:] 解析出的路径少一个字
+        # （docs/HANDOFF.md → ocs/HANDOFF.md，分组随之错位）。
+        return r.stdout.decode("utf-8", errors="replace").rstrip()
     except Exception:
         return ""
 
@@ -74,7 +78,12 @@ def collect_files(day: str):
     # 未提交的工作区变更（-uall 让未跟踪目录展开为具体文件）
     dirty = git("status", "--porcelain", "-uall")
     for line in dirty.splitlines():
-        p = line[3:].strip().strip('"')
+        if len(line) < 4:
+            continue
+        p = line[3:]
+        if " -> " in p:  # 重命名：取新路径
+            p = p.split(" -> ", 1)[1]
+        p = p.strip().strip('"')
         if p:
             files.append(p)
     # 去重 + 规整分隔符
