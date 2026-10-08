@@ -1,0 +1,109 @@
+{
+  "title": "周四002 芬超 库奥皮奥vsAC奥卢",
+  "tags": [],
+  "competition": "芬超冠军组第4轮",
+  "first_leg": "芬超冠军组第4轮",
+  "match_time": "10月9日(周五)00:00 北京时间",
+  "venue": "Väre Areena(库奥皮奥)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "odds": {
+    "H": 1.39,
+    "D": 4.02,
+    "A": 6.2
+  },
+  "hhad": {
+    "H": 2.43,
+    "D": 3.18,
+    "A": 2.48
+  },
+  "handicap_line": -1,
+  "market_type": "handicap",
+  "score_odds": [],
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 3,
+      "d": 4,
+      "l": 3
+    },
+    "away_form": {
+      "w": 2,
+      "d": 2,
+      "l": 6
+    }
+  },
+  "_口径说明": {
+    "近况口径": "form.py 近10场: 库奥皮奥 3胜4平3负 11/11=1.10/1.10, 主场 1胜2平1负; AC奥卢 2胜2平6负 6/11=0.60/1.10, 客场 1胜1平1负",
+    "盘口": "竞彩 1.39/4.02/6.20; 让球(-1) 2.43/3.18/2.48 → 去水 36.4/27.8/35.7(差 0.7 点, 硬币盘)",
+    "形势": "库奥皮奥 25 场 48 分与国际图尔同分(竞彩列第2); AC奥卢冠军组 3 场 0 分但场场一球之差; 赛后 10/11、10/15(欧协联)成 8 天 3 赛",
+    "λ盲区": "AC奥卢进攻极弱(场均 0.6 球)但冠军组 3 场全一球差 —— 模型对'低进球+贴线'的场次易低估平局"
+  },
+  "teams": {
+    "home": {
+      "name": "库奥皮奥",
+      "league": "芬超",
+      "gf": 1.1,
+      "ga": 1.1,
+      "gf_special": 1.1,
+      "ga_special": 1.1,
+      "special_label": "近10场",
+      "recent": {
+        "gf": 1.1,
+        "ga": 1.1
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "AC奥卢",
+      "league": "芬超",
+      "gf": 0.6,
+      "ga": 1.1,
+      "gf_special": 0.6,
+      "ga_special": 1.1,
+      "special_label": "近10场",
+      "recent": {
+        "gf": 0.6,
+        "ga": 1.1
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      30,
+      40,
+      30
+    ],
+    "h_home": [
+      25,
+      50,
+      25
+    ],
+    "a_all": [
+      20,
+      20,
+      60
+    ],
+    "a_away": [
+      33,
+      33,
+      33
+    ]
+  },
+  "charts": {
+    "wdl": false,
+    "goals": false,
+    "heatmap": false,
+    "edge": true,
+    "promote": false
+  },
+  "skeleton": "内部判断用",
+  "hook_type": "",
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": ""
+}
