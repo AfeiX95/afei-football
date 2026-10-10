@@ -10,7 +10,14 @@
 避免整篇读（242KB ≈60K tokens → 索引 18KB ≈4.6K tokens）。
 """
 import re
+import sys
 from pathlib import Path
+
+# Windows 控制台默认 GBK，打印 📚 等 emoji 会 UnicodeEncodeError（2026-10-11 修）
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
 
 ROOT = Path(__file__).resolve().parent.parent
 SK = ROOT / "📚知识库" / "skills"

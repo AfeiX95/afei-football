@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "updated": "2026-10-11",
-  "note": "冷数据归档：model-state.json v1 的 active_tasks（已完成记录 + 已闭环待办混合日志）、已校验 pending 条目，以及 schema v2 之后陆续闭环的条目。热数据在 model-state.json 的 open_items / pending_checks。 2026-10-07 追加：idx 77/78 = 09-19 档周六020 罗马2:2国米 补录闭环（Batch#36b）。 2026-10-11 追加：idx 80 = Gitee 公钥/认证闭环；idx 81 = 合并公司 PC 独立历史、公司工程并入 公司机_工程/。",
+  "note": "冷数据归档：model-state.json v1 的 active_tasks（已完成记录 + 已闭环待办混合日志）、已校验 pending 条目，以及 schema v2 之后陆续闭环的条目。热数据在 model-state.json 的 open_items / pending_checks。 2026-10-07 追加：idx 77/78 = 09-19 档周六020 罗马2:2国米 补录闭环（Batch#36b）。 2026-10-11 追加：idx 80 = Gitee 公钥/认证闭环；idx 81 = 合并公司 PC 独立历史、公司工程并入 公司机_工程/。 2026-10-11 追加：idx 82 = 规则口径收敛闭环（家里=主机，公司规则并入）；idx 83 = 公司工程规则并入家里全过程（坑清单/硬指标/风控 → R38-R40）。",
   "source": "state/model-state.json active_tasks (schema_version 1)",
   "counts": {
-    "active_tasks": 82,
+    "active_tasks": 84,
     "pending_archived": 8
   },
   "tasks": [
@@ -335,6 +335,14 @@
     {
       "idx": 81,
       "text": "【2026-10-11 已闭环】发现 Gitee 远端不是空仓而是公司 PC 的独立血统（948aab9 / 101 提交 / 2026-08-22→2026-10-09 / 作者 afei / 725 文件 / 与本地无共同祖先）→ 用户定「先下载过来整理再重新传，公司那份要保留」→ 用 git worktree 检出到 _incoming/company（不进版本控制）→ git merge --allow-unrelated-histories（冲突仅 .gitignore/.hermes.md/AGENTS.md，按本地为准）提交 c9de611 → git mv 把公司根层 19 项搬进 公司机_工程/ 并放回公司版三件套，提交 f3dfd80 → 验证 gitee/master 已是 HEAD 祖先（推送为 fast-forward，不需要 force）。踩坑：多行中文 -m 被 pwsh 拆参数导致 fatal: cannot do a partial commit during a merge，改用 git commit -F。留给公司 PC：不要重新 clone，pull 后要用 robocopy /E /MOVE 把 .gitignore 忽略的残留文件挪进 公司机_工程/，见 docs/SYNC.md。"
+    },
+    {
+      "idx": 82,
+      "text": "【2026-10-11 已闭环】规则口径收敛：用户定「并进家里的」→ 公司那套（坑#1-#68 / 单场 800~1000 字 / 标题≤36 字必含主客队 / 公众号已永封单平台）并入本地体系；权威以家里 R1-R40 / C01-C42 为准，公司侧规则视为已并入的素材。"
+    },
+    {
+      "idx": 83,
+      "text": "【2026-10-11 工作记录】公司工程规则并入家里：三份整理稿落 📚知识库/公司工程/（坑清单.md 18237B / 硬指标与运营实证.md 36000B / 平台风控与自查.md 33617B）；新增写作铁律 R38（标题必含「主队vs客队」对位，字数仍≤30）/R39（发布窗口 10:30-13:00，避开 16:00-19:00，+3.16pp p<0.001）/R40（CTR 三档 + 台账必记平均阅读时长/单篇收益，eCPM≈1.30）；docs/RULES.md 加 8 行对照表并把标题改 R1-R40；AGENTS.md 改单平台 + 路由表加公司工程知识行 + 「两套工程同仓」节收口；📚知识库/索引.md 加第七节；📚知识库/公众号矩阵/00-矩阵运营方案.md 与 skills/football-match-preview-article/references/wechat-md-output-guide.md 加停用 banner；口径冲突一律以家里为准。"
     }
   ],
   "pending_archived": [
