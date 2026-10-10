@@ -672,3 +672,39 @@ C39 原文：德比/强强对话的大球共识，**反向理由一列出就必�
 - **Gitee 还没接通**：本机唯一密钥 `~/.ssh/id_ed25519`（公钥行 `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMGkc4hQVSLTh6T6b8Tqz7Jd3C11zlJHWVwEEo6N8/OW wuyanzu95@outlook.com`，指纹 **`SHA256:zX7JkobNkBNNa3xEHS0Ig9F+F6hS7wtuarJ8fMdICqA`**）。但用户加到 Gitee 的公钥指纹是 `SHA256:rqTwySkZaUnwaJQqPq2NoPAULtmpK7zwysi3d1JVQ3E` —— **对不上**，`~/.ssh` 里也没有能对应它的密钥。实测 `ssh -T git@gitee.com` 仍 `Permission denied (publickey)`。→ 让用户把上面那行公钥加到 Gitee「设置→安全设置→SSH 公钥」，然后 `git push gitee master`（本机 `known_hosts` 已含 gitee）。
 - 之后：公司 PC 重新 clone，两台机器日常跑 `python scripts/sync.py` 对齐。
 
+
+
+---
+
+## 2026-10-11 ｜ 会话:发现公司 PC 那棵独立历史 → 合并两仓 + 公司工程并入 `公司机_工程/`
+
+**起点**：用户说「同步吧」。`python scripts/sync.py --push` 里 gitee 报 `! [rejected] master -> master (fetch first)`，origin ✅。提权 `ssh -T git@gitee.com` → `Hi wuyanzu777(@wuyanzu1112324)!` exit 0 → **Gitee 公钥已生效**（上节遗留的指纹对不上问题已解决）。
+
+**勘察结论（关键）**：`git fetch gitee` 后 `gitee/master` = `948aab97d25984f9018d182fdac18aeee8864134`——**101 个提交 / 2026-08-22 → 2026-10-09 / 作者全为 `afei` / 725 个文件**，与本地 `master` **无共同祖先**（`git merge-base master gitee/master` exit 1）。它就是**公司 PC 那条独立血统**（AFEI 引擎 monorepo：`00_引擎` `01_数据采集` `02_可视化` `采集数据` `阿飞说球/{01_工作流SOP,02_工具,03_参考资料,04_赛事文章,05_运营数据}` `run.ps1` `运行.cmd` `发布前检查.cmd` `check_publish.py` …），里面有本地没有的 10-09 产物（周五三场串烧稿、`自改进总结_20261009.md`、`工作日志_20261009.md`）。→ 🔴 **绝不能 force push**，那会永久丢掉那 101 个提交。
+
+**用户决策**（ask_user_question）：`gitee_action` = 「你先下载过来整理再重新传」；`gitee_origin` = 「是公司电脑的活儿，要保留」。
+
+**本机身份判定**：`Get-Date` = 2026-10-11 00:09 星期日；用户名 `wuyan`；盘符 A C D F G H I K L（**无 X:**）；`D:\Git`、`D:\Hermes\*` 都不存在，git 在 `I:\GIT\Git\cmd\git.exe`；全盘找不到 `afei_generator.py` → **本机是「家里那台」**，工程根 `I:\阿飞说球`（公司机 = `X:\阿飞说球` + `D:\Git` + `D:\Hermes\football_归档_20260920`）。
+同时读到公司侧两份真源：`迁移记录_20260920.md`（工程 2026-09-20 从 `D:\Hermes\football` 整体搬迁；25 个脚本把写死的 `r'D:\Hermes\football'` 改成 `__file__` 自解析根）、`双机同步说明_20261008.md`（公司机 = 主机 + 有远端 + 有最新规则；要接入的是家里这台；远端就是这个 Gitee 私有仓；日常 `pull`/`commit`/`push` 三步）。
+
+**执行**
+1. `git worktree add "_incoming/company" company-20261009`（新分支 tracking `gitee/master`）→ 公司工程 725 文件 / 14.81 MB 检出到 `_incoming/company/`（`_incoming/` 写进 `.gitignore`，不进版本控制）。
+2. `git merge company-20261009 --allow-unrelated-histories --no-commit` → 冲突仅 3 个（`.gitignore` / `.hermes.md` / `AGENTS.md`，均 add/add），722 个公司文件 staged 为新增；按「本地为准」`git checkout HEAD -- AGENTS.md .hermes.md`，根 `.gitignore` 重写为 `__pycache__/ *.pyc *.pyo .venv/ venv/ .uv-cache/ _incoming/`。
+3. **合并提交 `c9de611`**（两条历史都完整保留）。
+4. **搬迁提交 `f3dfd80`**：`git mv` 把公司工程根层 19 项搬进 **`公司机_工程/`**（`00_引擎` `01_数据采集` `02_可视化` `采集数据` `阿飞说球` `IDEA.md` `run.ps1` `运行.cmd` `发布前检查.cmd` `check_publish.py` `requirements.txt` `floor_zoom.png` `中国体育彩票_数据分析.univer` `竞彩赛果分析_20260920.md` `迁移记录_20260920.md` `.gitattributes`），3 个同名文件的**公司版**从 `company-20261009` 取回放进 `公司机_工程/`（公司 AGENTS.md 20,675 B / .hermes.md 14,916 B / .gitignore 597 B）。共 726 条改动，git 全部识别为 rename。
+
+**为什么搬进子目录**：① 公司工程自带 `AGENTS.md` / `.hermes.md` / `.gitignore` / `.gitattributes`（`* text=auto eol=lf`），留在根会与本地那套打架（DSH 的目录级 AGENTS.md 只认子树）；② 两套的规则编号、篇幅、标题口径完全不同，物理隔开可避免误用。
+
+**验证**：`git merge-base --is-ancestor gitee/master HEAD` → **exit 0**（推送将是 fast-forward，**无需 force**）；`git status --porcelain` 干净。索引里 1623 个跟踪文件**全为 LF**（0 个 CRLF），工作区 271 个文件仍是 CRLF（历史遗留，`git ls-files --eol` 判为干净）。
+
+**踩坑**🔴
+- 多行中文 `-m` 会被 PowerShell 拆成额外参数 → `git commit` 报 **`fatal: cannot do a partial commit during a merge.`**。修法：消息写文件 + `git commit -F <文件>`。**以后中文提交一律走 `-F`**。
+- `git commit`（带 rename 时）会把每条 rename 都打印 → 数万字节输出。**加 `-q`，或只看 `git log --oneline -1`**。
+- pwsh 控制台打印中文仍是 GBK 乱码（`公司机_工程` → `��˾��_����`），但**磁盘文件与 git 索引里的中文完全正确**（`git ls-tree` 显示为八进制转义）。一律用 read / glob / edit 工具看文件。
+
+**留给公司 PC（下一台机器）**🔴 **不要重新 clone**：`*.docx`、`采集数据/*.js|*.json`、`阿飞说球/03_参考资料/kb_models/`、`04_赛事文章/**/charts/` 都在 `.gitignore` 里，克隆拿不回来；而 git 只搬「已跟踪」文件，pull 时这些会被留在原地。正确做法：`python scripts/sync.py --pull` → 对 `00_引擎` `01_数据采集` `02_可视化` `采集数据` `阿飞说球` 逐个 `robocopy <旧目录> 公司机_工程\<目录> /E /MOVE` → 桌面快捷方式改指 `公司机_工程\`。详见 `docs/SYNC.md`「公司 PC：pull 之后必须做的两件事」。
+
+**下一步**
+1. `python scripts/sync.py --push`（gitee 应为 fast-forward；origin 一并推）。
+2. 公司 PC 按上面两件事做一遍，然后两台机器恢复「开工 pull / 收工 push」。
+3. 公司那套规则体系（坑#1-#68、单场 800~1000 字、标题≤36 字含主客队）与本地 R/C 体系尚未对齐 —— 要不要并成一套，**等用户定**。

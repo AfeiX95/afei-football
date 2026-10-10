@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-10",
-  "note": "冷数据归档：model-state.json v1 的 active_tasks（已完成记录 + 已闭环待办混合日志）、已校验 pending 条目，以及 schema v2 之后陆续闭环的条目。热数据在 model-state.json 的 open_items / pending_checks。 2026-10-07 追加：idx 77/78 = 09-19 档周六020 罗马2:2国米 补录闭环（Batch#36b）。",
+  "updated": "2026-10-11",
+  "note": "冷数据归档：model-state.json v1 的 active_tasks（已完成记录 + 已闭环待办混合日志）、已校验 pending 条目，以及 schema v2 之后陆续闭环的条目。热数据在 model-state.json 的 open_items / pending_checks。 2026-10-07 追加：idx 77/78 = 09-19 档周六020 罗马2:2国米 补录闭环（Batch#36b）。 2026-10-11 追加：idx 80 = Gitee 公钥/认证闭环；idx 81 = 合并公司 PC 独立历史、公司工程并入 公司机_工程/。",
   "source": "state/model-state.json active_tasks (schema_version 1)",
   "counts": {
-    "active_tasks": 80,
+    "active_tasks": 82,
     "pending_archived": 8
   },
   "tasks": [
@@ -327,6 +327,14 @@
     {
       "idx": 79,
       "text": "【2026-10-10 跨机同步】GitHub 补齐 227 个提交（88a47c5→d9e4996，3271 对象 / 58.80 MiB / 5.41 MiB/s）。诊断：origin 停在 2026-06-21，.git/FETCH_HEAD 不存在 → 三个半月成果只在单机。新增远端 gitee = git@gitee.com:wuyanzu1112324/afei-football.git（需空仓）。产出 scripts/sync.py（--pull/--push/--status/--remote；拉取只用 gitee 单一来源、推送推所有远端、工作区不干净拒绝、rebase 冲突一律 abort 交人决定、显式清 GIT_SSH_COMMAND）+ docs/SYNC.md（架构/公司PC一次性配置/故障表）。文档接线：AGENTS.md 新增跨机同步节+收工必推、WORKFLOW.md v2.4。踩坑：workspace-write 下 git 网络操作报 ssh.exe couldn't create signal pipe Win32 error 5（沙箱禁子进程命名管道，需提权；勿设 GIT_SSH_COMMAND）；known_hosts 写不了 → 提权 + ssh-keyscan 解决。未完成：Gitee 公钥指纹对不上（本机 zX7Jkob… vs 用户贴的 rqTwySk…），ssh -T git@gitee.com 仍 Permission denied。提交 0707ab1。"
+    },
+    {
+      "idx": 80,
+      "text": "【2026-10-11 已闭环】跨机同步接通：用户把本机公钥（ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMGkc4hQVSLTh6T6b8Tqz7Jd3C11zlJHWVwEEo6N8/OW，指纹 SHA256:zX7JkobNkBNNa3xEHS0Ig9F+F6hS7wtuarJ8fMdICqA）加到 Gitee 账号 wuyanzu1112324（登录名 wuyanzu777）→ 提权实测 ssh -T git@gitee.com 返回 Hi wuyanzu777(@wuyanzu1112324)! You've successfully authenticated，exit 0。首推被拒 ! [rejected] master -> master (fetch first) 是因为远端已有公司 PC 那棵历史，不是认证问题。"
+    },
+    {
+      "idx": 81,
+      "text": "【2026-10-11 已闭环】发现 Gitee 远端不是空仓而是公司 PC 的独立血统（948aab9 / 101 提交 / 2026-08-22→2026-10-09 / 作者 afei / 725 文件 / 与本地无共同祖先）→ 用户定「先下载过来整理再重新传，公司那份要保留」→ 用 git worktree 检出到 _incoming/company（不进版本控制）→ git merge --allow-unrelated-histories（冲突仅 .gitignore/.hermes.md/AGENTS.md，按本地为准）提交 c9de611 → git mv 把公司根层 19 项搬进 公司机_工程/ 并放回公司版三件套，提交 f3dfd80 → 验证 gitee/master 已是 HEAD 祖先（推送为 fast-forward，不需要 force）。踩坑：多行中文 -m 被 pwsh 拆参数导致 fatal: cannot do a partial commit during a merge，改用 git commit -F。留给公司 PC：不要重新 clone，pull 后要用 robocopy /E /MOVE 把 .gitignore 忽略的残留文件挪进 公司机_工程/，见 docs/SYNC.md。"
     }
   ],
   "pending_archived": [

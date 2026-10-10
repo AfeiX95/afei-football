@@ -33,6 +33,9 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "docs" / "日记"
 
+# 「当日产出」每组最多列几个文件名（多出的折叠成一行说明），防止大批量搬迁把日记撑爆
+MAX_PER_GROUP = 12
+
 
 def git(*args):
     """执行 git 命令，返回 UTF-8 文本（失败返回空串）。
@@ -172,9 +175,14 @@ def build(day: str):
     if groups:
         prod = ""
         for top, items in groups.items():
-            prod += f"### {top}\n"
-            for f in sorted(items):
+            items = sorted(items)
+            prod += f"### {top}（{len(items)} 个文件）\n"
+            for f in items[:MAX_PER_GROUP]:
                 prod += f"- `{f}`\n"
+            if len(items) > MAX_PER_GROUP:
+                # 2026-10-11：公司工程 725 个文件并入时，旧版会逐条列出 → 日记 65KB / 769 行。
+                # 日记是「回看时间线」，不是文件清单；只留前 N 条，其余靠 git show --stat 查。
+                prod += f"- …（另有 {len(items) - MAX_PER_GROUP} 个文件，需要时用 `git show --stat`）\n"
             prod += "\n"
     else:
         prod = "- （当日无文件变更）\n"

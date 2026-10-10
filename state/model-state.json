@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated": "2026-10-10",
+  "updated": "2026-10-11",
   "model_version": "2.10.0",
   "calibration": {
     "last_batch": 37,
@@ -88,8 +88,12 @@
     },
     {
       "type": "流程",
-      "text": "跨机同步接通：把本机公钥（指纹 SHA256:zX7JkobNkBNNa3xEHS0Ig9F+F6hS7wtuarJ8fMdICqA）加到 Gitee 账号 wuyanzu1112324，再 push gitee master 打通主力通道；公司 PC 重新 clone 后跑 scripts/sync.py",
+      "text": "公司 PC 迁移收尾：sync.py --pull 后把 .gitignore 忽略、留在原地的文件挪进 公司机_工程/（robocopy /E /MOVE），桌面快捷方式改指 公司机_工程\\",
       "ref": "docs/SYNC.md"
+    },
+    {
+      "type": "规则",
+      "text": "公司那套规则（坑#1-#68 / 单场800~1000字 / 标题≤36字必含主客队 / 公众号已封禁单平台）与本地 R1-R37+C01-C42 要不要合并成一套，等用户定"
     }
   ],
   "pending_checks": [
@@ -159,9 +163,9 @@
     }
   ],
   "counters": {
-    "open_items": 14,
+    "open_items": 15,
     "pending_checks": 7,
-    "task_log": 88,
+    "task_log": 90,
     "candidate_rules": 17
   },
   "task_log_ref": "state/task-log.json",

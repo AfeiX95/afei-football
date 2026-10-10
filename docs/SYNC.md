@@ -1,6 +1,8 @@
 # 两台机器同步（家里 PC ↔ 公司 PC）
 
 > 2026-10-07 建立。**日常只需要一条命令：`python scripts/sync.py`**（开工前跑一次，收工 commit 后再跑一次）。
+> 🔴 **2026-10-11 架构变了**：Gitee 上那棵是**公司 PC 自己的历史**，已 `merge --allow-unrelated-histories` 并进本仓，
+> 公司工程整体搬进 `公司机_工程/`。**公司 PC 不要重新克隆，直接 pull** —— 细节见下面「2026-10-11」与「公司 PC：pull 之后」两节。
 
 ## 为什么会有这份文档
 
@@ -31,30 +33,49 @@ python scripts/sync.py --status
 SSH 公钥（`~/.ssh/id_ed25519`，指纹 `SHA256:zX7JkobNkBNNa3xEHS0Ig9F+F6hS7wtuarJ8fMdICqA`）已注册到
 GitHub 与 Gitee。Gitee 后台：设置 → 安全设置 → **SSH 公钥**。
 
-## 公司 PC：一次性配置（⚠️ 那份是手工拷过去的文件夹，没有 git 历史）
+## 2026-10-11：公司那棵历史并进来了（架构变了）
 
-🔴 **不要**在旧文件夹里 `git init` 再硬推，两份独立历史会打架，而且拷进去的文件可能覆盖新版本。
-正确做法是**先抢救独有改动，再重新克隆**：
+**发生了什么**：Gitee 的 `gitee/master` 不是空仓库，它是**公司 PC 那条独立历史**
+（101 个提交 / 2026-08-22 → 2026-10-09 / 作者 `afei`），与本机这条（2026-06-21 起）**没有共同祖先**。
+用 `git merge --allow-unrelated-histories` 把两条并入同一个 `master`，随后把公司工程的根层 19 项
+**整体搬进 `公司机_工程/`** 子目录（`git mv`，rename 保留历史）。
+
+| 位置 | 谁的 | 说明 |
+|:--|:--|:--|
+| 仓库根（`docs/` `state/` `scripts/` `📚知识库/` `📝文章/` …） | **家里 PC** | 原来这套工作流（brief.py / preflight.py / HANDOFF / state） |
+| `公司机_工程/`（`00_引擎/` `阿飞说球/` `run.ps1` `发布前检查.cmd` …） | **公司 PC** | AFEI 引擎 monorepo，自带 `AGENTS.md` / `.hermes.md` / `.gitignore` / `.gitattributes`，只在该子树生效 |
+
+- 两条历史都**完整保留**（公司那 101 个提交一个没丢），`gitee/master` 现在是 `master` 的**祖先** → 以后推送是 fast-forward，**不需要 force**
+- 合并提交 `c9de611`，搬迁提交 `f3dfd80`
+- 相关提交：`948aab9`（公司 PC 最后一个提交）也在这条线上，所以公司 PC 能直接 pull
+
+## 公司 PC：pull 之后必须做的两件事（⚠️ 别重新克隆）
+
+公司 PC 那份**有 git 历史**（不是手工拷的文件夹）→ **不要重新 clone**：
+`*.docx`、`采集数据/*.js|*.json`、`阿飞说球/03_参考资料/kb_models/`、`公司机_工程/阿飞说球/04_赛事文章/**/charts/`
+这些都是 `.gitignore` 里的**未跟踪资产，克隆拿不回来**。
+（先确认：在旧文件夹里 `git rev-parse --is-inside-work-tree`；若真不是 git 仓库，才退回「拷出独有文件 → 重新克隆」的老办法。）
 
 ```bash
-# ① 先把公司 PC 上那份独有、家里没有的改动拷出来（人工比对！）
-#    这段时间项目主要在推进，但只要有你在公司临时记的东西，先挑出来，
-#    可以顺手做一次进度同步提交，避免克隆后被覆盖。
+# ① 拉（公司工程的文件会被 git 整体改名到 公司机_工程/ 下面）
+python scripts/sync.py --pull     # 或 git fetch gitee && git merge --ff-only gitee/master
 
-# ② 旧文件夹改名留底（别急着删，确认无误再删）
-#    D:\阿飞说球  →  D:\阿飞说球_旧_20261007
+# ② 把被 git 忽略、留在原地的文件也挪进新位置（git 只搬「已跟踪」的文件）
+#    在公司 PC 的仓库根跑（robocopy /E 合并目录，/MOVE 搬完删空壳）
+foreach ($d in @("00_引擎","01_数据采集","02_可视化","采集数据","阿飞说球")) {
+  if (Test-Path $d) { robocopy $d "公司机_工程\$d" /E /MOVE /NFL /NDL /NJH /NJS }
+}
 
-# ③ 重新克隆（走 Gitee，国内快）
-git clone git@gitee.com:wuyanzu1112324/afei-football.git 阿飞说球
-
-# ④ 验证
-cd 阿飞说球
-python scripts/brief.py        # 能跑出简报就对了
-python scripts/sync.py --status
+# ③ 验证
+cd 公司机_工程
+.\发布前检查.cmd                      # 或 python 阿飞说球\02_工具\gate.py <稿件.md>
 ```
 
-公钥：如果公司 PC 是另一台机器，重新生成一把再贴到 Gitee（`ssh-keygen -t ed25519 -C "公司PC"`），
-或者把 `~/.ssh/id_ed25519`（+ `.pub`）拷过去。**别把私钥提交进仓库。**
+- 公司 PC 上的桌面快捷方式 / 自定路径要**重新指到 `公司机_工程\`**（`运行.cmd`、`发布前检查.cmd`、`run.ps1` 随目录一起搬走了）
+- 公司工程内部脚本用 `__file__` 自解析仓库根，整体下移一层**依然能跑**（2026-09-20 迁移时已改好）
+- 公司 PC 的 `core.autocrlf=false` / `core.eol=lf` 不用改；`.gitattributes(* text=auto eol=lf)` 已随工程搬进 `公司机_工程/`
+- 公钥：公司 PC 若换过机器，重新生成一把贴到 Gitee（`ssh-keygen -t ed25519 -C "公司PC"`）。
+  **别把私钥提交进仓库。**
 
 ## 日常用法
 
