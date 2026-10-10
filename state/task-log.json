@@ -4,7 +4,7 @@
   "note": "冷数据归档：model-state.json v1 的 active_tasks（已完成记录 + 已闭环待办混合日志）、已校验 pending 条目，以及 schema v2 之后陆续闭环的条目。热数据在 model-state.json 的 open_items / pending_checks。 2026-10-07 追加：idx 77/78 = 09-19 档周六020 罗马2:2国米 补录闭环（Batch#36b）。 2026-10-11 追加：idx 80 = Gitee 公钥/认证闭环；idx 81 = 合并公司 PC 独立历史、公司工程并入 公司机_工程/。 2026-10-11 追加：idx 82 = 规则口径收敛闭环（家里=主机，公司规则并入）；idx 83 = 公司工程规则并入家里全过程（坑清单/硬指标/风控 → R38-R40）。",
   "source": "state/model-state.json active_tasks (schema_version 1)",
   "counts": {
-    "active_tasks": 84,
+    "active_tasks": 85,
     "pending_archived": 8
   },
   "tasks": [
@@ -343,6 +343,10 @@
     {
       "idx": 83,
       "text": "【2026-10-11 工作记录】公司工程规则并入家里：三份整理稿落 📚知识库/公司工程/（坑清单.md 18237B / 硬指标与运营实证.md 36000B / 平台风控与自查.md 33617B）；新增写作铁律 R38（标题必含「主队vs客队」对位，字数仍≤30）/R39（发布窗口 10:30-13:00，避开 16:00-19:00，+3.16pp p<0.001）/R40（CTR 三档 + 台账必记平均阅读时长/单篇收益，eCPM≈1.30）；docs/RULES.md 加 8 行对照表并把标题改 R1-R40；AGENTS.md 改单平台 + 路由表加公司工程知识行 + 「两套工程同仓」节收口；📚知识库/索引.md 加第七节；📚知识库/公众号矩阵/00-矩阵运营方案.md 与 skills/football-match-preview-article/references/wechat-md-output-guide.md 加停用 banner；口径冲突一律以家里为准。"
+    },
+    {
+      "idx": 84,
+      "text": "【2026-10-11 工作记录】18 维框架评估 + 落地 5 件增量：①逐条对账 18 维（约 12 维已有、真缺口 5 处）②公司侧 45 场硬数据：模型方向 37.8% / Brier 0.695 vs 市场 46.7% / 0.608，Edge 93% 报信号只兑现 19%（坑#34）③用户定案「只做 5 件增量 + 只做内部分析层」④14 维技能 11,606→18,761 B / 477→580 行：新增 1.5 数据时点标注、十四 反证块、陷阱 #9 去重计权，四 主客分离+xG 纪律、五 教练博弈与临场调整、六 按区域对位、十 置信度与模型-市场分歧、十四 改名「综合预测 & 内部方案」+ Edge 转内部参考、陷阱 #5 改写 + 新增 #10/#11，front matter 补 name（原为空）+ v1.1.0 ⑤新建 scripts/calib_score.py（Brier/LogLoss，坏行 exit 1，--json）+ 📚知识库/赛后校验/prob_log.tsv（Batch#37 及以前无快照不回填，Batch#38 起补录）⑥校验技能 v1.3.0→v1.4.0 记录规范第 5 条 + docs/RULES.md 赛后校验流程补概率快照 ⑦未采纳维度（xG 跨公司分布/成交量/凯利分布）的原因是数据源，不是分析能力"
     }
   ],
   "pending_archived": [

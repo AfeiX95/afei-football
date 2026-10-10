@@ -87,5 +87,5 @@
 > 规则口径收敛（2026-10-11 用户定：家里 = 主机 / 权威版本）：以后只维护家里这一套；公司侧规则视为**已并入的素材**，不再单独演进。
 
 ## 赛后校验流程（football-calibration-batch）
-真源：`📚知识库/skills/football-calibration-batch/SKILL.md`
-1. 收赛果（先 grep 旧批次去重窗口）→ 2. 模型预测 vs 实际 → 3. 记录偏差（方向/打穿/大小球/比分/平局）→ 4. 新增/加强规则 → 5. 更 state/model-state.json → 6. 候选规则累计达标后回写修正规则.md → 7. 更 docs/HANDOFF.md
+真源：`📚知识库/skills/football-calibration-batch/SKILL.md`　｜　概率评分：`scripts/calib_score.py` + `📚知识库/赛后校验/prob_log.tsv`（Brier / LogLoss）
+1. 收赛果（先 grep 旧批次去重窗口）→ 2. 模型预测 vs 实际 → 3. 记录偏差（方向/打穿/大小球/比分/平局 + 概率快照 Brier/LogLoss）→ 4. 新增/加强规则 → 5. 更 state/model-state.json → 6. 候选规则累计达标后回写修正规则.md → 7. 更 docs/HANDOFF.md

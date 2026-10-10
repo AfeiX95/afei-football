@@ -1,8 +1,8 @@
 ---
 name: football-calibration-batch
-description: "足球模型赛后校验批次记录与经验库。每次批量校验后记录结果、发现的偏差模式、新增修正规则。与match-model-pipeline搭配使用。v1.3: 批次记录迁移至 📚知识库/赛后校验/batchNN_calibration.md（batch12起）；🔴 累计统计不再内嵌（会过期），一律读 state/model-state.json 的 calibration（当前 Batch#37 后：396 场 / 方向 190 / 48.0%）。"
-version: 1.3.0
-updated: 2026-10-07
+description: "足球模型赛后校验批次记录与经验库。每次批量校验后记录结果、发现的偏差模式、新增修正规则。与match-model-pipeline搭配使用。v1.4 (2026-10-11) 新增概率评分台账 prob_log.tsv（Brier/LogLoss，scripts/calib_score.py）；v1.3: 批次记录迁移至 📚知识库/赛后校验/batchNN_calibration.md（batch12起）；🔴 累计统计不再内嵌（会过期），一律读 state/model-state.json 的 calibration（当前 Batch#37 后：396 场 / 方向 190 / 48.0%）。"
+version: 1.4.0
+updated: 2026-10-11
 author: afei
 license: MIT
 metadata:
@@ -16,11 +16,14 @@ metadata:
 ## 用途
 每次批量校验(≥5场)后，记录结果、偏差模式、新增修正规则。作为match-model-pipeline的补充知识库。
 
-## 🔴 记录规范（v1.2，batch12 起）
+## 🔴 记录规范（v1.4，batch12 起）
 - 每批完整记录落盘 `📚知识库/赛后校验/batchNN_calibration.md`（总览表+主打校验+文章主张校验+规则更新+下批清单），本 SKILL 不再逐批内嵌
 - 机器可读统计同步 `state/model-state.json`（batch/total_matches/direction_correct/rate/candidate_rules/active_tasks）
 - 候选规则累计达标 → 回写真源 `📚知识库/模型脚本/修正规则.md` + 索引 `docs/RULES.md`
 - 本文件保留：累计统计 + 历史批次教训（Batch#10/11 + R8/R9/R10 新增规则）
+- **概率快照落盘** `📚知识库/赛后校验/prob_log.tsv`（模型与市场三向概率 + 实际结果），跑 `python scripts/calib_score.py` 得 Brier / LogLoss；**Batch#37 及以前没有留下概率快照，不回填**（避免事后编造），从 Batch#38 起逐批补录
+
+> 为什么记概率：方向命中率把「报 60%」和「报 95%」算成一回事。本仓实测（公司侧 45 场复盘）模型 Brier **0.695**（比随机基线 0.667 还差）/ LogLoss ≈1.087，市场 Brier **0.608** —— 这就是「方向以市场定价 + 盘口结构为主锚」的量化来源。
 
 ## 累计统计（🔴 以 state 为准，勿在此内嵌）
 

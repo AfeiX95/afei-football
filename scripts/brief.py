@@ -166,6 +166,7 @@ def main():
     print("    python scripts/preflight.py <文章.md>    # 字数(R32)+发布门禁 一键盘")
     print("    python scripts/wordcount.py <文章.md>    # 仅字数")
     print("    python check_article.py <文章.md>        # 仅门禁（cwd=📚知识库/模型脚本）")
+    print("    python scripts/calib_score.py            # 概率评分 Brier/LogLoss（台账 📚知识库/赛后校验/prob_log.tsv）")
     print("    收工：HANDOFF 追加一节 + state 同步 + python scripts/journal.py + git commit")
 
     print("-" * W)
