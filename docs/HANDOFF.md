@@ -943,3 +943,56 @@ C39 原文：德比/强强对话的大球共识，**反向理由一列出就必�
 ### 坑
 - `📝文章/` 在 **workspace-write 下 python/.NET 写入一律被拒**（`PermissionError: [Errno 13]`、`[sandbox: file access denied]`）→ 交付稿改写走 harness 的 `write`/`edit` 工具，或一次性提权 `danger-full-access`；`docs/` `state/` `📚知识库/` 的 python 写入正常。
 - 字数上限是**软约束**：门禁只报「是否落在某个区间」，1313 字会安静地落进「双场合集」区间而 PASS —— 单场前瞻必须自己盯 1100-1300。
+
+---
+
+## 2026-10-11（九）｜ 会话:打通竞彩官方 webapi 直连 + 写周日002+003 双场合集
+
+**一句话**：把「竞彩官方 webapi 一打就 **567**」这个卡了很久的取数瓶颈解决掉（**根因是缺 `Referer`**），第一次做到**官方全套数据本地自动取数**，并用它写完周日002+003 双场合集（公开稿 + 两份内部全维度分析）。
+
+### 为什么做
+用户 10-11 指定做**周日002 磐城FCvs秋田闪电 + 周日003 川崎前锋vs名古屋鲸**两场合集；这两场此前连积分榜、射手姓名、完整交锋都拿不到（只能靠用户粘贴或 harness `web_fetch` 单点），必须先解决取数。
+
+### 🔑 关键发现：567 的真正原因（可复用，已落档）
+- **症状**：`requests`/`urllib` 直打 `webapi.sporttery.cn/gateway/...` 一律 **HTTP 567**（空 body）。
+- **病因**：**缺 `Referer` 与浏览器上下文** —— 不是端点不存在、不是 IP 被封、不是必须 playwright。
+- **配方**：`User-Agent: Chrome/124.0` + `Referer: https://www.sporttery.cn/jc/jsq/zqspj/` + `Accept: application/json`，并**先预热 `https://www.sporttery.cn/`** → `getMatchCalculatorV1` 200/265KB、`getFixedBonusV1` 200、`getMatchResultV1` 200 全部到手。
+- **端点清单来源**：`https://static.sporttery.cn/res_1_0/jcw/default/jc/zqdz.js`（壳）→ 它 import 的 `zqzbComponent.js`（39KB）/ `zqbsComponent.js`（52KB）里正则挖出 `/gateway/uniform/football/*` 全族（feature/result/history/injury/player/future/tables/head + fb/* + matchlive/*）。
+- **参数口径**：`football/*` 用 `?source=web&sportteryMatchId=<竞彩id>`（用 `matchId` 返回空）；`getFixedBonusV1.qry` 参数必须**恰好** `clientCode=3001&matchId=<竞彩id>`，多给任何参数立刻 567 或 `20013 前端编码错误`。
+- **三个坑**：① `getResultHistoryV1` **默认只回 5 场**交锋（002 实 8 场、003 实 10 场）→ 只看 API 会得出**方向相反**的结论；② `getMatchTablesV2` 返回空、`getMatchPlayerV1` 的 `playerName` 全 `null` → **积分榜与射手姓名只能从官方页拿**；③ `teamMatchResult` **不是主客标志**（实测恒为 `home`），判主客要用队名匹配 `homeAbbCnName/awayAbbCnName`，且 `uniformHomeTeamId ≠ gmTeamId`。
+- **落档**：`📚知识库/数据源/API接口.md` 大扩（新增「直连配方／端点清单／参数口径／已知坑」四节）+ `📚知识库/skills/match-model-pipeline/references/sporttery-api-guide.md` 加 2026-10-11 更新段。
+- **已固化为脚本**：`scripts/sporttery_fetch.py`（本轮从临时脚本 `state/_tmp_fetch_all.py` 提升而来，实测三模式全 200）
+  - `python scripts/sporttery_fetch.py match 2041894 2041895` → `state/_match_<id>/{head,feature,result,history,injury,player,future,tables,score,event}.json`
+  - `python scripts/sporttery_fetch.py form 553 --term 30`（gmTeamId；`teamMatchResult` 不是主客标志，判主客要用队名匹配 `homeAbbCnName/awayAbbCnName`）
+  - `python scripts/sporttery_fetch.py bonus 2041894`（参数必须恰好 `clientCode=3001&matchId=`）
+- `.gitignore` 新增 `state/_tmp_*`、`state/_match_*/`、`state/_form*.json`、`state/_bonus_*.json`（取数临时产物不入库）；本轮 69 个 `state/_tmp_*` 临时文件 + 3 个 `_tmp_match_*`/`_match_*` 目录已清理，`state/` 只剩 `model-state.json` 与 `task-log.json`。
+- 公司机的等价物 `公司机_工程/采集数据/browser.py:85-104  fetch_api()`（playwright + chrome 通道）**本地已不需要**。
+
+### 交付（三份，双门禁全过）
+| 文件 | 内容 |
+|:--|:--|
+| `📚知识库/比赛分析/日乙/20261011_周日002_磐城FCvs秋田闪电_全维度分析.md` | 六节结构 + 新增「零、官方页交叉验证（修正项）」；反证块补「交锋站秋田／秋田联赛客场3场只丢3球／磐城联赛主场场均1.5球」 |
+| `📚知识库/比赛分析/日职/20261011_周日003_川崎前锋vs名古屋鲸_全维度分析.md` | 新建；λ主 2.019 / λ客 1.194；概率对照含 +5.1／+6.2；规则对照 7 行 |
+| `📝文章/20261011/周日002+003_客队客场都没赢只信一个主队_赛事前瞻.md` | 公开合集稿，**1518 字**（双场合集 1200-1600 落在区间）｜门禁 **8/8 PASS**｜AI **21.0**；`check_article.py` **8/8 PASS**（标题 29 字） |
+
+- 标题：`10/11周日002+003：客队客场都没赢，只信一个主队`（29 字）
+- **002 不挑边**（客胜我 29.2% vs 机构 32.0%，差 −2.8pp 不到 5pp 门槛；交锋站秋田）；比分 首选1-1 次选1-0 防范0-0
+- **003 站「川崎赢两个球以上」**（我 33.7% vs 机构 27.5%，**+6.2pp**，两场唯一 ≥5pp 分歧；R36 基准 24.6%）；比分 首选1-1 次选2-1 防范2-0
+- 融合 λ：002 主 1.313／客 1.052（总 2.37）｜003 主 2.019／客 1.194（总 3.21）
+- 🌍 外媒**无源按 R41 直接省略**，未写任何占位句
+
+### 门禁过程
+`preflight.py` 首跑 **4/8**（只有「破折号 ≤3」不过：实际 7 处 `——`）→ 6 处改冒号/句号/逗号、留 1 处 → 复跑 **8/8 PASS**。
+
+### state
+- `state/model-state.json`：`open_items` 16 → **17**（新增「积分榜／射手姓名／≥8 场交锋仍无法从 webapi 取」数据缺口）、`pending_checks` 8 → **9**（本轮合集，含核心判断与四条待验）、`counters` 同步。
+
+### 仍开放
+- 赛后校验（16:30 起 002/003 陆续出结果，周日001 13:00 已开赛）——**按用户 10-11 决定，等周日001 开赛后一次性做整批**
+- 积分榜／射手姓名／≥8 场交锋的自动化取数（现靠用户粘贴官方页）
+- `docs/HANDOFF.md` 本节的 `open_items` 明细以 `brief.py` 逐条打印为准
+
+### 坑
+- 🔴 **pwsh 里 `python x.py > f.txt` 会写成 UTF-16**，`read` 工具直接报 binary → 必须 `python x.py | Out-File -Encoding utf8`。
+- 🔴 harness 的 `web_fetch` **会截断大 JSON**（`getMatchResultV1` 只回 5 条就是被截的）→ 取数必须落本地脚本。
+- `state/_tmp_*.json` / `_tmp_*.py` 是本轮临时取数产物，收工后可按需清理（未清）。

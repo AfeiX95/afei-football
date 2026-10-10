@@ -92,5 +92,15 @@ for day in matches:
 ### 注意事项
 - ⚠️ `matchId` ≠ `mid`，匹配用户数据用 `matchNumStr`（如"周一075"）
 - ⚠️ 部分`mid`字段为`None`，但比赛数据完整
-- ⚠️ 伤停信息不在API中，需从用户粘贴的"特征分析"HTML页面提取
 - ✅ 赔率数据与竞彩网固定奖金页面完全一致
+
+---
+
+## 🔴 2026-10-11 更新：直连 567 的解法 + 全套端点
+
+**打 webapi 吃 567 不是端点不存在，是缺 `Referer`**：加 `Referer: https://www.sporttery.cn/jc/jsq/zqspj/` + Chrome UA，并先预热 `https://www.sporttery.cn/`，则 `getMatchCalculatorV1` / `getFixedBonusV1` / `getMatchResultV1` 等全部 200（本地 python 即可，不需要 playwright）。
+
+完整端点点清单、两套 ID 的参数口径、以及已知坑（`getResultHistoryV1` 默认只回 5 场、`getMatchTablesV2` 空、`getMatchPlayerV1` 的 `playerName` 为 null）**一律见 `📚知识库/数据源/API接口.md` 的「竞彩网」章节**，此处不重复。
+
+- 「伤停信息不在API中」已过时：`getInjurySuspensionV1.qry` 与 `getFutureMatchesV1.qry`（战意线索）都在端点清单里；实测 2026-10-11 两场返回**空列表**，仍需与官方页「暂无数据」互相印证。
+- 官方特征分析页（用户粘贴的那一页）含 API 拿不到的三样：**积分榜、射手姓名、8-10 场完整交锋**——它是权威源，API 是交叉源。
