@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "updated": "2026-10-07",
+  "updated": "2026-10-10",
   "note": "冷数据归档：model-state.json v1 的 active_tasks（已完成记录 + 已闭环待办混合日志）、已校验 pending 条目，以及 schema v2 之后陆续闭环的条目。热数据在 model-state.json 的 open_items / pending_checks。 2026-10-07 追加：idx 77/78 = 09-19 档周六020 罗马2:2国米 补录闭环（Batch#36b）。",
   "source": "state/model-state.json active_tasks (schema_version 1)",
   "counts": {
-    "active_tasks": 79,
+    "active_tasks": 80,
     "pending_archived": 8
   },
   "tasks": [
@@ -323,6 +323,10 @@
     {
       "idx": 78,
       "text": "【2026-10-07 赛后校验】Batch#36b 补录第 1 场：周六020 意甲 罗马 2:2 国际米兰（半场 2:0）。进球：罗马 K.科内 6'/37'（半场双响）｜国米 劳塔罗 46'/79'（下半场追平）。文章《周六020_罗马vs国际米兰_同积12分主场魔咒能破吗_赛事前瞻.md》（1298字 门禁8/8 + 公众号版1283字 8/8）主张校验：①国米+1让负『本场最厚的一块』(机构62.4%/模型67.0%) ✅兑付 ②罗马-1『净胜两球是伪命题』(机构16.6%/模型15.2%) ✅未打穿 ③客胜Edge+5.1pp定性『叙事型价值不重仓』+公开不挑边 ✅克制正确 ④❌大小球不碰 → 实际4球，**C39 首验证伪**(市场60.0%+模型57.7%看大共识对，被拿来否它的 H2H 大2.5仅40% 错) → C39 机制修正为『反向证据为历史型时才降级为不碰，结构型时保留共识方向』+ 置信度下调为低·观察项 ⑤比分 首选1-1/次选1-2/防范0-1 ❌全空（实际2-2，平局方向对、进球数差2）。🔴核心教训：**半场 2:0 → 全场 2:2**，罗马-1 打穿了 45 分钟然后掉出来 → C37（主让-1打穿率下调）正例 + 极端路径样本；『后防主力伤缺(恩迪卡+韦斯利) + 对手火力联赛第一』两条件同时在场时，-1 打穿是高波动，只拿『机构只给16.6%』当理由不充分。✅旁证：胜平负主客同价(36.6/26.8/36.6)+半全场两侧对称(胜胜19.8/平平15.1/负负19.8) → 打出平局（市场26.8%为三项最低）且半全场=『胜平』(冷门复合) → 记入 C16『对称定价』子样本。累计未并入（文章公开不挑边，维持 396/190/48.0%）；若并入=397/191/48.1%。待 09-19 档其余 6 场补齐后一次性并入。"
+    },
+    {
+      "idx": 79,
+      "text": "【2026-10-10 跨机同步】GitHub 补齐 227 个提交（88a47c5→d9e4996，3271 对象 / 58.80 MiB / 5.41 MiB/s）。诊断：origin 停在 2026-06-21，.git/FETCH_HEAD 不存在 → 三个半月成果只在单机。新增远端 gitee = git@gitee.com:wuyanzu1112324/afei-football.git（需空仓）。产出 scripts/sync.py（--pull/--push/--status/--remote；拉取只用 gitee 单一来源、推送推所有远端、工作区不干净拒绝、rebase 冲突一律 abort 交人决定、显式清 GIT_SSH_COMMAND）+ docs/SYNC.md（架构/公司PC一次性配置/故障表）。文档接线：AGENTS.md 新增跨机同步节+收工必推、WORKFLOW.md v2.4。踩坑：workspace-write 下 git 网络操作报 ssh.exe couldn't create signal pipe Win32 error 5（沙箱禁子进程命名管道，需提权；勿设 GIT_SSH_COMMAND）；known_hosts 写不了 → 提权 + ssh-keyscan 解决。未完成：Gitee 公钥指纹对不上（本机 zX7Jkob… vs 用户贴的 rqTwySk…），ssh -T git@gitee.com 仍 Permission denied。提交 0707ab1。"
     }
   ],
   "pending_archived": [

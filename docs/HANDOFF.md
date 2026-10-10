@@ -648,3 +648,27 @@ C39 原文：德比/强强对话的大球共识，**反向理由一列出就必�
 3. 09-19 日职双早场表内裸赔率 1.67 是否回改（用户仍未答）。
 
 ---
+
+## 2026-10-10 ｜ 会话:GitHub 补齐 227 个提交 + 接入 Gitee 跨机同步（scripts/sync.py）
+
+**触发**：用户提出把项目做成跨机同步（家里 PC ↔ 公司 PC），先问「现在推到哪里去了」。
+
+**诊断（为什么必须做）**：`origin` = `git@github.com:AfeiX95/afei-football.git`，GitHub 上最新提交停在 **`88a47c5`（2026-06-21）**，本地已领先 **227 个提交**；`.git/FETCH_HEAD` 不存在 → 这台机器从未 fetch 过。**三个半月的成果此前只存在于这一台机器上**（工作区 59.07 MB / 1193 个受版本控制文件 / `.git` 70.67 MB；最大文件 384.5KB，远低于单文件上限，不需要 LFS）。
+
+**已完成**
+1. **GitHub 追平**：`git push origin master` → `88a47c5..d9e4996`，`Enumerating objects: 3276`、`Total 3271 (delta 1490)`、58.80 MiB / 5.41 MiB/s；`origin/master` 与 `master` 已一致。
+2. **新增第二远端 `gitee`** = `git@gitee.com:wuyanzu1112324/afei-football.git`（私有仓库，须建成**空仓**，不勾 README/gitignore，否则首推冲突）。
+3. **`scripts/sync.py`（新）**：`--pull` / `--push` / `--status` / `--remote NAME`，无参数=完整同步。设计原则：**拉取只用单一来源 `gitee`**（多镜像互 rebase 会产生重复提交）、**推送推给所有远端**且一个失败不阻塞另一个、工作区不干净时拒绝执行、rebase 冲突一律 `git rebase --abort` 退回**由人决定**（仓库含 png/docx 二进制，自动挑一边会静默丢文件）、显式 `env.pop("GIT_SSH_COMMAND")`。
+4. **`docs/SYNC.md`（新）**：GitHub 停摆实测表、架构（gitee 主力 / origin 异地备份）、公司 PC 一次性配置（先抢救独有改动 → 旧文件夹改名留底 → `git clone` → 跑 `brief.py` 验证；**别把私钥提交进仓库**）、日常 5 条命令、故障表。
+5. **文档接线**：`AGENTS.md` 新增「## 跨机同步」节 + 开工一步加 `--pull` + 收工约定加「推送远端（每轮收工必做）」+ 路由表加一行；`docs/WORKFLOW.md` v2.3 → **v2.4**（开工第 0 步 pull、收工第 5 步 push，原第 5 条记忆原则顺延为第 6 条）。
+6. **提交**：`0707ab1`（sync.py + SYNC.md）。
+
+**关键踩坑（沙箱）**🔴
+- workspace-write 下**所有 git 网络操作失败**：`I:\GIT\Git\usr\bin\ssh.exe: *** fatal error - couldn't create signal pipe, Win32 error 5`。**直接 `ssh -T` 反而正常** → 不是网络问题，是沙箱禁止子进程建命名管道，**需要提权运行**（本次用 `danger-full-access` 一次性提权跑通）。
+- **不要设 `GIT_SSH_COMMAND`**：会让 git 走 shell 解析，报错变成 `sh.exe: *** fatal error - couldn't create signal pipe`，还会覆盖用户自己的 ssh 配置。
+- `~/.ssh/known_hosts` 在 workspace-write 下写不了（`Failed to add the host to the list of known hosts`），不加 `accept-new` 就直接 `Host key verification failed.` → 提权后 `ssh-keyscan -t ed25519,rsa gitee.com` 写入解决。
+
+**未完成（下个会话第一件事）**🔴
+- **Gitee 还没接通**：本机唯一密钥 `~/.ssh/id_ed25519`（公钥行 `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMGkc4hQVSLTh6T6b8Tqz7Jd3C11zlJHWVwEEo6N8/OW wuyanzu95@outlook.com`，指纹 **`SHA256:zX7JkobNkBNNa3xEHS0Ig9F+F6hS7wtuarJ8fMdICqA`**）。但用户加到 Gitee 的公钥指纹是 `SHA256:rqTwySkZaUnwaJQqPq2NoPAULtmpK7zwysi3d1JVQ3E` —— **对不上**，`~/.ssh` 里也没有能对应它的密钥。实测 `ssh -T git@gitee.com` 仍 `Permission denied (publickey)`。→ 让用户把上面那行公钥加到 Gitee「设置→安全设置→SSH 公钥」，然后 `git push gitee master`（本机 `known_hosts` 已含 gitee）。
+- 之后：公司 PC 重新 clone，两台机器日常跑 `python scripts/sync.py` 对齐。
+

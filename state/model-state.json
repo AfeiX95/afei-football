@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated": "2026-10-07",
+  "updated": "2026-10-10",
   "model_version": "2.10.0",
   "calibration": {
     "last_batch": 37,
@@ -85,6 +85,11 @@
     {
       "type": "流程",
       "text": "修正规则 C 系列（📚知识库/模型脚本/修正规则.md）与 R 系列（afei-writing-standards）分属两套真源，勿混"
+    },
+    {
+      "type": "流程",
+      "text": "跨机同步接通：把本机公钥（指纹 SHA256:zX7JkobNkBNNa3xEHS0Ig9F+F6hS7wtuarJ8fMdICqA）加到 Gitee 账号 wuyanzu1112324，再 push gitee master 打通主力通道；公司 PC 重新 clone 后跑 scripts/sync.py",
+      "ref": "docs/SYNC.md"
     }
   ],
   "pending_checks": [
@@ -154,9 +159,9 @@
     }
   ],
   "counters": {
-    "open_items": 13,
+    "open_items": 14,
     "pending_checks": 7,
-    "task_log": 87,
+    "task_log": 88,
     "candidate_rules": 17
   },
   "task_log_ref": "state/task-log.json",

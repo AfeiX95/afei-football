@@ -1,12 +1,14 @@
-# 写作管线速查（10步 · v2.3 — 2026-10-07 token 优化版）
+# 写作管线速查（10步 · v2.4 — 2026-10-07 token 优化版）
 
 > 完整版在技能 `football-match-preview-pipeline` v3.0。此处为速查卡片，任何 agent 都能照着走。
+> v2.4 变更（2026-10-07）：**新增跨机同步**——开工第 0 步 `python scripts/sync.py --pull`，收工第 5 步 `python scripts/sync.py --push`（推 gitee + GitHub），详见 `docs/SYNC.md`。
 > v2.3 变更：**开工改跑 `scripts/brief.py` 一条命令**；技能按需加载（见 INDEX.md）；state 冷热分离（open_items + task-log.json）；新增 `scripts/preflight.py` 一键盘。
 > v2.2 变更（本会话沉淀）：C36/C37 规则标记、双口径失真场放弃入文、R30 每场三比分、R31 结构轮换、门禁乱码星号误报、轨4 市场全量复盘、docx 沙箱 emoji 路径实测修正。
 > v2.1 变更：页面去重惯例、V2 引擎样本权重惯例、模型翻转信号降权、三轨校验闭环、候选规则回写阈值。
 
 ## 开工（一条命令 · 2026-10-07 起）
 ```bash
+python scripts/sync.py --pull     # 第 0 步：先把另一台机器的改动拉下来（换机器 / 新克隆 / 多机协作必做）
 python scripts/brief.py
 ```
 输出：时间/模型版本/批次统计 + 真待办 `open_items` + 待校验文章 + **最新交接节行号区间** + 命令速查 + token 纪律。
@@ -112,6 +114,7 @@ python scripts/brief.py
 3. 🔴 **生成当日日记**：`python scripts/journal.py`（→ `docs/日记/YYYY-MM-DD.md`；补写历史日 `--date YYYY-MM-DD`；幂等，`<!-- AUTO:END -->` 之后的人工手记区永不覆盖）
    - 自动汇总：当日提交 / 当日产出（按顶层目录分组，含未提交变更）/ 状态快照（批次·累计·方向率·规则数）/ 交接指针（HANDOFF 最新节 + 下一步首条）
 4. `git add docs/ state/ 📚知识库/ 📝文章/ && git commit -m "进度同步 YYYYMMDD"`（emoji 路径用 `git add -A` 避免命令行编码问题）
-5. 🔴 **记忆只落本地（2026-09-13 用户明确）**：不使用任何云端记忆服务，**`hindsight_*` 工具一律不调用**（需 apiToken，实测 401）；经验直接写进 `修正规则.md` / 本文件 / `afei-writing-standards/SKILL.md` 等本地真源，随 git 提交沉淀
+5. 🔴 **推送到远端（两台机器对齐 · 2026-10-07 起必做）**：`python scripts/sync.py --push`（推 `gitee` + `origin`，一个连不上不阻塞另一个）；拉取只用 `gitee` 单一来源；冲突时脚本 `git rebase --abort` 退回**由人决定**，禁止自动挑一边（仓库含 png/docx 二进制）
+6. 🔴 **记忆只落本地（2026-09-13 用户明确）**：不使用任何云端记忆服务，**`hindsight_*` 工具一律不调用**（需 apiToken，实测 401）；经验直接写进 `修正规则.md` / 本文件 / `afei-writing-standards/SKILL.md` 等本地真源，随 git 提交沉淀
 
 > 📔 **三种记录的分工（勿混用）**：`HANDOFF.md` = 交接（面向下一次会话，只追加节）；`docs/日记/` = 时间线（面向往后回看，脚本生成 AUTO 区块 + 人工手记）；`state/model-state.json` = 机器可读状态（可覆盖更新）。

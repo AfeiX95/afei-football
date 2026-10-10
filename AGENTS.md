@@ -15,6 +15,7 @@ python scripts/brief.py
 - 然后**按需**读：`read docs/HANDOFF.md offset=<简报给的行号> limit=<行数>`（🔴 **禁止全量读 HANDOFF**）
 - 需要流程细节再看 `docs/WORKFLOW.md`
 - 旧「开工三步」（全量读 HANDOFF + state + 四个重技能 ≈100K tokens/会话）**已废除**
+- **换机器 / 新克隆先拉一次**：`python scripts/sync.py --pull`（跨机同步见下节）
 
 ### Token 纪律（2026-10-07 定）
 1. **开工只跑 `brief.py`**，不要全量读 `docs/HANDOFF.md`（562 行 ≈16K tokens）或 `state/model-state.json`
@@ -22,6 +23,18 @@ python scripts/brief.py
 3. **冷数据不读**：`state/task-log.json`（闭环历史）、`docs/HANDOFF-archive/` 只在按日期 grep 时读
 4. 写文收工用一键盘：`python scripts/preflight.py <文章.md>`（字数 R32 + 发布门禁）
 5. pwsh 打印中文可能乱码（GBK），**读文件一律用 read 工具**，别信控制台中文
+
+## 跨机同步（2026-10-07 起）
+两台机器（家里 / 公司 PC）靠 git 远端对齐：`gitee` = 主力同步，`origin`(GitHub) = 异地备份。
+```bash
+python scripts/sync.py --pull     # 开工第一件事：拉最新（只用 gitee）
+python scripts/sync.py --push     # 收工最后一件事：推所有远端
+python scripts/sync.py --status   # 只看状态
+```
+- 🔴 **拉取只用 `gitee` 单一来源**（多镜像互相 rebase 会产生重复提交）；**推送推给所有远端**，一个连不上不拖累另一个
+- 工作区不干净时脚本拒绝执行；rebase 冲突一律 `git rebase --abort` 退回，**冲突由人决定**（仓库含 png/docx 二进制，自动挑一边会静默丢文件）
+- ⚠️ **沙箱下 git 网络操作会失败**（`couldn't create signal pipe, Win32 error 5`）：这不是网络问题，**需要提权运行**；直接 `ssh -T` 反而正常
+- 详细说明（含公司 PC 一次性配置、故障表）：`docs/SYNC.md`
 
 ## 去哪找什么（路由表）
 
@@ -41,6 +54,7 @@ python scripts/brief.py
 | 模型参数全量 | `database/config/model-parameters.json` |
 | 图表/文章交付物 | `📝文章/YYYYMMDD/` |
 | 项目真源声明 | `SOURCE_OF_TRUTH.md` |
+| 跨机同步 / 换机器 / 推远端 | `python scripts/sync.py` + `docs/SYNC.md` |
 
 ## 三铁律（写进任何文章前必查）
 1. **90分钟口径**：加时/点球不计彩果；文中模型称「后台模型」，不暴露算法名
@@ -52,6 +66,7 @@ python scripts/brief.py
 - **生成当日日记**：`python scripts/journal.py`（自动汇总当日提交 / 产出 / 状态快照 / 交接指针 → `docs/日记/YYYY-MM-DD.md`；补写历史日加 `--date YYYY-MM-DD`；幂等，手记区永不覆盖）
   - ⛔ **不挂计划任务、不做自动触发**（用户 2026-09-19 决定）——由 agent 在任务收尾时手动跑一次即可，勿再提议自动化
 - 提交 git 兜底：`git add docs/ state/ 📚知识库/ 📝文章/ && git commit -m "进度同步 YYYYMMDD"`
+- **推送远端（每轮收工必做）**：`python scripts/sync.py --push`（推 `gitee` + `origin`，一个连不上不阻塞另一个）
 - 多会话并发：先读后写，发现文件比上次新（别人刚写）先重读合并，严禁整文件覆盖
 
 ## 📔 日记 vs 交接 vs 状态（分工，勿混用）
