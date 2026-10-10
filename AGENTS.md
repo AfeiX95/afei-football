@@ -44,7 +44,7 @@ python scripts/sync.py --status   # 只看状态
 | 当前进度/待办/会话交接 | `python scripts/brief.py`（首选）→ `docs/HANDOFF.md` 最新一节 + `state/model-state.json` |
 | 写作管线（10步） | `docs/WORKFLOW.md` |
 | 修正规则 C01-C42 摘要 | `docs/RULES.md` → 真源 `📚知识库/模型脚本/修正规则.md` |
-| 写作铁律 R1-R40 覆盖层 | 真源 `📚知识库/skills/afei-writing-standards/SKILL.md`（R38-R40 = 2026-10-11 并入公司侧口径）|
+| 写作铁律 R1-R41 覆盖层 | 真源 `📚知识库/skills/afei-writing-standards/SKILL.md`（R38-R40 = 2026-10-11 并入公司侧口径；**R41 = 公开输出层纪律：公开稿去盘口语 + 内外部分层**）|
 | **技能清单/分节行号** | `📚知识库/skills/INDEX.md`（按需加载入口，先看这个再读 SKILL.md）|
 | 历史待办/闭环记录（冷） | `state/task-log.json` |
 | 旧会话交接（冷） | `docs/HANDOFF-archive/`（按日期 grep）|
@@ -69,7 +69,7 @@ python scripts/sync.py --status   # 只看状态
 
 - `公司机_工程/` 自带 `AGENTS.md` / `.hermes.md` / `.gitignore` / `.gitattributes`（`* text=auto eol=lf`）→ **只在该子树内生效**
 - 🔴 **2026-10-11 已把公司那套的规则并进家里**（家里 = 主机 / 权威版本）：坑#1-#68 **原编号**收进 `📚知识库/公司工程/坑清单.md`；标题必含对阵、发布窗口、运营指标已并成 R38-R40（`docs/RULES.md` 有对照表）。
-  - **口径冲突一律以家里为准**：本地 **R1-R40** / C01-C42、正文 **~1200 字（R32）**、标题 **≤30 字（R20）**；公司那套「单场 800~1000 字」「标题≤36 字」**不采用**（原始口径留档备查）
+  - **口径冲突一律以家里为准**：本地 **R1-R41** / C01-C42、正文 **~1200 字（R32）**、标题 **≤30 字（R20）**；公司那套「单场 800~1000 字」「标题≤36 字」**不采用**（原始口径留档备查）
   - 公司工具链（`02_工具/`、`00_引擎/`）仍只看 `公司机_工程/AGENTS.md`，动手前先确认改的是哪一套
 - 公司那份的坑与流程在 `公司机_工程/阿飞说球/01_工作流SOP/workflow.md`（§零 等）
 - 合并由来、目录搬迁与推拉方式见 `docs/SYNC.md` + `docs/HANDOFF.md` 2026-10-11 节
