@@ -102,6 +102,11 @@
       "type": "数据缺口",
       "text": "战术层与失球时间分布缺口（外部评审 2026-10-11 提出）：阵型 / 关键区域对位 / 教练临场、先失球后抢分率、失球时间分布、最后 15 分钟丢球 —— 竞彩网赛事页与固定奖金页不含、本地外网搜索对韩职不可用 → 需新数据源；是 18 维框架 03 xG / 09 关键区域 / 12 教练临场 的落地前提",
       "ref": "📚知识库/比赛分析/韩职/20261011_周日001_光州FCvs蔚山现代_全维度分析.md 第五节"
+    },
+    {
+      "type": "流程",
+      "text": "技能索引深度缺口（2026-10-11 收工复验时发现，未动）：scripts/skill_index.py:63 只抓二级标题（re.match(r\"^##\\s+\\S\")），而 afei-writing-standards 的 R1-R41 全是三级标题 → 859 行技能在 📚知识库/skills/INDEX.md 里只索引出 L16/L19/L296，R36（让球钩子停用）与 R41（公开输出层纪律）都定位不到；INDEX.md 开头「afei-writing-standards 776 行」亦已过期。改正则可修（三级标题一并入索引）",
+      "ref": "scripts/skill_index.py:63"
     }
   ],
   "pending_checks": [
@@ -194,7 +199,7 @@
     }
   ],
   "counters": {
-    "open_items": 15,
+    "open_items": 16,
     "pending_checks": 8,
     "task_log": 97,
     "candidate_rules": 21
