@@ -1,0 +1,109 @@
+{
+  "title": "周四003 巴甲 桑托斯vs弗拉门戈",
+  "tags": [],
+  "competition": "巴甲第29轮",
+  "first_leg": "巴甲第29轮",
+  "match_time": "10月9日(周五)06:30 北京时间",
+  "venue": "Vila Belmiro(桑托斯)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "odds": {
+    "H": 4.08,
+    "D": 3.6,
+    "A": 1.65
+  },
+  "hhad": {
+    "H": 1.98,
+    "D": 3.3,
+    "A": 3.11
+  },
+  "handicap_line": 1,
+  "market_type": "handicap",
+  "score_odds": [],
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 6,
+      "d": 2,
+      "l": 2
+    },
+    "away_form": {
+      "w": 8,
+      "d": 1,
+      "l": 1
+    }
+  },
+  "_口径说明": {
+    "近况口径": "form.py 近10场: 桑托斯 6胜2平2负 15/13=1.50/1.30, 主场 2胜2平0负; 弗拉门戈 8胜1平1负 21/7=2.10/0.70, 客场 3胜0平1负",
+    "盘口": "竞彩 4.08/3.60/1.65; 让球(+1, 主队受让) 1.98/3.30/3.11 → 去水 28.5/26.8/44.7(受让方守住差 16.2 点)",
+    "人事": "弗拉门戈 9/20 后 18 天无正式比赛(解放者杯半决赛 10/15 才开打), Arrascaeta 腕伤缺 6-8 周, Léo Ortiz 因私事离队; 桑托斯 10/2 补赛客胜圣保罗, 五连胜七场不败; 内马尔入名单大概率替补",
+    "λ盲区": "弗拉门戈 18 天无赛 + 缺组织核心, 但模型只吃近10场均值 → 会**高估**弗拉门戈进攻(其近10场含杯赛大胜)"
+  },
+  "teams": {
+    "home": {
+      "name": "桑托斯",
+      "league": "巴甲",
+      "gf": 1.5,
+      "ga": 1.3,
+      "gf_special": 1.5,
+      "ga_special": 1.3,
+      "special_label": "近10场",
+      "recent": {
+        "gf": 1.5,
+        "ga": 1.3
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "弗拉门戈",
+      "league": "巴甲",
+      "gf": 2.1,
+      "ga": 0.7,
+      "gf_special": 2.1,
+      "ga_special": 0.7,
+      "special_label": "近10场",
+      "recent": {
+        "gf": 2.1,
+        "ga": 0.7
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      60,
+      20,
+      20
+    ],
+    "h_home": [
+      50,
+      50,
+      0
+    ],
+    "a_all": [
+      80,
+      10,
+      10
+    ],
+    "a_away": [
+      75,
+      0,
+      25
+    ]
+  },
+  "charts": {
+    "wdl": false,
+    "goals": false,
+    "heatmap": false,
+    "edge": true,
+    "promote": false
+  },
+  "skeleton": "内部判断用",
+  "hook_type": "",
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": ""
+}

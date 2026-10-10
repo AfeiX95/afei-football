@@ -1,0 +1,109 @@
+{
+  "title": "周四001 芬超 赫尔辛基vs瓦萨",
+  "tags": [],
+  "competition": "芬超冠军组第4轮",
+  "first_leg": "芬超冠军组第4轮",
+  "match_time": "10月8日(周四)23:00 北京时间",
+  "venue": "Bolt Arena(赫尔辛基)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "odds": {
+    "H": 1.39,
+    "D": 4.3,
+    "A": 5.65
+  },
+  "hhad": {
+    "H": 2.35,
+    "D": 3.26,
+    "A": 2.52
+  },
+  "handicap_line": -1,
+  "market_type": "handicap",
+  "score_odds": [],
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 4,
+      "d": 3,
+      "l": 3
+    },
+    "away_form": {
+      "w": 3,
+      "d": 0,
+      "l": 7
+    }
+  },
+  "_口径说明": {
+    "近况口径": "form.py 近10场(含冠军组前3轮): 赫尔辛基 4胜3平3负 12/10=1.20/1.00, 主场 2胜1平1负; 瓦萨 3胜0平7负 8/14=0.80/1.40, 客场 2胜0平3负(0平=极端)",
+    "盘口": "竞彩 1.39/4.30/5.65; 让球(-1) 2.35/3.26/2.52 → 去水 37.7/27.2/35.1(差 2.5 点, 无偏向)",
+    "间歇": "冠军组第3轮(9/18-19)后国际比赛周, 本场是第4轮; 赫尔辛基隔 20 天没打联赛",
+    "λ盲区": "芬超无跨联赛档位差; 但三周间歇后状态未知, 模型样本(近10场)含间歇前数据"
+  },
+  "teams": {
+    "home": {
+      "name": "赫尔辛基",
+      "league": "芬超",
+      "gf": 1.2,
+      "ga": 1.0,
+      "gf_special": 1.2,
+      "ga_special": 1.0,
+      "special_label": "近10场",
+      "recent": {
+        "gf": 1.2,
+        "ga": 1.0
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "瓦萨",
+      "league": "芬超",
+      "gf": 0.8,
+      "ga": 1.4,
+      "gf_special": 0.8,
+      "ga_special": 1.4,
+      "special_label": "近10场",
+      "recent": {
+        "gf": 0.8,
+        "ga": 1.4
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      40,
+      30,
+      30
+    ],
+    "h_home": [
+      50,
+      25,
+      25
+    ],
+    "a_all": [
+      30,
+      0,
+      70
+    ],
+    "a_away": [
+      40,
+      0,
+      60
+    ]
+  },
+  "charts": {
+    "wdl": false,
+    "goals": false,
+    "heatmap": false,
+    "edge": true,
+    "promote": false
+  },
+  "skeleton": "内部判断用",
+  "hook_type": "",
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": ""
+}

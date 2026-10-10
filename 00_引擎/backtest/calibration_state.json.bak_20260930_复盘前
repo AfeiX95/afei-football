@@ -1,0 +1,26 @@
+{
+  "schema": 2,
+  "updated_at": "2026-09-29",
+  "sample_size": 590,
+  "coef": {
+    "draw": 1.013,
+    "hot": 1.001,
+    "cold": 0.989
+  },
+  "buckets": {
+    "draw_20_30": 1.002,
+    "hot_40_70": 1.001,
+    "cold_0_30": 0.992
+  },
+  "buckets_raw": {
+    "draw_20_30": 1.0235,
+    "hot_40_70": 1.0117,
+    "cold_0_30": 0.9561
+  },
+  "z2_shrink": {
+    "draw": 0.279,
+    "hot": 0.255,
+    "cold": -0.47
+  },
+  "basis": "direction-averaged ratio + z^2 shrinkage (compute_coefs)"
+}

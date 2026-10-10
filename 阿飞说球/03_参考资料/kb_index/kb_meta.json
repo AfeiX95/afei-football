@@ -1,0 +1,8 @@
+{
+ "build_time": "2026-08-29 13:27:58",
+ "articles": 42,
+ "chunks": 1249,
+ "model": "X:\\阿飞说球\\阿飞说球\\03_参考资料\\kb_models\\bge-small-zh-v1.5",
+ "dim": 512,
+ "chunk_len_limit": 500
+}

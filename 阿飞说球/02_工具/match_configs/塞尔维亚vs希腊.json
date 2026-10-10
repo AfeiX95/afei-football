@@ -1,0 +1,112 @@
+{
+  "tags": [
+    "#欧国联",
+    "#塞尔维亚",
+    "#希腊"
+  ],
+  "weather": "暂无公开数据",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "market_type": "handicap",
+  "score_odds": [],
+  "charts": {
+    "wdl": false,
+    "goals": false,
+    "heatmap": false,
+    "edge": false,
+    "promote": false
+  },
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": "",
+  "illustration": [],
+  "title": "周四007 欧国联 塞尔维亚 vs 希腊：待定",
+  "competition": "欧洲国家联赛 2026",
+  "match_time": "9月25日(周五)02:45 北京时间",
+  "venue": "待查官宣场地",
+  "handicap_line": -1,
+  "hhad": {
+    "H": 5.4,
+    "D": 4.0,
+    "A": 1.44
+  },
+  "odds": {
+    "H": 2.36,
+    "D": 3.03,
+    "A": 2.66
+  },
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 4,
+      "d": 0,
+      "l": 6
+    },
+    "away_form": {
+      "w": 2,
+      "d": 3,
+      "l": 5
+    }
+  },
+  "teams": {
+    "home": {
+      "name": "塞尔维亚",
+      "league": "欧国联",
+      "gf": 0.9,
+      "ga": 2.2,
+      "gf_special": 1.0,
+      "ga_special": 2.0,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 0.9,
+        "ga": 2.2
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "希腊",
+      "league": "欧国联",
+      "gf": 1.2,
+      "ga": 1.6,
+      "gf_special": 0.8,
+      "ga_special": 1.6,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 1.2,
+        "ga": 1.6
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      40,
+      0,
+      60
+    ],
+    "h_home": [
+      50,
+      0,
+      50
+    ],
+    "a_all": [
+      20,
+      30,
+      50
+    ],
+    "a_away": [
+      0,
+      60,
+      40
+    ]
+  },
+  "_口径说明": [
+    "胜平负 2.36/3.03/2.66; 让球线 -1 的 5.40/4.00/1.44 —— 竞彩官方 2026-09-23 09:17 抓取(尚未更新)。",
+    "塞尔维亚近10场 4胜0平6负(进9失22), 同主客: 主场4场4:8(2胜0平2负) / 客场6场5:14(2胜0平4负)。",
+    "希腊近10场 2胜3平5负(进12失16), 同主客: 主场5场8:8(2胜0平3负) / 客场5场4:8(0胜3平2负)。",
+    "⚠ 塞尔维亚场均失2.20 由 0:5 英格兰 / 1:5 墨西哥 / 0:3 佛得角 / 0:3 西班牙 撑起; 近10场 0 平局 → 样本波动大。",
+    "⚠ 希腊客场 5 场没赢过(0胜3平2负), 但 3 场平局。两队近10场无共同对手。"
+  ]
+}

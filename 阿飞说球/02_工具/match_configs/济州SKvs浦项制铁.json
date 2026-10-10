@@ -1,0 +1,138 @@
+{
+  "title": "韩职:济州主场3杀浦项,市场只给41%胜率",
+  "tags": [
+    "#韩职",
+    "#济州SK",
+    "#浦项制铁"
+  ],
+  "competition": "韩职 2026赛季",
+  "first_leg": "联赛第25轮",
+  "match_time": "8月25日(周二)18:30 北京时间",
+  "venue": "济州世界杯竞技场(韩国济州)",
+  "weather": "暂无公开数据",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "skeleton": "天平对决式",
+  "odds": {
+    "H": 2.13,
+    "D": 2.98,
+    "A": 3.08
+  },
+  "strategy": {
+    "home_mult": 0.95,
+    "away_mult": 0.97,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 4,
+      "d": 4,
+      "l": 2
+    },
+    "away_form": {
+      "w": 4,
+      "d": 0,
+      "l": 6
+    }
+  },
+  "teams": {
+    "home": {
+      "name": "济州SK",
+      "league": "韩职",
+      "gf": 1.35,
+      "ga": 1.25,
+      "gf_special": 1.0,
+      "ga_special": 1.07,
+      "special_label": "主场",
+      "recent": {
+        "gf": 1.45,
+        "ga": 1.25
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "浦项制铁",
+      "league": "韩职",
+      "gf": 1.3,
+      "ga": 1.7,
+      "gf_special": 1.38,
+      "ga_special": 1.38,
+      "special_label": "客场",
+      "recent": {
+        "gf": 1.3,
+        "ga": 1.7
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      40,
+      40,
+      20
+    ],
+    "h_home": [
+      40,
+      40,
+      20
+    ],
+    "a_all": [
+      40,
+      0,
+      60
+    ],
+    "a_away": [
+      46,
+      15,
+      38
+    ]
+  },
+  "charts": {
+    "wdl": true,
+    "goals": true,
+    "heatmap": true,
+    "edge": true,
+    "promote": false
+  },
+  "scorers": {
+    "home": [
+      {
+        "name": "Negueba",
+        "goals": 5,
+        "assists": 3,
+        "note": "22场全首发,队内头号点"
+      },
+      {
+        "name": "金信珍",
+        "goals": 3,
+        "assists": 0,
+        "note": "替补奇兵,16场6首发3球"
+      },
+      {
+        "name": "吴宰赫",
+        "goals": 2,
+        "assists": 2,
+        "note": "中场插上第二点"
+      }
+    ],
+    "away": [
+      {
+        "name": "李浩宰(Lee Ho-Jae)",
+        "goals": 8,
+        "assists": 0,
+        "note": "一人包办全队38%进球,单点依赖"
+      },
+      {
+        "name": "特兰齐斯卡",
+        "goals": 4,
+        "assists": 2,
+        "note": "锋线搭档"
+      },
+      {
+        "name": "万德森",
+        "goals": 3,
+        "assists": 2,
+        "note": "后卫插上是第三火力"
+      }
+    ]
+  },
+  "hook_type": "数据实战"
+}

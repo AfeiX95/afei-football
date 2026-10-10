@@ -1,0 +1,109 @@
+{
+  "title": "周四004 巴甲 巴竞技vs米内罗",
+  "tags": [],
+  "competition": "巴甲第29轮",
+  "first_leg": "巴甲第29轮",
+  "match_time": "10月9日(周五)07:00 北京时间",
+  "venue": "Arena da Baixada(库里蒂巴)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "odds": {
+    "H": 1.95,
+    "D": 3.05,
+    "A": 3.46
+  },
+  "hhad": {
+    "H": 4.3,
+    "D": 3.45,
+    "A": 1.65
+  },
+  "handicap_line": -1,
+  "market_type": "handicap",
+  "score_odds": [],
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 4,
+      "d": 4,
+      "l": 2
+    },
+    "away_form": {
+      "w": 5,
+      "d": 3,
+      "l": 2
+    }
+  },
+  "_口径说明": {
+    "近况口径": "form.py 近10场: 巴竞技 4胜4平2负 17/17=1.70/1.70, 主场 2胜2平0负; 米内罗 5胜3平2负 14/11=1.40/1.10, 客场 0胜2平2负(4场不胜)",
+    "盘口": "竞彩 1.95/3.05/3.46; 让球(-1) 4.30/3.45/1.65 → 去水 20.6/25.7/53.7(受让方守住差 33.1 点, 全批最大)",
+    "人事": "巴竞技主帅 Hellmann 被 STJD 停 4 场(不在替补席)、Aguirre 三黄停赛、两名球员伤缺; 米内罗四人医疗组 + 三人因长途飞行休整, 四人回归",
+    "λ盲区": "巴竞技场均 1.70/1.70 属'攻强守漏'; 米内罗客场 0 胜样本仅 4 场(§5: ≤3 场才禁用, 4 场仍偏小) → 模型对客场低进球可能低估"
+  },
+  "teams": {
+    "home": {
+      "name": "巴拉纳竞技",
+      "league": "巴甲",
+      "gf": 1.7,
+      "ga": 1.7,
+      "gf_special": 1.7,
+      "ga_special": 1.7,
+      "special_label": "近10场",
+      "recent": {
+        "gf": 1.7,
+        "ga": 1.7
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "米内罗竞技",
+      "league": "巴甲",
+      "gf": 1.4,
+      "ga": 1.1,
+      "gf_special": 1.4,
+      "ga_special": 1.1,
+      "special_label": "近10场",
+      "recent": {
+        "gf": 1.4,
+        "ga": 1.1
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      40,
+      40,
+      20
+    ],
+    "h_home": [
+      50,
+      50,
+      0
+    ],
+    "a_all": [
+      50,
+      30,
+      20
+    ],
+    "a_away": [
+      0,
+      50,
+      50
+    ]
+  },
+  "charts": {
+    "wdl": false,
+    "goals": false,
+    "heatmap": false,
+    "edge": true,
+    "promote": false
+  },
+  "skeleton": "内部判断用",
+  "hook_type": "",
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": ""
+}

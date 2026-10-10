@@ -1,0 +1,204 @@
+{
+  "title": "英冠9月12日010:西汉姆联vs雷克瑟姆,让1球的门槛与客队客场铁桶,首次交锋深度分析",
+  "tags": [
+    "#英冠",
+    "#西汉姆联",
+    "#雷克瑟姆"
+  ],
+  "competition": "英冠 2026/2027 常规赛",
+  "first_leg": "第7轮",
+  "match_time": "9月12日(周六)03:00 北京时间",
+  "venue": "伦敦体育场(西汉姆联主场)",
+  "weather": "微雨,17℃～18℃",
+  "draw_to_penalties": true,
+  "promotion": "win",
+  "odds": {
+    "H": 1.42,
+    "D": 4.2,
+    "A": 5.35
+  },
+  "handicap_odds": {
+    "line": 1,
+    "direction": "home_minus",
+    "H": 2.32,
+    "D": 3.55,
+    "A": 2.4
+  },
+  "score_odds": [
+    [
+      1,
+      0,
+      8.75
+    ],
+    [
+      2,
+      0,
+      8.0
+    ],
+    [
+      2,
+      1,
+      6.95
+    ],
+    [
+      3,
+      0,
+      11.0
+    ],
+    [
+      3,
+      1,
+      10.5
+    ],
+    [
+      3,
+      2,
+      20.0
+    ],
+    [
+      0,
+      0,
+      17.0
+    ],
+    [
+      1,
+      1,
+      8.0
+    ],
+    [
+      2,
+      2,
+      14.0
+    ],
+    [
+      0,
+      1,
+      18.0
+    ],
+    [
+      0,
+      2,
+      33.0
+    ],
+    [
+      1,
+      2,
+      15.0
+    ],
+    [
+      0,
+      3,
+      85.0
+    ],
+    [
+      1,
+      3,
+      45.0
+    ],
+    [
+      2,
+      3,
+      45.0
+    ]
+  ],
+  "strategy": {
+    "home_mult": 0.9,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 4,
+      "d": 1,
+      "l": 0
+    },
+    "away_form": {
+      "w": 1,
+      "d": 3,
+      "l": 1
+    }
+  },
+  "teams": {
+    "home": {
+      "name": "西汉姆联",
+      "league": "英冠",
+      "gf": 2.1,
+      "ga": 1.4,
+      "gf_special": 2.67,
+      "ga_special": 1.33,
+      "special_label": "主场",
+      "recent": {
+        "gf": 2.33,
+        "ga": 1.5
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "雷克瑟姆",
+      "league": "英冠",
+      "gf": 1.1,
+      "ga": 0.9,
+      "gf_special": 1.33,
+      "ga_special": 0.33,
+      "special_label": "客场",
+      "recent": {
+        "gf": 1.17,
+        "ga": 0.83
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      50,
+      40,
+      10
+    ],
+    "h_home": [
+      75,
+      0,
+      25
+    ],
+    "a_all": [
+      20,
+      40,
+      40
+    ],
+    "a_away": [
+      33,
+      33,
+      33
+    ]
+  },
+  "scorers": {
+    "home": [
+      {
+        "name": "西汉姆联",
+        "goals": 14,
+        "assists": 0,
+        "note": "6轮14球,联赛进攻第一梯队;上一场评分最高马夫罗帕诺斯8.2"
+      }
+    ],
+    "away": [
+      {
+        "name": "雷克瑟姆",
+        "goals": 7,
+        "assists": 0,
+        "note": "6轮7球且4平;客场3场仅失1球(0.33/场)"
+      }
+    ]
+  },
+  "charts": {
+    "wdl": true,
+    "goals": true,
+    "heatmap": true,
+    "edge": true
+  },
+  "skeleton": "深度账本对照式",
+  "hook_type": "冷门探讨",
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": "",
+  "illustration": {
+    "en": "West Ham United vs Wrexham Championship September 2026 | Wrexham away Championship 2026 | London Stadium West Ham 2026",
+    "cn": "西汉姆联 英冠 主场 2026 | 西汉姆联 雷克瑟姆 英冠 | 雷克瑟姆 客场 英冠 2026"
+  }
+}

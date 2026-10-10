@@ -1,0 +1,133 @@
+/* ============================================================
+   style B · 对决红 (Derby Red)
+   气质: 对抗 / 悬念 / 热血 — 恩怨局、德比、淘汰赛生死战
+   主色: #C0392B 红 | 辅色: #1A1A1A 黑 | 强调: #F5B041 金
+   背景: #FFFFFF
+   轮换记录: (空)
+   ============================================================ */
+
+#content {
+  color: #333333;
+  font-size: 16px;
+  line-height: 1.78;
+  letter-spacing: 0.4px;
+}
+
+/* 大标题 */
+#content h1 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1A1A1A;
+  text-align: left;
+  margin: 28px 0 20px;
+  padding: 10px 14px;
+  background: linear-gradient(90deg, #C0392B 0%, #C0392B 8px, #F7F0EC 8px, #F7F0EC 100%);
+  border-radius: 4px;
+}
+
+/* 章节标题: 黑底红标, 硬核对决感 */
+#content h2 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1A1A1A;
+  margin: 32px 0 14px;
+  padding: 8px 0 8px 14px;
+  border-left: 5px solid #C0392B;
+  background: linear-gradient(90deg, rgba(192,57,43,0.10), transparent 70%);
+}
+#content h2 strong {
+  color: #C0392B;
+}
+
+/* 三级标题 */
+#content h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #C0392B;
+  margin: 22px 0 10px;
+}
+
+/* 强调: 红字加粗 + 黑底高亮 */
+#content strong {
+  color: #C0392B;
+  font-weight: 800;
+}
+#content strong.hl {
+  background: #1A1A1A;
+  color: #F5B041;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+/* 引用块: 左侧红条, 恩怨/宣言感 */
+#content blockquote {
+  margin: 16px 0;
+  padding: 14px 16px;
+  background: #FDF6F5;
+  border-left: 5px solid #C0392B;
+  border-radius: 0 6px 6px 0;
+  color: #7A4A42;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+/* 表格: 黑头红边 */
+#content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 16px 0;
+}
+#content table th {
+  background: #1A1A1A;
+  color: #fff;
+  font-weight: 700;
+  padding: 9px 10px;
+  border: 1px solid #1A1A1A;
+}
+#content table td {
+  padding: 8px 10px;
+  border: 1px solid #E3D5D1;
+  color: #333;
+}
+#content table tr:nth-child(even) td {
+  background: #FBF4F2;
+}
+
+/* 分隔线: 双线对抗感 */
+#content hr {
+  border: none;
+  border-top: 3px double #C0392B;
+  margin: 30px 0;
+  opacity: 0.55;
+}
+
+/* 图片与图注 */
+#content img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #EDE0DB;
+  margin: 12px 0 4px;
+}
+#content em {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  color: #A18882;
+  font-style: normal;
+  margin-bottom: 16px;
+}
+
+/* 信息卡 */
+#content blockquote.info {
+  background: #fff;
+  border: 1px solid #E3D5D1;
+  border-left: 5px solid #C0392B;
+  font-size: 14px;
+}
+
+/* 链接 */
+#content a {
+  color: #C0392B;
+  text-decoration: underline;
+}

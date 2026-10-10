@@ -1,0 +1,17 @@
+{
+  "schema": 2,
+  "updated_at": "2026-09-20",
+  "sample_size": 560,
+  "coef": {
+    "draw": 1.011,
+    "hot": 1.001,
+    "cold": 0.986
+  },
+  "buckets": {
+    "draw_20_30": 1.048,
+    "hot_40_70": 1.022,
+    "cold_0_30": 0.929
+  },
+  "basis": "direction-averaged ratio (weekly_update.compute_coefs), z^2 shrinkage toward 1.0",
+  "_note": "由 calibration_audit.py 生成。应用方式: 覆盖 calibration_state.json。"
+}

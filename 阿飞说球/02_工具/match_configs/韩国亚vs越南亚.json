@@ -1,0 +1,111 @@
+{
+  "tags": [
+    "#亚运男足",
+    "#韩国",
+    "#越南"
+  ],
+  "weather": "暂无公开数据",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "market_type": "handicap",
+  "score_odds": [],
+  "charts": {
+    "wdl": false,
+    "goals": false,
+    "heatmap": false,
+    "edge": false,
+    "promote": false
+  },
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": "",
+  "illustration": [],
+  "title": "周五004 亚运男足 韩国亚运男足 vs 越南亚运男足：待定",
+  "competition": "亚运男足 2026",
+  "match_time": "9月25日(周五)18:30 北京时间",
+  "venue": "赛会制, 待查官宣场地",
+  "handicap_line": -1,
+  "hhad": {
+    "H": 1.69,
+    "D": 3.65,
+    "A": 3.8
+  },
+  "odds": {
+    "H": 1.18,
+    "D": 5.22,
+    "A": 11.0
+  },
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 10,
+      "d": 0,
+      "l": 0
+    },
+    "away_form": {
+      "w": 5,
+      "d": 1,
+      "l": 4
+    }
+  },
+  "teams": {
+    "home": {
+      "name": "韩国亚运男足",
+      "league": "亚运男足",
+      "gf": 3.2,
+      "ga": 0.3,
+      "gf_special": 3.0,
+      "ga_special": 0.33,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 3.2,
+        "ga": 0.3
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "越南亚运男足",
+      "league": "亚运男足",
+      "gf": 1.2,
+      "ga": 1.5,
+      "gf_special": 0.75,
+      "ga_special": 1.75,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 1.2,
+        "ga": 1.5
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      100,
+      0,
+      0
+    ],
+    "h_home": [
+      100,
+      0,
+      0
+    ],
+    "a_all": [
+      50,
+      10,
+      40
+    ],
+    "a_away": [
+      50,
+      0,
+      50
+    ]
+  },
+  "_口径说明": [
+    "胜平负 1.18/5.22/11.00; 让球线 -1 的 1.69/3.65/3.80 —— 竞彩官方(用户提供)。",
+    "韩国近10场 10胜0平0负(进32失3) 跨2023–2026, 含 7:0老挝/5:0澳门/3:0缅甸 等刷球场次 → **虚胖**; 今年内只有2场(2:0沙特、4:1卡塔尔)。",
+    "越南近10场 5胜1平4负(进12失15); 今年内3场: 0:2负乌兹别、2:0胜菲律宾、1:1平科威特。",
+    "间接链条: 韩国2023年主2:1胜乌兹别; 越南近两年两次碰乌兹别一球未进丢5球(0:3/0:2) → 韩国>乌兹别>越南(跨届)。"
+  ]
+}

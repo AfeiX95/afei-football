@@ -1,0 +1,111 @@
+{
+  "tags": [
+    "#欧国联",
+    "#科索沃",
+    "#爱尔兰"
+  ],
+  "weather": "暂无公开数据",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "market_type": "handicap",
+  "score_odds": [],
+  "charts": {
+    "wdl": false,
+    "goals": false,
+    "heatmap": false,
+    "edge": false,
+    "promote": false
+  },
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": "",
+  "illustration": [],
+  "title": "周四004 欧国联 科索沃 vs 爱尔兰：待定",
+  "competition": "欧洲国家联赛 2026",
+  "match_time": "9月25日(周五)02:45 北京时间",
+  "venue": "待查官宣场地",
+  "handicap_line": -1,
+  "hhad": {
+    "H": 5.35,
+    "D": 3.88,
+    "A": 1.46
+  },
+  "odds": {
+    "H": 2.33,
+    "D": 2.92,
+    "A": 2.8
+  },
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 5,
+      "d": 2,
+      "l": 3
+    },
+    "away_form": {
+      "w": 5,
+      "d": 3,
+      "l": 2
+    }
+  },
+  "teams": {
+    "home": {
+      "name": "科索沃",
+      "league": "欧国联",
+      "gf": 1.4,
+      "ga": 1.1,
+      "gf_special": 1.2,
+      "ga_special": 0.4,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 1.4,
+        "ga": 1.1
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "爱尔兰",
+      "league": "欧国联",
+      "gf": 1.6,
+      "ga": 0.8,
+      "gf_special": 1.4,
+      "ga_special": 1.6,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 1.6,
+        "ga": 0.8
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      50,
+      20,
+      30
+    ],
+    "h_home": [
+      40,
+      40,
+      20
+    ],
+    "a_all": [
+      50,
+      30,
+      20
+    ],
+    "a_away": [
+      20,
+      40,
+      40
+    ]
+  },
+  "_口径说明": [
+    "胜平负 2.33/2.92/2.80; 让球线 -1 的 5.35/3.88/1.46 —— 竞彩官方 2026-09-24 11:11 抓取。",
+    "科索沃近10场 5胜2平3负(进14失11), 同主客: 主场5场6:2(2胜2平1负) / 客场5场8:9(3胜0平2负)。",
+    "爱尔兰近10场 5胜3平2负(进16失8), 同主客: 主场5场9:0(4胜1平0负, 主场零封) / 客场5场7:8(1胜2平2负)。",
+    "共同对手捷克: 科索沃客场 2026-05-31 1:2 负; 爱尔兰客场 2026-03-27 2:2 平。"
+  ]
+}

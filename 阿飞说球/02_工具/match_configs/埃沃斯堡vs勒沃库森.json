@@ -1,0 +1,160 @@
+{
+  "title": "占位",
+  "tags": [
+    "#德甲",
+    "#埃沃斯堡",
+    "#勒沃库森"
+  ],
+  "competition": "德甲 2026/27 第1轮",
+  "first_leg": "联赛揭幕轮",
+  "match_time": "8月29日(周六)21:30 北京时间",
+  "venue": "瓦德斯塔迪翁(埃沃斯堡主场)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": true,
+  "promotion": "win",
+  "odds": {
+    "H": 5.12,
+    "D": 4.35,
+    "A": 1.42
+  },
+  "score_odds": [
+    [
+      1,
+      0,
+      21.0
+    ],
+    [
+      2,
+      0,
+      31.0
+    ],
+    [
+      2,
+      1,
+      14.0
+    ],
+    [
+      0,
+      0,
+      23.0
+    ],
+    [
+      1,
+      1,
+      8.75
+    ],
+    [
+      2,
+      2,
+      12.0
+    ],
+    [
+      0,
+      1,
+      11.0
+    ],
+    [
+      0,
+      2,
+      9.5
+    ],
+    [
+      1,
+      2,
+      7.0
+    ],
+    [
+      0,
+      3,
+      13.0
+    ],
+    [
+      1,
+      3,
+      10.5
+    ],
+    [
+      2,
+      3,
+      15.5
+    ]
+  ],
+  "strategy": {
+    "home_mult": 0.85,
+    "away_mult": 0.88,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 6,
+      "d": 2,
+      "l": 2
+    },
+    "away_form": {
+      "w": 7,
+      "d": 1,
+      "l": 2
+    }
+  },
+  "teams": {
+    "home": {
+      "name": "埃沃斯堡",
+      "league": "德甲",
+      "gf": 1.3,
+      "ga": 1.6,
+      "gf_special": 1.3,
+      "ga_special": 1.6,
+      "special_label": "主场",
+      "recent": {
+        "gf": 1.3,
+        "ga": 1.6
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "勒沃库森",
+      "league": "德甲",
+      "gf": 2.5,
+      "ga": 1.0,
+      "gf_special": 2.5,
+      "ga_special": 1.0,
+      "special_label": "客场",
+      "recent": {
+        "gf": 2.5,
+        "ga": 1.0
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      60,
+      20,
+      20
+    ],
+    "h_home": [
+      70,
+      10,
+      20
+    ],
+    "a_all": [
+      70,
+      10,
+      20
+    ],
+    "a_away": [
+      50,
+      20,
+      30
+    ]
+  },
+  "charts": {
+    "wdl": true,
+    "goals": true,
+    "heatmap": true,
+    "edge": true
+  },
+  "skeleton": "悬念侦探式",
+  "hook_type": "数据实战",
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": ""
+}

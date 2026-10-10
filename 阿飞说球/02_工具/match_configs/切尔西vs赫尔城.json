@@ -1,0 +1,153 @@
+{
+  "title": "周六012英超:切尔西1.11让两球,赢球八成赢盘不到四成",
+  "tags": [
+    "#英超",
+    "#切尔西",
+    "#赫尔城"
+  ],
+  "competition": "英超 2026/2027 常规赛",
+  "first_leg": "第4轮",
+  "match_time": "9月12日(周六)22:00 北京时间",
+  "venue": "斯坦福桥球场(伦敦)",
+  "weather": "待赛前更新",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "odds": {
+    "H": 1.11,
+    "D": 6.6,
+    "A": 13.0
+  },
+  "market_type": "european",
+  "score_odds": [
+    [
+      "1",
+      "0",
+      "6.50"
+    ],
+    [
+      "2",
+      "0",
+      "5.50"
+    ],
+    [
+      "2",
+      "1",
+      "8.00"
+    ],
+    [
+      "3",
+      "0",
+      "7.00"
+    ],
+    [
+      "3",
+      "1",
+      "9.00"
+    ],
+    [
+      "1",
+      "1",
+      "13.00"
+    ],
+    [
+      "0",
+      "0",
+      "19.00"
+    ],
+    [
+      "0",
+      "1",
+      "26.00"
+    ]
+  ],
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 4,
+      "d": 1,
+      "l": 0
+    },
+    "away_form": {
+      "w": 1,
+      "d": 1,
+      "l": 3
+    }
+  },
+  "teams": {
+    "home": {
+      "name": "切尔西",
+      "league": "英超",
+      "gf": 2.3,
+      "ga": 0.9,
+      "gf_special": 2.3,
+      "ga_special": 0.9,
+      "special_label": "主场",
+      "recent": {
+        "gf": 2.3,
+        "ga": 0.9
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "赫尔城",
+      "league": "英超",
+      "gf": 1.0,
+      "ga": 2.0,
+      "gf_special": 1.0,
+      "ga_special": 2.0,
+      "special_label": "客场",
+      "recent": {
+        "gf": 1.0,
+        "ga": 2.0
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      70,
+      20,
+      10
+    ],
+    "h_home": [
+      80,
+      10,
+      10
+    ],
+    "a_all": [
+      20,
+      30,
+      50
+    ],
+    "a_away": [
+      20,
+      30,
+      50
+    ]
+  },
+  "charts": {
+    "wdl": true,
+    "goals": true,
+    "heatmap": true,
+    "edge": true,
+    "promote": false
+  },
+  "skeleton": "强弱错位式",
+  "hook_type": "数据反问",
+  "sections": [
+    {
+      "type": "para",
+      "text": "周六012,英超。切尔西1.11是当天最热的一场,主胜隐含79.8%,让球线-2,让胜38.2%对让负39.4%。"
+    }
+  ],
+  "ending_hook": "",
+  "ending_line": "数据不会说谎,但人会。——阿飞·赛博聊球",
+  "hhad": {
+    "H": 2.32,
+    "D": 3.95,
+    "A": 2.25
+  },
+  "handicap_line": -2
+}

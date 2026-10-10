@@ -1,0 +1,111 @@
+{
+  "tags": [
+    "#国际赛",
+    "#日本",
+    "#乌拉圭"
+  ],
+  "weather": "暂无公开数据",
+  "draw_to_penalties": false,
+  "promotion": "win",
+  "market_type": "handicap",
+  "score_odds": [],
+  "charts": {
+    "wdl": false,
+    "goals": false,
+    "heatmap": false,
+    "edge": false,
+    "promote": false
+  },
+  "sections": [],
+  "ending_hook": "",
+  "ending_line": "",
+  "illustration": [],
+  "title": "周四001 国际赛 日本 vs 乌拉圭：待定",
+  "competition": "国际赛(2026年9月国际比赛日)",
+  "match_time": "9月24日(周四)18:05 北京时间",
+  "venue": "待查官宣场地",
+  "handicap_line": -1,
+  "hhad": {
+    "H": 3.88,
+    "D": 3.45,
+    "A": 1.72
+  },
+  "odds": {
+    "H": 1.89,
+    "D": 3.15,
+    "A": 3.53
+  },
+  "strategy": {
+    "home_mult": 1.0,
+    "away_mult": 1.0,
+    "home_adv": 0.15,
+    "home_form": {
+      "w": 7,
+      "d": 2,
+      "l": 1
+    },
+    "away_form": {
+      "w": 2,
+      "d": 6,
+      "l": 2
+    }
+  },
+  "teams": {
+    "home": {
+      "name": "日本",
+      "league": "国际赛",
+      "gf": 1.9,
+      "ga": 0.7,
+      "gf_special": 2.0,
+      "ga_special": 0.6,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 1.9,
+        "ga": 0.7
+      },
+      "rating": 0
+    },
+    "away": {
+      "name": "乌拉圭",
+      "league": "国际赛",
+      "gf": 0.8,
+      "ga": 1.1,
+      "gf_special": 0.71,
+      "ga_special": 1.14,
+      "special_label": "同主客",
+      "recent": {
+        "gf": 0.8,
+        "ga": 1.1
+      },
+      "rating": 0
+    }
+  },
+  "recent10": {
+    "h_all": [
+      70,
+      20,
+      10
+    ],
+    "h_home": [
+      80,
+      20,
+      0
+    ],
+    "a_all": [
+      20,
+      60,
+      20
+    ],
+    "a_away": [
+      14,
+      72,
+      14
+    ]
+  },
+  "_口径说明": [
+    "胜平负 1.89/3.15/3.53; 让球线 -1 的 3.88/3.45/1.72 —— 竞彩官方 2026-09-23 09:17 抓取, 与用户贴的一致。",
+    "日本近10场 7胜2平1负(进19失7), 同主客: 主场5场10:3 / 客场5场9:4 —— 三样与页面总数对表一致。",
+    "乌拉圭近10场 2胜6平2负(进8失11), 同主客: 主场3场3:3 / 客场7场5:8; 客场 1胜5平1负, 平局密度高。",
+    "日本 2026-06-30 世界杯出局后到本场有近 3 个月空窗, 状态属新变量; 场地待查。"
+  ]
+}

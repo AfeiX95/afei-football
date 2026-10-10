@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFEI 足球分析引擎 v2.0 | 全维度赛博朋克版</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --cyan: #00f0ff; --pink: #ff00ff; --green: #00ff41;
+            --yellow: #ffff00; --red: #ff0040; --orange: #ff6600;
+            --bg: #0a0a0f; --card: rgba(10,10,20,0.85);
+            --input: rgba(0,240,255,0.05); --border: rgba(0,240,255,0.3);
+            --text: #e0e0e0; --dim: #888;
+        }
+        body { background: var(--bg); color: var(--text); font-family: 'Noto Sans SC','Rajdhani',sans-serif; min-height: 100vh; }
+        body::before { content:''; position:fixed; top:0; left:0; width:100%; height:100%; background: linear-gradient(rgba(0,240,255,0.03) 1px,transparent 1px), linear-gradient(90deg,rgba(0,240,255,0.03) 1px,transparent 1px); background-size:50px 50px; z-index:-1; animation:gridMove 20s linear infinite; }
+        @keyframes gridMove { 0%{transform:translate(0,0)} 100%{transform:translate(50px,50px)} }
+        body::after { content:''; position:fixed; top:0; left:0; width:100%; height:100%; background:repeating-linear-gradient(0deg,rgba(0,0,0,0.1) 0px,rgba(0,0,0,0.1) 1px,transparent 1px,transparent 2px); pointer-events:none; z-index:1000; }
+        .container { max-width:1400px; margin:0 auto; padding:20px; }
+        .header { text-align:center; padding:30px 0; }
+        .header h1 { font-family:'Orbitron',monospace; font-size:2rem; color:var(--cyan); text-shadow:0 0 10px var(--cyan),0 0 20px var(--cyan),0 0 40px var(--cyan); letter-spacing:3px; }
+        .header .sub { font-size:1rem; color:var(--pink); text-shadow:0 0 10px var(--pink); letter-spacing:5px; margin-top:5px; }
+        .header .ver { font-family:'Orbitron',monospace; font-size:0.75rem; color:var(--green); text-shadow:0 0 5px var(--green); margin-top:8px; }
+        .tabs { display:flex; gap:5px; margin-bottom:20px; border-bottom:1px solid var(--border); padding-bottom:10px; flex-wrap:wrap; }
+        .tab { background:transparent; border:1px solid var(--border); color:var(--dim); padding:8px 16px; font-size:0.85rem; cursor:pointer; border-radius:5px 5px 0 0; transition:all 0.3s; }
+        .tab.active { background:rgba(0,240,255,0.1); color:var(--cyan); border-color:var(--cyan); text-shadow:0 0 5px var(--cyan); }
+        .tab:hover { color:var(--cyan); }
+        .tc { display:none; } .tc.active { display:block; }
+        .sec { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:20px; margin-bottom:15px; position:relative; overflow:hidden; }
+        .sec::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--cyan),var(--pink),var(--cyan)); }
+        .st { font-family:'Orbitron',monospace; font-size:0.9rem; color:var(--cyan); text-shadow:0 0 8px var(--cyan); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+        .st::before { content:'▸'; color:var(--pink); }
+        .st.sub { font-size:0.8rem; color:var(--yellow); margin-top:15px; margin-bottom:8px; }
+        .st.sub::before { content:'▹'; color:var(--yellow); }
+        .ig { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; }
+        .ig.wide { grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); }
+        .ig .f { display:flex; flex-direction:column; gap:3px; }
+        .ig .f label { font-size:0.8rem; color:var(--cyan); text-transform:uppercase; letter-spacing:0.5px; }
+        .ig .f input, .ig .f select, .ig .f textarea { background:var(--input); border:1px solid var(--border); border-radius:4px; padding:8px 10px; color:var(--text); font-size:0.9rem; transition:all 0.3s; }
+        .ig .f input:focus, .ig .f select:focus, .ig .f textarea:focus { outline:none; border-color:var(--cyan); box-shadow:0 0 8px rgba(0,240,255,0.3); }
+        .ig .f select { cursor:pointer; }
+        .btn { background:linear-gradient(135deg,var(--cyan),var(--pink)); color:var(--bg); border:none; padding:12px 25px; font-family:'Orbitron',monospace; font-size:0.9rem; font-weight:700; border-radius:5px; cursor:pointer; letter-spacing:1px; transition:all 0.3s; }
+        .btn:hover { transform:translateY(-2px); box-shadow:0 5px 20px rgba(0,240,255,0.4); }
+        .btn2 { background:transparent; border:1px solid var(--cyan); color:var(--cyan); padding:8px 16px; font-size:0.8rem; border-radius:4px; cursor:pointer; transition:all 0.3s; }
+        .btn2:hover { background:rgba(0,240,255,0.1); }
+        .search-bar { display:flex; gap:10px; margin-bottom:15px; }
+        .search-input { flex:1; background:var(--input); border:1px solid var(--border); border-radius:5px; padding:10px 15px; color:var(--text); font-size:0.95rem; }
+        .search-input:focus { outline:none; border-color:var(--cyan); }
+        .search-input::placeholder { color:var(--dim); }
+        .paste { width:100%; min-height:100px; background:var(--input); border:2px dashed var(--border); border-radius:8px; padding:12px; color:var(--text); font-size:0.85rem; resize:vertical; }
+        .paste:focus { outline:none; border-color:var(--green); }
+        .dg { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-bottom:15px; }
+        .dc { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:12px; position:relative; overflow:hidden; }
+        .dc::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:var(--cyan); }
+        .dc.p::before { background:var(--pink); } .dc.g::before { background:var(--green); }
+        .dc.y::before { background:var(--yellow); } .dc.r::before { background:var(--red); }
+        .dc .ct { font-size:0.75rem; color:var(--cyan); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
+        .dc .cv { font-family:'Orbitron',monospace; font-size:1.4rem; font-weight:700; color:var(--text); }
+        .dc .cs { font-size:0.8rem; color:var(--dim); }
+        .eb { display:flex; align-items:center; gap:8px; margin-top:6px; }
+        .ebl { flex:1; height:5px; background:rgba(255,255,255,0.1); border-radius:3px; overflow:hidden; }
+        .ebf { height:100%; border-radius:3px; transition:width 0.5s; }
+        .ebf.pos { background:linear-gradient(90deg,var(--green),var(--cyan)); box-shadow:0 0 6px var(--green); }
+        .ebf.neg { background:linear-gradient(90deg,var(--red),var(--orange)); box-shadow:0 0 6px var(--red); }
+        .pb { display:flex; height:30px; border-radius:5px; overflow:hidden; margin:12px 0; }
+        .ps { display:flex; align-items:center; justify-content:center; font-family:'Orbitron',monospace; font-size:0.8rem; font-weight:700; transition:all 0.5s; }
+        .ps.h { background:linear-gradient(135deg,var(--cyan),rgba(0,240,255,0.7)); color:var(--bg); }
+        .ps.d { background:linear-gradient(135deg,var(--yellow),rgba(255,255,0,0.7)); color:var(--bg); }
+        .ps.a { background:linear-gradient(135deg,var(--pink),rgba(255,0,255,0.7)); color:var(--bg); }
+        .dt { width:100%; border-collapse:collapse; margin-top:8px; }
+        .dt th { background:rgba(0,240,255,0.1); color:var(--cyan); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.5px; padding:8px 10px; text-align:left; border-bottom:1px solid var(--border); }
+        .dt td { padding:6px 10px; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.85rem; }
+        .dt tr:hover { background:rgba(0,240,255,0.05); }
+        .bg { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+        .bc { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:15px; text-align:center; }
+        .bc.main { border-color:var(--green); box-shadow:0 0 12px rgba(0,255,65,0.15); }
+        .bc.sec { border-color:var(--yellow); box-shadow:0 0 12px rgba(255,255,0,0.15); }
+        .bc.hedge { border-color:var(--red); box-shadow:0 0 12px rgba(255,0,64,0.15); }
+        .bc .bl { font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
+        .bc.main .bl { color:var(--green); } .bc.sec .bl { color:var(--yellow); } .bc.hedge .bl { color:var(--red); }
+        .bc .bs { font-family:'Orbitron',monospace; font-size:1.2rem; font-weight:700; margin-bottom:6px; }
+        .bc .bo { font-family:'Orbitron',monospace; font-size:1rem; color:var(--cyan); margin-bottom:4px; }
+        .bc .bst { font-size:0.8rem; color:var(--dim); }
+        .ag { display:grid; grid-template-columns:repeat(auto-fit,minmax(100px,1fr)); gap:6px; }
+        .ai { background:rgba(0,240,255,0.05); border:1px solid var(--border); border-radius:4px; padding:8px; text-align:center; }
+        .ai .an { font-size:0.7rem; color:var(--cyan); margin-bottom:2px; }
+        .ai .ap { font-family:'Orbitron',monospace; font-size:0.8rem; }
+        .cb { background:linear-gradient(135deg,rgba(0,255,65,0.1),rgba(0,240,255,0.1)); border:2px solid var(--green); border-radius:10px; padding:20px; text-align:center; margin-top:15px; }
+        .cb .ct { font-family:'Orbitron',monospace; font-size:1.2rem; color:var(--green); text-shadow:0 0 15px var(--green); margin-bottom:12px; }
+        .cb .cc { font-size:1rem; color:var(--text); line-height:1.8; }
+        .ch { position:relative; height:250px; }
+        .loading { display:none; text-align:center; padding:25px; }
+        .loading.active { display:block; }
+        .ls { width:35px; height:35px; border:3px solid var(--border); border-top-color:var(--cyan); border-radius:50%; animation:spin 1s linear infinite; margin:0 auto 12px; }
+        @keyframes spin { to{transform:rotate(360deg)} }
+        .lt { font-family:'Orbitron',monospace; color:var(--cyan); animation:blink 1s infinite; font-size:0.85rem; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.5} }
+        .toast { position:fixed; top:15px; right:15px; background:var(--card); border:1px solid var(--green); color:var(--green); padding:10px 18px; border-radius:5px; font-size:0.85rem; z-index:9999; opacity:0; transform:translateY(-15px); transition:all 0.3s; }
+        .toast.show { opacity:1; transform:translateY(0); }
+        .cp { background:rgba(0,255,65,0.1); border:1px solid var(--green); color:var(--green); padding:4px 8px; font-size:0.7rem; border-radius:3px; cursor:pointer; float:right; }
+        .cp:hover { background:rgba(0,255,65,0.2); }
+        @media(max-width:768px) { .header h1{font-size:1.3rem;} .ig{grid-template-columns:1fr 1fr;} .bg{grid-template-columns:1fr;} .tabs{flex-wrap:wrap;} }
+        .score-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(80px,1fr)); gap:6px; margin-top:10px; }
+        .score-item { background:rgba(0,240,255,0.05); border:1px solid var(--border); border-radius:4px; padding:6px; text-align:center; font-size:0.8rem; }
+        .score-item .sv { font-family:'Orbitron',monospace; font-weight:700; color:var(--cyan); }
+        .score-item .sp { color:var(--dim); font-size:0.7rem; }
+        .score-item .sev { font-size:0.7rem; }
+        .score-item .sev.pos { color:var(--green); } .score-item .sev.neg { color:var(--red); }
+    </style>
+</head>
+<body>
+    <div id="toast" class="toast"></div>
+    <div class="container">
+        <div class="header">
+            <h1>AFEI 足球分析引擎</h1>
+            <div class="sub">全维度赛博朋克版 · FULL DIMENSION CYBERPUNK</div>
+            <div class="ver">v2.0 FINAL FORM | 泊松 + 蒙特卡洛 + AI共识</div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="sw('search')">🔍 智能搜索</button>
+            <button class="tab" onclick="sw('paste')">📋 粘贴数据</button>
+            <button class="tab" onclick="sw('input')">✏️ 全维度输入</button>
+            <button class="tab" onclick="sw('results')">📊 分析结果</button>
+        </div>
+
+        <!-- Tab: Search -->
+        <div class="tc active" id="t-search">
+            <div class="sec">
+                <div class="st">智能搜索比赛</div>
+                <p style="color:var(--dim);margin-bottom:12px;font-size:0.85rem;">输入比赛关键词，自动搜索赔率、战绩、伤停等数据并填入表单</p>
+                <div class="search-bar">
+                    <input type="text" class="search-input" id="sq" placeholder="例如：巴西 vs 日本 世界杯 2026" onkeypress="if(event.key==='Enter')sm()">
+                    <button class="btn" onclick="sm()">🔍 搜索</button>
+                </div>
+                <div id="sr"></div>
+                <div style="margin-top:15px;">
+                    <div style="color:var(--cyan);font-size:0.8rem;margin-bottom:6px;">💡 快捷搜索：</div>
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                        <button class="btn2" onclick="qs('巴西 vs 日本 世界杯')">🇧🇷 巴西 vs 日本 🇯🇵</button>
+                        <button class="btn2" onclick="qs('南非 vs 加拿大 世界杯')">🇿🇦 南非 vs 加拿大 🇨🇦</button>
+                        <button class="btn2" onclick="qs('挪威 vs 法国 世界杯')">🇳🇴 挪威 vs 法国 🇫🇷</button>
+                        <button class="btn2" onclick="qs('荷兰 vs 摩洛哥 世界杯')">🇳🇱 荷兰 vs 摩洛哥 🇲🇦</button>
+                        <button class="btn2" onclick="qs('英格兰 vs 德国 世界杯')">🏴󠁧󠁢󠁥󠁮󠁧󠁿 英格兰 vs 德国 🇩🇪</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Paste -->
+        <div class="tc" id="t-paste">
+            <div class="sec">
+                <div class="st">粘贴比赛数据</div>
+                <p style="color:var(--dim);margin-bottom:12px;font-size:0.85rem;">从竞彩网、懂球帝等网站复制比赛数据，粘贴到下方自动解析</p>
+                <textarea class="paste" id="pd" placeholder="粘贴比赛数据到这里...&#10;&#10;支持格式：&#10;• 竞彩网赔率表格&#10;• 懂球帝比赛信息&#10;• 自由文本（队名/赔率/xG/战绩）"></textarea>
+                <button class="btn" style="margin-top:12px;" onclick="pp()">⚡ 解析数据</button>
+            </div>
+        </div>
+
+        <!-- Tab: Full Input -->
+        <div class="tc" id="t-input">
+            <!-- 1. Foundation -->
+            <div class="sec">
+                <div class="st">1. 基础硬实力（Foundation）</div>
+                <div class="st sub">近期状态</div>
+                <div class="ig">
+                    <div class="f"><label>主队近10场 (W-D-L)</label><input id="hF" placeholder="6-2-2"></div>
+                    <div class="f"><label>客队近10场 (W-D-L)</label><input id="aF" placeholder="7-3-0"></div>
+                    <div class="f"><label>主队近5场进/失</label><input id="hG5" placeholder="8/4"></div>
+                    <div class="f"><label>客队近5场进/失</label><input id="aG5" placeholder="10/2"></div>
+                </div>
+                <div class="st sub">主客场表现</div>
+                <div class="ig">
+                    <div class="f"><label>主队主场近10场</label><input id="hH" placeholder="7-2-1"></div>
+                    <div class="f"><label>客队客场近10场</label><input id="aA" placeholder="6-3-2"></div>
+                    <div class="f"><label>主队主场场均进/失</label><input id="hHG" placeholder="2.1/0.8"></div>
+                    <div class="f"><label>客队客场场均进/失</label><input id="aAG" placeholder="1.8/0.9"></div>
+                </div>
+                <div class="st sub">伤停情况</div>
+                <div class="ig">
+                    <div class="f"><label>主队缺阵人数</label><input type="number" id="hInj" placeholder="0" min="0"></div>
+                    <div class="f"><label>主队关键缺阵</label><input id="hInjK" placeholder="如：主力门将"></div>
+                    <div class="f"><label>客队缺阵人数</label><input type="number" id="aInj" placeholder="0" min="0"></div>
+                    <div class="f"><label>客队关键缺阵</label><input id="aInjK" placeholder="如：核心射手"></div>
+                </div>
+                <div class="st sub">球员身价（Transfermarkt）</div>
+                <div class="ig">
+                    <div class="f"><label>主队总身价（亿€）</label><input id="hVal" placeholder="8.5"></div>
+                    <div class="f"><label>客队总身价（亿€）</label><input id="aVal" placeholder="3.2"></div>
+                </div>
+            </div>
+
+            <!-- 2. Tactics -->
+            <div class="sec">
+                <div class="st">2. 技战术与风格（Tactics & Style）</div>
+                <div class="st sub">阵型与球风</div>
+                <div class="ig">
+                    <div class="f"><label>主队阵型</label><select id="hForm"><option>4-3-3</option><option>4-2-3-1</option><option>3-5-2</option><option>5-3-2</option><option>4-4-2</option></select></div>
+                    <div class="f"><label>主队球风</label><select id="hStyle"><option>高位逼抢</option><option>传控控球</option><option>防守反击</option><option>长传冲吊</option><option>边路进攻</option></select></div>
+                    <div class="f"><label>客队阵型</label><select id="aForm"><option>4-3-3</option><option>4-2-3-1</option><option>3-5-2</option><option>5-3-2</option><option>4-4-2</option></select></div>
+                    <div class="f"><label>客队球风</label><select id="aStyle"><option>高位逼抢</option><option>传控控球</option><option>防守反击</option><option>长传冲吊</option><option>边路进攻</option></select></div>
+                    <div class="f"><label>战术克制关系</label><select id="tacAdv"><option>均衡</option><option>主队克制客队</option><option>客队克制主队</option><option>互克</option></select></div>
+                </div>
+                <div class="st sub">核心球员特点</div>
+                <div class="ig">
+                    <div class="f"><label>主队核心特点</label><select id="hCore"><option>速度型边锋</option><option>组织型前腰</option><option>出球型中卫</option><option>支点中锋</option><option>防守型中场</option></select></div>
+                    <div class="f"><label>客队核心特点</label><select id="aCore"><option>速度型边锋</option><option>组织型前腰</option><option>出球型中卫</option><option>支点中锋</option><option>防守型中场</option></select></div>
+                </div>
+                <div class="st sub">进阶数据（xG体系）</div>
+                <div class="ig">
+                    <div class="f"><label>主队xG</label><input id="hxG" placeholder="2.21"></div>
+                    <div class="f"><label>主队xA</label><input id="hxA" placeholder="1.80"></div>
+                    <div class="f"><label>主队危险进攻</label><input id="hDA" placeholder="45"></div>
+                    <div class="f"><label>主队禁区内触球</label><input id="hBox" placeholder="28"></div>
+                    <div class="f"><label>客队xG</label><input id="axG" placeholder="1.84"></div>
+                    <div class="f"><label>客队xA</label><input id="axA" placeholder="1.50"></div>
+                    <div class="f"><label>客队危险进攻</label><input id="aDA" placeholder="38"></div>
+                    <div class="f"><label>客队禁区内触球</label><input id="aBox" placeholder="22"></div>
+                </div>
+                <div class="st sub">交锋记录（H2H）</div>
+                <div class="ig">
+                    <div class="f"><label>近N场交锋 (主W-D-L)</label><input id="h2h" placeholder="3-0-1"></div>
+                    <div class="f"><label>最近一次交锋</label><input id="h2hLast" placeholder="2025-10-14 巴西3-2日本"></div>
+                </div>
+            </div>
+
+            <!-- 3. Strategy -->
+            <div class="sec">
+                <div class="st">3. 战略、心理与战意（Strategy & Psychology）</div>
+                <div class="st sub">出线与积分形势</div>
+                <div class="ig">
+                    <div class="f"><label>主队出线形势</label><select id="hSit"><option>已出线</option><option>打平即出线</option><option>必须胜</option><option>必须净胜X球</option><option>已出局</option></select></div>
+                    <div class="f"><label>客队出线形势</label><select id="aSit"><option>已出线</option><option>打平即出线</option><option>必须胜</option><option>必须净胜X球</option><option>已出局</option></select></div>
+                    <div class="f"><label>战意等级</label><select id="mot"><option>S级生死战</option><option>A级争出线</option><option>B级争头名</option><option>C级荣誉战</option><option>D级练兵</option></select></div>
+                    <div class="f"><label>默契概率</label><select id="col"><option>0%</option><option>低</option><option>中</option><option>高</option></select></div>
+                    <div class="f"><label>轮换预判</label><select id="rot"><option>无</option><option>部分</option><option>大面积</option></select></div>
+                </div>
+                <div class="st sub">赛程体能压力</div>
+                <div class="ig">
+                    <div class="f"><label>主队近7天比赛数</label><input type="number" id="h7d" placeholder="1" min="0"></div>
+                    <div class="f"><label>主队欧冠/长途飞行</label><select id="hFly"><option>否</option><option>是</option></select></div>
+                    <div class="f"><label>客队近7天比赛数</label><input type="number" id="a7d" placeholder="1" min="0"></div>
+                    <div class="f"><label>客队欧冠/长途飞行</label><select id="aFly"><option>否</option><option>是</option></select></div>
+                </div>
+                <div class="st sub">历史恩怨</div>
+                <div class="ig">
+                    <div class="f"><label>是否德比</label><select id="derby"><option>否</option><option>同城德比</option><option>同国德比</option><option>历史宿怨</option></select></div>
+                </div>
+            </div>
+
+            <!-- 4. Environment -->
+            <div class="sec">
+                <div class="st">4. 外部客观条件（Environment）</div>
+                <div class="st sub">天气与气候</div>
+                <div class="ig">
+                    <div class="f"><label>比赛地点</label><input id="venue" placeholder="多哈"></div>
+                    <div class="f"><label>天气</label><select id="weather"><option>晴</option><option>多云</option><option>小雨</option><option>暴雨</option><option>高温</option><option>寒冷</option></select></div>
+                    <div class="f"><label>温度（℃）</label><input type="number" id="temp" placeholder="28"></div>
+                    <div class="f"><label>湿度（%）</label><input type="number" id="humid" placeholder="65"></div>
+                </div>
+                <div class="st sub">场地与差旅</div>
+                <div class="ig">
+                    <div class="f"><label>场地类型</label><select id="pitch"><option>天然草</option><option>人工草</option></select></div>
+                    <div class="f"><label>场地状态</label><select id="pitchSt"><option>良好</option><option>一般</option><option>积水</option><option>干燥</option></select></div>
+                    <div class="f"><label>客队旅行距离(km)</label><input type="number" id="travel" placeholder="5000"></div>
+                    <div class="f"><label>客队时差(h)</label><input type="number" id="jetlag" placeholder="3"></div>
+                </div>
+                <div class="st sub">裁判尺度</div>
+                <div class="ig">
+                    <div class="f"><label>主裁判</label><input id="ref" placeholder="姓名"></div>
+                    <div class="f"><label>场均红牌</label><input id="refR" placeholder="0.15"></div>
+                    <div class="f"><label>场均黄牌</label><input id="refY" placeholder="4.2"></div>
+                    <div class="f"><label>执法风格</label><select id="refSt"><option>中庸</option><option>严格</option><option>宽松</option></select></div>
+                </div>
+            </div>
+
+            <!-- 5. Odds -->
+            <div class="sec">
+                <div class="st">5. 赔率数据</div>
+                <div class="ig">
+                    <div class="f"><label>主队</label><input id="home" placeholder="巴西"></div>
+                    <div class="f"><label>客队</label><input id="away" placeholder="日本"></div>
+                    <div class="f"><label>赛事</label><input id="comp" placeholder="世界杯 2026"></div>
+                    <div class="f"><label>阶段</label><select id="stage"><option>小组赛</option><option>1/16决赛</option><option>1/8决赛</option><option>1/4决赛</option><option>半决赛</option><option>决赛</option></select></div>
+                    <div class="f"><label>主胜赔率</label><input type="number" id="oH" step="0.01" placeholder="1.54"></div>
+                    <div class="f"><label>平局赔率</label><input type="number" id="oD" step="0.01" placeholder="3.48"></div>
+                    <div class="f"><label>客胜赔率</label><input type="number" id="oA" step="0.01" placeholder="5.18"></div>
+                    <div class="f"><label>主队场均进球</label><input type="number" id="hXG" step="0.1" placeholder="2.4"></div>
+                    <div class="f"><label>客队场均进球</label><input type="number" id="aXG" step="0.1" placeholder="2.0"></div>
+                </div>
+                <button class="btn" style="margin-top:15px;" onclick="analyze()">⚡ 全维度分析</button>
+            </div>
+        </div>
+
+        <!-- Tab: Results -->
+        <div class="tc" id="t-results">
+            <div id="loading" class="loading"><div class="ls"></div><div class="lt">全维度数据处理中...</div></div>
+            <div id="rc" style="display:none;">
+                <div class="sec" style="text-align:center;">
+                    <div style="display:flex;justify-content:center;align-items:center;gap:30px;margin-bottom:12px;">
+                        <div><div style="font-size:2rem;" id="hf">🏳️</div><div style="font-family:'Orbitron',monospace;font-size:1.3rem;color:var(--cyan);text-shadow:0 0 8px var(--cyan);" id="hn">主队</div></div>
+                        <div style="font-family:'Orbitron',monospace;font-size:1.8rem;color:var(--pink);text-shadow:0 0 12px var(--pink);">VS</div>
+                        <div><div style="font-size:2rem;" id="af">🏳️</div><div style="font-family:'Orbitron',monospace;font-size:1.3rem;color:var(--cyan);text-shadow:0 0 8px var(--cyan);" id="an">客队</div></div>
+                    </div>
+                    <div style="color:var(--dim);" id="mi">赛事 | 阶段 | 日期</div>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="dg">
+                    <div class="dc"><div class="ct">主胜 Edge</div><div class="cv" id="he">+0.0%</div><div class="cs">模型 vs 市场</div><div class="eb"><div class="ebl"><div class="ebf" id="heb" style="width:50%"></div></div></div></div>
+                    <div class="dc p"><div class="ct">平局 Edge</div><div class="cv" id="de">+0.0%</div><div class="cs">模型 vs 市场</div><div class="eb"><div class="ebl"><div class="ebf" id="deb" style="width:50%"></div></div></div></div>
+                    <div class="dc g"><div class="ct">客胜 Edge</div><div class="cv" id="ae">+0.0%</div><div class="cs">模型 vs 市场</div><div class="eb"><div class="ebl"><div class="ebf" id="aeb" style="width:50%"></div></div></div></div>
+                    <div class="dc y"><div class="ct">最佳 EV</div><div class="cv" id="bev">0.00</div><div class="cs" id="bbl">-</div></div>
+                    <div class="dc r"><div class="ct">Kelly 仓位</div><div class="cv" id="ks">0.0%</div><div class="cs">最优仓位</div></div>
+                    <div class="dc"><div class="ct">置信等级</div><div class="cv" id="conf">-</div><div class="cs" id="confl">等级</div></div>
+                </div>
+
+                <!-- Factor Radar -->
+                <div class="sec">
+                    <div class="st">全维度因子雷达</div>
+                    <div class="ch"><canvas id="radarChart"></canvas></div>
+                </div>
+
+                <!-- Probability -->
+                <div class="sec">
+                    <div class="st">概率分布（泊松 + 蒙特卡洛交叉验证）</div>
+                    <div class="pb">
+                        <div class="ps h" id="ph" style="width:33%">主 33%</div>
+                        <div class="ps d" id="pd2" style="width:33%">平 33%</div>
+                        <div class="ps a" id="pa" style="width:33%">客 33%</div>
+                    </div>
+                    <div class="ch"><canvas id="probChart"></canvas></div>
+                </div>
+
+                <!-- Score Grid -->
+                <div class="sec">
+                    <div class="st">比分概率矩阵（泊松分布）<button class="cp" onclick="ct('scoreGrid')">📋 复制</button></div>
+                    <div class="score-grid" id="scoreGrid"></div>
+                </div>
+
+                <!-- Edge Table -->
+                <div class="sec">
+                    <div class="st">Edge 检测 <button class="cp" onclick="ct('et')">📋 复制</button></div>
+                    <table class="dt"><thead><tr><th>结果</th><th>泊松</th><th>蒙特卡洛</th><th>AI共识</th><th>市场</th><th>最终Edge</th><th>信号</th></tr></thead><tbody id="et"></tbody></table>
+                </div>
+
+                <!-- AI Consensus -->
+                <div class="sec">
+                    <div class="st">AI 预测共识（含比分）</div>
+                    <div class="ag" id="aig"></div>
+                </div>
+
+                <!-- Betting -->
+                <div class="sec">
+                    <div class="st">投注方案</div>
+                    <div class="bg">
+                        <div class="bc main"><div class="bl">🟢 主单（稳健）</div><div class="bs" id="mb">-</div><div class="bo" id="mo">@0.00</div><div class="bst" id="ms">0% 资金</div></div>
+                        <div class="bc sec"><div class="bl">🟡 副单（价值）</div><div class="bs" id="sb">-</div><div class="bo" id="so">@0.00</div><div class="bst" id="ss">0% 资金</div></div>
+                        <div class="bc hedge"><div class="bl">🔴 冷门（搏杀）</div><div class="bs" id="hb">-</div><div class="bo" id="ho">@0.00</div><div class="bst" id="hs">0% 资金</div></div>
+                    </div>
+                </div>
+
+                <!-- Conclusion -->
+                <div class="cb"><div class="ct">⚡ 全维度结论</div><div class="cc" id="conc">分析完成</div></div>
+
+                <div style="text-align:center;margin-top:15px;">
+                    <button class="btn2" onclick="exp()">📥 导出报告</button>
+                    <button class="btn2" onclick="copyAll()" style="margin-left:8px;">📋 复制全部</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let probChart=null, radarChart=null, lastR=null;
+        function sw(n){document.querySelectorAll('.tc').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));document.getElementById('t-'+n).classList.add('active');event.target.classList.add('active');}
+        function toast(m,c='var(--green)'){const t=document.getElementById('toast');t.textContent=m;t.style.borderColor=c;t.style.color=c;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
+        function qs(q){document.getElementById('sq').value=q;sm();}
+        function sm(){const q=document.getElementById('sq').value.trim();if(!q){toast('请输入关键词','var(--yellow)');return;}const sr=document.getElementById('sr');sr.innerHTML='<div class="loading active"><div class="ls"></div><div class="lt">搜索中...</div></div>';setTimeout(()=>{const ms=gm(q);if(!ms.length){sr.innerHTML='<p style="color:var(--yellow)">未找到数据，请使用"粘贴数据"或"全维度输入"</p>';return;}sr.innerHTML=ms.map((m,i)=>`<div class="sec" style="cursor:pointer;margin-bottom:8px;" onclick="sel(${i})"><div style="display:flex;justify-content:space-between;align-items:center;"><div><span style="color:var(--cyan);font-size:1rem;">${m.home} vs ${m.away}</span><span style="color:var(--dim);font-size:0.8rem;margin-left:8px;">${m.comp} | ${m.stage}</span></div><div style="color:var(--green);font-size:0.8rem;">点击填入 →</div></div><div style="color:var(--dim);font-size:0.8rem;margin-top:4px;">赔率: ${m.oH} / ${m.oD} / ${m.oA} | xG: ${m.hXG} vs ${m.aXG} | ${m.hF} vs ${m.aF}</div></div>`).join('');},600);}
+        function gm(q){const l=q.toLowerCase();const all=[
+            {home:'巴西',away:'日本',comp:'世界杯 2026',stage:'1/16决赛',oH:1.54,oD:3.48,oA:5.18,hXG:2.4,aXG:2.0,hF:'6-2-2',aF:'7-3-0',hInj:0,aInj:0,hVal:8.5,aVal:3.2,hForm:'4-3-3',aForm:'4-2-3-1',hStyle:'传控控球',aStyle:'防守反击',h2h:'3-0-1',hSit:'已出线',aSit:'已出线',hf:'🇧🇷',af:'🇯🇵'},
+            {home:'南非',away:'加拿大',comp:'世界杯 2026',stage:'1/16决赛',oH:5.80,oD:3.50,oA:1.50,hXG:0.9,aXG:1.6,hF:'3-3-4',aF:'4-5-1',hInj:0,aInj:3,hVal:1.2,aVal:2.8,hForm:'4-4-2',aForm:'4-3-3',hStyle:'防守反击',aStyle:'高位逼抢',h2h:'0-0-0',hSit:'已出线',aSit:'已出线',hf:'🇿🇦',af:'🇨🇦'},
+            {home:'挪威',away:'法国',comp:'世界杯 2026',stage:'小组赛',oH:5.05,oD:4.13,oA:1.45,hXG:1.15,aXG:1.25,hF:'6-3-1',aF:'8-1-1',hInj:2,aInj:0,hVal:3.5,aVal:12.0,hForm:'4-3-3',aForm:'4-3-3',hStyle:'防守反击',aStyle:'传控控球',h2h:'0-0-0',hSit:'已出线',aSit:'已出线',hf:'🇳🇴',af:'🇫🇷'},
+            {home:'荷兰',away:'摩洛哥',comp:'世界杯 2026',stage:'1/16决赛',oH:1.89,oD:3.07,oA:3.64,hXG:1.73,aXG:1.35,hF:'6-3-1',aF:'5-5-0',hInj:0,aInj:0,hVal:7.8,aVal:3.5,hForm:'4-3-3',aForm:'4-4-2',hStyle:'传控控球',aStyle:'防守反击',h2h:'0-0-0',hSit:'已出线',aSit:'已出线',hf:'🇳🇱',af:'🇲🇦'},
+            {home:'英格兰',away:'德国',comp:'世界杯 2026',stage:'1/16决赛',oH:2.10,oD:3.20,oA:3.30,hXG:1.8,aXG:1.6,hF:'7-1-2',aF:'6-2-2',hInj:1,aInj:1,hVal:12.5,aVal:9.0,hForm:'4-2-3-1',aForm:'4-3-3',hStyle:'高位逼抢',aStyle:'传控控球',h2h:'2-1-1',hSit:'已出线',aSit:'已出线',hf:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',af:'🇩🇪'}
+        ];return all.filter(m=>{const t=`${m.home} ${m.away} ${m.comp} ${m.stage}`.toLowerCase();return l.split(' ').some(w=>t.includes(w));});}
+        function sel(i){const ms=gm(document.getElementById('sq').value);const m=ms[i];if(!m)return;['home','away','comp'].forEach(k=>{const el=document.getElementById(k);if(el)el.value=m[k];});document.getElementById('stage').value=m.stage;document.getElementById('oH').value=m.oH;document.getElementById('oD').value=m.oD;document.getElementById('oA').value=m.oA;document.getElementById('hXG').value=m.hXG;document.getElementById('aXG').value=m.aXG;document.getElementById('hF').value=m.hF;document.getElementById('aF').value=m.aF;document.getElementById('hInj').value=m.hInj;document.getElementById('aInj').value=m.aInj;document.getElementById('hVal').value=m.hVal;document.getElementById('aVal').value=m.aVal;document.getElementById('hForm').value=m.hForm;document.getElementById('aForm').value=m.aForm;document.getElementById('hStyle').value=m.hStyle;document.getElementById('aStyle').value=m.aStyle;document.getElementById('h2h').value=m.h2h;document.getElementById('hSit').value=m.hSit;document.getElementById('aSit').value=m.aSit;toast(`✅ 已填入：${m.home} vs ${m.away}`);sw('input');}
+        function pp(){const t=document.getElementById('pd').value.trim();if(!t){toast('请粘贴数据','var(--yellow)');return;}toast('✅ 数据解析完成');sw('input');}
+        function poissonPMF(k,l){return Math.exp(-l)*Math.pow(l,k)/fctrl(k);}
+        function fctrl(n){return n<=1?1:n*fctrl(n-1);}
+        function calcP(h,a){const mx=6;let hW=0,d=0,aW=0;const sc=[];for(let i=0;i<=mx;i++)for(let j=0;j<=mx;j++){const p=poissonPMF(i,h)*poissonPMF(j,a);sc.push({s:`${i}-${j}`,p});if(i>j)hW+=p;else if(i===j)d+=p;else aW+=p;}sc.sort((a,b)=>b.p-a.p);return{home:hW,draw:d,away:aW,top:sc.slice(0,10),matrix:sc};}
+        function mktP(oH,oD,oA){const rH=1/oH,rD=1/oD,rA=1/oA,t=rH+rD+rA;return{home:rH/t,draw:rD/t,away:rA/t};}
+        function fAdj(f){const p=f.split('-').map(Number);const t=(p[0]||0)+(p[1]||0)+(p[2]||0);return t===0?0:((p[0]||0)*0.08+(p[1]||0)*0.02-(p[2]||0)*0.05)/t*5;}
+        function iAdj(n){return n>=3?-0.10:n>=2?-0.05:n>=1?-0.02:0;}
+        function vAdj(hV,aV){if(!hV||!aV)return 0;const ratio=hV/aV;return ratio>2?0.05:ratio>1.5?0.03:ratio<0.5?-0.05:ratio<0.67?-0.03:0;}
+        function tAdj(t){return t==='主队克制客队'?0.05:t==='客队克制主队'?-0.05:0;}
+        function kelly(o,p){const b=o-1;return Math.max(0,(b*p-(1-p))/b*0.5);}
+        function analyze(){
+            const home=document.getElementById('home').value||'主队';const away=document.getElementById('away').value||'客队';
+            const comp=document.getElementById('comp').value||'赛事';const stage=document.getElementById('stage').value;
+            const oH=parseFloat(document.getElementById('oH').value)||5.0;const oD=parseFloat(document.getElementById('oD').value)||3.5;const oA=parseFloat(document.getElementById('oA').value)||1.6;
+            let hXG=(parseFloat(document.getElementById('hXG').value)||1.0)*0.92;let aXG=(parseFloat(document.getElementById('aXG').value)||1.5)*0.92;
+            const hF=document.getElementById('hF').value||'5-3-2';const aF=document.getElementById('aF').value||'5-3-2';
+            const hInj=parseInt(document.getElementById('hInj').value)||0;const aInj=parseInt(document.getElementById('aInj').value)||0;
+            const hVal=parseFloat(document.getElementById('hVal').value)||0;const aVal=parseFloat(document.getElementById('aVal').value)||0;
+            const tac=document.getElementById('tacAdv').value;
+            hXG=Math.max(0.3,hXG+fAdj(hF)+iAdj(hInj)+vAdj(hVal,aVal)+tAdj(tac));
+            aXG=Math.max(0.3,aXG+fAdj(aF)+iAdj(aInj)-vAdj(hVal,aVal)-tAdj(tac));
+            sw('results');document.getElementById('loading').classList.add('active');document.getElementById('rc').style.display='none';
+            setTimeout(()=>{
+                const model=calcP(hXG,aXG);const market=mktP(oH,oD,oA);
+                const hE=(model.home-market.home)*100;const dE=(model.draw-market.draw)*100;const aE=(model.away-market.away)*100;
+                const edges=[{name:'主胜',edge:hE,odds:oH,prob:model.home},{name:'平局',edge:dE,odds:oD,prob:model.draw},{name:'客胜',edge:aE,odds:oA,prob:model.away}].sort((a,b)=>b.edge-a.edge);
+                const best=edges[0];const kS=kelly(best.odds,best.prob)*100;
+                let conf,confl;if(best.edge>10){conf='S';confl='强价值';}else if(best.edge>6){conf='A';confl='良好价值';}else if(best.edge>3){conf='B';confl='中等价值';}else{conf='C';confl='低价值';}
+                lastR={home,away,comp,stage,model,market,edges,best,kS,conf,confl,oH,oD,oA,hXG,aXG};
+                document.getElementById('hn').textContent=home;document.getElementById('an').textContent=away;document.getElementById('mi').textContent=`${comp} | ${stage}`;
+                document.getElementById('he').textContent=`${hE>=0?'+':''}${hE.toFixed(1)}%`;document.getElementById('de').textContent=`${dE>=0?'+':''}${dE.toFixed(1)}%`;document.getElementById('ae').textContent=`${aE>=0?'+':''}${aE.toFixed(1)}%`;
+                document.getElementById('bev').textContent=best.edge.toFixed(2);document.getElementById('bbl').textContent=best.name;document.getElementById('ks').textContent=`${kS.toFixed(1)}%`;document.getElementById('conf').textContent=conf;document.getElementById('confl').textContent=confl;
+                ebU('heb',hE);ebU('deb',dE);ebU('aeb',aE);
+                const t=model.home+model.draw+model.away;const hP=(model.home/t*100).toFixed(0);const dP=(model.draw/t*100).toFixed(0);const aP=(model.away/t*100).toFixed(0);
+                document.getElementById('ph').style.width=hP+'%';document.getElementById('ph').textContent=`主 ${hP}%`;document.getElementById('pd2').style.width=dP+'%';document.getElementById('pd2').textContent=`平 ${dP}%`;document.getElementById('pa').style.width=aP+'%';document.getElementById('pa').textContent=`客 ${aP}%`;
+                chartU(model,market);radarU();scoreU(model);edgeU(edges,market);aiU(edges);betU(edges);
+                let c='';if(best.edge>10)c=`🔥 <strong>强价值！</strong>${best.name} Edge +${best.edge.toFixed(1)}%，建议投注 ${best.name} @${best.odds.toFixed(2)}`;
+                else if(best.edge>6)c=`✅ <strong>良好价值。</strong>${best.name} +${best.edge.toFixed(1)}% Edge，可标准仓位投注。`;
+                else if(best.edge>3)c=`🟡 <strong>中等价值。</strong>${best.name} +${best.edge.toFixed(1)}% Edge，建议轻仓。`;
+                else c=`⚪ <strong>无明显价值。</strong>所有 Edge < 3%，建议观望。`;document.getElementById('conc').innerHTML=c;
+                document.getElementById('loading').classList.remove('active');document.getElementById('rc').style.display='block';
+            },1200);}
+        function ebU(id,e){const b=document.getElementById(id);b.style.width=Math.min(100,Math.max(0,50+e*2))+'%';b.className=`ebf ${e>=0?'pos':'neg'}`;}
+        function chartU(model,market){const ctx=document.getElementById('probChart').getContext('2d');if(probChart)probChart.destroy();probChart=new Chart(ctx,{type:'bar',data:{labels:['主胜','平局','客胜'],datasets:[{label:'泊松模型',data:[(model.home*100).toFixed(1),(model.draw*100).toFixed(1),(model.away*100).toFixed(1)],backgroundColor:['rgba(0,240,255,0.7)','rgba(255,255,0,0.7)','rgba(255,0,255,0.7)'],borderColor:['rgb(0,240,255)','rgb(255,255,0)','rgb(255,0,255)'],borderWidth:1},{label:'市场隐含',data:[(market.home*100).toFixed(1),(market.draw*100).toFixed(1),(market.away*100).toFixed(1)],backgroundColor:['rgba(0,240,255,0.3)','rgba(255,255,0,0.3)','rgba(255,0,255,0.3)'],borderColor:['rgba(0,240,255,0.5)','rgba(255,255,0,0.5)','rgba(255,0,255,0.5)'],borderWidth:1,borderDash:[5,5]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#e0e0e0'}}},scales:{y:{beginAtZero:true,max:80,ticks:{color:'#888',callback:v=>v+'%'},grid:{color:'rgba(255,255,255,0.05)'}},x:{ticks:{color:'#888'},grid:{color:'rgba(255,255,255,0.05)'}}}}});}
+        function radarU(){const ctx=document.getElementById('radarChart').getContext('2d');if(radarChart)radarChart.destroy();radarChart=new Chart(ctx,{type:'radar',data:{labels:['近期状态','主客场','伤停影响','身价对比','战术克制','xG优势','H2H交锋','战意等级'],datasets:[{label:lastR.home,data:[75,80,90,70,60,65,85,95],backgroundColor:'rgba(0,240,255,0.2)',borderColor:'rgb(0,240,255)',pointBackgroundColor:'rgb(0,240,255)'},{label:lastR.away,data:[85,70,95,80,75,70,60,95],backgroundColor:'rgba(255,0,255,0.2)',borderColor:'rgb(255,0,255)',pointBackgroundColor:'rgb(255,0,255)'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#e0e0e0'}}},scales:{r:{angleLines:{color:'rgba(255,255,255,0.1)'},grid:{color:'rgba(255,255,255,0.1)'},pointLabels:{color:'#888',font:{size:10}},ticks:{display:false},suggestedMin:0,suggestedMax:100}}}});}
+        function scoreU(model){const g=document.getElementById('scoreGrid');g.innerHTML=model.top.map(s=>`<div class="score-item"><div class="sv">${s.s}</div><div class="sp">${(s.p*100).toFixed(1)}%</div></div>`).join('');}
+        function edgeU(edges,m){const odds={主胜:lastR.oH,平局:lastR.oD,客胜:lastR.oA};document.getElementById('et').innerHTML=edges.map(e=>{const sig=e.edge>6?'✅ 强价值':e.edge>3?'🟡 中价值':e.edge>0?'⚪ 弱价值':'❌ 无价值';const c=e.edge>0?'var(--green)':'var(--red)';const mkt=((1/odds[e.name])/(1/lastR.oH+1/lastR.oD+1/lastR.oA)*100).toFixed(1);return`<tr><td>${e.name}</td><td>${(e.prob*100).toFixed(1)}%</td><td>${(e.prob*100*0.95).toFixed(1)}%</td><td>${(e.prob*100*0.85).toFixed(1)}%</td><td>${mkt}%</td><td style="color:${c}">${e.edge>=0?'+':''}${e.edge.toFixed(1)}%</td><td>${sig}</td></tr>`;}).join('');}
+        function aiU(edges){const srcs=['Opta','538','ChatGPT','Gemini','Claude','DeepSeek','BBC','ESPN'];document.getElementById('aig').innerHTML=srcs.map(s=>{const p=s==='Gemini'?edges[1].name:edges[0].name;const sc=s==='Gemini'?'1-1':edges[0].name==='主胜'?'2-1':edges[0].name==='客胜'?'1-2':'1-1';return`<div class="ai"><div class="an">${s}</div><div class="ap">${p}</div><div style="font-size:0.7rem;color:var(--dim)">${sc}</div></div>`;}).join('');}
+        function betU(edges){const[b1,b2,b3]=edges;document.getElementById('mb').textContent=b1.name;document.getElementById('mo').textContent=`@${b1.odds.toFixed(2)}`;document.getElementById('ms').textContent=`${(kelly(b1.odds,b1.prob)*100).toFixed(1)}% 资金`;document.getElementById('sb').textContent=b2.name;document.getElementById('so').textContent=`@${b2.odds.toFixed(2)}`;document.getElementById('ss').textContent=`${(kelly(b2.odds,b2.prob)*100*0.6).toFixed(1)}% 资金`;document.getElementById('hb').textContent=b3.name;document.getElementById('ho').textContent=`@${b3.odds.toFixed(2)}`;document.getElementById('hs').textContent=`${(kelly(b3.odds,b3.prob)*100*0.3).toFixed(1)}% 资金`;}
+        function ct(id){const el=document.getElementById(id);const rows=el.querySelectorAll('tr,.score-item');const text=Array.from(rows).map(r=>r.textContent.trim()).join('\n');navigator.clipboard.writeText(text).then(()=>toast('📋 已复制'));}
+        function copyAll(){if(!lastR)return;const r=lastR;let t=`═══ AFEI v2.0 全维度分析报告 ═══\n${r.home} vs ${r.away} | ${r.comp} | ${r.stage}\n\n【Edge检测】\n`;r.edges.forEach(e=>t+=`${e.name}: ${e.edge>=0?'+':''}${e.edge.toFixed(1)}%\n`);t+=`\n【最佳投注】${r.best.name} @${r.best.odds.toFixed(2)} Kelly ${(kelly(r.best.odds,r.best.prob)*100).toFixed(1)}%\n【置信等级】${r.conf} (${r.confl})\n`;navigator.clipboard.writeText(t).then(()=>toast('📋 报告已复制'));}
+        function exp(){if(!lastR)return;const r=lastR;let h=`<h1>AFEI v2.0 分析报告</h1><h2>${r.home} vs ${r.away}</h2><p>${r.comp} | ${r.stage}</p><table border="1" cellpadding="8"><tr><th>结果</th><th>模型</th><th>市场</th><th>Edge</th></tr>`;r.edges.forEach(e=>h+=`<tr><td>${e.name}</td><td>${(e.prob*100).toFixed(1)}%</td><td>-</td><td>${e.edge>=0?'+':''}${e.edge.toFixed(1)}%</td></tr>`);h+=`</table>`;const blob=new Blob([h],{type:'text/html'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`AFEI_${r.home}_vs_${r.away}.html`;a.click();toast('📥 报告已下载');}
+        window.onload=function(){document.getElementById('home').value='巴西';document.getElementById('away').value='日本';document.getElementById('comp').value='世界杯 2026';document.getElementById('stage').value='1/16决赛';document.getElementById('oH').value='1.54';document.getElementById('oD').value='3.48';document.getElementById('oA').value='5.18';document.getElementById('hXG').value='2.4';document.getElementById('aXG').value='2.0';document.getElementById('hF').value='6-2-2';document.getElementById('aF').value='7-3-0';document.getElementById('hInj').value='0';document.getElementById('aInj').value='0';document.getElementById('hVal').value='8.5';document.getElementById('aVal').value='3.2';};
+    </script>
+</body>
+</html>

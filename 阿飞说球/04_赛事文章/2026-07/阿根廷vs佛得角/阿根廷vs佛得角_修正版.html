@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>阿根廷 vs 佛得角 · 3D粒子全维分析</title>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans SC','Rajdhani',sans-serif;background:#050508;color:#e0e0e0;overflow-x:hidden;}
+#three-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;}
+.hero h1{font-family:'Orbitron',monospace;font-size:clamp(1.2rem,3.2vw,2.4rem);color:#fff;text-shadow:0 0 40px rgba(0,240,255,0.5),0 0 80px rgba(0,240,255,0.2);letter-spacing:4px;animation:fadeUp 1.2s;}
+.hero .tagline{font-size:clamp(0.8rem,1.5vw,1.1rem);color:#ffdd00;margin-top:8px;text-shadow:0 0 20px rgba(255,221,0,0.3);animation:fadeUp 1.4s;}
+.hero .sub{font-size:clamp(0.6rem,1.2vw,0.85rem);color:#ff00ff;letter-spacing:6px;margin-top:6px;text-shadow:0 0 20px rgba(255,0,255,0.3);animation:fadeUp 1.6s;}
+.vs-badge{display:flex;align-items:center;justify-content:center;gap:14px;margin:18px 0;animation:fadeUp 1.8s;}
+.vs-badge .team{display:flex;flex-direction:column;align-items:center;gap:3px;}
+.vs-badge .team .flag{width:clamp(40px,7vw,70px);height:clamp(40px,7vw,70px);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:clamp(1.2rem,2.2vw,2rem);transition:all 0.4s;}
+.vs-badge .team .flag.a{background:linear-gradient(135deg,#00f0ff,#0077ff);box-shadow:0 0 25px rgba(0,240,255,0.25);}
+.vs-badge .team .flag.c{background:linear-gradient(135deg,#ff00ff,#ff0077);box-shadow:0 0 25px rgba(255,0,255,0.2);}
+.vs-badge .team .flag:hover{transform:scale(1.15) rotate(8deg);}
+.vs-badge .team .name{font-size:clamp(0.65rem,1.1vw,0.9rem);font-weight:700;}
+.vs-badge .team .rank{font-size:clamp(0.5rem,0.8vw,0.65rem);color:#888;}
+.vs-badge .vstext{font-family:'Orbitron',monospace;font-size:clamp(0.9rem,2.2vw,1.6rem);color:#ffff00;text-shadow:0 0 15px rgba(255,255,0,0.4);animation:pulse 2s infinite;}
+
+.hero-bar{width:100%;max-width:480px;margin:10px auto;display:flex;height:30px;border-radius:6px;overflow:hidden;animation:fadeUp 2s;}
+.hero-bar .s{display:flex;align-items:center;justify-content:center;font-size:0.58rem;font-family:'Orbitron',monospace;font-weight:700;}
+.hero-bar .s.h{background:linear-gradient(135deg,#00f0ff,#0077ff);color:#000;width:88%;}
+.hero-bar .s.d{background:linear-gradient(135deg,#ffdd00,#ffaa00);color:#000;width:9%;}
+.hero-bar .s.a{background:linear-gradient(135deg,#ff00ff,#ff0077);color:#fff;width:3%;}
+
+.scroll-indic{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);animation:bounce 2s infinite;z-index:2;opacity:0.4;}
+.scroll-indic svg{width:22px;height:22px;fill:none;stroke:#00f0ff;stroke-width:2;}
+
+section{position:relative;z-index:1;max-width:1050px;margin:0 auto;padding:40px 16px;opacity:0;transform:translateY(35px);transition:all 0.7s;}
+section.visible{opacity:1;transform:translateY(0);}
+.sec-title{font-family:'Orbitron',monospace;font-size:clamp(0.8rem,1.6vw,1.1rem);color:#00f0ff;text-shadow:0 0 12px rgba(0,240,255,0.3);margin-bottom:14px;display:flex;align-items:center;gap:8px;padding-bottom:6px;border-bottom:1px solid rgba(0,240,255,0.08);}
+.sec-title .num{font-size:0.5rem;color:#ff00ff;background:rgba(255,0,255,0.1);padding:2px 8px;border-radius:8px;}
+
+.card{background:rgba(10,15,25,0.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(0,240,255,0.08);border-radius:10px;padding:14px;margin-bottom:10px;transition:all 0.3s;}
+.card:hover{border-color:rgba(0,240,255,0.2);box-shadow:0 0 20px rgba(0,240,255,0.03);}
+.card-title{font-size:0.75rem;color:#00f0ff;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.card-title .dot{width:4px;height:4px;border-radius:50%;background:#ff00ff;box-shadow:0 0 5px #ff00ff;}
+
+/* Rhythm time bar */
+.rhythm{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:8px 0;}
+.rhythm-item{background:rgba(0,240,255,0.03);border:1px solid rgba(0,240,255,0.06);border-radius:6px;padding:8px;text-align:center;}
+.rhythm-item .time{font-family:'Orbitron',monospace;font-size:0.7rem;color:#00f0ff;}
+.rhythm-item .desc{font-size:0.6rem;color:#888;margin-top:3px;}
+.rhythm-item .key{font-size:0.55rem;color:#ffdd00;margin-top:2px;}
+.rhythm-item.highlight{border-color:rgba(255,221,0,0.3);background:rgba(255,221,0,0.04);}
+
+table{width:100%;border-collapse:collapse;font-size:clamp(0.58rem,1vw,0.72rem);}
+th{background:rgba(0,240,255,0.04);color:#00f0ff;padding:5px 6px;text-align:left;border-bottom:1px solid rgba(0,240,255,0.07);font-weight:500;}
+td{padding:4px 6px;border-bottom:1px solid rgba(255,255,255,0.02);}
+tr:hover td{background:rgba(0,240,255,0.02);}
+.n{text-align:right;}
+
+.ba{display:inline-block;padding:1px 6px;border-radius:3px;background:rgba(0,240,255,0.1);color:#00f0ff;font-size:0.6rem;}
+.bc{display:inline-block;padding:1px 6px;border-radius:3px;background:rgba(255,0,255,0.1);color:#ff00ff;font-size:0.6rem;}
+.sg{color:#00ff41;}.sy{color:#ffff00;}.sr{color:#ff0040;}.ep{color:#00ff41;}.en{color:#ff0040;}
+
+.dg{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:6px;}
+.dc{background:rgba(0,240,255,0.02);border:1px solid rgba(0,240,255,0.05);border-radius:7px;padding:8px 5px;text-align:center;}
+.dc .dv{font-family:'Orbitron',monospace;font-size:clamp(0.85rem,1.8vw,1.2rem);font-weight:700;color:#00f0ff;}
+.dc .dl{font-size:0.5rem;color:#888;margin-top:2px;}
+.dc.p .dv{color:#ff00ff;}.dc.g .dv{color:#00ff41;}.dc.y .dv{color:#ffff00;}
+
+.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}@media(max-width:700px){.chart-row{grid-template-columns:1fr;}}
+.chart-wrap{height:180px;}
+
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:3px;}
+.pi{background:rgba(0,240,255,0.02);border:1px solid rgba(0,240,255,0.04);border-radius:3px;padding:3px 6px;font-size:0.6rem;}
+.pi .p{color:#00f0ff;font-size:0.5rem;}.pi .v{color:#ffff00;font-size:0.5rem;float:right;}
+
+.sc-rec{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.sc-c{border-radius:8px;padding:12px;text-align:center;background:rgba(10,15,25,0.35);backdrop-filter:blur(8px);border:1px solid rgba(0,240,255,0.06);transition:all 0.4s;}
+.sc-c:hover{transform:translateY(-3px) scale(1.03);}
+.sc-c.g{border-color:#00ff41;box-shadow:0 0 15px rgba(0,255,65,0.1);}
+.sc-c.s{border-color:#ffff00;box-shadow:0 0 12px rgba(255,255,0,0.06);}
+.sc-c.b{border-color:#ff00ff;box-shadow:0 0 12px rgba(255,0,255,0.06);}
+.sc-c .sl{font-size:0.45rem;font-family:'Orbitron',monospace;letter-spacing:2px;margin-bottom:3px;}
+.sc-c.g .sl{color:#00ff41;}.sc-c.s .sl{color:#ffff00;}.sc-c.b .sl{color:#ff00ff;}
+.sc-c .ss{font-family:'Orbitron',monospace;font-size:clamp(1.3rem,3vw,2rem);font-weight:900;color:#fff;text-shadow:0 0 12px rgba(0,240,255,0.15);}
+.sc-c .sd{font-size:0.6rem;color:#888;margin-top:2px;}
+
+.bet-r{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:7px;}
+.bet-c{border-radius:7px;padding:10px;position:relative;overflow:hidden;}
+.bet-c::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+.bet-c.m{border:1px solid rgba(0,255,65,0.12);background:rgba(0,255,65,0.02);}
+.bet-c.m::before{background:linear-gradient(90deg,#00ff41,#00f0ff);}
+.bet-c.v{border:1px solid rgba(255,255,0,0.12);background:rgba(255,255,0,0.02);}
+.bet-c.v::before{background:linear-gradient(90deg,#ffff00,#ffaa00);}
+.bet-c.l{border:1px solid rgba(255,0,64,0.12);background:rgba(255,0,64,0.02);}
+.bet-c.l::before{background:linear-gradient(90deg,#ff0040,#ff6600);}
+.bet-c .bt{font-family:'Orbitron',monospace;font-size:0.65rem;margin-bottom:3px;}
+.bet-c.m .bt{color:#00ff41;}.bet-c.v .bt{color:#ffff00;}.bet-c.l .bt{color:#ff0040;}
+.bet-c .bd{font-size:0.65rem;}.bet-c .bd s{color:#888;font-size:0.55rem;}
+
+.edge-a{background:linear-gradient(135deg,rgba(255,221,0,0.06),rgba(0,240,255,0.02));border:1px solid rgba(255,221,0,0.2);border-radius:7px;padding:8px 12px;margin:6px 0;display:flex;align-items:center;gap:7px;animation:glow 2s infinite;}
+.edge-a .msg{font-size:0.7rem;}
+
+/* Version tagline */
+.tag-bar{position:relative;z-index:1;text-align:center;padding:10px 16px;font-size:0.7rem;color:#ffdd00;letter-spacing:2px;}
+
+footer{position:relative;z-index:1;text-align:center;padding:20px 16px;color:#555;font-size:0.6rem;border-top:1px solid rgba(0,240,255,0.04);}
+
+@keyframes fadeUp{0%{opacity:0;transform:translateY(22px);}100%{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.5;}}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(7px);}}
+@keyframes glow{0%,100%{box-shadow:0 0 12px rgba(0,240,255,0.06);}50%{box-shadow:0 0 25px rgba(0,240,255,0.12);}}
+html{scroll-behavior:smooth;}
+</style>
+</head>
+<body>
+
+<div id="three-canvas"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>⚽ 全维度交互分析</h1>
+  <div class="tagline">「阿根廷进攻效率的压力测试」</div>
+  <div class="sub">ARGENTINA VS CAPE VERDE · 世界杯1/16决赛</div>
+  <div class="vs-badge">
+    <div class="team">
+      <div class="flag a">🇦🇷</div>
+      <div class="name" style="color:#00f0ff;">阿根廷</div>
+      <div class="rank">FIFA #1 · 冠军级</div>
+    </div>
+    <div class="vstext">VS</div>
+    <div class="team">
+      <div class="flag c">🇨🇻</div>
+      <div class="name" style="color:#ff00ff;">佛得角</div>
+      <div class="rank">FIFA #64 · 首秀</div>
+    </div>
+  </div>
+  <div class="hero-bar">
+    <div class="s h">阿根廷胜 88%</div>
+    <div class="s d">平9%</div>
+    <div class="s a">佛3%</div>
+  </div>
+  <div class="scroll-indic"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+</div>
+<div class="tag-bar">🥇 修正预测：阿根廷 <span style="color:#00ff41;">3-0</span> 佛得角</div>
+
+<!-- S1 比赛本质 -->
+<section><div class="sec-title"><span class="num">01</span> 比赛本质</div>
+<div class="card"><div style="font-size:clamp(0.8rem,1.6vw,1rem);text-align:center;padding:10px 0;color:#ffdd00;letter-spacing:2px;">"世界级冠军体系 vs 纯防守+反击弱势方"</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;">
+<div style="background:rgba(0,240,255,0.04);border:1px solid rgba(0,240,255,0.1);border-radius:8px;padding:10px;">
+<div style="font-size:0.65rem;color:#00f0ff;margin-bottom:4px;">🇦🇷 阿根廷</div>
+<div style="font-size:0.6rem;color:#888;">控制节奏 + 局部爆破 + 稳定输出</div>
+</div>
+<div style="background:rgba(255,0,255,0.04);border:1px solid rgba(255,0,255,0.1);border-radius:8px;padding:10px;">
+<div style="font-size:0.65rem;color:#ff00ff;margin-bottom:4px;">🇨🇻 佛得角</div>
+<div style="font-size:0.6rem;color:#888;">深度防守 + 降速 + 依赖奇迹反击</div>
+</div>
+</div>
+<div style="font-size:0.65rem;text-align:center;margin-top:8px;color:#555;">👉 比赛唯一悬念是 <span style="color:#ffdd00;">阿根廷赢几个</span></div>
+</div>
+</section>
+
+<!-- S2 战术拆解 -->
+<section><div class="sec-title"><span class="num">02</span> 战术结构拆解</div>
+<div class="chart-row">
+<div class="card"><div class="card-title"><span class="dot"></span>🇦🇷 阿根廷 · 成熟冠军体系</div>
+<table><tr><th>维度</th><th>内容</th></tr>
+<tr><td>阵型</td><td>4-3-3 / 4-4-2 灵活切换</td></tr>
+<tr><td>中场三角</td><td>德保罗(对抗) + 恩佐(组织) + 麦卡利斯特(节奏)</td></tr>
+<tr><td>进攻特点</td><td>梅西右路组织 + 中路渗透 + 边卫套上</td></tr>
+<tr><td>控球率</td><td>65-70%</td></tr>
+<tr><td>定位球</td><td>效率高</td></tr>
+<tr><td>唯一问题</td><td>对极低位密集防守效率偶尔下降</td></tr>
+</table></div>
+<div class="card"><div class="card-title"><span class="dot"></span>🇨🇻 佛得角 · 极限防守</div>
+<table><tr><th>维度</th><th>内容</th></tr>
+<tr><td>阵型</td><td>5-4-1 / 5-3-2 全线收缩</td></tr>
+<tr><td>控球率</td><td>< 30%</td></tr>
+<tr><td>核心策略</td><td>堆人数防守 + 长传反击赌机会</td></tr>
+<tr><td>出球能力</td><td>极弱</td></tr>
+<tr><td>进攻持续性</td><td>基本不可持续</td></tr>
+<tr><td>关键词</td><td class="sy">抗压，但无法持续90分钟</td></tr>
+</table></div>
+</div>
+</section>
+
+<!-- S3 节奏模型 -->
+<section><div class="sec-title"><span class="num">03</span> 比赛节奏模型</div>
+<div class="card">
+<div class="rhythm">
+<div class="rhythm-item highlight"><div class="time">⏱ 0-20'</div><div class="desc">阿根廷高压控球</div><div class="key">🔑 是否破局成功</div></div>
+<div class="rhythm-item"><div class="time">⏱ 20-45'</div><div class="desc">持续围攻 · 体能下降</div><div class="key">破门密集区</div></div>
+<div class="rhythm-item"><div class="time">⏱ 45-70'</div><div class="desc">防线崩裂风险上升</div><div class="key">控球消耗+继续打击</div></div>
+<div class="rhythm-item"><div class="time">⏱ 70'+</div><div class="desc">垃圾时间</div><div class="key">只剩进球数量问题</div></div>
+</div>
+</div>
+<div class="edge-a" style="border-color:rgba(255,221,0,0.3);"><span style="font-size:1rem;">🎯</span><span class="msg"><strong>首球时间决定全局：</strong> ≤25分钟 → <span class="sg">3-0/4-0</span> · &gt;35分钟 → <span class="sy">2-0/2-1</span></span></div>
+</section>
+
+<!-- S4 数据模型 -->
+<section><div class="sec-title"><span class="num">04</span> 数据模型（修正版）</div>
+<div class="dg">
+<div class="dc"><div class="dv">λ=2.80</div><div class="dl">阿根廷期望进球</div></div>
+<div class="dc p"><div class="dv">λ=0.30</div><div class="dl">佛得角期望进球</div></div>
+<div class="dc g"><div class="dv">9.3×</div><div class="dl">λ差距</div></div>
+<div class="dc y"><div class="dv">74.1%</div><div class="dl">佛得角零封概率</div></div>
+</div>
+<div class="card"><div class="card-title"><span class="dot"></span>泊松概率分布</div><div class="chart-wrap" style="height:200px;"><canvas id="psC"></canvas></div></div>
+<div class="chart-row">
+<div class="card"><div class="card-title"><span class="dot"></span>胜平负</div><div class="chart-wrap"><canvas id="wdlC"></canvas></div></div>
+<div class="card"><div class="card-title"><span class="dot"></span>比分分布</div>
+<div style="padding:5px 0;">
+<div class="sg" style="font-size:0.85rem;">🔵 主集中区</div>
+<div style="font-size:0.7rem;">3-0 <span class="sg">← 最高概率</span> · 2-0 · 4-0</div>
+<div class="sy" style="font-size:0.85rem;margin-top:6px;">🟡 次级区</div>
+<div style="font-size:0.7rem;">3-1（放松失球）· 2-1（懈怠）· 5-0（打穿）</div>
+</div></div>
+</div>
+</section>
+
+<!-- S5 身价 -->
+<section><div class="sec-title"><span class="num">05</span> 身价硬实力</div>
+<div class="dg">
+<div class="dc"><div class="dv">€8.00亿</div><div class="dl">阿根廷总身价</div></div>
+<div class="dc p"><div class="dv">€5450万</div><div class="dl">佛得角总身价</div></div>
+<div class="dc g"><div class="dv">14.7:1</div><div class="dl">身价比</div></div>
+<div class="dc"><div class="dv">20人</div><div class="dl">阿根廷五大联赛</div></div>
+<div class="dc p"><div class="dv">1人</div><div class="dl">佛得角五大联赛</div></div>
+<div class="dc y"><div class="dv">€9000万</div><div class="dl">队内最高身价</div></div>
+</div>
+<div class="card"><div class="card-title"><span class="dot"></span>主力11人逐位对比</div>
+<table><tr><th>位</th><th>阿根廷</th><th>身价</th><th></th><th>佛得角</th><th>身价</th><th>差距</th></tr>
+<tr><td>GK</td><td>埃·马丁内斯</td><td class="n">€3500万</td><td>vs</td><td>沃津哈</td><td class="n">€50万</td><td class="sg">70×</td></tr>
+<tr><td>CB</td><td>罗梅罗</td><td class="n">€5500万</td><td>vs</td><td>科斯塔</td><td class="n">€1500万</td><td>3.7×</td></tr>
+<tr><td>CM</td><td>恩佐</td><td class="n">€9000万</td><td>vs</td><td>蒙泰罗</td><td class="n">€250万</td><td class="sg">36×</td></tr>
+<tr><td>RW</td><td>梅西</td><td class="n">€3000万</td><td>vs</td><td>瑞安·门德斯</td><td class="n">€300万</td><td>10×</td></tr>
+<tr><td>CF</td><td>劳塔罗</td><td class="n">€8000万</td><td>vs</td><td>加·罗德里格斯</td><td class="n">€600万</td><td>13×</td></tr>
+<tr><td colspan="2"><strong>合计11人</strong></td><td class="n"><strong>€5.3亿</strong></td><td></td><td></td><td class="n"><strong>€3760万</strong></td><td class="sg"><strong>14×</strong></td></tr>
+</table></div>
+<div class="card"><div class="card-title"><span class="dot"></span>身价分布</div><div class="chart-wrap"><canvas id="valC"></canvas></div></div>
+</section>
+
+<!-- S6 AI共识 -->
+<section><div class="sec-title"><span class="num">06</span> AI预测共识</div>
+<div class="edge-a"><span style="font-size:1rem;">🔮</span><span class="msg"><strong>10/10一致看好阿根廷胜 · 置信度100%</strong> 共识比分 <span class="sg">2-0</span></span></div>
+<div class="card"><div class="card-title"><span class="dot"></span>AI共识 vs 模型 vs 市场</div><div class="chart-wrap" style="height:200px;"><canvas id="aiC"></canvas></div></div>
+</section>
+
+<!-- S7 盘口 -->
+<section><div class="sec-title"><span class="num">07</span> 盘口视角</div>
+<div class="chart-row">
+<div class="card"><div class="card-title"><span class="dot"></span>亚洲盘</div>
+<div style="text-align:center;padding:10px 0;">
+<div style="font-family:'Orbitron',monospace;font-size:clamp(1.2rem,2.5vw,1.8rem);color:#00f0ff;">阿根廷 -2 / -2.5</div>
+<div style="font-size:0.6rem;color:#888;margin-top:4px;">盘口升至 -3 → 极限强信任盘</div>
+</div></div>
+<div class="card"><div class="card-title"><span class="dot"></span>大小球</div>
+<div style="text-align:center;padding:10px 0;">
+<div style="font-family:'Orbitron',monospace;font-size:clamp(1.2rem,2.5vw,1.8rem);color:#ffdd00;">3 / 3.5 球</div>
+<div style="font-size:0.6rem;color:#888;margin-top:4px;">倾向：<span class="sg">大球方向明显优先</span></div>
+</div></div>
+</div>
+</section>
+
+<!-- S8 投注 -->
+<section><div class="sec-title"><span class="num">08</span> 投注方案</div>
+<div class="card"><div class="card-title"><span class="dot"></span>三单方案</div>
+<div class="bet-r">
+<div class="bet-c m"><div class="bt">🟢 主单 · 稳健</div><div class="bd">阿根廷 胜 @1.12 · 仓位 5-8%</div><div class="bd"><s>综合概率89%</s></div></div>
+<div class="bet-c v"><div class="bt">🟡 副单 · 价值</div><div class="bd">阿根廷 <strong>-2胜</strong> @2.10 · 仓位 3-5%</div><div class="bd"><s>净胜3+球概率≈47%</s></div></div>
+<div class="bet-c l"><div class="bt">🔴 冷门 · 防冷</div><div class="bd">平局 @8.00 · 仓位 0.5-1%</div><div class="bd"><s>纯属防冷，概率仅9%</s></div></div>
+</div></div>
+<div class="card"><div class="card-title"><span class="dot"></span>推荐比分</div>
+<div class="sc-rec">
+<div class="sc-c g"><div class="sl">🥇 第1推荐</div><div class="ss">3-0</div><div class="sd">阿根廷体系正常输出</div></div>
+<div class="sc-c s"><div class="sl">🥈 第2推荐</div><div class="ss">2-0</div><div class="sd">首球较晚或提前收力</div></div>
+<div class="sc-c b"><div class="sl">🥉 备选</div><div class="ss">4-0</div><div class="sd">完全打穿·体能崩盘</div></div>
+</div>
+</div>
+</section>
+
+<!-- S9 结论 -->
+<section><div class="sec-title"><span class="num">09</span> 最终结论</div>
+<div class="card"><table><tr><td style="width:95px;">本质</td><td>阿根廷进攻效率的压力测试</td></tr>
+<tr><td>胜负</td><td><span class="sg">阿根廷胜（综合概率89%）</span></td></tr>
+<tr><td>头号比分</td><td><span class="sg" style="font-size:clamp(1rem,2vw,1.4rem);">阿根廷 3-0 佛得角</span></td></tr>
+<tr><td>首球变量</td><td>≤25' → 3-0/4-0 · &gt;35' → 2-0/2-1</td></tr>
+<tr><td>盘口</td><td>阿根廷 -2/-2.5 · 大球3/3.5方向</td></tr>
+<tr><td>等级</td><td><span class="sy">A+级</span> — 胜负无悬念，悬念在赢几个</td></tr>
+</table></div>
+<div class="card"><div style="font-size:0.75rem;text-align:center;padding:8px;color:#ffdd00;">🧠 这场不是比赛，是"阿根廷进攻效率的压力测试"</div></div>
+</section>
+
+<footer>AFEI Engine v3.0 · 修正版 · 基于节奏模型+首球变量框架<br><span style="font-size:0.5rem;color:#444;">本分析仅供参考 · 图一乐的赛事分析</span></footer>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const container = document.getElementById('three-canvas');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
+camera.position.set(0, 1, 12);
+const renderer = new THREE.WebGLRenderer({alpha:true, antialias:true});
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+container.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.dampingFactor = 0.05;
+controls.autoRotate = true; controls.autoRotateSpeed = 0.8;
+controls.maxDistance = 25; controls.minDistance = 4; controls.enablePan = false;
+
+window.addEventListener('resize',()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight);});
+
+// === PARTICLES ===
+const COUNT = 12000;
+const pos = new Float32Array(COUNT*3), col = new Float32Array(COUNT*3), sz = new Float32Array(COUNT);
+const tgt = new Float32Array(COUNT*3), vel = new Float32Array(COUNT*3), rnd = new Float32Array(COUNT);
+const cc = new THREE.Color('#00f0ff'), cp = new THREE.Color('#ff00ff'), cw = new THREE.Color('#ffffff');
+const R = 4.5;
+
+for(let i=0;i<COUNT;i++){
+  const th=Math.random()*Math.PI*2, ph=Math.acos(2*Math.random()-1), r=R*(0.85+Math.random()*0.15);
+  const x=r*Math.sin(ph)*Math.cos(th), y=r*Math.sin(ph)*Math.sin(th), z=r*Math.cos(ph);
+  pos[i*3]=x; pos[i*3+1]=y; pos[i*3+2]=z;
+  tgt[i*3]=x; tgt[i*3+1]=y; tgt[i*3+2]=z;
+  vel[i*3]=0; vel[i*3+1]=0; vel[i*3+2]=0;
+  rnd[i]=Math.random()*0.5+0.5;
+  const c=Math.random(); let cl; if(c<0.6)cl=cc;else if(c<0.85)cl=cp;else cl=cw;
+  col[i*3]=cl.r; col[i*3+1]=cl.g; col[i*3+2]=cl.b;
+  sz[i]=Math.random()*4+1.5;
+}
+
+const geo=new THREE.BufferGeometry();
+geo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+geo.setAttribute('color',new THREE.BufferAttribute(col,3));
+geo.setAttribute('size',new THREE.BufferAttribute(sz,1));
+
+const mat=new THREE.ShaderMaterial({
+  vertexShader:`attribute float size;attribute vec3 color;varying vec3 vColor;void main(){vColor=color;vec4 mv=modelViewMatrix*vec4(position,1.0);gl_PointSize=size*(300.0/-mv.z);gl_Position=projectionMatrix*mv;}`,
+  fragmentShader:`varying vec3 vColor;void main(){float d=distance(gl_PointCoord,vec2(0.5));if(d>0.5)discard;float a=1.0-smoothstep(0.0,0.5,d);float g=exp(-d*8.0);gl_FragColor=vec4(vColor,a*0.7+g*0.3);}`,
+  transparent:true,depthWrite:false,blending:THREE.AdditiveBlending
+});
+const pts=new THREE.Points(geo,mat); scene.add(pts);
+
+// Mouse interaction
+const mouse=new THREE.Vector2(), raycaster=new THREE.Raycaster(), plane=new THREE.Plane(new THREE.Vector3(0,0,1),0);
+let mw=new THREE.Vector3(), autoRotate=true;
+
+renderer.domElement.addEventListener('mousemove',e=>{
+  mouse.x=(e.clientX/window.innerWidth)*2-1; mouse.y=-(e.clientY/window.innerHeight)*2+1;
+  raycaster.setFromCamera(mouse,camera); const ip=new THREE.Vector3();
+  raycaster.ray.intersectPlane(plane,ip); if(ip) mw.copy(ip);
+});
+renderer.domElement.addEventListener('mousedown',()=>{controls.autoRotate=false;});
+renderer.domElement.addEventListener('mouseup',()=>{controls.autoRotate=true;});
+renderer.domElement.addEventListener('touchstart',()=>{controls.autoRotate=false;});
+renderer.domElement.addEventListener('touchend',()=>{controls.autoRotate=true;});
+let st; window.addEventListener('scroll',()=>{controls.autoRotate=false;clearTimeout(st);st=setTimeout(()=>{controls.autoRotate=true;},3000);});
+
+const p=geo.attributes.position.array, tv=new THREE.Vector3(), fv=new THREE.Vector3(), dv=new THREE.Vector3();
+function animate(){
+  requestAnimationFrame(animate);
+  const t=Date.now()*0.001;
+  for(let i=0;i<COUNT;i++){
+    const ix=i*3,iy=i*3+1,iz=i*3+2;
+    tv.set(p[ix],p[iy],p[iz]); fv.set(0,0,0);
+    dv.copy(tv).sub(mw); const d=dv.length();
+    if(d<3&&d>0.01){const s=(3-d)/3*0.08;fv.copy(dv).normalize().multiplyScalar(s);}
+    const w=Math.sin(t*0.5+i*0.001)*0.005;
+    fv.x+=w*0.3; fv.y+=Math.cos(t*0.4+i*0.0015)*0.005; fv.z+=Math.sin(t*0.3+i*0.002)*0.005;
+    vel[ix]+=fv.x; vel[iy]+=fv.y; vel[iz]+=fv.z;
+    vel[ix]*=0.92; vel[iy]*=0.92; vel[iz]*=0.92;
+    p[ix]+=vel[ix]; p[iy]+=vel[iy]; p[iz]+=vel[iz];
+    const sp=0.03*rnd[i];
+    p[ix]+=(tgt[ix]-p[ix])*sp; p[iy]+=(tgt[iy]-p[iy])*sp; p[iz]+=(tgt[iz]-p[iz])*sp;
+  }
+  geo.attributes.position.needsUpdate=true;
+  controls.update(); renderer.render(scene,camera);
+}
+animate();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script>
+Chart.defaults.color='rgba(255,255,255,0.3)'; Chart.defaults.borderColor='rgba(255,255,255,0.03)';
+var cyan='#00f0ff',pink='#ff00ff',green='#00ff41',yellow='#ffff00',red='#ff0040';
+
+const obs=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.08});
+document.querySelectorAll('section').forEach(s=>obs.observe(s));
+
+// Score bar animation
+setTimeout(()=>{
+  const sb=document.querySelector('.hero-bar');
+  if(sb){sb.querySelector('.s.h').style.width='88%';sb.querySelector('.s.d').style.width='9%';sb.querySelector('.s.a').style.width='3%';}
+},500);
+
+// All charts - updated data
+new Chart(document.getElementById('psC'),{type:'bar',data:{labels:['0球','1球','2球','3球','4球','5球'],datasets:[{label:'阿根廷 λ=2.80',data:[6.1,17.0,23.8,22.2,15.6,8.7],backgroundColor:cyan,borderRadius:3},{label:'佛得角 λ=0.30',data:[74.1,22.2,3.3,0.3,0.0,0.0],backgroundColor:pink,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{font:{size:8},boxWidth:10}}},scales:{y:{beginAtZero:true,max:80,ticks:{font:{size:7},callback:v=>v+'%'}}}}});
+
+new Chart(document.getElementById('wdlC'),{type:'doughnut',data:{labels:['阿根廷胜 88%','平局 9%','佛得角胜 3%'],datasets:[{data:[88,9,3],backgroundColor:[cyan,yellow,pink],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:8}}}}}});
+
+new Chart(document.getElementById('valC'),{type:'bar',data:{labels:['总身价(亿)','最高身价(亿)','五大联赛球员'],datasets:[{label:'阿根廷',data:[8.00,0.90,20],backgroundColor:cyan,borderRadius:3},{label:'佛得角',data:[0.545,0.15,1],backgroundColor:pink,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{font:{size:8},boxWidth:10}}},scales:{y:{beginAtZero:true,ticks:{font:{size:7}}}}}});
+
+new Chart(document.getElementById('aiC'),{type:'bar',data:{labels:['阿根廷胜','平局','佛得角胜'],datasets:[{label:'AI共识',data:[95,3,2],backgroundColor:'rgba(0,255,65,0.35)',borderRadius:3},{label:'后台模型(修正)',data:[88,9,3],backgroundColor:cyan,borderRadius:3},{label:'市场隐含',data:[92,6,2],backgroundColor:'rgba(255,255,0,0.2)',borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{font:{size:8},boxWidth:10}}},scales:{y:{beginAtZero:true,max:100,ticks:{font:{size:7},callback:v=>v+'%'}}}}});
+</script>
+</body>
+</html>

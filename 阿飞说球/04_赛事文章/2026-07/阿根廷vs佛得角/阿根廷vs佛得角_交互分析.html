@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿根廷 vs 佛得角 · 全维度交互分析</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --cyan: #00f0ff; --pink: #ff00ff; --green: #00ff41;
+            --yellow: #ffff00; --red: #ff0040; --orange: #ff6600;
+            --bg: #0a0a0f; --card: rgba(10,10,20,0.85);
+            --input: rgba(0,240,255,0.05); --border: rgba(0,240,255,0.3);
+            --text: #e0e0e0; --dim: #888;
+        }
+        body { background: var(--bg); color: var(--text); font-family: 'Noto Sans SC','Rajdhani',sans-serif; min-height: 100vh; padding: 20px; }
+        body::before { content:''; position:fixed; top:0; left:0; width:100%; height:100%; background: linear-gradient(rgba(0,240,255,0.03) 1px,transparent 1px), linear-gradient(90deg,rgba(0,240,255,0.03) 1px,transparent 1px); background-size:50px 50px; z-index:-1; }
+        .header { text-align:center; padding:25px 0; }
+        .header h1 { font-family:'Orbitron',monospace; font-size:1.6rem; color:var(--cyan); text-shadow:0 0 10px var(--cyan); letter-spacing:2px; }
+        .header .sub { color:var(--pink); text-shadow:0 0 10px var(--pink); letter-spacing:3px; font-size:0.8rem; margin-top:5px; }
+        .header .match { color:var(--yellow); font-size:1rem; margin-top:8px; }
+        .header .match em { font-style:normal; color:var(--green); }
+
+        /* Score bar */
+        .score-bar { display:flex; max-width:700px; margin:15px auto; border-radius:8px; overflow:hidden; height:40px; }
+        .score-bar .seg { display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-family:'Orbitron',monospace; font-weight:700; transition:all 0.5s; }
+        .score-bar .seg.h { background:linear-gradient(135deg,#00f0ff,rgba(0,240,255,0.7)); color:#000; }
+        .score-bar .seg.d { background:linear-gradient(135deg,#ffff00,rgba(255,255,0,0.7)); color:#000; }
+        .score-bar .seg.a { background:linear-gradient(135deg,#ff00ff,rgba(255,0,255,0.7)); color:#fff; }
+
+        /* Tab navigation */
+        .tabs { display:flex; gap:4px; margin-bottom:15px; border-bottom:1px solid var(--border); padding-bottom:8px; flex-wrap:wrap; justify-content:center; }
+        .tab { background:transparent; border:1px solid var(--border); color:var(--dim); padding:6px 12px; font-size:0.75rem; cursor:pointer; border-radius:4px 4px 0 0; transition:all 0.3s; font-family:'Rajdhani',sans-serif; }
+        .tab:hover { color:var(--cyan); border-color:var(--cyan); }
+        .tab.active { background:rgba(0,240,255,0.1); color:var(--cyan); border-color:var(--cyan); text-shadow:0 0 5px var(--cyan); }
+        .tc { display:none; } .tc.active { display:block; }
+
+        /* Cards */
+        .card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:15px; margin-bottom:12px; position:relative; overflow:hidden; }
+        .card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--cyan),var(--pink)); }
+        .card-title { font-family:'Orbitron',monospace; font-size:0.85rem; color:var(--cyan); text-shadow:0 0 8px var(--cyan); margin-bottom:10px; display:flex; align-items:center; gap:8px; cursor:pointer; user-select:none; }
+        .card-title::before { content:'▸'; color:var(--pink); transition:transform 0.3s; }
+        .card-title.open::before { transform:rotate(90deg); }
+        .card-title .badge { font-family:'Rajdhani',sans-serif; font-size:0.6rem; background:rgba(0,240,255,0.15); color:var(--cyan); padding:2px 8px; border-radius:10px; }
+        .card-body { display:none; } .card-body.open { display:block; }
+
+        /* Tables */
+        table { width:100%; border-collapse:collapse; margin:8px 0; font-size:0.78rem; }
+        th { background:rgba(0,240,255,0.08); color:var(--cyan); padding:6px 8px; text-align:left; border-bottom:1px solid var(--border); font-weight:500; }
+        td { padding:5px 8px; border-bottom:1px solid rgba(255,255,255,0.05); }
+        tr:hover td { background:rgba(0,240,255,0.03); }
+        .n { text-align:right; }
+
+        /* Data grid */
+        .dg { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; }
+        .dc { background:rgba(0,240,255,0.03); border:1px solid var(--border); border-radius:6px; padding:10px; text-align:center; }
+        .dc .dv { font-family:'Orbitron',monospace; font-size:1.4rem; font-weight:700; color:var(--cyan); }
+        .dc .dl { font-size:0.68rem; color:var(--dim); margin-top:3px; }
+        .dc.green .dv { color:var(--green); }
+        .dc.pink .dv { color:var(--pink); }
+        .dc.yellow .dv { color:var(--yellow); }
+
+        .chart-wrap { height:200px; margin:10px 0; }
+
+        .team-badge { display:inline-flex; align-items:center; gap:6px; padding:3px 10px; border-radius:4px; font-size:0.8rem; }
+        .team-badge.arg { background:rgba(0,240,255,0.12); color:var(--cyan); border:1px solid var(--cyan); }
+        .team-badge.cv { background:rgba(255,0,255,0.12); color:var(--pink); border:1px solid var(--pink); }
+
+        .ev-pos { color:var(--green); } .ev-neg { color:var(--red); } .ev-neu { color:var(--yellow); }
+        .signal { display:inline-block; padding:2px 8px; border-radius:4px; font-size:0.7rem; font-weight:700; }
+        .signal.strong { background:rgba(0,255,65,0.2); color:var(--green); border:1px solid var(--green); }
+        .signal.mid { background:rgba(255,255,0,0.2); color:var(--yellow); border:1px solid var(--yellow); }
+        .signal.weak { background:rgba(255,0,64,0.2); color:var(--red); border:1px solid var(--red); }
+
+        .bar-row { display:flex; align-items:center; gap:8px; margin:3px 0; }
+        .bar-row .bar { flex:1; height:18px; border-radius:3px; overflow:hidden; background:rgba(255,255,255,0.05); }
+        .bar-row .bar .fill { height:100%; border-radius:3px; transition:width 0.8s; }
+        .bar-row .bar .fill.arg { background:linear-gradient(90deg,var(--cyan),var(--green)); }
+        .bar-row .bar .fill.cv { background:linear-gradient(90deg,var(--pink),var(--orange)); }
+        .bar-row .lb { font-size:0.72rem; min-width:60px; }
+        .bar-row .rb { font-size:0.72rem; min-width:40px; text-align:right; }
+
+        .footer { text-align:center; padding:20px; color:var(--dim); font-size:0.7rem; border-top:1px solid var(--border); margin-top:20px; }
+        
+        /* Player list */
+        .player-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:6px; }
+        .player-item { background:rgba(0,240,255,0.03); border:1px solid rgba(0,240,255,0.1); border-radius:4px; padding:5px 8px; font-size:0.75rem; }
+        .player-item .pos { color:var(--cyan); font-size:0.65rem; }
+        .player-item .val { color:var(--yellow); font-size:0.65rem; float:right; }
+
+        @media (max-width:600px) {
+            .header h1 { font-size:1.1rem; }
+            .tabs { gap:2px; }
+            .tab { font-size:0.6rem; padding:4px 6px; }
+            td, th { font-size:0.65rem; padding:3px 4px; }
+            .player-grid { grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>⚽ 全维度交互分析</h1>
+    <div class="sub">ARGENTINA VS CAPE VERDE</div>
+    <div class="match"><em>阿根廷</em> vs <em>佛得角</em> · 世界杯 1/16决赛 · 2026-07-04 06:00</div>
+    <div class="score-bar" id="probBar">
+        <div class="seg h" id="barHome" style="width:70%">阿根廷胜 70%</div>
+        <div class="seg d" id="barDraw" style="width:21%">平 21%</div>
+        <div class="seg a" id="barAway" style="width:9%">佛得角 9%</div>
+    </div>
+</div>
+
+<div class="tabs" id="tabNav">
+    <div class="tab active" data-tab="tab1">📊 硬实力</div>
+    <div class="tab" data-tab="tab2">💰 身价</div>
+    <div class="tab" data-tab="tab3">⭐ 关键球员</div>
+    <div class="tab" data-tab="tab4">📈 状态</div>
+    <div class="tab" data-tab="tab5">🎯 战术</div>
+    <div class="tab" data-tab="tab6">⚔️ 战意</div>
+    <div class="tab" data-tab="tab7">🤖 模型</div>
+    <div class="tab" data-tab="tab8">🔮 AI共识</div>
+    <div class="tab" data-tab="tab9">📐 Edge</div>
+    <div class="tab" data-tab="tab10">🎲 投注</div>
+    <div class="tab" data-tab="tab11">🏁 结论</div>
+</div>
+
+<!-- ==================== TAB 1: 硬实力 ==================== -->
+<div class="tc active" id="tab1">
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">球队概况</div>
+        <div class="card-body open">
+            <table>
+                <tr><th>维度</th><th><span class="team-badge arg">阿根廷</span></th><th><span class="team-badge cv">佛得角</span></th></tr>
+                <tr><td>FIFA排名</td><td>第1</td><td>第64</td></tr>
+                <tr><td>国家人口</td><td>4600万</td><td>50万</td></tr>
+                <tr><td>世界杯最佳</td><td>冠军(3次)</td><td>首次参赛</td></tr>
+                <tr><td>淘汰赛经验</td><td>丰富(11次加时)</td><td>0次</td></tr>
+                <tr><td>小组赛战绩</td><td>3胜0平0负</td><td>0胜3平0负</td></tr>
+                <tr><td>小组赛进球</td><td>8球</td><td>2球</td></tr>
+                <tr><td>小组赛失球</td><td>1球</td><td>2球</td></tr>
+                <tr><td>联赛排名</td><td>第2</td><td>第64</td></tr>
+                <tr><td>世界传统</td><td>顶级豪门</td><td>鱼腩新军</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title" onclick="toggleCard(this)">综合实力雷达</div>
+        <div class="card-body">
+            <div class="chart-wrap"><canvas id="radarChart1"></canvas></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== TAB 2: 身价 ==================== -->
+<div class="tc" id="tab2">
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">总身价对比</div>
+        <div class="card-body open">
+            <div class="dg">
+                <div class="dc"><div class="dv">€8.00亿</div><div class="dl">阿根廷总身价</div></div>
+                <div class="dc pink"><div class="dv">€5450万</div><div class="dl">佛得角总身价</div></div>
+                <div class="dc green"><div class="dv">14.7:1</div><div class="dl">身价比</div></div>
+                <div class="dc yellow"><div class="dv">20人</div><div class="dl">阿根廷五大联赛球员</div></div>
+                <div class="dc pink"><div class="dv">1人</div><div class="dl">佛得角五大联赛球员</div></div>
+                <div class="dc green"><div class="dv">€9000万</div><div class="dl">阿根廷最高身价</div></div>
+            </div>
+            <div class="chart-wrap"><canvas id="valueChart"></canvas></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">主力十一人身价逐位对比</div>
+        <div class="card-body open">
+            <table>
+                <tr><th>位置</th><th>阿根廷</th><th>身价</th><th></th><th>佛得角</th><th>身价</th></tr>
+                <tr><td>GK</td><td>埃·马丁内斯</td><td class="n">€3500万</td><td>vs</td><td>沃津哈</td><td class="n">€50万</td></tr>
+                <tr><td>RB</td><td>莫利纳</td><td class="n">€4000万</td><td>vs</td><td>史蒂芬·莫雷拉</td><td class="n">€150万</td></tr>
+                <tr><td>CB</td><td>罗梅罗</td><td class="n">€5500万</td><td>vs</td><td>洛根·科斯塔</td><td class="n">€1500万</td></tr>
+                <tr><td>CB</td><td>利·马丁内斯</td><td class="n">€5000万</td><td>vs</td><td>洛佩斯·卡布拉尔</td><td class="n">€200万</td></tr>
+                <tr><td>LB</td><td>塔利亚菲科</td><td class="n">€2000万</td><td>vs</td><td>博尔热斯</td><td class="n">€80万</td></tr>
+                <tr><td>CM</td><td>恩佐·费尔南德斯</td><td class="n">€9000万</td><td>vs</td><td>贾米罗·蒙泰罗</td><td class="n">€250万</td></tr>
+                <tr><td>CM</td><td>德保罗</td><td class="n">€4000万</td><td>vs</td><td>拉罗斯·杜阿尔特</td><td class="n">€200万</td></tr>
+                <tr><td>CM</td><td>麦卡利斯特</td><td class="n">€6000万</td><td>vs</td><td>德罗伊·杜阿尔特</td><td class="n">€180万</td></tr>
+                <tr><td>RW</td><td>梅西</td><td class="n">€3000万</td><td>vs</td><td>瑞安·门德斯</td><td class="n">€300万</td></tr>
+                <tr><td>CF</td><td>劳塔罗</td><td class="n">€8000万</td><td>vs</td><td>加里·罗德里格斯</td><td class="n">€600万</td></tr>
+                <tr><td>LW</td><td>阿尔瓦雷斯</td><td class="n">€9000万</td><td>vs</td><td>威利·塞梅多</td><td class="n">€250万</td></tr>
+                <tr style="background:rgba(0,240,255,0.06);"><td><strong>合计</strong></td><td><strong>11人</strong></td><td class="n"><strong>€5.3亿</strong></td><td></td><td><strong>11人</strong></td><td class="n"><strong>€3760万</strong></td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== TAB 3: 关键球员 ==================== -->
+<div class="tc" id="tab3">
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">王牌对王牌</div>
+        <div class="card-body open">
+            <table>
+                <tr><th>角色</th><th>阿根廷</th><th>佛得角</th></tr>
+                <tr><td>头号球星</td><td>梅西 · 39岁 · 19球(世界杯历史第1)</td><td>洛根·科斯塔 · 24岁 · €1500万</td></tr>
+                <tr><td>射手王</td><td>梅西 · 6球(与姆巴佩并列第1)</td><td>加里·罗德里格斯 · 1球</td></tr>
+                <tr><td>中场核心</td><td>恩佐·费尔南德斯 · €9000万</td><td>蒙泰罗 · €250万</td></tr>
+                <tr><td>防线领袖</td><td>罗梅罗 · €5500万</td><td>科斯塔 · €1500万</td></tr>
+                <tr><td>门将</td><td>埃·马丁内斯 · 世界杯冠军门神</td><td>沃津哈 · 无名</td></tr>
+                <tr><td>身价差距</td><td colspan="2" style="text-align:center">最大对位：恩佐(€9000万) vs 蒙泰罗(€250万) = 36倍</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">阿根廷阵容</div>
+        <div class="card-body open">
+            <div class="player-grid" id="argSquad"></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">佛得角阵容</div>
+        <div class="card-body open">
+            <div class="player-grid" id="cvSquad"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== TAB 4: 状态 ==================== -->
+<div class="tc" id="tab4">
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">近期战绩对比</div>
+        <div class="card-body open">
+            <table>
+                <tr><th>指标</th><th><span class="team-badge arg">阿根廷</span></th><th><span class="team-badge cv">佛得角</span></th></tr>
+                <tr><td>近15场</td><td>13胜1平1负 (86.7%)</td><td>6胜8平1负 (93.3%不败)</td></tr>
+                <tr><td>近10场</td><td>10连胜 🏆</td><td>不败率极高</td></tr>
+                <tr><td>场均进球</td><td><strong>2.6球</strong></td><td>0.7球</td></tr>
+                <tr><td>场均失球</td><td><strong>0.3球</strong></td><td>0.7球</td></tr>
+                <tr><td>零封率</td><td>80% (8/10)</td><td>60% (6/10)</td></tr>
+                <tr><td>世界杯小组赛</td><td>3胜0负 · 进8失1</td><td>0胜3平 · 进2失2</td></tr>
+                <tr><td>状态判定</td><td><span class="signal strong">巅峰状态</span></td><td><span class="signal mid">防守坚韧</span></td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title" onclick="toggleCard(this)">状态可视化</div>
+        <div class="card-body">
+            <div class="chart-wrap"><canvas id="formChart"></canvas></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== TAB 5: 战术 ==================== -->
+<div class="tc" id="tab5">
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">战术风格对决</div>
+        <div class="card-body open">
+            <table>
+                <tr><th>维度</th><th><span class="team-badge arg">阿根廷 · 控球压迫</span></th><th><span class="team-badge cv">佛得角 · 铁桶防守</span></th></tr>
+                <tr><td>阵型</td><td>4-3-3 / 4-2-3-1</td><td>5-4-1 / 4-5-1</td></tr>
+                <tr><td>主教练</td><td>斯卡洛尼</td><td>布比斯塔</td></tr>
+                <tr><td>预期控球</td><td>65-70%</td><td>30-35%</td></tr>
+                <tr><td>进攻方式</td><td>梅西内切+边卫套上+中场远射</td><td>长传找速度+定位球</td></tr>
+                <tr><td>防守策略</td><td>中位压迫</td><td>低位死守(大禁区线)</td></tr>
+                <tr><td>定位球威胁</td><td>较大(罗梅罗+奥塔门迪头球)</td><td>极小</td></tr>
+                <tr><td>短板</td><td>边卫身后空当</td><td>进攻完全瘫痪</td></tr>
+                <tr><td>冠军经验</td><td>丰富</td><td>零</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">关键对位</div>
+        <div class="card-body open">
+            <table>
+                <tr><th>对位</th><th>阿根廷</th><th>佛得角</th><th>判定</th></tr>
+                <tr><td>核心对决</td><td>梅西(内切射门)</td><td>科斯塔(封堵)</td><td><span class="signal strong">阿根廷优势</span></td></tr>
+                <tr><td>边路攻防</td><td>莫利纳(插上)</td><td>瑞安·门德斯(速度反击)</td><td><span class="signal mid">均衡</span></td></tr>
+                <tr><td>定位球</td><td>罗梅罗(争顶)</td><td>科斯塔+4后卫</td><td><span class="signal strong">阿根廷优势</span></td></tr>
+                <tr><td>中场控制</td><td>恩佐+麦卡利斯特</td><td>杜阿尔特兄弟</td><td><span class="signal strong">阿根廷碾压</span></td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== TAB 6: 战意 ==================== -->
+<div class="tc" id="tab6">
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">战意评估</div>
+        <div class="card-body open">
+            <table>
+                <tr><th>维度</th><th><span class="team-badge arg">阿根廷</span></th><th><span class="team-badge cv">佛得角</span></th></tr>
+                <tr><td>短期目标</td><td>拿下1/16决赛</td><td>创造历史更进一步</td></tr>
+                <tr><td>长期目标</td><td>卫冕世界杯冠军</td><td>32强已超额完成</td></tr>
+                <tr><td>核心球员动力</td><td>梅西末届+金靴+冠军</td><td>科斯塔证明自己</td></tr>
+                <tr><td>心理优势</td><td>卫冕冠军、10连胜</td><td>光脚不怕穿鞋</td></tr>
+                <tr><td>心理风险</td><td>11次加时历史最多</td><td>可能满足于32强</td></tr>
+                <tr><td>战意等级</td><td><span class="signal strong">S级 · 必须赢</span></td><td><span class="signal mid">A级 · 可以输</span></td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title" onclick="toggleCard(this)">战意可视化</div>
+        <div class="card-body">
+            <div class="chart-wrap"><canvas id="motivationChart"></canvas></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== TAB 7: 模型 ==================== -->
+<div class="tc" id="tab7">
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">后台模型参数</div>
+        <div class="card-body open">
+            <table>
+                <tr><th>参数</th><th>阿根廷</th><th>佛得角</th></tr>
+                <tr><td>xG_for(场均)</td><td>2.392</td><td>0.644</td></tr>
+                <tr><td>xG_against(场均)</td><td>0.324</td><td>0.724</td></tr>
+                <tr><td>淘汰赛修正</td><td>×0.90</td><td>×0.55</td></tr>
+                <tr><td>状态修正</td><td>+0.208</td><td>+0.128</td></tr>
+                <tr><td><strong>λ值(期望进球)</strong></td><td><strong>1.796</strong></td><td><strong>0.467</strong></td></tr>
+                <tr><td>λ比值</td><td colspan="2" style="text-align:center"><strong>3.8倍</strong></td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">泊松概率分布（0-6球）</div>
+        <div class="card-body open">
+            <div class="chart-wrap"><canvas id="poissonChart"></canvas></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">比分Top 10 + 蒙特卡洛验证</div>
+        <div class="card-body open">
+            <table>
+                <tr><th>排名</th><th>比分</th><th>泊松概率</th><th>蒙特卡洛</th><th>差异</th><th>累计概率</th></tr>
+                <tr id="scoreRow1"><td>🥇</td><td>1-0</td><td>18.68%</td><td>18.54%</td><td class="ev-pos">+0.14%</td><td>18.68%</td></tr>
+                <tr id="scoreRow2"><td>🥈</td><td>2-0</td><td>16.78%</td><td>16.68%</td><td class="ev-pos">+0.10%</td><td>35.46%</td></tr>
+                <tr id="scoreRow3"><td>🥉</td><td>0-0</td><td>10.40%</td><td>10.36%</td><td class="ev-pos">+0.04%</td><td>45.86%</td></tr>
+                <tr><td>4</td><td>3-0</td><td>10.05%</td><td>10.06%</td><td>-0.01%</td><td>55.91%</td></tr>
+                <tr><td>5</td><td>1-1</td><td>8.73%</td><td>8.71%</td><td>+0.02%</td><td>64.65%</td></tr>
+                <tr><td>6</td><td>2-1</td><td>7.84%</td><td>7.82%</td><td>+0.02%</td><td>72.49%</td></tr>
+                <tr><td>7</td><td>0-1</td><td>4.86%</td><td>4.86%</td><td>0.00%</td><td>77.35%</td></tr>
+                <tr><td>8</td><td>3-1</td><td>4.69%</td><td>4.68%</td><td>+0.01%</td><td>82.05%</td></tr>
+                <tr><td>9</td><td>4-0</td><td>4.51%</td><td>4.49%</td><td>+0.02%</td><td>86.56%</td></tr>
+                <tr><td>10</td><td>4-1</td><td>2.11%</td><td>2.10%</td><td>+0.01%</td><td>88.67%</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">进球区间</div>
+        <div class="card-body open">
+            <div class="chart-wrap"><canvas id="goalRangeChart"></canvas></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title" onclick="toggleCard(this)">胜平负概率</div>
+        <div class="card-body">
+            <div class="chart-wrap"><canvas id="wdlChart"></canvas></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== TAB 8: AI共识 ==================== -->
+<div class="tc" id="tab8">
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">10大来源预测共识</div>
+        <div class="card-body open">
+            <table>
+                <tr><th>来源</th><th>层级</th><th>方向</th><th>预测比分</th><th>置信度</th></tr>
+                <tr><td>Opta</td><td>T1</td><td><span class="signal strong">阿根廷胜</span></td><td>—</td><td>★★★★★</td></tr>
+                <tr><td>538</td><td>T1</td><td><span class="signal strong">阿根廷胜</span></td><td>2-0</td><td>★★★★★</td></tr>
+                <tr><td>ChatGPT</td><td>T2</td><td><span class="signal strong">阿根廷胜</span></td><td>3-0</td><td>★★★☆☆</td></tr>
+                <tr><td>Gemini</td><td>T2</td><td><span class="signal strong">阿根廷胜</span></td><td>2-0</td><td>★★★☆☆</td></tr>
+                <tr><td>Claude</td><td>T2</td><td><span class="signal strong">阿根廷胜</span></td><td>1-0</td><td>★★★☆☆</td></tr>
+                <tr><td>DeepSeek</td><td>T2</td><td><span class="signal strong">阿根廷胜</span></td><td>2-1</td><td>★★★☆☆</td></tr>
+                <tr><td>BBC Sport</td><td>T3</td><td><span class="signal strong">阿根廷胜</span></td><td>2-0</td><td>★★★★☆</td></tr>
+                <tr><td>ESPN</td><td>T3</td><td><span class="signal strong">阿根廷胜</span></td><td>3-0</td><td>★★★★☆</td></tr>
+                <tr><td>懂球帝</td><td>T3</td><td><span class="signal strong">阿根廷胜</span></td><td>2-0</td><td>★★★★☆</td></tr>
+                <tr><td>直播吧</td><td>T3</td><td><span class="signal strong">阿根廷胜</span></td><td>1-0</td><td>★★★☆☆</td></tr>
+                <tr style="background:rgba(0,255,65,0.06);"><td><strong>共识</strong></td><td></td><td><strong>10/10一致 ✅</strong></td><td><strong>2-0 (40%)</strong></td><td><strong>100%</strong></td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">AI共识 vs 后台模型</div>
+        <div class="card-body open">
+            <div class="chart-wrap"><canvas id="aiVsModelChart"></canvas></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title" onclick="toggleCard(this)">共识比分分布</div>
+        <div class="card-body">
+            <div class="chart-wrap"><canvas id="consensusScoreChart"></canvas></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== TAB 9: Edge ==================== -->
+<div class="tc" id="tab9">
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">方向Edge</div>
+        <div class="card-body open">
+            <table>
+                <tr><th>方向</th><th>模型概率</th><th>市场概率</th><th>Edge</th><th>信号</th></tr>
+                <tr><td><span class="team-badge arg">阿根廷胜</span></td><td>69.9%</td><td>88%</td><td class="ev-neg">-18.1%</td><td><span class="signal weak">无价值 ❌</span></td></tr>
+                <tr style="background:rgba(0,255,65,0.06);"><td><span class="team-badge" style="border-color:var(--green);color:var(--green);">平局</span></td><td>21.1%</td><td>9%</td><td class="ev-pos"><strong>+12.1% 🚨</strong></td><td><span class="signal strong">强价值 ✅</span></td></tr>
+                <tr><td><span class="team-badge cv">佛得角胜</span></td><td>8.9%</td><td>3%</td><td class="ev-pos">+5.9%</td><td><span class="signal mid">中价值</span></td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">比分EV矩阵</div>
+        <div class="card-body open">
+            <table>
+                <tr><th>排名</th><th>比分</th><th>模型概率</th><th>参考赔率</th><th>EV</th><th>信号</th></tr>
+                <tr style="background:rgba(0,255,65,0.08);"><td>🥇</td><td>1-0</td><td>18.68%</td><td>@7.00</td><td class="ev-pos"><strong>+0.31 ✅</strong></td><td><span class="signal strong">强价值</span></td></tr>
+                <tr><td>2</td><td>2-0</td><td>16.78%</td><td>@5.50</td><td class="ev-neg">-0.08</td><td><span class="signal mid">中性</span></td></tr>
+                <tr><td>3</td><td>0-0</td><td>10.40%</td><td>@8.50</td><td class="ev-neg">-0.12</td><td><span class="signal mid">中性偏低</span></td></tr>
+                <tr><td>4</td><td>3-0</td><td>10.05%</td><td>@6.00</td><td class="ev-neg">-0.40</td><td><span class="signal weak">无价值</span></td></tr>
+                <tr><td>5</td><td>1-1</td><td>8.73%</td><td>@8.00</td><td class="ev-neg">-0.30</td><td><span class="signal weak">无价值</span></td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title" onclick="toggleCard(this)">EV可视化</div>
+        <div class="card-body">
+            <div class="chart-wrap"><canvas id="evChart"></canvas></div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== TAB 10: 投注 ==================== -->
+<div class="tc" id="tab10">
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">综合概率加权</div>
+        <div class="card-body open">
+            <table>
+                <tr><th>因素</th><th>权重</th><th>阿根廷胜</th><th>平局</th><th>佛得角胜</th></tr>
+                <tr><td>后台模型</td><td>0.35</td><td>69.9%</td><td>21.1%</td><td>8.9%</td></tr>
+                <tr><td>AI预测共识</td><td>0.25</td><td>95%</td><td>3%</td><td>2%</td></tr>
+                <tr><td>外媒一致方向</td><td>0.15</td><td>100%</td><td>0%</td><td>0%</td></tr>
+                <tr><td>佛得角防守韧性</td><td>0.10</td><td>65%</td><td>25%</td><td>10%</td></tr>
+                <tr><td>梅西状态</td><td>0.05</td><td>85%</td><td>10%</td><td>5%</td></tr>
+                <tr><td>阿根廷加时魔咒</td><td>0.05</td><td>60%</td><td>30%</td><td>10%</td></tr>
+                <tr><td>佛得角首次淘汰赛</td><td>0.05</td><td>75%</td><td>15%</td><td>10%</td></tr>
+                <tr style="background:rgba(0,240,255,0.06);"><td><strong>综合概率</strong></td><td><strong>1.00</strong></td><td><strong>76%</strong></td><td><strong>17%</strong></td><td><strong>7%</strong></td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">三单方案</div>
+        <div class="card-body open">
+            <div style="background:rgba(0,255,65,0.05);border:1px solid var(--green);border-radius:8px;padding:12px;margin-bottom:10px;">
+                <div style="font-family:'Orbitron',monospace;color:var(--green);font-size:0.9rem;">🟢 主单（稳健）</div>
+                <div style="font-size:0.85rem;margin-top:5px;">
+                    阿根廷 胜 @1.12 · 仓位 5-8%<br>
+                    <span style="color:var(--dim);font-size:0.75rem;">实力碾压，阿根廷胜出无悬念</span>
+                </div>
+            </div>
+            <div style="background:rgba(255,255,0,0.05);border:1px solid var(--yellow);border-radius:8px;padding:12px;margin-bottom:10px;">
+                <div style="font-family:'Orbitron',monospace;color:var(--yellow);font-size:0.9rem;">🟡 副单（价值）</div>
+                <div style="font-size:0.85rem;margin-top:5px;">
+                    阿根廷 -1胜 @1.55 · 仓位 3-5%<br>
+                    <span style="color:var(--dim);font-size:0.75rem;">阿根廷净胜2+球概率≈36%，佛得角防守支撑让球盘悬念</span>
+                </div>
+            </div>
+            <div style="background:rgba(255,0,64,0.05);border:1px solid var(--red);border-radius:8px;padding:12px;">
+                <div style="font-family:'Orbitron',monospace;color:var(--red);font-size:0.9rem;">🔴 冷门单（搏杀）🚨 全场最高价值</div>
+                <div style="font-size:0.85rem;margin-top:5px;">
+                    平局 @8.00 · Edge+12.1% · 仓位 1-2%<br>
+                    <span style="color:var(--dim);font-size:0.75rem;">佛得角小组赛3场全平含0-0西班牙，阿根廷11次加时世界杯最多</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">推荐比分</div>
+        <div class="card-body open">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;">
+                <div style="background:rgba(0,255,65,0.08);border:2px solid var(--green);border-radius:10px;padding:15px;text-align:center;">
+                    <div style="font-family:'Orbitron',monospace;font-size:0.6rem;color:var(--green);">🥇 第1推荐</div>
+                    <div style="font-family:'Orbitron',monospace;font-size:2rem;color:var(--text);margin:8px 0;">1-0</div>
+                    <div style="font-size:0.75rem;">概率 18.68% | @7.00</div>
+                    <div style="font-size:0.85rem;color:var(--green);">EV +0.31 ✅</div>
+                    <div style="font-size:0.65rem;color:var(--dim);margin-top:5px;">仓位 3-5%</div>
+                </div>
+                <div style="background:rgba(255,255,0,0.05);border:2px solid var(--yellow);border-radius:10px;padding:15px;text-align:center;">
+                    <div style="font-family:'Orbitron',monospace;font-size:0.6rem;color:var(--yellow);">🥈 第2推荐</div>
+                    <div style="font-family:'Orbitron',monospace;font-size:2rem;color:var(--text);margin:8px 0;">2-0</div>
+                    <div style="font-size:0.75rem;">概率 16.78% | @5.50</div>
+                    <div style="font-size:0.85rem;color:var(--yellow);">EV -0.08</div>
+                    <div style="font-size:0.65rem;color:var(--dim);margin-top:5px;">仓位 2-3%</div>
+                </div>
+                <div style="background:rgba(255,0,64,0.05);border:2px solid var(--red);border-radius:10px;padding:15px;text-align:center;">
+                    <div style="font-family:'Orbitron',monospace;font-size:0.6rem;color:var(--red);">🥉 搏冷</div>
+                    <div style="font-family:'Orbitron',monospace;font-size:2rem;color:var(--text);margin:8px 0;">0-0</div>
+                    <div style="font-size:0.75rem;">概率 10.40% | @8.50</div>
+                    <div style="font-size:0.85rem;color:var(--red);">EV -0.12</div>
+                    <div style="font-size:0.65rem;color:var(--dim);margin-top:5px;">仓位 1%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== TAB 11: 结论 ==================== -->
+<div class="tc" id="tab11">
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">最终判定</div>
+        <div class="card-body open">
+            <table>
+                <tr><td style="width:120px">本质</td><td>卫冕冠军碾压局 vs 历史首秀铁桶阵</td></tr>
+                <tr><td>胜负方向</td><td><span class="signal strong">阿根廷胜（综合概率76%）</span></td></tr>
+                <tr><td>最可能比分</td><td><span class="signal strong">1-0（18.68%，EV+0.31 ✅）</span></td></tr>
+                <tr><td>价值方向 🚨</td><td><span class="signal strong">平局（Edge+12.1%）</span></td></tr>
+                <tr><td>等级</td><td><span class="signal mid">A级</span> — 胜负方向清晰，让球盘存在博弈空间</td></tr>
+                <tr><td>关键变量</td><td>第25-35分钟分水岭</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title open" onclick="toggleCard(this)">核心提醒</div>
+        <div class="card-body open">
+            <div style="padding:5px 0;">
+                <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);">⚠️ 阿根廷胜被市场充分定价，主胜赔付过低（@1.12）</div>
+                <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);">⚠️ 平局Edge全场最高（+12.1%），有博弈价值</div>
+                <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);">⚠️ 1-0是唯一正EV比分（+0.31），值得重点关注</div>
+                <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);">⚠️ 佛得角小组赛3场全平+0-0西班牙，铁桶纪律不容低估</div>
+                <div style="padding:6px 0;">⚠️ 阿根廷11次世界杯加时赛历史最多，淘汰赛从不轻松</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title" onclick="toggleCard(this)">数据来源</div>
+        <div class="card-body">
+            <div style="font-size:0.75rem;color:var(--dim);padding:5px;">
+                懂球帝API · 雷速体育SWOT分析 · 中国竞彩网 · 新浪体育<br>
+                <span style="font-size:0.65rem;">本分析仅供参考 · 图一乐的赛事分析 · 纯个人看法别当真</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    AFEI Football Analysis Engine v2.1 · 2026-07-03 · 数据不会说谎，但人会。
+</div>
+
+<script>
+function toggleCard(el) {
+    el.classList.toggle('open');
+    var body = el.nextElementSibling;
+    body.classList.toggle('open');
+}
+
+// Tab navigation
+document.querySelectorAll('.tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+        document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
+        document.querySelectorAll('.tc').forEach(function(c){c.classList.remove('active');});
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+        // Resize charts
+        setTimeout(function(){window.dispatchEvent(new Event('resize'));}, 200);
+    });
+});
+
+// Colors
+var cCyan = '#00f0ff', cPink = '#ff00ff', cGreen = '#00ff41', cYellow = '#ffff00', cRed = '#ff0040', cOrange = '#ff6600';
+var dim = 'rgba(255,255,255,0.4)', bgCard = 'rgba(10,10,20,0.85)';
+
+// Chart defaults
+Chart.defaults.color = dim;
+Chart.defaults.borderColor = 'rgba(255,255,255,0.08)';
+
+// 1. Radar
+new Chart(document.getElementById('radarChart1'), {
+    type: 'radar',
+    data: {
+        labels: ['FIFA排名','进攻火力','防守强度','大赛经验','阵容深度','近期状态','球员身价','战术体系'],
+        datasets: [
+            { label:'阿根廷', data:[98,95,95,98,98,98,98,95], borderColor:cCyan, backgroundColor:'rgba(0,240,255,0.12)', pointBackgroundColor:cCyan, pointRadius:3 },
+            { label:'佛得角', data:[36,15,55,2,5,40,5,25], borderColor:cPink, backgroundColor:'rgba(255,0,255,0.08)', pointBackgroundColor:cPink, pointRadius:3 }
+        ]
+    },
+    options: { responsive:true, maintainAspectRatio:false, scales:{r:{min:0,max:100,ticks:{stepSize:20,font:{size:9}}}} }
+});
+
+// 2. Value bar
+new Chart(document.getElementById('valueChart'), {
+    type:'bar',
+    data: {
+        labels:['总身价','最高身价','五大联赛球员'],
+        datasets:[
+            { label:'阿根廷', data:[8.00, 0.90, 20], backgroundColor:cCyan, borderRadius:3 },
+            { label:'佛得角', data:[0.545, 0.15, 1], backgroundColor:cPink, borderRadius:3 }
+        ]
+    },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'top',labels:{font:{size:9}}}}, scales:{y:{beginAtZero:true,ticks:{font:{size:8}}}} }
+});
+
+// 3. Form
+new Chart(document.getElementById('formChart'), {
+    type:'radar',
+    data: {
+        labels:['场均进球','场均失球(逆)','零封率','胜率','近10场胜率','世界杯进球'],
+        datasets:[
+            { label:'阿根廷', data:[95,90,80,87,100,90], borderColor:cCyan, backgroundColor:'rgba(0,240,255,0.1)', pointBackgroundColor:cCyan },
+            { label:'佛得角', data:[25,70,60,40,40,10], borderColor:cPink, backgroundColor:'rgba(255,0,255,0.08)', pointBackgroundColor:cPink }
+        ]
+    },
+    options: { responsive:true, maintainAspectRatio:false, scales:{r:{min:0,max:100,ticks:{stepSize:25,font:{size:8}}}} }
+});
+
+// 4. Motivation
+new Chart(document.getElementById('motivationChart'), {
+    type:'bar',
+    data: {
+        labels:['求胜欲望','淘汰赛经验','心理压力(越高越轻松)','冠军底蕴','体能储备'],
+        datasets:[
+            { label:'阿根廷', data:[95,98,40,98,90], backgroundColor:cCyan, borderRadius:3 },
+            { label:'佛得角', data:[80,2,90,2,95], backgroundColor:cPink, borderRadius:3 }
+        ]
+    },
+    options: { responsive:true, maintainAspectRatio:false, indexAxis:'y', plugins:{legend:{position:'top',labels:{font:{size:9}}}}, scales:{x:{max:100,ticks:{font:{size:8}}}} }
+});
+
+// 5. Poisson distribution
+new Chart(document.getElementById('poissonChart'), {
+    type:'bar',
+    data: {
+        labels:['0球','1球','2球','3球','4球','5球','6球'],
+        datasets:[
+            { label:'阿根廷', data:[16.6,29.8,26.8,16.0,7.2,2.6,0.8], backgroundColor:cCyan, borderRadius:3 },
+            { label:'佛得角', data:[62.7,29.3,6.8,1.1,0.1,0.0,0.0], backgroundColor:cPink, borderRadius:3 }
+        ]
+    },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'top',labels:{font:{size:10}}}}, scales:{y:{beginAtZero:true,max:70,ticks:{font:{size:8},callback:v=>v+'%'}}} }
+});
+
+// 6. Goal range
+new Chart(document.getElementById('goalRangeChart'), {
+    type:'doughnut',
+    data: {
+        labels:['0-1球','2-3球','4+球'],
+        datasets:[{ data:[33.9,46.7,19.3], backgroundColor:[cYellow,cGreen,cRed], borderWidth:0 }]
+    },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{font:{size:10},padding:10}}, tooltip:{callbacks:{label:ctx=>ctx.label+': '+ctx.parsed+'%'}}} }
+});
+
+// 7. WDL
+new Chart(document.getElementById('wdlChart'), {
+    type:'doughnut',
+    data: {
+        labels:['阿根廷胜','平局','佛得角胜'],
+        datasets:[{ data:[69.9,21.1,8.9], backgroundColor:[cCyan,cYellow,cPink], borderWidth:0 }]
+    },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{font:{size:10}}}, tooltip:{callbacks:{label:ctx=>ctx.label+': '+ctx.parsed+'%'}}} }
+});
+
+// 8. AI vs Model
+new Chart(document.getElementById('aiVsModelChart'), {
+    type:'bar',
+    data: {
+        labels:['阿根廷胜','平局','佛得角胜'],
+        datasets:[
+            { label:'AI共识', data:[95,3,2], backgroundColor:'rgba(0,255,65,0.6)', borderRadius:3 },
+            { label:'后台模型', data:[69.9,21.1,8.9], backgroundColor:cCyan, borderRadius:3 },
+            { label:'市场隐含', data:[88,9,3], backgroundColor:'rgba(255,255,0,0.4)', borderRadius:3 }
+        ]
+    },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'top',labels:{font:{size:9}}}}, scales:{y:{beginAtZero:true,max:100,ticks:{font:{size:8},callback:v=>v+'%'}}} }
+});
+
+// 9. Consensus scores
+new Chart(document.getElementById('consensusScoreChart'), {
+    type:'bar',
+    data: {
+        labels:['2-0','3-0','1-0','2-1'],
+        datasets:[{ label:'来源数', data:[4,2,2,1], backgroundColor:[cCyan,cGreen,cYellow,cPink], borderRadius:3 }]
+    },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true,max:5,ticks:{font:{size:8},stepSize:1}}} }
+});
+
+// 10. EV
+new Chart(document.getElementById('evChart'), {
+    type:'bar',
+    data: {
+        labels:['1-0','2-0','0-0','3-0','1-1'],
+        datasets:[{
+            label:'EV值',
+            data:[0.31,-0.08,-0.12,-0.40,-0.30],
+            backgroundColor:[cGreen,'rgba(255,255,0,0.4)','rgba(255,255,0,0.3)',cRed,cRed],
+            borderRadius:3
+        }]
+    },
+    options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{ticks:{font:{size:8},callback:v=>v>=0?'+'+v.toFixed(2):v.toFixed(2)}}} }
+});
+
+// Squad data
+var argSquad = [
+    {pos:'GK',name:'埃米利亚诺·马丁内斯',val:'€3500万'},{pos:'DF',name:'巴列尔迪',val:'€1200万'},{pos:'DF',name:'塔利亚菲科',val:'€2000万'},{pos:'DF',name:'蒙铁尔',val:'€1800万'},{pos:'DF',name:'利·马丁内斯',val:'€5000万'},{pos:'DF',name:'罗梅罗',val:'€5500万'},{pos:'DF',name:'奥塔门迪',val:'€500万'},{pos:'DF',name:'梅迪纳',val:'€800万'},{pos:'DF',name:'莫利纳',val:'€4000万'},{pos:'MF',name:'帕雷德斯',val:'€1500万'},{pos:'MF',name:'德保罗',val:'€4000万'},{pos:'MF',name:'巴尔科',val:'€2000万'},{pos:'MF',name:'洛塞尔索',val:'€2500万'},{pos:'MF',name:'帕拉西奥斯',val:'€1000万'},{pos:'MF',name:'麦卡利斯特',val:'€6000万'},{pos:'MF',name:'恩佐·费尔南德斯',val:'€9000万'},{pos:'FW',name:'阿尔瓦雷斯',val:'€9000万'},{pos:'FW',name:'梅西 (C)',val:'€3000万'},{pos:'FW',name:'尼古拉斯·冈萨雷斯',val:'€3500万'},{pos:'FW',name:'阿尔马达',val:'€1800万'},{pos:'FW',name:'朱利亚诺·西蒙尼',val:'€600万'},{pos:'FW',name:'尼科·帕斯',val:'€300万'},{pos:'FW',name:'洛佩斯',val:'€500万'},{pos:'FW',name:'劳塔罗·马丁内斯',val:'€8000万'}
+];
+var cvSquad = [
+    {pos:'GK',name:'沃津哈',val:'€50万'},{pos:'GK',name:'马西奥·罗萨',val:'€30万'},{pos:'GK',name:'卡洛斯·多斯·桑托斯',val:'€20万'},{pos:'DF',name:'史蒂芬·莫雷拉',val:'€150万'},{pos:'DF',name:'瓦格纳·皮纳',val:'€80万'},{pos:'DF',name:'莫雷拉·费尔南德斯',val:'€100万'},{pos:'DF',name:'洛佩斯·卡布拉尔',val:'€200万'},{pos:'DF',name:'洛根·科斯塔',val:'€1500万'},{pos:'DF',name:'罗伯托·洛佩斯',val:'€100万'},{pos:'DF',name:'凯尔文·皮雷斯',val:'€120万'},{pos:'DF',name:'伊亚尼克·塔瓦雷斯',val:'€80万'},{pos:'DF',name:'埃迪尔森·博尔热斯',val:'€80万'},{pos:'MF',name:'贾米罗·蒙泰罗',val:'€250万'},{pos:'MF',name:'特尔莫·阿尔坎若',val:'€150万'},{pos:'MF',name:'亚尼克·塞梅多',val:'€100万'},{pos:'MF',name:'拉罗斯·杜阿尔特',val:'€200万'},{pos:'MF',name:'德罗伊·杜阿尔特',val:'€180万'},{pos:'MF',name:'凯文·皮纳',val:'€80万'},{pos:'FW',name:'瑞安·门德斯',val:'€300万'},{pos:'FW',name:'威利·塞梅多',val:'€250万'},{pos:'FW',name:'加里·罗德里格斯',val:'€600万'},{pos:'FW',name:'若瓦内·卡布拉尔',val:'€200万'},{pos:'FW',name:'努诺·达科斯塔',val:'€150万'},{pos:'FW',name:'戴隆·利夫拉门托',val:'€120万'},{pos:'FW',name:'吉尔森·本希莫尔',val:'€80万'},{pos:'FW',name:'埃利奥·瓦雷拉',val:'€60万'}
+];
+
+function renderSquad(data, elId) {
+    var el = document.getElementById(elId);
+    data.forEach(function(p) {
+        var div = document.createElement('div');
+        div.className = 'player-item';
+        div.innerHTML = '<span class="pos">['+p.pos+']</span> '+p.name+' <span class="val">'+p.val+'</span>';
+        el.appendChild(div);
+    });
+}
+renderSquad(argSquad, 'argSquad');
+renderSquad(cvSquad, 'cvSquad');
+</script>
+</body>
+</html>
