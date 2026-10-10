@@ -31,6 +31,7 @@ python scripts/sync.py --pull     # 开工第一件事：拉最新（只用 gite
 python scripts/sync.py --push     # 收工最后一件事：推所有远端
 python scripts/sync.py --status   # 只看状态
 ```
+- 🔴 **机器角色（2026-10-11 用户定）**：**家里这台（`I:\阿飞说球`）= 主机 / 权威版本**；公司 PC（`X:\阿飞说球`，本仓内路径 `公司机_工程/`）= 副机。规则与 `docs/`、`state/` 以家里为准，公司侧改动也要 push 回来对齐
 - 🔴 **拉取只用 `gitee` 单一来源**（多镜像互相 rebase 会产生重复提交）；**推送推给所有远端**，一个连不上不拖累另一个
 - 工作区不干净时脚本拒绝执行；rebase 冲突一律 `git rebase --abort` 退回，**冲突由人决定**（仓库含 png/docx 二进制，自动挑一边会静默丢文件）
 - ⚠️ **沙箱下 git 网络操作会失败**（`couldn't create signal pipe, Win32 error 5`）：这不是网络问题，**需要提权运行**；直接 `ssh -T` 反而正常
