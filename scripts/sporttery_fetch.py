@@ -10,6 +10,11 @@
   # 在售全盘口总览（可按竞彩编号过滤；同时落盘 state/_slate.json）
   python scripts/sporttery_fetch.py slate 周日013 周日014 周日024
 
+  # 按日期区间批量取「足球赛果开奖」（90 分钟全场比分；结果存 state/_results_<起>_<止>.json）
+  # 可选 --num 只列指定竞彩编号
+  python scripts/sporttery_fetch.py results 2026-09-19 2026-09-20
+  python scripts/sporttery_fetch.py results 2026-10-06 2026-10-08 --num 周二006 周三005
+
   # 一次拉齐某场竞彩比赛的官方全量数据 → state/_match_<id>/*.json
   python scripts/sporttery_fetch.py match 2041894 2041895
 
@@ -24,8 +29,9 @@
 - `football/*` 这一族用 `?source=web&sportteryMatchId=<竞彩id>`；用 `matchId` 会返回空值。
 - `getMatchHeadV1.qry` 的 `matchId` 是**另一套「比赛id」**，与竞彩 id 不同，勿混。
 - `getResultHistoryV1` 默认只回 **5 场**交锋；官方特征分析页给的是 8~10 场，缺的必须去页面上抄。
-- `getMatchTablesV2` 常返回空、`getMatchPlayerV1` 的 `playerName` 全为 null
-  → 积分榜与射手姓名仍要靠官方页面（用户粘贴）。
+- `getMatchTablesV2` 常返回空 → 积分榜仍要靠官方页面（用户粘贴）。
+- 射手姓名与伤停**能取**，字段是 `personName`（`getMatchPlayerV1` / `getInjurySuspensionV1`），
+  旧记把它写成 `playerName` 是字段名写错。
 """
 import sys, io, os, json, time, argparse, urllib.request, urllib.error, urllib.parse, http.cookiejar
 
@@ -34,6 +40,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
 REF = "https://www.sporttery.cn/jc/jsq/zqspj/"
+REF_SGKJ = "https://www.sporttery.cn/jc/zqsgkj/"   # 赛果开奖页（results 模式必须用这个 Referer）
 HOME = "https://www.sporttery.cn/"
 HOST = "https://webapi.sporttery.cn"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -75,8 +82,8 @@ def warmup():
     raw(HOME, HOME)
 
 
-def get(path, params, outfile=None):
-    st, b = raw(HOST + path + "?" + urllib.parse.urlencode(params))
+def get(path, params, outfile=None, referer=REF):
+    st, b = raw(HOST + path + "?" + urllib.parse.urlencode(params), referer)
     if outfile and st == 200 and len(b) > 100:
         with open(outfile, "wb") as f:
             f.write(b)
@@ -172,11 +179,53 @@ def cmd_slate(nums=None, dump=True):
     print("提示：本场全量官方数据再跑  python scripts/sporttery_fetch.py match <matchId>")
 
 
+def cmd_results(begin, end=None, nums=None):
+    """批量取「足球赛果开奖」（90 分钟全场比分），按日期区间。
+
+    端点 getUniformMatchResultV1.qry，来自 /jc/zqsgkj/ 的 jc_sgkj_gz.js。
+    ⚠️ 8 个必填参缺任一 → errorCode=P0001；日期必须 YYYY-MM-DD；
+       Referer 必须是 zqsgkj 页；务必先 warmup()。
+    """
+    end = end or begin
+    params = {"matchBeginDate": begin, "matchEndDate": end, "leagueId": "",
+              "pageSize": 100, "pageNo": 1, "isFix": 0, "matchPage": 1, "pcOrWap": 1}
+    out = os.path.join(OUT, "_results_%s_%s.json" % (begin, end))
+    st, b = get("/gateway/uniform/football/getUniformMatchResultV1.qry",
+                params, out, referer=REF_SGKJ)
+    if st != 200:
+        print("  HTTP %s 取数失败" % st)
+        return
+    js = json.loads(b.decode("utf-8"))
+    # 坑：errorCode 有时是字符串 "0"、有时是整数 0，一律按字符串比
+    if str(js.get("errorCode", "0")) != "0":
+        print("  errorCode=%s %s" % (js.get("errorCode"), js.get("errorMessage")))
+        return
+    val = js.get("value") or {}
+    rows = val.get("matchResult") or []
+    print("  %s ~ %s  raw=%dB  total=%s  lastUpdate=%s\n  → %s" % (
+        begin, end, len(b), val.get("total"), val.get("lastUpdateTime"),
+        os.path.relpath(out, ROOT)))
+    if nums:
+        want = set(nums)
+        rows = [m for m in rows if str(m.get("matchNumStr", "")).strip() in want]
+    print("  列出 %d 行%s" % (len(rows), "（已按编号过滤）" if nums else ""))
+    for m in rows:
+        st_txt = "待开奖" if str(m.get("matchResultStatus")) == "1" else "已完成"
+        print("  %-8s %-10s %-6s %s(%s) vs %s   半 %-4s 全 %-4s [%s]" % (
+            m.get("matchNumStr", ""), m.get("matchDate", ""), m.get("leagueNameAbbr", ""),
+            m.get("homeTeam", ""), m.get("goalLine", ""), m.get("awayTeam", ""),
+            m.get("sectionsNo1") or "-", m.get("sectionsNo999") or "-", st_txt))
+    print("=" * 78)
+    print("提示：口径只认 sectionsNo999（90 分钟）；编号跨批次会重排，认比赛只认队名。")
+
+
 def main():
     ap = argparse.ArgumentParser(description="竞彩网官方 webapi 取数器")
-    ap.add_argument("mode", choices=["slate", "match", "form", "bonus"])
-    ap.add_argument("ids", nargs="*", help="match/bonus=竞彩id；form=gmTeamId；slate=竞彩编号(可选)")
+    ap.add_argument("mode", choices=["slate", "match", "form", "bonus", "results"])
+    ap.add_argument("ids", nargs="*",
+                    help="match/bonus=竞彩id；form=gmTeamId；slate=竞彩编号(可选)；results=起始日期 [结束日期]")
     ap.add_argument("--term", type=int, default=10, help="form 模式的 termLimits（默认 10）")
+    ap.add_argument("--num", nargs="*", default=None, help="results 模式：只列这些竞彩编号（如 周二006）")
     a = ap.parse_args()
     warmup()
     if a.mode == "slate":
@@ -185,6 +234,10 @@ def main():
         cmd_match(a.ids)
     elif a.mode == "form":
         cmd_form(a.ids, a.term)
+    elif a.mode == "results":
+        if not a.ids:
+            ap.error("results 模式需要日期，如 results 2026-10-06 2026-10-08")
+        cmd_results(a.ids[0], a.ids[1] if len(a.ids) > 1 else None, a.num)
     else:
         cmd_bonus(a.ids)
     print("DONE")

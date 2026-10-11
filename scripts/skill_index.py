@@ -5,9 +5,13 @@
 用法：
     python scripts/skill_index.py
 
-何时重跑：**任何 SKILL.md 增删或改动了二级标题**（新增规则节、拆章）之后。
+何时重跑：**任何 SKILL.md 增删或改动了标题**（新增规则节、拆章）之后。
 索引给出行号，agent 便可 `read SKILL.md offset=<行> limit=<长度>` 定点加载，
-避免整篇读（242KB ≈60K tokens → 索引 18KB ≈4.6K tokens）。
+避免整篇读（242KB ≈60K tokens → 索引 20KB ≈5K tokens）。
+
+设计取舍（2026-10-11 修）：三级小节（`###`）在长技能里有 479 条，全进索引会把
+INDEX.md 从 18KB 撑到 40KB+，得不偿失 → 所以只把**编号型标题**（R1/R41/C15b…）
+收进「规则编号速查」一节（一行一个技能），其余三级小节按需 `grep "^### " <技能>/SKILL.md` 直接拿行号。
 """
 import re
 import sys
@@ -53,29 +57,40 @@ def scan():
                 ver = l.split(":", 1)[1].strip()
             elif l.startswith("description:"):
                 desc = l.split(":", 1)[1].strip()
-        heads, in_code = [], False
+        heads, ids, in_code = [], [], False
         for i, l in enumerate(lines, 1):
             if l.startswith("```"):
                 in_code = not in_code
                 continue
             if in_code:
                 continue
-            if re.match(r"^##\s+\S", l):
-                heads.append((i, re.sub(r"^##\s+", "", l).strip()[:52]))
+            m = re.match(r"^(#{2,3})\s+(\S.*)$", l)
+            if not m:
+                continue
+            title = m.group(2).strip()
+            if m.group(1) == "##":
+                heads.append((i, title[:52]))
+            # 编号型标题（R1 / R41 / C15b / R20b…）→ 速查表；只收本项目的规则系列
+            # R（写作规则）/ C（修正规则），避免把 L1/L2 这类管线步骤误收进来。
+            rid = re.match(r"^([RC]\d{1,2}[a-z]?)(?=[\s\.、:：]|$)", title)
+            if rid:
+                ids.append((i, rid.group(1)))
         rows.append((d.name, n, ver, policy(n), desc))
-        details.append((d.name, n, heads))
+        details.append((d.name, n, heads, ids))
     return rows, details
 
 
 def main():
     rows, details = scan()
+    heavy = [r for r in rows if r[1] > 400]
+    heavy_txt = "，".join("`%s` %d 行 ≈%dK tokens" % (r[0], r[1], r[1] // 70) for r in heavy)
     out = [
         "# 技能索引（按需加载 · 免全量读）",
         "",
-        "> 生成：`python scripts/skill_index.py`（SKILL.md 增删或改二级标题后重跑）。",
+        "> 生成：`python scripts/skill_index.py`（SKILL.md 增删或改标题后重跑）。",
         "> **用法**：先在本文件定位技能与目标小节行号，再",
         "> `read 📚知识库/skills/<技能>/SKILL.md offset=<行号> limit=<小节长度>`，避免整篇加载。",
-        "> 行数 > 400 的技能**禁止全量读**（`match-model-pipeline` 1243 行 ≈17K tokens，`afei-writing-standards` 776 行 ≈13K tokens）。",
+        "> 行数 > 400 的技能**禁止全量读**（%s）。" % heavy_txt,
         "",
         "## 常用组合（按任务，只加载需要的）",
         "",
@@ -94,8 +109,16 @@ def main():
     ]
     for name, n, ver, pol, desc in rows:
         out.append(f"| `{name}` | {n} | {ver} | {pol} | {clean(desc)} |")
-    out += ["", "## 分节行号", ""]
-    for name, n, heads in details:
+    fast = [(name, n, ids) for name, n, heads, ids in details if ids]
+    if fast:
+        out += ["", "## 规则编号速查（编号 → 行号）", "",
+                "> 编号型标题（R1/R41/C15b…）可能藏在三级 `###` 里，这里给出行号，免去全篇找。", ""]
+        for name, n, ids in fast:
+            out.append("| `%s` | %s |" % (name, " · ".join("L%d=%s" % (i, k) for i, k in ids)))
+    out += ["", "## 分节行号（二级 `##`）", "",
+            "> 三级小节（`###`）不在此逐一索引（长技能里有 479 条，全收会让本文件翻倍）。",
+            "> 要定位时直接 `grep \"^### \" 📚知识库/skills/<技能>/SKILL.md`，零成本拿行号。", ""]
+    for name, n, heads, ids in details:
         out.append(f"### `{name}`（{n} 行，{policy(n)}）")
         if heads:
             out += [f"- L{i}｜{h}" for i, h in heads]
@@ -104,7 +127,8 @@ def main():
         out.append("")
     OUT.write_text("\n".join(out).rstrip() + "\n", encoding="utf-8")
     print(f"[OK] {OUT.relative_to(ROOT)}  {OUT.stat().st_size} bytes  "
-          f"skills={len(rows)}  headings={sum(len(h) for _, _, h in details)}")
+          f"skills={len(rows)}  headings={sum(len(h) for _, _, h, _ in details)}  "
+          f"ids={sum(len(x) for _, _, x in fast)}")
 
 
 if __name__ == "__main__":

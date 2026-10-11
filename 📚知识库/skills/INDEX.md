@@ -1,9 +1,9 @@
 # 技能索引（按需加载 · 免全量读）
 
-> 生成：`python scripts/skill_index.py`（SKILL.md 增删或改二级标题后重跑）。
+> 生成：`python scripts/skill_index.py`（SKILL.md 增删或改标题后重跑）。
 > **用法**：先在本文件定位技能与目标小节行号，再
 > `read 📚知识库/skills/<技能>/SKILL.md offset=<行号> limit=<小节长度>`，避免整篇加载。
-> 行数 > 400 的技能**禁止全量读**（`match-model-pipeline` 1243 行 ≈17K tokens，`afei-writing-standards` 776 行 ≈13K tokens）。
+> 行数 > 400 的技能**禁止全量读**（`match-model-pipeline` 1243 行 ≈17K tokens，`afei-writing-standards` 859 行 ≈12K tokens，`humanizer` 647 行 ≈9K tokens，`football-match-preview-article` 729 行 ≈10K tokens，`football-lottery-assistant` 478 行 ≈6K tokens，`humanizer-zh` 473 行 ≈6K tokens，`football-14dim-full-analysis` 580 行 ≈8K tokens）。
 
 ## 常用组合（按任务，只加载需要的）
 
@@ -48,7 +48,17 @@
 | `football-data-aggregator` | 125 | 1.0.0 | 全量读 | 赛事数据捕获器——自动从新球体育、懂球帝、竞彩网抓取比赛数据。支持积分榜、近期战绩、H2H交锋、控球率、射门射正、伤停名单等。替代手动粘贴数据的… |
 | `football-model-dashboard-template` | 97 | 1.0.0 | 全量读 | 单场模型数据深色主题HTML仪表盘模板。模型跑完后一键生成可视化分析页：KPI卡片、概率条、市场vs模型对比、比分EV表、敏感性、三套方案。暗色… |
 
-## 分节行号
+## 规则编号速查（编号 → 行号）
+
+> 编号型标题（R1/R41/C15b…）可能藏在三级 `###` 里，这里给出行号，免去全篇找。
+
+| `afei-writing-standards` | L21=R1 · L28=R2 · L33=R3 · L37=R4 · L41=R5 · L56=R6 · L84=R7 · L91=R8 · L96=R9 · L111=R10 · L124=R11 · L138=R12 · L154=R13 · L169=R14 · L178=R15 · L203=R16 · L220=R17 · L244=R18 · L267=R19 · L302=R20 · L324=R21 · L338=R22 · L371=R20b · L385=R23 · L401=R24 · L414=R25 · L424=R26 · L433=R27 · L446=R27b · L468=R28 · L486=R29 · L514=R30 · L520=R31 · L532=R32 · L544=R33 · L597=R34 · L633=R35 · L699=R36 · L748=R37 · L779=R38 · L789=R39 · L801=R40 · L809=R41 |
+| `football-calibration-batch` | L73=R8 · L79=R9 · L111=R10 |
+
+## 分节行号（二级 `##`）
+
+> 三级小节（`###`）不在此逐一索引（长技能里有 479 条，全收会让本文件翻倍）。
+> 要定位时直接 `grep "^### " 📚知识库/skills/<技能>/SKILL.md`，零成本拿行号。
 
 ### `match-model-pipeline`（1243 行，先查本索引定位，只读目标小节）
 - L15｜When to Use

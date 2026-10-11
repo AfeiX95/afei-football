@@ -56,8 +56,9 @@ def api(url):
 
 ### 🔴 已知坑
 
-- `getResultHistoryV1` **默认只回 5 场**交锋（002 实际 8 场、003 实际 10 场）→ 只看 API 会得出**方向相反**的结论。
-- `getMatchTablesV2` 返回空、`getMatchPlayerV1` 的 `playerName` 全为 `null` → **积分榜与射手姓名只能从官方页面复制**（用户粘贴的特征分析页有）。
+- `getResultHistoryV1` **默认只回 5 场**交锋（002 实际 8 场、003 实际 10 场）→ 只看 API 会得出**方向相反**的结论。（2026-10-11 复核：**硬上限就是 5 行**，`matchId` 与 `sportteryMatchId` 两种参数、加不加 `termLimits` 都一样 → ≥6 场交锋确认**无解**，只能靠官方页面 / 用户粘贴。）
+- `getMatchTablesV2` 返回空 → **积分榜只能从官方页面复制**（用户粘贴的特征分析页有）。
+- ✅ **射手姓名与伤停能取**，字段是 **`personName`**（不是 `playerName`！）：`getMatchPlayerV1.qry` / `getInjurySuspensionV1.qry` + `?source=web&sportteryMatchId=<竞彩id>`。旧记「`playerName` 全为 null → 只能页面复制」属**字段名写错**，已作废。
 - `getAnalysisV1` / `getMatchAnalysisV1` / `getMatchInfoV1` / `getMatchDetailV1` / `getHistoryMatchV1` / `getVersusHistoryV1` / `team/getTeamRankV1` / `league/getLeagueRankV1` **均不存在**（一律 `E0001`）；`getMatchFeatureV1.qry` 在无参时返回 `success:true, value:{}`。
 - 比分口径：`sectionsNo999` = **home:away**。
 - 官方特征分析页页脚写明「赛事数据统计进行至全场90分钟（含伤停补时阶段）结果」——即 **90 分钟口径的官方背书**。
@@ -68,7 +69,25 @@ def api(url):
 | 数据类型 | URL | 方法 | 备注 |
 |:---------|:----|:----|:------|
 | 赛程+赔率 | `https://webapi.sporttery.cn/gateway/uniform/football/getMatchCalculatorV1.qry?channel=c` | curl | ✅ 可用，返回JSON |
-| 赛果开奖 | 同上站点的结果页面 | browser | ⚠️ WAF拦截，需浏览器渲染 |
+| 赛果开奖 | `https://webapi.sporttery.cn/gateway/uniform/football/getUniformMatchResultV1.qry` | curl | ✅ **已打通（2026-10-11）**，按日期区间批量取 90 分钟赛果，见下节；旧记「需浏览器渲染 / WAF 拦截」已作废 |
+
+### ✅ 赛果开奖批量接口（2026-10-11 打通）
+
+页面 `https://www.sporttery.cn/jc/zqsgkj/` → JS `static.sporttery.cn/res_1_0/jcw/default/jc/sgkj/jc_sgkj_gz.js`：
+
+```
+GET https://webapi.sporttery.cn/gateway/uniform/football/getUniformMatchResultV1.qry
+    ?matchBeginDate=2026-10-06&matchEndDate=2026-10-08&leagueId=
+    &pageSize=100&pageNo=1&isFix=0&matchPage=1&pcOrWap=1
+```
+
+- 头部：Chrome UA + **`Referer: https://www.sporttery.cn/jc/zqsgkj/`**（注意：**不是** zqspj 那个）+ `Accept: application/json`；仍须**先预热** `https://www.sporttery.cn/`，否则 567。
+- **8 个参数缺任一 → `errorCode=P0001 参数不合法`**；日期必须 `YYYY-MM-DD`（`20261010` 也报 P0001）；`leagueId=` 留空。
+- 返回 `value.total` / `value.lastUpdateTime` / `value.matchResult[]`；行字段：`matchNumStr`（如 `周六005`）、`matchDate`、`leagueNameAbbr`、`homeTeam`/`awayTeam`、`homeTeamId`/`awayTeamId`、`matchId`、`goalLine`（让球）、`h`/`d`/`a`、`sectionsNo1`（半场）、`sectionsNo999`（**90 分钟全场** `主:客`）、`matchResultStatus`（**`2`=已完成、`1`=待开奖**）、`winFlag`。
+- ⚠️ `errorCode` 有时是字符串 `"0"`、有时是整数 `0`，**一律按字符串比**。
+- ⚠️ **编号跨批次重排**：`周六001-018` 于 10-10 进行、`019-030` 于 10-11 凌晨进行，都叫 `周六xxx`；同一天也会有 `周三xxx`（巴甲）与 `周四xxx`（芬超）混排 → **认比赛只认队名**。
+- ⚠️ `football/getUniformMatchResultV2.qry` 不存在（V2 只归 basketball，`basketball/...V2.qry` 200/total=21 可用）。
+- 🛠️ 已封装：`python scripts/sporttery_fetch.py results 2026-10-06 2026-10-08 [--num 周二006 周三005]` → 原始 JSON 落 `state/_results_<起>_<止>.json`。
 
 ### 字段映射（getMatchCalculatorV1.qry）
 

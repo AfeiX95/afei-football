@@ -12,6 +12,7 @@ state/_match_*/
 state/_form*.json
 state/_bonus_*.json
 state/_slate.json
+state/_results_*.json
 # 临时日志（pwsh 里 `python x.py | Out-File -Encoding utf8 state\_x.txt`）
 state/_*.txt
 state/_*.log
