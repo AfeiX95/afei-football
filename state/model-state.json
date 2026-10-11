@@ -110,7 +110,7 @@
     },
     {
       "type": "数据缺口",
-      "text": "积分榜 / 射手姓名 / ≥8 场完整交锋仍无法从 webapi 取（getMatchTablesV2 返回空、getMatchPlayerV1 的 playerName 全 null、getResultHistoryV1 默认只回 5 场）→ 目前靠用户粘贴官方特征分析页；下步可试特征分析页 HTML 直解或未验证的参数组合",
+      "text": "积分榜进失球 / ≥6 场完整交锋仍无法从 webapi 取（getMatchTablesV2 返回空；getResultHistoryV1 硬上限 5 行，换 matchId 与 sportteryMatchId 两种参数实测均如此）→ 目前仍靠用户粘贴官方特征分析页。✅ 2026-10-11 修正：射手姓名与伤停名单「能」取，字段是 personName（getMatchPlayerV1 / getInjurySuspensionV1），旧记「playerName 全 null」属字段名写错；已实测 013 拉齐奥三人与 5 人伤停与官方页完全一致。下步：试 getMatchTablesV2 的参数组合，或官方特征分析页 HTML 直解",
       "ref": "📚知识库/数据源/API接口.md"
     },
     {
