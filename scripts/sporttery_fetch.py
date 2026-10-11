@@ -7,6 +7,9 @@
 
 用法
 ----
+  # 在售全盘口总览（可按竞彩编号过滤；同时落盘 state/_slate.json）
+  python scripts/sporttery_fetch.py slate 周日013 周日014 周日024
+
   # 一次拉齐某场竞彩比赛的官方全量数据 → state/_match_<id>/*.json
   python scripts/sporttery_fetch.py match 2041894 2041895
 
@@ -124,14 +127,61 @@ def cmd_bonus(ids):
         time.sleep(0.25)
 
 
+def cmd_slate(nums=None, dump=True):
+    """在售全盘口；nums 给竞彩编号（如 周日013）则只列这些场。"""
+    st, b = get("/gateway/uniform/football/getMatchCalculatorV1.qry", {"channel": "c"},
+                os.path.join(OUT, "_slate.json") if dump else None)
+    print("calculator %s raw=%d" % (st, len(b)))
+    if st != 200:
+        return
+    val = json.loads(b.decode("utf-8")).get("value") or {}
+    rows = []
+    for mi in val.get("matchInfoList", []):
+        for m in mi.get("subMatchList", []) or []:
+            rows.append(m)
+    if nums:
+        want = set(nums)
+        rows = [m for m in rows if str(m.get("matchNumStr", "")).strip() in want]
+    print("命中 %d 场" % len(rows))
+    for m in rows:
+        had = m.get("had") or {}
+        hh = m.get("hhad") or {}
+        print("-" * 78)
+        print("%s  %s %s  id=%s  [%s]" % (
+            m.get("matchNumStr"), m.get("matchDate"), m.get("matchTime"),
+            m.get("matchId"), m.get("matchStatus")))
+        print("  %s %s  vs  %s %s   %s" % (
+            m.get("homeTeamAbbName"), "(%s)" % m.get("homeRank", ""),
+            m.get("awayTeamAbbName"), "(%s)" % m.get("awayRank", ""),
+            m.get("leagueAbbName", "")))
+        print("  队id home=%s away=%s | 单场id=%s" % (
+            m.get("homeTeamId"), m.get("awayTeamId"), m.get("matchId")))
+        print("  胜平负 %s / %s / %s      让球(%s) %s / %s / %s" % (
+            had.get("h"), had.get("d"), had.get("a"),
+            hh.get("goalLine"), hh.get("h"), hh.get("d"), hh.get("a")))
+        crs = m.get("crs") or {}
+        ttg = m.get("ttg") or {}
+        if crs:
+            print("  比分 " + "  ".join(
+                "%s:%s=%s" % (k[1:3], k[4:6], v) for k, v in sorted(crs.items())
+                if v not in (None, "", "0")))
+        if ttg:
+            print("  总进球 " + "  ".join("%s" % (ttg.get("s%d" % i), )
+                                        for i in range(0, 8)))
+    print("=" * 78)
+    print("提示：本场全量官方数据再跑  python scripts/sporttery_fetch.py match <matchId>")
+
+
 def main():
     ap = argparse.ArgumentParser(description="竞彩网官方 webapi 取数器")
-    ap.add_argument("mode", choices=["match", "form", "bonus"])
-    ap.add_argument("ids", nargs="+")
+    ap.add_argument("mode", choices=["slate", "match", "form", "bonus"])
+    ap.add_argument("ids", nargs="*", help="match/bonus=竞彩id；form=gmTeamId；slate=竞彩编号(可选)")
     ap.add_argument("--term", type=int, default=10, help="form 模式的 termLimits（默认 10）")
     a = ap.parse_args()
     warmup()
-    if a.mode == "match":
+    if a.mode == "slate":
+        cmd_slate(a.ids or None)
+    elif a.mode == "match":
         cmd_match(a.ids)
     elif a.mode == "form":
         cmd_form(a.ids, a.term)
