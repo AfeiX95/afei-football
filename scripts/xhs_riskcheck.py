@@ -9,6 +9,11 @@
 
 这道闸只看形状、不猜语义：命中任一类 → 直接拒绝出图（退出码 2）。宁可错拦，不要漏。
 
+**2026-10-13 二审后的修正（实测，很重要）**：把首篇形态改成「数据向单卡 + 后台模型块（热力图/胜率条）」，
+但**正文**里写了「比分我猜 1 比 1（10.8%）／1 比 2（8.7%）」→ **仍然没过**；把正文改成纯技术面（图一字未动）→ **一次通过**。
+结论：**判点在正文文字**——图上放概率图表没事，正文里出现比分猜测与概率数字才会判。
+因此额外加了 `CAPTION_RULES` / `scan_caption()`（禁「猜/比分我/预测比分」与「% / 胜率 / 概率」），只扫要粘贴的正文。
+
 用法：
   python scripts/xhs_riskcheck.py "📝文章/20261014/小红书_第二批/cards.json"
   python scripts/xhs_riskcheck.py <cards.json> --text "另一段要发的文案"
@@ -53,6 +58,26 @@ def scan_text(text: str, where: str = "") -> list:
             if len(frag) > 20:
                 frag = frag[:20] + "…"
             hits.append((name, frag, where, why))
+    return hits
+
+
+# 文案正文专属规则：2026-10-13 实测——**同一张卡**（图上仍带比分概率热力图与胜率条）只把正文改成纯技术面
+# 就**一次通过**，说明这一轮的判点在**正文文字**：正文里写比分猜测 / 概率数字才会判「财产安全风险」。
+CAPTION_RULES = [
+    ("正文·比分猜测", r"猜|比分我|高概率比分|预测比分|我看好",
+     "正文出现比分猜测＝会被效仿的具体结果（图上的概率图表不判，正文文字判）"),
+    ("正文·概率数字", r"\d\s*%|胜率|概率|几成把握",
+     "正文出现概率/胜率数字，同属「会被效仿的具体结果」判点"),
+]
+
+
+def scan_caption(text: str, where: str = "文案正文") -> list:
+    """只对「要粘贴到平台的正文」跑：禁比分猜测与概率数字。"""
+    t = DATE_RE.sub("（日期）", str(text or ""))
+    hits = []
+    for name, pat, why in CAPTION_RULES:
+        for m in re.finditer(pat, t):
+            hits.append((name, m.group(0)[:20], where, why))
     return hits
 
 
@@ -118,6 +143,7 @@ def main() -> None:
     hits = scan_cards(data)
     if a.text:
         hits += scan_text(a.text, "(--text)")
+        hits += scan_caption(a.text, "(--text)")
     if not hits:
         print("✅ 风控自检通过：" + str(p))
         sys.exit(0)

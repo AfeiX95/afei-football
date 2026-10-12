@@ -1244,10 +1244,12 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
         data["per_match_cards"] = per
         data["card_mode"] = "data" if kind in ("data", "dm", "model") else kind
         cap = caption_text(data, cards)
-        # 正文也要过闸：比分猜测写成「2 比 1」不算比分串；方向/投注/机构语一律拦
+        # 正文也要过闸：2026-10-13 实测判点在正文文字（同一张卡把正文改纯技术面后一次通过），
+        # 所以除了通用词表，再过一遍「正文专属」规则（禁比分猜测/概率数字）
         try:
             import xhs_riskcheck
             hits = xhs_riskcheck.scan_text(cap, "文案正文")
+            hits += xhs_riskcheck.scan_caption(cap)
         except ImportError:
             hits = []
         if hits:
