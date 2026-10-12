@@ -74,6 +74,7 @@ body{width:%(w)dpx;height:%(h)dpx;overflow:hidden}
 EDITORIAL_CSS = """
 @font-face{font-family:"CardSerif";src:url("font-serif.ttf") format("truetype");font-weight:400 900;font-display:block}
 body{background:#f3f0e8;color:#0a0a0b}
+.ed{--accent:#9b5a2e;--heat:155,90,46}
 .ed{font-family:"Microsoft YaHei UI","Noto Sans SC","PingFang SC",sans-serif;padding:84px 80px 70px}
 .ed .serif{font-family:"CardSerif","Noto Serif SC","Songti SC",SimSun,serif}
 .ed .top{display:flex;justify-content:space-between;align-items:baseline;letter-spacing:.16em;
@@ -132,6 +133,7 @@ body{background:#f3f0e8;color:#0a0a0b}
 # --------------------------------------------------------------------------- #
 SWISS_CSS = """
 body{background:#f4f4f2;color:#000}
+.sw{--accent:#e8402a;--heat:232,64,42}
 .sw{font-family:"Microsoft YaHei UI","Noto Sans SC","PingFang SC","Helvetica Neue",Arial,sans-serif;
   padding:66px 76px 54px}
 .sw .top{display:flex;align-items:center;gap:22px;font-size:26px;letter-spacing:.12em;font-weight:700}
@@ -188,7 +190,43 @@ body{background:#f4f4f2;color:#000}
 .sw.cover .tail{margin-top:auto;border-top:3px solid #000;padding-top:22px;font-size:29px;line-height:1.6;color:#3d3d3d}
 """
 
-STYLES = {"editorial": (EDITORIAL_CSS, "ed", "CardSerif"), "swiss": (SWISS_CSS, "sw", None)}
+# --------------------------------------------------------------------------- #
+# 风格三：瑞色风 rouge（2026-10-13 用户点单：暖红/朱砂色系，不要金赭）
+# 做法：先把 editorial 的排版整套复制过来，再把 `.ed`→`.rg`、赭石 #9b5a2e→朱砂 #b8322a、
+# 米白底 → 粉调暖底；最后只覆盖真正要变脸的几处（顶栏、封面、雷达客队色）。
+# --------------------------------------------------------------------------- #
+ROUGE_CSS = EDITORIAL_CSS.replace(".ed", ".rg").replace("#9b5a2e", "#b8322a") + """
+.rg{--accent:#b8322a;--heat:184,50,42}
+body{background:#f8f0e9;color:#1a1310}
+.rg .top{color:#b8322a;letter-spacing:.2em}
+.rg .rule{background:rgba(184,50,42,.34);height:4px}
+.rg .foot{border-top-color:rgba(184,50,42,.3)}
+.rg .note .nl i{background:#b8322a}
+.rg.data h1{font-size:78px}
+.rg.data .cq .lab,.rg.data .brief .lab{color:#b8322a}
+.rg.data .quad .qcell{border-left-color:#b8322a}
+.rg.data .quad .qlab{color:#b8322a}
+.rg.data .wdl .lab,.rg.data .heat .lab{color:#b8322a}
+.rg.data .hcell.hmax{box-shadow:inset 0 0 0 3px #b8322a}
+.rg.data .wbar .s1{background:#b8322a}
+.rg.data .wmark{background:repeating-linear-gradient(to bottom,#b8322a 0 9px,transparent 9px 15px)}
+.rg.data .wmark:after{border-top-color:#b8322a}
+.rg.data .pill.l{background:#b8322a}
+.rg.data .foot .tags{color:#b8322a}
+"""
+
+STYLES = {"editorial": (EDITORIAL_CSS, "ed", "CardSerif"), "swiss": (SWISS_CSS, "sw", None),
+          "rouge": (ROUGE_CSS, "rg", "CardSerif")}
+
+
+def ext_css(cluster: str) -> str:
+    """扩展 CSS（EXTRA_CSS / ALL_CSS / DATA_CSS）是照着 editorial 的 `.ed` 写的。
+
+    换风格时必须把 `.ed` 前缀换成当前风格的 cluster（`.rg` / `.sw`），否则整块版式
+    （战绩行、简报、四格、模型行……）全部不生效——2026-10-13 瑞色风首渲踩到过这个坑。
+    """
+    s = EXTRA_CSS + ALL_CSS + DATA_CSS
+    return s if cluster == "ed" else s.replace(".ed", "." + cluster)
 
 
 # --------------------------------------------------------------------------- #
@@ -476,6 +514,33 @@ DATA_CSS = """
 
 
 # --------------------------------------------------------------------------- #
+# 封面（2026-10-13 用户要求重做）：要日期 + 「今日赛事前瞻」 + 主客队名，
+# 字体要大、内容不多但抓眼。三套风格共用这套结构，颜色走 var(--accent)。
+# --------------------------------------------------------------------------- #
+COVER_CSS = """
+.cover{padding-top:88px}
+.cover .top{align-items:center}
+.cover .kicker{display:inline-block;background:var(--accent,#9b5a2e);color:#fff;font-size:31px;
+  font-weight:800;letter-spacing:.22em;padding:15px 24px 15px 28px}
+.cover .pager{margin-left:auto;font-size:27px;letter-spacing:.06em;color:rgba(10,10,11,.5)}
+.cover .date{margin-top:36px;font-size:54px;font-weight:800;letter-spacing:.02em;
+  color:var(--accent,#9b5a2e);font-variant-numeric:tabular-nums}
+.cover h1{margin-top:16px;font-size:104px;line-height:1.08;font-weight:900;letter-spacing:-.01em}
+.cover .rule{height:6px;background:var(--accent,#9b5a2e);margin-top:32px;opacity:.92}
+.cover .items{margin-top:30px}
+.cover .it{display:flex;align-items:baseline;gap:18px;padding:26px 0;
+  border-bottom:2px solid rgba(10,10,11,.12)}
+.cover .it .n{flex:0 0 64px;font-size:35px;font-weight:900;color:var(--accent,#9b5a2e)}
+.cover .it .h,.cover .it .a{font-family:"CardSerif","Noto Serif SC","Songti SC",SimSun,serif;
+  font-size:58px;font-weight:800;letter-spacing:.01em;line-height:1.1}
+.cover .it .vs{font-size:30px;font-weight:400;color:rgba(10,10,11,.42)}
+.cover .it .plain{font-size:46px;font-weight:800}
+.cover .tail{margin-top:auto;font-size:30px;line-height:1.55;color:rgba(10,10,11,.6);
+  border-left:9px solid var(--accent,#9b5a2e);padding-left:26px}
+"""
+
+
+# --------------------------------------------------------------------------- #
 # 工具
 # --------------------------------------------------------------------------- #
 def esc(t) -> str:
@@ -579,6 +644,10 @@ def radar_svg(radar: dict, cluster: str, size: int = 300, label_font: int = 23) 
         c_home, c_away = "#e8402a", "#000000"
         f_home, f_away = "rgba(232,64,42,.16)", "rgba(0,0,0,.08)"
         c_grid, c_lab, c_sep = "rgba(0,0,0,.22)", "#000000", "rgba(0,0,0,.4)"
+    elif cluster == "rg":
+        c_home, c_away = "#b8322a", "#2f5560"
+        f_home, f_away = "rgba(184,50,42,.15)", "rgba(47,85,96,.10)"
+        c_grid, c_lab, c_sep = "rgba(26,19,16,.20)", "#1a1310", "rgba(26,19,16,.32)"
     else:
         c_home, c_away = "#9b5a2e", "#3f5f80"
         f_home, f_away = "rgba(155,90,46,.16)", "rgba(63,95,128,.10)"
@@ -690,7 +759,9 @@ def radar_html(card: dict, cluster: str, size: int = 300, label_font: int = 23) 
     svg = radar_svg(card.get("radar") or {}, cluster, size, label_font)
     if not svg:
         return ""
-    c_home, c_away = (("#e8402a", "#000000") if cluster == "sw" else ("#9b5a2e", "#3f5f80"))
+    c_home, c_away = (("#e8402a", "#000000") if cluster == "sw"
+                      else ("#b8322a", "#2f5560") if cluster == "rg"
+                      else ("#9b5a2e", "#3f5f80"))
     lg = ('<div class="lg"><div><i style="background:%s"></i>%s</div>'
           '<div><i style="background:%s"></i>%s</div></div>'
           % (c_home, esc(card.get("home", "")), c_away, esc(card.get("away", ""))))
@@ -703,7 +774,7 @@ def radar_html(card: dict, cluster: str, size: int = 300, label_font: int = 23) 
 # 后台模型块：胜率条 + 比分概率热力图（`xhs_model.py` 算好，卡片只负责画）
 # --------------------------------------------------------------------------- #
 TEMPLATES = ("A", "B", "C")
-TPL_NAME = {"A": "数据页", "B": "模型页", "C": "对照页"}
+TPL_NAME = {"A": "战绩在前", "B": "简报提前", "C": "简报开篇"}
 TPL_HEAT = {"A": 46, "B": 48, "C": 44}       # 热力图单格边长
 TPL_BAR = {"A": 42, "B": 46, "C": 38}        # 胜率条高度
 TPL_RADAR = {"A": 220, "B": 205, "C": 235}
@@ -737,6 +808,42 @@ def pick_template(meta: dict, out_dir: Path) -> tuple:
     st["_last"] = nxt
     TPL_STATE.parent.mkdir(parents=True, exist_ok=True)
     TPL_STATE.write_text(json.dumps(st, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return nxt, "轮换"
+
+
+STYLE_STATE = Path(ROOT) / "state" / "xhs_styles.json"
+STYLES_ORDER = ("editorial", "rouge", "swiss")
+
+
+def pick_style(meta: dict, out_dir: Path, want: str = "auto") -> tuple:
+    """每期换一套风格（2026-10-13 用户要求）。
+
+    优先级：`--style editorial|rouge|swiss` 指定 > `cards.json` 的 `style` 字段 > 按批次目录轮换记账。
+    账本 `state/xhs_styles.json`（{批次目录名: 风格, "_last": 风格}），同一批重出不会跳风格。
+    """
+    if want and want not in ("auto", "both"):
+        return want, "指定"
+    s = str(meta.get("style") or "").strip().lower()
+    if s in STYLES:
+        return s, "指定"
+    key = Path(out_dir).name or "_"
+    try:
+        st = json.loads(STYLE_STATE.read_text(encoding="utf-8"))
+        if not isinstance(st, dict):
+            st = {}
+    except Exception:
+        st = {}
+    if st.get(key) in STYLES:
+        return st[key], "沿用"
+    last = st.get("_last")
+    try:
+        nxt = STYLES_ORDER[(STYLES_ORDER.index(last) + 1) % len(STYLES_ORDER)]
+    except ValueError:
+        nxt = STYLES_ORDER[0]
+    st[key] = nxt
+    st["_last"] = nxt
+    STYLE_STATE.parent.mkdir(parents=True, exist_ok=True)
+    STYLE_STATE.write_text(json.dumps(st, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return nxt, "轮换"
 
 
@@ -793,7 +900,7 @@ def heat_html(card: dict, tpl: str = "A") -> str:
             al = 0.07 + 0.78 * (p / pmax)
             cls = "hcell hmax" if (i, j) == (ti, tj) else "hcell"
             txt = ("%.1f" % (p * 100)) if p >= 0.02 else ""
-            cells.append('<div class="%s" style="background:rgba(155,90,46,%.3f);color:%s">%s</div>'
+            cells.append('<div class="%s" style="background:rgba(var(--heat,155,90,46),%.3f);color:%s">%s</div>'
                          % (cls, al, "#fff" if al >= 0.55 else "#14110d", txt))
     top = md.get("top") or []
     foot = " · ".join("%s %.1f%%" % (t[0], float(t[1]) * 100) for t in top[:3])
@@ -870,10 +977,10 @@ def all_card_html(card: dict, meta: dict, style: str, idx: int, total: int, vari
                % (esc(league), esc(no), esc(kick), idx, total))
     sep = '<div class="rule"></div>' if style == "editorial" else '<div class="thick"></div>'
     vs = '%s<span class="vsx">vs</span>%s' % (esc(card.get("home", "")), esc(card.get("away", "")))
-    head = '<h1 class="serif">%s</h1>' % vs if style == "editorial" else '<h1>%s</h1>' % vs
+    head = '<h1 class="serif">%s</h1>' % vs if STYLES[style][2] else '<h1>%s</h1>' % vs
     st = ('<div class="stance"><div class="lab">%s</div><div class="val%s">%s</div></div>'
           % (esc(card.get("stance_label") or "我的判断"),
-             " serif" if style == "editorial" else "", esc(card.get("stance", ""))))
+             (" " + STYLES[style][2]) if STYLES[style][2] else "", esc(card.get("stance", ""))))
     pr, sc = probs_html(card, cluster), scores_html(card)
     fm = form_html(card, compact=True)
     rz = radar_html(card, cluster, 200, 20)
@@ -885,7 +992,7 @@ def all_card_html(card: dict, meta: dict, style: str, idx: int, total: int, vari
             % (rz, nt)) if (rz and nt) else (rz + nt)
     body = sep + st + contradiction_html(card) + row1 + fm + ((fc + row2) if variant % 2 else (row2 + fc))
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<style>{BASE_CSS}{css}{EXTRA_CSS}{ALL_CSS}</style></head><body>
+<style>{BASE_CSS}{css}{ext_css(cluster)}</style></head><body>
 <div id="fit"><div class="card {cluster} all">
   {top}
   {head}
@@ -917,7 +1024,7 @@ def data_card_html(card: dict, meta: dict, style: str, idx: int, total: int, var
                % (esc(league), esc(kick), idx, total))
     sep = '<div class="rule"></div>' if style == "editorial" else '<div class="thick"></div>'
     vs = '%s<span class="vsx">vs</span>%s' % (esc(card.get("home", "")), esc(card.get("away", "")))
-    head = '<h1 class="serif">%s</h1>' % vs if style == "editorial" else '<h1>%s</h1>' % vs
+    head = '<h1 class="serif">%s</h1>' % vs if STYLES[style][2] else '<h1>%s</h1>' % vs
     cq = contradiction_html(card, key="contrast", label="数据反差")
     fm = form_html(card, compact=True)
     bf = brief_html(card)
@@ -934,7 +1041,7 @@ def data_card_html(card: dict, meta: dict, style: str, idx: int, total: int, var
         order = order[:-2] + (order[-1], order[-2])
     body = sep + "".join(blocks[k] for k in order)
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<style>{BASE_CSS}{css}{EXTRA_CSS}{ALL_CSS}{DATA_CSS}</style></head><body>
+<style>{BASE_CSS}{css}{ext_css(cluster)}</style></head><body>
 <div id="fit"><div class="card {cluster} all data tpl{tpl}">
   {top}
   {head}
@@ -966,7 +1073,7 @@ def model_card_html(card: dict, meta: dict, style: str, idx: int, total: int, va
                % (esc(league), esc(kick), idx, total))
     sep = '<div class="rule"></div>' if style == "editorial" else '<div class="thick"></div>'
     vs = '%s<span class="vsx">vs</span>%s' % (esc(card.get("home", "")), esc(card.get("away", "")))
-    head = '<h1 class="serif">%s</h1>' % vs if style == "editorial" else '<h1>%s</h1>' % vs
+    head = '<h1 class="serif">%s</h1>' % vs if STYLES[style][2] else '<h1>%s</h1>' % vs
     cq = contradiction_html(card, key="contrast", label="数据反差")
     bf = brief_html(card)
     blocks = {"cq": cq, "wdl": wd, "heat": ht, "bf": bf}
@@ -977,7 +1084,7 @@ def model_card_html(card: dict, meta: dict, style: str, idx: int, total: int, va
         order = order[:-2] + (order[-1], order[-2])
     body = sep + "".join(blocks[k] for k in order)
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<style>{BASE_CSS}{css}{EXTRA_CSS}{ALL_CSS}{DATA_CSS}</style></head><body>
+<style>{BASE_CSS}{css}{ext_css(cluster)}</style></head><body>
 <div id="fit"><div class="card {cluster} all data model tpl{tpl}">
   {top}
   {head}
@@ -1030,7 +1137,7 @@ def card_html(card: dict, meta: dict, style: str, idx: int, total: int,
         rz, nt = radar_html(card, cluster), notes_html(card, cluster)
         body = sep + (nt + rz if variant % 2 == 1 else rz + nt)
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<style>{BASE_CSS}{css}{EXTRA_CSS}</style></head><body>
+<style>{BASE_CSS}{css}{ext_css(cluster)}</style></head><body>
 <div id="fit"><div class="card {cluster}">
   {top}
   {head}
@@ -1040,33 +1147,38 @@ def card_html(card: dict, meta: dict, style: str, idx: int, total: int,
 
 
 def cover_html(meta: dict, items: list, total: int, style: str) -> str:
+    """封面：日期 + 「今日赛事前瞻」 + 主客队名，大字、少内容（2026-10-13 用户要求重做）。
+
+    meta 字段：`cover_label`（默认「今日赛事前瞻」）、`cover_date`（如「2026.10.14 周二」，
+    没给就退回 `cover_kicker`）、`xhs_title`（优先）/`title`、`cover_tail`。
+    `items` 里带「 vs 」的会被拆成「主队 vs 客队」，队名用衬线大字。
+    """
     css, cluster, _ = STYLES[style]
-    title = meta.get("title", "")
-    if style == "swiss":
-        # 把「三场我全站对面」这类收口句刷成强调块：取冒号后的部分
-        if "：" in title:
-            a, b = title.split("：", 1)
-            title_html = f'{esc(a)}：<span class="hl">{esc(b)}</span>'
+    title = meta.get("xhs_title") or meta.get("title", "")
+    label = meta.get("cover_label") or "今日赛事前瞻"
+    date = meta.get("cover_date") or meta.get("cover_kicker", "")
+    top = (f'<div class="top"><span class="kicker">{esc(label)}</span>'
+           f'<span class="pager">1/{total}</span></div>')
+    rows = []
+    for i, t in enumerate(items):
+        t = str(t)
+        if " vs " in t:
+            h, a = t.split(" vs ", 1)
+            mid = (f'<span class="h">{esc(h)}</span><span class="vs">vs</span>'
+                   f'<span class="a">{esc(a)}</span>')
         else:
-            title_html = esc(title)
-        tag = f'<div class="chip">{esc(meta.get("league", "足球"))}</div>'
-        top = (f'<div class="top">{tag}<span class="time">{esc(meta.get("cover_kicker", ""))}</span>'
-               f'<span class="pager">1/{total}</span></div>')
-    else:
-        title_html = esc(title)
-        top = (f'<div class="top"><span>{esc(meta.get("cover_kicker", ""))}</span>'
-               f'<span class="pager">1/{total}</span></div>')
-    its = "".join(f'<div class="it"><span class="n">{i+1:02d}</span><span>{esc(t)}</span></div>'
-                  for i, t in enumerate(items))
-    tail = meta.get("cover_tail") or ("读图：概率左边「我」是后台模型算的，右边「机构」是官方定价折算；"
-                                      "六维雷达两条线分别是两队。每场一张卡：判断 · 三向概率 · 比分 · "
-                                      "近期战绩 · 本次看点 · 战意信号 · 六维雷达都在里面 →")
+            mid = f'<span class="plain">{esc(t)}</span>'
+        rows.append(f'<div class="it"><span class="n">{i+1:02d}</span>{mid}</div>')
+    its = "".join(rows)
+    tail = meta.get("cover_tail") or ("每场一张图：数据反差 · 近期战绩 · 六维雷达 · 后台模型胜率与比分概率 · "
+                                      "数据看点 · 战意与要点 →")
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<style>{BASE_CSS}{css}</style></head><body>
+<style>{BASE_CSS}{css}{COVER_CSS}</style></head><body>
 <div id="fit"><div class="card {cluster} cover">
   {top}
-  <h1 class="serif">{title_html}</h1>
-  <div class="sub">{esc(meta.get("subtitle", ""))}</div>
+  <div class="date">{esc(date)}</div>
+  <h1 class="serif">{esc(title)}</h1>
+  <div class="rule"></div>
   <div class="items">{its}</div>
   <div class="tail">{esc(tail)}</div>
   {footer_html(meta)}
@@ -1205,7 +1317,10 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
     total = len(cards) * per + 1
     tpl, how = pick_template(data, out_dir)
     print("  版式：%s · %s（%s；cards.json 写 \"template\" 可指定）" % (tpl, TPL_NAME[tpl], how))
-    jobs = [("01_封面", cover_html({**data, "matches": None}, data.get("cover_items") or [], total, style))]
+    # 封面条目：默认用「主队 vs 客队」，2026-10-13 起封面要带主客队名（cover_items 仍可覆盖）
+    citems = data.get("cover_items") or [
+        "%s vs %s" % (m.get("home") or "", m.get("away") or "") for m in cards]
+    jobs = [("01_封面", cover_html({**data, "matches": None}, citems, total, style))]
     n = 1
     for i, m in enumerate(cards):
         base = safe("%s_%svs%s" % (m.get("no") or "", m.get("home") or "", m.get("away") or ""))
@@ -1240,7 +1355,7 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
         if ok:
             made.append(png)
     shutil.rmtree(tmp, ignore_errors=True)  # HTML/字体已按需复制到 --html-out，临时目录总是清掉
-    if made and style == "editorial":
+    if made:
         data["per_match_cards"] = per
         data["card_mode"] = "data" if kind in ("data", "dm", "model") else kind
         cap = caption_text(data, cards)
@@ -1312,7 +1427,9 @@ def _pause() -> None:
 def main() -> None:
     ap = argparse.ArgumentParser(description="小红书卡片 HTML+Chrome 渲染")
     ap.add_argument("--input", default="", help="cards.json 路径")
-    ap.add_argument("--style", default="both", choices=["editorial", "swiss", "both"])
+    ap.add_argument("--style", default="auto", choices=["auto", "editorial", "swiss", "rouge", "both"],
+                    help="卡片风格：auto=按批次目录每期轮换（默认，账本 state/xhs_styles.json）、"
+                         "editorial=杂志米白赭石、rouge=瑞色朱砂暖红、swiss=瑞士黑白正红、both=前两套各出一遍")
     ap.add_argument("--out", default="", help="输出目录（默认 cards.json 同级 试版/<style>）")
     ap.add_argument("--limit", type=int, default=0, help="只出前 N 场")
     ap.add_argument("--kind", default="data",
@@ -1333,7 +1450,19 @@ def main() -> None:
         return
 
     cards_path = Path(a.input)
-    styles = ["editorial", "swiss"] if a.style == "both" else [a.style]
+    if a.style == "both":
+        styles = ["editorial", "swiss"]
+    elif a.style == "auto":
+        try:
+            meta = json.loads(cards_path.read_text(encoding="utf-8"))
+        except Exception:
+            meta = {}
+        probe_out = Path(a.out) if a.out else cards_path.parent
+        st, how = pick_style(meta, probe_out)
+        print("\n  风格：%s（%s；账本 state/xhs_styles.json，cards.json 写 \"style\" 或 --style 可指定）" % (st, how))
+        styles = [st]
+    else:
+        styles = [a.style]
     for st in styles:
         if a.out:
             out = Path(a.out) / st if a.style == "both" else Path(a.out)
