@@ -1189,3 +1189,16 @@ C39 原文：德比/强强对话的大球共识，**反向理由一列出就必�
 - **`--auto` 实测**：`--num 周二` 出 8 张（周二004-011 中当前在售且有胜平负的场次 + 封面），验证完即删；`state/xhs_auto/` 已加进 `.gitignore`。
 - **下一步**：①三份周二内部全维度分析（拟新建 `📚知识库/比赛分析/欧冠/`）②赛果复核三批（`results 2026-10-13`、`results 2026-10-14`、`results 2026-10-11 2026-10-12`）③挂 `python scripts/odds_snapshot.py loop --every 15` 攒位移。
 - **仍开放**：三件待用户拍板（C41 编号相撞 / 10-11 积压档 19 条 + 本批 2 条站边是否并入累计池 396/190/48.0% / Batch#38 编号归属）；朱雀/EdgeOne 线路已停手（配置保留）。
+
+## 2026-10-12（夜·四）｜ 会话:「我是要你通过代码直接出图来啊，你看下本地的工具以及下面这两个 …」＋「两个方向各出一张三场图再定」= 出图路线升级为 HTML+本机 Chrome（定版：杂志风 editorial）
+
+**状态**：用户嫌卡片「手画味」重，要求走代码出图。出图链路已升级为 **HTML/CSS + 本机 Chrome headless 截图**（`scripts/xhs_html.py`），**零安装、零依赖、不联网**；两版风格各出一全套对比后，用户**选定杂志风 editorial**。本批 `📝文章/20261014/小红书/` 已是 editorial 4 张（封面 + 周二004/010/011）+ `cards.json` + `文案.md`。
+
+- **为什么不用 Playwright / 两个外部仓库**：本机 python 与 node 都没装 playwright / puppeteer，但 **Chrome、Edge 已装**——`chrome --headless=new --screenshot` 与 Playwright 截图等价且更快（~1s/张 @2x）。用户给的两个仓库都不合用：`nuyoah-ai-works/nuyoah-codex-workstation` 是 Codex 侧栏工作站（项目 / Taskboard / Skills / 资产页），`calesthio/OpenMontage` 是 AGPLv3 的 agentic 视频生产（Remotion + 素材库 + Veo/Kling），都不是出图工具。
+- **本地真正能用的出图资产**（真源 `C:\Users\wuyan\.agents\skills\`）：`guizang-social-card-skill`（`assets/template-editorial-card.html` 838 行 + `template-swiss-card.html` + `references/{layout-recipes,qa-checklist,platform-specs,style-system,theme-presets,category-cookbook}.md`）与 `claude-design-card`（`DESIGN.md` + `assets/NotoSerifSC-Regular.ttf` 14.8MB + `scripts/screenshot.ts`）。→ 采纳其**版式与排版规则**，但**不用它的 playwright 截图脚本**；衬线字体直接用那个 ttf（`@font-face` 内嵌，不依赖系统装思源宋体）。
+- **新建 `scripts/xhs_html.py`**：两套风格 CSS（editorial 米白 `#f3f0e8`/墨黑/赭石 `#9b5a2e`；swiss 白底/纯黑粗线/橙 `#e8402a`），共用同一份 `cards.json` 与**同一套违规词门禁**（复用 `xhs_cards.load_input/audit/auto_cards`，命中即 `sys.exit(2)`）；CLI `--input / --style editorial|swiss|both / --out / --limit / --menu`；单风格默认出在 `cards.json` 同目录，`--style both` 出到同级 `试版/<style>/`；并复用新抽出的 `write_caption()` 生成 `文案.md`。导出 **2160×2880（2 倍图）**。
+- **`小红书出图.cmd` 改为走 HTML 版**（依旧纯 ASCII + CRLF）：菜单 `1` = 按定版 editorial 出正式图到该批 `小红书/`，`2` = 两版试版对比。双击冒烟测试通过（`"1\n1" | & "小红书出图.cmd"` → 4 张 ✅ 并写 `文案.md`）。
+- **夜里挖出的四个真坑（已写进写作指南「渲染踩过的坑」）**：① `flex-direction:column` 固定高容器里**固定高度的装饰条会被压缩成 0 高度**（细分隔线、8px 粗黑条在图上直接消失）→ 必须 `flex:none`；② 文案写长会把页脚顶出画布 → 加 JS 兜底等比缩（最多 6%）＋出图后量**底部留白**、`<24px@2x` 打 `⚠️` 提示精简文案；③ **`.cmd` 只写 ASCII**：中文注释＋LF 会让 cmd 误切行报 `'hon"' is not recognized`（改英文注释＋CRLF 即正常）；④ `subprocess` 读 Chrome 输出**别用 `text=True`**（stderr 含非 GBK 字节会 `UnicodeDecodeError`），要 `decode("utf-8","ignore")`。
+- **产物**：`📝文章/20261014/小红书/`（editorial 4 张 + `cards.json` + `文案.md`）；两版对比图留在 `📝文章/20261014/小红书_预览/{editorial,swiss}/`（已 gitignore，可随时删）。
+- **下一步**：①三份周二内部全维度分析（拟新建 `📚知识库/比赛分析/欧冠/`）②赛果复核三批（`results 2026-10-13`、`results 2026-10-14`、`results 2026-10-11 2026-10-12`）③挂 `python scripts/odds_snapshot.py loop --every 15` 攒位移。
+- **仍开放**：三件待用户拍板（C41 编号相撞 / 10-11 积压档 19 条 + 本批 2 条站边是否并入累计池 396/190/48.0% / Batch#38 编号归属）；朱雀/EdgeOne 线路已停手（配置保留）。

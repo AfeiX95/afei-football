@@ -394,6 +394,32 @@ def auto_cards(num=""):
 
 
 # --------------------------------------------------------------------------- 出图主流程
+def caption_text(data, cards):
+    """小红书正文（可直接粘贴）。HTML 版渲染器也复用这个函数。"""
+    caps = []
+    if data.get("xhs_title"):
+        caps += ["【标题】%s（%d 字，小红书上限 20）" % (data["xhs_title"], len(data["xhs_title"])), ""]
+    caps += ["【正文】", data.get("title", ""), ""]
+    for c in cards:
+        caps.append("%s %s vs %s：%s" % (c.get("no", ""), c.get("home", ""), c.get("away", ""),
+                                         c.get("stance") or "看机构定价"))
+        if c.get("score"):
+            caps.append("高概率比分：首选%s，次选%s，防范%s。" % tuple(c["score"][:3]))
+    caps += ["", data.get("tags", "#足球前瞻 #数据分析 #赛博聊球"),
+             data.get("source", "数据来源：中国体育官方数据平台"),
+             "仅供参考，请理性看待比赛。",
+             "", "【发布窗口】主档 10:30–13:00（避开 16:00–19:00，见 R39）"]
+    return "\n".join(caps) + "\n"
+
+
+def write_caption(data, cards, outdir):
+    """把文案写到 outdir/文案.md，返回路径。"""
+    p = os.path.join(outdir, "文案.md")
+    with open(p, "w", encoding="utf-8") as f:
+        f.write(caption_text(data, cards))
+    return p
+
+
 def run(input_path=None, auto=False, num="", limit=0, out=""):
     if input_path:
         data, cards = load_input(input_path)
@@ -431,22 +457,7 @@ def run(input_path=None, auto=False, num="", limit=0, out=""):
         idx += 1
 
     # 配套文案（小红书正文可直接粘贴）
-    caps = []
-    if data.get("xhs_title"):
-        caps += ["【标题】%s（%d 字，小红书上限 20）" % (data["xhs_title"], len(data["xhs_title"])), ""]
-    caps += ["【正文】", data.get("title", ""), ""]
-    for c in cards:
-        caps.append("%s %s vs %s：%s" % (c.get("no", ""), c.get("home", ""), c.get("away", ""),
-                                         c.get("stance") or "看机构定价"))
-        if c.get("score"):
-            caps.append("高概率比分：首选%s，次选%s，防范%s。" % tuple(c["score"][:3]))
-    caps += ["", data.get("tags", "#足球前瞻 #数据分析 #赛博聊球"),
-             data.get("source", "数据来源：中国体育官方数据平台"),
-             "仅供参考，请理性看待比赛。",
-             "", "【发布窗口】主档 10:30–13:00（避开 16:00–19:00，见 R39）"]
-    cap_path = os.path.join(outdir, "文案.md")
-    with open(cap_path, "w", encoding="utf-8") as f:
-        f.write("\n".join(caps) + "\n")
+    cap_path = write_caption(data, cards, outdir)
 
     print("✅ 出图 %d 张 + 文案 1 份 → %s" % (len(made), outdir))
     for m in made:
