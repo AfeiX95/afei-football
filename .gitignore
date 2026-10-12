@@ -13,6 +13,9 @@ state/_form*.json
 state/_bonus_*.json
 state/_slate.json
 state/_results_*.json
+# 本地盘口库（scripts/odds_snapshot.py 攒的盘口位移历史，属本机采集资产，见 📚知识库/数据源/本地盘口库.md）
+state/odds.sqlite
+state/odds.sqlite-journal
 # 临时日志（pwsh 里 `python x.py | Out-File -Encoding utf8 state\_x.txt`）
 state/_*.txt
 state/_*.log

@@ -138,3 +138,20 @@ document.querySelectorAll('table')[N].textContent
 | 球队阵容 | `https://www.leisu.com/data/zuqiu/team-{id}/lineup` | browser ✅ |
 
 > ⚠️ 雷速会触发滑块验证（WAF），如果遇到验证页面，换个UA或等会儿再试。
+
+---
+
+## 📉 本地盘口库（盘口位移自动攒，2026-10-12 新增）
+
+竞彩官方 `getMatchCalculatorV1.qry` 每次只给**当前一档**定价（`oddsHistory` 每档也只有 1 条快照，见本文 `:65`），
+所以「位移」过去只能靠人工在不同时点复制页面。已固化成脚本 + 一键菜单：
+
+```bash
+python scripts/odds_snapshot.py once                  # 抓一次，落 state/odds.sqlite
+python scripts/odds_snapshot.py loop --every 15       # 挂着自动抓（Ctrl+C 停）
+python scripts/odds_snapshot.py move --days 3 --query 马竞
+python scripts/odds_snapshot.py list --days 3
+```
+
+**或者直接双击仓库根的 `盘口采集器.cmd`**（傻瓜菜单：抓一次 / 每 15 分钟自动抓 / 看位移表 / 看场次列表）。
+表结构 `snap` + `quote`，概率为**去水口径**；完整说明见 [`本地盘口库.md`](本地盘口库.md)。
