@@ -190,6 +190,81 @@ STYLES = {"editorial": (EDITORIAL_CSS, "ed", "CardSerif"), "swiss": (SWISS_CSS, 
 
 
 # --------------------------------------------------------------------------- #
+# 内容块扩展：核心矛盾 / 本次看点 / 近期战绩对比 / 六维雷达（2026-10-12 用户要求）
+# --------------------------------------------------------------------------- #
+EXTRA_CSS = """
+/* 深读卡的小标题 */
+.ed h2.sub2{margin:26px 0 0;font-size:54px;line-height:1.15;font-weight:900;letter-spacing:-.01em}
+.ed h2.sub2 .vsx{font-family:"Microsoft YaHei UI",sans-serif;font-size:30px;font-weight:400;color:#9d968a;
+  margin:0 14px;vertical-align:middle}
+.sw h2.sub2{margin:28px 0 0;font-size:56px;line-height:1.08;font-weight:900;letter-spacing:-.02em}
+.sw h2.sub2 .vsx{color:#e8402a;margin:0 12px;font-size:40px;vertical-align:4px}
+.sw h2.sub2 .tag2{background:#e8402a;color:#fff;font-size:24px;padding:6px 14px;margin-left:18px;vertical-align:10px}
+/* —— 核心矛盾 —— */
+.ed .cq{margin-top:30px;border-left:9px solid #0a0a0b;padding:2px 0 2px 28px}
+.ed .cq .lab{font-size:24px;letter-spacing:.2em;color:#8d867c;font-weight:700}
+.ed .cq p{margin:12px 0 0;font-size:37px;line-height:1.48;font-weight:700;color:#141310}
+.sw .cq{margin-top:28px;background:#000;color:#fff;padding:24px 26px 26px}
+.sw .cq .lab{font-size:23px;letter-spacing:.22em;font-weight:900;color:#e8402a}
+.sw .cq p{margin:12px 0 0;font-size:36px;line-height:1.42;font-weight:900}
+/* —— 本次看点 —— */
+.ed .focus{margin-top:32px;background:rgba(10,10,11,.05);border-left:9px solid #9b5a2e;padding:24px 28px 26px}
+.ed .focus .lab{font-size:25px;font-weight:900;letter-spacing:.12em;color:#9b5a2e}
+.ed .focus ul{margin:18px 0 0;padding:0;list-style:none}
+.ed .focus li{display:flex;gap:18px;font-size:34px;line-height:1.45;color:#1f1d19;
+  background:#fff;padding:22px 24px;border-left:6px solid #9b5a2e}
+.ed .focus li + li{margin-top:14px}
+.ed .focus li b{flex:0 0 34px;font-weight:900;color:#9b5a2e}
+.sw .focus{margin-top:30px;border:4px solid #000;padding:22px 24px 24px}
+.sw .focus .lab{font-size:24px;font-weight:900;letter-spacing:.16em}
+.sw .focus ul{margin:18px 0 0;padding:0;list-style:none}
+.sw .focus li{display:flex;gap:18px;font-size:34px;line-height:1.42;
+  border:3px solid #000;padding:20px 22px}
+.sw .focus li + li{margin-top:14px}
+.sw .focus li b{flex:0 0 36px;font-weight:900;color:#e8402a}
+/* —— 近期战绩对比 —— */
+.ed .form{margin-top:34px}
+.ed .radar{margin-top:36px}
+.ed .head2{display:flex;justify-content:space-between;align-items:baseline;
+  font-size:26px;font-weight:700;letter-spacing:.06em}
+.ed .head2 .right{font-size:23px;font-weight:400;color:#8d867c;letter-spacing:.02em}
+.ed .frow{display:flex;align-items:center;gap:16px;border-top:2px solid rgba(10,10,11,.16);
+  padding:16px 0;flex-wrap:wrap}
+.ed .frow .tn{flex:0 0 132px;font-size:31px;font-weight:900}
+.ed .pills{display:flex;gap:7px;flex:none}
+.ed .pill{width:34px;height:34px;font-size:21px;font-weight:900;
+  display:flex;align-items:center;justify-content:center}
+.ed .pill.w{background:#0a0a0b;color:#fff}
+.ed .pill.d{background:#d5cec2;color:#3a362f}
+.ed .pill.l{background:#9b5a2e;color:#fff}
+.ed .frow .num{font-size:27px;font-weight:700;color:#26241f}
+.ed .frow .sub{flex:1 0 100%;font-size:25px;color:#6f6960;margin-top:4px}
+.sw .form{margin-top:32px}
+.sw .radar{margin-top:34px}
+.sw .head2{display:flex;justify-content:space-between;align-items:baseline;
+  border-bottom:3px solid #000;padding-bottom:12px;font-size:27px;font-weight:900;letter-spacing:.1em}
+.sw .head2 .right{font-size:22px;font-weight:700;color:#6b6b6b;letter-spacing:.02em}
+.sw .frow{display:flex;align-items:center;gap:14px;border-bottom:1px solid rgba(0,0,0,.18);
+  padding:16px 0;flex-wrap:wrap}
+.sw .frow .tn{flex:0 0 132px;font-size:31px;font-weight:900}
+.sw .pills{display:flex;gap:7px;flex:none}
+.sw .pill{width:34px;height:34px;font-size:21px;font-weight:900;border:3px solid #000;
+  display:flex;align-items:center;justify-content:center}
+.sw .pill.w{background:#000;color:#fff}
+.sw .pill.d{background:#fff;color:#000}
+.sw .pill.l{background:#e8402a;border-color:#e8402a;color:#fff}
+.sw .frow .num{font-size:27px;font-weight:900}
+.sw .frow .sub{flex:1 0 100%;font-size:25px;color:#3d3d3d;margin-top:4px}
+/* —— 六维雷达 —— */
+.ed .radar .wrap{display:flex;gap:26px;align-items:center;margin-top:16px}
+.ed .radar .lg{font-size:27px;line-height:2.0;color:#26241f}
+.sw .radar .wrap{display:flex;gap:22px;align-items:center;margin-top:14px}
+.sw .radar .lg{font-size:27px;font-weight:700;line-height:2.0}
+.radar .lg i{display:inline-block;width:22px;height:22px;margin-right:12px;vertical-align:-2px}
+"""
+
+
+# --------------------------------------------------------------------------- #
 # 工具
 # --------------------------------------------------------------------------- #
 def esc(t) -> str:
@@ -269,30 +344,177 @@ def footer_html(card: dict) -> str:
             f'<div class="tags">{esc(card.get("tags", ""))}</div></div></div>')
 
 
-def card_html(card: dict, meta: dict, style: str, idx: int, total: int) -> str:
+# --------------------------------------------------------------------------- #
+# 内容块：核心矛盾 / 本次看点 / 近期战绩对比 / 六维雷达
+# --------------------------------------------------------------------------- #
+PILL = {"W": ("w", "胜"), "D": ("d", "平"), "L": ("l", "负")}
+
+
+def radar_svg(radar: dict, cluster: str, size: int = 300) -> str:
+    """六维雷达对比（内联 SVG）：两队靠颜色 + 线粗区分，逐轴标出两个数值。"""
+    import math  # 本文件其它绘图小工具也是局部导入，保持一致
+    dims = list(radar.get("dims") or [])
+    try:
+        hv = [float(x) for x in (radar.get("home") or [])]
+        av = [float(x) for x in (radar.get("away") or [])]
+    except Exception:
+        return ""
+    n = len(dims)
+    if n < 3 or len(hv) != n or len(av) != n:
+        return ""
+    if cluster == "sw":
+        c_home, c_away = "#e8402a", "#000000"
+        f_home, f_away = "rgba(232,64,42,.16)", "rgba(0,0,0,.08)"
+        c_grid, c_lab, c_sep = "rgba(0,0,0,.22)", "#000000", "rgba(0,0,0,.4)"
+    else:
+        c_home, c_away = "#9b5a2e", "#3f5f80"
+        f_home, f_away = "rgba(155,90,46,.16)", "rgba(63,95,128,.10)"
+        c_grid, c_lab, c_sep = "rgba(10,10,11,.20)", "#26241f", "rgba(10,10,11,.32)"
+    px, py = size + 250, size + 150
+    cx, cy, r = px / 2.0, py / 2.0 + 4, size / 2.0
+
+    def axis(i):
+        a = math.radians(-90 + 360.0 / n * i)
+        return math.cos(a), math.sin(a)
+
+    def pt(i, v):
+        ca, sa = axis(i)
+        rr = r * max(0.0, min(100.0, float(v))) / 100.0
+        return cx + rr * ca, cy + rr * sa
+
+    grid = ""
+    for k in (0.2, 0.4, 0.6, 0.8, 1.0):
+        pts = " ".join("%.1f,%.1f" % (cx + r * k * axis(i)[0], cy + r * k * axis(i)[1]) for i in range(n))
+        grid += '<polygon points="%s" fill="none" stroke="%s" stroke-width="%d"/>' % (
+            pts, c_grid, 2 if k == 1.0 else 1)
+    for i in range(n):
+        ca, sa = axis(i)
+        grid += '<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" stroke-width="1"/>' % (
+            cx, cy, cx + r * ca, cy + r * sa, c_grid)
+
+    def polygon(vals, stroke, fill, width=4):
+        pts = " ".join("%.1f,%.1f" % pt(i, v) for i, v in enumerate(vals))
+        return ('<polygon points="%s" fill="%s" stroke="%s" stroke-width="%d" stroke-linejoin="round"/>'
+                % (pts, fill, stroke, width))
+
+    dots = ""
+    for vals, col in ((hv, c_home), (av, c_away)):
+        for i, v in enumerate(vals):
+            x, y = pt(i, v)
+            dots += '<circle cx="%.1f" cy="%.1f" r="5" fill="%s"/>' % (x, y, col)
+
+    labels = ""
+    for i, d in enumerate(dims):
+        ca, sa = axis(i)
+        lx, ly = cx + (r + 36) * ca, cy + (r + 36) * sa + 8
+        anchor = "middle" if abs(ca) < 0.3 else ("start" if ca > 0 else "end")
+        labels += ('<text x="%.1f" y="%.1f" text-anchor="%s" font-size="23" font-weight="700" '
+                   'fill="%s">%s</text>' % (lx, ly, anchor, c_lab, esc(d)))
+        labels += ('<text x="%.1f" y="%.1f" text-anchor="%s" font-size="21">'
+                   '<tspan fill="%s" font-weight="700">%.0f</tspan>'
+                   '<tspan fill="%s"> / </tspan>'
+                   '<tspan fill="%s" font-weight="700">%.0f</tspan></text>'
+                   % (lx, ly + 26, anchor, c_home, hv[i], c_sep, c_away, av[i]))
+    return ('<svg width="%d" height="%d" viewBox="0 0 %d %d" xmlns="http://www.w3.org/2000/svg">%s%s%s%s%s%s</svg>'
+            % (px, py, px, py, grid, polygon(av, c_away, f_away, 3), polygon(hv, c_home, f_home, 5),
+               dots, labels, ""))
+
+
+def contradiction_html(card: dict) -> str:
+    t = card.get("contradiction")
+    if not t:
+        return ""
+    return ('<div class="cq"><div class="lab">%s</div><p>%s</p></div>'
+            % (esc(card.get("contradiction_label") or "核心矛盾"), esc(t)))
+
+
+def focus_html(card: dict) -> str:
+    fs = card.get("focus")
+    if not fs:
+        return ""
+    if isinstance(fs, str):
+        fs = [fs]
+    items = "".join('<li><b>%02d</b><span>%s</span></li>' % (i + 1, esc(t)) for i, t in enumerate(fs))
+    return '<section class="focus"><div class="lab">本次看点</div><ul>%s</ul></section>' % items
+
+
+def form_html(card: dict) -> str:
+    f = card.get("form") or {}
+    h, a = f.get("home") or {}, f.get("away") or {}
+    if not h or not a:
+        return ""
+
+    def row(t):
+        pills = "".join('<span class="pill %s">%s</span>' % PILL.get(x, ("d", "平"))
+                        for x in (t.get("seq") or []))
+        sub = ("%s · 进 %.1f 失 %.1f · 近 5 场 %d 进 %d 失"
+               % (t.get("ha", ""), float(t.get("pj", 0)), float(t.get("sj", 0)),
+                  int(t.get("gf", 0)), int(t.get("ga", 0))))
+        return ('<div class="frow"><div class="tn">%s</div><div class="pills">%s</div>'
+                '<div class="num">%s</div><div class="sub">%s</div></div>'
+                % (esc(t.get("name", "")), pills, esc(t.get("l5", "")), esc(sub)))
+
+    right = "近 5 场 · 左旧→右新" + (" · 交锋 %s" % f["h2h"] if f.get("h2h") else "")
+    return ('<section class="form"><div class="head2"><span>近期战绩对比</span>'
+            '<span class="right">%s</span></div>%s%s</section>' % (right, row(h), row(a)))
+
+
+def radar_html(card: dict, cluster: str) -> str:
+    svg = radar_svg(card.get("radar") or {}, cluster)
+    if not svg:
+        return ""
+    c_home, c_away = (("#e8402a", "#000000") if cluster == "sw" else ("#9b5a2e", "#3f5f80"))
+    lg = ('<div class="lg"><div><i style="background:%s"></i>%s</div>'
+          '<div><i style="background:%s"></i>%s</div></div>'
+          % (c_home, esc(card.get("home", "")), c_away, esc(card.get("away", ""))))
+    return ('<section class="radar"><div class="head2"><span>六维雷达对比</span>'
+            '<span class="right">0–100，越高越强</span></div><div class="wrap">%s%s</div></section>'
+            % (svg, lg))
+
+
+def card_html(card: dict, meta: dict, style: str, idx: int, total: int,
+              kind: str = "judge", variant: int = 0) -> str:
+    """kind=judge 判断卡（立场·核心矛盾·三向概率·高概率比分）；
+    kind=form 战绩卡（近期战绩对比·本次看点）；kind=read 深读卡（六维雷达·战意·信号）。
+    variant 用来让每期版式有变化（同一批里奇数/偶数张互换块序）。"""
     css, cluster, _ = STYLES[style]
     merged = dict(meta)
     merged.update(card)
-    top = (f'<div class="top"><span class="chip">{esc(card.get("league", ""))}</span>'
-           f'<span class="chip no">{esc(card.get("no", ""))}</span>'
-           f'<span class="time">{esc(card.get("kick", ""))}</span>'
-           f'<span class="pager">{idx}/{total}</span></div>')
+    no, league, kick = card.get("no", ""), card.get("league", ""), card.get("kick", "")
+    label = {"judge": "判断", "form": "战绩", "read": "深读"}.get(kind, "")
     if style == "editorial":
-        top = (f'<div class="top"><span>{esc(card.get("league", ""))} · {esc(card.get("no", ""))} · '
-               f'{esc(card.get("kick", ""))}</span><span class="pager">{idx}/{total}</span></div>')
-    stance_lab = card.get("stance_label") or "我的判断"
-    # 标题与「我的判断」之间的分隔：杂志风＝细线，瑞士风＝粗黑条
+        tail = (" · " + label) if label else ""
+        top = ('<div class="top"><span>%s · %s · %s%s</span><span class="pager">%d/%d</span></div>'
+               % (esc(league), esc(no), esc(kick), tail, idx, total))
+    else:
+        tag = esc(no) + (" " + label if label else "")
+        top = ('<div class="top"><span class="chip">%s</span><span class="chip no">%s</span>'
+               '<span class="time">%s</span><span class="pager">%d/%d</span></div>'
+               % (esc(league), tag, esc(kick), idx, total))
+    # 标题与正文之间的分隔：杂志风＝细线，瑞士风＝粗黑条
     sep = '<div class="rule"></div>' if style == "editorial" else '<div class="thick"></div>'
+    vs = '%s<span class="vsx">vs</span>%s' % (esc(card.get("home", "")), esc(card.get("away", "")))
+    if kind == "judge":
+        head = '<h1 class="serif">%s</h1>' % vs
+        st = ('<div class="stance"><div class="lab">%s</div><div class="val serif">%s</div></div>'
+              % (esc(card.get("stance_label") or "我的判断"), esc(card.get("stance", ""))))
+        cq = contradiction_html(card)
+        pr, sc = probs_html(card, cluster), scores_html(card)
+        body = sep + st + cq + (sc + pr if variant % 2 == 1 else pr + sc)
+    elif kind == "form":
+        head = '<h2 class="sub2">%s</h2>' % vs
+        fm, fc = form_html(card), focus_html(card)
+        body = sep + (fc + fm if variant % 2 == 1 else fm + fc)
+    else:
+        head = '<h2 class="sub2">%s</h2>' % vs
+        rz, nt = radar_html(card, cluster), notes_html(card, cluster)
+        body = sep + (nt + rz if variant % 2 == 1 else rz + nt)
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<style>{BASE_CSS}{css}</style></head><body>
+<style>{BASE_CSS}{css}{EXTRA_CSS}</style></head><body>
 <div id="fit"><div class="card {cluster}">
   {top}
-  <h1 class="serif">{esc(card.get("home",""))}<span class="vsx">vs</span>{esc(card.get("away",""))}</h1>
-  {sep}
-  <div class="stance"><div class="lab">{esc(stance_lab)}</div><div class="val serif">{esc(card.get("stance",""))}</div></div>
-  {probs_html(card, cluster)}
-  {scores_html(card)}
-  {notes_html(card, cluster)}
+  {head}
+  {body}
   {footer_html(merged)}
 </div></div>{AUTOFIT_JS}</body></html>"""
 
@@ -317,7 +539,7 @@ def cover_html(meta: dict, items: list, total: int, style: str) -> str:
     its = "".join(f'<div class="it"><span class="n">{i+1:02d}</span><span>{esc(t)}</span></div>'
                   for i, t in enumerate(items))
     tail = meta.get("cover_tail") or ("读图：概率左边「我」是后台模型算的，右边「机构」是官方定价折算；"
-                                      "比分三档只给方向。右滑看每场判断 →")
+                                      "六维雷达两条线分别是两队。每场三张：判断卡 · 战绩卡 · 深读卡 →")
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
 <style>{BASE_CSS}{css}</style></head><body>
 <div id="fit"><div class="card {cluster} cover">
@@ -403,11 +625,23 @@ def shoot_playwright(plans, scale: int = DPR) -> dict:
     return out
 
 
-def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: str = "chrome") -> list[Path]:
+def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: str = "chrome",
+          kind: str = "both", keep: Path | None = None) -> list[Path]:
     data, cards = load_input(str(cards_path))
     if limit:
         cards = cards[:limit]
     audit([data] + cards)  # 违规词门禁：命中即 sys.exit(2)
+
+    # 有 sporttery_match_id 但缺雷达/战绩的，就地按本地竞彩缓存补算（不改写 cards.json）
+    try:
+        import xhs_data
+        miss = [c for c in cards if c.get("sporttery_match_id") and not (c.get("radar") and c.get("form"))]
+        for c in miss:
+            c.update(xhs_data.build_one(c, Path(ROOT)))
+        if miss:
+            print(f"  数据：{len(miss)} 场按本地缓存补算雷达/战绩")
+    except Exception as e:  # 缓存缺失不该阻断出图
+        print(f"  ⚠️ 雷达/战绩补算失败（{e.__class__.__name__}: {e}），对应块留白")
 
     if engine == "auto":
         engine = "playwright" if playwright_ready() else "chrome"
@@ -423,16 +657,30 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
         shutil.copy2(SERIF_FONT, tmp / "font-serif.ttf")
 
     made: list[Path] = []
-    total = len(cards) + 1
+    ALL_KINDS = [("judge", "判断"), ("form", "战绩"), ("read", "深读")]
+    kinds = (ALL_KINDS if kind in ("full", "both")
+             else [k for k in ALL_KINDS if k[0] == kind] or ALL_KINDS[:1])
+    per = len(kinds)
+    total = len(cards) * per + 1
     jobs = [("01_封面", cover_html({**data, "matches": None}, data.get("cover_items") or [], total, style))]
-    for i, m in enumerate(cards, start=2):
-        name = f"{i:02d}_{safe(m.get('no') or '')}_{safe(m.get('home') or '')}vs{safe(m.get('away') or '')}"
-        jobs.append((name, card_html(m, data, style, i, total)))
+    n = 1
+    for i, m in enumerate(cards):
+        base = safe("%s_%svs%s" % (m.get("no") or "", m.get("home") or "", m.get("away") or ""))
+        for k, suffix in kinds:
+            n += 1
+            jobs.append(("%02d_%s_%s" % (n, base, suffix),
+                         card_html(m, data, style, n, total, k, i)))
 
     plans = []
+    if keep:
+        keep.mkdir(parents=True, exist_ok=True)
+        if (tmp / "font-serif.ttf").exists():
+            shutil.copy2(tmp / "font-serif.ttf", keep / "font-serif.ttf")
     for name, doc in jobs:
         hp = tmp / f"{name}.html"
         hp.write_text(doc, encoding="utf-8")
+        if keep:
+            (keep / f"{name}.html").write_text(doc, encoding="utf-8")
         plans.append((name, hp, out_dir / f"{name}.png"))
 
     res = (shoot_playwright(plans) if engine == "playwright"
@@ -448,8 +696,9 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
               (f"  {png.stat().st_size // 1024}KB" if ok else f"  {why}") + note)
         if ok:
             made.append(png)
-    shutil.rmtree(tmp, ignore_errors=True)
+    shutil.rmtree(tmp, ignore_errors=True)  # HTML/字体已按需复制到 --html-out，临时目录总是清掉
     if made and style == "editorial":
+        data["per_match_cards"] = per
         cap = write_caption(data, cards, out_dir)
         print("  📝 " + os.path.basename(cap))
     return made
@@ -508,6 +757,9 @@ def main() -> None:
     ap.add_argument("--style", default="both", choices=["editorial", "swiss", "both"])
     ap.add_argument("--out", default="", help="输出目录（默认 cards.json 同级 试版/<style>）")
     ap.add_argument("--limit", type=int, default=0, help="只出前 N 场")
+    ap.add_argument("--kind", default="full", choices=["full", "judge", "form", "read"],
+                    help="每场出几张：full=判断卡+战绩卡+深读卡（默认，每场三张）、judge/form/read=只出对应卡")
+    ap.add_argument("--html-out", default="", help="另存中间 HTML 到该目录（排版诊断用）")
     ap.add_argument("--engine", default="chrome", choices=["chrome", "playwright", "auto"],
                     help="渲染引擎：chrome=本机 Chrome 逐张截图（默认，零依赖）；"
                          "playwright=复用内置 chromium（快约 2 倍、版本固定）；auto=有 playwright 就用")
@@ -527,7 +779,8 @@ def main() -> None:
             # 单一风格（定版）= 就出在 cards.json 同目录（即 📝文章/<日期>/小红书/）
             out = cards_path.parent / ("试版" / st if a.style == "both" else "")
         print(f"\n【{st}】→ {out}")
-        made = build(cards_path, st, out, a.limit, a.engine)
+        made = build(cards_path, st, out, a.limit, a.engine, a.kind,
+                     Path(a.html_out) if a.html_out else None)
         print(f"  共 {len(made)} 张")
 
 

@@ -82,25 +82,36 @@ def load_banned():
 HARD, SOFT = load_banned()
 
 
+AUDIT_LABELS = {
+    "title": "标题", "xhs_title": "小红书标题", "subtitle": "封面副标题", "cover_items": "封面要点",
+    "cover_hint": "封面提示", "cover_tail": "读图说明", "stance": "立场", "stance_label": "立场标签",
+    "contradiction": "核心矛盾", "focus": "本次看点", "will": "战意", "signal": "信号", "note": "补充",
+}
+
+
 def audit(cards):
-    """逐字段查禁用词；返回 [(场次, 字段, 词, 等级)]。"""
+    """递归查禁用词（含 contradiction/focus/form/radar 等嵌套字段）；返回 [(场次, 字段, 词, 等级)]。"""
     hits = []
-    for c in cards:
-        fields = {
-            "标题": c.get("title", ""),
-            "封面副标题": c.get("subtitle", ""),
-            "立场": c.get("stance", ""),
-            "战意": c.get("will", ""),
-            "信号": c.get("signal", ""),
-            "补充": c.get("note", ""),
-        }
-        for name, txt in fields.items():
+
+    def walk(who, name, val):
+        if isinstance(val, dict):
+            for k, v in val.items():
+                walk(who, "%s.%s" % (name, k), v)
+        elif isinstance(val, (list, tuple)):
+            for i, v in enumerate(val):
+                walk(who, "%s[%d]" % (name, i), v)
+        elif isinstance(val, str) and val:
             for w in HARD:
-                if w in txt:
-                    hits.append((c.get("no") or c.get("title", "封面"), name, w, "硬红线"))
+                if w in val:
+                    hits.append((who, name, w, "硬红线"))
             for w in SOFT:
-                if w in txt:
-                    hits.append((c.get("no") or c.get("title", "封面"), name, w, "软红线"))
+                if w in val:
+                    hits.append((who, name, w, "软红线"))
+
+    for c in cards:
+        who = c.get("no") or c.get("title") or "封面"
+        for key, val in c.items():
+            walk(who, AUDIT_LABELS.get(key, key), val)
     return hits
 
 
@@ -400,6 +411,10 @@ def caption_text(data, cards):
     if data.get("xhs_title"):
         caps += ["【标题】%s（%d 字，小红书上限 20）" % (data["xhs_title"], len(data["xhs_title"])), ""]
     caps += ["【正文】", data.get("title", ""), ""]
+    per = int(data.get("per_match_cards") or 1)
+    if per >= 2:
+        caps += ["每场 %d 张图：①判断卡（核心矛盾 · 三向概率 · 高概率比分）"
+                 "②战绩卡（近期战绩对比 · 本次看点）③深读卡（六维雷达对比 · 战意 · 信号）" % per, ""]
     for c in cards:
         caps.append("%s %s vs %s：%s" % (c.get("no", ""), c.get("home", ""), c.get("away", ""),
                                          c.get("stance") or "看机构定价"))
