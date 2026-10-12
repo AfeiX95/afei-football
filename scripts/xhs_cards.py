@@ -415,6 +415,9 @@ def caption_text(data, cards):
     if per >= 2:
         caps += ["每场 %d 张图：①判断卡（核心矛盾 · 三向概率 · 高概率比分）"
                  "②战绩卡（近期战绩对比 · 本次看点）③深读卡（六维雷达对比 · 战意 · 信号）" % per, ""]
+    else:
+        caps += ["每场一张图，一图看完：核心矛盾 · 三向概率 · 高概率比分 · 两队近期战绩 · "
+                 "六维雷达对比 · 本次看点 · 战意 · 信号", ""]
     for c in cards:
         caps.append("%s %s vs %s：%s" % (c.get("no", ""), c.get("home", ""), c.get("away", ""),
                                          c.get("stance") or "看机构定价"))
