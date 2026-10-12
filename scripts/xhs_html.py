@@ -364,16 +364,58 @@ def bottom_margin(png: Path) -> int:
 # --------------------------------------------------------------------------- #
 # 主流程
 # --------------------------------------------------------------------------- #
-def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0) -> list[Path]:
+def playwright_ready() -> bool:
+    try:
+        import playwright.sync_api  # noqa: F401
+        return True
+    except Exception:
+        return False
+
+
+def shoot_playwright(plans, scale: int = DPR) -> dict:
+    """一个复用的 Chromium 渲染全部作业（比逐张起 CLI 进程快约 2 倍，且浏览器版本固定）。
+
+    plans: [(name, html_path, png_path)] → {name: (ok, why)}
+    """
+    out: dict = {}
+    try:
+        from playwright.sync_api import sync_playwright
+    except Exception as e:
+        return {n: (False, f"没装 playwright（{e}）") for n, _, _ in plans}
+    try:
+        with sync_playwright() as p:
+            b = p.chromium.launch(headless=True)
+            ctx = b.new_context(viewport={"width": W, "height": H}, device_scale_factor=scale)
+            page = ctx.new_page()
+            for name, hp, png in plans:
+                png = Path(png).resolve()
+                png.parent.mkdir(parents=True, exist_ok=True)
+                if png.exists():
+                    png.unlink()
+                page.goto(Path(hp).resolve().as_uri(), wait_until="load")
+                page.wait_for_timeout(150)  # 等 AUTOFIT_JS 收尾
+                page.screenshot(path=str(png), clip={"x": 0, "y": 0, "width": W, "height": H})
+                out[name] = ((png.exists() and png.stat().st_size > 0), "截图为空")
+            ctx.close()
+            b.close()
+    except Exception as e:  # 已渲染的保留，其余标失败
+        out.update({n: (False, f"playwright 渲染失败：{e}") for n, _, _ in plans if n not in out})
+    return out
+
+
+def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: str = "chrome") -> list[Path]:
     data, cards = load_input(str(cards_path))
     if limit:
         cards = cards[:limit]
     audit([data] + cards)  # 违规词门禁：命中即 sys.exit(2)
 
+    if engine == "auto":
+        engine = "playwright" if playwright_ready() else "chrome"
     chrome = find_chrome()
-    if not chrome:
-        print("❌ 没找到 Chrome / Edge，无法截图。")
+    if engine == "chrome" and not chrome:
+        print("❌ 没找到 Chrome / Edge，无法截图（或改用 --engine playwright）。")
         sys.exit(3)
+    print(f"  引擎：{engine}" + (f"（{chrome}）" if engine == "chrome" else "（playwright 内置 chromium，版本固定）"))
 
     out_dir.mkdir(parents=True, exist_ok=True)
     tmp = Path(tempfile.mkdtemp(prefix="xhs_html_", dir=str(Path(ROOT) / "state")))
@@ -387,11 +429,16 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0) -> list[P
         name = f"{i:02d}_{safe(m.get('no') or '')}_{safe(m.get('home') or '')}vs{safe(m.get('away') or '')}"
         jobs.append((name, card_html(m, data, style, i, total)))
 
+    plans = []
     for name, doc in jobs:
         hp = tmp / f"{name}.html"
         hp.write_text(doc, encoding="utf-8")
-        png = out_dir / f"{name}.png"
-        ok, why = shot(hp, png, chrome)
+        plans.append((name, hp, out_dir / f"{name}.png"))
+
+    res = (shoot_playwright(plans) if engine == "playwright"
+           else {n: shot(hp, png, chrome) for n, hp, png in plans})
+    for name, hp, png in plans:
+        ok, why = res.get(name, (False, "未渲染"))
         note = ""
         if ok:
             bm = bottom_margin(png)
@@ -461,6 +508,9 @@ def main() -> None:
     ap.add_argument("--style", default="both", choices=["editorial", "swiss", "both"])
     ap.add_argument("--out", default="", help="输出目录（默认 cards.json 同级 试版/<style>）")
     ap.add_argument("--limit", type=int, default=0, help="只出前 N 场")
+    ap.add_argument("--engine", default="chrome", choices=["chrome", "playwright", "auto"],
+                    help="渲染引擎：chrome=本机 Chrome 逐张截图（默认，零依赖）；"
+                         "playwright=复用内置 chromium（快约 2 倍、版本固定）；auto=有 playwright 就用")
     ap.add_argument("--menu", action="store_true", help="交互菜单")
     a = ap.parse_args()
 
@@ -477,7 +527,7 @@ def main() -> None:
             # 单一风格（定版）= 就出在 cards.json 同目录（即 📝文章/<日期>/小红书/）
             out = cards_path.parent / ("试版" / st if a.style == "both" else "")
         print(f"\n【{st}】→ {out}")
-        made = build(cards_path, st, out, a.limit)
+        made = build(cards_path, st, out, a.limit, a.engine)
         print(f"  共 {len(made)} 张")
 
 

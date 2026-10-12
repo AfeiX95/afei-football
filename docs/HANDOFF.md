@@ -1202,3 +1202,16 @@ C39 原文：德比/强强对话的大球共识，**反向理由一列出就必�
 - **产物**：`📝文章/20261014/小红书/`（editorial 4 张 + `cards.json` + `文案.md`）；两版对比图留在 `📝文章/20261014/小红书_预览/{editorial,swiss}/`（已 gitignore，可随时删）。
 - **下一步**：①三份周二内部全维度分析（拟新建 `📚知识库/比赛分析/欧冠/`）②赛果复核三批（`results 2026-10-13`、`results 2026-10-14`、`results 2026-10-11 2026-10-12`）③挂 `python scripts/odds_snapshot.py loop --every 15` 攒位移。
 - **仍开放**：三件待用户拍板（C41 编号相撞 / 10-11 积压档 19 条 + 本批 2 条站边是否并入累计池 396/190/48.0% / Batch#38 编号归属）；朱雀/EdgeOne 线路已停手（配置保留）。
+
+## 2026-10-12（夜·五）｜ 会话:「本机 python / node 把 playwright、puppeteer 装上看看」= 截图引擎选型
+
+**状态**：本机已装 **playwright（Python 1.63.0 + 内置 chromium 153 + headless shell）** 与 **puppeteer 25.13.0（自带 Chrome for Testing 155）**；`scripts/xhs_html.py` 新增 `--engine chrome|playwright|auto`（**默认仍是 chrome**）。三条路径跑同一批 `cards.json`：**版面完全一致**（墨带条数逐条对齐、位移 ≤9px＝0.3%），差别只在字形抗锯齿。
+
+- **装在哪**：playwright → `python -m pip install playwright`（清华源）+ `python -m playwright install chromium`（`PLAYWRIGHT_DOWNLOAD_HOST=https://cdn.npmmirror.com/binaries/playwright`，共约 310MB＝chromium 195.6MB + headless shell 114.6MB），浏览器落 `C:\Users\wuyan\AppData\Local\ms-playwright\chromium-1243\`；puppeteer → 包在 `state/_tmp_tools/node/`（`state/_tmp_*` 已 gitignore，可随时删），浏览器落 `C:\Users\wuyan\.cache\puppeteer\chrome\win64-155.0.8059.39\`。⚠️ `npm i puppeteer` 的 postinstall **不会**下浏览器，要另跑 `npx puppeteer browsers install chrome`（配 `PUPPETEER_DOWNLOAD_BASE_URL=https://cdn.npmmirror.com/binaries/chrome-for-testing`）；npm registry 本机已是 `registry.npmmirror.com`。
+- **4 张实测**（同一份 HTML、2160×2880）：chrome CLI **3.49s**（0.9s/张）／playwright 内置 chromium **1.69s**（0.40s/张）／playwright `channel=chrome` 1.66s／puppeteer **4.43s**（1.1s/张）。端到端（含 HTML 生成＋python 启动）3.0s vs 3.5s。
+- **像素对比**（对 chrome CLI 基线）：playwright-chromium 差 3.0–7.4% 像素、playwright-chrome 与 puppeteer 差 4.5–8.2%，最大通道差 233–255；而 **puppeteer(155) 与 playwright-chrome(154) 互差仅 1–2 像素** → 差异来自 Chrome 版本（153/154/155）的字形栅格化，不是库差异。重构后 chrome 引擎与已发布成品 `📝文章/20261014/小红书/*.png` 仍是 **0 差异像素**，确认没回归。
+- **选型结论**：默认保留 `--engine chrome`（零依赖、与已发布成品逐像素一致）；要**跨机器一致**或**批量更快**就 `--engine playwright`（浏览器版本固定、复用同一进程）。puppeteer 出图正常但无额外好处，**不接入**；技能自带的那两个 playwright 截图脚本也继续不用（我们这条更短）。
+- **验证脚本**（均在 `state/_tmp_tools/`，已 gitignore）：`bench_gen.py`（用真实 `card_html` 落 4 个 HTML）、`bench_pw.py`、`node/bench_pptr.mjs`、`bench_cmp.py`（基线＋像素对比）、`probe_layout.py`（墨带/行剖面 → 分辨「版面位移」还是「抗锯齿」）、`check_regress.py`（回归）。
+- **文档**：`📚知识库/写作指南/小红书图文卡片.md` 新增「截图引擎（三选一）」表与命令，已知限制第 5 条改写。
+- **下一步**：①三份周二内部全维度分析（拟新建 `📚知识库/比赛分析/欧冠/`）②赛果复核三批（`results 2026-10-13`、`results 2026-10-14`、`results 2026-10-11 2026-10-12`）③挂 `python scripts/odds_snapshot.py loop --every 15` 攒位移。
+- **仍开放**：三件待用户拍板（C41 编号相撞 / 10-11 积压档 19 条 + 本批 2 条站边是否并入累计池 396/190/48.0% / Batch#38 编号归属）；朱雀/EdgeOne 线路已停手（配置保留）。
