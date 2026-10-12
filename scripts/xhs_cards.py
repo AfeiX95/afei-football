@@ -414,39 +414,28 @@ def caption_text(data, cards):
     per = int(data.get("per_match_cards") or 1)
     mode = data.get("card_mode") or ""
     if mode == "data":
-        # 2026-10-12 判罚后的定版形态：正文只讲公开赛果 + 后台模型的比分猜测，不做任何投注引导
+        # 2026-10-13 二审仍不过后的定版：正文**只做纯技术/数据描述**——不猜比分、不给胜率方向、不提模型推演
         caps += ["每场两张图：数据卡（战绩 / 雷达 / 看点）＋后台模型卡（胜率 / 比分概率热力图）。"
                  if per >= 2 else
-                 "每场一张图：近期战绩 · 六维雷达 · 后台模型胜率与比分概率 · 比分看点与战意", ""]
-        caps.append("公开赛果数据摆齐，顺手把比分猜一下。")
-        caps.append("")
+                 "每场一张图：近期战绩 · 六维雷达 · 主客场攻防数据 · 数据看点", ""]
         for c in cards:
             f = c.get("form") or {}
             h, a = f.get("home") or {}, f.get("away") or {}
-            md = c.get("model") or {}
             seg = []
             for s in (h, a):
                 if s.get("name"):
-                    ha = str(s.get("ha") or "").strip()
-                    seg.append("%s%s、场均进 %.1f 失 %.1f"
-                               % (s["name"], ha,
+                    seg.append("%s%s（场均进 %.1f 失 %.1f）"
+                               % (s["name"], str(s.get("ha") or "").strip(),
                                   float(s.get("pj") or 0), float(s.get("sj") or 0)))
-            line = "%s vs %s：" % (c.get("home", ""), c.get("away", "")) + "；".join(seg) + "。"
-            # 胜率不上正文：卡上有胜率条，正文省下的字数留给「比分分析」（用户要正文 ~300 字）
-            top = md.get("top") or []
-            if md.get("guess"):
-                line += "比分我猜 %s" % md["guess"]
-                for s, p in top:
-                    if str(s).replace("-", " 比 ") == md["guess"]:
-                        line += "（%.1f%%）" % (float(p) * 100)
-                        break
-                if len(top) > 1 and top[1] and top[1][0]:
-                    line += "／%s（%.1f%%）" % (str(top[1][0]).replace("-", " 比 "),
-                                              float(top[1][1]) * 100)
-                line += "。"
-                # λ 接近时前三格几乎并列（莱红牛那场 1-1 只领先第四格 0.16 个百分点），别把「最可能」说满
-                if len(top) >= 4 and float(top[0][1]) - float(top[3][1]) < 0.02:
-                    line += "前四格咬得很紧，比分参考价值有限。"
+            line = "%s vs %s：" % (c.get("home", ""), c.get("away", "")) + "、".join(seg) + "。"
+            rd = c.get("radar") or {}
+            dims, rh, ra = rd.get("dims") or [], rd.get("home") or [], rd.get("away") or []
+            if dims and len(dims) == len(rh) == len(ra):
+                i = max(range(len(dims)), key=lambda k: abs(float(rh[k]) - float(ra[k])))
+                line += "六维雷达里差得最大的是%s %.0f 对 %.0f。" % (dims[i], rh[i], ra[i])
+            hh = str(f.get("h2h_short") or "").strip()
+            if hh:
+                line += "交锋：%s。" % hh
             caps.append(line)
             caps.append("")
         while caps and caps[-1] == "":
@@ -467,7 +456,7 @@ def caption_text(data, cards):
     if mode == "data" and ("中国体育" in src or "彩票" in src or not src):
         src = "数据来源：公开赛事数据"
     src = src or "数据来源：公开赛事数据"
-    tail = ("以上比分为后台模型按公开赛果数据做的推演，仅供参考，不构成任何购买建议。"
+    tail = ("以上为公开赛果数据与技术面整理，只做数据对比，不含胜负与比分判断，不构成任何购买建议。"
             if mode == "data" else "仅供参考，请理性看待比赛。")
     caps += ["", data.get("tags", "#足球前瞻 #数据分析 #赛博聊球"), src, tail,
              "", "【发布窗口】主档 10:30–13:00（避开 16:00–19:00，见 R39）"]
