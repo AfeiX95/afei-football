@@ -414,24 +414,39 @@ def caption_text(data, cards):
     per = int(data.get("per_match_cards") or 1)
     mode = data.get("card_mode") or ""
     if mode == "data":
-        # 2026-10-12 判罚后的定版形态：只讲公开数据，不出现方向/比分/让球/场次号/机构
-        caps += ["每场一张图，全是公开赛果数据：数据反差 · 近期战绩对比 · 六维雷达对比 · "
+        # 2026-10-12 判罚后的定版形态：正文只讲公开赛果 + 后台模型的比分猜测，不做任何投注引导
+        caps += ["每场两张图：数据卡（战绩 / 雷达 / 看点）＋后台模型卡（胜率 / 比分概率热力图）。"
+                 if per >= 2 else
+                 "每场一张图，全是公开赛果数据：数据反差 · 近期战绩对比 · 六维雷达对比 · "
                  "数据看点 · 战意与数据要点", ""]
+        caps.append("三场都是欧冠，公开赛果数据摆齐，顺手把比分猜一下。")
+        caps.append("")
         for c in cards:
-            caps.append("%s vs %s" % (c.get("home", ""), c.get("away", "")))
-            for t in (c.get("contrast"),):
-                if t:
-                    caps.append(t)
             f = c.get("form") or {}
-            for side in ("home", "away"):
-                s = f.get(side) or {}
+            h, a = f.get("home") or {}, f.get("away") or {}
+            md = c.get("model") or {}
+            w = md.get("wdl") or []
+            seg = []
+            for s in (h, a):
                 if s.get("name"):
-                    caps.append("%s：近 5 场 %s（进 %s 失 %s）；%s，进 %.1f 失 %.1f。"
-                                % (s["name"], s.get("l5", ""), s.get("gf", ""), s.get("ga", ""),
-                                   s.get("ha", ""), float(s.get("pj") or 0), float(s.get("sj") or 0)))
-            if f.get("h2h_short"):
-                caps.append(f["h2h_short"] + "。")
+                    ha = str(s.get("ha") or "").strip()
+                    seg.append("%s%s、场均进 %.1f 失 %.1f"
+                               % (s["name"], ha,
+                                  float(s.get("pj") or 0), float(s.get("sj") or 0)))
+            line = "%s vs %s：" % (c.get("home", ""), c.get("away", "")) + "；".join(seg) + "。"
+            if len(w) == 3:
+                line += "后台模型给的主胜／平／客胜是 %.0f%% ／ %.0f%% ／ %.0f%%，" % (
+                    float(w[0]) * 100, float(w[1]) * 100, float(w[2]) * 100)
+            top = md.get("top") or []
+            if md.get("guess"):
+                line += "比分我猜 %s" % md["guess"]
+                if len(top) > 1 and top[1] and top[1][0]:
+                    line += "，其次 %s" % str(top[1][0]).replace("-", " 比 ")
+                line += "。"
+            caps.append(line)
             caps.append("")
+        while caps and caps[-1] == "":
+            caps.pop()
     elif per >= 2:
         caps += ["每场 %d 张图：①判断卡（核心矛盾 · 三向概率 · 高概率比分）"
                  "②战绩卡（近期战绩对比 · 本次看点）③深读卡（六维雷达对比 · 战意 · 信号）" % per, ""]
@@ -448,8 +463,9 @@ def caption_text(data, cards):
     if mode == "data" and ("中国体育" in src or "彩票" in src or not src):
         src = "数据来源：公开赛事数据"
     src = src or "数据来源：公开赛事数据"
-    caps += ["", data.get("tags", "#足球前瞻 #数据分析 #赛博聊球"), src,
-             "仅供参考，请理性看待比赛。",
+    tail = ("以上比分为后台模型按公开赛果数据做的推演，仅供参考，不构成任何购买建议。"
+            if mode == "data" else "仅供参考，请理性看待比赛。")
+    caps += ["", data.get("tags", "#足球前瞻 #数据分析 #赛博聊球"), src, tail,
              "", "【发布窗口】主档 10:30–13:00（避开 16:00–19:00，见 R39）"]
     return "\n".join(caps) + "\n"
 

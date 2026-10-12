@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import html as _html
+import json
 import os
 import shutil
 import subprocess
@@ -32,7 +33,8 @@ from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from xhs_cards import ROOT, audit, auto_cards, find_card_files, load_input, safe, write_caption  # noqa: E402
+from xhs_cards import (ROOT, audit, auto_cards, caption_text, find_card_files,  # noqa: E402
+                       load_input, safe, write_caption)
 
 W, H, DPR = 1080, 1440, 2
 
@@ -419,6 +421,39 @@ DATA_CSS = """
 .sw.data .focus li{font-size:23px}
 .sw.data .radar .lg{font-size:22px}
 .sw.data .foot{font-size:21px}
+
+/* ── 后台模型块①：胜率条（主客队 + 一条粗点线 + 百分比）───────────────
+   2026-10-12 用户拍板：信息卡要放后台模型算出来的胜率与比分概率（见 HANDOFF 夜·十三） */
+.card.data .wdl,.card.data .heat{margin-top:16px;padding-top:12px;border-top:1px solid rgba(10,10,11,.16)}
+.card.data .wdl .hint,.card.data .heat .hint{font-size:19px;color:rgba(10,10,11,.55)}
+.wbarwrap{position:relative;margin:16px 0 10px;height:var(--bar)}
+.wbar{display:flex;height:var(--bar);overflow:hidden}
+.wbar .seg{display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#fff;
+  font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden}
+.wbar .s1{background:#9b5a2e}
+.wbar .s2{background:rgba(10,10,11,.36)}
+.wbar .s3{background:#3f5f80}
+/* 粗点线＝主胜与平的分界，上下都出头，一眼能看出优势在哪边 */
+.wmark{position:absolute;top:-9px;bottom:-9px;width:6px;
+  background:repeating-linear-gradient(to bottom,#14110d 0 9px,transparent 9px 15px)}
+.wmark:after{content:"";position:absolute;left:-7px;top:-10px;border-left:10px solid transparent;
+  border-right:10px solid transparent;border-top:11px solid #14110d}
+.wlab{display:flex;justify-content:space-between;align-items:baseline;font-size:21px;margin-top:2px}
+.wlab .m{font-size:19px;color:rgba(10,10,11,.55)}
+/* ── 后台模型块②：比分概率热力图（颜色越深概率越高）────────────────── */
+.hgrid{display:grid;grid-template-columns:40px repeat(6,var(--cell));gap:3px;width:max-content;margin:14px auto 0}
+.hcell{width:var(--cell);height:var(--cell);display:flex;align-items:center;justify-content:center;
+  font-size:17px;font-variant-numeric:tabular-nums}
+.hcell.top{box-shadow:inset 0 0 0 3px #14110d}
+.hcol{width:var(--cell);height:22px;display:flex;align-items:center;justify-content:center;
+  font-size:17px;color:rgba(10,10,11,.58)}
+.hrowlab{width:40px;height:var(--cell);display:flex;align-items:center;justify-content:flex-end;
+  padding-right:7px;font-size:17px;color:rgba(10,10,11,.58)}
+.hcorner{width:40px;height:22px}
+.hax{display:flex;justify-content:center;gap:52px;font-size:18px;color:rgba(10,10,11,.55);margin-top:6px}
+.hfoot{margin-top:12px;font-size:20px;color:rgba(10,10,11,.72);text-align:center}
+.hnote{margin-top:10px;font-size:18px;line-height:1.5;color:rgba(10,10,11,.5);text-align:center}
+.ed.data .wdl .lab,.ed.data .heat .lab{color:#9b5a2e;font-size:21px;font-weight:700;letter-spacing:.16em}
 """
 
 
@@ -646,6 +681,113 @@ def radar_html(card: dict, cluster: str, size: int = 300, label_font: int = 23) 
             % (svg, lg))
 
 
+# --------------------------------------------------------------------------- #
+# 后台模型块：胜率条 + 比分概率热力图（`xhs_model.py` 算好，卡片只负责画）
+# --------------------------------------------------------------------------- #
+TEMPLATES = ("A", "B", "C")
+TPL_NAME = {"A": "数据页", "B": "模型页", "C": "对照页"}
+TPL_HEAT = {"A": 62, "B": 68, "C": 58}      # 热力图单格边长
+TPL_BAR = {"A": 46, "B": 56, "C": 40}       # 胜率条高度
+TPL_RADAR = {"A": 230, "B": 200, "C": 250}
+TPL_STATE = Path(ROOT) / "state" / "xhs_templates.json"
+
+
+def pick_template(meta: dict, out_dir: Path) -> tuple:
+    """每期换一套版式。`cards.json` 的 `template` 字段优先；否则按批次目录轮换并记账。
+
+    轮换表写在 `state/xhs_templates.json`（{批次目录名: 模板, "_last": 模板}），
+    所以同一批重出不会跳模板，换一批必然换一个。
+    """
+    t = str(meta.get("template") or "").strip().upper()
+    if t in TEMPLATES:
+        return t, "指定"
+    key = Path(out_dir).name or "_"
+    try:
+        st = json.loads(TPL_STATE.read_text(encoding="utf-8"))
+        if not isinstance(st, dict):
+            st = {}
+    except Exception:
+        st = {}
+    if st.get(key) in TEMPLATES:
+        return st[key], "沿用"
+    last = st.get("_last")
+    try:
+        nxt = TEMPLATES[(TEMPLATES.index(last) + 1) % len(TEMPLATES)]
+    except ValueError:
+        nxt = TEMPLATES[0]
+    st[key] = nxt
+    st["_last"] = nxt
+    TPL_STATE.parent.mkdir(parents=True, exist_ok=True)
+    TPL_STATE.write_text(json.dumps(st, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return nxt, "轮换"
+
+
+def wdl_html(card: dict, tpl: str = "A") -> str:
+    """胜率条：左＝主队、右＝客队，中间一条粗点线（主胜/平的分界），三档都带百分比。"""
+    md = card.get("model") or {}
+    w = md.get("wdl") or []
+    if len(w) != 3:
+        return ""
+    wh, wd, wa = [float(x) * 100 for x in w]
+    delta = abs(float(md.get("mc_delta") or 0)) * 100
+    n_mc = int(md.get("n_mc") or 0)
+    hint = "抽样 %s 次复核，与矩阵差 %.1f 个百分点" % (w3(n_mc), delta) if n_mc else ""
+    seg = "".join('<div class="seg s%d" style="width:%.2f%%">%.1f%%</div>' % (i, v, v)
+                  for i, v in enumerate((wh, wd, wa), 1))
+    return ('<section class="wdl" style="--bar:%dpx">'
+            '<div class="head2"><span class="lab">后台模型 · 胜率</span>'
+            '<span class="hint">%s</span></div>'
+            '<div class="wbarwrap"><div class="wbar">%s</div>'
+            '<div class="wmark" style="left:%.2f%%"></div></div>'
+            '<div class="wlab"><span>%s · 主胜</span><span class="m">平 %.1f%%</span>'
+            '<span>%s · 客胜</span></div></section>'
+            % (TPL_BAR.get(tpl, 46), esc(hint), seg, wh,
+               esc(card.get("home", "")), wd, esc(card.get("away", ""))))
+
+
+def w3(n: int) -> str:
+    """20000 → 2 万；9000 → 9000。"""
+    return ("%g 万" % (n / 10000.0)) if n >= 10000 else str(n)
+
+
+def heat_html(card: dict, tpl: str = "A") -> str:
+    """比分概率热力图：颜色越深概率越高；概率最高的那格描黑框。"""
+    md = card.get("model") or {}
+    g = md.get("grid") or []
+    if len(g) != 6 or any(len(r) != 6 for r in g):
+        return ""
+    cell = TPL_HEAT.get(tpl, 62)
+    pmax = max(max(r) for r in g) or 1.0
+    ti, tj = 0, 0
+    for i, row in enumerate(g):
+        for j, p in enumerate(row):
+            if p >= g[ti][tj]:
+                ti, tj = i, j
+    cells = ['<div class="hcorner"></div>']
+    cells += ['<div class="hcol">%d</div>' % j for j in range(6)]
+    for i, row in enumerate(g):
+        cells.append('<div class="hrowlab">%d</div>' % i)
+        for j, p in enumerate(row):
+            al = 0.07 + 0.78 * (p / pmax)
+            cls = "hcell top" if (i, j) == (ti, tj) else "hcell"
+            txt = ("%.1f" % (p * 100)) if p >= 0.02 else ""
+            cells.append('<div class="%s" style="background:rgba(155,90,46,%.3f);color:%s">%s</div>'
+                         % (cls, al, "#fff" if al >= 0.55 else "#14110d", txt))
+    top = md.get("top") or []
+    foot = " · ".join("%s %.1f%%" % (t[0], float(t[1]) * 100) for t in top[:3])
+    return ('<section class="heat" style="--cell:%dpx">'
+            '<div class="head2"><span class="lab">后台模型 · 比分概率</span>'
+            '<span class="hint">颜色越深，概率越高</span></div>'
+            '<div class="hgrid">%s</div>'
+            '<div class="hax"><span>↓ 主队进球</span><span>客队进球 →</span></div>'
+            '<div class="hfoot">概率最高三格：%s</div>'
+            '<div class="hnote">口径：同主客场均进球/失球（%s / %s）→ 后台模型比分矩阵；'
+            '只算 90 分钟常规时间，未做任何市场折算。</div></section>'
+            % (cell, "".join(cells), esc(foot),
+               esc("λ主 %.2f" % float((md.get("lam") or [0, 0])[0])),
+               esc("λ客 %.2f" % float((md.get("lam") or [0, 0])[1]))))
+
+
 def all_card_html(card: dict, meta: dict, style: str, idx: int, total: int, variant: int = 0) -> str:
     """单卡全信息：一张卡装完一场的所有分析（立场·矛盾·概率·比分·战绩·雷达·看点·战意·信号）。
 
@@ -689,12 +831,14 @@ def all_card_html(card: dict, meta: dict, style: str, idx: int, total: int, vari
 </div></div>{AUTOFIT_JS}</body></html>"""
 
 
-def data_card_html(card: dict, meta: dict, style: str, idx: int, total: int, variant: int = 0) -> str:
+def data_card_html(card: dict, meta: dict, style: str, idx: int, total: int, variant: int = 0,
+                   tpl: str = "A") -> str:
     """数据向单卡（2026-10-12 小红书判罚后的定版形态）。
 
     只放**官方赛果数据**：数据反差 / 近期战绩对比 / 六维雷达对比 / 数据看点 / 战意·数据要点。
-    刻意不出现：立场判断、三向概率、高概率比分、让球球数、竞彩场次号、机构折算（坑#69 / 坑#70）。
-    版面＝一行战绩 + 一行（雷达｜文字），variant 让偶数场把「数据看点」提到雷达行之前。
+    刻意不出现：立场判断、推荐比分、让球球数、竞彩场次号、机构折算（坑#69 / 坑#70）。
+    tpl 决定块序：A 数据页＝反差·战绩·简报·雷达·看点；B＝简报提到战绩前、雷达压轴；
+    C＝简报打头、看点在雷达前。variant 再让偶数场把最后两个块互换。
     """
     css, cluster, _ = STYLES[style]
     merged = dict(meta)
@@ -719,10 +863,59 @@ def data_card_html(card: dict, meta: dict, style: str, idx: int, total: int, var
     fc = focus_html(card, "数据看点")
     row = ('<div class="row2 tail2"><div class="c1">%s</div><div class="c2">%s</div></div>'
            % (rz, nt)) if (rz and nt) else (rz + nt)
-    body = sep + cq + fm + bf + ((fc + row) if variant % 2 else (row + fc))
+    blocks = {"cq": cq, "fm": fm, "bf": bf, "row": row, "fc": fc}
+    order = {"A": ("cq", "fm", "bf", "row", "fc"),
+             "B": ("cq", "bf", "fm", "fc", "row"),
+             "C": ("bf", "cq", "fc", "fm", "row")}.get(tpl, ("cq", "fm", "bf", "row", "fc"))
+    if variant % 2:
+        order = order[:-2] + (order[-1], order[-2])
+    body = sep + "".join(blocks[k] for k in order)
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
 <style>{BASE_CSS}{css}{EXTRA_CSS}{ALL_CSS}{DATA_CSS}</style></head><body>
-<div id="fit"><div class="card {cluster} all data">
+<div id="fit"><div class="card {cluster} all data tpl{tpl}">
+  {top}
+  {head}
+  {body}
+  {footer_html(merged)}
+</div></div>{AUTOFIT_JS}</body></html>"""
+
+
+def model_card_html(card: dict, meta: dict, style: str, idx: int, total: int, variant: int = 0,
+                    tpl: str = "A") -> str:
+    """后台模型卡（2026-10-12 用户拍板新增）：胜率条 + 比分概率热力图 + 简报。
+
+    和数据卡同源（都只吃公开赛果、不做市场折算），单独一张是因为热力图＋胜率条约 600px，
+    塞进数据卡必然超一屏高度被裁。没有 `model` 数据时自动退回数据卡。
+    """
+    wd, ht = wdl_html(card, tpl), heat_html(card, tpl)
+    if not (wd or ht):
+        return data_card_html(card, meta, style, idx, total, variant, tpl)
+    css, cluster, _ = STYLES[style]
+    merged = dict(meta)
+    merged.update(card)
+    league, kick = card.get("league", ""), card.get("kick", "")
+    if style == "editorial":
+        top = ('<div class="top"><span>%s · %s · 后台模型</span><span class="pager">%d/%d</span></div>'
+               % (esc(league), esc(kick), idx, total))
+    else:
+        top = ('<div class="top"><span class="chip">%s</span><span class="chip no">后台模型</span>'
+               '<span class="time">%s</span><span class="pager">%d/%d</span></div>'
+               % (esc(league), esc(kick), idx, total))
+    sep = '<div class="rule"></div>' if style == "editorial" else '<div class="thick"></div>'
+    vs = '%s<span class="vsx">vs</span>%s' % (esc(card.get("home", "")), esc(card.get("away", "")))
+    head = '<h1 class="serif">%s</h1>' % vs if style == "editorial" else '<h1>%s</h1>' % vs
+    cq = contradiction_html(card, key="contrast", label="数据反差")
+    bf = brief_html(card)
+    blocks = {"cq": cq, "wdl": wd, "heat": ht, "bf": bf}
+    order = {"A": ("cq", "wdl", "heat", "bf"),
+             "B": ("bf", "cq", "wdl", "heat"),
+             "C": ("cq", "heat", "wdl", "bf")}.get(tpl, ("cq", "wdl", "heat", "bf"))
+    if variant % 2:
+        order = order[:-2] + (order[-1], order[-2])
+    body = sep + "".join(blocks[k] for k in order)
+    return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<style>{BASE_CSS}{css}{EXTRA_CSS}{ALL_CSS}{DATA_CSS}</style></head><body>
+<div id="fit"><div class="card {cluster} all data model tpl{tpl}">
   {top}
   {head}
   {body}
@@ -731,12 +924,14 @@ def data_card_html(card: dict, meta: dict, style: str, idx: int, total: int, var
 
 
 def card_html(card: dict, meta: dict, style: str, idx: int, total: int,
-              kind: str = "data", variant: int = 0) -> str:
-    """kind=data 数据向单卡（默认，只放官方赛果数据）；kind=all 全信息单卡（含判断/概率/比分，慎用）；
-    kind=judge 判断卡；kind=form 战绩卡；kind=read 深读卡。
-    variant 用来让每期版式有变化（同一批里奇数/偶数张互换块序）。"""
+              kind: str = "data", variant: int = 0, tpl: str = "A") -> str:
+    """kind=data 数据向单卡（只放官方赛果数据）；kind=model 后台模型卡（胜率条＋比分概率热力图）；
+    kind=all 全信息单卡（含立场/推荐比分，慎用）；kind=judge/form/read 旧三卡。
+    variant 让同一批里奇数/偶数张互换块序；tpl 是本期版式（A/B/C）。"""
     if kind == "data":
-        return data_card_html(card, meta, style, idx, total, variant)
+        return data_card_html(card, meta, style, idx, total, variant, tpl)
+    if kind == "model":
+        return model_card_html(card, meta, style, idx, total, variant, tpl)
     if kind == "all":
         return all_card_html(card, meta, style, idx, total, variant)
     css, cluster, _ = STYLES[style]
@@ -907,7 +1102,7 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
         print(f"  ⚠️ 雷达/战绩补算失败（{e.__class__.__name__}: {e}），对应块留白")
 
     # 发布前风控硬门禁（坑#69）：方向 / 让球球数 / 具体比分 / 竞彩场次号 / 机构折算 → 拒绝出图
-    if kind == "data":
+    if kind in ("data", "dm", "model"):
         try:
             import xhs_riskcheck
             hits = xhs_riskcheck.scan_cards(data, cards)
@@ -935,14 +1130,18 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
 
     made: list[Path] = []
     ALL_KINDS = [("judge", "判断"), ("form", "战绩"), ("read", "深读")]
-    if kind in ("all", "data"):             # 单卡：每场一张，文件名不带后缀
-        kinds = [(kind, "")]
-    elif kind in ("full", "both"):          # 每场三张（判断/战绩/深读）
+    if kind in ("all", "data", "model"):     # 单卡：每场一张，文件名不带后缀（model 会带 _模型）
+        kinds = [(kind, "")] if kind != "model" else [("model", "模型")]
+    elif kind in ("dm", "data+model"):       # 每场两张：数据卡 + 后台模型卡（2026-10-12 起的默认）
+        kinds = [("data", ""), ("model", "模型")]
+    elif kind in ("full", "both"):           # 每场三张（判断/战绩/深读）
         kinds = ALL_KINDS
     else:
         kinds = [k for k in ALL_KINDS if k[0] == kind] or ALL_KINDS[:1]
     per = len(kinds)
     total = len(cards) * per + 1
+    tpl, how = pick_template(data, out_dir)
+    print("  版式：%s · %s（%s；cards.json 写 \"template\" 可指定）" % (tpl, TPL_NAME[tpl], how))
     jobs = [("01_封面", cover_html({**data, "matches": None}, data.get("cover_items") or [], total, style))]
     n = 1
     for i, m in enumerate(cards):
@@ -950,7 +1149,7 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
         for k, suffix in kinds:
             n += 1
             name = ("%02d_%s" % (n, base)) if not suffix else ("%02d_%s_%s" % (n, base, suffix))
-            jobs.append((name, card_html(m, data, style, n, total, k, i)))
+            jobs.append((name, card_html(m, data, style, n, total, k, i, tpl)))
 
     plans = []
     if keep:
@@ -980,9 +1179,21 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
     shutil.rmtree(tmp, ignore_errors=True)  # HTML/字体已按需复制到 --html-out，临时目录总是清掉
     if made and style == "editorial":
         data["per_match_cards"] = per
-        data["card_mode"] = kind
-        cap = write_caption(data, cards, out_dir)
-        print("  📝 " + os.path.basename(cap))
+        data["card_mode"] = "data" if kind in ("data", "dm", "model") else kind
+        cap = caption_text(data, cards)
+        # 正文也要过闸：比分猜测写成「2 比 1」不算比分串；方向/投注/机构语一律拦
+        try:
+            import xhs_riskcheck
+            hits = xhs_riskcheck.scan_text(cap, "文案正文")
+        except ImportError:
+            hits = []
+        if hits:
+            print("❌ 文案没过风控（%d 处）：" % len(hits))
+            for name, frag, where, why in hits[:12]:
+                print("   · [%s] %s  ← %s" % (name, frag, where))
+            sys.exit(2)
+        (out_dir / "文案.md").write_text(cap, encoding="utf-8")
+        print("  📝 文案.md · 版式 " + tpl)
     return made
 
 
@@ -1039,9 +1250,11 @@ def main() -> None:
     ap.add_argument("--style", default="both", choices=["editorial", "swiss", "both"])
     ap.add_argument("--out", default="", help="输出目录（默认 cards.json 同级 试版/<style>）")
     ap.add_argument("--limit", type=int, default=0, help="只出前 N 场")
-    ap.add_argument("--kind", default="data", choices=["data", "all", "full", "judge", "form", "read"],
-                    help="每场出几张：data=数据向单卡（默认，只放官方赛果数据，过风控门禁）、"
-                         "all=全信息单卡（含判断/概率/比分，小红书会判违规，慎用）、"
+    ap.add_argument("--kind", default="dm",
+                    choices=["dm", "data", "model", "all", "full", "judge", "form", "read"],
+                    help="每场出几张：dm=数据卡＋后台模型卡（默认：胜率条＋比分概率热力图）、"
+                         "data=只出数据卡、model=只出模型卡、"
+                         "all=全信息单卡（含立场/推荐比分，小红书会判违规，慎用）、"
                          "full=判断卡+战绩卡+深读卡、judge/form/read=只出对应卡")
     ap.add_argument("--html-out", default="", help="另存中间 HTML 到该目录（排版诊断用）")
     ap.add_argument("--engine", default="chrome", choices=["chrome", "playwright", "auto"],

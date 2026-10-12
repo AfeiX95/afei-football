@@ -96,6 +96,11 @@ def scan_cards(data: dict, cards=None) -> list:
             hits.append(("方向投注", str(c["stance"]), "%s.stance" % tag, "数据向卡片不放立场判断"))
         if c.get("score"):
             hits.append(("比分串", str(c["score"]), "%s.score" % tag, "数据向卡片不放推荐比分"))
+    # ⚠️ 2026-10-12 用户拍板：信息卡要放**后台模型算出来的胜率与比分概率热力图**
+    #    （`model` 字段：lam/grid/wdl/top/guess）。这是一次有意的口径调整——
+    #    首篇被判罚的形态是「方向 + 让球球数 + 具体比分 + 竞彩场次号」，这四件依旧全拦；
+    #    `model` 与渲染出来的热力图/胜率条属于**概率分布**，不是「首选-次选-防范」那种推荐比分，
+    #    所以这里的字段清单**刻意不含 model**。风险已在 docs/HANDOFF.md 夜·十三 记明。
     return hits
 
 
