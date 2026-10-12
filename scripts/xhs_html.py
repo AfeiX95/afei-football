@@ -713,7 +713,8 @@ def cover_html(meta: dict, items: list, total: int, style: str) -> str:
     its = "".join(f'<div class="it"><span class="n">{i+1:02d}</span><span>{esc(t)}</span></div>'
                   for i, t in enumerate(items))
     tail = meta.get("cover_tail") or ("读图：概率左边「我」是后台模型算的，右边「机构」是官方定价折算；"
-                                      "六维雷达两条线分别是两队。每场三张：判断卡 · 战绩卡 · 深读卡 →")
+                                      "六维雷达两条线分别是两队。每场一张卡：判断 · 三向概率 · 比分 · "
+                                      "近期战绩 · 本次看点 · 战意信号 · 六维雷达都在里面 →")
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
 <style>{BASE_CSS}{css}</style></head><body>
 <div id="fit"><div class="card {cluster} cover">
