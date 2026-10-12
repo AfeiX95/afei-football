@@ -403,6 +403,14 @@ DATA_CSS = """
 .ed.data .focus li{font-size:23px}
 .ed.data .radar .lg{font-size:22px}
 .ed.data .foot{font-size:22px}
+/* 简报（100–200 字）：细发丝线 + 小标签，不复用「左粗条」以免和数据反差撞脸 */
+.card.data .brief{margin-top:16px;padding-top:12px;border-top:1px solid rgba(10,10,11,.16)}
+.card.data .brief .lab{font-size:21px;font-weight:700;letter-spacing:.16em}
+.card.data .brief p{margin:7px 0 0;font-size:22px;line-height:1.5;text-align:justify}
+.ed.data .brief .lab{color:#9b5a2e}
+.sw.data .brief{border-top-width:3px;border-top-color:#0a0a0b}
+.sw.data .brief .lab{color:#e8402a}
+.sw.data .brief p{font-size:21px}
 .sw.data h1{font-size:76px}
 .sw.data .frow .tn{font-size:27px}
 .sw.data .frow .num{font-size:23px}
@@ -590,6 +598,14 @@ def focus_html(card: dict, label: str = "本次看点") -> str:
     return '<section class="focus"><div class="lab">%s</div><ul>%s</ul></section>' % (esc(label), items)
 
 
+def brief_html(card: dict, label: str = "简报") -> str:
+    """100–200 字简报（`xhs_data.py` 从本地赛果缓存生成，可手写覆盖 cards.json 的 `brief`）。"""
+    txt = (card.get("brief") or "").strip()
+    if not txt:
+        return ""
+    return '<div class="brief"><div class="lab">%s</div><p>%s</p></div>' % (esc(label), esc(txt))
+
+
 def form_html(card: dict, compact: bool = False) -> str:
     f = card.get("form") or {}
     h, a = f.get("home") or {}, f.get("away") or {}
@@ -697,12 +713,13 @@ def data_card_html(card: dict, meta: dict, style: str, idx: int, total: int, var
     head = '<h1 class="serif">%s</h1>' % vs if style == "editorial" else '<h1>%s</h1>' % vs
     cq = contradiction_html(card, key="contrast", label="数据反差")
     fm = form_html(card, compact=True)
+    bf = brief_html(card)
     rz = radar_html(card, cluster, 230, 22)
     nt = notes_html(card, cluster, ("战意", "数据要点"))
     fc = focus_html(card, "数据看点")
     row = ('<div class="row2 tail2"><div class="c1">%s</div><div class="c2">%s</div></div>'
            % (rz, nt)) if (rz and nt) else (rz + nt)
-    body = sep + cq + fm + ((fc + row) if variant % 2 else (row + fc))
+    body = sep + cq + fm + bf + ((fc + row) if variant % 2 else (row + fc))
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
 <style>{BASE_CSS}{css}{EXTRA_CSS}{ALL_CSS}{DATA_CSS}</style></head><body>
 <div id="fit"><div class="card {cluster} all data">

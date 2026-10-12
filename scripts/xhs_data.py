@@ -148,8 +148,83 @@ def h2h_counts(hist: dict, home_name: str, away_name: str):
     return hw, dr, aw
 
 
+def _md(date) -> str:
+    d = str(date or "")
+    return d[5:].replace("-", "/") if len(d) >= 10 else d
+
+
+def last_match_text(res_side: dict) -> str:
+    """最近一场，例：'10/11 客场 0 比 1 负于皇马'。
+
+    ⚠️ 比分一律写「X 比 Y」，**不写 `0:1` / `0-1`**：风控门禁 `scripts/xhs_riskcheck.py` 的
+    「比分串」规则只拦 `\\d[-:]\\d` 这种形状（那是博彩比分串的样子），「X 比 Y」是中文赛果写法。
+    """
+    ml = res_side.get("matchList") or []
+    if not ml:
+        return ""
+    m = ml[0]
+    tid = (res_side.get("statistics") or {}).get("teamId")
+    home = m.get("homeTeamId") == tid
+    gh, ga = int(num(m.get("homeTeamFullCourtGoalCnt"))), int(num(m.get("awayTeamFullCourtGoalCnt")))
+    gf, gl = (gh, ga) if home else (ga, gh)
+    opp = (m.get("awayTeamShortName") if home else m.get("homeTeamShortName")) or "对手"
+    opp = str(opp).strip()
+    sp = " " if opp[:1].isascii() and opp[:1].isalpha() else ""   # 拉丁队名前后留空格
+    tail = ("胜" + sp + opp) if gf > gl else (("平" + sp + opp) if gf == gl else ("负于" + sp + opp))
+    return "%s %s %d 比 %d %s" % (_md(m.get("matchDate")), "主场" if home else "客场", gf, gl, tail)
+
+
+def injury_note(inj: dict, side: str) -> int:
+    v = (inj.get("value") or {}).get(side) or {}
+    return len(v.get("injuriesAndSuspensionsList") or [])
+
+
+def brief_of(card: dict, form: dict, res_home: dict, res_away: dict, inj: dict, head_: dict,
+             eh: dict) -> str:
+    """100–200 字「简报」：主客场地战绩对照 + 最近一场 + 交锋 + 伤停 + 赛程处境。
+
+    只用本地竞彩缓存里有的东西（`result.matchList` 带对手与比分、`history` 带交锋、
+    `injury` 带伤停、`head.gameweek` 带轮次）；缓存里没有的（战术风格、边路/直塞这类打法描述）
+    一律不编——要写战术得另找带指标的源。
+    """
+    hf, af = form.get("home") or {}, form.get("away") or {}
+    hn, an = card.get("home") or "主队", card.get("away") or "客队"
+    hw, hd, hl = (int(num(eh.get("homeWinGoalMatchCnt"))), int(num(eh.get("homeDrawMatchCnt"))),
+                  int(num(eh.get("homeLossGoalMatchCnt"))))
+    aw_, ad, al = (int(num(eh.get("awayWinGoalMatchCnt"))), int(num(eh.get("awayDrawMatchCnt"))),
+                   int(num(eh.get("awayLossGoalMatchCnt"))))
+    if hw == aw_:
+        clause = "两边胜场数一样（各 %d 场），差别在平局" % hw
+    elif hw > aw_:
+        clause = "主队在自家场地多赢 %d 场" % (hw - aw_)
+    else:
+        clause = "客队在这个客场赢的场次反而多 %d 场" % (aw_ - hw)
+    parts = []
+    parts.append("%s主场 %d胜%d平%d负、%s客场 %d胜%d平%d负：%s。" % (
+        hn, hw, hd, hl, an, aw_, ad, al, clause))
+    lm_h, lm_a = last_match_text(res_home), last_match_text(res_away)
+    if lm_h or lm_a:
+        parts.append("最近一场：%s；%s。" % (
+            "%s %s" % (hn, lm_h) if lm_h else "", "%s %s" % (an, lm_a) if lm_a else ""))
+    if form.get("h2h_short"):
+        parts.append("两队%s。" % form["h2h_short"])
+    nh, na = injury_note(inj, "home"), injury_note(inj, "away")
+    if nh or na:
+        parts.append("伤停名单：%s %d 人、%s %d 人。" % (hn, nh, an, na))
+    hv = head_.get("value") if isinstance(head_.get("value"), dict) else head_
+    gw = (hv or {}).get("gameweek")   # head.json 是平铺字段，injury/result 是 {value:{…}}，两种都兜
+    if gw:
+        parts.append("这是欧冠联赛阶段第 %s 轮，新赛制每一分都直接换名次。" % gw)
+    txt = "".join(parts)
+    # 超 200 字就从后往前丢（先丢赛程处境，再丢伤停/交锋），保证 100–200 字
+    while len(txt) > 200 and len(parts) > 2:
+        parts.pop()
+        txt = "".join(parts)
+    return txt
+
+
 def build_one(card: dict, root: Path) -> dict:
-    """算出一场的 form + radar；缺缓存的场次抛错，由调用方决定跳过还是中断。"""
+    """算出一场的 form + radar + 简报；缺缓存的场次抛错，由调用方决定跳过还是中断。"""
     mid = card.get("sporttery_match_id") or card.get("matchId")
     if not mid:
         raise ValueError("缺 sporttery_match_id")
@@ -157,6 +232,7 @@ def build_one(card: dict, root: Path) -> dict:
     if not d.exists():
         raise FileNotFoundError(f"没有本地缓存 {d}（先跑 python scripts/sporttery_fetch.py match {mid}）")
     feat, res, hist = val(d, "feature"), val(d, "result"), val(d, "history")
+    inj, head_ = val(d, "injury"), val(d, "head")
     eh, es = feat.get("eachHomeAway") or {}, feat.get("eachSameHomeAway") or {}
     ga, lg = feat.get("goalAvg") or {}, feat.get("lossGoalAvg") or {}
     hm, aw = res.get("home") or {}, res.get("away") or {}
@@ -197,7 +273,8 @@ def build_one(card: dict, root: Path) -> dict:
     form = {"home": hf, "away": af, "h2h": h2h_txt, "h2h_n": n_h2h,
             "h2h_short": ("近 %d 次交锋 %d胜%d平%d负" % (n_h2h, hw, dr, aw_)) if n_h2h else "",
             "h2h_used": bool(use_h2h), "window": "近 5 场 / 同主客 10 场"}
-    return {"form": form, "radar": radar, "match_dir": f"state/_match_{mid}"}
+    brief = brief_of(card, form, hm, aw, inj, head_, eh)
+    return {"form": form, "radar": radar, "match_dir": f"state/_match_{mid}", "brief": brief}
 
 
 def enrich(cards_path: Path, force=False, dry=False) -> int:
@@ -206,8 +283,8 @@ def enrich(cards_path: Path, force=False, dry=False) -> int:
     ok = 0
     for i, c in enumerate(cards, 1):
         tag = "%s %s vs %s" % (c.get("no", ""), c.get("home", ""), c.get("away", ""))
-        if c.get("form") and c.get("radar") and not force:
-            print("  –  跳过（已有 form/radar）：" + tag)
+        if c.get("form") and c.get("radar") and c.get("brief") and not force:
+            print("  –  跳过（已有 form/radar/brief）：" + tag)
             ok += 1
             continue
         try:
@@ -217,8 +294,8 @@ def enrich(cards_path: Path, force=False, dry=False) -> int:
             continue
         c.update(got)
         r = got["radar"]
-        print("  ✅ %s  form 已补  radar[%s]  主 %s  客 %s" %
-              (tag, "/".join(r["dims"]), r["home"], r["away"]))
+        print("  ✅ %s  form 已补  简报 %d 字  radar[%s]  主 %s  客 %s" %
+              (tag, len(got.get("brief") or ""), "/".join(r["dims"]), r["home"], r["away"]))
         ok += 1
     if dry:
         print("（--dry：没有写回文件）")

@@ -71,7 +71,7 @@ def scan_cards(data: dict, cards=None) -> list:
     for c in cards:
         tag = "%s %s vs %s" % (c.get("no") or "?", c.get("home") or "?", c.get("away") or "?")
         for key in ("stance", "stance_label", "contrast", "contradiction", "will",
-                    "signal", "note"):
+                    "signal", "note", "brief"):
             if c.get(key):
                 hits += scan_text(c[key], "%s.%s" % (tag, key))
         for i, t in enumerate(c.get("focus") or [], 1):
