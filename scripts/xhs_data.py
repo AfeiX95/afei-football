@@ -7,13 +7,14 @@
   result.json  → 近 5 场战绩 + 逐场比分（算胜平负串）
   history.json → 交锋历史（够 3 场且两队胜率不同才启用，否则第 4 维退回「主客战力」）
 
-六维雷达 6 个维度（0–100，名称与 📚知识库/skills/football-toutiao-html-generator 的 radar_dims 对齐）：
+六维雷达 6 个维度（0–100；2026-10-12 用户指定前三轴＝进攻能力/中场控制力/防守能力）：
+  进攻能力 = 近 10 场场均进球 ÷ 3 × 100（封顶 100）
+  中场控制力 = 50 + 近 5 场场均净胜球×14 + (不败率−0.5)×20（控场代理：本地缓存没有控球率/传球数据）
+  防守能力 = (1 − 近 10 场场均失球 ÷ 3) × 100（下限 0）
   近期状态 = 近 5 场积分率 (3胜+平) / (3×场次) × 100
-  进攻火力 = 近 10 场场均进球 ÷ 3 × 100（封顶 100）
-  防守稳固 = (1 − 近 10 场场均失球 ÷ 3) × 100（下限 0）
   主客战力 = 同主客场近 10 场胜率（官方已给 0–100 分）；有交锋数据时换成「交锋历史」= 该队交锋胜率
   市场支持 = 机构三向里该队的胜率
-  模型预测 = 后台模型三向里该队的胜率
+（文章那边 football-toutiao-html-generator 的 radar_dims 是另一套口径，卡片这里按用户要求独立定义。）
 
 用法：
   python scripts/xhs_data.py --input "📝文章/20261014/小红书/cards.json"     # 补齐并写回
@@ -28,7 +29,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DIMS = ["近期状态", "进攻火力", "防守稳固", "主客战力", "市场支持", "模型预测"]
+DIMS = ["进攻能力", "中场控制力", "防守能力", "近期状态", "主客战力", "市场支持"]
 H2H_DIM = "交锋历史"
 
 
@@ -74,7 +75,21 @@ def recent_form(res_side: dict) -> dict:
         "ga": int(num(st.get("lossGoalCnt"))),
         "net": int(num(st.get("netGoal"))),
         "seq": seq,
+        "n": int(num(st.get("totalLegCnt"))) or len(ml) or 1,
+        "unbeaten": (num(st.get("winGoalMatchCnt")) + num(st.get("drawMatchCnt"))) /
+                    max(1.0, float(int(num(st.get("totalLegCnt"))) or len(ml) or 1)),
     }
+
+
+def control_rate(f: dict) -> float:
+    """中场控制力（代理指标，0–100）。
+
+    本地竞彩缓存没有控球率 / 传球成功率 / 射门等场面数据，这里用「近 5 场场均净胜球」
+    与「不败率」折算控场倾向：净胜球是比赛被掌控的结果，不败率排掉「输球也刷净胜球」的噪声。
+    """
+    n = max(1.0, float(f.get("n") or 1))
+    net_per = float(f.get("net") or 0) / n
+    return clamp(50.0 + net_per * 14.0 + (float(f.get("unbeaten") or 0.5) - 0.5) * 20.0)
 
 
 def recent_rate(res_side: dict) -> float:
@@ -132,12 +147,12 @@ def build_one(card: dict, root: Path) -> dict:
     hf["pj"], hf["sj"] = num(ga.get("homeGoalAvgCnt")), num(lg.get("homeLossGoalAvgCnt"))
     af["pj"], af["sj"] = num(ga.get("awayGoalAvgCnt")), num(lg.get("awayLossGoalAvgCnt"))
 
-    # 第 4 维：交锋历史够 3 场且两队胜率不同才启用
+    # 第 5 维：交锋历史够 3 场且两队胜率不同才启用（否则用主客战力）
     hw, dr, aw_ = h2h_counts(hist, card.get("home", ""), card.get("away", ""))
     n_h2h = hw + dr + aw_
     use_h2h = n_h2h >= 3 and hw != aw_
     if use_h2h:
-        dims = [DIMS[0], DIMS[1], DIMS[2], H2H_DIM, DIMS[4], DIMS[5]]
+        dims = [DIMS[0], DIMS[1], DIMS[2], DIMS[3], H2H_DIM, DIMS[5]]
         d4h, d4a = clamp(hw / n_h2h * 100), clamp(aw_ / n_h2h * 100)
         h2h_txt = "近 %d 次交锋 %s %d胜%d平%d负" % (n_h2h, hm.get("statistics", {}).get("teamShortName", ""),
                                                     hw, dr, aw_)
@@ -145,19 +160,20 @@ def build_one(card: dict, root: Path) -> dict:
         dims = list(DIMS)
         d4h = clamp(num(es.get("homeScoreRatio")))
         d4a = clamp(num(es.get("awayScoreRatio")))
-        h2h_txt = ("近 %d 次交锋 %d胜%d平%d负（样本太少，雷达第 4 维用主客战力）" % (n_h2h, hw, dr, aw_)
+        h2h_txt = ("近 %d 次交锋 %d胜%d平%d负（样本太少，雷达第 5 维用主客战力）" % (n_h2h, hw, dr, aw_)
                    if n_h2h else "")
 
     mkt = list(card.get("probs_mkt") or [0, 0, 0])
-    mine = list(card.get("probs_mine") or [0, 0, 0])
     radar = {
         "dims": dims,
-        "home": [recent_rate(hm), clamp(hf["pj"] / 3 * 100), clamp(100 - hf["sj"] / 3 * 100),
-                 d4h, clamp(mkt[0]), clamp(mine[0])],
-        "away": [recent_rate(aw), clamp(af["pj"] / 3 * 100), clamp(100 - af["sj"] / 3 * 100),
-                 d4a, clamp(mkt[2]), clamp(mine[2])],
+        "home": [clamp(hf["pj"] / 3 * 100), control_rate(hf), clamp(100 - hf["sj"] / 3 * 100),
+                 recent_rate(hm), d4h, clamp(mkt[0])],
+        "away": [clamp(af["pj"] / 3 * 100), control_rate(af), clamp(100 - af["sj"] / 3 * 100),
+                 recent_rate(aw), d4a, clamp(mkt[2])],
     }
-    form = {"home": hf, "away": af, "h2h": h2h_txt, "h2h_n": n_h2h, "window": "近 5 场 / 同主客 10 场"}
+    form = {"home": hf, "away": af, "h2h": h2h_txt, "h2h_n": n_h2h,
+            "h2h_short": ("近 %d 次交锋 %d胜%d平%d负" % (n_h2h, hw, dr, aw_)) if n_h2h else "",
+            "h2h_used": bool(use_h2h), "window": "近 5 场 / 同主客 10 场"}
     return {"form": form, "radar": radar, "match_dir": f"state/_match_{mid}"}
 
 

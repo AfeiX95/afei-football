@@ -265,6 +265,129 @@ EXTRA_CSS = """
 
 
 # --------------------------------------------------------------------------- #
+# 单卡全信息版式（2026-10-12 用户要求：每场只要一张卡片体现所有分析信息）
+# 思路＝两栏挤压：概率|比分并排、雷达|战意信号并排、看点两列，字号统一降到 76% 左右
+# --------------------------------------------------------------------------- #
+ALL_CSS = """
+.card.all .row2{display:flex;gap:26px}
+.card.all .row2 .c1{flex:1.55;min-width:0}
+.card.all .row2 .c2{flex:1;min-width:0}
+.card.all .tail2{align-items:flex-start}
+.card.all .tail2 .c1{flex:0 0 500px}
+.card.all .tail2 .c2{flex:1;min-width:0}
+/* 单卡里雷达把图例挪到图下面横排（列宽只有 500，图例挤在右边会把队名折断） */
+.card.all .radar .wrap{flex-direction:column;align-items:flex-start;gap:4px}
+.card.all .radar .lg{display:flex;gap:26px;line-height:1.25}
+.card.all .radar .lg>div{white-space:nowrap}
+/* 杂志风 */
+.ed.all{padding:44px 52px 34px}
+.ed.all .top{font-size:23px}
+.ed.all .pager{font-size:21px}
+.ed.all h1{margin:12px 0 0;font-size:70px;line-height:1.06}
+.ed.all h1 .vsx{font-size:32px;margin:0 13px}
+.ed.all .rule{margin:12px 0 0;height:3px}
+.ed.all .stance{display:flex;align-items:baseline;gap:16px;padding:10px 0 0}
+.ed.all .stance .lab{font-size:20px;letter-spacing:.2em}
+.ed.all .stance .val{margin-top:0;font-size:45px;line-height:1.06}
+.ed.all .cq{margin-top:14px;border-left:6px solid #0a0a0b;padding:0 0 0 18px}
+.ed.all .cq .lab{font-size:19px;letter-spacing:.18em}
+.ed.all .cq p{margin:6px 0 0;font-size:26px;line-height:1.36;font-weight:700}
+.ed.all .sec{margin-top:13px}
+.ed.all .sec .head{font-size:21px}
+.ed.all .sec .head .right{font-size:19px}
+.ed.all .grid3{gap:22px;margin-top:8px}
+.ed.all .cl{font-size:19px}
+.ed.all .cv{font-size:44px;margin-top:0;letter-spacing:-.02em}
+.ed.all .cv .pct{font-size:26px}
+.ed.all .bar{height:7px;margin-top:6px}
+.ed.all .bar.mkt{height:5px;margin-top:4px}
+.ed.all .cm{font-size:19px;margin-top:3px}
+.ed.all .scores{gap:13px;margin-top:8px}
+.ed.all .sc{padding-top:8px;border-top-width:2px}
+.ed.all .sc .sl{font-size:18px}
+.ed.all .sc .sv{font-size:34px;margin-top:0}
+.ed.all .form{margin-top:10px}
+.ed.all .head2{font-size:21px}
+.ed.all .head2 .right{font-size:18px}
+.ed.all .frow{padding:6px 0;gap:11px;border-top-width:2px}
+.ed.all .frow .tn{flex:0 0 104px;font-size:25px}
+.ed.all .pills{gap:5px}
+.ed.all .pill{width:25px;height:25px;font-size:16px}
+.ed.all .frow .num{font-size:22px}
+.ed.all .frow .sub{font-size:18px;margin-top:1px}
+.ed.all .radar{margin-top:9px}
+.ed.all .radar .wrap{gap:13px;margin-top:6px}
+.ed.all .radar .lg{font-size:21px;line-height:1.8}
+.ed.all .notes{margin-top:11px;gap:10px;padding-top:0}
+.ed.all .note{gap:13px;padding-top:9px;border-top-width:2px}
+.ed.all .note .nl{flex:0 0 72px;font-size:21px}
+.ed.all .note .nl i{width:11px;height:11px;margin-right:6px}
+.ed.all .note p{font-size:23px;line-height:1.38}
+.ed.all .focus{margin-top:9px;padding:10px 15px 12px;border-left-width:6px}
+.ed.all .focus .lab{font-size:20px;letter-spacing:.1em}
+.ed.all .focus ul{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.ed.all .focus li{padding:9px 12px;font-size:21px;line-height:1.34;border-left-width:5px;gap:10px}
+.ed.all .focus li b{flex:0 0 22px}
+.ed.all .foot{font-size:21px;padding-top:9px;border-top-width:2px}
+.ed.all .foot .tags{font-size:19px;margin-top:3px}
+/* 瑞士风 */
+.sw.all{padding:40px 52px 30px}
+.sw.all .top{font-size:23px;gap:14px}
+.sw.all .chip{padding:8px 14px}
+.sw.all .top .pager{padding:8px 13px}
+.sw.all h1{margin:11px 0 0;font-size:70px;line-height:1}
+.sw.all h1 .vsx{font-size:46px;margin:0 11px}
+.sw.all .thick{height:6px;margin:11px 0 0}
+.sw.all .stance{margin-top:10px;gap:14px}
+.sw.all .stance .tab{flex:0 0 10px}
+.sw.all .stance .lab{font-size:19px;letter-spacing:.2em;margin-bottom:2px}
+.sw.all .stance .val{font-size:43px;line-height:1.05}
+.sw.all .cq{margin-top:12px;padding:12px 16px 13px}
+.sw.all .cq .lab{font-size:19px;letter-spacing:.2em}
+.sw.all .cq p{margin:6px 0 0;font-size:25px;line-height:1.32}
+.sw.all .sec{margin-top:12px}
+.sw.all .sec .head{border-bottom-width:3px;padding-bottom:7px;font-size:21px}
+.sw.all .sec .head .right{font-size:18px}
+.sw.all .cell{padding:8px 11px 8px 0}
+.sw.all .cell + .cell{padding-left:12px}
+.sw.all .cl{font-size:18px}
+.sw.all .cv{font-size:44px;margin-top:1px}
+.sw.all .cv .pct{font-size:26px}
+.sw.all .bar{height:8px;margin-top:7px}
+.sw.all .bar.mkt{height:5px;margin-top:4px}
+.sw.all .cm{font-size:18px;margin-top:3px}
+.sw.all .scores{gap:10px;margin-top:8px}
+.sw.all .sc{border-width:3px;padding:7px 10px}
+.sw.all .sc .sl{font-size:17px}
+.sw.all .sc .sv{font-size:34px;margin-top:0}
+.sw.all .form{margin-top:10px}
+.sw.all .head2{font-size:21px;padding-bottom:2px}
+.sw.all .head2 .right{font-size:18px}
+.sw.all .frow{padding:5px 0;gap:9px}
+.sw.all .frow .tn{flex:0 0 102px;font-size:25px}
+.sw.all .pills{gap:5px}
+.sw.all .pill{width:25px;height:25px;font-size:15px;border-width:2px}
+.sw.all .frow .num{font-size:21px}
+.sw.all .frow .sub{font-size:18px;margin-top:1px}
+.sw.all .radar{margin-top:8px}
+.sw.all .radar .wrap{gap:12px;margin-top:6px}
+.sw.all .radar .lg{font-size:21px;line-height:1.75}
+.sw.all .notes{margin-top:10px;gap:9px;padding-top:0}
+.sw.all .note{padding-top:8px;gap:11px;border-top-width:2px}
+.sw.all .note .nl{font-size:20px}
+.sw.all .note .nl span{padding:4px 9px}
+.sw.all .note p{font-size:23px;line-height:1.36}
+.sw.all .focus{margin-top:8px;padding:9px 12px 10px;border-width:3px}
+.sw.all .focus .lab{font-size:19px;letter-spacing:.14em}
+.sw.all .focus ul{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.sw.all .focus li{padding:8px 10px;font-size:21px;line-height:1.32;border-width:2px;gap:9px}
+.sw.all .focus li b{flex:0 0 23px}
+.sw.all .foot{font-size:20px;padding-top:8px;border-top-width:6px}
+.sw.all .foot .tags{font-size:18px;margin-top:3px}
+"""
+
+
+# --------------------------------------------------------------------------- #
 # 工具
 # --------------------------------------------------------------------------- #
 def esc(t) -> str:
@@ -350,7 +473,7 @@ def footer_html(card: dict) -> str:
 PILL = {"W": ("w", "胜"), "D": ("d", "平"), "L": ("l", "负")}
 
 
-def radar_svg(radar: dict, cluster: str, size: int = 300) -> str:
+def radar_svg(radar: dict, cluster: str, size: int = 300, label_font: int = 23) -> str:
     """六维雷达对比（内联 SVG）：两队靠颜色 + 线粗区分，逐轴标出两个数值。"""
     import math  # 本文件其它绘图小工具也是局部导入，保持一致
     dims = list(radar.get("dims") or [])
@@ -370,7 +493,7 @@ def radar_svg(radar: dict, cluster: str, size: int = 300) -> str:
         c_home, c_away = "#9b5a2e", "#3f5f80"
         f_home, f_away = "rgba(155,90,46,.16)", "rgba(63,95,128,.10)"
         c_grid, c_lab, c_sep = "rgba(10,10,11,.20)", "#26241f", "rgba(10,10,11,.32)"
-    px, py = size + 250, size + 150
+    px, py = size + 300, size + 150   # 横向多留 300：六轴标签（5 个字）要比纵向更宽
     cx, cy, r = px / 2.0, py / 2.0 + 4, size / 2.0
 
     def axis(i):
@@ -408,13 +531,13 @@ def radar_svg(radar: dict, cluster: str, size: int = 300) -> str:
         ca, sa = axis(i)
         lx, ly = cx + (r + 36) * ca, cy + (r + 36) * sa + 8
         anchor = "middle" if abs(ca) < 0.3 else ("start" if ca > 0 else "end")
-        labels += ('<text x="%.1f" y="%.1f" text-anchor="%s" font-size="23" font-weight="700" '
-                   'fill="%s">%s</text>' % (lx, ly, anchor, c_lab, esc(d)))
-        labels += ('<text x="%.1f" y="%.1f" text-anchor="%s" font-size="21">'
+        labels += ('<text x="%.1f" y="%.1f" text-anchor="%s" font-size="%d" font-weight="700" '
+                   'fill="%s">%s</text>' % (lx, ly, anchor, label_font, c_lab, esc(d)))
+        labels += ('<text x="%.1f" y="%.1f" text-anchor="%s" font-size="%d">'
                    '<tspan fill="%s" font-weight="700">%.0f</tspan>'
                    '<tspan fill="%s"> / </tspan>'
                    '<tspan fill="%s" font-weight="700">%.0f</tspan></text>'
-                   % (lx, ly + 26, anchor, c_home, hv[i], c_sep, c_away, av[i]))
+                   % (lx, ly + 26, anchor, label_font - 2, c_home, hv[i], c_sep, c_away, av[i]))
     return ('<svg width="%d" height="%d" viewBox="0 0 %d %d" xmlns="http://www.w3.org/2000/svg">%s%s%s%s%s%s</svg>'
             % (px, py, px, py, grid, polygon(av, c_away, f_away, 3), polygon(hv, c_home, f_home, 5),
                dots, labels, ""))
@@ -438,7 +561,7 @@ def focus_html(card: dict) -> str:
     return '<section class="focus"><div class="lab">本次看点</div><ul>%s</ul></section>' % items
 
 
-def form_html(card: dict) -> str:
+def form_html(card: dict, compact: bool = False) -> str:
     f = card.get("form") or {}
     h, a = f.get("home") or {}, f.get("away") or {}
     if not h or not a:
@@ -454,13 +577,19 @@ def form_html(card: dict) -> str:
                 '<div class="num">%s</div><div class="sub">%s</div></div>'
                 % (esc(t.get("name", "")), pills, esc(t.get("l5", "")), esc(sub)))
 
-    right = "近 5 场 · 左旧→右新" + (" · 交锋 %s" % f["h2h"] if f.get("h2h") else "")
+    if compact:
+        # 单卡版式一行放不下长说明：交锋只留短句，且只有真进了雷达才写
+        right = "近 5 场 · 左旧→右新"
+        if f.get("h2h_used") and f.get("h2h_short"):
+            right += " · " + f["h2h_short"]
+    else:
+        right = "近 5 场 · 左旧→右新" + (" · 交锋 %s" % f["h2h"] if f.get("h2h") else "")
     return ('<section class="form"><div class="head2"><span>近期战绩对比</span>'
             '<span class="right">%s</span></div>%s%s</section>' % (right, row(h), row(a)))
 
 
-def radar_html(card: dict, cluster: str) -> str:
-    svg = radar_svg(card.get("radar") or {}, cluster)
+def radar_html(card: dict, cluster: str, size: int = 300, label_font: int = 23) -> str:
+    svg = radar_svg(card.get("radar") or {}, cluster, size, label_font)
     if not svg:
         return ""
     c_home, c_away = (("#e8402a", "#000000") if cluster == "sw" else ("#9b5a2e", "#3f5f80"))
@@ -472,11 +601,56 @@ def radar_html(card: dict, cluster: str) -> str:
             % (svg, lg))
 
 
+def all_card_html(card: dict, meta: dict, style: str, idx: int, total: int, variant: int = 0) -> str:
+    """单卡全信息：一张卡装完一场的所有分析（立场·矛盾·概率·比分·战绩·雷达·看点·战意·信号）。
+
+    版面是两栏挤压出来的：概率|比分并排、雷达|战意信号并排、看点两列。
+    variant 让偶数场左右互换（概率↔比分、雷达行↔看点行），保证每期不是一张脸。
+    """
+    css, cluster, _ = STYLES[style]
+    merged = dict(meta)
+    merged.update(card)
+    no, league, kick = card.get("no", ""), card.get("league", ""), card.get("kick", "")
+    if style == "editorial":
+        top = ('<div class="top"><span>%s · %s · %s</span><span class="pager">%d/%d</span></div>'
+               % (esc(league), esc(no), esc(kick), idx, total))
+    else:
+        top = ('<div class="top"><span class="chip">%s</span><span class="chip no">%s</span>'
+               '<span class="time">%s</span><span class="pager">%d/%d</span></div>'
+               % (esc(league), esc(no), esc(kick), idx, total))
+    sep = '<div class="rule"></div>' if style == "editorial" else '<div class="thick"></div>'
+    vs = '%s<span class="vsx">vs</span>%s' % (esc(card.get("home", "")), esc(card.get("away", "")))
+    head = '<h1 class="serif">%s</h1>' % vs if style == "editorial" else '<h1>%s</h1>' % vs
+    st = ('<div class="stance"><div class="lab">%s</div><div class="val%s">%s</div></div>'
+          % (esc(card.get("stance_label") or "我的判断"),
+             " serif" if style == "editorial" else "", esc(card.get("stance", ""))))
+    pr, sc = probs_html(card, cluster), scores_html(card)
+    fm = form_html(card, compact=True)
+    rz = radar_html(card, cluster, 200, 20)
+    nt = notes_html(card, cluster)
+    fc = focus_html(card)
+    row1 = '<div class="row2"><div class="c1">%s</div><div class="c2">%s</div></div>' % (
+        (sc, pr) if variant % 2 else (pr, sc))
+    row2 = ('<div class="row2 tail2"><div class="c1">%s</div><div class="c2">%s</div></div>'
+            % (rz, nt)) if (rz and nt) else (rz + nt)
+    body = sep + st + contradiction_html(card) + row1 + fm + ((fc + row2) if variant % 2 else (row2 + fc))
+    return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<style>{BASE_CSS}{css}{EXTRA_CSS}{ALL_CSS}</style></head><body>
+<div id="fit"><div class="card {cluster} all">
+  {top}
+  {head}
+  {body}
+  {footer_html(merged)}
+</div></div>{AUTOFIT_JS}</body></html>"""
+
+
 def card_html(card: dict, meta: dict, style: str, idx: int, total: int,
               kind: str = "judge", variant: int = 0) -> str:
-    """kind=judge 判断卡（立场·核心矛盾·三向概率·高概率比分）；
+    """kind=all 单卡全信息（默认）；kind=judge 判断卡（立场·核心矛盾·三向概率·高概率比分）；
     kind=form 战绩卡（近期战绩对比·本次看点）；kind=read 深读卡（六维雷达·战意·信号）。
     variant 用来让每期版式有变化（同一批里奇数/偶数张互换块序）。"""
+    if kind == "all":
+        return all_card_html(card, meta, style, idx, total, variant)
     css, cluster, _ = STYLES[style]
     merged = dict(meta)
     merged.update(card)
@@ -658,8 +832,12 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
 
     made: list[Path] = []
     ALL_KINDS = [("judge", "判断"), ("form", "战绩"), ("read", "深读")]
-    kinds = (ALL_KINDS if kind in ("full", "both")
-             else [k for k in ALL_KINDS if k[0] == kind] or ALL_KINDS[:1])
+    if kind == "all":                       # 单卡全信息：每场一张，文件名不带后缀
+        kinds = [("all", "")]
+    elif kind in ("full", "both"):          # 每场三张（判断/战绩/深读）
+        kinds = ALL_KINDS
+    else:
+        kinds = [k for k in ALL_KINDS if k[0] == kind] or ALL_KINDS[:1]
     per = len(kinds)
     total = len(cards) * per + 1
     jobs = [("01_封面", cover_html({**data, "matches": None}, data.get("cover_items") or [], total, style))]
@@ -668,8 +846,8 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
         base = safe("%s_%svs%s" % (m.get("no") or "", m.get("home") or "", m.get("away") or ""))
         for k, suffix in kinds:
             n += 1
-            jobs.append(("%02d_%s_%s" % (n, base, suffix),
-                         card_html(m, data, style, n, total, k, i)))
+            name = ("%02d_%s" % (n, base)) if not suffix else ("%02d_%s_%s" % (n, base, suffix))
+            jobs.append((name, card_html(m, data, style, n, total, k, i)))
 
     plans = []
     if keep:
@@ -757,8 +935,9 @@ def main() -> None:
     ap.add_argument("--style", default="both", choices=["editorial", "swiss", "both"])
     ap.add_argument("--out", default="", help="输出目录（默认 cards.json 同级 试版/<style>）")
     ap.add_argument("--limit", type=int, default=0, help="只出前 N 场")
-    ap.add_argument("--kind", default="full", choices=["full", "judge", "form", "read"],
-                    help="每场出几张：full=判断卡+战绩卡+深读卡（默认，每场三张）、judge/form/read=只出对应卡")
+    ap.add_argument("--kind", default="all", choices=["all", "full", "judge", "form", "read"],
+                    help="每场出几张：all=单卡全信息（默认，每场一张）、full=判断卡+战绩卡+深读卡、"
+                         "judge/form/read=只出对应卡")
     ap.add_argument("--html-out", default="", help="另存中间 HTML 到该目录（排版诊断用）")
     ap.add_argument("--engine", default="chrome", choices=["chrome", "playwright", "auto"],
                     help="渲染引擎：chrome=本机 Chrome 逐张截图（默认，零依赖）；"
