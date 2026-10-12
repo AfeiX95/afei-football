@@ -386,6 +386,33 @@ ALL_CSS = """
 .sw.all .foot .tags{font-size:18px;margin-top:3px}
 """
 
+# 数据向单卡（2026-10-12 起小红书定版形态）：继承 .card.all 的紧凑排版，再放大字号把版面填满。
+# 只出现官方赛果数据；判断/比分/让球球数/竞彩场次号/机构折算一律不放（坑#69）。
+DATA_CSS = """
+.card.data .row2 .c1{flex:0 0 500px}
+.card.data .row2 .c2{flex:1;min-width:0}
+/* 队名 4 个字（国际米兰/比利亚雷/埃因霍温）不能折行；「数据要点」标签也不能折 */
+.card.data .frow .tn{flex:0 0 152px}
+.card.data .note .nl{flex:0 0 118px}
+.ed.data h1{font-size:76px}
+.ed.data .cq .lab{color:#9b5a2e}
+.ed.data .frow .tn{font-size:27px}
+.ed.data .frow .num{font-size:24px}
+.ed.data .frow .sub{font-size:19px}
+.ed.data .note p{font-size:25px}
+.ed.data .focus li{font-size:23px}
+.ed.data .radar .lg{font-size:22px}
+.ed.data .foot{font-size:22px}
+.sw.data h1{font-size:76px}
+.sw.data .frow .tn{font-size:27px}
+.sw.data .frow .num{font-size:23px}
+.sw.data .frow .sub{font-size:19px}
+.sw.data .note p{font-size:25px}
+.sw.data .focus li{font-size:23px}
+.sw.data .radar .lg{font-size:22px}
+.sw.data .foot{font-size:21px}
+"""
+
 
 # --------------------------------------------------------------------------- #
 # 工具
@@ -443,19 +470,21 @@ def scores_html(card: dict) -> str:
             f'<div class="scores">{"".join(cells)}</div></section>')
 
 
-def notes_html(card: dict, cluster: str) -> str:
+def notes_html(card: dict, cluster: str, labels: tuple = ("战意", "信号")) -> str:
     out = []
     if card.get("will"):
-        out.append(f'<div class="note"><div class="nl will"><i></i>战意</div><p>{esc(card["will"])}</p></div>')
+        out.append(f'<div class="note"><div class="nl will"><i></i>{labels[0]}</div><p>{esc(card["will"])}</p></div>')
     if card.get("signal"):
-        out.append(f'<div class="note"><div class="nl sig"><i></i>信号</div><p>{esc(card["signal"])}</p></div>')
+        out.append(f'<div class="note"><div class="nl sig"><i></i>{labels[1]}</div><p>{esc(card["signal"])}</p></div>')
     if card.get("note"):
         out.append(f'<div class="note"><div class="nl more"><i></i>补充</div><p>{esc(card["note"])}</p></div>')
     if not out:
         return ""
     if cluster == "sw":  # 瑞士风：标签做成黑/红块
-        out = [o.replace('<div class="nl will"><i></i>战意</div>', '<div class="nl will"><span>战意</span></div>')
-                .replace('<div class="nl sig"><i></i>信号</div>', '<div class="nl sig"><span>信号</span></div>')
+        out = [o.replace(f'<div class="nl will"><i></i>{labels[0]}</div>',
+                         f'<div class="nl will"><span>{labels[0]}</span></div>')
+                .replace(f'<div class="nl sig"><i></i>{labels[1]}</div>',
+                         f'<div class="nl sig"><span>{labels[1]}</span></div>')
                 .replace('<div class="nl more"><i></i>补充</div>', '<div class="nl more"><span>补充</span></div>')
                for o in out]
     return f'<div class="notes">{"".join(out)}</div>'
@@ -543,22 +572,22 @@ def radar_svg(radar: dict, cluster: str, size: int = 300, label_font: int = 23) 
                dots, labels, ""))
 
 
-def contradiction_html(card: dict) -> str:
-    t = card.get("contradiction")
+def contradiction_html(card: dict, key: str = "contradiction", label: str = "核心矛盾") -> str:
+    t = card.get(key) if card.get(key) else card.get("contradiction")
     if not t:
         return ""
     return ('<div class="cq"><div class="lab">%s</div><p>%s</p></div>'
-            % (esc(card.get("contradiction_label") or "核心矛盾"), esc(t)))
+            % (esc(card.get("contradiction_label") or label), esc(t)))
 
 
-def focus_html(card: dict) -> str:
+def focus_html(card: dict, label: str = "本次看点") -> str:
     fs = card.get("focus")
     if not fs:
         return ""
     if isinstance(fs, str):
         fs = [fs]
     items = "".join('<li><b>%02d</b><span>%s</span></li>' % (i + 1, esc(t)) for i, t in enumerate(fs))
-    return '<section class="focus"><div class="lab">本次看点</div><ul>%s</ul></section>' % items
+    return '<section class="focus"><div class="lab">%s</div><ul>%s</ul></section>' % (esc(label), items)
 
 
 def form_html(card: dict, compact: bool = False) -> str:
@@ -644,11 +673,53 @@ def all_card_html(card: dict, meta: dict, style: str, idx: int, total: int, vari
 </div></div>{AUTOFIT_JS}</body></html>"""
 
 
+def data_card_html(card: dict, meta: dict, style: str, idx: int, total: int, variant: int = 0) -> str:
+    """数据向单卡（2026-10-12 小红书判罚后的定版形态）。
+
+    只放**官方赛果数据**：数据反差 / 近期战绩对比 / 六维雷达对比 / 数据看点 / 战意·数据要点。
+    刻意不出现：立场判断、三向概率、高概率比分、让球球数、竞彩场次号、机构折算（坑#69 / 坑#70）。
+    版面＝一行战绩 + 一行（雷达｜文字），variant 让偶数场把「数据看点」提到雷达行之前。
+    """
+    css, cluster, _ = STYLES[style]
+    merged = dict(meta)
+    merged.update(card)
+    league, kick = card.get("league", ""), card.get("kick", "")
+    # 顶栏不写竞彩场次号（「周二004」是指向购彩渠道的信息）
+    if style == "editorial":
+        top = ('<div class="top"><span>%s · %s</span><span class="pager">%d/%d</span></div>'
+               % (esc(league), esc(kick), idx, total))
+    else:
+        top = ('<div class="top"><span class="chip">%s</span><span class="time">%s</span>'
+               '<span class="pager">%d/%d</span></div>'
+               % (esc(league), esc(kick), idx, total))
+    sep = '<div class="rule"></div>' if style == "editorial" else '<div class="thick"></div>'
+    vs = '%s<span class="vsx">vs</span>%s' % (esc(card.get("home", "")), esc(card.get("away", "")))
+    head = '<h1 class="serif">%s</h1>' % vs if style == "editorial" else '<h1>%s</h1>' % vs
+    cq = contradiction_html(card, key="contrast", label="数据反差")
+    fm = form_html(card, compact=True)
+    rz = radar_html(card, cluster, 230, 22)
+    nt = notes_html(card, cluster, ("战意", "数据要点"))
+    fc = focus_html(card, "数据看点")
+    row = ('<div class="row2 tail2"><div class="c1">%s</div><div class="c2">%s</div></div>'
+           % (rz, nt)) if (rz and nt) else (rz + nt)
+    body = sep + cq + fm + ((fc + row) if variant % 2 else (row + fc))
+    return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<style>{BASE_CSS}{css}{EXTRA_CSS}{ALL_CSS}{DATA_CSS}</style></head><body>
+<div id="fit"><div class="card {cluster} all data">
+  {top}
+  {head}
+  {body}
+  {footer_html(merged)}
+</div></div>{AUTOFIT_JS}</body></html>"""
+
+
 def card_html(card: dict, meta: dict, style: str, idx: int, total: int,
-              kind: str = "judge", variant: int = 0) -> str:
-    """kind=all 单卡全信息（默认）；kind=judge 判断卡（立场·核心矛盾·三向概率·高概率比分）；
-    kind=form 战绩卡（近期战绩对比·本次看点）；kind=read 深读卡（六维雷达·战意·信号）。
+              kind: str = "data", variant: int = 0) -> str:
+    """kind=data 数据向单卡（默认，只放官方赛果数据）；kind=all 全信息单卡（含判断/概率/比分，慎用）；
+    kind=judge 判断卡；kind=form 战绩卡；kind=read 深读卡。
     variant 用来让每期版式有变化（同一批里奇数/偶数张互换块序）。"""
+    if kind == "data":
+        return data_card_html(card, meta, style, idx, total, variant)
     if kind == "all":
         return all_card_html(card, meta, style, idx, total, variant)
     css, cluster, _ = STYLES[style]
@@ -801,7 +872,7 @@ def shoot_playwright(plans, scale: int = DPR) -> dict:
 
 
 def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: str = "chrome",
-          kind: str = "both", keep: Path | None = None) -> list[Path]:
+          kind: str = "data", keep: Path | None = None) -> list[Path]:
     data, cards = load_input(str(cards_path))
     if limit:
         cards = cards[:limit]
@@ -818,6 +889,20 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
     except Exception as e:  # 缓存缺失不该阻断出图
         print(f"  ⚠️ 雷达/战绩补算失败（{e.__class__.__name__}: {e}），对应块留白")
 
+    # 发布前风控硬门禁（坑#69）：方向 / 让球球数 / 具体比分 / 竞彩场次号 / 机构折算 → 拒绝出图
+    if kind == "data":
+        try:
+            import xhs_riskcheck
+            hits = xhs_riskcheck.scan_cards(data, cards)
+        except ImportError:
+            hits = []
+        if hits:
+            print("❌ 风控自检拦停：%d 处命中（数据向卡片只放官方赛果数据）" % len(hits))
+            for name, frag, where, why in hits[:12]:
+                print("   · [%s] %s  ← %s" % (name, frag, where))
+            print("   完整报告：python scripts/xhs_riskcheck.py <cards.json>")
+            sys.exit(2)
+
     if engine == "auto":
         engine = "playwright" if playwright_ready() else "chrome"
     chrome = find_chrome()
@@ -833,8 +918,8 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
 
     made: list[Path] = []
     ALL_KINDS = [("judge", "判断"), ("form", "战绩"), ("read", "深读")]
-    if kind == "all":                       # 单卡全信息：每场一张，文件名不带后缀
-        kinds = [("all", "")]
+    if kind in ("all", "data"):             # 单卡：每场一张，文件名不带后缀
+        kinds = [(kind, "")]
     elif kind in ("full", "both"):          # 每场三张（判断/战绩/深读）
         kinds = ALL_KINDS
     else:
@@ -878,6 +963,7 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
     shutil.rmtree(tmp, ignore_errors=True)  # HTML/字体已按需复制到 --html-out，临时目录总是清掉
     if made and style == "editorial":
         data["per_match_cards"] = per
+        data["card_mode"] = kind
         cap = write_caption(data, cards, out_dir)
         print("  📝 " + os.path.basename(cap))
     return made
@@ -936,9 +1022,10 @@ def main() -> None:
     ap.add_argument("--style", default="both", choices=["editorial", "swiss", "both"])
     ap.add_argument("--out", default="", help="输出目录（默认 cards.json 同级 试版/<style>）")
     ap.add_argument("--limit", type=int, default=0, help="只出前 N 场")
-    ap.add_argument("--kind", default="all", choices=["all", "full", "judge", "form", "read"],
-                    help="每场出几张：all=单卡全信息（默认，每场一张）、full=判断卡+战绩卡+深读卡、"
-                         "judge/form/read=只出对应卡")
+    ap.add_argument("--kind", default="data", choices=["data", "all", "full", "judge", "form", "read"],
+                    help="每场出几张：data=数据向单卡（默认，只放官方赛果数据，过风控门禁）、"
+                         "all=全信息单卡（含判断/概率/比分，小红书会判违规，慎用）、"
+                         "full=判断卡+战绩卡+深读卡、judge/form/read=只出对应卡")
     ap.add_argument("--html-out", default="", help="另存中间 HTML 到该目录（排版诊断用）")
     ap.add_argument("--engine", default="chrome", choices=["chrome", "playwright", "auto"],
                     help="渲染引擎：chrome=本机 Chrome 逐张截图（默认，零依赖）；"

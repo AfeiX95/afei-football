@@ -412,19 +412,43 @@ def caption_text(data, cards):
         caps += ["【标题】%s（%d 字，小红书上限 20）" % (data["xhs_title"], len(data["xhs_title"])), ""]
     caps += ["【正文】", data.get("title", ""), ""]
     per = int(data.get("per_match_cards") or 1)
-    if per >= 2:
+    mode = data.get("card_mode") or ""
+    if mode == "data":
+        # 2026-10-12 判罚后的定版形态：只讲公开数据，不出现方向/比分/让球/场次号/机构
+        caps += ["每场一张图，全是公开赛果数据：数据反差 · 近期战绩对比 · 六维雷达对比 · "
+                 "数据看点 · 战意与数据要点", ""]
+        for c in cards:
+            caps.append("%s vs %s" % (c.get("home", ""), c.get("away", "")))
+            for t in (c.get("contrast"),):
+                if t:
+                    caps.append(t)
+            f = c.get("form") or {}
+            for side in ("home", "away"):
+                s = f.get(side) or {}
+                if s.get("name"):
+                    caps.append("%s：近 5 场 %s（进 %s 失 %s）；%s，进 %.1f 失 %.1f。"
+                                % (s["name"], s.get("l5", ""), s.get("gf", ""), s.get("ga", ""),
+                                   s.get("ha", ""), float(s.get("pj") or 0), float(s.get("sj") or 0)))
+            if f.get("h2h_short"):
+                caps.append(f["h2h_short"] + "。")
+            caps.append("")
+    elif per >= 2:
         caps += ["每场 %d 张图：①判断卡（核心矛盾 · 三向概率 · 高概率比分）"
                  "②战绩卡（近期战绩对比 · 本次看点）③深读卡（六维雷达对比 · 战意 · 信号）" % per, ""]
     else:
         caps += ["每场一张图，一图看完：核心矛盾 · 三向概率 · 高概率比分 · 两队近期战绩 · "
                  "六维雷达对比 · 本次看点 · 战意 · 信号", ""]
-    for c in cards:
-        caps.append("%s %s vs %s：%s" % (c.get("no", ""), c.get("home", ""), c.get("away", ""),
-                                         c.get("stance") or "看机构定价"))
-        if c.get("score"):
-            caps.append("高概率比分：首选%s，次选%s，防范%s。" % tuple(c["score"][:3]))
-    caps += ["", data.get("tags", "#足球前瞻 #数据分析 #赛博聊球"),
-             data.get("source", "数据来源：中国体育官方数据平台"),
+    if mode != "data":
+        for c in cards:
+            caps.append("%s %s vs %s：%s" % (c.get("no", ""), c.get("home", ""), c.get("away", ""),
+                                             c.get("stance") or "看机构定价"))
+            if c.get("score"):
+                caps.append("高概率比分：首选%s，次选%s，防范%s。" % tuple(c["score"][:3]))
+    src = data.get("source", "")
+    if mode == "data" and ("中国体育" in src or "彩票" in src or not src):
+        src = "数据来源：公开赛事数据"
+    src = src or "数据来源：公开赛事数据"
+    caps += ["", data.get("tags", "#足球前瞻 #数据分析 #赛博聊球"), src,
              "仅供参考，请理性看待比赛。",
              "", "【发布窗口】主档 10:30–13:00（避开 16:00–19:00，见 R39）"]
     return "\n".join(caps) + "\n"

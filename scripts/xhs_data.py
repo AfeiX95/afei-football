@@ -7,14 +7,17 @@
   result.json  → 近 5 场战绩 + 逐场比分（算胜平负串）
   history.json → 交锋历史（够 3 场且两队胜率不同才启用，否则第 4 维退回「主客战力」）
 
-六维雷达 6 个维度（0–100；2026-10-12 用户指定前三轴＝进攻能力/中场控制力/防守能力）：
+六维雷达 6 个维度（0–100，**全部来自官方赛果数据，不含任何市场/机构信息**）：
   进攻能力 = 近 10 场场均进球 ÷ 3 × 100（封顶 100）
   中场控制力 = 50 + 近 5 场场均净胜球×14 + (不败率−0.5)×20（控场代理：本地缓存没有控球率/传球数据）
   防守能力 = (1 − 近 10 场场均失球 ÷ 3) × 100（下限 0）
   近期状态 = 近 5 场积分率 (3胜+平) / (3×场次) × 100
   主客战力 = 同主客场近 10 场胜率（官方已给 0–100 分）；有交锋数据时换成「交锋历史」= 该队交锋胜率
-  市场支持 = 机构三向里该队的胜率
-（文章那边 football-toutiao-html-generator 的 radar_dims 是另一套口径，卡片这里按用户要求独立定义。）
+  进球稳定性 = 100 − 近 5 场进球的样本标准差 × 45（数据里没有射门/预期进球，用输出离散度刻画）
+（文章那边 football-toutiao-html-generator 的 radar_dims 是另一套口径，卡片这里独立定义。）
+
+> 2026-10-12 起**第 6 维不再是「市场支持」**：小红书首篇被判「财产安全风险/赌博」（坑#69），
+> 机构三向折算属于线上彩票/购彩信息，卡片一律不出现市场数据。
 
 用法：
   python scripts/xhs_data.py --input "📝文章/20261014/小红书/cards.json"     # 补齐并写回
@@ -29,7 +32,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DIMS = ["进攻能力", "中场控制力", "防守能力", "近期状态", "主客战力", "市场支持"]
+DIMS = ["进攻能力", "中场控制力", "防守能力", "近期状态", "主客战力", "进球稳定性"]
 H2H_DIM = "交锋历史"
 
 
@@ -62,12 +65,13 @@ def recent_form(res_side: dict) -> dict:
     st = res_side.get("statistics") or {}
     ml = res_side.get("matchList") or []
     tid = st.get("teamId")
-    seq = []
+    seq, gfl = [], []
     for m in reversed(ml):
         gh, ga = int(num(m.get("homeTeamFullCourtGoalCnt"))), int(num(m.get("awayTeamFullCourtGoalCnt")))
         home = m.get("homeTeamId") == tid
         gf, gl = (gh, ga) if home else (ga, gh)
         seq.append("W" if gf > gl else ("D" if gf == gl else "L"))
+        gfl.append(gf)
     return {
         "l5": "%d胜%d平%d负" % (int(num(st.get("winGoalMatchCnt"))), int(num(st.get("drawMatchCnt"))),
                                 int(num(st.get("lossGoalMatchCnt")))),
@@ -75,6 +79,7 @@ def recent_form(res_side: dict) -> dict:
         "ga": int(num(st.get("lossGoalCnt"))),
         "net": int(num(st.get("netGoal"))),
         "seq": seq,
+        "gfl": gfl,
         "n": int(num(st.get("totalLegCnt"))) or len(ml) or 1,
         "unbeaten": (num(st.get("winGoalMatchCnt")) + num(st.get("drawMatchCnt"))) /
                     max(1.0, float(int(num(st.get("totalLegCnt"))) or len(ml) or 1)),
@@ -90,6 +95,25 @@ def control_rate(f: dict) -> float:
     n = max(1.0, float(f.get("n") or 1))
     net_per = float(f.get("net") or 0) / n
     return clamp(50.0 + net_per * 14.0 + (float(f.get("unbeaten") or 0.5) - 0.5) * 20.0)
+
+
+def stable_rate(f: dict) -> float:
+    """进球稳定性（代理指标，0–100）：近 5 场进球数的离散度。
+
+    数据里只有逐场进球，没有射门/预期进球；用「有进球的场次占比」＋「进球数的样本标准差」
+    两个角度合成：场场能进且波动小 → 高分；忽高忽低或连续被零封 → 低分。
+    只用离散度会在小样本上打到 0 分（如 0、0、0、6、5），所以掺一半「有球场次占比」兜底。
+    """
+    g = [float(x) for x in (f.get("gfl") or [])]
+    if not g:
+        return clamp(50.0)
+    scored = sum(1 for x in g if x > 0) / float(len(g)) * 100.0
+    if len(g) < 2:
+        return clamp(scored)
+    m = sum(g) / len(g)
+    var = sum((x - m) ** 2 for x in g) / (len(g) - 1)
+    steady = 100.0 - (var ** 0.5) * 30.0
+    return clamp(0.5 * scored + 0.5 * steady)
 
 
 def recent_rate(res_side: dict) -> float:
@@ -163,13 +187,12 @@ def build_one(card: dict, root: Path) -> dict:
         h2h_txt = ("近 %d 次交锋 %d胜%d平%d负（样本太少，雷达第 5 维用主客战力）" % (n_h2h, hw, dr, aw_)
                    if n_h2h else "")
 
-    mkt = list(card.get("probs_mkt") or [0, 0, 0])
     radar = {
         "dims": dims,
         "home": [clamp(hf["pj"] / 3 * 100), control_rate(hf), clamp(100 - hf["sj"] / 3 * 100),
-                 recent_rate(hm), d4h, clamp(mkt[0])],
+                 recent_rate(hm), d4h, stable_rate(hf)],
         "away": [clamp(af["pj"] / 3 * 100), control_rate(af), clamp(100 - af["sj"] / 3 * 100),
-                 recent_rate(aw), d4a, clamp(mkt[2])],
+                 recent_rate(aw), d4a, stable_rate(af)],
     }
     form = {"home": hf, "away": af, "h2h": h2h_txt, "h2h_n": n_h2h,
             "h2h_short": ("近 %d 次交锋 %d胜%d平%d负" % (n_h2h, hw, dr, aw_)) if n_h2h else "",
