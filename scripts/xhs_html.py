@@ -422,13 +422,30 @@ DATA_CSS = """
 .sw.data .radar .lg{font-size:22px}
 .sw.data .foot{font-size:21px}
 
-/* ── 后台模型块①：胜率条（主客队 + 一条粗点线 + 百分比）───────────────
-   2026-10-12 用户拍板：信息卡要放后台模型算出来的胜率与比分概率（见 HANDOFF 夜·十三） */
-.card.data .wdl,.card.data .heat{margin-top:16px;padding-top:12px;border-top:1px solid rgba(10,10,11,.16)}
-.card.data .wdl .hint,.card.data .heat .hint{font-size:19px;color:rgba(10,10,11,.55)}
-.wbarwrap{position:relative;margin:16px 0 10px;height:var(--bar)}
+/* ── 后台模型块：胜率条 + 比分概率热力图（2026-10-13 起并入同一张卡）──────
+   用户 2026-10-12 拍板「模型结果要进卡片」，2026-10-13 再定「只出一张卡」，
+   所以模型块不再单开一张，改成左右两栏：左栏＝六维雷达＋胜率条，右栏＝比分概率热力图。 */
+.card.data .viz .c1{flex:0 0 448px}
+.card.data .viz .c2{flex:1;min-width:0;padding-left:28px;border-left:1px solid rgba(10,10,11,.14)}
+.card.data .viz .radar{margin-top:0;padding-top:0}
+/* 雷达默认会撑满栏宽（448px 栏→340px 方图），并进单卡后必须按 size 收住，否则整行 590px */
+.card.data .viz .radar .wrap svg{width:220px;height:220px;max-width:none;display:block;margin:0 auto}
+.card.data .viz .wdl .head2{flex-wrap:nowrap;white-space:nowrap;margin-bottom:10px}
+.card.data .viz .wdl .lab{letter-spacing:.08em}
+.card.data .viz .wdl{margin-top:14px;padding-top:12px;border-top:1px solid rgba(10,10,11,.16)}
+.card.data .heat{margin-top:0;padding-top:0;border-top:0}
+.card.data .notesrow .c1,.card.data .notesrow .c2{flex:1 1 0;min-width:0}
+.card.data .notesrow .c2{padding-left:28px;border-left:1px solid rgba(10,10,11,.14)}
+.card.data .notesrow .note:first-child{margin-top:0}
+/* 底部四格一行：看点①② ＋ 战意 ＋ 数据要点（省 ~180px，见 quad_row_html 注释） */
+.card.data .quad{display:grid;gap:18px;margin-top:15px}
+.card.data .quad .qcell{background:#fff;border-left:3px solid #9b5a2e;padding:9px 12px 10px;min-width:0}
+.card.data .quad .qlab{font-size:16px;font-weight:700;letter-spacing:.08em;color:#9b5a2e;margin-bottom:5px}
+.card.data .quad p{margin:0;font-size:20px;line-height:1.45;color:#14110d}
+.card.data .wdl .hint,.card.data .heat .hint{font-size:18px;color:rgba(10,10,11,.55)}
+.wbarwrap{position:relative;margin:14px 0 10px;height:var(--bar)}
 .wbar{display:flex;height:var(--bar);overflow:hidden}
-.wbar .seg{display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#fff;
+.wbar .seg{display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:700;color:#fff;
   font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden}
 .wbar .s1{background:#9b5a2e}
 .wbar .s2{background:rgba(10,10,11,.36)}
@@ -438,22 +455,23 @@ DATA_CSS = """
   background:repeating-linear-gradient(to bottom,#14110d 0 9px,transparent 9px 15px)}
 .wmark:after{content:"";position:absolute;left:-7px;top:-10px;border-left:10px solid transparent;
   border-right:10px solid transparent;border-top:11px solid #14110d}
-.wlab{display:flex;justify-content:space-between;align-items:baseline;font-size:21px;margin-top:2px}
-.wlab .m{font-size:19px;color:rgba(10,10,11,.55)}
-/* ── 后台模型块②：比分概率热力图（颜色越深概率越高）────────────────── */
-.hgrid{display:grid;grid-template-columns:40px repeat(6,var(--cell));gap:3px;width:max-content;margin:14px auto 0}
+.wlab{display:flex;justify-content:space-between;align-items:baseline;font-size:20px;margin-top:2px}
+.wlab .m{font-size:18px;color:rgba(10,10,11,.55)}
+/* 热力图：格数 N 由 λ 决定（λ 小画 5×5），列宽行内注入 */
+.hgrid{display:grid;gap:3px;width:max-content;margin:12px auto 0}
+/* 最高那格描黑框；类名别叫 top——模板里 `.ed.all .top` 是顶栏样式，会把字号顶回 23px */
 .hcell{width:var(--cell);height:var(--cell);display:flex;align-items:center;justify-content:center;
-  font-size:17px;font-variant-numeric:tabular-nums}
-.hcell.top{box-shadow:inset 0 0 0 3px #14110d}
-.hcol{width:var(--cell);height:22px;display:flex;align-items:center;justify-content:center;
-  font-size:17px;color:rgba(10,10,11,.58)}
+  font-size:15px;font-variant-numeric:tabular-nums}
+.hcell.hmax{box-shadow:inset 0 0 0 3px #14110d;font-weight:700}
+.hcol{width:var(--cell);height:20px;display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:rgba(10,10,11,.58)}
 .hrowlab{width:40px;height:var(--cell);display:flex;align-items:center;justify-content:flex-end;
-  padding-right:7px;font-size:17px;color:rgba(10,10,11,.58)}
-.hcorner{width:40px;height:22px}
-.hax{display:flex;justify-content:center;gap:52px;font-size:18px;color:rgba(10,10,11,.55);margin-top:6px}
-.hfoot{margin-top:12px;font-size:20px;color:rgba(10,10,11,.72);text-align:center}
-.hnote{margin-top:10px;font-size:18px;line-height:1.5;color:rgba(10,10,11,.5);text-align:center}
-.ed.data .wdl .lab,.ed.data .heat .lab{color:#9b5a2e;font-size:21px;font-weight:700;letter-spacing:.16em}
+  padding-right:7px;font-size:16px;color:rgba(10,10,11,.58)}
+.hcorner{width:40px;height:20px}
+.hax{display:flex;justify-content:center;gap:44px;font-size:17px;color:rgba(10,10,11,.55);margin-top:4px}
+.hfoot{margin-top:8px;font-size:18px;color:rgba(10,10,11,.72);text-align:center}
+.hnote{margin-top:6px;font-size:16px;line-height:1.45;color:rgba(10,10,11,.5);text-align:center}
+.ed.data .wdl .lab,.ed.data .heat .lab{color:#9b5a2e;font-size:20px;font-weight:700;letter-spacing:.16em}
 """
 
 
@@ -686,9 +704,9 @@ def radar_html(card: dict, cluster: str, size: int = 300, label_font: int = 23) 
 # --------------------------------------------------------------------------- #
 TEMPLATES = ("A", "B", "C")
 TPL_NAME = {"A": "数据页", "B": "模型页", "C": "对照页"}
-TPL_HEAT = {"A": 62, "B": 68, "C": 58}      # 热力图单格边长
-TPL_BAR = {"A": 46, "B": 56, "C": 40}       # 胜率条高度
-TPL_RADAR = {"A": 230, "B": 200, "C": 250}
+TPL_HEAT = {"A": 46, "B": 48, "C": 44}       # 热力图单格边长
+TPL_BAR = {"A": 42, "B": 46, "C": 38}        # 胜率条高度
+TPL_RADAR = {"A": 220, "B": 205, "C": 235}
 TPL_STATE = Path(ROOT) / "state" / "xhs_templates.json"
 
 
@@ -731,7 +749,7 @@ def wdl_html(card: dict, tpl: str = "A") -> str:
     wh, wd, wa = [float(x) * 100 for x in w]
     delta = abs(float(md.get("mc_delta") or 0)) * 100
     n_mc = int(md.get("n_mc") or 0)
-    hint = "抽样 %s 次复核，与矩阵差 %.1f 个百分点" % (w3(n_mc), delta) if n_mc else ""
+    hint = "抽样 %s 次，差 %.1f 个百分点" % (w3(n_mc), delta) if n_mc else ""
     seg = "".join('<div class="seg s%d" style="width:%.2f%%">%.1f%%</div>' % (i, v, v)
                   for i, v in enumerate((wh, wd, wa), 1))
     return ('<section class="wdl" style="--bar:%dpx">'
@@ -756,20 +774,24 @@ def heat_html(card: dict, tpl: str = "A") -> str:
     g = md.get("grid") or []
     if len(g) != 6 or any(len(r) != 6 for r in g):
         return ""
-    cell = TPL_HEAT.get(tpl, 62)
-    pmax = max(max(r) for r in g) or 1.0
+    cell = TPL_HEAT.get(tpl, 52)
+    lam = md.get("lam") or [0, 0]
+    # λ 小就只画到 5 球：6 球那几格本来全是空格，画出来只占地方
+    n = 5 if max(float(lam[0]), float(lam[1])) <= 2.6 else 6
+    pmax = max(max(r[:n]) for r in g[:n]) or 1.0
+    shown = sum(sum(r[:n]) for r in g[:n])
     ti, tj = 0, 0
-    for i, row in enumerate(g):
-        for j, p in enumerate(row):
+    for i, row in enumerate(g[:n]):
+        for j, p in enumerate(row[:n]):
             if p >= g[ti][tj]:
                 ti, tj = i, j
     cells = ['<div class="hcorner"></div>']
-    cells += ['<div class="hcol">%d</div>' % j for j in range(6)]
-    for i, row in enumerate(g):
+    cells += ['<div class="hcol">%d</div>' % j for j in range(n)]
+    for i, row in enumerate(g[:n]):
         cells.append('<div class="hrowlab">%d</div>' % i)
-        for j, p in enumerate(row):
+        for j, p in enumerate(row[:n]):
             al = 0.07 + 0.78 * (p / pmax)
-            cls = "hcell top" if (i, j) == (ti, tj) else "hcell"
+            cls = "hcell hmax" if (i, j) == (ti, tj) else "hcell"
             txt = ("%.1f" % (p * 100)) if p >= 0.02 else ""
             cells.append('<div class="%s" style="background:rgba(155,90,46,%.3f);color:%s">%s</div>'
                          % (cls, al, "#fff" if al >= 0.55 else "#14110d", txt))
@@ -778,14 +800,55 @@ def heat_html(card: dict, tpl: str = "A") -> str:
     return ('<section class="heat" style="--cell:%dpx">'
             '<div class="head2"><span class="lab">后台模型 · 比分概率</span>'
             '<span class="hint">颜色越深，概率越高</span></div>'
-            '<div class="hgrid">%s</div>'
+            '<div class="hgrid" style="grid-template-columns:40px repeat(%d,var(--cell))">%s</div>'
             '<div class="hax"><span>↓ 主队进球</span><span>客队进球 →</span></div>'
-            '<div class="hfoot">概率最高三格：%s</div>'
-            '<div class="hnote">口径：同主客场均进球/失球（%s / %s）→ 后台模型比分矩阵；'
-            '只算 90 分钟常规时间，未做任何市场折算。</div></section>'
-            % (cell, "".join(cells), esc(foot),
-               esc("λ主 %.2f" % float((md.get("lam") or [0, 0])[0])),
-               esc("λ客 %.2f" % float((md.get("lam") or [0, 0])[1]))))
+            '<div class="hfoot">最高三格：%s</div>'
+            '<div class="hnote">%d 球以内 %.1f%%；λ %.2f/%.2f，只算 90 分钟。</div></section>'
+            % (cell, n, "".join(cells), esc(foot),
+               n - 1, shown * 100, float(lam[0]), float(lam[1])))
+
+
+def vizrow_html(card: dict, cluster: str, tpl: str = "A", heat_left: bool = False) -> str:
+    """模型行：左栏＝六维雷达＋胜率条，右栏＝比分概率热力图（B 模板左右互换）。
+
+    没跑过 xhs_model.py（卡片里没有 model）时退回「雷达｜战意与要点」，不影响出图。
+    """
+    rz = radar_html(card, cluster, TPL_RADAR.get(tpl, 220), 20)
+    wd = wdl_html(card, tpl)
+    ht = heat_html(card, tpl)
+    if not ht:
+        nt = notes_html(card, cluster, ("战意", "数据要点"))
+        return ('<div class="row2 tail2"><div class="c1">%s</div><div class="c2">%s</div></div>'
+                % (rz, nt)) if (rz and nt) else (rz + nt)
+    l, r = (ht, rz + wd) if heat_left else (rz + wd, ht)
+    return ('<div class="row2 tail2 viz"><div class="c1">%s</div><div class="c2">%s</div></div>'
+            % (l, r))
+
+
+def quad_row_html(card: dict, cluster: str) -> str:
+    """底部四格一行：看点①② ＋ 战意 ＋ 数据要点。
+
+    模型块占了雷达行之后，这四块如果各占一行会把卡撑到 1550px（超 110px）。
+    压成一行四格后总高约 160px，整卡落回 1370px 左右（2026-10-13）。
+    """
+    cells = []
+    fs = card.get("focus")
+    if isinstance(fs, str):
+        fs = [fs]
+    for i, t in enumerate((fs or [])[:2]):
+        if t:
+            cells.append(("看点 %02d" % (i + 1), t))
+    if card.get("will"):
+        cells.append(("战意", card["will"]))
+    key = card.get("signal") or card.get("note")
+    if key:
+        cells.append(("数据要点", key))
+    if not cells:
+        return ""
+    out = "".join('<div class="qcell"><div class="qlab">%s</div><p>%s</p></div>'
+                  % (esc(lb), esc(tx)) for lb, tx in cells)
+    n = min(len(cells), 4)
+    return '<section class="quad" style="grid-template-columns:repeat(%d,1fr)">%s</section>' % (n, out)
 
 
 def all_card_html(card: dict, meta: dict, style: str, idx: int, total: int, variant: int = 0) -> str:
@@ -858,15 +921,15 @@ def data_card_html(card: dict, meta: dict, style: str, idx: int, total: int, var
     cq = contradiction_html(card, key="contrast", label="数据反差")
     fm = form_html(card, compact=True)
     bf = brief_html(card)
-    rz = radar_html(card, cluster, 230, 22)
-    nt = notes_html(card, cluster, ("战意", "数据要点"))
-    fc = focus_html(card, "数据看点")
-    row = ('<div class="row2 tail2"><div class="c1">%s</div><div class="c2">%s</div></div>'
-           % (rz, nt)) if (rz and nt) else (rz + nt)
-    blocks = {"cq": cq, "fm": fm, "bf": bf, "row": row, "fc": fc}
-    order = {"A": ("cq", "fm", "bf", "row", "fc"),
-             "B": ("cq", "bf", "fm", "fc", "row"),
-             "C": ("bf", "cq", "fc", "fm", "row")}.get(tpl, ("cq", "fm", "bf", "row", "fc"))
+    # 2026-10-13 用户定：模型块（胜率条 + 比分概率热力图）并进同一张卡，不再单开一张；
+    # 看点/战意/要点压成底部一行四格，否则整卡会顶到 1550px（超出 1440 画布）
+    viz = vizrow_html(card, cluster, tpl, heat_left=(tpl == "B"))
+    qd = quad_row_html(card, cluster)
+    blocks = {"cq": cq, "fm": fm, "bf": bf, "viz": viz, "qd": qd}
+    order = {"A": ("cq", "fm", "viz", "bf", "qd"),
+             "B": ("cq", "bf", "fm", "viz", "qd"),
+             "C": ("bf", "cq", "viz", "fm", "qd")}.get(
+        tpl, ("cq", "fm", "viz", "bf", "qd"))
     if variant % 2:
         order = order[:-2] + (order[-1], order[-2])
     body = sep + "".join(blocks[k] for k in order)
@@ -1132,7 +1195,7 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
     ALL_KINDS = [("judge", "判断"), ("form", "战绩"), ("read", "深读")]
     if kind in ("all", "data", "model"):     # 单卡：每场一张，文件名不带后缀（model 会带 _模型）
         kinds = [(kind, "")] if kind != "model" else [("model", "模型")]
-    elif kind in ("dm", "data+model"):       # 每场两张：数据卡 + 后台模型卡（2026-10-12 起的默认）
+    elif kind in ("dm", "data+model"):       # 每场两张：数据卡 + 后台模型卡（2026-10-13 起并成一张，此模式留作备用）
         kinds = [("data", ""), ("model", "模型")]
     elif kind in ("full", "both"):           # 每场三张（判断/战绩/深读）
         kinds = ALL_KINDS
@@ -1250,10 +1313,10 @@ def main() -> None:
     ap.add_argument("--style", default="both", choices=["editorial", "swiss", "both"])
     ap.add_argument("--out", default="", help="输出目录（默认 cards.json 同级 试版/<style>）")
     ap.add_argument("--limit", type=int, default=0, help="只出前 N 场")
-    ap.add_argument("--kind", default="dm",
-                    choices=["dm", "data", "model", "all", "full", "judge", "form", "read"],
-                    help="每场出几张：dm=数据卡＋后台模型卡（默认：胜率条＋比分概率热力图）、"
-                         "data=只出数据卡、model=只出模型卡、"
+    ap.add_argument("--kind", default="data",
+                    choices=["data", "dm", "model", "all", "full", "judge", "form", "read"],
+                    help="每场出几张：data=单卡（默认：数据＋后台模型胜率/比分概率热力图，小红书定版）、"
+                         "dm=数据卡＋后台模型卡两张、model=只出模型卡、"
                          "all=全信息单卡（含立场/推荐比分，小红书会判违规，慎用）、"
                          "full=判断卡+战绩卡+深读卡、judge/form/read=只出对应卡")
     ap.add_argument("--html-out", default="", help="另存中间 HTML 到该目录（排版诊断用）")

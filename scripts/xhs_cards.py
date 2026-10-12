@@ -417,15 +417,13 @@ def caption_text(data, cards):
         # 2026-10-12 判罚后的定版形态：正文只讲公开赛果 + 后台模型的比分猜测，不做任何投注引导
         caps += ["每场两张图：数据卡（战绩 / 雷达 / 看点）＋后台模型卡（胜率 / 比分概率热力图）。"
                  if per >= 2 else
-                 "每场一张图，全是公开赛果数据：数据反差 · 近期战绩对比 · 六维雷达对比 · "
-                 "数据看点 · 战意与数据要点", ""]
-        caps.append("三场都是欧冠，公开赛果数据摆齐，顺手把比分猜一下。")
+                 "每场一张图：近期战绩 · 六维雷达 · 后台模型胜率与比分概率 · 比分看点与战意", ""]
+        caps.append("公开赛果数据摆齐，顺手把比分猜一下。")
         caps.append("")
         for c in cards:
             f = c.get("form") or {}
             h, a = f.get("home") or {}, f.get("away") or {}
             md = c.get("model") or {}
-            w = md.get("wdl") or []
             seg = []
             for s in (h, a):
                 if s.get("name"):
@@ -434,15 +432,21 @@ def caption_text(data, cards):
                                % (s["name"], ha,
                                   float(s.get("pj") or 0), float(s.get("sj") or 0)))
             line = "%s vs %s：" % (c.get("home", ""), c.get("away", "")) + "；".join(seg) + "。"
-            if len(w) == 3:
-                line += "后台模型给的主胜／平／客胜是 %.0f%% ／ %.0f%% ／ %.0f%%，" % (
-                    float(w[0]) * 100, float(w[1]) * 100, float(w[2]) * 100)
+            # 胜率不上正文：卡上有胜率条，正文省下的字数留给「比分分析」（用户要正文 ~300 字）
             top = md.get("top") or []
             if md.get("guess"):
                 line += "比分我猜 %s" % md["guess"]
+                for s, p in top:
+                    if str(s).replace("-", " 比 ") == md["guess"]:
+                        line += "（%.1f%%）" % (float(p) * 100)
+                        break
                 if len(top) > 1 and top[1] and top[1][0]:
-                    line += "，其次 %s" % str(top[1][0]).replace("-", " 比 ")
+                    line += "／%s（%.1f%%）" % (str(top[1][0]).replace("-", " 比 "),
+                                              float(top[1][1]) * 100)
                 line += "。"
+                # λ 接近时前三格几乎并列（莱红牛那场 1-1 只领先第四格 0.16 个百分点），别把「最可能」说满
+                if len(top) >= 4 and float(top[0][1]) - float(top[3][1]) < 0.02:
+                    line += "前四格咬得很紧，比分参考价值有限。"
             caps.append(line)
             caps.append("")
         while caps and caps[-1] == "":

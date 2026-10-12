@@ -5,6 +5,7 @@
 用法：
   python scripts/xhs_measure.py <html目录>            # 量目录里全部 HTML（按文件名排序）
   python scripts/xhs_measure.py <html目录> --limit 3  # 只量前 3 张
+  python scripts/xhs_measure.py <html目录> --sel ".card .viz"   # 量某一块的子块（排错用）
 
 HTML 从哪来：`python scripts/xhs_html.py --input ... --html-out <目录>`（渲染时另存中间 HTML）。
 它会把 `#fit` 的自动缩放复位成 1，报「内容底 Npx（余/超出多少）」并逐块列高 —— 单卡上限 1440px。
@@ -15,10 +16,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-JS = """() => {
+JS = """(sel) => {
   const fit = document.getElementById('fit');
-  fit.style.zoom = 1;
-  const c = document.querySelector('.card');
+  if (fit) fit.style.zoom = 1;
+  const c = document.querySelector(sel) || document.querySelector('.card');
   const kids = [...c.children].map(e => {
     const r = e.getBoundingClientRect();
     return [(e.className && typeof e.className === 'string' ? e.className : e.tagName), Math.round(r.height)];
@@ -34,6 +35,7 @@ def main() -> None:
         sys.exit(__doc__.strip())
     d = Path(args[0])
     limit = int(args[args.index("--limit") + 1]) if "--limit" in args else 99
+    sel = args[args.index("--sel") + 1] if "--sel" in args else ".card"
     files = sorted(d.glob("*.html"))[:limit]
     if not files:
         sys.exit(f"没有 HTML：{d}（先跑 xhs_html.py --html-out {d}）")
@@ -48,9 +50,12 @@ def main() -> None:
         for f in files:
             pg.goto(f.resolve().as_uri())
             pg.wait_for_timeout(120)
-            info = pg.evaluate(JS)
+            info = pg.evaluate(JS, sel)
             room = info["box"] - info["bottom"]
-            print(f"{f.name}：内容底 {info['bottom']}px（{'余 %dpx' % room if room >= 0 else '超出 %dpx' % -room}）")
+            if sel == ".card":
+                print(f"{f.name}：内容底 {info['bottom']}px（{'余 %dpx' % room if room >= 0 else '超出 %dpx' % -room}）")
+            else:
+                print(f"{f.name}：{sel} 容器 {info['box']}px · 内容底 {info['bottom']}px")
             for name, h in info["kids"]:
                 print(f"    {h:5d}  {name}")
         b.close()
