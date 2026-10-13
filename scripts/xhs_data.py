@@ -214,7 +214,15 @@ def brief_of(card: dict, form: dict, res_home: dict, res_away: dict, inj: dict, 
     hv = head_.get("value") if isinstance(head_.get("value"), dict) else head_
     gw = (hv or {}).get("gameweek")   # head.json 是平铺字段，injury/result 是 {value:{…}}，两种都兜
     if gw:
-        parts.append("这是欧冠联赛阶段第 %s 轮，新赛制每一分都直接换名次。" % gw)
+        # ⚠️ 别写死「欧冠」：亚冠精英同样是联赛阶段；杯赛只报轮次，别硬套「每一分换名次」。
+        lg = (card.get("league") or "").strip()
+        if "欧冠" in lg or "亚冠" in lg:
+            comp = lg if "亚冠" in lg else "欧冠"
+            parts.append("这是%s联赛阶段第 %s 轮，新赛制每一分都直接换名次。" % (comp, gw))
+        elif lg:
+            parts.append("这是%s第 %s 轮。" % (lg, gw))
+        else:
+            parts.append("这是第 %s 轮。" % gw)
     txt = "".join(parts)
     # 超 200 字就从后往前丢（先丢赛程处境，再丢伤停/交锋），保证 100–200 字
     while len(txt) > 200 and len(parts) > 2:

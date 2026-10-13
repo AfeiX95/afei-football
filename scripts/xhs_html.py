@@ -457,6 +457,9 @@ DATA_CSS = """
 .sw.data .frow .sub{font-size:19px}
 .sw.data .note p{font-size:25px}
 .sw.data .focus li{font-size:23px}
+/* ⚠️ swiss：ext_css 把 `.ed .cq p{color:#141310}` 换成 `.sw .cq p{...}`，深色正文压在
+   黑底 `.sw .cq{background:#000;color:#fff}` 上 → 这里改回浅色（DATA_CSS 在最后，同优先级靠顺序胜出） */
+.sw .cq p{color:#f4f4f2}
 .sw.data .radar .lg{font-size:22px}
 .sw.data .foot{font-size:21px}
 

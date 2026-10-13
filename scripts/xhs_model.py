@@ -102,7 +102,14 @@ def seed_of(card: dict) -> int:
 
 
 def build(card: dict, n_mc: int = N_MC) -> dict | None:
-    lam = lam_from_form(card.get("form") or {})
+    # lam_override：[λ主, λ客]，来自 scripts/model.py 的完整口径（含 form/H2H/伤停叠加）。
+    # 写上它，卡片与头条稿用同一套 λ，两处数字不会互相打架；不写则退回纯同主客场均进失球。
+    ov = card.get("lam_override")
+    if isinstance(ov, (list, tuple)) and len(ov) == 2:
+        lam = (min(max(float(ov[0]), LAM_MIN), LAM_MAX),
+               min(max(float(ov[1]), LAM_MIN), LAM_MAX))
+    else:
+        lam = lam_from_form(card.get("form") or {})
     if not lam:
         return None
     lh, la = lam
