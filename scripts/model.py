@@ -53,6 +53,57 @@ MATCHES = {
         "inj_home": 4, "inj_away": 6,
         "note": "卡利亚里 4 胜里 3 场在客场；主场 2 场只进 1 球",
     },
+    # ── 2026-10-14 周三（亚冠精英 2 / 日联赛杯 1 / 欧冠 3）────────────────────
+    # 主/客分离进失球＝从 result.json 逐场按场地过滤（窗口＝近 5 场，样本仅 1–3 场；
+    # lam_m1 已按样本量 w=min(n,5)/5 混入近 10 场场均，样本<3 场会打预警）。
+    "2041962": {  # 周三002 神户胜利 vs 全北现代  2026-10-14 18:00
+        "no": "周三002", "league": "亚冠精英",
+        "home": "神户胜利", "away": "全北现代",
+        "home_home": (2, 3, 1), "away_away": (2, 2, 3),
+        "home_szn": (10, 7, 2, 1), "away_szn": (10, 2, 5, 3),
+        "inj_home": 0, "inj_away": 1,
+        "note": "同主客10场 主7胜2平1负 / 客2胜5平3负；近10场场均进失 主1.6/0.9 客1.3/1.1；场地样本 2/2",
+    },
+    "2041963": {  # 周三003 柏太阳神 vs 曼谷港务  2026-10-14 18:00
+        "no": "周三003", "league": "亚冠精英",
+        "home": "柏太阳神", "away": "曼谷港务",
+        "home_home": (3, 11, 5), "away_away": (2, 3, 3),
+        "home_szn": (10, 7, 1, 2), "away_szn": (10, 6, 2, 2),
+        "inj_home": 0, "inj_away": 0,
+        "note": "同主客10场 主7胜1平2负 / 客6胜2平2负；近10场场均进失 主2.2/1.6 客1.9/1.2；场地样本 3/2",
+    },
+    "2041964": {  # 周三004 横滨水手 vs 清水鼓动  2026-10-14 18:00
+        "no": "周三004", "league": "日联赛杯",
+        "home": "横滨水手", "away": "清水鼓动",
+        "home_home": (2, 4, 1), "away_away": (2, 4, 1),
+        "home_szn": (10, 5, 3, 2), "away_szn": (10, 6, 0, 4),
+        "inj_home": 0, "inj_away": 0,
+        "note": "同主客10场 主5胜3平2负 / 客6胜0平4负；近10场场均进失 主1.4/0.7 客1.1/1.0；场地样本 2/2",
+    },
+    "2041966": {  # 周三006 LASK林茨 vs 利物浦  2026-10-15 00:45
+        "no": "周三006", "league": "欧冠",
+        "home": "LASK林茨", "away": "利物浦",
+        "home_home": (2, 2, 3), "away_away": (1, 1, 0),
+        "home_szn": (10, 7, 0, 3), "away_szn": (10, 3, 1, 6),
+        "inj_home": 0, "inj_away": 0,
+        "note": "同主客10场 主7胜0平3负 / 客3胜1平6负；近10场场均进失 主2.2/1.5 客1.4/0.9；场地样本 2/1（客队仅 1 场）",
+    },
+    "2041968": {  # 周三008 罗马 vs 皇马  2026-10-15 03:00
+        "no": "周三008", "league": "欧冠",
+        "home": "罗马", "away": "皇马",
+        "home_home": (2, 4, 3), "away_away": (2, 4, 4),
+        "home_szn": (10, 6, 4, 0), "away_szn": (10, 7, 0, 3),
+        "inj_home": 0, "inj_away": 0,
+        "note": "同主客10场 主6胜4平0负（主场不败）/ 客7胜0平3负；近10场场均进失 主2.1/1.0 客2.4/0.9；场地样本 2/2",
+    },
+    "2041971": {  # 周三011 曼城 vs 巴黎圣曼  2026-10-15 03:00
+        "no": "周三011", "league": "欧冠",
+        "home": "曼城", "away": "巴黎圣曼",
+        "home_home": (2, 10, 3), "away_away": (3, 4, 4),
+        "home_szn": (10, 8, 1, 1), "away_szn": (10, 4, 3, 3),
+        "inj_home": 0, "inj_away": 0,
+        "note": "⚠️ 主场样本只有 2 场却打进 10 球（场均 5.0）→ λ 主队易偏高，务必看双方法一致性；同主客10场 主8胜1平1负 / 客4胜3平3负；近10场场均进失 主2.6/0.9 客2.0/1.2",
+    },
 }
 
 
@@ -177,8 +228,17 @@ def run(mid, slate):
 
     st = hi.get("statistics") or {}
     hw = st.get("winGoalMatchCnt", 0) or 0
+    dw = st.get("drawMatchCnt", 0) or 0
+    lw = st.get("lossGoalMatchCnt", 0) or 0
     tot = st.get("totalLegCnt", 0) or 5
-    f_h2h = h2h_adj(hw / tot, tot)
+    # ⚠️ API 有时只回 totalLegCnt、胜/平/负三项全 0（数据缺失）。此时 win_rate=0 会被
+    # h2h_adj 判成「主队交锋吃亏」→ 主队 λ×0.88、客队 λ×(2−0.88)，凭空挪 12%。必须跳过。
+    if (hw + dw + lw) == 0:
+        f_h2h = 1.0
+        h2h_tag = "统计缺失→不修正"
+    else:
+        f_h2h = h2h_adj(hw / tot, tot)
+        h2h_tag = "API近%s场 %s胜%s平%s负" % (tot, hw, dw, lw)
     # H2H：主队在交锋里吃亏 → 主队 λ 打折不涨（skill 只量化主队一侧）；
     # 客队取镜像 (2−factor)，保持 λ 总和不变，只挪比重。
     l1h *= f_h2h
@@ -214,8 +274,8 @@ def run(mid, slate):
     print("    进球期望合计 λ总 = %.3f" % (lh + la))
     print("    分离/近10场混合: 主攻%.2f(联赛主场w=%.1f) 客防%.2f 客攻%.2f 主防%.2f"
           % (bl[0], bl[4], bl[1], bl[2], bl[3]))
-    print("    修正明细: form主%+.3f form客%+.3f | H2H factor %.3f (API近%s场 %s胜%s平%s负)"
-          % (afh, afa, f_h2h, tot, hw, st.get("drawMatchCnt"), st.get("lossGoalMatchCnt")))
+    print("    修正明细: form主%+.3f form客%+.3f | H2H factor %.3f (%s)"
+          % (afh, afa, f_h2h, h2h_tag))
     print("              伤停 主%s人/客%s人 → λ主×(1%+.3f)  λ客×(1%+.3f)"
           % (m["inj_home"], m["inj_away"], -injk, injk))
     print("-" * 78)
