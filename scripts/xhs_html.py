@@ -538,8 +538,19 @@ COVER_CSS = """
   font-size:58px;font-weight:800;letter-spacing:.01em;line-height:1.1}
 .cover .it .vs{font-size:30px;font-weight:400;color:rgba(10,10,11,.42)}
 .cover .it .plain{font-size:46px;font-weight:800}
-.cover .tail{margin-top:auto;font-size:30px;line-height:1.55;color:rgba(10,10,11,.6);
-  border-left:9px solid var(--accent,#9b5a2e);padding-left:26px}
+.cover .tail{margin-top:auto;font-size:30px;line-height:1.55;color:rgba(10,10,11,.6);  border-left:9px solid var(--accent,#9b5a2e);padding-left:26px}
+/* 条目 ≥5 场（2026-10-13 用户定「所有场次合在一起发」）：标题与条目同时收紧，不然页脚会被裁 */
+.cover.many{padding-top:70px}
+.cover.many .date{margin-top:26px;font-size:46px}
+.cover.many h1{margin-top:12px;font-size:80px}
+.cover.many .rule{margin-top:24px;height:5px}
+.cover.many .items{margin-top:22px}
+.cover.many .it{padding:15px 0;gap:16px}
+.cover.many .it .n{flex:0 0 58px;font-size:29px}
+.cover.many .it .h,.cover.many .it .a{font-size:41px}
+.cover.many .it .plain{font-size:39px}
+.cover.many .it .vs{font-size:26px}
+.cover.many .tail{font-size:27px;line-height:1.5}
 """
 
 
@@ -1177,7 +1188,7 @@ def cover_html(meta: dict, items: list, total: int, style: str) -> str:
                                       "数据看点 · 战意与要点 →")
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
 <style>{BASE_CSS}{css}{COVER_CSS}</style></head><body>
-<div id="fit"><div class="card {cluster} cover">
+<div id="fit"><div class="card {cluster} cover{' many' if len(items) >= 5 else ''}">
   {top}
   <div class="date">{esc(date)}</div>
   <h1 class="serif">{esc(title)}</h1>
