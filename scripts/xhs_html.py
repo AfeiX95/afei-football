@@ -1386,8 +1386,10 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
             for name, frag, where, why in hits[:12]:
                 print("   · [%s] %s  ← %s" % (name, frag, where))
             sys.exit(2)
+        body = cap.split("【正文】", 1)[-1].split("【发布窗口】", 1)[0].strip()
         (out_dir / "文案.md").write_text(cap, encoding="utf-8")
-        print("  📝 文案.md · 版式 " + tpl)
+        print("  📝 文案.md · 版式 %s · 正文 %d 字（%s，小红书上限 1000）"
+              % (tpl, len(body), "⚠️ 超限，精简模板" if len(body) > 1000 else "OK"))
     return made
 
 

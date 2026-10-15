@@ -415,9 +415,12 @@ def caption_text(data, cards):
     mode = data.get("card_mode") or ""
     if mode == "data":
         # 2026-10-13 二审仍不过后的定版：正文**只做纯技术/数据描述**——不猜比分、不给胜率方向、不提模型推演
+        # 2026-10-16：八场批次正文会顶到小红书 1000 字上限（实测 1028）→ 超过 6 场自动用紧凑措辞
+        compact = len(cards) > 6
         caps += ["每场两张图：数据卡（战绩 / 雷达 / 看点）＋后台模型卡（胜率 / 比分概率热力图）。"
                  if per >= 2 else
-                 "每场一张图：近期战绩 · 六维雷达 · 主客场攻防数据 · 数据看点", ""]
+                 ("每场一张图：战绩 · 雷达 · 主客场攻防数据 · 看点" if compact else
+                  "每场一张图：近期战绩 · 六维雷达 · 主客场攻防数据 · 数据看点"), ""]
         for c in cards:
             f = c.get("form") or {}
             h, a = f.get("home") or {}, f.get("away") or {}
@@ -432,7 +435,9 @@ def caption_text(data, cards):
             dims, rh, ra = rd.get("dims") or [], rd.get("home") or [], rd.get("away") or []
             if dims and len(dims) == len(rh) == len(ra):
                 i = max(range(len(dims)), key=lambda k: abs(float(rh[k]) - float(ra[k])))
-                line += "六维雷达里差得最大的是%s %.0f 对 %.0f。" % (dims[i], rh[i], ra[i])
+                line += (("雷达最大差：%s %.0f 对 %.0f。" if compact else
+                          "六维雷达里差得最大的是%s %.0f 对 %.0f。")
+                         % (dims[i], rh[i], ra[i]))
             hh = str(f.get("h2h_short") or "").strip()
             if hh:
                 line += "交锋：%s。" % hh
