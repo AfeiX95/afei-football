@@ -409,19 +409,34 @@ def caption_text(data, cards):
     """小红书正文（可直接粘贴）。HTML 版渲染器也复用这个函数。"""
     caps = []
     if data.get("xhs_title"):
-        caps += ["【标题】%s（%d 字，小红书上限 20）" % (data["xhs_title"], len(data["xhs_title"])), ""]
-    caps += ["【正文】", data.get("title", ""), ""]
+        # 2026-10-16 用户定：小红书标题必须带日期（20 字内）
+        _t = data["xhs_title"]
+        _has_date = bool(re.search(r"\d{1,2}\s*[/月.\-]\s*\d{1,2}", _t))
+        caps += ["【标题】%s（%d 字，小红书上限 20%s）"
+                 % (_t, len(_t), "" if _has_date else "，⚠️ 缺日期"), ""]
+    # caption_para（逐场分析段落，2026-10-16 用户给模板）在场时，正文首行与卡片说明都省掉
+    manual = [str(c.get("caption_para") or "").strip() for c in cards]
+    has_manual = any(manual)
+    if not has_manual:
+        caps += ["【正文】", data.get("title", ""), ""]
+    else:
+        caps += ["【正文】", ""]
     per = int(data.get("per_match_cards") or 1)
     mode = data.get("card_mode") or ""
     if mode == "data":
         # 2026-10-13 二审仍不过后的定版：正文**只做纯技术/数据描述**——不猜比分、不给胜率方向、不提模型推演
         # 2026-10-16：八场批次正文会顶到小红书 1000 字上限（实测 1028）→ 超过 6 场自动用紧凑措辞
         compact = len(cards) > 6
-        caps += ["每场两张图：数据卡（战绩 / 雷达 / 看点）＋后台模型卡（胜率 / 比分概率热力图）。"
-                 if per >= 2 else
-                 ("每场一张图：战绩 · 雷达 · 主客场攻防数据 · 看点" if compact else
-                  "每场一张图：近期战绩 · 六维雷达 · 主客场攻防数据 · 数据看点"), ""]
-        for c in cards:
+        if not has_manual:
+            caps += ["每场两张图：数据卡（战绩 / 雷达 / 看点）＋后台模型卡（胜率 / 比分概率热力图）。"
+                     if per >= 2 else
+                     ("每场一张图：战绩 · 雷达 · 主客场攻防数据 · 看点" if compact else
+                      "每场一张图：近期战绩 · 六维雷达 · 主客场攻防数据 · 数据看点"), ""]
+        for c, para in zip(cards, manual):
+            if para:
+                caps.append("%s 对 %s：%s" % (c.get("home", ""), c.get("away", ""), para))
+                caps.append("")
+                continue
             f = c.get("form") or {}
             h, a = f.get("home") or {}, f.get("away") or {}
             seg = []
