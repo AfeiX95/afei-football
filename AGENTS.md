@@ -21,7 +21,7 @@ python scripts/brief.py
 1. **开工只跑 `brief.py`**，不要全量读 `docs/HANDOFF.md`（562 行 ≈16K tokens）或 `state/model-state.json`
 2. **技能按需加载**：先看 `📚知识库/skills/INDEX.md`（含分节行号）定位，再 `read SKILL.md offset=<行> limit=<长度>`；行数 >400 的技能**禁止全量读**（`match-model-pipeline` 1243 行 ≈17K tokens）
 3. **冷数据不读**：`state/task-log.json`（闭环历史）、`docs/HANDOFF-archive/` 只在按日期 grep 时读
-4. 写文收工用一键盘：`python scripts/preflight.py <文章.md>`（字数 R32 + 发布门禁）
+4. 写文收工用一键盘：`python scripts/preflight.py <文章.md>`（字数 R32 + 发布门禁）；**同批多篇再跑 `python scripts/check_dup.py <日期目录名>`**（逐行去重，必须 0 命中 · R44 第八则）
 5. pwsh 打印中文可能乱码（GBK），**读文件一律用 read 工具**，别信控制台中文
 
 ## 跨机同步（2026-10-07 起）
