@@ -408,9 +408,10 @@ def auto_cards(num=""):
 def caption_text(data, cards):
     """小红书正文（可直接粘贴）。HTML 版渲染器也复用这个函数。"""
     caps = []
-    if data.get("xhs_title"):
+    # caption_title：只给文案用的标题（封面仍读 xhs_title）——2026-10-16 用户「只修改文案就行」
+    if data.get("caption_title") or data.get("xhs_title"):
         # 2026-10-16 用户定：小红书标题必须带日期（20 字内）
-        _t = data["xhs_title"]
+        _t = data.get("caption_title") or data["xhs_title"]
         _has_date = bool(re.search(r"\d{1,2}\s*[/月.\-]\s*\d{1,2}", _t))
         caps += ["【标题】%s（%d 字，小红书上限 20%s）"
                  % (_t, len(_t), "" if _has_date else "，⚠️ 缺日期"), ""]
