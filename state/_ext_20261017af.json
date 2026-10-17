@@ -1,0 +1,89 @@
+{
+  "date": "20261017af",
+  "items": [
+    {
+      "home": "埃弗顿",
+      "away": "切尔西",
+      "provider": "api-football",
+      "source": "api-football",
+      "predicted": "",
+      "predicted_dir": "客胜",
+      "hit_prob": 45.0,
+      "note": "胜平负 10/45/45%；Double chance : draw or Chelsea；倾向胜或平",
+      "lineup": "",
+      "stale_risk": false,
+      "url": "https://www.api-football.com/fixture/1557430",
+      "fetched_at": "2026-10-17 12:12"
+    },
+    {
+      "home": "曼城",
+      "away": "伊普斯",
+      "provider": "api-football",
+      "source": "api-football",
+      "predicted": "",
+      "predicted_dir": "主胜",
+      "hit_prob": 50.0,
+      "note": "胜平负 50/50/0%；Combo Winner : Manchester City and +1.5 goals",
+      "lineup": "",
+      "stale_risk": false,
+      "url": "https://www.api-football.com/fixture/1557433",
+      "fetched_at": "2026-10-17 12:12"
+    },
+    {
+      "home": "布伦特",
+      "away": "利物浦",
+      "provider": "api-football",
+      "source": "api-football",
+      "predicted": "",
+      "predicted_dir": "主胜",
+      "hit_prob": 35.0,
+      "note": "胜平负 35/35/30%；Double chance : Brentford or draw；倾向胜或平",
+      "lineup": "",
+      "stale_risk": false,
+      "url": "https://www.api-football.com/fixture/1557428",
+      "fetched_at": "2026-10-17 12:12"
+    },
+    {
+      "home": "贝蒂斯",
+      "away": "巴萨",
+      "provider": "api-football",
+      "source": "api-football",
+      "predicted": "",
+      "predicted_dir": "客胜",
+      "hit_prob": 45.0,
+      "note": "胜平负 10/45/45%；Double chance : draw or Barcelona；倾向胜或平",
+      "lineup": "",
+      "stale_risk": false,
+      "url": "https://www.api-football.com/fixture/1570413",
+      "fetched_at": "2026-10-17 12:12"
+    },
+    {
+      "home": "巴伦西亚",
+      "away": "毕尔巴鄂",
+      "provider": "api-football",
+      "source": "api-football",
+      "predicted": "",
+      "predicted_dir": "客胜",
+      "hit_prob": 45.0,
+      "note": "胜平负 10/45/45%；Double chance : draw or Athletic Club；倾向胜或平",
+      "lineup": "",
+      "stale_risk": false,
+      "url": "https://www.api-football.com/fixture/1570421",
+      "fetched_at": "2026-10-17 12:12"
+    },
+    {
+      "home": "斯特拉斯",
+      "away": "巴黎圣曼",
+      "provider": "api-football",
+      "source": "api-football",
+      "predicted": "",
+      "predicted_dir": "客胜",
+      "hit_prob": 45.0,
+      "note": "胜平负 10/45/45%；Double chance : draw or Paris Saint Germain；倾向胜或平",
+      "lineup": "",
+      "stale_risk": false,
+      "url": "https://www.api-football.com/fixture/1552790",
+      "fetched_at": "2026-10-17 12:12"
+    }
+  ]
+}

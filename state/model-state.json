@@ -123,7 +123,7 @@
     },
     {
       "type": "待拍板",
-      "text": "外部预测对照层已接进管线（2026-10-17，用户 m11010「帮我接搭建落地」）：`scripts/ext_predict.py`（index/match/batch/show/report）+ `database/config/team_aliases.json` + `state/_ext_raw/` 缓存，报告落 `📝文章/<日期>/_外部预测对照.md`（三方表 + 方向不一致清单），文档见 `📚知识库/写作指南/外部预测源实测.md`、WORKFLOW v2.6 §3B、坑#77/#78。实测：十家里只有 Sports Mole 能自动抓，其余被 Cloudflare/登录墙挡死。待拍板：①这条对照要不要正式写进头条稿（现在只在报告里参照）——写成「公开赛前预报怎么看 vs 后台模型怎么看」是否需要固定成一段？②要不要把外部预测接进小红书卡片的 brief 字段？③Sofascore/足彩站的人工摘录要不要固化成模板。 🆕 2026-10-17 夜·四十一（扩源三条路径实测，用户 m11169）：①公开 API：API-Football 无 key 403、免费层 100 次/天、留了 `API_FOOTBALL_KEY` 环境变量位；football-data.org v4 无预测端点（只有赛程比分）；②低防静态媒体：Sportskeeda 站没被墙（200 无 CF），汇总文格式 `Prediction: Everton 2-1 Chelsea` → 已接成第二自动源（`--provider sportskeeda`/`batch` 第三列写联赛），但聚合页常列往轮（实测 GW31/32/34），本轮 6 场命中 2 且均标 `stale_risk`；Squawka 403 CF、WhoScored 403 CF 且需 matchId；③开源权重/社区均值：口径不可对齐、需登录 → 暂不接。新增 `doctor` 体检命令；报告加「来源」列（SK 命中标 ⚠️往轮）。文档 `📚知识库/写作指南/外部预测源实测.md` 增「一B/一C」、WORKFLOW §3B 改双源。待拍板不变并新增：要不要注册 API-Football 免费 key、SK 往轮要不要再做轮次校验。"
+      "text": "外部预测对照层已接进管线（2026-10-17，用户 m11010「帮我接搭建落地」）：`scripts/ext_predict.py`（index/match/batch/show/report/compare/doctor/key）+ `database/config/team_aliases.json`（sm_slug/en/af 三列）+ `state/_ext_raw/` 缓存，报告落 `📝文章/<日期>/_外部预测对照.md`，文档见 `📚知识库/写作指南/外部预测源实测.md`、WORKFLOW v2.6 §3B、坑#77/#78。 🆕 2026-10-17 夜·四十一 终局：三条扩源路径实测完 → API-Football 免费层已接（key 在 `state/api-keys.json`，`key --set` 写入、`doctor` 体检），**六场 6/6 命中**；Sportskeeda 可访问但聚合页常列往轮（标 `stale_risk`，降为第三兜底）；Squawka/WhoScored 仍 403。**AF 免费层输出退化**：percent 多为 10/45/45、goals 返回 -2.5 坏值 → 只用方向与 advice，**百分比不进公开稿**。`compare` 命令出「外部源互相对照」四列（主记录/AF/模型/市场）。待拍板：①AF 只作方向参照是否够（要更细数字得升级付费层）②三场两源与模型不一致（埃弗顿、布伦特、巴伦西亚）写稿要不要点一句 ③这条对照要不要固定成头条稿的一段、要不要接进小红书 brief。"
     }
   ],
   "pending_checks": [

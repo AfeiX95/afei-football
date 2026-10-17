@@ -367,6 +367,9 @@ def _norm_name(s: str) -> str:
     return re.sub(r"[^a-z0-9]+", "", (s or "").lower())
 
 
+AF_LEAGUES = {"英超": 39, "西甲": 140, "法甲": 61, "意甲": 135, "德甲": 78}
+
+
 def af_fixtures(stamp: str, force: bool = False) -> list[dict]:
     """按日期取当天赛程（1 次请求，结果缓存）。stamp=YYYYMMDD。"""
     d = f"{stamp[:4]}-{stamp[4:6]}-{stamp[6:8]}"
@@ -377,33 +380,56 @@ def af_fixtures(stamp: str, force: bool = False) -> list[dict]:
     return data.get("response", []) or []
 
 
-def _via_api_football(home: str, away: str, aliases: dict, stamp: str) -> tuple[dict | None, dict]:
+def _via_api_football(home: str, away: str, aliases: dict, stamp: str,
+                      league: str = "") -> tuple[dict | None, dict]:
     """先按日期赛程对齐队名，再取 /predictions。返回 (row, parsed)。"""
-    en_home = (aliases.get(home) or {}).get("en") or home
-    en_away = (aliases.get(away) or {}).get("en") or away
+    en_home = (aliases.get(home) or {}).get("af") or (aliases.get(home) or {}).get("en") or ""
+    en_away = (aliases.get(away) or {}).get("af") or (aliases.get(away) or {}).get("en") or ""
     nh, na = _norm_name(en_home), _norm_name(en_away)
+    # 名字归一后为空说明别名表没收录，模糊匹配会误配（空串能匹配任何队名）→ 直接报错
+    if not nh or not na:
+        print(f"  [AF] 别名表缺 {home}/{away} 的英文名，先在 database/config/team_aliases.json 补 en/af")
+        return None, {}
+    day = stamp[:8]
     try:
-        fixtures = af_fixtures(stamp)
+        fixtures = list(af_fixtures(day))
+        try:  # 跨零点场次（00:30 / 03:00 这类）在北京时间属次日
+            nx = dt.datetime.strptime(day, "%Y%m%d") + dt.timedelta(days=1)
+            fixtures += af_fixtures(nx.strftime("%Y%m%d"))
+        except Exception:
+            pass
     except RuntimeError as e:
         print(f"  [AF] 跳过：{e}")
         return None, {}
-    row = None
+    lid = AF_LEAGUES.get(league or "")
+    cand = []
     for f in fixtures:
+        if lid and (f.get("league") or {}).get("id") != lid:
+            continue
         teams = f.get("teams") or {}
         h = _norm_name(((teams.get("home") or {}).get("name") or ""))
         a = _norm_name(((teams.get("away") or {}).get("name") or ""))
-        if (nh in h or h in nh) and (na in a or a in na):
-            row = {
-                "href": f"https://www.api-football.com/fixture/{f.get('fixture', {}).get('id')}",
-                "text": f"{((teams.get('home') or {}).get('name'))} vs {((teams.get('away') or {}).get('name'))}",
-                "fixture_id": (f.get("fixture") or {}).get("id"),
-                "league": ((f.get("league") or {}).get("name") or ""),
-                "kick": (f.get("fixture") or {}).get("date", ""),
-            }
-            break
-    if not row:
-        print(f"  [AF] 当天赛程里没找到 {en_home} vs {en_away}")
+        if not h or not a:
+            continue
+        if (nh == h or nh in h or h in nh) and (na == a or na in a or a in na):
+            cand.append((f, (teams.get("home") or {}).get("name"), (teams.get("away") or {}).get("name")))
+    if not cand:
+        print(f"  [AF] 当天赛程里没找到 {en_home} vs {en_away}" + (f"（联赛过滤：{league}）" if lid else ""))
         return None, {}
+    # 青年队/女队优先排除
+    def _senior(item):
+        blob = f"{item[1]}{item[2]}"
+        bad = any(x in blob for x in ("U18", "U19", "U20", "U21", "U23", " W", "W "))
+        return 0 if bad else 1
+    cand.sort(key=_senior, reverse=True)
+    f, hname, aname = cand[0]
+    row = {
+        "href": f"https://www.api-football.com/fixture/{(f.get('fixture') or {}).get('id')}",
+        "text": f"{hname} vs {aname}",
+        "fixture_id": (f.get("fixture") or {}).get("id"),
+        "league": ((f.get("league") or {}).get("name") or ""),
+        "kick": (f.get("fixture") or {}).get("date", ""),
+    }
     fid = row["fixture_id"]
     try:
         data = _af_get("predictions", {"fixture": fid}, RAW / f"af_pred_{fid}.json")
@@ -441,10 +467,11 @@ def _via_api_football(home: str, away: str, aliases: dict, stamp: str) -> tuple[
     note_bits = []
     if ph or pd or pa:
         note_bits.append(f"胜平负 {ph:.0f}/{pd:.0f}/{pa:.0f}%")
-    if go.get("home") or go.get("away"):
-        note_bits.append(f"期望进球 {go.get('home', '?')}-{go.get('away', '?')}")
+    # AF 的 goals 字段实测返回 "-2.5--2.5" 这类坏值，不做二次加工也不进正文
     if advice:
         note_bits.append(advice)
+    if pred.get("win_or_draw"):
+        note_bits.append("倾向胜或平")
     return row, {
         "predicted": "",
         "predicted_dir": d,
@@ -467,7 +494,7 @@ def cmd_match(args) -> int:
             item = add_item(args.home, args.away, row, parsed, args.date,
                             manual=args.manual, provider="sportsmole")
     if item is None and args.provider in ("auto", "api-football", "af"):
-        row, parsed = _via_api_football(args.home, args.away, aliases, args.date)
+        row, parsed = _via_api_football(args.home, args.away, aliases, args.date, league)
         if row and parsed:
             item = add_item(args.home, args.away, row, parsed, args.date, provider="api-football")
     if item is None and args.provider in ("auto", "sportskeeda"):
@@ -504,7 +531,7 @@ def cmd_batch(args) -> int:
             row, parsed = _via_sportsmole(home, away, aliases, idx)
             prov = "sportsmole"
         if not row and args.provider in ("auto", "api-football", "af"):
-            row, parsed = _via_api_football(home, away, aliases, args.date)
+            row, parsed = _via_api_football(home, away, aliases, args.date, league)
             prov = "api-football"
         if not row and args.provider in ("auto", "sportskeeda") and league:
             row, parsed = _via_sportskeeda(home, away, league, aliases)
@@ -625,6 +652,68 @@ def cmd_key(args) -> int:
     return 0
 
 
+def cmd_compare(args) -> int:
+    """多源互相对照：主记录（SM/人工）+ `<日期>af`（API-Football）+ 模型 + 市场。"""
+    date = args.date
+    main = load_store(date)
+    other = load_store(date + "af")
+    if not other["items"]:
+        print(f"没有副记录：先跑 batch --provider api-football --date {date}af")
+        return 2
+    model_path = Path(args.model) if args.model else None
+    if model_path is None:
+        cands = sorted(ROOT.joinpath("state").glob(f"_model_{date}*.txt"))
+        model_path = cands[0] if cands else None
+    model = load_model(model_path) if model_path else {}
+    m_map = {(x["home"], x["away"]): x for x in main["items"]}
+    o_map = {(x["home"], x["away"]): x for x in other["items"]}
+
+    def _dir(it):
+        if not it:
+            return ""
+        return it.get("predicted_dir") or _dir_from_score(it.get("predicted") or "")
+
+    lines = [
+        "",
+        "## 外部源互相对照（主记录 / API-Football / 后台模型 / 市场折算）",
+        "",
+        "> 两个外部源各自独立给一场，比单一源更能看出「这场的判断是不是有共识」。",
+        "",
+        "| 对阵 | 主记录（Sports Mole 等） | API-Football | 后台模型 主/平/客 | 市场折算 主/平/客 | 模型最靠前｜市场最靠前 | 方向一致性 |",
+        "|:--|:--|:--|:--|:--|:--|:--|",
+    ]
+    for key in [(x["home"], x["away"]) for x in other["items"]]:
+        s, a = m_map.get(key, {}), o_map.get(key, {})
+        mm = model.get(key[0], {})
+        mdl, mkt = mm.get("model"), mm.get("market")
+
+        def fmt(t):
+            return " / ".join(f"{x:.1f}" for x in t) if t else "—"
+
+        top = ("主胜", "平", "客胜")[max(range(3), key=lambda k: mdl[k])] if mdl else ""
+        mtop = ("主胜", "平", "客胜")[max(range(3), key=lambda k: mkt[k])] if mkt else ""
+        ds, da = _dir(s), _dir(a)
+        sm_show = s.get("predicted") or (ds or "—")
+        af_show = f"{da} {a.get('hit_prob', 0):.0f}%" if da else "—"
+        agree = []
+        if ds and top:
+            agree.append("主记录=模型" if ds == top else "主记录≠模型")
+        if da and top:
+            agree.append("AF=模型" if da == top else "AF≠模型")
+        lines.append(
+            f"| {key[0]} vs {key[1]} | {sm_show} | {af_show} | {fmt(mdl)} | {fmt(mkt)} | "
+            f"{top or '—'}｜{mtop or '—'} | {'、'.join(agree) or '—'} |")
+    text = "\n".join(lines) + "\n"
+    p = ROOT / "📝文章" / date / "_外部预测对照.md"
+    old = p.read_text(encoding="utf-8") if p.exists() else ""
+    if "## 外部源互相对照" in old:
+        old = old.split("## 外部源互相对照")[0].rstrip() + "\n"
+    p.write_text(old + text, encoding="utf-8")
+    print(text)
+    print(f"→ 已写入 {p}")
+    return 0
+
+
 def cmd_report(args) -> int:
     data = load_store(args.date)
     if not data["items"]:
@@ -710,6 +799,9 @@ def main() -> int:
     s.set_defaults(func=cmd_key)
     s = sub.add_parser("show", help="打印本批记录")
     s.set_defaults(func=cmd_show)
+    s = sub.add_parser("compare", help="多源互相对照（主记录 + <日期>af + 模型 + 市场）")
+    s.add_argument("--model", default=None)
+    s.set_defaults(func=cmd_compare)
     s = sub.add_parser("report", help="生成 md 对照表")
     s.add_argument("--model", default=None, help="模型文本路径（默认自动找 state/_model_<日期>*.txt）")
     s.set_defaults(func=cmd_report)

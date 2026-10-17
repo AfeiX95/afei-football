@@ -1,146 +1,175 @@
 {
-  "_comment": "中文队名 → 外部源标识（Sports Mole slug 为主）。新队按下例加，slug 可在 sportsmole 站 URL 里看到。",
+  "_comment": "中文队名 → 外部源标识。sm_slug=Sports Mole slug；en=Sports Mole 显示名；af=API-Football 队名（写法常不同，如 Man City→Manchester City、毕尔巴鄂→Athletic Club、巴黎→Paris Saint Germain）。新队三列一起补。",
   "曼城": {
     "sm_slug": "man-city",
-    "en": "Man City"
+    "en": "Man City",
+    "af": "Manchester City"
   },
   "伊普斯": {
     "sm_slug": "ipswich-town",
     "sm_alias": [
       "ipswich"
     ],
-    "en": "Ipswich"
+    "en": "Ipswich",
+    "af": "Ipswich Town"
   },
   "布伦特": {
     "sm_slug": "brentford",
-    "en": "Brentford"
+    "en": "Brentford",
+    "af": "Brentford"
   },
   "利物浦": {
     "sm_slug": "liverpool",
-    "en": "Liverpool"
+    "en": "Liverpool",
+    "af": "Liverpool"
   },
   "埃弗顿": {
     "sm_slug": "everton",
-    "en": "Everton"
+    "en": "Everton",
+    "af": "Everton"
   },
   "切尔西": {
     "sm_slug": "chelsea",
-    "en": "Chelsea"
+    "en": "Chelsea",
+    "af": "Chelsea"
   },
   "贝蒂斯": {
     "sm_slug": "real-betis",
     "en": "Real Betis",
     "sm_alias": [
       "betis"
-    ]
+    ],
+    "af": "Real Betis"
   },
   "巴萨": {
     "sm_slug": "barcelona",
     "en": "Barcelona",
     "sm_alias": [
       "barca"
-    ]
+    ],
+    "af": "Barcelona"
   },
   "巴伦西亚": {
     "sm_slug": "valencia",
-    "en": "Valencia"
+    "en": "Valencia",
+    "af": "Valencia"
   },
   "毕尔巴鄂": {
     "sm_slug": "athletic-bilbao",
-    "en": "Athletic Bilbao"
+    "en": "Athletic Bilbao",
+    "af": "Athletic Club"
   },
   "斯特拉斯": {
     "sm_slug": "strasbourg",
-    "en": "Strasbourg"
+    "en": "Strasbourg",
+    "af": "Strasbourg"
   },
   "巴黎圣曼": {
     "sm_slug": "paris-saint-germain",
     "sm_alias": [
       "psg"
     ],
-    "en": "Paris Saint-Germain"
+    "en": "Paris Saint-Germain",
+    "af": "Paris Saint Germain"
   },
   "阿森纳": {
     "sm_slug": "arsenal",
-    "en": "Arsenal"
+    "en": "Arsenal",
+    "af": "Arsenal"
   },
   "曼联": {
     "sm_slug": "man-utd",
     "sm_alias": [
       "manchester-united"
     ],
-    "en": "Man Utd"
+    "en": "Man Utd",
+    "af": "Manchester United"
   },
   "热刺": {
     "sm_slug": "tottenham-hotspur",
     "sm_alias": [
       "tottenham"
     ],
-    "en": "Tottenham"
+    "en": "Tottenham",
+    "af": "Tottenham"
   },
   "皇马": {
     "sm_slug": "real-madrid",
-    "en": "Real Madrid"
+    "en": "Real Madrid",
+    "af": "Real Madrid"
   },
   "马竞": {
     "sm_slug": "atletico-madrid",
-    "en": "Atletico Madrid"
+    "en": "Atletico Madrid",
+    "af": "Atletico Madrid"
   },
   "拜仁": {
     "sm_slug": "bayern-munich",
     "sm_alias": [
       "bayern"
     ],
-    "en": "Bayern Munich"
+    "en": "Bayern Munich",
+    "af": "Bayern Munich"
   },
   "多特": {
     "sm_slug": "borussia-dortmund",
     "sm_alias": [
       "dortmund"
     ],
-    "en": "Dortmund"
+    "en": "Dortmund",
+    "af": "Borussia Dortmund"
   },
   "尤文": {
     "sm_slug": "juventus",
-    "en": "Juventus"
+    "en": "Juventus",
+    "af": "Juventus"
   },
   "国米": {
     "sm_slug": "inter-milan",
     "sm_alias": [
       "inter"
     ],
-    "en": "Inter Milan"
+    "en": "Inter Milan",
+    "af": "Inter"
   },
   "米兰": {
     "sm_slug": "ac-milan",
-    "en": "AC Milan"
+    "en": "AC Milan",
+    "af": "AC Milan"
   },
   "那不勒斯": {
     "sm_slug": "napoli",
-    "en": "Napoli"
+    "en": "Napoli",
+    "af": "Napoli"
   },
   "罗马": {
     "sm_slug": "roma",
-    "en": "Roma"
+    "en": "Roma",
+    "af": "Roma"
   },
   "拉齐奥": {
     "sm_slug": "lazio",
-    "en": "Lazio"
+    "en": "Lazio",
+    "af": "Lazio"
   },
   "里昂": {
     "sm_slug": "lyon",
-    "en": "Lyon"
+    "en": "Lyon",
+    "af": "Lyon"
   },
   "马赛": {
     "sm_slug": "marseille",
-    "en": "Marseille"
+    "en": "Marseille",
+    "af": "Marseille"
   },
   "摩纳哥": {
     "sm_slug": "monaco",
-    "en": "Monaco"
+    "en": "Monaco",
+    "af": "Monaco"
   },
   "里尔": {
     "sm_slug": "lille",
-    "en": "Lille"
+    "en": "Lille",
+    "af": "Lille"
   }
 }
