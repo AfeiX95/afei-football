@@ -171,5 +171,29 @@
     "sm_slug": "lille",
     "en": "Lille",
     "af": "Lille"
+  },
+  "町田泽维": {
+    "en": "Machida Zelvia",
+    "af": "Machida Zelvia"
+  },
+  "福冈黄蜂": {
+    "en": "Avispa Fukuoka",
+    "af": "Avispa Fukuoka"
+  },
+  "江原FC": {
+    "en": "Gangwon FC",
+    "af": "Gangwon FC"
+  },
+  "仁川联": {
+    "en": "Incheon United",
+    "af": "Incheon United"
+  },
+  "首尔FC": {
+    "en": "FC Seoul",
+    "af": "FC Seoul"
+  },
+  "金泉尚武": {
+    "en": "Gimcheon Sangmu",
+    "af": "Gimcheon Sangmu"
   }
 }

@@ -1,0 +1,47 @@
+{
+  "date": "20261018",
+  "items": [
+    {
+      "home": "町田泽维",
+      "away": "福冈黄蜂",
+      "provider": "api-football",
+      "source": "api-football",
+      "predicted": "",
+      "predicted_dir": "主胜",
+      "hit_prob": 45.0,
+      "note": "胜平负 45/45/10%；Double chance : Machida Zelvia or draw；倾向胜或平",
+      "lineup": "",
+      "stale_risk": false,
+      "url": "https://www.api-football.com/fixture/1556095",
+      "fetched_at": "2026-10-17 21:17"
+    },
+    {
+      "home": "江原FC",
+      "away": "仁川联",
+      "provider": "api-football",
+      "source": "api-football",
+      "predicted": "",
+      "predicted_dir": "主胜",
+      "hit_prob": 45.0,
+      "note": "胜平负 45/45/10%；Combo Double chance : Gangwon FC or draw and -3.5 goals；倾向胜或平",
+      "lineup": "",
+      "stale_risk": false,
+      "url": "https://www.api-football.com/fixture/1507086",
+      "fetched_at": "2026-10-17 21:18"
+    },
+    {
+      "home": "首尔FC",
+      "away": "金泉尚武",
+      "provider": "api-football",
+      "source": "api-football",
+      "predicted": "",
+      "predicted_dir": "主胜",
+      "hit_prob": 35.0,
+      "note": "胜平负 35/35/30%；Double chance : FC Seoul or draw；倾向胜或平",
+      "lineup": "",
+      "stale_risk": false,
+      "url": "https://www.api-football.com/fixture/1507082",
+      "fetched_at": "2026-10-17 21:18"
+    }
+  ]
+}
