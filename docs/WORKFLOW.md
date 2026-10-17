@@ -62,7 +62,7 @@ python scripts/brief.py
   脚本自带别名表 `database/config/team_aliases.json`（中文队名 → 联赛 / Sports Mole slug），缓存落 `state/_ext_raw/`，本批记录落 `state/_ext_<日期>.json`
 - **能接的只有 Sports Mole（主力）＋ Sportskeeda（缺场兜底）**：Forebet／PredictZ／Windrawwin／NerdyTips／FootyStats／AiScore／KickOff／Squawka／WhoScored 全部被 Cloudflare 或登录墙挡死（requests 与 Playwright 真 Chrome 都试过），别在这上面耗时间；先跑 `python scripts/ext_predict.py doctor` 看当天哪个源活着
 - Sportskeeda 走「专家预测本轮各场」的汇总文（正文格式 `Prediction: Everton 2-1 Chelsea`），但聚合页常列**往轮**旧文 → 记录带 `stale_risk`，报告标 ⚠️往轮，引用前必须核对轮次
-- 无预览页的场次走 `match --manual --predicted "0-2" --source "…" --note "…"` 人工摘录（标注 `manual`）；API-Football 留了 `API_FOOTBALL_KEY` 环境变量位，注册免费层后 `doctor` 自动识别
+- 无预览页的场次按顺序兜底：Sportskeeda（`--provider sportskeeda` 或 batch 第三列写联赛）→ **API-Football**（`key --set` 写入本地 key 后 `--provider api-football`，给胜平负百分比 + 期望进球 + advice）→ `match --manual --predicted "0-2" --source "…" --note "…"` 人工摘录（标注 `manual`）
 - 🔴 **用法边界**：外部预测**只作参照，不改模型结论**；方向不一致的场次反而是选题金矿（分歧＝可写的结构性矛盾），在稿子里写成「公开赛前预报怎么看 vs 后台模型怎么看」
 - 🔴 **合规写法**：外媒预测一律写成「公开赛前预报／第三方直播站的赛前判断」，**不带操作建议**，不写「推荐」「跟着买」；摘要引用英文原句时只取判断句，不取赔率句
 - 详细平台实测记录与源清单：`📚知识库/写作指南/外部预测源实测.md`

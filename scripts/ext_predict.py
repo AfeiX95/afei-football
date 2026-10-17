@@ -45,6 +45,10 @@ UA = {
 }
 SM_INDEX = "https://www.sportsmole.co.uk/football/predictions/"
 
+# API-Football（api-sports.io）免费层：100 次/天；key 放环境变量或 state/api-keys.json
+AF_BASE = "https://v3.football.api-sports.io"
+KEYS_FILE = ROOT / "state" / "api-keys.json"
+
 # Sportskeeda 的联赛聚合页（预测多以「某专家预测本轮各场」的汇总文形式出现）
 SK_HUBS = {
     "英超": "https://www.sportskeeda.com/go/premier-league",
@@ -273,6 +277,8 @@ def add_item(home: str, away: str, row: dict | None, parsed: dict, stamp: str,
         "provider": "manual" if manual else provider,
         "source": "manual" if manual else provider,
         "predicted": manual or (parsed.get("predicted") or ""),
+        "predicted_dir": parsed.get("predicted_dir", ""),
+        "hit_prob": parsed.get("hit_prob", 0),
         "note": parsed.get("note", ""),
         "lineup": parsed.get("lineup", ""),
         "stale_risk": bool(parsed.get("stale_risk")),
@@ -311,6 +317,145 @@ def _via_sportskeeda(home: str, away: str, league: str, aliases: dict) -> tuple[
     return None, {}
 
 
+# ---------------------------------------------------------------- API-Football
+def api_key() -> str:
+    """key 取环境变量 → state/api-keys.json（该文件不入库）。"""
+    import os
+    v = (os.environ.get("API_FOOTBALL_KEY") or "").strip()
+    if v:
+        return v
+    for p in (KEYS_FILE, ROOT / "state" / "api-keys.local.json"):
+        if not p.exists():
+            continue
+        try:
+            d = json.loads(p.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for k in ("api_football", "api-football", "API_FOOTBALL_KEY", "apifootball"):
+            v = str(d.get(k) or "").strip()
+            if v:
+                return v
+    return ""
+
+
+def _af_get(path: str, params: dict, cache: Path | None = None) -> dict:
+    key = api_key()
+    if not key:
+        raise RuntimeError("缺 API-Football key（环境变量 API_FOOTBALL_KEY 或 state/api-keys.json）")
+    if cache and cache.exists():
+        return json.loads(cache.read_text(encoding="utf-8"))
+    if requests is None:
+        raise RuntimeError("缺 requests")
+    r = requests.get(f"{AF_BASE}/{path}", params=params,
+                     headers={"x-apisports-key": key}, timeout=25)
+    if r.status_code == 403:
+        raise RuntimeError("403：key 无效/未授权")
+    if r.status_code == 429:
+        raise RuntimeError("429：今日配额用完（免费层 100 次/天）")
+    r.raise_for_status()
+    d = r.json()
+    errs = d.get("errors")
+    if errs:
+        raise RuntimeError(f"API 报错：{errs}")
+    if cache:
+        cache.parent.mkdir(parents=True, exist_ok=True)
+        cache.write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
+    return d
+
+
+def _norm_name(s: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", (s or "").lower())
+
+
+def af_fixtures(stamp: str, force: bool = False) -> list[dict]:
+    """按日期取当天赛程（1 次请求，结果缓存）。stamp=YYYYMMDD。"""
+    d = f"{stamp[:4]}-{stamp[4:6]}-{stamp[6:8]}"
+    cache = RAW / f"af_fixtures_{d}.json"
+    if force and cache.exists():
+        cache.unlink()
+    data = _af_get("fixtures", {"date": d, "timezone": "Asia/Shanghai"}, cache)
+    return data.get("response", []) or []
+
+
+def _via_api_football(home: str, away: str, aliases: dict, stamp: str) -> tuple[dict | None, dict]:
+    """先按日期赛程对齐队名，再取 /predictions。返回 (row, parsed)。"""
+    en_home = (aliases.get(home) or {}).get("en") or home
+    en_away = (aliases.get(away) or {}).get("en") or away
+    nh, na = _norm_name(en_home), _norm_name(en_away)
+    try:
+        fixtures = af_fixtures(stamp)
+    except RuntimeError as e:
+        print(f"  [AF] 跳过：{e}")
+        return None, {}
+    row = None
+    for f in fixtures:
+        teams = f.get("teams") or {}
+        h = _norm_name(((teams.get("home") or {}).get("name") or ""))
+        a = _norm_name(((teams.get("away") or {}).get("name") or ""))
+        if (nh in h or h in nh) and (na in a or a in na):
+            row = {
+                "href": f"https://www.api-football.com/fixture/{f.get('fixture', {}).get('id')}",
+                "text": f"{((teams.get('home') or {}).get('name'))} vs {((teams.get('away') or {}).get('name'))}",
+                "fixture_id": (f.get("fixture") or {}).get("id"),
+                "league": ((f.get("league") or {}).get("name") or ""),
+                "kick": (f.get("fixture") or {}).get("date", ""),
+            }
+            break
+    if not row:
+        print(f"  [AF] 当天赛程里没找到 {en_home} vs {en_away}")
+        return None, {}
+    fid = row["fixture_id"]
+    try:
+        data = _af_get("predictions", {"fixture": fid}, RAW / f"af_pred_{fid}.json")
+    except RuntimeError as e:
+        print(f"  [AF] 预测取失败：{e}")
+        return row, {}
+    resp = (data.get("response") or [])
+    if not resp:
+        print(f"  [AF] fixture {fid} 无预测数据")
+        return row, {}
+    pred = resp[0].get("predictions") or {}
+    pct = pred.get("percent") or {}
+    go = pred.get("goals") or {}
+    win = (pred.get("winner") or {}).get("name") or ""
+    advice = (pred.get("advice") or "").strip()
+
+    def _p(x):
+        try:
+            return float(str(x).replace("%", "").strip())
+        except Exception:
+            return 0.0
+
+    ph, pd, pa = _p(pct.get("home")), _p(pct.get("draw")), _p(pct.get("away"))
+    if win:
+        nw = _norm_name(win)
+        if nw and (nw in nh or nh in nw):
+            d = "主胜"
+        elif nw and (nw in na or na in nw):
+            d = "客胜"
+        else:
+            d = "平"
+    else:
+        mx = max(ph, pd, pa)
+        d = "主胜" if mx == ph else ("客胜" if mx == pa else "平")
+    note_bits = []
+    if ph or pd or pa:
+        note_bits.append(f"胜平负 {ph:.0f}/{pd:.0f}/{pa:.0f}%")
+    if go.get("home") or go.get("away"):
+        note_bits.append(f"期望进球 {go.get('home', '?')}-{go.get('away', '?')}")
+    if advice:
+        note_bits.append(advice)
+    return row, {
+        "predicted": "",
+        "predicted_dir": d,
+        "hit_prob": max(ph, pd, pa),
+        "note": "；".join(note_bits)[:120],
+        "provider": "api-football",
+        "url": row["href"],
+    }
+
+
+
 def cmd_match(args) -> int:
     aliases = load_aliases()
     league = args.league or ""
@@ -321,6 +466,10 @@ def cmd_match(args) -> int:
         if row:
             item = add_item(args.home, args.away, row, parsed, args.date,
                             manual=args.manual, provider="sportsmole")
+    if item is None and args.provider in ("auto", "api-football", "af"):
+        row, parsed = _via_api_football(args.home, args.away, aliases, args.date)
+        if row and parsed:
+            item = add_item(args.home, args.away, row, parsed, args.date, provider="api-football")
     if item is None and args.provider in ("auto", "sportskeeda"):
         if not league:
             print("Sportskeeda 需要联赛（--league 英超/西甲/法甲/意甲/德甲）")
@@ -354,6 +503,9 @@ def cmd_batch(args) -> int:
         if args.provider in ("auto", "sportsmole"):
             row, parsed = _via_sportsmole(home, away, aliases, idx)
             prov = "sportsmole"
+        if not row and args.provider in ("auto", "api-football", "af"):
+            row, parsed = _via_api_football(home, away, aliases, args.date)
+            prov = "api-football"
         if not row and args.provider in ("auto", "sportskeeda") and league:
             row, parsed = _via_sportskeeda(home, away, league, aliases)
             prov = "sportskeeda"
@@ -362,8 +514,9 @@ def cmd_batch(args) -> int:
             miss += 1
             continue
         add_item(home, away, row, parsed, args.date, provider=prov)
-        tag = "SK" if prov == "sportskeeda" else "SM"
-        print(f"[OK/{tag}] {home} vs {away} → {parsed.get('predicted', '?')}")
+        tag = {"sportskeeda": "SK", "api-football": "AF"}.get(prov, "SM")
+        shown = parsed.get("predicted") or parsed.get("predicted_dir") or "?"
+        print(f"[OK/{tag}] {home} vs {away} → {shown}")
         ok += 1
     print(f"命中 {ok} 场 / 未命中 {miss} 场")
     return 0
@@ -437,6 +590,35 @@ def _dir_from_score(pred: str) -> str:
     return "主胜" if a > b else ("平" if a == b else "客胜")
 
 
+def cmd_key(args) -> int:
+    """写入/查看 API-Football key（落 state/api-keys.json，已 gitignore）。"""
+    if args.set:
+        KEYS_FILE.parent.mkdir(parents=True, exist_ok=True)
+        d = {}
+        if KEYS_FILE.exists():
+            try:
+                d = json.loads(KEYS_FILE.read_text(encoding="utf-8"))
+            except Exception:
+                d = {}
+        d["api_football"] = args.set.strip()
+        KEYS_FILE.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"已写入 {KEYS_FILE.relative_to(ROOT)}（key 长度 {len(d['api_football'])}）")
+        return 0
+    k = api_key()
+    if not k:
+        print("没有 key。写一个：python scripts/ext_predict.py key --set 你的KEY")
+        return 1
+    src = "环境变量" if (__import__("os").environ.get("API_FOOTBALL_KEY") or "").strip() else "state/api-keys.json"
+    print(f"来源：{src}　长度 {len(k)}　前 4 位 {k[:4]}…（不回显全量）")
+    try:
+        fx = af_fixtures(dt.date.today().strftime("%Y%m%d"), force=True)
+        print(f"试连成功：今天赛程 {len(fx)} 场")
+    except RuntimeError as e:
+        print(f"试连失败：{e}")
+        return 1
+    return 0
+
+
 def cmd_report(args) -> int:
     data = load_store(args.date)
     if not data["items"]:
@@ -461,7 +643,7 @@ def cmd_report(args) -> int:
     for it in data["items"]:
         mm = model.get(it["home"], {})
         pred = it.get("predicted") or ""
-        d = _dir_from_score(pred)
+        d = _dir_from_score(pred) or (it.get("predicted_dir") or "")
         mdl = mm.get("model")
         mkt = mm.get("market")
         top = ""
@@ -472,11 +654,16 @@ def cmd_report(args) -> int:
                 flags.append(f"{it['home']}（外部 {d} / 模型 {top}）")
         fmt = lambda t: " / ".join(f"{x:.1f}" for x in t) if t else "—"
         note = (it.get("note") or "").replace("|", "/")[:60]
-        prov = {"sportsmole": "Sports Mole", "sportskeeda": "Sportskeeda", "manual": "人工摘录"}.get(
+        prov = {"sportsmole": "Sports Mole", "sportskeeda": "Sportskeeda",
+                "api-football": "API-Football", "manual": "人工摘录"}.get(
             it.get("provider") or it.get("source") or "", "—")
         if it.get("stale_risk"):
             prov += " ⚠️往轮"
-        lines.append(f"| {it['home']} vs {it['away']} | {prov} | {pred} | {d or '—'} | {fmt(mdl)} | {fmt(mkt)} | {top or '—'} | {note} |")
+        show = pred
+        if not show and d:
+            hp = it.get("hit_prob") or 0
+            show = f"{d}（{hp:.0f}%）" if hp else d
+        lines.append(f"| {it['home']} vs {it['away']} | {prov} | {show or '—'} | {d or '—'} | {fmt(mdl)} | {fmt(mkt)} | {top or '—'} | {note} |")
     if flags:
         lines += ["", "**方向不一致（值得单独读的场次）**：" + "；".join(flags)]
     lines += ["", f"抓取时间：{dt.date.today().isoformat()}"
@@ -502,14 +689,19 @@ def main() -> int:
     s.add_argument("away")
     s.add_argument("--manual", default=None)
     s.add_argument("--league", default="", help="英超/西甲/法甲/意甲/德甲（Sportskeeda 需要）")
-    s.add_argument("--provider", default="auto", choices=["auto", "sportsmole", "sportskeeda"])
+    s.add_argument("--provider", default="auto",
+                   choices=["auto", "sportsmole", "api-football", "af", "sportskeeda"])
     s.set_defaults(func=cmd_match)
     s = sub.add_parser("batch", help="批量（每行：主队 客队 [联赛]）")
     s.add_argument("--file", required=True)
-    s.add_argument("--provider", default="auto", choices=["auto", "sportsmole", "sportskeeda"])
+    s.add_argument("--provider", default="auto",
+                   choices=["auto", "sportsmole", "api-football", "af", "sportskeeda"])
     s.set_defaults(func=cmd_batch)
     s = sub.add_parser("doctor", help="体检：哪个源能用/要 key/被墙")
     s.set_defaults(func=cmd_doctor)
+    s = sub.add_parser("key", help="写入/查看 API-Football key")
+    s.add_argument("--set", default=None, help="写入 key（落 state/api-keys.json，已 gitignore）")
+    s.set_defaults(func=cmd_key)
     s = sub.add_parser("show", help="打印本批记录")
     s.set_defaults(func=cmd_show)
     s = sub.add_parser("report", help="生成 md 对照表")

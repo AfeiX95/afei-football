@@ -2015,3 +2015,15 @@ C 篇文件名与标题的「幅度我不追」→「**幅度不必追**」（�
 **文档**：`📚知识库/写作指南/外部预测源实测.md` 增「一B 三条扩源路径实测」「一C Browser Agent 怎么用」，限制补到 7 条；`docs/WORKFLOW.md` §3B 改写为双源 + doctor。
 
 **待用户拍板**：要不要去 dashboard.api-football.com 注册免费 key（100 次/天，能彻底补覆盖率）——拿到后 `export API_FOOTBALL_KEY=...` 即可开；SK 的往轮问题是否值得再写个「轮次校验」（会多一次页面解析，收益不确定）。
+
+### 夜·四十一 追加：API-Football 已接成第三自动源（代码就绪，等 key）
+
+用户已注册免费层（10 个体育项目全 active，足球 100 次/天，订阅到 2027-06-16，未设域名/IP 白名单 → 任意来源可用）。代码按此落地：
+
+- `scripts/ext_predict.py` 新增 AF 通道：`api_key()`（环境变量 `API_FOOTBALL_KEY` → `state/api-keys.json`）、`_af_get()`（403/429 各有明确报错）、`af_fixtures(stamp)`（按 `fixtures?date=…&timezone=Asia/Shanghai` 取当天赛程并缓存 `state/_ext_raw/af_fixtures_<日期>.json`）、`_via_api_football()`（用 `team_aliases.json` 的 `en` 名对齐 → `/predictions?fixture=<id>`，缓存 `af_pred_<id>.json`）
+- 记录新增字段 `predicted_dir` + `hit_prob`（AF 不给具体比分，**不编比分**：报告「外部预测」列显示 `客胜（58%）` 这类形态，方向直接进对照）
+- `--provider {api-football,af}`；`batch` 兜底顺序改为 **Sports Mole → API-Football → Sportskeeda**（SK 有往轮风险，降到第三）
+- 新命令 `python scripts/ext_predict.py key --set <KEY>`（写 `state/api-keys.json`，已加进 .gitignore）／`key`（看来源 + 试连今天赛程，不回显全量 key）
+- `doctor` 增 AF 行：有 key／缺 key + 提示
+
+**下一步**：拿到 key 后跑 `key --set` → `key`（试连）→ `batch` 重跑六场 → `report` 看覆盖率能不能到 6/6。

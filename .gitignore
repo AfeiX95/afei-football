@@ -33,3 +33,7 @@ state/_*.log
 
 # 外部预测原始 HTML 缓存（可重新抓取，不入库）
 state/_ext_raw/
+
+# 本地 API key（不入库）
+state/api-keys.json
+state/api-keys.local.json
