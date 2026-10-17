@@ -123,10 +123,11 @@ python scripts/brief.py
 - state/model-state.json 同步（`calibration` 的 batch/total_matches/direction_correct/rate、`candidate_rules`、`open_items`、`pending_checks`、`counters`；🔴 schema v2 起**闭环条目搬去 `state/task-log.json`**，`open_items` 只留真待办）
 - 🔴 **候选规则回写阈值**：累计样本达标（C34b 10/11≈91%、C36 客热分档、C37 主让-1 打穿率、C15b 陷阱档）→ 统一回写 `📚知识库/模型脚本/修正规则.md`（总表+详解+叠加顺序）+ `docs/RULES.md` 索引 + state 标记"✅已转正"；**回写后须跑 JSON 校验**（尾随逗号/重复键是高频事故）
 
-### 11. 付费内部资料（赛博可交互 HTML，2026-10-17 v0.2）
-- 定位：**不进公开号**的内部复盘材料。**只出单文件 HTML**（可交互，不导 PDF、不拆 A4 页）——2026-10-17 用户拍板「只留 HTML，风格改赛博可交互信息卡」
+### 11. 付费内部资料（海报款可交互 HTML，2026-10-17 v0.3）
+- 定位：**不进公开号**的内部复盘材料。**只出单文件 HTML**（可交互，不导 PDF、不拆 A4 页）——2026-10-17 用户拍板「只留 HTML」
+- 视觉：**海报款**（v0.3，2026-10-17 用户：「赛博风格太影响阅读」）。暖纸底 `#F5F0E6` + 衬线标题（宋体族）+ 砖红 `#8C3B23` / 赭石 `#A8762F` / 墨蓝 `#3D5064` 三色 + 细线分栏 + 数字全等宽；**无霓虹、无发光、无网格底纹**。覆盖层写在 `scripts/cyber_app.html` 的 `</style>` 之前（改风格只动那一段，别改结构）
 - 一条命令：`python scripts/paid_cyber.py`（`--model` / `--out` / `--date-dir` 可指定；`--dump` 只算数据落 `state/tmp/cyber_data.json` 供排查）
-  - 输出 `📝文章/YYYYMMDD/六场全维度推演_赛博版_YYYYMMDD.html`（自包含单文件，无外链无 CDN；模板 = `scripts/cyber_app.html`，数据 = `scripts/paid_cyber.py`）
+  - 输出 `📝文章/YYYYMMDD/六场全维度推演_海报版_YYYYMMDD.html`（自包含单文件，无外链无 CDN；模板 = `scripts/cyber_app.html`，数据 = `scripts/paid_cyber.py`）
   - 数据源全部本地：模型文本 + `state/records/_ext_*.json`（两个外部源）+ `state/records/_move_*.json`（变盘时间轴）+ `state/matches/<id>/*.json`（战绩/雷达/交手/伤停/赛程/进失球）+ 小红书 `cards.json`（场次号/开赛时间/展示队名）
 - 八个交互页签：总览（六场横向对照）· 数理模型（λ 双法、比分矩阵、Dixon-Coles 低比分校准、胜平负交叉核对、总进球分布、大小球）· 高阶数据（上下半场结构、进失球离散度与零封率、交手比分土壤、**未接入指标缺口清单**）· 基本面（阵容伤停/赛程战意/状态）· 盘口定价（三层定价交叉、波胆溢价、热度与诱盘）· **盘口变盘**（胜平负/让球时间轴、总进球定价 vs 模型、半全场剧本、波胆池定价锚、剧本切换条件）· 推演闭环（四步 + 排除清单 + 主推/防冷/一句话结论）· 外媒 × AI（Sports Mole / API-Football / 模型 / 定价四方并排）
 - **Dixon-Coles**：独立泊松设两队进球互不相干，会低估 0-0/1-0/0-1/1-1；本页固定相关系数 ρ=−0.08，只用于展示「低比分被拉起多少」，不替换模型主口径（矩阵与胜平负仍以官方模型 2 万次抽样为准，页内给了三者交叉核对）
@@ -142,7 +143,7 @@ python scripts/brief.py
   3. `python scripts/paid_cyber.py` → 变盘页自动长出来
   - 手工补录的场次（JSON 里没有 `auto: true`）优先级更高，转换脚本不会覆盖
   - 位移判读口径：胜负盘与让球盘**同向退水**＝撤的是「赢几个」的筹码；只有让球退水是「打穿难度」变了；单快照场次只敢说「市场一开始就这么看」
-- 旧 A4 打印版：`scripts/paid_report.py`（数据解析层被 `paid_cyber.py` 复用；PDF 默认已关闭，只在明确要打印件时加 `--pdf`）
+- 旧 A4 打印版：`scripts/paid_report.py`（数据解析层被 `paid_cyber.py` 复用；PDF 默认已关闭，只在明确要打印件时加 `--pdf`）。**默认一律用海报版 HTML**，A4/PDF 只在明确要打印件时才动
 
 ## 铁律（写进任何文章前必查）
 - 竞彩数据只统计 90 分钟常规时间（加时/点球不计）

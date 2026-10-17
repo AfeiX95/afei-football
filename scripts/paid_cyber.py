@@ -498,7 +498,7 @@ def main() -> None:
     html = (tpl.replace("/*__DATA__*/", json.dumps(data, ensure_ascii=False))
                .replace("__TITLE__", f"{tag} 全维度推演 · 阿飞·赛博聊球"))
     out = Path(args.out) if args.out else (
-        ROOT / "📝文章" / date_tag / f"六场全维度推演_赛博版_{date_tag}.html")
+        ROOT / "📝文章" / date_tag / f"六场全维度推演_海报版_{date_tag}.html")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")
     print(f"✅ {out}  {out.stat().st_size/1024:.0f}KB · {len(data['matches'])} 场")

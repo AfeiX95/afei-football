@@ -1,0 +1,1257 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026.10.17 全维度推演 · 阿飞·赛博聊球</title>
+<style>
+:root{
+  --bg:#05070C; --bg2:#080D15; --panel:rgba(13,21,33,.92); --panel2:rgba(17,27,42,.9);
+  --line:rgba(70,190,225,.16); --line2:rgba(70,190,225,.4);
+  --ink:#E9F3F8; --muted:#7C93A8; --dim:#54697C;
+  --cyan:#3BE8FF; --violet:#A98BFF; --amber:#FFB25B; --red:#FF5F7E; --green:#4FE39B;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Courier New",monospace;
+  --sans:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:
+    radial-gradient(900px 500px at 12% -8%,rgba(59,232,255,.10),transparent 60%),
+    radial-gradient(800px 460px at 88% 4%,rgba(169,139,255,.10),transparent 62%),
+    linear-gradient(180deg,#05070C,#070B12 40%,#05070C);
+  color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:linear-gradient(rgba(70,190,225,.045) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(70,190,225,.045) 1px,transparent 1px);
+  background-size:44px 44px,44px 44px;
+  mask-image:radial-gradient(1200px 800px at 50% 0%,#000 40%,transparent 100%);
+}
+#app{position:relative;z-index:1;display:grid;grid-template-columns:268px minmax(0,1fr);grid-template-rows:auto 1fr;min-height:100%}
+
+/* ── 顶栏 ── */
+.topbar{grid-column:1/-1;display:flex;align-items:center;gap:18px;padding:14px 22px;
+  border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(9,14,22,.96),rgba(9,14,22,.7));
+  position:sticky;top:0;z-index:20;backdrop-filter:blur(10px)}
+.brand{display:flex;align-items:baseline;gap:10px;white-space:nowrap}
+.brand b{font-size:15px;letter-spacing:.06em}
+.brand span{font-family:var(--mono);font-size:11px;color:var(--cyan);letter-spacing:.18em;
+  border:1px solid var(--line2);padding:2px 7px;border-radius:2px}
+.tb-meta{font-family:var(--mono);font-size:11.5px;color:var(--dim);letter-spacing:.04em;white-space:nowrap}
+.tb-meta i{color:var(--cyan);font-style:normal}
+.tb-sp{flex:1}
+.btn{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--ink);
+  background:rgba(59,232,255,.06);border:1px solid var(--line2);padding:6px 12px;border-radius:2px;
+  cursor:pointer;transition:.18s;white-space:nowrap}
+.btn:hover{background:rgba(59,232,255,.16);box-shadow:0 0 14px rgba(59,232,255,.28);color:#fff}
+.btn:active{transform:translateY(1px)}
+
+/* ── 左栏 ── */
+.rail{border-right:1px solid var(--line);padding:14px 12px 40px;overflow:auto;
+  background:linear-gradient(180deg,rgba(8,13,21,.6),rgba(5,7,12,.2))}
+.rail-h{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;color:var(--dim);
+  padding:4px 8px 10px;display:flex;justify-content:space-between}
+.mitem{position:relative;display:grid;grid-template-columns:1fr auto;gap:2px 8px;
+  padding:10px 11px 11px;border:1px solid transparent;border-left:2px solid transparent;
+  cursor:pointer;transition:.16s;margin-bottom:6px;background:rgba(255,255,255,.012);border-radius:3px}
+.mitem:hover{background:rgba(59,232,255,.06);border-color:var(--line)}
+.mitem.on{background:linear-gradient(90deg,rgba(59,232,255,.14),rgba(59,232,255,.03));
+  border-color:var(--line2);border-left-color:var(--cyan);box-shadow:0 0 22px rgba(59,232,255,.12) inset}
+.mitem .no{font-family:var(--mono);font-size:10.5px;color:var(--cyan);letter-spacing:.1em}
+.mitem .lg{font-family:var(--mono);font-size:10px;color:var(--dim);text-align:right}
+.mitem .vs{grid-column:1/-1;font-size:13.5px;font-weight:600;letter-spacing:.01em;margin-top:1px}
+.mitem .vs em{font-style:normal;color:var(--dim);font-weight:400;font-size:11px;margin:0 5px;font-family:var(--mono)}
+.mitem .tags{grid-column:1/-1;display:flex;gap:5px;margin-top:6px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;padding:1px 6px;border-radius:2px;
+  border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.c{color:var(--cyan);border-color:rgba(59,232,255,.45);background:rgba(59,232,255,.08)}
+.tag.a{color:var(--amber);border-color:rgba(255,178,91,.4);background:rgba(255,178,91,.07)}
+.tag.r{color:var(--red);border-color:rgba(255,95,126,.42);background:rgba(255,95,126,.08)}
+.tag.g{color:var(--green);border-color:rgba(79,227,155,.4);background:rgba(79,227,155,.07)}
+.tag.v{color:var(--violet);border-color:rgba(169,139,255,.4);background:rgba(169,139,255,.08)}
+
+/* ── 主区 ── */
+main{padding:20px 24px 64px;overflow:auto;max-width:1280px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:start;
+  padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.hero .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--cyan);margin-bottom:8px}
+.hero h1{font-size:31px;font-weight:700;letter-spacing:.01em;line-height:1.2}
+.hero h1 em{font-style:normal;font-family:var(--mono);font-size:15px;color:var(--dim);
+  margin:0 10px;letter-spacing:.1em;vertical-align:3px}
+.hero .sub{color:var(--muted);font-size:12.5px;margin-top:8px;font-family:var(--mono);letter-spacing:.03em}
+.gauge{text-align:center;min-width:150px}
+.gauge .num{font-family:var(--mono);font-size:44px;line-height:1;letter-spacing:-.02em}
+.gauge .num small{font-size:13px;color:var(--dim);letter-spacing:0}
+.gauge .gr{font-family:var(--mono);font-size:11px;letter-spacing:.14em;margin-top:4px}
+.gauge .lbl{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.2em;margin-top:2px}
+
+.verdict{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0 18px}
+.vcard{position:relative;border:1px solid var(--line);background:var(--panel);padding:14px 15px 15px;border-radius:4px;
+  overflow:hidden;transition:.2s}
+.vcard::before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:var(--cyan);opacity:.85}
+.vcard.v2::before{background:var(--amber)} .vcard.v3::before{background:var(--red)}
+.vcard:hover{border-color:var(--line2);transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.vcard .t{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--dim)}
+.vcard .d{font-size:21px;font-weight:700;margin:5px 0 2px}
+.vcard .s{font-family:var(--mono);font-size:12px;color:var(--cyan)}
+.vcard.v2 .s{color:var(--amber)} .vcard.v3 .s{color:var(--red)}
+.vcard .p{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:6px}
+
+/* ── 标签页 ── */
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:18px;overflow:auto}
+.tab{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--muted);
+  padding:9px 15px;cursor:pointer;border:1px solid transparent;border-bottom:none;
+  position:relative;transition:.16s;white-space:nowrap;background:none}
+.tab:hover{color:var(--ink);background:rgba(59,232,255,.05)}
+.tab.on{color:var(--cyan);background:linear-gradient(180deg,rgba(59,232,255,.13),transparent);
+  border-color:var(--line);border-bottom-color:transparent}
+.tab.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--cyan)}
+.pane{animation:fade .28s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ── 卡片 ── */
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.card{border:1px solid var(--line);background:var(--panel);border-radius:4px;padding:15px 16px 16px;position:relative}
+.card.hl{border-color:var(--line2);box-shadow:0 0 26px rgba(59,232,255,.09) inset}
+.card h3{font-size:12.5px;font-family:var(--mono);letter-spacing:.14em;color:var(--cyan);
+  font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card h3::before{content:"▸";color:var(--cyan);opacity:.8}
+.card h3 .x{margin-left:auto;font-size:10px;color:var(--dim);letter-spacing:.08em;font-weight:400}
+.kpi .n{font-family:var(--mono);font-size:26px;line-height:1.1}
+.kpi .n small{font-size:12px;color:var(--dim)}
+.kpi .k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--dim);margin-bottom:6px}
+.kpi .d{font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.5}
+.note{font-size:12px;color:var(--muted);line-height:1.7}
+.note b{color:var(--ink);font-weight:600}
+.hint{font-family:var(--mono);font-size:10.5px;color:var(--dim);letter-spacing:.05em;margin-top:10px;line-height:1.7}
+
+/* ── 概率条 ── */
+.prow{display:grid;grid-template-columns:52px minmax(0,1fr) 96px;gap:10px;align-items:center;margin-bottom:7px}
+.prow .lab{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+.track{position:relative;height:19px;background:rgba(255,255,255,.04);border-radius:2px;overflow:hidden}
+.fill{position:absolute;left:0;top:0;bottom:0;border-radius:2px;transition:width .5s cubic-bezier(.2,.8,.3,1)}
+.fill.h{background:linear-gradient(90deg,rgba(59,232,255,.85),rgba(59,232,255,.45))}
+.fill.d{background:linear-gradient(90deg,rgba(255,178,91,.85),rgba(255,178,91,.4))}
+.fill.a{background:linear-gradient(90deg,rgba(169,139,255,.85),rgba(169,139,255,.4))}
+.fill.ghost{background:repeating-linear-gradient(45deg,rgba(255,255,255,.14),rgba(255,255,255,.14) 4px,transparent 4px,transparent 8px)}
+.prow .val{font-family:var(--mono);font-size:11.5px;text-align:right;color:var(--ink)}
+.prow .val i{font-style:normal;color:var(--dim);font-size:10px}
+.delta{font-family:var(--mono);font-size:11px;color:var(--dim)}
+.delta.up{color:var(--green)} .delta.down{color:var(--red)}
+
+/* ── 热力矩阵 ── */
+.heatbar{display:flex;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.sw{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--muted);
+  cursor:pointer;letter-spacing:.06em;user-select:none}
+.sw i{width:26px;height:13px;border:1px solid var(--line2);border-radius:7px;position:relative;transition:.18s;display:inline-block}
+.sw i::after{content:"";position:absolute;top:2px;left:2px;width:7px;height:7px;border-radius:50%;
+  background:var(--dim);transition:.18s}
+.sw.on i{background:rgba(59,232,255,.22);border-color:var(--cyan)}
+.sw.on i::after{left:15px;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.sw.on{color:var(--cyan)}
+.heat{display:grid;gap:2px;font-family:var(--mono);font-size:10.5px;max-width:520px}
+.heat .hc{height:22px;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:10px}
+.heat .cell{height:34px;display:flex;align-items:center;justify-content:center;border-radius:2px;
+  color:#06121A;font-weight:700;cursor:crosshair;transition:.12s;position:relative;letter-spacing:-.02em}
+.heat .cell.empty{color:var(--dim);background:rgba(255,255,255,.02)}
+.heat .cell:hover{outline:1px solid var(--cyan);outline-offset:1px;transform:scale(1.06);z-index:2}
+.ax{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.1em;margin-top:8px;display:flex;gap:18px}
+.legend{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--dim)}
+.legend b{display:inline-block;width:16px;height:8px;border-radius:1px}
+
+/* ── 表格 ── */
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--dim);text-align:left;
+  padding:6px 8px;border-bottom:1px solid var(--line);font-weight:500;white-space:nowrap}
+td{padding:7px 8px;border-bottom:1px solid rgba(70,190,225,.07);vertical-align:top}
+tr:hover td{background:rgba(59,232,255,.035)}
+td.mono,th.mono{font-family:var(--mono)}
+td.num{font-family:var(--mono);text-align:right;white-space:nowrap}
+.pos{color:var(--green)} .neg{color:var(--red)}
+.pill{font-family:var(--mono);font-size:9.5px;padding:1px 6px;border-radius:2px;border:1px solid var(--line);
+  color:var(--muted);white-space:nowrap}
+.pill.h{color:var(--cyan);border-color:rgba(59,232,255,.4)} .pill.r{color:var(--red);border-color:rgba(255,95,126,.4)}
+.pill.a{color:var(--amber);border-color:rgba(255,178,91,.4)} .pill.g{color:var(--green);border-color:rgba(79,227,155,.4)}
+
+/* ── 五维 ── */
+.dim{display:grid;grid-template-columns:82px minmax(0,1fr) 62px;gap:9px;align-items:center;margin-bottom:8px}
+.dim .k{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.05em}
+.dim .b{height:7px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden}
+.dim .b i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),rgba(59,232,255,.35));border-radius:4px}
+.dim .v{font-family:var(--mono);font-size:10.5px;color:var(--ink);text-align:right}
+.dim .v em{font-style:normal;color:var(--dim)}
+
+/* ── 步骤 ── */
+.step{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:12px 0;
+  border-bottom:1px dashed rgba(70,190,225,.14)}
+.step:last-child{border-bottom:none}
+.step .i{font-family:var(--mono);font-size:16px;color:var(--cyan);opacity:.55;line-height:1.2}
+.step .h{font-size:12.5px;font-weight:600;margin-bottom:3px;letter-spacing:.02em}
+.step .h span{font-family:var(--mono);font-size:10px;color:var(--dim);font-weight:400;letter-spacing:.1em;margin-left:8px}
+.step .b{font-size:12.5px;color:var(--muted);line-height:1.72}
+
+/* ── 上下半场结构 ── */
+.half{display:grid;grid-template-columns:88px minmax(0,1fr) 78px;gap:10px;align-items:center;margin-bottom:9px}
+.half .t{font-size:12px}
+.half .bar{display:flex;height:16px;border-radius:2px;overflow:hidden;background:rgba(255,255,255,.04)}
+.half .bar i{display:block;height:100%}
+.half .bar i.h1{background:linear-gradient(90deg,rgba(59,232,255,.9),rgba(59,232,255,.5))}
+.half .bar i.h2{background:linear-gradient(90deg,rgba(169,139,255,.85),rgba(169,139,255,.45))}
+.half .v{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-align:right}
+
+.gap-list{display:grid;gap:7px}
+.gap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:baseline;font-size:12px;color:var(--muted)}
+.gap b{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--red);border:1px solid rgba(255,95,126,.35);
+  padding:1px 6px;border-radius:2px;white-space:nowrap}
+
+.flag{border-left:2px solid var(--red);background:linear-gradient(90deg,rgba(255,95,126,.1),transparent);
+  padding:10px 13px;border-radius:2px;font-size:12.5px;color:#FFC9D4;margin-bottom:8px}
+.flag.w{border-left-color:var(--amber);background:linear-gradient(90deg,rgba(255,178,91,.1),transparent);color:#FFE0BB}
+.flag b{color:#fff}
+
+/* ── 提示层 ── */
+.tip{position:fixed;z-index:99;pointer-events:none;opacity:0;transition:opacity .12s;
+  background:rgba(6,12,20,.97);border:1px solid var(--line2);border-radius:3px;padding:8px 10px;
+  font-family:var(--mono);font-size:11px;line-height:1.6;color:var(--ink);white-space:pre;
+  box-shadow:0 12px 34px rgba(0,0,0,.6);max-width:280px}
+.tip.on{opacity:1}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);opacity:0;transition:.3s;
+  background:rgba(59,232,255,.14);border:1px solid var(--cyan);color:#DFFCFF;font-family:var(--mono);
+  font-size:12px;padding:9px 18px;border-radius:3px;z-index:100;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ── 浅色（打印） ── */
+body.light{--bg:#F6F7F9;--panel:#fff;--panel2:#F2F5F8;--line:rgba(20,60,80,.16);--line2:rgba(20,60,80,.36);
+  --ink:#111A22;--muted:#4A5A68;--dim:#7A8A98;--cyan:#0E8FA8;--violet:#6B4FD8;--amber:#B87413;--red:#C7304F;--green:#1C8F5C;
+  background:#F6F7F9;color:var(--ink)}
+body.light::before{opacity:.35}
+body.light .heat .cell{color:#0A1620}
+@media (max-width:1080px){
+  #app{grid-template-columns:1fr}
+  .rail{display:flex;gap:8px;overflow:auto;border-right:none;border-bottom:1px solid var(--line);padding:10px}
+  .mitem{min-width:196px;margin-bottom:0}
+  .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid2,.grid3{grid-template-columns:1fr}
+  .verdict{grid-template-columns:1fr}
+  main{padding:16px}
+}
+
+/* ============================================================
+   海报款（POSTER）覆盖层 — 2026-10-17 用户：赛博风影响阅读，改海报款
+   口径：暖纸底 + 砖红/赭石/墨蓝三色 + 衬线标题 + 细线分栏，去掉一切霓虹与发光
+   ============================================================ */
+:root{
+  --bg:#F5F0E6;
+  --bg2:#FBF7EE;
+  --panel:#FFFDF7;
+  --panel2:#F6EFE2;
+  --line:rgba(60,45,30,.16);
+  --line2:rgba(60,45,30,.32);
+  --ink:#221E18;
+  --muted:#6A5E50;
+  --dim:#8C7F6E;
+  --cyan:#8C3B23;
+  --violet:#3D5064;
+  --amber:#A8762F;
+  --red:#9E2B21;
+  --green:#3F6B4A;
+  --mono:"IBM Plex Mono","JetBrains Mono",ui-monospace,SFMono-Regular,Consolas,monospace;
+  --sans:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",system-ui,sans-serif;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif CJK SC",Georgia,"Times New Roman",serif;
+}
+body{
+  background:var(--bg);
+  background-image:none;
+  font-family:var(--sans);
+  font-size:14.5px;
+  line-height:1.72;
+  color:var(--ink);
+}
+body::before{display:none}
+body.light{--bg:#F5F0E6;--bg2:#FBF7EE;--panel:#FFFDF7;--panel2:#F6EFE2;
+  --line:rgba(60,45,30,.16);--line2:rgba(60,45,30,.32);
+  --ink:#221E18;--muted:#6A5E50;--dim:#8C7F6E;
+  --cyan:#8C3B23;--violet:#3D5064;--amber:#A8762F;--red:#9E2B21;--green:#3F6B4A}
+
+/* 顶栏 / 左栏 */
+.topbar{background:var(--bg2);border-bottom:1px solid var(--line);box-shadow:none;backdrop-filter:none}
+.topbar::after{display:none}
+.brand b{font-family:var(--serif);font-size:15px;letter-spacing:.04em;color:var(--ink)}
+.brand span{font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--cyan)}
+.tb-meta{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.tb-meta i{color:var(--cyan);font-style:normal}
+.tb-sp{background:var(--line)}
+.btn{background:transparent;border:1px solid var(--line2);color:var(--muted);border-radius:2px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em}
+.btn:hover{background:rgba(140,59,35,.06);border-color:var(--cyan);color:var(--cyan);box-shadow:none}
+.side{background:var(--bg2);border-right:1px solid var(--line)}
+.rail-h{color:var(--dim);font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+  background:transparent;border:none;padding:0 0 8px}
+.mitem{background:transparent;border:1px solid transparent;border-left:2px solid transparent;
+  border-radius:0;margin-bottom:2px}
+.mitem:hover{background:rgba(140,59,35,.045);border-color:transparent;border-left-color:var(--line2)}
+.mitem.on{background:var(--panel);border-color:var(--line);border-left:3px solid var(--cyan);box-shadow:none}
+.mitem .no{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em}
+.mitem.on .no{color:var(--cyan)}
+.mitem .vs{font-family:var(--serif);font-size:15.5px;color:var(--ink)}
+.mitem .vs em{color:var(--dim);font-size:11px}
+.mitem .lg{font-family:var(--mono);font-size:10px;color:var(--dim)}
+.mitem .tags .tag{font-size:10px}
+
+/* 标签 */
+.tag{border-radius:2px;background:rgba(60,45,30,.05);border:1px solid var(--line);color:var(--muted);
+  font-family:var(--mono);font-size:10px;letter-spacing:.04em}
+.tag.c{color:var(--cyan);border-color:rgba(140,59,35,.34);background:rgba(140,59,35,.06)}
+.tag.a{color:#8A5A17;border-color:rgba(168,118,47,.36);background:rgba(168,118,47,.10)}
+.tag.r{color:var(--red);border-color:rgba(158,43,33,.34);background:rgba(158,43,33,.07)}
+.tag.g{color:var(--green);border-color:rgba(63,107,74,.34);background:rgba(63,107,74,.07)}
+.tag.v{color:var(--violet);border-color:rgba(61,80,100,.34);background:rgba(61,80,100,.06)}
+
+/* 头图区 */
+.hero{padding-bottom:16px;border-bottom:1px solid var(--line)}
+.hero .kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;color:var(--cyan)}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:40px;line-height:1.18;letter-spacing:.01em}
+.hero h1 em{color:var(--cyan);font-style:normal}
+.hero .meta{color:var(--muted)}
+.verdict{display:flex;gap:14px}
+.vcard{background:var(--panel);border:1px solid var(--line);border-radius:2px;box-shadow:none}
+.vcard::before{height:2px;background:var(--cyan);opacity:1}
+.vcard.v2::before{background:var(--amber)}
+.vcard.v3::before{background:var(--violet)}
+.vcard .t{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--muted)}
+.vcard .p{font-family:var(--serif);font-size:22px;color:var(--ink)}
+.vcard .s{font-family:var(--mono);font-size:11.5px;color:var(--cyan)} .vcard.v2 .s{color:#8A5A17} .vcard.v3 .s{color:var(--violet)}
+.vcard .d{color:var(--muted);font-size:12px}
+.vcard:hover{background:#fff;border-color:var(--line2)}
+
+/* 页签 */
+.tabs{border-bottom:1px solid var(--line);gap:2px}
+.tab{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--muted);
+  background:transparent;border:none;padding:9px 13px;border-radius:0}
+.tab:hover{color:var(--ink);background:rgba(140,59,35,.05)}
+.tab.on{color:var(--cyan);background:transparent}
+.tab.on::after{height:2px;background:var(--cyan)}
+
+/* 卡片 */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:2px;box-shadow:none}
+.card.hl{border-color:var(--line2);box-shadow:none}
+.card h3{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--cyan);
+  text-transform:none;border-bottom:1px solid var(--line);padding-bottom:8px}
+.card h3::before{content:"■";font-size:7px;color:var(--cyan);opacity:1;vertical-align:2px}
+.card h3 .x{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:0}
+.note{color:var(--ink);font-size:13px;line-height:1.78}
+.note b{color:var(--cyan)}
+.hint{color:var(--muted);font-size:11.5px;line-height:1.7}
+.hint .k,.k{font-family:var(--mono);color:var(--violet);background:rgba(61,80,100,.07);padding:0 4px;border-radius:2px}
+
+/* KPI / gauge */
+.kpi{border-left:2px solid var(--line2);padding-left:14px}
+.kpi .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--dim)}
+.kpi .n{font-family:var(--mono);font-size:30px;color:var(--ink)}
+.kpi .n small{font-size:12px;color:var(--muted)}
+.kpi .d{font-size:11.5px;color:var(--muted)}
+.gauge .num{font-family:var(--mono);color:var(--ink)}
+.gauge .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--dim)}
+
+/* 条形图 */
+.track{background:rgba(60,45,30,.07);border-radius:0;height:20px}
+.fill.h{background:#8C3B23}
+.fill.d{background:#A8762F}
+.fill.a{background:#3D5064}
+.fill.ghost{background:repeating-linear-gradient(45deg,rgba(60,45,30,.34),rgba(60,45,30,.34) 3px,transparent 3px,transparent 7px)}
+.prow .lab{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.prow .val{font-family:var(--mono);font-size:11.5px;color:var(--ink)}
+.prow .val i{color:var(--dim);font-style:normal}
+.delta{font-family:var(--mono);font-size:10.5px;color:var(--dim)}
+.delta.up{color:#8A5A17} .delta.down{color:var(--red)}
+.pos{color:var(--green)} .neg{color:var(--red)}
+
+/* 开关 / 图例 */
+.sw{font-family:var(--mono);font-size:10.5px;color:var(--muted);border:1px solid var(--line2);
+  border-radius:2px;padding:4px 9px;background:var(--panel2)}
+.sw i{background:rgba(60,45,30,.14);border:1px solid var(--line2)}
+.sw.on{color:var(--cyan);border-color:var(--cyan);background:rgba(140,59,35,.06)}
+.sw.on i{background:var(--cyan);border-color:var(--cyan)}
+.sw.on i::after{background:#fff;box-shadow:none}
+.legend{font-family:var(--mono);font-size:10px;color:var(--dim)}
+.legend b{border:1px solid var(--line)}
+
+/* 热力矩阵 */
+.heat{gap:1px}
+.heat .hc{color:var(--dim);font-family:var(--mono);font-size:10px}
+.heat .cell{font-family:var(--mono);border-radius:0;border:1px solid rgba(255,255,255,.5)}
+.heat .cell.empty{background:rgba(60,45,30,.03);color:var(--dim)}
+.heat .cell:hover{outline:1px solid var(--cyan);outline-offset:0;transform:none;z-index:2}
+body.light .heat .cell{color:inherit}
+.ax{font-family:var(--mono);font-size:10px;color:var(--dim)}
+
+/* 表格 */
+table{font-size:12.5px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--dim);
+  border-bottom:1px solid var(--line2);font-weight:400}
+td{border-bottom:1px solid rgba(60,45,30,.10);color:var(--ink)}
+tr:hover td{background:rgba(140,59,35,.035)}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.pill{font-family:var(--mono);font-size:10px;border-radius:2px;border:1px solid var(--line2);color:var(--muted)}
+.pill.h{color:var(--cyan);border-color:rgba(140,59,35,.34)}
+.pill.a{color:#8A5A17;border-color:rgba(168,118,47,.34)}
+.pill.r{color:var(--red);border-color:rgba(158,43,33,.34)}
+.pill.g{color:var(--green);border-color:rgba(63,107,74,.34)}
+
+/* 详情维度 / 步骤 / 上下半场 */
+.dim{border-bottom:1px dotted rgba(60,45,30,.18)}
+.dim .k{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.dim .v{font-family:var(--mono);font-size:12px;color:var(--ink)}
+.dim .v em{color:var(--dim);font-style:normal;font-size:10.5px}
+.dim .b{background:rgba(60,45,30,.07);border-radius:0;height:6px}
+.dim .b i{background:var(--cyan);border-radius:0}
+.step{border-bottom:1px solid var(--line)}
+.step .i{font-family:var(--mono);font-size:13px;color:var(--cyan);opacity:1}
+.step .h{font-family:var(--serif);font-size:15px;color:var(--ink)}
+.step .h span{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.1em}
+.step .b{color:var(--ink);font-size:13px;line-height:1.78}
+.half .bar{background:rgba(60,45,30,.07);border-radius:0}
+.half .bar i.h1{background:#8C3B23}
+.half .bar i.h2{background:#3D5064}
+.half .t{font-family:var(--mono);font-size:10.5px;color:var(--dim)}
+.half .v{font-family:var(--mono);font-size:11.5px;color:var(--ink)}
+
+/* 缺口 / 提示条 */
+.gap-list{display:flex;flex-direction:column;gap:7px}
+.gap{display:flex;gap:9px;align-items:baseline;border-bottom:1px dotted rgba(60,45,30,.18);padding-bottom:6px}
+.gap b{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--red);
+  border:1px solid rgba(158,43,33,.3);border-radius:2px;padding:1px 5px;background:rgba(158,43,33,.05)}
+.gap b + span{font-family:var(--mono);font-size:11px;color:var(--ink)}
+.gap span:last-child{color:var(--muted);font-size:11.5px}
+.flag{border-left:3px solid var(--red);background:rgba(158,43,33,.05);color:var(--ink);
+  border-radius:0;padding:11px 14px;font-size:13px;line-height:1.75}
+.flag b{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--red)}
+.flag.w{border-left-color:#A8762F;background:rgba(168,118,47,.07);color:var(--ink)}
+
+/* 浮层 */
+.tip{background:#221E18;color:#FBF7EE;border:1px solid #221E18;border-radius:2px;
+  font-family:var(--mono);font-size:11px;box-shadow:0 8px 24px rgba(34,30,24,.22)}
+.toast{background:#221E18;color:#FBF7EE;border:1px solid #221E18;border-radius:2px;
+  font-family:var(--mono);font-size:11px;box-shadow:0 8px 24px rgba(34,30,24,.22)}
+
+/* 页脚 */
+.foot{color:var(--dim);font-family:var(--mono);font-size:10px;border-top:1px solid var(--line)}
+
+
+/* ---- 海报款修补 2 ---- */
+.rail{background:var(--bg2)}
+.side{background:var(--bg2)}
+.k{background:none;padding:0;border-radius:0;color:inherit;font-family:inherit}
+.hint .k,.note .k{font-family:var(--mono);color:var(--violet);background:rgba(61,80,100,.08);padding:0 4px;border-radius:2px}
+.kpi .k{background:none;padding:0;color:var(--dim);font-family:var(--mono);font-size:10px;letter-spacing:.16em}
+.dim .b{background:rgba(60,45,30,.15)}
+.dim .b i{background:var(--cyan)}
+.mitem .tags .tag{font-size:10.5px;color:#4A3E33}
+.mitem.on .tags .tag{color:inherit}
+.mitem:not(.on){opacity:1}
+.mitem:not(.on) .vs{color:#3B322A}
+
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand"><b>阿飞 · 赛博聊球</b><span>全维度推演 / POSTER</span></div>
+    <div class="tb-meta" id="tbmeta"></div>
+    <div class="tb-sp"></div>
+    <button class="btn" id="btnTheme">◐ 主题</button>
+    <button class="btn" id="btnCopy">⧉ 复制结论</button>
+  </header>
+  <nav class="rail" id="rail"></nav>
+  <main id="main"></main>
+</div>
+<div class="tip" id="tip"></div>
+<div class="toast" id="toast"></div>
+<script>
+const DATA = {"meta": {"date": "20261017", "stamp": "2026-10-17 19:32", "model": "_model_20261017_sat.txt", "rho": -0.08, "samples": 20000, "count": 6}, "matches": [{"no": "周六007", "league": "英超", "home": "埃弗顿", "away": "切尔西", "mid": "2042024", "kick": "10/17 19:30", "hand": 1, "lam": {"l1": [2.109, 1.515], "l2": [1.314, 1.668], "fin": [2.109, 1.591], "total": 3.7}, "p": [49.8, 20.9, 29.3], "mk": [28.6, 25.6, 45.9], "edge": [21.2, -4.6, -16.6], "hp": [70.7, 15.4, 13.8], "hmk": [53.1, 23.6, 23.3], "h_edge": [17.7, -8.2, -9.5], "odds": [3.1, 3.46, 1.93], "payout": 88.5, "over": {"1.5": 88.4, "2.5": 71.5, "3.5": 50.6}, "btts": 70.0, "goals": [2.5, 9.1, 16.9, 20.9, 19.3, 14.3, 8.8], "goals_dc": [3.2, 7.9, 17.7, 21.0, 19.4, 14.4, 8.9, 4.6, 2.0, 0.7, 0.2, 0.0, 0.0, 0.0], "win_nodraw": [63.0, 37.0], "top": [{"s": "1-1", "p": 9.0, "odd": 6.5, "ev": -0.46}, {"s": "2-1", "p": 8.8, "odd": 9.0, "ev": -0.21}, {"s": "2-2", "p": 7.0, "odd": 10.5, "ev": -0.27}, {"s": "1-2", "p": 6.6, "odd": 7.5, "ev": -0.51}, {"s": "3-1", "p": 6.2, "odd": 23.0, "ev": 0.41}, {"s": "2-0", "p": 5.5, "odd": 17.0, "ev": -0.07}, {"s": "3-2", "p": 4.9, "odd": 25.0, "ev": 0.22}, {"s": "1-0", "p": 4.6, "odd": 11.5, "ev": -0.4}, {"s": "3-0", "p": 3.9}, {"s": "2-3", "p": 3.7}, {"s": "1-3", "p": 3.5}, {"s": "0-1", "p": 3.3}], "matrix": [[3.16, 3.29, 3.15, 1.67, 0.66, 0.21, 0.06], [4.58, 9.03, 6.65, 3.53, 1.4, 0.45, 0.12], [5.54, 8.81, 7.01, 3.72, 1.48, 0.47, 0.12], [3.89, 6.19, 4.93, 2.61, 1.04, 0.33, 0.09], [2.05, 3.27, 2.6, 1.38, 0.55, 0.17, 0.05], [0.87, 1.38, 1.1, 0.58, 0.23, 0.07, 0.02], [0.3, 0.48, 0.39, 0.2, 0.08, 0.03, 0.01]], "matrix_pois": [[2.47, 3.93, 3.13, 1.66, 0.66, 0.21, 0.06], [5.21, 8.3, 6.6, 3.5, 1.39, 0.44, 0.12], [5.5, 8.75, 6.96, 3.69, 1.47, 0.47, 0.12], [3.87, 6.15, 4.89, 2.59, 1.03, 0.33, 0.09], [2.04, 3.24, 2.58, 1.37, 0.54, 0.17, 0.05], [0.86, 1.37, 1.09, 0.58, 0.23, 0.07, 0.02], [0.3, 0.48, 0.38, 0.2, 0.08, 0.03, 0.01]], "oc": {"pois": [49.2, 20.9, 29.1], "dc": [48.9, 22.4, 28.7]}, "low_delta": [{"s": "0-0", "p_pois": 2.5, "p_dc": 3.2}, {"s": "1-0", "p_pois": 5.2, "p_dc": 4.6}, {"s": "0-1", "p_pois": 3.9, "p_dc": 3.3}, {"s": "1-1", "p_pois": 8.3, "p_dc": 9.0}], "verdict": {"first": "主胜", "first_p": 49.8, "first_score": "2-1", "second": "平", "second_p": 20.9, "second_score": "1-1", "guard": "客胜", "guard_p": 45.9, "guard_score": "1-2", "guard_model_p": 29.3, "guard_mode": "市场热格"}, "conf": {"total": 38, "grade": "D · 谨慎", "n_sample": 2, "gap": 28, "agree": 1, "maxpp": 21.2, "top3": 24.0, "w1": 10, "w2": 8, "w3": 8, "w4": 3, "w5": 9.2, "model_dir": "主胜", "market_dir": "客胜"}, "cold": {"fav": "客胜", "fav_mk": 45.9, "fav_model": 29.3, "index": 70.7, "main_cold": "主胜", "main_cold_p": 49.8, "second_cold": "平", "second_cold_p": 20.9}, "steps": {"pattern": "模型给主胜 49.8%，定价去水后给客胜 45.9%，两边最大偏差在主胜 +21.2pp。偏差超过 15 个百分点，按纪律先假定我方样本有缺口，这一格只做方向参考。", "total": "λ 合计 2.11+1.59=3.70，模型给大 2.5 球 71.5%、大 3.5 球 50.6%、双方进球 70.0%。总量偏高，比分重心落在 2-1、2-2、3-1 一带，低比分可以排除。", "matrix": "1-1 9.0%；2-1 8.8%；2-2 7.0%。 让球(+1) 里模型与定价偏差最大的一格是主胜 +17.7pp，说明分歧落在「赢几个」而不是「谁赢」。", "exclude": [{"k": "0-0 与 1-0", "kind": "排除", "why": "模型大 2.5 球 71.5%、双方进球 70.0%，两队都不是闷战型，零封对面的概率不足三成"}, {"k": "客队净胜 2 球以上", "kind": "降权", "why": "与主推方向相悖，模型合计 13.8%"}], "rich": [{"k": "1-1", "kind": "降权", "why": "定价 6.50 隐含 15.4%，模型给 8.3%，溢价 -0.46（定价虚高，不做主推）"}, {"k": "1-2", "kind": "降权", "why": "定价 7.50 隐含 13.3%，模型给 6.6%，溢价 -0.51（定价虚高，不做主推）"}, {"k": "1-0", "kind": "降权", "why": "定价 11.50 隐含 8.7%，模型给 5.2%，溢价 -0.40（定价虚高，不做主推）"}], "tail5": 30.8, "draw_p": 20.9, "low_risk": "主胜", "low_risk_p": 49.8}, "tech": {"home": {"n": 5, "gf_avg": 1.2, "ga_avg": 0.8, "cs_rate": 60, "sd_for": 0.84, "sd_against": 1.1, "goals_1h": 1, "goals_2h": 9, "share_1h": 10.0, "last_date": "2026-10-11", "results": [{"d": "2026-10-11", "m": "赫尔城 2:2 埃弗顿", "ht": "0:0"}, {"d": "2026-09-19", "m": "埃弗顿 1:0 伊普斯", "ht": "1:0"}, {"d": "2026-09-17", "m": "埃弗顿 1:0 伍尔弗", "ht": "0:0"}, {"d": "2026-09-13", "m": "热刺 0:0 埃弗顿", "ht": "0:0"}, {"d": "2026-09-06", "m": "埃弗顿 2:2 曼联", "ht": "0:0"}]}, "away": {"n": 5, "gf_avg": 2.8, "ga_avg": 2.2, "cs_rate": 0, "sd_for": 2.59, "sd_against": 0.84, "goals_1h": 8, "goals_2h": 17, "share_1h": 32.0, "last_date": "2026-10-10", "results": [{"d": "2026-10-10", "m": "切尔西 5:1 伯恩茅斯", "ht": "2:0"}, {"d": "2026-09-19", "m": "布伦特 3:0 切尔西", "ht": "0:0"}, {"d": "2026-09-12", "m": "切尔西 2:2 赫尔城", "ht": "1:2"}, {"d": "2026-09-10", "m": "切尔西 6:3 利兹联", "ht": "0:1"}, {"d": "2026-09-06", "m": "阿森纳 2:1 切尔西", "ht": "1:1"}]}, "meet": {"n": 5, "low2": 60, "btts": 0, "draw": 20, "avg_total": 2.4, "detail": [{"d": "2026-03-22", "m": "埃弗顿 3:0 切尔西", "league": "英超"}, {"d": "2025-12-13", "m": "切尔西 2:0 埃弗顿", "league": "英超"}, {"d": "2025-04-26", "m": "切尔西 1:0 埃弗顿", "league": "英超"}, {"d": "2024-12-22", "m": "埃弗顿 0:0 切尔西", "league": "英超"}, {"d": "2024-04-16", "m": "切尔西 6:0 埃弗顿", "league": "英超"}]}}, "intel": {"inj": [{"team": "切尔西", "side": "away", "name": "J. Bynoe-Gittens", "pos": "前锋", "apps": 0, "kind": "伤"}, {"team": "切尔西", "side": "away", "name": "Marc Guiu", "pos": "前锋", "apps": 0, "kind": "伤"}], "note": "主队主场 3 场不败（1 比 0 伊普斯、1 比 0 伍尔弗[联赛杯]、2 比 2 曼联）却只进 4 球；客队客场 2 场全败只进 1 球（0 比 3 布伦特、1 比 2 阿森纳）；近10场场均进失 主1.7/0.7 客2.9/2.0（客队进球数明显高于失球）；同主客10场 主5胜3平2负 / 客1胜3平6负；交锋近 5 次 埃弗顿 1胜1平3负；让球 +1", "fix": "form主+0.250 form客+0.250 | H2H factor 0.976 (API近5场 1胜1平3负)", "inj_text": "伤停 主0人/客2人 → λ主×(1+0.020)  λ客×(1-0.020)"}, "ext": {"sm": {"home": "埃弗顿", "away": "切尔西", "source": "sportsmole", "predicted": "Everton 2-1 Chelsea", "note": "While Chelsea are undeniably free-scoring, the Blues have demonstrated that they can come unstuck, as highlighted by their 3-0 collapse at Brentford before the pause.", "lineup": "Martinez; Acheampong, Lacroix, Colwill; Neto, Caicedo, Henderson, Chavarria; Palmer, Rogers; Joao Pedro", "url": "https://www.sportsmole.co.uk/football/everton/preview/everton-vs-chelsea-prediction-team-news-lineups_606940.html", "fetched_at": "2026-10-17 11:29", "_src": "_ext_20261017.json"}, "af": {"home": "埃弗顿", "away": "切尔西", "provider": "api-football", "source": "api-football", "predicted": "", "predicted_dir": "客胜", "hit_prob": 45.0, "note": "胜平负 10/45/45%；Double chance : draw or Chelsea；倾向胜或平", "lineup": "", "stale_risk": false, "url": "https://www.api-football.com/fixture/1557430", "fetched_at": "2026-10-17 12:12", "_src": "_ext_20261017af.json"}}, "warn": ["⚠️ 模型/市场≥10pp 分歧：按 skill「国内联赛定价更精准」原则，先假定我方数据有缺口，不直接采信", "⚠️ 主/客分离样本≤2 场，口径A偏薄（已按样本量混入近10场）"], "quote": null, "move": {"name": "埃弗顿 vs 切尔西", "notes": ["胜平负共 5 次变动：开盘 3.05/3.43/1.96 → 最新 2.94/3.40/2.02（主胜 -0.11、客胜 +0.06）。", "客胜最低点出现在 10-17 10:28（1.93），也就是这次变盘的情绪高点，之后往回走。", "让球(+1) 4 次变动：让胜 1.65→1.61、让负 3.90→4.05。", "总进球 10-17 14:06：3 球调到最低赔 3.50（最热一格）；1 球 5.60→6.20、2 球 3.65→3.80。", "同盘 5 格变动，说明定价在「几个球」上做过一轮重估。", "半全场 10-17 15:10：平负 5.25→4.75、平平 6.00→5.80、平胜 7.20→7.25、负负 3.10→3.30。", "波胆全盘 28 格，最低赔是 1-1（6.50）；波胆只有当前版本，没有历史位移。"], "spf": [{"t": "10-16 09:42", "h": 3.05, "d": 3.43, "a": 1.96}, {"t": "10-17 10:28", "h": 3.1, "d": 3.46, "a": 1.93}, {"t": "10-17 14:37", "h": 3.05, "d": 3.46, "a": 1.95}, {"t": "10-17 15:34", "h": 3.03, "d": 3.4, "a": 1.98}, {"t": "10-17 16:15", "h": 2.94, "d": 3.4, "a": 2.02}], "hand": [{"t": "10-16 09:42", "h": 1.65, "d": 3.75, "a": 3.9, "line": "+1"}, {"t": "10-17 10:28", "h": 1.67, "d": 3.75, "a": 3.8, "line": "+1"}, {"t": "10-17 15:35", "h": 1.65, "d": 3.75, "a": 3.9, "line": "+1"}, {"t": "10-17 16:15", "h": 1.61, "d": 3.85, "a": 4.05, "line": "+1"}], "latest_spf": {"t": "10-17 16:15", "odds": [2.94, 3.4, 2.02], "p": [30.1, 26.0, 43.8]}, "open_spf": {"t": "10-16 09:42", "odds": [3.05, 3.43, 1.96], "p": [29.0, 25.8, 45.2]}, "spf_move": [1.1, 0.2, -1.4], "latest_hand": {"t": "10-17 16:15", "odds": [1.61, 3.85, 4.05], "p": [55.1, 23.0, 21.9]}, "open_hand": {"t": "10-16 09:42", "odds": [1.65, 3.75, 3.9], "p": [53.7, 23.6, 22.7]}, "hand_move": [1.4, -0.6, -0.8], "goals": {"t_old": "10-16 09:41", "t_new": "10-17 14:06", "odds_old": [15.0, 5.6, 3.65, 3.5, 4.7, 8.0, 15.0], "odds_new": [15.0, 6.2, 3.8, 3.5, 4.5, 7.5, 14.0], "p_old": [5.5, 14.8, 22.7, 23.6, 17.6, 10.3, 5.5], "p_new": [5.5, 13.4, 21.9, 23.7, 18.5, 11.1, 5.9], "model": [2.7, 9.9, 18.4, 22.8, 21.0, 15.6, 9.6], "lowest": "3"}, "htft": {"t_old": "10-16 09:41", "t_new": "10-17 15:10", "rows": [{"k": "负负", "old": 3.1, "new": 3.3, "chg": 0.2}, {"k": "平负", "old": 5.25, "new": 4.75, "chg": -0.5}, {"k": "平平", "old": 6.0, "new": 5.8, "chg": -0.2}, {"k": "平胜", "old": 7.2, "new": 7.25, "chg": 0.05}, {"k": "负平", "old": 14.0, "new": 14.0, "chg": 0.0}], "draw_half_sum": 17.8}, "pool": [{"s": "1-1", "odd": 6.5, "p": 15.4, "dir": "平"}, {"s": "1-2", "odd": 7.5, "p": 13.3, "dir": "客胜"}, {"s": "2-1", "odd": 9.0, "p": 11.1, "dir": "主胜"}, {"s": "0-1", "odd": 9.0, "p": 11.1, "dir": "客胜"}, {"s": "0-2", "odd": 10.0, "p": 10.0, "dir": "客胜"}, {"s": "2-2", "odd": 10.5, "p": 9.5, "dir": "平"}, {"s": "1-0", "odd": 11.5, "p": 8.7, "dir": "主胜"}, {"s": "1-3", "odd": 14.0, "p": 7.1, "dir": "客胜"}, {"s": "0-0", "odd": 15.0, "p": 6.7, "dir": "平"}, {"s": "2-0", "odd": 17.0, "p": 5.9, "dir": "主胜"}, {"s": "0-3", "odd": 18.0, "p": 5.6, "dir": "客胜"}, {"s": "2-3", "odd": 19.0, "p": 5.3, "dir": "客胜"}, {"s": "3-1", "odd": 23.0, "p": 4.3, "dir": "主胜"}, {"s": "3-2", "odd": 25.0, "p": 4.0, "dir": "主胜"}, {"s": "1-4", "odd": 30.0, "p": 3.3, "dir": "客胜"}, {"s": "3-0", "odd": 41.0, "p": 2.4, "dir": "主胜"}, {"s": "2-4", "odd": 45.0, "p": 2.2, "dir": "客胜"}, {"s": "3-3", "odd": 45.0, "p": 2.2, "dir": "平"}, {"s": "0-4", "odd": 50.0, "p": 2.0, "dir": "客胜"}, {"s": "4-1", "odd": 70.0, "p": 1.4, "dir": "主胜"}, {"s": "4-2", "odd": 90.0, "p": 1.1, "dir": "主胜"}, {"s": "1-5", "odd": 90.0, "p": 1.1, "dir": "客胜"}, {"s": "0-5", "odd": 120.0, "p": 0.8, "dir": "客胜"}, {"s": "4-0", "odd": 120.0, "p": 0.8, "dir": "主胜"}, {"s": "2-5", "odd": 150.0, "p": 0.7, "dir": "客胜"}, {"s": "5-2", "odd": 250.0, "p": 0.4, "dir": "主胜"}, {"s": "5-1", "odd": 250.0, "p": 0.4, "dir": "主胜"}, {"s": "5-0", "odd": 350.0, "p": 0.3, "dir": "主胜"}]}}, {"no": "周六018", "league": "英超", "home": "布伦特", "away": "利物浦", "mid": "2042035", "kick": "10/17 22:00", "hand": -1, "lam": {"l1": [2.177, 1.885], "l2": [1.695, 1.283], "fin": [1.936, 1.885], "total": 3.82}, "p": [40.4, 21.2, 38.4], "mk": [40.5, 25.7, 33.8], "edge": [-0.1, -4.5, 4.5], "hp": [22.0, 18.4, 59.6], "hmk": [19.5, 21.9, 58.7], "h_edge": [2.5, -3.5, 0.9], "odds": [2.19, 3.45, 2.62], "payout": 88.6, "over": {"1.5": 89.4, "2.5": 73.4, "3.5": 53.1}, "btts": 72.6, "goals": [2.2, 8.4, 16.0, 20.4, 19.5, 14.9, 9.5], "goals_dc": [2.9, 7.1, 16.7, 20.5, 19.6, 15.0, 9.5, 5.1, 2.3, 0.9, 0.3, 0.1, 0.0, 0.0], "win_nodraw": [51.3, 48.7], "top": [{"s": "1-1", "p": 8.7, "odd": 6.75, "ev": -0.46}, {"s": "2-1", "p": 7.8, "odd": 7.5, "ev": -0.42}, {"s": "1-2", "p": 7.6, "odd": 8.0, "ev": -0.4}, {"s": "2-2", "p": 7.3, "odd": 10.0, "ev": -0.27}, {"s": "3-1", "p": 5.0, "odd": 14.0, "ev": -0.3}, {"s": "1-3", "p": 4.8, "odd": 18.0, "ev": -0.15}, {"s": "3-2", "p": 4.7, "odd": 19.0, "ev": -0.11}, {"s": "2-3", "p": 4.6, "odd": 21.0, "ev": -0.04}, {"s": "2-0", "p": 4.1}, {"s": "0-2", "p": 3.9}, {"s": "1-0", "p": 3.6}, {"s": "0-1", "p": 3.5}], "matrix": [[2.85, 3.51, 3.92, 2.46, 1.16, 0.44, 0.14], [3.63, 8.7, 7.59, 4.77, 2.25, 0.85, 0.27], [4.13, 7.79, 7.35, 4.62, 2.18, 0.82, 0.26], [2.67, 5.03, 4.74, 2.98, 1.4, 0.53, 0.17], [1.29, 2.43, 2.29, 1.44, 0.68, 0.26, 0.08], [0.5, 0.94, 0.89, 0.56, 0.26, 0.1, 0.03], [0.16, 0.3, 0.29, 0.18, 0.08, 0.03, 0.01]], "matrix_pois": [[2.19, 4.13, 3.89, 2.45, 1.15, 0.43, 0.14], [4.24, 7.99, 7.53, 4.73, 2.23, 0.84, 0.26], [4.11, 7.74, 7.29, 4.58, 2.16, 0.81, 0.26], [2.65, 4.99, 4.71, 2.96, 1.39, 0.53, 0.17], [1.28, 2.42, 2.28, 1.43, 0.67, 0.25, 0.08], [0.5, 0.94, 0.88, 0.55, 0.26, 0.1, 0.03], [0.16, 0.3, 0.28, 0.18, 0.08, 0.03, 0.01]], "oc": {"pois": [40.0, 21.2, 38.1], "dc": [39.7, 22.7, 37.7]}, "low_delta": [{"s": "0-0", "p_pois": 2.2, "p_dc": 2.9}, {"s": "1-0", "p_pois": 4.2, "p_dc": 3.6}, {"s": "0-1", "p_pois": 4.1, "p_dc": 3.5}, {"s": "1-1", "p_pois": 8.0, "p_dc": 8.7}], "verdict": {"first": "主胜", "first_p": 40.4, "first_score": "2-1", "second": "平", "second_p": 21.2, "second_score": "1-1", "guard": "平", "guard_p": 21.2, "guard_score": "1-1", "guard_model_p": 21.2, "guard_mode": "退路"}, "conf": {"total": 63, "grade": "C · 中", "n_sample": 2, "gap": 31, "agree": 2, "maxpp": 4.5, "top3": 23.2, "w1": 10, "w2": 6, "w3": 17, "w4": 21, "w5": 8.9, "model_dir": "主胜", "market_dir": "主胜"}, "cold": {"fav": "主胜", "fav_mk": 40.5, "fav_model": 40.4, "index": 59.6, "main_cold": "客胜", "main_cold_p": 38.4, "second_cold": "平", "second_cold_p": 21.2}, "steps": {"pattern": "模型给主胜 40.4%，定价去水后给主胜 40.5%，两边最大偏差在客胜 +4.6pp。两边结构基本重合，格局可以按「定价给的强弱势」直接用。", "total": "λ 合计 1.94+1.89=3.82，模型给大 2.5 球 73.4%、大 3.5 球 53.1%、双方进球 72.6%。总量偏高，比分重心落在 2-1、2-2、3-1 一带，低比分可以排除。", "matrix": "1-1 8.7%；2-1 7.8%；1-2 7.6%。 让球(-1) 里模型与定价偏差最大的一格是平 -3.5pp，让球一侧两边接近，盘口本身没有明显错位。", "exclude": [{"k": "0-0 与 1-0", "kind": "排除", "why": "模型大 2.5 球 73.4%、双方进球 72.6%，两队都不是闷战型，零封对面的概率不足三成"}, {"k": "客队净胜 2 球以上", "kind": "降权", "why": "与主推方向相悖，模型合计 20.3%"}], "rich": [{"k": "1-1", "kind": "降权", "why": "定价 6.75 隐含 14.8%，模型给 8.0%，溢价 -0.46（定价虚高，不做主推）"}, {"k": "2-1", "kind": "降权", "why": "定价 7.50 隐含 13.3%，模型给 7.7%，溢价 -0.42（定价虚高，不做主推）"}, {"k": "1-2", "kind": "降权", "why": "定价 8.00 隐含 12.5%，模型给 7.5%，溢价 -0.40（定价虚高，不做主推）"}], "tail5": 33.1, "draw_p": 21.2, "low_risk": "客胜", "low_risk_p": 38.4}, "tech": {"home": {"n": 5, "gf_avg": 2.0, "ga_avg": 1.2, "cs_rate": 20, "sd_for": 0.71, "sd_against": 0.84, "goals_1h": 6, "goals_2h": 10, "share_1h": 37.5, "last_date": "2026-10-10", "results": [{"d": "2026-10-10", "m": "维拉 2:2 布伦特", "ht": "1:1"}, {"d": "2026-09-19", "m": "布伦特 3:0 切尔西", "ht": "0:0"}, {"d": "2026-09-16", "m": "雷丁 1:2 布伦特", "ht": "0:2"}, {"d": "2026-09-12", "m": "伯恩茅斯 2:2 布伦特", "ht": "1:1"}, {"d": "2026-09-05", "m": "布伦特 1:1 桑德兰", "ht": "0:0"}]}, "away": {"n": 5, "gf_avg": 2.0, "ga_avg": 1.4, "cs_rate": 40, "sd_for": 2.55, "sd_against": 1.52, "goals_1h": 4, "goals_2h": 13, "share_1h": 23.5, "last_date": "2026-10-15", "results": [{"d": "2026-10-15", "m": "LASK林茨 3:6 利物浦", "ht": "0:3"}, {"d": "2026-10-11", "m": "利物浦 0:3 曼城", "ht": "0:0"}, {"d": "2026-09-20", "m": "伯恩茅斯 0:1 利物浦", "ht": "0:0"}, {"d": "2026-09-16", "m": "利物浦 3:1 热刺", "ht": "1:0"}, {"d": "2026-09-12", "m": "利物浦 0:0 富勒姆", "ht": "0:0"}]}, "meet": {"n": 5, "low2": 60, "btts": 60, "draw": 20, "avg_total": 3.2, "detail": [{"d": "2026-05-24", "m": "利物浦 1:1 布伦特", "league": "英超"}, {"d": "2025-10-26", "m": "布伦特 3:2 利物浦", "league": "英超"}, {"d": "2025-01-18", "m": "布伦特 0:2 利物浦", "league": "英超"}, {"d": "2024-08-25", "m": "利物浦 2:0 布伦特", "league": "英超"}, {"d": "2024-02-17", "m": "布伦特 1:4 利物浦", "league": "英超"}]}}, "intel": {"inj": [{"team": "布伦特", "side": "home", "name": "达席尔瓦", "pos": "中场", "apps": 0, "kind": "伤"}, {"team": "布伦特", "side": "home", "name": "N. Collins", "pos": "后卫", "apps": 3, "kind": "伤"}, {"team": "布伦特", "side": "home", "name": "K. Schade", "pos": "中场", "apps": 6, "kind": "伤"}, {"team": "布伦特", "side": "home", "name": "D. Ouattara", "pos": "前锋", "apps": 6, "kind": "伤"}, {"team": "布伦特", "side": "home", "name": "A. Milambo", "pos": "中场", "apps": 0, "kind": "伤"}, {"team": "布伦特", "side": "home", "name": "J. Schuster", "pos": "后卫", "apps": 4, "kind": "伤"}, {"team": "布伦特", "side": "home", "name": "K. Furo", "pos": "前锋", "apps": 0, "kind": "伤"}, {"team": "利物浦", "side": "away", "name": "R. Gravenberch", "pos": "中场", "apps": 6, "kind": "停赛"}, {"team": "利物浦", "side": "away", "name": "A. Isak", "pos": "前锋", "apps": 5, "kind": "伤"}, {"team": "利物浦", "side": "away", "name": "加克波", "pos": "前锋", "apps": 5, "kind": "伤"}, {"team": "利物浦", "side": "away", "name": "R. Araújo", "pos": "后卫", "apps": 6, "kind": "伤"}, {"team": "利物浦", "side": "away", "name": "索博斯洛伊", "pos": "中场", "apps": 5, "kind": "伤"}, {"team": "利物浦", "side": "away", "name": "亚罗什", "pos": "守门员", "apps": 0, "kind": "伤"}, {"team": "利物浦", "side": "away", "name": "H. Ekitike", "pos": "前锋", "apps": 0, "kind": "伤"}, {"team": "利物浦", "side": "away", "name": "C.布拉德利", "pos": "后卫", "apps": 0, "kind": "伤"}, {"team": "利物浦", "side": "away", "name": "G. Leoni", "pos": "后卫", "apps": 0, "kind": "伤"}], "note": "主队主场 2 场不败（3 比 0 胜切尔西、1 比 1 桑德兰）；客队客场 2 场全胜进 7 球（含 10/15 欧冠 6 比 3 LASK，要打折）；近10场场均进失 主3.1/1.0 客2.0/1.2；同主客10场 主4胜5平1负 / 客4胜1平5负；交锋近 5 次 布伦特 1胜1平3负；伤停 主 7 人 / 客 9 人（名单偏长，需看是否主力）", "fix": "form主+0.250 form客+0.250 | H2H factor 0.976 (API近5场 1胜1平3负)", "inj_text": "伤停 主7人/客9人 → λ主×(1+0.020)  λ客×(1-0.020)"}, "ext": {"sm": {"home": "布伦特", "away": "利物浦", "source": "sportsmole", "predicted": "Brentford 2-2 Liverpool", "note": "Given that at least two goals have been scored in each of the last six meetings between these two sides, another entertaining, end-to-end contest should be in store this weekend, even if both squads may not be at full st", "lineup": "Kelleher; Kayode, Van den Berg, Ajer, Lewis-Potter; Yarmolyuk, Janelt; Anthony, Jensen, Ouattara; Thiago Liverpool possible starting lineup: Alisson; Araujo, Jacquet, Van Dijk, Kerkez; Nyoni, Mac Allister; Munoz, Wirtz, Barcola; Koumas", "url": "https://www.sportsmole.co.uk/football/brentford/preview/brentford-vs-liverpool-prediction-team-news-lineups_606921.html", "fetched_at": "2026-10-17 11:29", "_src": "_ext_20261017.json"}, "af": {"home": "布伦特", "away": "利物浦", "provider": "api-football", "source": "api-football", "predicted": "", "predicted_dir": "主胜", "hit_prob": 35.0, "note": "胜平负 35/35/30%；Double chance : Brentford or draw；倾向胜或平", "lineup": "", "stale_risk": false, "url": "https://www.api-football.com/fixture/1557428", "fetched_at": "2026-10-17 12:12", "_src": "_ext_20261017af.json"}}, "warn": ["⚠️ 主/客分离样本≤2 场，口径A偏薄（已按样本量混入近10场）"], "quote": null, "move": {"name": "布伦特 vs 利物浦", "notes": ["总进球 10-16 09:42：3 球调到最低赔 3.45（最热一格）；1 球 6.50→6.50、2 球 3.95→3.95。", "半全场 10-16 09:41：平负 6.50→6.50、平平 5.80→5.80、平胜 5.40→5.40、负负 4.20→4.20。", "波胆全盘 28 格，最低赔是 1-1（6.75）；波胆只有当前版本，没有历史位移。"], "spf": [{"t": "10-16 09:41", "h": 2.19, "d": 3.45, "a": 2.62}], "hand": [{"t": "10-16 09:42", "h": 4.55, "d": 4.05, "a": 1.51, "line": "-1"}], "latest_spf": {"t": "10-16 09:41", "odds": [2.19, 3.45, 2.62], "p": [40.5, 25.7, 33.8]}, "open_spf": {"t": "10-16 09:41", "odds": [2.19, 3.45, 2.62], "p": [40.5, 25.7, 33.8]}, "spf_move": [0.0, 0.0, 0.0], "latest_hand": {"t": "10-16 09:42", "odds": [4.55, 4.05, 1.51], "p": [19.5, 21.9, 58.7]}, "open_hand": {"t": "10-16 09:42", "odds": [4.55, 4.05, 1.51], "p": [19.5, 21.9, 58.7]}, "hand_move": [0.0, 0.0, 0.0], "goals": {"t_old": "10-16 09:42", "t_new": "10-16 09:42", "odds_old": [17.0, 6.5, 3.95, 3.45, 4.5, 7.0, 13.0], "odds_new": [17.0, 6.5, 3.95, 3.45, 4.5, 7.0, 13.0], "p_old": [4.9, 12.8, 21.1, 24.2, 18.6, 11.9, 6.4], "p_new": [4.9, 12.8, 21.1, 24.2, 18.6, 11.9, 6.4], "model": [2.4, 9.2, 17.6, 22.4, 21.5, 16.4, 10.5], "lowest": "3"}, "htft": {"t_old": "10-16 09:41", "t_new": "10-16 09:41", "rows": [{"k": "负负", "old": 4.2, "new": 4.2, "chg": 0.0}, {"k": "平胜", "old": 5.4, "new": 5.4, "chg": 0.0}, {"k": "平平", "old": 5.8, "new": 5.8, "chg": 0.0}, {"k": "平负", "old": 6.5, "new": 6.5, "chg": 0.0}, {"k": "负平", "old": 14.0, "new": 14.0, "chg": 0.0}], "draw_half_sum": 17.7}, "pool": [{"s": "1-1", "odd": 6.75, "p": 14.8, "dir": "平"}, {"s": "2-1", "odd": 7.5, "p": 13.3, "dir": "主胜"}, {"s": "1-2", "odd": 8.0, "p": 12.5, "dir": "客胜"}, {"s": "2-2", "odd": 10.0, "p": 10.0, "dir": "平"}, {"s": "1-0", "odd": 11.0, "p": 9.1, "dir": "主胜"}, {"s": "0-1", "odd": 12.0, "p": 8.3, "dir": "客胜"}, {"s": "2-0", "odd": 13.0, "p": 7.7, "dir": "主胜"}, {"s": "3-1", "odd": 14.0, "p": 7.1, "dir": "主胜"}, {"s": "0-2", "odd": 16.0, "p": 6.2, "dir": "客胜"}, {"s": "0-0", "odd": 17.0, "p": 5.9, "dir": "平"}, {"s": "1-3", "odd": 18.0, "p": 5.6, "dir": "客胜"}, {"s": "3-2", "odd": 19.0, "p": 5.3, "dir": "主胜"}, {"s": "2-3", "odd": 21.0, "p": 4.8, "dir": "客胜"}, {"s": "3-0", "odd": 23.0, "p": 4.3, "dir": "主胜"}, {"s": "0-3", "odd": 31.0, "p": 3.2, "dir": "客胜"}, {"s": "3-3", "odd": 35.0, "p": 2.9, "dir": "平"}, {"s": "4-1", "odd": 35.0, "p": 2.9, "dir": "主胜"}, {"s": "4-2", "odd": 45.0, "p": 2.2, "dir": "主胜"}, {"s": "1-4", "odd": 50.0, "p": 2.0, "dir": "客胜"}, {"s": "4-0", "odd": 55.0, "p": 1.8, "dir": "主胜"}, {"s": "2-4", "odd": 60.0, "p": 1.7, "dir": "客胜"}, {"s": "0-4", "odd": 80.0, "p": 1.2, "dir": "客胜"}, {"s": "5-1", "odd": 100.0, "p": 1.0, "dir": "主胜"}, {"s": "5-2", "odd": 150.0, "p": 0.7, "dir": "主胜"}, {"s": "5-0", "odd": 175.0, "p": 0.6, "dir": "主胜"}, {"s": "1-5", "odd": 175.0, "p": 0.6, "dir": "客胜"}, {"s": "2-5", "odd": 200.0, "p": 0.5, "dir": "客胜"}, {"s": "0-5", "odd": 350.0, "p": 0.3, "dir": "客胜"}]}}, {"no": "周六019", "league": "英超", "home": "曼城", "away": "伊普斯", "mid": "2042036", "kick": "10/17 22:00", "hand": -2, "lam": {"l1": [2.726, 2.142], "l2": [2.931, 0.458], "fin": [2.829, 2.142], "total": 4.97}, "p": [53.0, 17.6, 29.4], "mk": [79.1, 12.8, 8.1], "edge": [-26.1, 4.8, 21.3], "hp": [20.0, 14.9, 65.1], "hmk": [39.0, 21.3, 39.7], "h_edge": [-18.9, -6.5, 25.4], "odds": [1.12, 6.9, 11.0], "payout": 88.6, "over": {"1.5": 95.9, "2.5": 87.3, "3.5": 73.1}, "btts": 83.0, "goals": [0.7, 3.4, 8.6, 14.2, 17.6, 17.5, 14.5], "goals_dc": [1.1, 2.9, 9.2, 14.7, 18.2, 18.1, 15.0, 10.4, 6.0, 2.9, 1.1, 0.3, 0.1, 0.0], "win_nodraw": [64.3, 35.7], "top": [{"s": "2-2", "p": 6.6, "odd": 21.0, "ev": 0.34}, {"s": "3-2", "p": 6.2, "odd": 21.0, "ev": 0.26}, {"s": "2-1", "p": 6.1, "odd": 8.0, "ev": -0.52}, {"s": "3-1", "p": 5.8, "odd": 8.0, "ev": -0.55}, {"s": "2-3", "p": 4.7, "odd": 80.0, "ev": 2.64}, {"s": "1-1", "p": 4.7}, {"s": "1-2", "p": 4.7, "odd": 32.0, "ev": 0.44}, {"s": "3-3", "p": 4.4, "odd": 80.0, "ev": 2.43}, {"s": "4-2", "p": 4.4, "odd": 31.0, "ev": 0.32}, {"s": "4-1", "p": 4.1}, {"s": "1-3", "p": 3.3}, {"s": "4-3", "p": 3.1}], "matrix": [[1.06, 1.19, 1.64, 1.17, 0.63, 0.27, 0.1], [1.68, 4.69, 4.65, 3.32, 1.78, 0.76, 0.27], [2.87, 6.14, 6.58, 4.7, 2.51, 1.08, 0.38], [2.7, 5.79, 6.2, 4.43, 2.37, 1.02, 0.36], [1.91, 4.1, 4.39, 3.13, 1.68, 0.72, 0.26], [1.08, 2.32, 2.48, 1.77, 0.95, 0.41, 0.15], [0.51, 1.09, 1.17, 0.84, 0.45, 0.19, 0.07]], "matrix_pois": [[0.69, 1.49, 1.59, 1.14, 0.61, 0.26, 0.09], [1.96, 4.2, 4.5, 3.21, 1.72, 0.74, 0.26], [2.78, 5.95, 6.37, 4.55, 2.43, 1.04, 0.37], [2.62, 5.61, 6.0, 4.29, 2.3, 0.98, 0.35], [1.85, 3.97, 4.25, 3.03, 1.62, 0.7, 0.25], [1.05, 2.24, 2.4, 1.72, 0.92, 0.39, 0.14], [0.49, 1.06, 1.13, 0.81, 0.43, 0.19, 0.07]], "oc": {"pois": [50.4, 17.6, 28.7], "dc": [51.8, 18.9, 29.3]}, "low_delta": [{"s": "0-0", "p_pois": 0.7, "p_dc": 1.1}, {"s": "1-0", "p_pois": 2.0, "p_dc": 1.7}, {"s": "0-1", "p_pois": 1.5, "p_dc": 1.2}, {"s": "1-1", "p_pois": 4.2, "p_dc": 4.7}], "verdict": {"first": "主胜", "first_p": 53.0, "first_score": "3-2", "second": "平", "second_p": 17.6, "second_score": "2-2", "guard": "平", "guard_p": 17.6, "guard_score": "2-2", "guard_model_p": 17.6, "guard_mode": "退路"}, "conf": {"total": 45, "grade": "D · 谨慎", "n_sample": 2, "gap": 68, "agree": 3, "maxpp": 26.1, "top3": 18.3, "w1": 10, "w2": 0, "w3": 25, "w4": 3, "w5": 7.0, "model_dir": "主胜", "market_dir": "主胜"}, "cold": {"fav": "主胜", "fav_mk": 79.1, "fav_model": 53.0, "index": 47.0, "main_cold": "客胜", "main_cold_p": 29.4, "second_cold": "平", "second_cold_p": 17.6}, "steps": {"pattern": "模型给主胜 53.0%，定价去水后给主胜 79.1%，两边最大偏差在主胜 -26.1pp。偏差超过 15 个百分点，按纪律先假定我方样本有缺口，这一格只做方向参考。", "total": "λ 合计 2.83+2.14=4.97，模型给大 2.5 球 87.3%、大 3.5 球 73.1%、双方进球 83.0%。总量偏高，比分重心落在 2-1、2-2、3-1 一带，低比分可以排除。", "matrix": "2-2 6.6%；3-2 6.2%；2-1 6.1%。 让球(-2) 里模型与定价偏差最大的一格是客胜 +25.4pp，说明分歧落在「赢几个」而不是「谁赢」。", "exclude": [{"k": "0-0 与 1-0", "kind": "排除", "why": "模型大 2.5 球 87.3%、双方进球 83.0%，两队都不是闷战型，零封对面的概率不足三成"}, {"k": "客队净胜 2 球以上", "kind": "降权", "why": "与主推方向相悖，模型合计 15.6%"}], "rich": [{"k": "2-1", "kind": "降权", "why": "定价 8.00 隐含 12.5%，模型给 5.9%，溢价 -0.52（定价虚高，不做主推）"}, {"k": "3-1", "kind": "降权", "why": "定价 8.00 隐含 12.5%，模型给 5.6%，溢价 -0.55（定价虚高，不做主推）"}], "tail5": 54.0, "draw_p": 17.6, "low_risk": "客胜", "low_risk_p": 29.4}, "tech": {"home": {"n": 5, "gf_avg": 3.2, "ga_avg": 1.4, "cs_rate": 60, "sd_for": 1.79, "sd_against": 1.95, "goals_1h": 10, "goals_2h": 13, "share_1h": 43.5, "last_date": "2026-10-15", "results": [{"d": "2026-10-15", "m": "曼城 2:4 巴黎圣曼", "ht": "0:3"}, {"d": "2026-10-11", "m": "利物浦 0:3 曼城", "ht": "0:0"}, {"d": "2026-09-20", "m": "曼城 5:3 桑德兰", "ht": "3:2"}, {"d": "2026-09-18", "m": "曼城 5:0 诺维奇", "ht": "2:0"}, {"d": "2026-09-13", "m": "曼联 0:1 曼城", "ht": "0:0"}]}, "away": {"n": 5, "gf_avg": 1.4, "ga_avg": 2.0, "cs_rate": 0, "sd_for": 1.34, "sd_against": 1.22, "goals_1h": 8, "goals_2h": 9, "share_1h": 47.1, "last_date": "2026-10-10", "results": [{"d": "2026-10-10", "m": "伊普斯 2:1 富勒姆", "ht": "0:0"}, {"d": "2026-09-19", "m": "埃弗顿 1:0 伊普斯", "ht": "1:0"}, {"d": "2026-09-16", "m": "伊普斯 2:4 阿森纳", "ht": "0:2"}, {"d": "2026-09-12", "m": "水晶宫 2:3 伊普斯", "ht": "1:2"}, {"d": "2026-09-05", "m": "伊普斯 0:2 利物浦", "ht": "0:2"}]}, "meet": {"n": 2, "low2": 0, "btts": 50, "draw": 0, "avg_total": 5.5, "detail": [{"d": "2025-01-20", "m": "伊普斯 0:6 曼城", "league": "英超"}, {"d": "2024-08-24", "m": "曼城 4:1 伊普斯", "league": "英超"}]}}, "intel": {"inj": [{"team": "曼城", "side": "home", "name": "E. Anderson", "pos": "中场", "apps": 6, "kind": "伤"}], "note": "主队主场 3 场进 12 球但含 10/15 欧冠 2 比 4 负巴黎（主场 5 比 3 桑德兰、5 比 0 诺维奇）；客队客场 2 场进 3 球（3 比 2 胜水晶宫、0 比 1 负埃弗顿）；近10场场均进失 主2.5/1.2 客2.1/1.9；同主客10场 主7胜1平2负 / 客4胜2平4负；交锋近 2 次曼城全胜（6 比 0、4 比 1）；让球 -2、主胜定价 1.12", "fix": "form主+0.250 form客+0.250 | H2H factor 1.000 (API近2场 2胜0平0负)", "inj_text": "伤停 主1人/客0人 → λ主×(1-0.010)  λ客×(1+0.010)"}, "ext": {"sm": {"home": "曼城", "away": "伊普斯", "source": "sportsmole", "predicted": "Manchester City 4-0 Ipswich", "note": "Town A chorus of boos during the pre-match Premier League anthem from the Etihad faithful is expected, and the Sky Blues should capitalise on a roaring home crowd as they endeavour to make another statement in the top ti", "lineup": "Donnarumma; Nunes, Dias, Guehi, O’Reilly; Anderson, Fernandez; Semenyo, Cherki, Doku; Haaland Ipswich Town possible starting lineup: Walton; Ouattara, O'Shea, Diop, Davis; Palacios, Lukic; Fatawu, Enciso, Clarke; Emersonn", "url": "https://www.sportsmole.co.uk/football/man-city/preview/man-city-vs-ipswich-prediction-team-news-lineups_606916.html", "fetched_at": "2026-10-17 11:29", "_src": "_ext_20261017.json"}, "af": {"home": "曼城", "away": "伊普斯", "provider": "api-football", "source": "api-football", "predicted": "", "predicted_dir": "主胜", "hit_prob": 50.0, "note": "胜平负 50/50/0%；Combo Winner : Manchester City and +1.5 goals", "lineup": "", "stale_risk": false, "url": "https://www.api-football.com/fixture/1557433", "fetched_at": "2026-10-17 12:12", "_src": "_ext_20261017af.json"}}, "warn": ["🔴 客队叙事驱动风险（胜率29.4%<40% 且 Edge+21.3pp>8pp）→ 置信度减半", "🔴 主队过热预警（1.12<1.40）→ 主队胜率-2pp、平局+1.5pp", "⚠️ 模型/市场≥10pp 分歧：按 skill「国内联赛定价更精准」原则，先假定我方数据有缺口，不直接采信", "⚠️ 主/客分离样本≤2 场，口径A偏薄（已按样本量混入近10场）"], "quote": null, "move": {"name": "曼城 vs 伊普斯", "notes": ["胜平负共 2 次变动：开盘 1.12/6.90/11.00 → 最新 1.11/7.05/11.50（主胜 -0.01、客胜 +0.50）。", "让球(-2) 4 次变动：让胜 2.32→2.18、让负 2.23→2.30。", "总进球 10-17 15:23：3 球调到最低赔 3.90（最热一格）；1 球 9.00→9.50、2 球 5.00→5.20。", "同盘 6 格变动，说明定价在「几个球」上做过一轮重估。", "半全场 10-17 17:08：平负 27.00→29.00、平平 12.00→12.00、平胜 4.10→4.15、负负 22.00→23.00。", "波胆全盘 28 格，最低赔是 2-0（6.50）；波胆只有当前版本，没有历史位移。"], "spf": [{"t": "10-16 09:42", "h": 1.12, "d": 6.9, "a": 11.0}, {"t": "10-17 17:07", "h": 1.11, "d": 7.05, "a": 11.5}], "hand": [{"t": "10-16 09:41", "h": 2.32, "d": 4.0, "a": 2.23, "line": "-2"}, {"t": "10-16 18:23", "h": 2.27, "d": 4.15, "a": 2.23, "line": "-2"}, {"t": "10-17 11:57", "h": 2.23, "d": 4.25, "a": 2.25, "line": "-2"}, {"t": "10-17 17:06", "h": 2.18, "d": 4.25, "a": 2.3, "line": "-2"}], "latest_spf": {"t": "10-17 17:07", "odds": [1.11, 7.05, 11.5], "p": [79.7, 12.6, 7.7]}, "open_spf": {"t": "10-16 09:42", "odds": [1.12, 6.9, 11.0], "p": [79.1, 12.8, 8.1]}, "spf_move": [0.6, -0.2, -0.4], "latest_hand": {"t": "10-17 17:06", "odds": [2.18, 4.25, 2.3], "p": [40.6, 20.8, 38.5]}, "open_hand": {"t": "10-16 09:41", "odds": [2.32, 4.0, 2.23], "p": [38.2, 22.1, 39.7]}, "hand_move": [2.4, -1.3, -1.2], "goals": {"t_old": "10-16 09:41", "t_new": "10-17 15:23", "odds_old": [33.0, 9.0, 5.0, 3.75, 4.1, 5.6, 8.5], "odds_new": [33.0, 9.5, 5.2, 3.9, 4.0, 5.5, 8.0], "p_old": [2.6, 9.7, 17.4, 23.2, 21.2, 15.6, 10.2], "p_new": [2.7, 9.2, 16.9, 22.5, 21.9, 15.9, 11.0], "model": [0.9, 4.4, 11.2, 18.6, 23.0, 22.9, 19.0], "lowest": "3"}, "htft": {"t_old": "10-16 09:41", "t_new": "10-17 17:08", "rows": [{"k": "平胜", "old": 4.1, "new": 4.15, "chg": 0.05}, {"k": "平平", "old": 12.0, "new": 12.0, "chg": 0.0}, {"k": "负负", "old": 22.0, "new": 23.0, "chg": 1.0}, {"k": "负平", "old": 27.0, "new": 28.0, "chg": 1.0}, {"k": "平负", "old": 27.0, "new": 29.0, "chg": 2.0}], "draw_half_sum": 45.15}, "pool": [{"s": "2-0", "odd": 6.5, "p": 15.4, "dir": "主胜"}, {"s": "3-0", "odd": 7.5, "p": 13.3, "dir": "主胜"}, {"s": "2-1", "odd": 8.0, "p": 12.5, "dir": "主胜"}, {"s": "3-1", "odd": 8.0, "p": 12.5, "dir": "主胜"}, {"s": "1-0", "odd": 10.0, "p": 10.0, "dir": "主胜"}, {"s": "4-0", "odd": 10.0, "p": 10.0, "dir": "主胜"}, {"s": "4-1", "odd": 12.5, "p": 8.0, "dir": "主胜"}, {"s": "1-1", "odd": 13.0, "p": 7.7, "dir": "平"}, {"s": "5-0", "odd": 17.0, "p": 5.9, "dir": "主胜"}, {"s": "5-1", "odd": 21.0, "p": 4.8, "dir": "主胜"}, {"s": "2-2", "odd": 21.0, "p": 4.8, "dir": "平"}, {"s": "3-2", "odd": 21.0, "p": 4.8, "dir": "主胜"}, {"s": "4-2", "odd": 31.0, "p": 3.2, "dir": "主胜"}, {"s": "1-2", "odd": 32.0, "p": 3.1, "dir": "客胜"}, {"s": "0-0", "odd": 33.0, "p": 3.0, "dir": "平"}, {"s": "0-1", "odd": 40.0, "p": 2.5, "dir": "客胜"}, {"s": "5-2", "odd": 55.0, "p": 1.8, "dir": "主胜"}, {"s": "2-3", "odd": 80.0, "p": 1.2, "dir": "客胜"}, {"s": "3-3", "odd": 80.0, "p": 1.2, "dir": "平"}, {"s": "0-2", "odd": 90.0, "p": 1.1, "dir": "客胜"}, {"s": "1-3", "odd": 100.0, "p": 1.0, "dir": "客胜"}, {"s": "0-3", "odd": 300.0, "p": 0.3, "dir": "客胜"}, {"s": "2-4", "odd": 350.0, "p": 0.3, "dir": "客胜"}, {"s": "1-4", "odd": 400.0, "p": 0.2, "dir": "客胜"}, {"s": "0-4", "odd": 750.0, "p": 0.1, "dir": "客胜"}, {"s": "2-5", "odd": 850.0, "p": 0.1, "dir": "客胜"}, {"s": "0-5", "odd": 1000.0, "p": 0.1, "dir": "客胜"}, {"s": "1-5", "odd": 1000.0, "p": 0.1, "dir": "客胜"}]}}, {"no": "周六022", "league": "法甲", "home": "斯特拉斯", "away": "巴黎圣曼", "mid": "2042039", "kick": "10/17 23:15", "hand": 1, "lam": {"l1": [1.094, 2.392], "l2": [0.888, 2.362], "fin": [0.991, 2.377], "total": 3.37}, "p": [14.1, 17.8, 68.1], "mk": [15.3, 17.2, 67.6], "edge": [-1.2, 0.6, 0.6], "hp": [31.9, 22.5, 45.6], "hmk": [31.5, 21.9, 46.6], "h_edge": [0.4, 0.6, -1.0], "odds": [5.8, 5.15, 1.31], "payout": 88.5, "over": {"1.5": 84.9, "2.5": 65.4, "3.5": 43.5}, "btts": 57.0, "goals": [3.4, 11.6, 19.5, 21.9, 18.5, 12.4, 7.0], "goals_dc": [4.1, 10.4, 20.4, 22.2, 18.7, 12.6, 7.1, 3.1, 1.0, 0.3, 0.1, 0.0, 0.0, 0.0], "win_nodraw": [17.1, 82.9], "top": [{"s": "0-2", "p": 9.8, "odd": 9.75, "ev": -0.05}, {"s": "1-2", "p": 9.8, "odd": 7.0, "ev": -0.32}, {"s": "1-1", "p": 8.9, "odd": 10.5, "ev": -0.15}, {"s": "0-3", "p": 7.8, "odd": 11.5, "ev": -0.11}, {"s": "1-3", "p": 7.7, "odd": 8.75, "ev": -0.33}, {"s": "0-1", "p": 7.6, "odd": 12.5, "ev": 0.02}, {"s": "2-2", "p": 4.8, "odd": 12.5, "ev": -0.4}, {"s": "0-4", "p": 4.6, "odd": 18.0, "ev": -0.17}, {"s": "1-4", "p": 4.6}, {"s": "0-0", "p": 4.1}, {"s": "2-1", "p": 4.1}, {"s": "2-3", "p": 3.8}], "matrix": [[4.14, 7.63, 9.84, 7.8, 4.64, 2.2, 0.87], [2.8, 8.87, 9.76, 7.73, 4.59, 2.18, 0.87], [1.71, 4.07, 4.83, 3.83, 2.28, 1.08, 0.43], [0.57, 1.34, 1.6, 1.27, 0.75, 0.36, 0.14], [0.14, 0.33, 0.4, 0.31, 0.19, 0.09, 0.04], [0.03, 0.07, 0.08, 0.06, 0.04, 0.02, 0.01], [0.0, 0.01, 0.01, 0.01, 0.01, 0.0, 0.0]], "matrix_pois": [[3.45, 8.19, 9.73, 7.71, 4.58, 2.18, 0.86], [3.41, 8.12, 9.65, 7.64, 4.54, 2.16, 0.86], [1.69, 4.02, 4.78, 3.79, 2.25, 1.07, 0.42], [0.56, 1.33, 1.58, 1.25, 0.74, 0.35, 0.14], [0.14, 0.33, 0.39, 0.31, 0.18, 0.09, 0.03], [0.03, 0.07, 0.08, 0.06, 0.04, 0.02, 0.01], [0.0, 0.01, 0.01, 0.01, 0.01, 0.0, 0.0]], "oc": {"pois": [14.1, 17.8, 67.0], "dc": [13.6, 19.3, 67.1]}, "low_delta": [{"s": "0-0", "p_pois": 3.4, "p_dc": 4.1}, {"s": "1-0", "p_pois": 3.4, "p_dc": 2.8}, {"s": "0-1", "p_pois": 8.2, "p_dc": 7.6}, {"s": "1-1", "p_pois": 8.1, "p_dc": 8.9}], "verdict": {"first": "客胜", "first_p": 68.1, "first_score": "0-2", "second": "主胜", "second_p": 14.1, "second_score": "2-1", "guard": "主胜", "guard_p": 14.1, "guard_score": "2-1", "guard_model_p": 14.1, "guard_mode": "退路"}, "conf": {"total": 85, "grade": "A · 高", "n_sample": 2, "gap": 11, "agree": 3, "maxpp": 1.2, "top3": 27.5, "w1": 10, "w2": 15, "w3": 25, "w4": 25, "w5": 10.0, "model_dir": "客胜", "market_dir": "客胜"}, "cold": {"fav": "客胜", "fav_mk": 67.6, "fav_model": 68.1, "index": 31.9, "main_cold": "平", "main_cold_p": 17.8, "second_cold": "主胜", "second_cold_p": 14.1}, "steps": {"pattern": "模型给客胜 68.1%，定价去水后给客胜 67.6%，两边最大偏差在主胜 -1.2pp。两边结构基本重合，格局可以按「定价给的强弱势」直接用。", "total": "λ 合计 0.99+2.38=3.37，模型给大 2.5 球 65.4%、大 3.5 球 43.5%、双方进球 57.0%。总量偏高，比分重心落在 2-1、2-2、3-1 一带，低比分可以排除。", "matrix": "0-2 9.8%；1-2 9.8%；1-1 8.9%。 让球(+1) 里模型与定价偏差最大的一格是客胜 -1.0pp，让球一侧两边接近，盘口本身没有明显错位。", "exclude": [{"k": "0-0 与 1-0", "kind": "排除", "why": "模型大 2.5 球 65.4%、双方进球 57.0%，两队都不是闷战型，零封对面的概率不足三成"}, {"k": "主队净胜 2 球以上", "kind": "排除", "why": "与主推方向相悖，模型合计 4.8%"}], "rich": [{"k": "2-2", "kind": "降权", "why": "定价 12.50 隐含 8.0%，模型给 4.8%，溢价 -0.40（定价虚高，不做主推）"}], "tail5": 24.1, "draw_p": 17.8, "low_risk": "平", "low_risk_p": 17.8}, "tech": {"home": {"n": 5, "gf_avg": 2.2, "ga_avg": 1.6, "cs_rate": 0, "sd_for": 2.17, "sd_against": 0.55, "goals_1h": 7, "goals_2h": 12, "share_1h": 36.8, "last_date": "2026-10-11", "results": [{"d": "2026-10-11", "m": "尼斯 2:1 斯特拉斯", "ht": "1:1"}, {"d": "2026-09-19", "m": "巴黎FC 2:1 斯特拉斯", "ht": "1:0"}, {"d": "2026-09-12", "m": "斯特拉斯 1:1 摩纳哥", "ht": "0:0"}, {"d": "2026-09-06", "m": "特鲁瓦 2:6 斯特拉斯", "ht": "1:2"}, {"d": "2026-08-29", "m": "斯特拉斯 2:1 朗斯", "ht": "0:1"}]}, "away": {"n": 5, "gf_avg": 3.2, "ga_avg": 1.0, "cs_rate": 20, "sd_for": 1.92, "sd_against": 0.71, "goals_1h": 8, "goals_2h": 13, "share_1h": 38.1, "last_date": "2026-10-15", "results": [{"d": "2026-10-15", "m": "曼城 2:4 巴黎圣曼", "ht": "0:3"}, {"d": "2026-10-11", "m": "巴黎圣曼 3:1 勒芒", "ht": "1:0"}, {"d": "2026-09-21", "m": "马赛 1:2 巴黎圣曼", "ht": "0:0"}, {"d": "2026-09-14", "m": "布雷斯特 0:1 巴黎圣曼", "ht": "0:1"}, {"d": "2026-09-10", "m": "巴黎圣曼 6:1 布拉迪斯", "ht": "3:0"}]}, "meet": {"n": 5, "low2": 0, "btts": 100, "draw": 20, "avg_total": 4.2, "detail": [{"d": "2026-02-02", "m": "斯特拉斯 1:2 巴黎圣曼", "league": "法甲"}, {"d": "2025-10-18", "m": "巴黎圣曼 3:3 斯特拉斯", "league": "法甲"}, {"d": "2025-05-03", "m": "斯特拉斯 2:1 巴黎圣曼", "league": "法甲"}, {"d": "2024-10-20", "m": "巴黎圣曼 4:2 斯特拉斯", "league": "法甲"}, {"d": "2024-02-03", "m": "斯特拉斯 1:2 巴黎圣曼", "league": "法甲"}]}}, "intel": {"inj": [{"team": "斯特拉斯", "side": "home", "name": "S.纳纳西", "pos": "中场", "apps": 5, "kind": "伤"}, {"team": "斯特拉斯", "side": "home", "name": "F. Jörgensen", "pos": "守门员", "apps": 6, "kind": "伤"}, {"team": "斯特拉斯", "side": "home", "name": "S.玛拉", "pos": "前锋", "apps": 2, "kind": "伤"}, {"team": "斯特拉斯", "side": "home", "name": "M. Godo", "pos": "前锋", "apps": 0, "kind": "伤"}, {"team": "斯特拉斯", "side": "home", "name": "J. Panichelli", "pos": "前锋", "apps": 0, "kind": "伤"}, {"team": "巴黎圣曼", "side": "away", "name": "S. Mayulu", "pos": "中场", "apps": 1, "kind": "伤"}], "note": "主队主场 2 场不败（1 比 1 摩纳哥、2 比 1 朗斯）；客队客场 3 场全胜（含 10/15 欧冠 4 比 2 曼城，要打折）；近10场场均进失 主1.4/2.2 客2.3/1.3；同主客10场 主3胜1平6负 / 客4胜3平3负；交锋近 5 次 斯特拉斯 1胜1平3负；伤停 主 5 人 / 客 1 人", "fix": "form主-0.100 form客+0.250 | H2H factor 0.976 (API近5场 1胜1平3负)", "inj_text": "伤停 主5人/客1人 → λ主×(1-0.040)  λ客×(1+0.040)"}, "ext": {"sm": {"home": "斯特拉斯", "away": "巴黎圣曼", "source": "sportsmole", "predicted": "Strasbourg 0-2 Paris", "note": "Saint-Germain At last, PSG's true quality is shining through, and we trust their speed and creativity will cause fits for the home side on Saturday.", "lineup": "Jorgensen; Antwi, Hogsberg, Coulibaly, Oso; Diop; Reyna, Essugo; Yassine, Ortega, Amo-Ameyaw Paris Saint-Germain possible starting lineup: Safonov; Hakimi, Zabarnyi, Pacho, Digne; Zaire-Emery, Neves, Fernandez; Akliouche, Torres, Doue", "url": "https://www.sportsmole.co.uk/football/strasbourg/preview/strasbourg-vs-psg-prediction-team-news-lineups_606904.html", "fetched_at": "2026-10-17 11:29", "_src": "_ext_20261017.json"}, "af": {"home": "斯特拉斯", "away": "巴黎圣曼", "provider": "api-football", "source": "api-football", "predicted": "", "predicted_dir": "客胜", "hit_prob": 45.0, "note": "胜平负 10/45/45%；Double chance : draw or Paris Saint Germain；倾向胜或平", "lineup": "", "stale_risk": false, "url": "https://www.api-football.com/fixture/1552790", "fetched_at": "2026-10-17 12:12", "_src": "_ext_20261017af.json"}}, "warn": ["🔴 客队过热预警（1.31<1.40）→ 客队胜率-2pp、平局+1.5pp", "⚠️ 主/客分离样本≤2 场，口径A偏薄（已按样本量混入近10场）"], "quote": null, "move": {"name": "斯特拉斯 vs 巴黎圣曼", "notes": ["胜平负共 6 次变动：开盘 5.65/5.00/1.33 → 最新 6.75/5.51/1.25（主胜 +1.10、客胜 -0.08）。", "让球(+1) 6 次变动：让胜 2.75→3.15、让负 1.93→1.75。", "总进球 10-17 16:55：3 球调到最低赔 3.70（最热一格）；1 球 9.50→9.50、2 球 5.25→5.25。", "同盘 4 格变动，说明定价在「几个球」上做过一轮重估。", "半全场 10-17 17:16：平负 4.40→4.30、平平 9.25→9.75、平胜 14.50→16.00、负负 1.80→1.72。", "波胆全盘 28 格，最低赔是 1-2（7.00）；波胆只有当前版本，没有历史位移。"], "spf": [{"t": "10-16 09:42", "h": 5.65, "d": 5.0, "a": 1.33}, {"t": "10-16 13:39", "h": 5.8, "d": 5.15, "a": 1.31}, {"t": "10-17 10:49", "h": 5.95, "d": 5.2, "a": 1.3}, {"t": "10-17 11:51", "h": 6.2, "d": 5.35, "a": 1.28}, {"t": "10-17 13:17", "h": 6.4, "d": 5.38, "a": 1.27}, {"t": "10-17 17:13", "h": 6.75, "d": 5.51, "a": 1.25}], "hand": [{"t": "10-16 09:41", "h": 2.75, "d": 4.05, "a": 1.93, "line": "+1"}, {"t": "10-16 13:39", "h": 2.81, "d": 4.05, "a": 1.9, "line": "+1"}, {"t": "10-17 10:49", "h": 2.88, "d": 4.05, "a": 1.87, "line": "+1"}, {"t": "10-17 11:51", "h": 2.92, "d": 4.1, "a": 1.84, "line": "+1"}, {"t": "10-17 13:17", "h": 3.0, "d": 4.15, "a": 1.8, "line": "+1"}, {"t": "10-17 17:13", "h": 3.15, "d": 4.15, "a": 1.75, "line": "+1"}], "latest_spf": {"t": "10-17 17:13", "odds": [6.75, 5.51, 1.25], "p": [13.1, 16.1, 70.8]}, "open_spf": {"t": "10-16 09:42", "odds": [5.65, 5.0, 1.33], "p": [15.7, 17.7, 66.6]}, "spf_move": [-2.6, -1.6, 4.2], "latest_hand": {"t": "10-17 17:13", "odds": [3.15, 4.15, 1.75], "p": [28.1, 21.3, 50.6]}, "open_hand": {"t": "10-16 09:41", "odds": [2.75, 4.05, 1.93], "p": [32.2, 21.9, 45.9]}, "hand_move": [-4.1, -0.6, 4.7], "goals": {"t_old": "10-16 09:41", "t_new": "10-17 16:55", "odds_old": [35.0, 9.5, 5.25, 3.8, 4.2, 5.5, 8.0], "odds_new": [35.0, 9.5, 5.25, 3.7, 4.0, 5.7, 8.4], "p_old": [2.5, 9.3, 16.8, 23.2, 21.0, 16.1, 11.0], "p_new": [2.5, 9.2, 16.7, 23.7, 21.9, 15.4, 10.5], "model": [3.6, 12.3, 20.7, 23.2, 19.6, 13.1, 7.4], "lowest": "3"}, "htft": {"t_old": "10-16 09:42", "t_new": "10-17 17:16", "rows": [{"k": "负负", "old": 1.8, "new": 1.72, "chg": -0.08}, {"k": "平负", "old": 4.4, "new": 4.3, "chg": -0.1}, {"k": "平平", "old": 9.25, "new": 9.75, "chg": 0.5}, {"k": "平胜", "old": 14.5, "new": 16.0, "chg": 1.5}, {"k": "负平", "old": 18.0, "new": 18.0, "chg": 0.0}], "draw_half_sum": 30.05}, "pool": [{"s": "1-2", "odd": 7.0, "p": 14.3, "dir": "客胜"}, {"s": "1-3", "odd": 8.75, "p": 11.4, "dir": "客胜"}, {"s": "0-2", "odd": 9.75, "p": 10.3, "dir": "客胜"}, {"s": "1-1", "odd": 10.5, "p": 9.5, "dir": "平"}, {"s": "0-3", "odd": 11.5, "p": 8.7, "dir": "客胜"}, {"s": "2-2", "odd": 12.5, "p": 8.0, "dir": "平"}, {"s": "0-1", "odd": 12.5, "p": 8.0, "dir": "客胜"}, {"s": "2-3", "odd": 13.5, "p": 7.4, "dir": "客胜"}, {"s": "1-4", "odd": 14.0, "p": 7.1, "dir": "客胜"}, {"s": "2-1", "odd": 17.0, "p": 5.9, "dir": "主胜"}, {"s": "0-4", "odd": 18.0, "p": 5.6, "dir": "客胜"}, {"s": "2-4", "odd": 24.0, "p": 4.2, "dir": "客胜"}, {"s": "1-0", "odd": 26.0, "p": 3.8, "dir": "主胜"}, {"s": "1-5", "odd": 27.0, "p": 3.7, "dir": "客胜"}, {"s": "3-3", "odd": 32.0, "p": 3.1, "dir": "平"}, {"s": "3-2", "odd": 32.0, "p": 3.1, "dir": "主胜"}, {"s": "0-0", "odd": 35.0, "p": 2.9, "dir": "平"}, {"s": "0-5", "odd": 36.0, "p": 2.8, "dir": "客胜"}, {"s": "2-5", "odd": 45.0, "p": 2.2, "dir": "客胜"}, {"s": "2-0", "odd": 45.0, "p": 2.2, "dir": "主胜"}, {"s": "3-1", "odd": 45.0, "p": 2.2, "dir": "主胜"}, {"s": "3-0", "odd": 100.0, "p": 1.0, "dir": "主胜"}, {"s": "4-2", "odd": 100.0, "p": 1.0, "dir": "主胜"}, {"s": "4-1", "odd": 120.0, "p": 0.8, "dir": "主胜"}, {"s": "4-0", "odd": 300.0, "p": 0.3, "dir": "主胜"}, {"s": "5-2", "odd": 400.0, "p": 0.2, "dir": "主胜"}, {"s": "5-1", "odd": 500.0, "p": 0.2, "dir": "主胜"}, {"s": "5-0", "odd": 700.0, "p": 0.1, "dir": "主胜"}]}}, {"no": "周六026", "league": "西甲", "home": "贝蒂斯", "away": "巴萨", "mid": "2042043", "kick": "10/18 00:30", "hand": 1, "lam": {"l1": [1.842, 3.067], "l2": [0.872, 2.413], "fin": [1.842, 3.067], "total": 4.91}, "p": [21.3, 16.1, 62.5], "mk": [14.8, 16.1, 69.2], "edge": [6.6, 0.1, -6.6], "hp": [37.5, 18.5, 44.0], "hmk": [30.0, 20.8, 49.2], "h_edge": [7.5, -2.3, -5.1], "odds": [6.0, 5.5, 1.28], "payout": 88.5, "over": {"1.5": 95.6, "2.5": 86.7, "3.5": 72.2}, "btts": 80.2, "goals": [0.7, 3.6, 8.9, 14.6, 17.9, 17.5, 14.3], "goals_dc": [1.1, 3.1, 9.6, 15.2, 18.6, 18.3, 14.9, 10.1, 5.5, 2.5, 0.9, 0.3, 0.0, 0.0], "win_nodraw": [25.4, 74.6], "top": [{"s": "1-3", "p": 6.8, "odd": 9.0, "ev": -0.41}, {"s": "1-2", "p": 6.7, "odd": 8.0, "ev": -0.49}, {"s": "2-3", "p": 6.3, "odd": 14.0, "ev": -0.16}, {"s": "2-2", "p": 6.1, "odd": 12.0, "ev": -0.29}, {"s": "1-4", "p": 5.2, "odd": 14.0, "ev": -0.3}, {"s": "2-4", "p": 4.8, "odd": 20.0, "ev": -0.08}, {"s": "1-1", "p": 4.7, "odd": 11.0, "ev": -0.54}, {"s": "2-1", "p": 4.0, "odd": 16.0, "ev": -0.39}, {"s": "3-3", "p": 3.8}, {"s": "3-2", "p": 3.8}, {"s": "0-3", "p": 3.7}, {"s": "0-2", "p": 3.6}], "matrix": [[1.12, 2.01, 3.61, 3.7, 2.83, 1.74, 0.89], [1.07, 4.69, 6.66, 6.81, 5.22, 3.2, 1.64], [1.3, 4.0, 6.13, 6.27, 4.81, 2.95, 1.51], [0.8, 2.46, 3.77, 3.85, 2.95, 1.81, 0.93], [0.37, 1.13, 1.73, 1.77, 1.36, 0.83, 0.43], [0.14, 0.42, 0.64, 0.65, 0.5, 0.31, 0.16], [0.04, 0.13, 0.2, 0.2, 0.15, 0.09, 0.05]], "matrix_pois": [[0.74, 2.26, 3.47, 3.55, 2.72, 1.67, 0.85], [1.36, 4.17, 6.39, 6.54, 5.01, 3.07, 1.57], [1.25, 3.84, 5.89, 6.02, 4.62, 2.83, 1.45], [0.77, 2.36, 3.62, 3.7, 2.83, 1.74, 0.89], [0.35, 1.09, 1.66, 1.7, 1.31, 0.8, 0.41], [0.13, 0.4, 0.61, 0.63, 0.48, 0.29, 0.15], [0.04, 0.12, 0.19, 0.19, 0.15, 0.09, 0.05]], "oc": {"pois": [21.0, 16.1, 58.8], "dc": [21.6, 17.5, 60.9]}, "low_delta": [{"s": "0-0", "p_pois": 0.7, "p_dc": 1.1}, {"s": "1-0", "p_pois": 1.4, "p_dc": 1.1}, {"s": "0-1", "p_pois": 2.3, "p_dc": 2.0}, {"s": "1-1", "p_pois": 4.2, "p_dc": 4.7}], "verdict": {"first": "客胜", "first_p": 62.5, "first_score": "1-3", "second": "主胜", "second_p": 21.3, "second_score": "2-1", "guard": "主胜", "guard_p": 21.3, "guard_score": "2-1", "guard_model_p": 21.3, "guard_mode": "退路"}, "conf": {"total": 65, "grade": "C · 中", "n_sample": 3, "gap": 48, "agree": 3, "maxpp": 6.6, "top3": 18.9, "w1": 16, "w2": 0, "w3": 25, "w4": 17, "w5": 7.3, "model_dir": "客胜", "market_dir": "客胜"}, "cold": {"fav": "客胜", "fav_mk": 69.2, "fav_model": 62.5, "index": 37.4, "main_cold": "主胜", "main_cold_p": 21.3, "second_cold": "平", "second_cold_p": 16.1}, "steps": {"pattern": "模型给客胜 62.5%，定价去水后给客胜 69.2%，两边最大偏差在客胜 -6.7pp。偏差中等，说明市场在押某件模型还没反映的事，方向可信、幅度要打折。", "total": "λ 合计 1.84+3.07=4.91，模型给大 2.5 球 86.7%、大 3.5 球 72.2%、双方进球 80.2%。总量偏高，比分重心落在 2-1、2-2、3-1 一带，低比分可以排除。", "matrix": "1-3 6.8%；1-2 6.7%；2-3 6.3%。 让球(+1) 里模型与定价偏差最大的一格是主胜 +7.5pp，让球一侧两边接近，盘口本身没有明显错位。", "exclude": [{"k": "0-0 与 1-0", "kind": "排除", "why": "模型大 2.5 球 86.7%、双方进球 80.2%，两队都不是闷战型，零封对面的概率不足三成"}, {"k": "主队净胜 2 球以上", "kind": "降权", "why": "与主推方向相悖，模型合计 10.4%"}], "rich": [{"k": "1-3", "kind": "降权", "why": "定价 9.00 隐含 11.1%，模型给 6.5%，溢价 -0.41（定价虚高，不做主推）"}, {"k": "1-2", "kind": "降权", "why": "定价 8.00 隐含 12.5%，模型给 6.4%，溢价 -0.49（定价虚高，不做主推）"}, {"k": "1-1", "kind": "降权", "why": "定价 11.00 隐含 9.1%，模型给 4.2%，溢价 -0.54（定价虚高，不做主推）"}], "tail5": 52.4, "draw_p": 16.1, "low_risk": "主胜", "low_risk_p": 21.3}, "tech": {"home": {"n": 5, "gf_avg": 2.4, "ga_avg": 1.2, "cs_rate": 20, "sd_for": 1.67, "sd_against": 0.84, "goals_1h": 7, "goals_2h": 11, "share_1h": 38.9, "last_date": "2026-10-15", "results": [{"d": "2026-10-15", "m": "贝蒂斯 3:2 波尔图", "ht": "0:0"}, {"d": "2026-10-12", "m": "贝蒂斯 5:2 奥萨苏纳", "ht": "2:0"}, {"d": "2026-09-21", "m": "拉科 1:1 贝蒂斯", "ht": "0:1"}, {"d": "2026-09-18", "m": "贝蒂斯 1:0 赫塔费", "ht": "1:0"}, {"d": "2026-09-15", "m": "比利亚雷 1:2 贝蒂斯", "ht": "1:2"}]}, "away": {"n": 5, "gf_avg": 4.2, "ga_avg": 1.2, "cs_rate": 20, "sd_for": 1.64, "sd_against": 0.84, "goals_1h": 13, "goals_2h": 14, "share_1h": 48.1, "last_date": "2026-10-14", "results": [{"d": "2026-10-14", "m": "加拉塔萨 1:4 巴萨", "ht": "1:1"}, {"d": "2026-10-11", "m": "巴萨 3:0 赫塔费", "ht": "2:0"}, {"d": "2026-09-20", "m": "塞维利亚 1:3 巴萨", "ht": "1:1"}, {"d": "2026-09-17", "m": "巴萨 7:2 桑坦德", "ht": "4:1"}, {"d": "2026-09-13", "m": "莱万特 2:4 巴萨", "ht": "0:2"}]}, "meet": {"n": 5, "low2": 20, "btts": 100, "draw": 40, "avg_total": 4.8, "detail": [{"d": "2026-05-18", "m": "巴萨 3:1 贝蒂斯", "league": "西甲"}, {"d": "2025-12-07", "m": "贝蒂斯 3:5 巴萨", "league": "西甲"}, {"d": "2025-04-06", "m": "巴萨 1:1 贝蒂斯", "league": "西甲"}, {"d": "2025-01-16", "m": "巴萨 5:1 贝蒂斯", "league": "西国王杯"}, {"d": "2024-12-07", "m": "贝蒂斯 2:2 巴萨", "league": "西甲"}]}}, "intel": {"inj": [{"team": "贝蒂斯", "side": "home", "name": "胡尼奥尔·菲尔波", "pos": "后卫", "apps": 2, "kind": "伤"}, {"team": "巴萨", "side": "away", "name": "R. Bardghji", "pos": "前锋", "apps": 0, "kind": "伤"}, {"team": "巴萨", "side": "away", "name": "Pau Cubarsí", "pos": "后卫", "apps": 5, "kind": "伤"}], "note": "两队主客分离样本都是 3 场全胜：主队含 10/15 欧联 3 比 2 波尔图、5 比 2 奥萨苏纳；客队含 10/14 欧冠 4 比 1 加拉塔萨雷；近10场场均进失 主2.0/1.3 客4.3/0.9（客队进球数极端）；同主客10场 主9胜1平0负 / 客7胜1平2负；交锋近 5 次 贝蒂斯 0胜2平3负", "fix": "form主+0.250 form客+0.250 | H2H factor 0.880 (API近5场 0胜2平3负)", "inj_text": "伤停 主1人/客2人 → λ主×(1+0.010)  λ客×(1-0.010)"}, "ext": {"sm": {"home": "贝蒂斯", "away": "巴萨", "source": "sportsmole", "predicted": "Real Betis 1-2 Barcelona", "note": "Real Betis are a serious, serious outfit, and it would not be a surprise to see the Seville team end Barcelona's winning run on Saturday.", "lineup": "Valles; Bellerin, Llorente, Natan, Garcia; Fornals, Roca; Riquelme, Isco, Ezzalzouli; Hernandez Barcelona possible starting lineup: J Garcia; E Garcia, Cubarsi, Martin, Espart; Fermin, Rodri, Pedri; Yamal, G Jesus, Gordon", "url": "https://www.sportsmole.co.uk/football/barcelona/race-for-the-la-liga-title/preview/betis-vs-barcelona-prediction-team-news-lineups_606964.html", "fetched_at": "2026-10-17 11:29", "_src": "_ext_20261017.json"}, "af": {"home": "贝蒂斯", "away": "巴萨", "provider": "api-football", "source": "api-football", "predicted": "", "predicted_dir": "客胜", "hit_prob": 45.0, "note": "胜平负 10/45/45%；Double chance : draw or Barcelona；倾向胜或平", "lineup": "", "stale_risk": false, "url": "https://www.api-football.com/fixture/1570413", "fetched_at": "2026-10-17 12:12", "_src": "_ext_20261017af.json"}}, "warn": ["🔴 客队过热预警（1.28<1.40）→ 客队胜率-2pp、平局+1.5pp"], "quote": null, "move": {"name": "贝蒂斯 vs 巴萨", "notes": ["胜平负共 5 次变动：开盘 5.60/5.20/1.32 → 最新 6.10/5.60/1.27（主胜 +0.50、客胜 -0.05）。", "客胜最低点出现在 10-17 10:57（1.26），也就是这次变盘的情绪高点，之后往回走。", "让球(+1) 5 次变动：让胜 2.75→3.05、让负 1.94→1.75。", "总进球 10-17 16:14：4 球调到最低赔 3.90（最热一格）；1 球 11.00→13.50、2 球 5.75→6.45。", "同盘 7 格变动，说明定价在「几个球」上做过一轮重估。", "半全场 10-16 21:32：平负 4.50→4.50、平平 9.75→10.00、平胜 14.50→16.00、负负 1.82→1.75。", "波胆全盘 28 格，最低赔是 1-2（8.00）；波胆只有当前版本，没有历史位移。"], "spf": [{"t": "10-16 09:42", "h": 5.6, "d": 5.2, "a": 1.32}, {"t": "10-16 13:33", "h": 5.8, "d": 5.35, "a": 1.3}, {"t": "10-16 21:31", "h": 6.0, "d": 5.5, "a": 1.28}, {"t": "10-17 10:57", "h": 6.3, "d": 5.65, "a": 1.26}, {"t": "10-17 13:10", "h": 6.1, "d": 5.6, "a": 1.27}], "hand": [{"t": "10-16 09:41", "h": 2.75, "d": 4.0, "a": 1.94, "line": "+1"}, {"t": "10-16 13:33", "h": 2.85, "d": 4.05, "a": 1.88, "line": "+1"}, {"t": "10-16 21:31", "h": 2.95, "d": 4.25, "a": 1.8, "line": "+1"}, {"t": "10-17 10:57", "h": 3.15, "d": 4.35, "a": 1.72, "line": "+1"}, {"t": "10-17 13:10", "h": 3.05, "d": 4.35, "a": 1.75, "line": "+1"}], "latest_spf": {"t": "10-17 13:10", "odds": [6.1, 5.6, 1.27], "p": [14.5, 15.8, 69.7]}, "open_spf": {"t": "10-16 09:42", "odds": [5.6, 5.2, 1.32], "p": [15.8, 17.0, 67.1]}, "spf_move": [-1.3, -1.2, 2.6], "latest_hand": {"t": "10-17 13:10", "odds": [3.05, 4.35, 1.75], "p": [29.0, 20.4, 50.6]}, "open_hand": {"t": "10-16 09:41", "odds": [2.75, 4.0, 1.94], "p": [32.2, 22.1, 45.7]}, "hand_move": [-3.2, -1.7, 4.9], "goals": {"t_old": "10-16 09:41", "t_new": "10-17 16:14", "odds_old": [40.0, 11.0, 5.75, 3.85, 4.05, 5.1, 7.75], "odds_new": [50.0, 13.5, 6.45, 4.15, 3.9, 4.9, 7.0], "p_old": [2.2, 8.1, 15.5, 23.2, 22.0, 17.5, 11.5], "p_new": [1.8, 6.8, 14.2, 22.0, 23.5, 18.7, 13.1], "model": [0.9, 4.6, 11.5, 18.8, 23.1, 22.6, 18.5], "lowest": "4"}, "htft": {"t_old": "10-16 09:42", "t_new": "10-16 21:32", "rows": [{"k": "负负", "old": 1.82, "new": 1.75, "chg": -0.07}, {"k": "平负", "old": 4.5, "new": 4.5, "chg": 0.0}, {"k": "平平", "old": 9.75, "new": 10.0, "chg": 0.25}, {"k": "平胜", "old": 14.5, "new": 16.0, "chg": 1.5}, {"k": "负平", "old": 17.0, "new": 18.0, "chg": 1.0}], "draw_half_sum": 30.5}, "pool": [{"s": "1-2", "odd": 8.0, "p": 12.5, "dir": "客胜"}, {"s": "1-3", "odd": 9.0, "p": 11.1, "dir": "客胜"}, {"s": "0-2", "odd": 11.0, "p": 9.1, "dir": "客胜"}, {"s": "1-1", "odd": 11.0, "p": 9.1, "dir": "平"}, {"s": "2-2", "odd": 12.0, "p": 8.3, "dir": "平"}, {"s": "0-3", "odd": 12.0, "p": 8.3, "dir": "客胜"}, {"s": "2-3", "odd": 14.0, "p": 7.1, "dir": "客胜"}, {"s": "0-1", "odd": 14.0, "p": 7.1, "dir": "客胜"}, {"s": "1-4", "odd": 14.0, "p": 7.1, "dir": "客胜"}, {"s": "2-1", "odd": 16.0, "p": 6.2, "dir": "主胜"}, {"s": "0-4", "odd": 18.0, "p": 5.6, "dir": "客胜"}, {"s": "2-4", "odd": 20.0, "p": 5.0, "dir": "客胜"}, {"s": "1-5", "odd": 25.0, "p": 4.0, "dir": "客胜"}, {"s": "3-2", "odd": 26.0, "p": 3.8, "dir": "主胜"}, {"s": "1-0", "odd": 28.0, "p": 3.6, "dir": "主胜"}, {"s": "3-3", "odd": 28.0, "p": 3.6, "dir": "平"}, {"s": "0-5", "odd": 35.0, "p": 2.9, "dir": "客胜"}, {"s": "3-1", "odd": 40.0, "p": 2.5, "dir": "主胜"}, {"s": "0-0", "odd": 40.0, "p": 2.5, "dir": "平"}, {"s": "2-5", "odd": 45.0, "p": 2.2, "dir": "客胜"}, {"s": "2-0", "odd": 50.0, "p": 2.0, "dir": "主胜"}, {"s": "3-0", "odd": 90.0, "p": 1.1, "dir": "主胜"}, {"s": "4-2", "odd": 90.0, "p": 1.1, "dir": "主胜"}, {"s": "4-1", "odd": 100.0, "p": 1.0, "dir": "主胜"}, {"s": "5-2", "odd": 300.0, "p": 0.3, "dir": "主胜"}, {"s": "5-1", "odd": 300.0, "p": 0.3, "dir": "主胜"}, {"s": "4-0", "odd": 300.0, "p": 0.3, "dir": "主胜"}, {"s": "5-0", "odd": 500.0, "p": 0.2, "dir": "主胜"}]}}, {"no": "周六029", "league": "西甲", "home": "巴伦西亚", "away": "毕尔巴鄂", "mid": "2042046", "kick": "10/18 03:00", "hand": 1, "lam": {"l1": [0.8, 2.134], "l2": [1.287, 1.598], "fin": [1.044, 2.134], "total": 3.18}, "p": [17.6, 20.1, 62.3], "mk": [27.7, 28.6, 43.7], "edge": [-10.1, -8.5, 18.6], "hp": [37.7, 23.2, 39.1], "hmk": [55.4, 24.6, 20.0], "h_edge": [-17.7, -1.4, 19.0], "odds": [3.2, 3.1, 2.03], "payout": 88.7, "over": {"1.5": 82.6, "2.5": 61.5, "3.5": 39.3}, "btts": 57.1, "goals": [4.2, 13.2, 21.0, 22.3, 17.7, 11.3, 6.0], "goals_dc": [4.9, 11.8, 21.9, 22.4, 17.8, 11.3, 6.0, 2.6, 0.9, 0.2, 0.0, 0.0, 0.0, 0.0], "win_nodraw": [22.0, 78.0], "top": [{"s": "1-1", "p": 10.1, "odd": 5.6, "ev": -0.48}, {"s": "1-2", "p": 10.0, "odd": 7.25, "ev": -0.28}, {"s": "0-2", "p": 9.5, "odd": 9.0, "ev": -0.15}, {"s": "0-1", "p": 8.2, "odd": 6.5, "ev": -0.42}, {"s": "1-3", "p": 7.1, "odd": 16.0, "ev": 0.13}, {"s": "0-3", "p": 6.8, "odd": 18.0, "ev": 0.22}, {"s": "2-2", "p": 5.2, "odd": 13.5, "ev": -0.3}, {"s": "0-0", "p": 4.9}, {"s": "2-1", "p": 4.9, "odd": 10.0, "ev": -0.52}, {"s": "1-4", "p": 3.8}, {"s": "2-3", "p": 3.7}, {"s": "1-0", "p": 3.6}], "matrix": [[4.94, 8.2, 9.55, 6.79, 3.62, 1.55, 0.55], [3.63, 10.09, 9.97, 7.09, 3.78, 1.61, 0.57], [2.29, 4.88, 5.2, 3.7, 1.98, 0.84, 0.3], [0.8, 1.7, 1.81, 1.29, 0.69, 0.29, 0.1], [0.21, 0.44, 0.47, 0.34, 0.18, 0.08, 0.03], [0.04, 0.09, 0.1, 0.07, 0.04, 0.02, 0.01], [0.01, 0.02, 0.02, 0.01, 0.01, 0.0, 0.0]], "matrix_pois": [[4.17, 8.89, 9.49, 6.75, 3.6, 1.54, 0.55], [4.35, 9.28, 9.91, 7.05, 3.76, 1.6, 0.57], [2.27, 4.85, 5.17, 3.68, 1.96, 0.84, 0.3], [0.79, 1.69, 1.8, 1.28, 0.68, 0.29, 0.1], [0.21, 0.44, 0.47, 0.33, 0.18, 0.08, 0.03], [0.04, 0.09, 0.1, 0.07, 0.04, 0.02, 0.01], [0.01, 0.02, 0.02, 0.01, 0.01, 0.0, 0.0]], "oc": {"pois": [17.6, 20.1, 61.7], "dc": [17.0, 21.7, 61.3]}, "low_delta": [{"s": "0-0", "p_pois": 4.2, "p_dc": 4.9}, {"s": "1-0", "p_pois": 4.4, "p_dc": 3.6}, {"s": "0-1", "p_pois": 8.9, "p_dc": 8.2}, {"s": "1-1", "p_pois": 9.3, "p_dc": 10.1}], "verdict": {"first": "客胜", "first_p": 62.3, "first_score": "1-2", "second": "主胜", "second_p": 17.6, "second_score": "2-1", "guard": "主胜", "guard_p": 17.6, "guard_score": "2-1", "guard_model_p": 17.6, "guard_mode": "退路"}, "conf": {"total": 46, "grade": "D · 谨慎", "n_sample": 2, "gap": 38, "agree": 2, "maxpp": 18.6, "top3": 28.7, "w1": 10, "w2": 3, "w3": 17, "w4": 6, "w5": 10.0, "model_dir": "客胜", "market_dir": "客胜"}, "cold": {"fav": "客胜", "fav_mk": 43.7, "fav_model": 62.3, "index": 37.7, "main_cold": "平", "main_cold_p": 20.1, "second_cold": "主胜", "second_cold_p": 17.6}, "steps": {"pattern": "模型给客胜 62.3%，定价去水后给客胜 43.7%，两边最大偏差在客胜 +18.6pp。偏差超过 15 个百分点，按纪律先假定我方样本有缺口，这一格只做方向参考。", "total": "λ 合计 1.04+2.13=3.18，模型给大 2.5 球 61.5%、大 3.5 球 39.3%、双方进球 57.1%。总量偏高，比分重心落在 2-1、2-2、3-1 一带，低比分可以排除。", "matrix": "1-1 10.1%；1-2 10.0%；0-2 9.5%。 让球(+1) 里模型与定价偏差最大的一格是客胜 +19.0pp，说明分歧落在「赢几个」而不是「谁赢」。", "exclude": [{"k": "主队净胜 2 球以上", "kind": "排除", "why": "与主推方向相悖，模型合计 6.3%"}], "rich": [{"k": "1-1", "kind": "降权", "why": "定价 5.60 隐含 17.9%，模型给 9.3%，溢价 -0.48（定价虚高，不做主推）"}, {"k": "0-1", "kind": "降权", "why": "定价 6.50 隐含 15.4%，模型给 8.9%，溢价 -0.42（定价虚高，不做主推）"}, {"k": "2-1", "kind": "降权", "why": "定价 10.00 隐含 10.0%，模型给 4.8%，溢价 -0.52（定价虚高，不做主推）"}], "tail5": 21.0, "draw_p": 20.1, "low_risk": "平", "low_risk_p": 20.1}, "tech": {"home": {"n": 5, "gf_avg": 1.0, "ga_avg": 2.2, "cs_rate": 20, "sd_for": 1.0, "sd_against": 1.92, "goals_1h": 5, "goals_2h": 11, "share_1h": 31.2, "last_date": "2026-10-12", "results": [{"d": "2026-10-12", "m": "桑坦德 2:2 巴伦西亚", "ht": "1:1"}, {"d": "2026-09-21", "m": "巴伦西亚 2:3 皇家社会", "ht": "0:1"}, {"d": "2026-09-16", "m": "阿拉维斯 0:1 巴伦西亚", "ht": "0:0"}, {"d": "2026-09-12", "m": "塞维利亚 1:0 巴伦西亚", "ht": "0:0"}, {"d": "2026-09-06", "m": "巴伦西亚 0:5 巴萨", "ht": "0:2"}]}, "away": {"n": 5, "gf_avg": 1.2, "ga_avg": 0.6, "cs_rate": 60, "sd_for": 1.3, "sd_against": 0.89, "goals_1h": 3, "goals_2h": 6, "share_1h": 33.3, "last_date": "2026-09-19", "results": [{"d": "2026-09-19", "m": "毕尔巴鄂 0:0 阿拉维斯", "ht": "0:0"}, {"d": "2026-09-13", "m": "毕尔巴鄂 1:1 埃尔切", "ht": "0:0"}, {"d": "2026-09-05", "m": "毕尔巴鄂 3:0 马竞", "ht": "0:0"}, {"d": "2026-08-31", "m": "塞尔塔 0:2 毕尔巴鄂", "ht": "0:2"}, {"d": "2026-08-28", "m": "巴萨 2:0 毕尔巴鄂", "ht": "1:0"}]}, "meet": {"n": 5, "low2": 80, "btts": 20, "draw": 0, "avg_total": 1.6, "detail": [{"d": "2026-05-10", "m": "毕尔巴鄂 0:1 巴伦西亚", "league": "西甲"}, {"d": "2026-02-05", "m": "巴伦西亚 1:2 毕尔巴鄂", "league": "西国王杯"}, {"d": "2025-09-21", "m": "巴伦西亚 2:0 毕尔巴鄂", "league": "西甲"}, {"d": "2025-05-19", "m": "巴伦西亚 0:1 毕尔巴鄂", "league": "西甲"}, {"d": "2024-08-29", "m": "毕尔巴鄂 1:0 巴伦西亚", "league": "西甲"}]}}, "intel": {"inj": [{"team": "巴伦西亚", "side": "home", "name": "马菲奥", "pos": "后卫", "apps": 7, "kind": "伤"}, {"team": "巴伦西亚", "side": "home", "name": "U. Sadiq", "pos": "前锋", "apps": 3, "kind": "伤"}, {"team": "巴伦西亚", "side": "home", "name": "Diego López", "pos": "前锋", "apps": 0, "kind": "伤"}, {"team": "毕尔巴鄂", "side": "away", "name": "拉波特", "pos": "后卫", "apps": 6, "kind": "伤"}, {"team": "毕尔巴鄂", "side": "away", "name": "Álvaro Djaló", "pos": "前锋", "apps": 1, "kind": "伤"}, {"team": "毕尔巴鄂", "side": "away", "name": "威廉斯", "pos": "前锋", "apps": 6, "kind": "伤"}, {"team": "毕尔巴鄂", "side": "away", "name": "Á. Padilla", "pos": "守门员", "apps": 0, "kind": "伤"}, {"team": "毕尔巴鄂", "side": "away", "name": "Unai Eguíluz", "pos": "后卫", "apps": 0, "kind": "伤"}], "note": "主队主场 2 场全败失 8 球（2 比 3 皇家社会、0 比 5 巴萨）→ λ 主队偏低；客队客场 2 场 1 胜 1 负（2 比 0 塞尔塔、0 比 2 巴萨）；近10场场均进失 主0.8/1.8 客1.4/1.0；同主客10场 主2胜2平6负 / 客6胜0平4负；交锋近 5 次 巴伦西亚 2胜0平3负；伤停 主 3 人 / 客 5 人", "fix": "form主-0.160 form客+0.160 | H2H factor 1.000 (API近5场 2胜0平3负)", "inj_text": "伤停 主3人/客5人 → λ主×(1+0.020)  λ客×(1-0.020)"}, "ext": {"sm": {"home": "巴伦西亚", "away": "毕尔巴鄂", "source": "sportsmole", "predicted": "Valencia 1-1 Athletic", "note": "Bilbao Valencia have struggled for results and performances this season, and they will be coming up against an Athletic team with a lot of talent, but absences could count the Lions the chance to secure all three points ", "lineup": "Simon; Areso, Alvarez, Laporte, Berchiche; Inigo de Galarreta, Gerenabarrena; Navarro, Canales, Berenguer; I Williams", "url": "https://www.sportsmole.co.uk/football/valencia/preview/valencia-vs-athletic-bilbao-prediction-team-news-lineups_607000.html", "fetched_at": "2026-10-17 11:29", "_src": "_ext_20261017.json"}, "af": {"home": "巴伦西亚", "away": "毕尔巴鄂", "provider": "api-football", "source": "api-football", "predicted": "", "predicted_dir": "客胜", "hit_prob": 45.0, "note": "胜平负 10/45/45%；Double chance : draw or Athletic Club；倾向胜或平", "lineup": "", "stale_risk": false, "url": "https://www.api-football.com/fixture/1570421", "fetched_at": "2026-10-17 12:12", "_src": "_ext_20261017af.json"}}, "warn": ["⚠️ 模型/市场≥10pp 分歧：按 skill「国内联赛定价更精准」原则，先假定我方数据有缺口，不直接采信", "⚠️ 主/客分离样本≤2 场，口径A偏薄（已按样本量混入近10场）"], "quote": null, "move": {"name": "巴伦西亚 vs 毕尔巴鄂", "notes": ["胜平负共 2 次变动：开盘 3.20/3.10/2.03 → 最新 3.30/3.00/2.03（主胜 +0.10、客胜 +0.00）。", "让球(+1) 2 次变动：让胜 1.60→1.61、让负 4.42→4.50。", "总进球 10-17 16:39：2 球调到最低赔 2.95（最热一格）；1 球 4.20→4.15、2 球 3.10→2.95。", "同盘 5 格变动，说明定价在「几个球」上做过一轮重估。", "半全场 10-17 14:57：平负 4.80→4.60、平平 4.50→4.35、平胜 7.00→7.00、负负 3.40→3.45。", "波胆全盘 28 格，最低赔是 1-1（5.60）；波胆只有当前版本，没有历史位移。"], "spf": [{"t": "10-16 09:41", "h": 3.2, "d": 3.1, "a": 2.03}, {"t": "10-17 17:00", "h": 3.3, "d": 3.0, "a": 2.03}], "hand": [{"t": "10-16 09:42", "h": 1.6, "d": 3.6, "a": 4.42, "line": "+1"}, {"t": "10-17 17:00", "h": 1.61, "d": 3.5, "a": 4.5, "line": "+1"}], "latest_spf": {"t": "10-17 17:00", "odds": [3.3, 3.0, 2.03], "p": [26.8, 29.5, 43.6]}, "open_spf": {"t": "10-16 09:41", "odds": [3.2, 3.1, 2.03], "p": [27.7, 28.6, 43.7]}, "spf_move": [-0.9, 0.9, -0.1], "latest_hand": {"t": "10-17 17:00", "odds": [1.61, 3.5, 4.5], "p": [55.0, 25.3, 19.7]}, "open_hand": {"t": "10-16 09:42", "odds": [1.6, 3.6, 4.42], "p": [55.4, 24.6, 20.0]}, "hand_move": [-0.4, 0.7, -0.3], "goals": {"t_old": "10-16 09:42", "t_new": "10-17 16:39", "odds_old": [9.5, 4.2, 3.1, 3.6, 6.1, 12.5, 25.0], "odds_new": [9.5, 4.15, 2.95, 3.7, 6.1, 13.0, 28.0], "p_old": [8.6, 19.4, 26.3, 22.6, 13.4, 6.5, 3.3], "p_new": [8.5, 19.6, 27.5, 21.9, 13.3, 6.2, 2.9], "model": [4.4, 13.8, 21.9, 23.3, 18.5, 11.8, 6.3], "lowest": "2"}, "htft": {"t_old": "10-16 09:41", "t_new": "10-17 14:57", "rows": [{"k": "负负", "old": 3.4, "new": 3.45, "chg": 0.05}, {"k": "平平", "old": 4.5, "new": 4.35, "chg": -0.15}, {"k": "平负", "old": 4.8, "new": 4.6, "chg": -0.2}, {"k": "平胜", "old": 7.0, "new": 7.0, "chg": 0.0}, {"k": "负平", "old": 15.0, "new": 15.5, "chg": 0.5}], "draw_half_sum": 15.95}, "pool": [{"s": "1-1", "odd": 5.6, "p": 17.9, "dir": "平"}, {"s": "0-1", "odd": 6.5, "p": 15.4, "dir": "客胜"}, {"s": "1-2", "odd": 7.25, "p": 13.8, "dir": "客胜"}, {"s": "1-0", "odd": 8.5, "p": 11.8, "dir": "主胜"}, {"s": "0-2", "odd": 9.0, "p": 11.1, "dir": "客胜"}, {"s": "0-0", "odd": 9.5, "p": 10.5, "dir": "平"}, {"s": "2-1", "odd": 10.0, "p": 10.0, "dir": "主胜"}, {"s": "2-2", "odd": 13.5, "p": 7.4, "dir": "平"}, {"s": "2-0", "odd": 15.0, "p": 6.7, "dir": "主胜"}, {"s": "1-3", "odd": 16.0, "p": 6.2, "dir": "客胜"}, {"s": "0-3", "odd": 18.0, "p": 5.6, "dir": "客胜"}, {"s": "2-3", "odd": 30.0, "p": 3.3, "dir": "客胜"}, {"s": "3-1", "odd": 30.0, "p": 3.3, "dir": "主胜"}, {"s": "3-2", "odd": 35.0, "p": 2.9, "dir": "主胜"}, {"s": "3-0", "odd": 50.0, "p": 2.0, "dir": "主胜"}, {"s": "0-4", "odd": 50.0, "p": 2.0, "dir": "客胜"}, {"s": "1-4", "odd": 50.0, "p": 2.0, "dir": "客胜"}, {"s": "3-3", "odd": 75.0, "p": 1.3, "dir": "平"}, {"s": "2-4", "odd": 90.0, "p": 1.1, "dir": "客胜"}, {"s": "4-1", "odd": 100.0, "p": 1.0, "dir": "主胜"}, {"s": "0-5", "odd": 150.0, "p": 0.7, "dir": "客胜"}, {"s": "4-2", "odd": 150.0, "p": 0.7, "dir": "主胜"}, {"s": "4-0", "odd": 150.0, "p": 0.7, "dir": "主胜"}, {"s": "1-5", "odd": 150.0, "p": 0.7, "dir": "客胜"}, {"s": "2-5", "odd": 200.0, "p": 0.5, "dir": "客胜"}, {"s": "5-0", "odd": 400.0, "p": 0.2, "dir": "主胜"}, {"s": "5-2", "odd": 400.0, "p": 0.2, "dir": "主胜"}, {"s": "5-1", "odd": 400.0, "p": 0.2, "dir": "主胜"}]}}]};
+const TABS = [
+  ["overview","总览"],["math","数理模型"],["tech","高阶数据"],["intel","基本面"],
+  ["market","盘口定价"],["move","盘口变盘"],["concl","推演闭环"],["cmp","外媒 × AI"]
+];
+const S = {i:0, tab:"overview", dc:true, odds:true};
+
+/* ── 工具 ── */
+const $ = s => document.querySelector(s);
+const f = (x,d=1) => (x===null||x===undefined||Number.isNaN(x)) ? "—" : Number(x).toFixed(d);
+const pc = (x,d=1) => f(x,d)+"%";
+const M = () => DATA.matches[S.i];
+const dirs = ["主胜","平","客胜"];
+const dirCls = ["h","d","a"];
+const esc = s => String(s??"").replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const sign = x => (x>0?"+":"") + f(x,1);
+
+function gradeColor(g){
+  if(g.startsWith("A")) return "var(--green)";
+  if(g.startsWith("B")) return "var(--cyan)";
+  if(g.startsWith("C")) return "var(--amber)";
+  return "var(--red)";
+}
+
+/* ── 左栏 ── */
+function renderRail(){
+  $("#rail").innerHTML = '<div class="rail-h"><span>MATCHES</span><span>'+DATA.matches.length+' 场</span></div>' +
+    DATA.matches.map((m,i)=>{
+      const c = m.conf, cold = m.cold;
+      const tags = [
+        `<span class="tag" style="color:${gradeColor(c.grade)};border-color:currentColor">${c.total} · ${c.grade.split(" · ")[0]}</span>`,
+        `<span class="tag c">${m.verdict.first} ${pc(m.verdict.first_p)}</span>`,
+        `<span class="tag ${Math.abs(c.maxpp)>=15?"r":(Math.abs(c.maxpp)>=6?"a":"g")}">偏差 ${f(Math.abs(c.maxpp))}pp</span>`,
+        cold.index>=60?`<span class="tag r">冷 ${f(cold.index,0)}</span>`:""
+      ].join("");
+      return `<div class="mitem ${i===S.i?"on":""}" data-i="${i}">
+        <span class="no">${m.no}</span><span class="lg">${esc(m.league)} · ${esc(m.kick||"")}</span>
+        <span class="vs">${esc(m.home)}<em>VS</em>${esc(m.away)}</span>
+        <span class="tags">${tags}</span></div>`;
+    }).join("");
+  $("#rail").querySelectorAll(".mitem").forEach(el=>{
+    el.onclick = ()=>{ S.i = +el.dataset.i; render(); };
+  });
+}
+
+/* ── 头部 + 结论卡 ── */
+function renderHero(m){
+  const c = m.conf, v = m.verdict;
+  const agree = c.agree;
+  const pills = [
+    `<span class="tag ${agree===3?"g":agree===2?"a":"r"}">三方一致 ${agree}/3</span>`,
+    `<span class="tag c">让球 ${m.hand>0?"+"+m.hand:m.hand}</span>`,
+    `<span class="tag ${m.cold.index>=60?"r":m.cold.index>=40?"a":"g"}">冷门指数 ${f(m.cold.index,0)}</span>`
+  ].join("");
+  return `
+  <section class="hero">
+    <div>
+      <div class="kicker">${esc(m.no)} · ${esc(m.league)} ${m.kick?" · "+esc(m.kick)+" 开赛":""} · 全维度推演</div>
+      <h1>${esc(m.home)}<em>VS</em>${esc(m.away)}</h1>
+      <div class="sub">λ 合计 ${f(m.lam.total,2)} · 模型方向 ${c.model_dir} ${pc(m.p[dirs.indexOf(c.model_dir)])} · 定价方向 ${c.market_dir} ${pc(m.mk[dirs.indexOf(c.market_dir)])}</div>
+      <div class="tags" style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">${pills}</div>
+    </div>
+    <div class="gauge">
+      <div class="num" style="color:${gradeColor(c.grade)}">${c.total}<small>/100</small></div>
+      <div class="gr" style="color:${gradeColor(c.grade)}">${c.grade}</div>
+      <div class="lbl">CONFIDENCE</div>
+    </div>
+  </section>
+  <div class="verdict">
+    <div class="vcard"><div class="t">首选 · PRIMARY</div><div class="d">${v.first}</div>
+      <div class="s">比分 ${v.first_score}</div><div class="p">模型 ${pc(v.first_p)}</div></div>
+    <div class="vcard v2"><div class="t">次选 · SECOND</div><div class="d">${v.second}</div>
+      <div class="s">比分 ${v.second_score}</div><div class="p">模型 ${pc(v.second_p)}</div></div>
+    <div class="vcard v3"><div class="t">防冷 · GUARD</div><div class="d">${v.guard}</div>
+      <div class="s">比分 ${v.guard_score}</div><div class="p">定价 ${pc(v.guard_p)}</div></div>
+  </div>`;
+}
+
+/* ── 通用块 ── */
+function probRows(m){
+  const rows = dirs.map((d,i)=>{
+    const p = m.p[i], k = m.mk[i], edge = m.edge[i];
+    return `<div class="prow">
+      <span class="lab">${d}</span>
+      <span class="track">
+        <span class="fill ${dirCls[i]}" style="width:${Math.min(100,p)}%"></span>
+        <span class="fill ghost" style="width:${Math.min(100,k)}%;opacity:.5;transform:translateX(${Math.min(100,p)}%)"></span>
+      </span>
+      <span class="val">${pc(p)} <i>定价 ${pc(k)}</i></span></div>
+      <div class="delta" style="margin:-3px 0 8px 62px">偏差 <span class="${edge>0?"up":"down"}">${sign(edge)}pp</span></div>`;
+  }).join("");
+  return rows;
+}
+
+function heatHTML(m){
+  const mat = S.dc ? m.matrix : m.matrix_pois;
+  const odds = {};
+  (m.top||[]).forEach(t=>{ odds[t.s] = t; });
+  let cells = '<div class="heat" style="grid-template-columns:26px repeat(7,minmax(0,1fr))">';
+  cells += '<div class="hc"></div>';
+  for(let j=0;j<7;j++) cells += `<div class="hc">${j}</div>`;
+  for(let i=0;i<7;i++){
+    cells += `<div class="hc">${i}</div>`;
+    for(let j=0;j<7;j++){
+      const p = mat[i][j];
+      const t = odds[`${i}-${j}`];
+      const inten = Math.min(1, p/11);
+      // 海报色阶：浅砂 → 赭石 → 砖红（实色，不用透明度，便于阅读）
+      const bg = p<0.6 ? "rgba(60,45,30,.03)"
+        : inten<0.5
+          ? `rgb(${Math.round(240-39*inten*2)},${Math.round(230-92*inten*2)},${Math.round(210-120*inten*2)})`
+          : `rgb(${Math.round(201-61*(inten-0.5)*2)},${Math.round(138-79*(inten-0.5)*2)},${Math.round(90-55*(inten-0.5)*2)})`;
+      const fg = inten>=0.44 ? "#FFFDF7" : "#221E18";
+      const txt = p<1.2 ? "" : (p>=10 ? f(p,0) : f(p,1));
+      const tip = `${i}-${j}  概率 ${pc(p,2)}` + (t? `\n定价 ${f(t.odd,2)} · 溢价 ${sign(t.ev)}` : "\n（定价未覆盖这一格）");
+      cells += `<div class="cell ${p<0.6?"empty":""}" style="background:${bg};color:${fg}" data-tip="${esc(tip)}">${txt}</div>`;
+    }
+  }
+  cells += '</div>';
+  return `<div class="heatbar">
+      <label class="sw ${S.dc?"on":""}" id="swDC"><i></i>Dixon-Coles 修正</label>
+      <span class="legend">低 <b style="background:#EFE4CF"></b><b style="background:#C98A5A"></b><b style="background:#8C3B23"></b> 高</span>
+      <span class="hint" style="margin:0">悬停看该格概率与定价溢价</span>
+    </div>${cells}
+    <div class="ax"><span>↓ 主队进球</span><span>→ 客队进球</span><span>ρ = ${DATA.meta.rho}</span></div>
+    <div class="hint">矩阵为 ${S.dc?"Dixon-Coles 修正后":"独立双变量泊松"}精确概率（0–6 球，7 球以上并入忽略项）。
+    ${S.dc?"低比分格（0-0 / 1-0 / 0-1 / 1-1）已按相关系数 ρ 校正，平局与 1-1 会被抬起来。":"独立假设会低估平局与低比分相关性。"}</div>`;
+}
+
+function goalBar(m){
+  const raw = m.goals_dc || m.goals;
+  const g = raw.slice(0,7);
+  g.push(+raw.slice(7).reduce((a,b)=>a+b,0).toFixed(1));
+  const labels = [0,1,2,3,4,5,6,"7+"];
+  const mx = Math.max(...g);
+  return `<div class="heat" style="grid-template-columns:repeat(${g.length},1fr);gap:6px;max-width:none;align-items:end;height:150px">
+    ${g.map((v,i)=>`<div style="display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:4px">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--muted);text-align:center">${f(v,1)}</div>
+      <div style="height:${Math.max(3,(v/mx)*96)}px;background:linear-gradient(180deg,#8C3B23,#D2A78A);border-radius:0"></div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--dim);text-align:center">${labels[i]}</div>
+    </div>`).join("")}
+  </div><div class="ax"><span>总进球数分布（%）· 只算 90 分钟 · 7 球以上并入 7+</span></div>`;
+}
+
+function goalPeak(m){
+  const raw = m.goals_dc || m.goals;
+  const g = raw.slice(0,7).concat([+raw.slice(7).reduce((a,b)=>a+b,0)]);
+  let best = 0;
+  g.forEach((v,i)=>{ if(v>g[best]) best = i; });
+  return best;
+}
+
+/* ── 各页 ── */
+function paneOverview(m){
+  const c = m.conf, k = m.cold;
+  const rows = DATA.matches.map((x,i)=>{
+    const e = Math.max(...x.edge.map(v=>Math.abs(v)));
+    const mi = x.edge.indexOf(x.edge.reduce((a,b)=>Math.abs(b)>Math.abs(a)?b:a));
+    return `<tr style="cursor:pointer" data-jump="${i}">
+      <td class="mono">${x.no}<br><span style="color:var(--dim);font-size:10.5px">${esc(x.league)}</span></td>
+      <td>${esc(x.home)}<span style="color:var(--dim)"> vs </span>${esc(x.away)}<br>
+        <span style="color:var(--dim);font-size:10.5px;font-family:var(--mono)">${esc(x.kick||"")}</span></td>
+      <td class="num">${pc(x.p[0])} / ${pc(x.p[1])} / ${pc(x.p[2])}</td>
+      <td class="num">${pc(x.mk[0])} / ${pc(x.mk[1])} / ${pc(x.mk[2])}</td>
+      <td class="num">${dirs[mi]} <span class="${x.edge[mi]>0?"pos":"neg"}">${sign(x.edge[mi])}</span></td>
+      <td class="num" style="color:${gradeColor(x.conf.grade)}">${x.conf.total}</td>
+      <td class="num">${f(x.cold.index,0)}</td>
+    </tr>`;
+  }).join("");
+
+  return `
+  <div class="grid4" style="margin-bottom:14px">
+    <div class="card kpi"><div class="k">信心指数</div>
+      <div class="n" style="color:${gradeColor(c.grade)}">${c.total}<small>/100</small></div>
+      <div class="d">${c.grade} · 五项加权</div></div>
+    <div class="card kpi"><div class="k">最大偏差</div>
+      <div class="n" style="color:${Math.abs(c.maxpp)>=15?"var(--red)":Math.abs(c.maxpp)>=6?"var(--amber)":"var(--green)"}">${f(Math.abs(c.maxpp))}<small> pp</small></div>
+      <div class="d">${dirs[m.edge.map(v=>Math.abs(v)).indexOf(Math.max(...m.edge.map(v=>Math.abs(v))))]} · ${Math.abs(c.maxpp)>=15?"超过 15，先假定我方缺口":"偏差可控"}</div></div>
+    <div class="card kpi"><div class="k">冷门指数</div>
+      <div class="n" style="color:${k.index>=60?"var(--red)":k.index>=40?"var(--amber)":"var(--green)"}">${f(k.index,0)}</div>
+      <div class="d">定价最热 ${k.fav}，模型只给 ${pc(k.fav_model)}</div></div>
+    <div class="card kpi"><div class="k">进球期望 λ</div>
+      <div class="n">${f(m.lam.fin[0],2)}<small> / </small>${f(m.lam.fin[1],2)}</div>
+      <div class="d">合计 ${f(m.lam.total,2)} · 大 2.5 球 ${pc(m.over["2.5"])}</div></div>
+  </div>
+
+  <div class="card hl" style="margin-bottom:14px">
+    <h3>六场横向对照<span class="x">点任意一行切换</span></h3>
+    <table><thead><tr>
+      <th>场次</th><th>对阵 / 开赛</th><th class="mono">模型 主/平/客</th><th class="mono">定价 主/平/客</th>
+      <th class="mono">最大偏差</th><th class="mono">信心</th><th class="mono">冷门</th></tr></thead>
+      <tbody>${rows}</tbody></table>
+    <div class="hint">定价为官方固定奖金去水后的隐含概率（按返还率归一）。冷门指数＝定价最热那一格之外，模型给出的概率之和——数字越大，市场热的那头越站不住。</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h3>这一场怎么读</h3>
+      <div class="note">${esc(m.steps.pattern)}</div>
+      <div class="note" style="margin-top:10px">${esc(m.steps.total)}</div>
+      <div class="note" style="margin-top:10px">${esc(m.steps.matrix)}</div>
+    </div>
+    <div class="card"><h3>信心五维</h3>${dimsHTML(c)}
+      <div class="hint">满分 100：样本厚度 20 / 双法收敛 20 / 三方一致 25 / 分歧可控 25 / 比分集中 10。它衡量这份分析有多可靠，不是胜率。</div>
+    </div>
+  </div>`;
+}
+
+function dimsHTML(c){
+  const d = [
+    ["样本厚度", c.w1, 20, `主客分离样本 ${c.n_sample} 场`],
+    ["双法收敛", c.w2, 20, `两条 λ 平均相对差 ${c.gap}%`],
+    ["三方一致", c.w3, 25, `同向 ${c.agree}/3`],
+    ["分歧可控", c.w4, 25, `胜平负最大偏差 ${f(c.maxpp)}pp`],
+    ["比分集中", c.w5, 10, `Top3 合计 ${pc(c.top3)}`]
+  ];
+  return d.map(([k,v,mx,sub])=>`<div class="dim">
+    <span class="k">${k}</span>
+    <span class="b"><i style="width:${Math.max(2,(v/mx)*100)}%"></i></span>
+    <span class="v">${f(v,1)}<em>/${mx}</em></span></div>
+    <div style="margin:-4px 0 8px 91px;font-family:var(--mono);font-size:10px;color:var(--dim)">${esc(sub)}</div>`).join("");
+}
+
+function paneMath(m){
+  const gd = (m.goals_dc||m.goals||[]).slice(0,8);
+  const peak = gd.indexOf(Math.max(...gd));
+  const ld = m.low_delta.map(x=>{
+    const diff = x.p_dc - x.p_pois;
+    return `<tr><td class="mono">${x.s}</td><td class="num">${f(x.p_pois,2)}%</td><td class="num">${f(x.p_dc,2)}%</td>
+      <td class="num ${diff>0?"pos":"neg"}">${sign(diff)}pp</td></tr>`;
+  }).join("");
+  return `
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card"><h3>胜平负：模型 vs 定价</h3>
+      ${probRows(m)}
+      <div class="hint">条为模型概率，条纹为定价去水后概率（从模型条尾部接出）。两项隐含概率合计：返奖率 ${m.payout?f(m.payout,1)+"%":"—"}。</div>
+    </div>
+    <div class="card"><h3>λ 两条路与修正</h3>
+      <table>
+        <tr><td>方法一 · 实际数据（主客分离 + 样本量权重）</td><td class="num mono">${m.lam.l1?f(m.lam.l1[0],3)+" / "+f(m.lam.l1[1],3):"—"}</td></tr>
+        <tr><td>方法二 · 定价反推</td><td class="num mono">${m.lam.l2?f(m.lam.l2[0],3)+" / "+f(m.lam.l2[1],3):"—"}</td></tr>
+        <tr><td><b>综合 λ（代入模型）</b></td><td class="num mono" style="color:var(--cyan)">${f(m.lam.fin[0],3)} / ${f(m.lam.fin[1],3)}</td></tr>
+        <tr><td>修正明细</td><td class="mono" style="font-size:11.5px">${esc(m.intel.fix||"—")}</td></tr>
+        <tr><td>伤停修正</td><td class="mono" style="font-size:11.5px">${esc(m.intel.inj_text||"—")}</td></tr>
+      </table>
+      <div class="hint">两条 λ 差得越多，说明市场与赛果之间存在叙事溢价，或者我方样本有缺口；修正幅度一般不超过 ±0.25。</div>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card hl"><h3>比分概率矩阵<span class="x">0–6 球</span></h3>${heatHTML(m)}</div>
+    <div class="card"><h3>Dixon-Coles 低比分校准</h3>
+      <table><thead><tr><th>比分</th><th class="mono">独立泊松</th><th class="mono">DC 修正</th><th class="mono">变化</th></tr></thead>
+      <tbody>${ld}</tbody></table>
+      <div class="hint">独立泊松假设两队进球互不相干，会低估平局与低比分；DC 用相关系数 ρ=${DATA.meta.rho} 对 0-0 / 1-0 / 0-1 / 1-1 四格重加权，再把整张表归一。
+      ρ 取文献常用区间（−0.05~−0.15）中值偏保守，本批每场样本不足，未做逐场拟合。</div>
+      <h3 style="margin-top:16px">胜平负交叉核对</h3>
+      <table><thead><tr><th>口径</th><th class="mono">主胜</th><th class="mono">平</th><th class="mono">客胜</th></tr></thead>
+      <tbody>
+        <tr><td>官方模型（2 万次抽样）</td><td class="num">${pc(m.p[0])}</td><td class="num">${pc(m.p[1])}</td><td class="num">${pc(m.p[2])}</td></tr>
+        <tr><td>独立泊松（精确）</td><td class="num">${pc(m.oc.pois[0])}</td><td class="num">${pc(m.oc.pois[1])}</td><td class="num">${pc(m.oc.pois[2])}</td></tr>
+        <tr><td>Dixon-Coles（精确）</td><td class="num" style="color:var(--cyan)">${pc(m.oc.dc[0])}</td><td class="num" style="color:var(--cyan)">${pc(m.oc.dc[1])}</td><td class="num" style="color:var(--cyan)">${pc(m.oc.dc[2])}</td></tr>
+      </tbody></table>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h3>总进球分布</h3>${goalBar(m)}
+      <div class="hint">${(()=>{const pk=goalPeak(m);
+      return `峰值 ${pk<=1?"落在 1–2 球：低比分区间，首选比分多在 1-0 / 1-1 / 2-1":pk<=4?`落在 ${pk} 球：最常见区间，首选比分多在 2-1 / 1-1 / 2-2`:"已经推到 5 球以上：比分高度分散，进球数比具体比分更可靠"}`;})()}</div>
+    </div>
+    <div class="card"><h3>大小球与双方进球</h3>
+      <div class="grid2" style="gap:10px">
+        ${[["大 1.5 球",m.over["1.5"]],["大 2.5 球",m.over["2.5"]],["大 3.5 球",m.over["3.5"]],["双方进球",m.btts]]
+          .map(([k,v])=>`<div class="card kpi" style="padding:11px 12px"><div class="k">${k}</div>
+            <div class="n" style="font-size:22px">${pc(v)}</div></div>`).join("")}
+      </div>
+      <div class="hint">市场侧大小球盘口本批未接入（无可用公开快照），这一栏只有模型口径，不做交叉验证。</div>
+    </div>
+  </div>`;
+}
+
+function paneTech(m){
+  const th = m.tech.home, ta = m.tech.away, meet = m.tech.meet;
+  const half = (t, name) => {
+    const tot = t.goals_1h + t.goals_2h;
+    const w1 = tot ? (t.goals_1h/tot*100) : 50;
+    const risky = t.share_1h !== null && t.share_1h < 35;
+    return `<div class="half">
+      <span class="t">${esc(name)}</span>
+      <span class="bar">
+        <i class="h1" style="width:${w1}%"></i><i class="h2" style="width:${100-w1}%"></i>
+      </span>
+      <span class="v">${t.goals_1h} / ${t.goals_2h} 球</span></div>
+      <div style="margin:-4px 0 10px 98px;font-family:var(--mono);font-size:10px;color:var(--dim)">
+        上半场占比 ${t.share_1h===null?"—":f(t.share_1h)}%${risky?" · 进球集中在后半段，70 分钟后失球风险偏高":""}</div>`;
+  };
+  const sdNote = (t) => t.sd_against >= 1.3 ? "失球波动大" : (t.sd_for >= 1.3 ? "进球波动大" : "输出稳定");
+  const meets = (meet.detail||[]).map(x=>`<tr><td class="mono" style="white-space:nowrap">${esc(x.d)}</td>
+    <td>${esc(x.m)}</td><td class="mono" style="color:var(--dim)">${esc(x.league)}</td></tr>`).join("");
+  return `
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card hl"><h3>上下半场进球结构<span class="x">体能曲线代理</span></h3>
+      ${half(th, esc(m.home))}${half(ta, esc(m.away))}
+      <div class="hint">竞彩公开数据只有半场/全场比分，没有分钟级进球与跑动；用「上半场进球占比」当体能曲线代理：
+      占比越低，说明这支球队的进球越依赖下半场，反过来 70 分钟后被追的风险也越大。</div>
+    </div>
+    <div class="card"><h3>进失球离散度与零封率<span class="x">近 5 场</span></h3>
+      <table><thead><tr><th></th><th class="mono">场均进</th><th class="mono">场均失</th><th class="mono">零封率</th><th class="mono">进球 σ</th><th class="mono">失球 σ</th><th>形态</th></tr></thead>
+      <tbody>
+        <tr><td>${esc(m.home)}</td><td class="num">${f(th.gf_avg,2)}</td><td class="num">${f(th.ga_avg,2)}</td>
+          <td class="num">${th.cs_rate===null?"—":th.cs_rate+"%"}</td><td class="num">${f(th.sd_for,2)}</td><td class="num">${f(th.sd_against,2)}</td>
+          <td><span class="pill">${sdNote(th)}</span></td></tr>
+        <tr><td>${esc(m.away)}</td><td class="num">${f(ta.gf_avg,2)}</td><td class="num">${f(ta.ga_avg,2)}</td>
+          <td class="num">${ta.cs_rate===null?"—":ta.cs_rate+"%"}</td><td class="num">${f(ta.sd_for,2)}</td><td class="num">${f(ta.sd_against,2)}</td>
+          <td><span class="pill">${sdNote(ta)}</span></td></tr>
+      </tbody></table>
+      <div class="hint">σ 越大越不稳定；「场均」是粗糙口径，所以模型里用主客分离 + 样本量权重来压噪音（见 λ 修正明细）。</div>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card"><h3>交手记录的比分土壤<span class="x">近 ${meet.n} 次</span></h3>
+      <div class="grid4" style="gap:10px;margin-bottom:12px">
+        ${[["总进球 ≤2 占比",meet.low2,meet.low2>=60?"冷门土壤":"—"],
+           ["双方进球率",meet.btts,"—"],
+           ["平局率",meet.draw,"—"],
+           ["场均总进球",meet.avg_total,null]].map(([k,v,tag])=>`
+          <div class="card kpi" style="padding:11px 12px"><div class="k">${k}</div>
+            <div class="n" style="font-size:20px">${v===null?"—":f(v, tag===null?2:0)+(tag===null?"":"%")}</div>
+            ${tag&&tag!=="—"?`<div class="d">${tag}</div>`:""}</div>`).join("")}
+      </div>
+      <table><tbody>${meets||'<tr><td style="color:var(--dim)">无交手记录</td></tr>'}</tbody></table>
+      <div class="hint">交手总进球长期偏低，是低比分（0-0 / 1-0 / 1-1）概率上调的实证依据；这也是 DC 修正方向与历史吻合的检验点。</div>
+    </div>
+    <div class="card"><h3>未接入的高阶指标<span class="x">缺口清单</span></h3>
+      <div class="gap-list">
+        ${[["xG / xGA / npxG","剥离神仙球与门将超神表现，判断进攻真实质量与运气透支"],
+           ["PPDA","高位逼抢强度；两支低 PPDA 相遇才敢押 2-2 / 3-2 的开放式比分"],
+           ["定位球 xG","现代足球约 25%–30% 进球来自定位球，缺了会低估破门下限"],
+           ["射门 / 射正 / 控球","穿透到过程数据的基本项"],
+           ["场地与天气","暴雨、积水会强行拉低总进球"],
+           ["裁判尺度","场均出牌与点球倾向影响 0-0 与 1-0 的存活率"]]
+          .map(([k,v])=>`<div class="gap"><b>未接入</b><span><b style="color:var(--ink);font-family:var(--sans);font-size:12.5px;border:none;padding:0;background:none">${k}</b> · ${v}</span></div>`).join("")}
+      </div>
+      <div class="hint">原因：竞彩官方公开页只有比分、半场比分、伤停与球员名单，不含过程数据；免费可信的 xG 源（FBref 类）与竞彩队名映射尚未接通。
+      因此本页用「半场结构 + 主客分离 + 交手中低比分频率」当替代口径，缺口部分不估算、不编数。</div>
+    </div>
+  </div>`;
+}
+
+function paneIntel(m){
+  const inj = m.intel.inj || [];
+  const rows = inj.length ? inj.map(p=>`<tr>
+      <td>${esc(p.team)}</td><td>${esc(p.name)}</td><td>${esc(p.pos)}</td>
+      <td class="num">${p.apps}</td><td><span class="pill ${p.kind==="停赛"?"r":"a"}">${p.kind}</span></td></tr>`).join("")
+    : '<tr><td colspan="5" style="color:var(--dim)">双方名单无伤停记录</td></tr>';
+  const rest = (t) => {
+    if(!t.last_date) return "—";
+    const last = new Date(t.last_date), kick = new Date("2026-10-17");
+    const d = Math.round((kick-last)/86400000);
+    return `${d} 天`;
+  };
+  const res = (t,name) => `<table><tbody>${(t.results||[]).map(r=>`
+      <tr><td class="mono" style="white-space:nowrap;color:var(--dim)">${esc(r.d)}</td>
+      <td>${esc(r.m)}</td><td class="mono" style="color:var(--dim)">半 ${esc(r.ht)}</td></tr>`).join("")}</tbody></table>`;
+  return `
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card hl"><h3>伤停与阵容完整度</h3>
+      <table><thead><tr><th>球队</th><th>球员</th><th>位置</th><th class="mono">出场</th><th>状态</th></tr></thead>
+      <tbody>${rows}</tbody></table>
+      <div class="hint">出场次数是本赛季累计，用来判断「缺的是主力还是轮换」。模型的伤停修正已经落进 λ：${esc(m.intel.inj_text||"—")}。</div>
+    </div>
+    <div class="card"><h3>赛程密度与休整</h3>
+      <table><thead><tr><th>球队</th><th class="mono">上一场</th><th class="mono">间隔</th></tr></thead><tbody>
+        <tr><td>${esc(m.home)}</td><td class="mono">${esc(m.tech.home.last_date||"—")}</td><td class="num">${rest(m.tech.home)}</td></tr>
+        <tr><td>${esc(m.away)}</td><td class="mono">${esc(m.tech.away.last_date||"—")}</td><td class="num">${rest(m.tech.away)}</td></tr>
+      </tbody></table>
+      <div class="hint">间隔 3–4 天是常态；≤3 天且下周有关键战，要按轮换留力下调进攻端。跨洲飞行与赛程拥挤的量化口径本批未接入。</div>
+      <h3 style="margin-top:16px">模型备注（赛果底子）</h3>
+      <div class="note">${esc(m.intel.note||"—")}</div>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h3>${esc(m.home)} · 近 5 场</h3>${res(m.tech.home, m.home)}</div>
+    <div class="card"><h3>${esc(m.away)} · 近 5 场</h3>${res(m.tech.away, m.away)}</div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>环境与外部因素</h3>
+    <div class="gap-list">
+      ${[["天气与场地","无数据源，本批不做修正"],["裁判尺度","无数据源，本批不做修正"],["赛制与战意","联赛常规轮次，按模型备注的争冠/保级语境定性处理"]]
+        .map(([k,v])=>`<div class="gap"><b style="color:var(--amber);border-color:rgba(255,178,91,.4)">定性</b><span>${k} · ${v}</span></div>`).join("")}
+    </div></div>`;
+}
+
+function paneMarket(m){
+  const sameDir = m.conf.model_dir === m.conf.market_dir;
+  const hand = m.hand;
+  const hmax = m.h_edge ? m.h_edge.map(v=>Math.abs(v)) : [0,0,0];
+  const hi = hmax.indexOf(Math.max(...hmax));
+  const jump = Math.abs(m.edge[0])<6 && Math.abs(hand)<=2 ? "" :
+    `让球(${hand>0?"+"+hand:hand}) 一侧，模型与定价偏差最大的一格是${dirs[hi]} ${sign(m.h_edge[hi])}pp——` +
+    (Math.abs(m.h_edge[hi])>=10
+      ? "方向一致但幅度差得远，说明分歧落在「赢几个」而不是「谁赢」，这类位置先看比分结构再看胜负。"
+      : "两边接近，盘口本身没有明显错位，让球结论不额外加分。");
+  const top = (m.top||[]).slice(0,8);
+  const evmax = Math.max(0.01, ...top.map(t=>Math.abs(t.ev||0)));
+  return `
+  ${!sameDir?`<div class="flag"><b>方向相反</b> 模型指向 ${m.conf.model_dir}，定价去水后最热的是 ${m.conf.market_dir}（${pc(m.mk[dirs.indexOf(m.conf.market_dir)])}）。
+    这种组合最常见的解释是市场在押某件模型还没反映的事（伤停反转、轮换、赛程），按纪律先假定我方样本有缺口。</div>`
+    :Math.abs(m.conf.maxpp)>=15?`<div class="flag w"><b>同向但幅度差 ${f(Math.abs(m.conf.maxpp))}pp</b> 方向可以采信，幅度要打折：定价比模型更极端，说明热度里有叙事成分。</div>`:""}
+
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card hl"><h3>三层定价交叉：胜平负</h3>
+      ${probRows(m)}
+      ${m.move&&m.move.latest_spf?`<div class="hint" style="color:var(--cyan)">本页用的是模型快照（10:28）的定价；最新 16:15 去水为 ${m.move.latest_spf.p.map(x=>pc(x)).join(" / ")}，见「盘口变盘」页。</div>`:""}
+      <div class="hint">固定奖金 ${m.odds?m.odds.map(o=>f(o,2)).join(" / "):"—"}，三项隐含概率合计超 100% 的部分是结构成本，
+      按返奖率 ${m.payout?f(m.payout,1)+"%":"—"} 归一后才与模型可比。</div>
+    </div>
+    <div class="card hl"><h3>三层定价交叉：让球(${hand>0?"+"+hand:hand})</h3>
+      ${m.hp?dirs.map((d,i)=>`<div class="prow"><span class="lab">${d}</span>
+        <span class="track"><span class="fill ${dirCls[i]}" style="width:${Math.min(100,m.hp[i])}%"></span>
+        <span class="fill ghost" style="width:${Math.min(100,m.hmk[i])}%;opacity:.5;transform:translateX(${Math.min(100,m.hp[i])}%)"></span></span>
+        <span class="val">${pc(m.hp[i])} <i>定价 ${pc(m.hmk[i])}</i></span></div>
+        <div class="delta" style="margin:-3px 0 8px 62px">偏差 <span class="${m.h_edge[i]>0?"up":"down"}">${sign(m.h_edge[i])}pp</span></div>`).join(""):'<div class="note">本批无让球定价</div>'}
+      <div class="hint">${esc(jump)}</div>
+      <div class="hint">让球去掉平局后的胜负拆分：${m.win_nodraw?`主 ${pc(m.win_nodraw[0])} / 客 ${pc(m.win_nodraw[1])}`:"—"}。</div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h3>比分波胆：定价漏洞<span class="x">溢价 = 模型概率 × 定价 − 1</span></h3>
+      <table><thead><tr><th>比分</th><th class="mono">模型</th><th class="mono">定价</th><th class="mono">溢价</th><th style="width:90px"></th></tr></thead>
+      <tbody>${top.map(t=>{
+        const ev = t.ev ?? null;
+        const w = ev===null?0:Math.min(100,Math.abs(ev)/evmax*100);
+        return `<tr><td class="mono">${t.s}</td><td class="num">${pc(t.p)}</td>
+          <td class="num">${t.odd?f(t.odd,2):"—"}</td>
+          <td class="num ${ev>0?"pos":ev<0?"neg":""}">${ev===null?"—":(ev>0?"+":"")+f(ev,2)}</td>
+          <td><span style="display:block;height:6px;border-radius:3px;background:${ev>0?"var(--green)":"var(--red)"};width:${Math.max(2,w*0.4)}%;opacity:.75"></span></td></tr>`;
+      }).join("")}</tbody></table>
+      <div class="hint">溢价为正＝模型给的比定价隐含的高，这类格子才是「值博」；但样本薄的场次，正溢价同样可能是错觉（见信心指数）。</div>
+    </div>
+    <div class="card"><h3>热度与诱盘识别</h3>
+      <div class="note">${sameDir
+        ? `模型与定价同向（都指 ${m.conf.model_dir}），不存在方向上的诱盘信号。要看的是幅度：定价给 ${pc(m.mk[dirs.indexOf(m.conf.market_dir)])}，模型给 ${pc(m.p[dirs.indexOf(m.conf.model_dir)])}。`
+        : `模型指 ${m.conf.model_dir}，定价却在 ${m.conf.market_dir} 上加码（${pc(m.mk[dirs.indexOf(m.conf.market_dir)])}）。基本面全线利好却赔率不降，是最典型的阻盘形态。`}</div>
+      <table style="margin-top:12px"><tbody>
+        <tr><td>定价最热</td><td class="num mono">${m.cold.fav} ${pc(m.cold.fav_mk)}（模型 ${pc(m.cold.fav_model)}）</td></tr>
+        <tr><td>模型首选冷门</td><td class="num mono">${m.cold.main_cold} ${pc(m.cold.main_cold_p)}</td></tr>
+        <tr><td>次要冷门</td><td class="num mono">${m.cold.second_cold} ${pc(m.cold.second_cold_p)}</td></tr>
+        <tr><td>定价位移快照</td><td class="num mono">${m.quote&&m.quote.length? m.quote.length+" 条":"无（本批未采集）"}</td></tr>
+      </tbody></table>
+      <div class="hint">波胆临场 1–3 小时的赔付率异动本批无法观测：定价位移库只覆盖 10-12 的欧冠样本，今日六场无历史快照。
+      这一层只能等采集器补齐后才有意义，不做想象式描述。</div>
+    </div>
+  </div>`;
+}
+
+/* ── 盘口变盘（时间轴 + 半全场 + 总进球定价 + 波胆池） ── */
+function paneMove(m){
+  const mv = m.move;
+  const pay = (m.payout ?? 88.5)/100;
+  const devig = odds => { const r = odds.map(o=>pay/o*100); const s = r.reduce((a,b)=>a+b,0)||1; return r.map(x=>x/s*100); };
+  const arrow = d => d>0 ? `<span class="up">↑${f(Math.abs(d),2)}</span>` : d<0 ? `<span class="down">↓${f(Math.abs(d),2)}</span>` : `<span>—</span>`;
+
+  if(!mv){
+    return `<div class="card hl"><h3>盘口变盘：本场无历史快照</h3>
+      <div class="note">这一页要的是「同一场比赛、三个以上时点的固定奖金」。本批只有周六007 采到 4 个时点，
+      其余五场只有模型里那一次快照（10:28 早盘，也是定价去水用的那一份）——没有位移，就谈不上阻盘与诱盘的判断，
+      不做想象式描述。</div>
+      <table style="margin-top:12px"><tbody>
+        <tr><td>本场胜平负快照</td><td class="num mono">${m.odds?m.odds.map(o=>f(o,2)).join(" / "):"—"} → 去水 ${m.mk?m.mk.map(x=>pc(x)).join(" / "):"—"}</td></tr>
+        <tr><td>本场让球(${m.hand>0?"+"+m.hand:m.hand}) 快照</td><td class="num mono">${m.hmk?m.hmk.map(x=>pc(x)).join(" / "):"—"}</td></tr>
+        <tr><td>本批有变盘记录的场次</td><td class="num mono">1 / 6 · 周六007（4 个时点）</td></tr>
+      </tbody></table>
+      <div class="hint">补法：开赛前按 初盘 / 赛前 3 小时 / 临场 30 分钟 各抓一次胜平负与让球固定奖金，
+      写进 <span class="k">state/records/_move_&lt;日期&gt;.json</span>，本页会自动长出来（周六007 就是这么来的）。</div>
+    </div>`;
+  }
+
+  const spf = mv.spf || [], hand = mv.hand || [];
+  const s0 = spf[0], sN = spf[spf.length-1];
+  const p0 = s0 ? devig([s0.h,s0.d,s0.a]) : null;
+  const pN = sN ? devig([sN.h,sN.d,sN.a]) : null;
+  const h0 = hand[0], hN = hand[hand.length-1];
+  const hp0 = h0 ? devig([h0.h,h0.d,h0.a]) : null;
+  const hpN = hN ? devig([hN.h,hN.d,hN.a]) : null;
+  const g = mv.goals, ht = mv.htft, pool = mv.pool || [];
+  const v = m.verdict;
+
+  const spfRows = spf.map((r,idx)=>{
+    const p = devig([r.h,r.d,r.a]);
+    const last = idx === spf.length-1;
+    return `<tr${last?' style="background:rgba(140,59,35,.06)"':''}><td class="mono">${esc(r.t)}</td>
+      <td class="num mono">${f(r.h,2)}</td><td class="num mono">${f(r.d,2)}</td><td class="num mono">${f(r.a,2)}</td>
+      <td class="num mono">${pc(p[0])} / ${pc(p[1])} / ${pc(p[2])}</td>
+      <td class="num ${last?'':''}">${last?'<span style="color:var(--cyan)">最新</span>':''}</td></tr>`;
+  }).join("");
+
+  const handRows = hand.map((r,idx)=>{
+    const p = devig([r.h,r.d,r.a]);
+    const last = idx === hand.length-1;
+    return `<tr${last?' style="background:rgba(61,80,100,.06)"':''}><td class="mono">${esc(r.t)}</td>
+      <td class="num mono">${f(r.h,2)}</td><td class="num mono">${f(r.d,2)}</td><td class="num mono">${f(r.a,2)}</td>
+      <td class="num mono">${pc(p[0])} / ${pc(p[1])} / ${pc(p[2])}</td></tr>`;
+  }).join("");
+
+  const goalRows = g ? g.odds_new.map((oN,i)=>{
+    const o0 = g.odds_old[i];
+    const diff = +(g.model[i] - g.p_new[i]).toFixed(1);
+    const hot = g.p_new[i] === Math.max(...g.p_new);
+    return `<tr${hot?' style="background:rgba(140,59,35,.06)"':''}><td class="mono">${i} 球</td>
+      <td class="num mono">${f(o0,2)}</td><td class="num mono">${f(oN,2)}</td><td class="num">${arrow(+(oN-o0).toFixed(2))}</td>
+      <td class="num">${pc(g.p_new[i])}</td><td class="num">${pc(g.model[i])}</td>
+      <td class="num ${diff>0?'pos':diff<0?'neg':''}">${sign(diff)}pp</td></tr>`;
+  }).join("") : "";
+
+  const htRows = ht ? ht.rows.map(r=>{
+    const impl = r.new ? (pay/r.new*100) : null;
+    return `<tr><td class="mono">${esc(r.k)}</td><td class="num mono">${r.old?f(r.old,2):"—"}</td>
+      <td class="num mono">${r.new?f(r.new,2):"—"}</td><td class="num">${r.chg===null?"—":arrow(r.chg)}</td>
+      <td class="num">${impl===null?"—":pc(impl)}</td></tr>`;
+  }).join("") : "";
+
+  const poolTop = pool.slice(0,12);
+  const poolRows = poolTop.map(x=>{
+    const tag = x.s===v.first_score ? "主推首选" : x.s===v.second_score ? "主推次选" : x.s===v.guard_score ? "防冷比分"
+      : (x.dir===v.first ? "同向" : "反向");
+    const tc = x.s===v.first_score||x.s===v.second_score ? "var(--cyan)" : x.s===v.guard_score ? "var(--mag)" : "var(--muted)";
+    return `<tr><td class="mono">${x.s}</td><td class="num mono">${f(x.odd,2)}</td><td class="num">${pc(x.p)}</td>
+      <td>${esc(x.dir)}</td><td style="color:${tc}">${tag}</td></tr>`;
+  }).join("");
+
+  const dAway = p0 && pN ? +(pN[2]-p0[2]).toFixed(1) : null;
+  const dHome = p0 && pN ? +(pN[0]-p0[0]).toFixed(1) : null;
+  const dHandAway = hp0 && hpN ? +(hpN[2]-hp0[2]).toFixed(1) : null;
+  const dHandHome = hp0 && hpN ? +(hpN[0]-hp0[0]).toFixed(1) : null;
+  const htDraw = ht ? (pay*ht.rows.filter(r=>["平胜","平平","平负"].includes(r.k) && r.new).reduce((a,r)=>a+1/r.new,0)*100) : null;
+
+  const multi = spf.length >= 2;
+  return `
+  <div class="flag" style="border-color:var(--cyan);background:rgba(140,59,35,.06)">
+    <b>变盘快照</b> 最新 ${esc(sN? sN.t : "—")} · 共 ${spf.length} 个时点 · 来源：竞彩官方固定奖金（getFixedBonusV1）。
+    ${multi
+      ? `客胜水位从开盘 ${f(s0.a,2)} 走到 ${f(sN.a,2)}${dAway<0?"，去水概率退到 "+pc(pN[2]):dAway>0?"，去水概率升到 "+pc(pN[2]):""}；
+         主胜 ${f(s0.h,2)}→${f(sN.h,2)}（${sign(dHome)}pp）。${Math.abs(dAway)>=1
+           ? "撤的是这一侧的筹码，不是小数目。"
+           : "位移不到 1 个百分点，当噪声处理，定价与模型的差才是本场的主要矛盾。"}`
+      : `本场只有开盘这一次快照（初盘即最新），没有位移可读——变盘要 ≥2 个时点才有意义。
+         定价停在 ${pc(pN[2])}（客胜），这张表能给的只有「市场一开始就这么看」，不能给筹码走向。`}
+  </div>
+
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card hl"><h3>胜平负：固定奖金时间轴<span class="x">去水按返还率 ${pc(pay*100)} 归一</span></h3>
+      <table><thead><tr><th>时点</th><th class="mono">主胜</th><th class="mono">平</th><th class="mono">客胜</th><th class="mono">去水 主/平/客</th><th></th></tr></thead>
+      <tbody>${spfRows}</tbody></table>
+      <div class="hint">${multi?`开盘→最新：主胜 ${sign(dHome)}pp、客胜 ${sign(dAway)}pp。
+        ${Math.abs(dAway)>=1?`客胜一侧退水 ${f(Math.abs(dAway))} 个百分点，是本场唯一一次方向级移动——`:"移动幅度不到 1 个百分点，属于噪声——"}
+        但退完之后客胜仍是三格最高（${pc(pN[2])}），市场没有翻边，只是不再把客胜当成「稳」的一格。`
+        :`只有一次快照，主胜 ${f(sN.h,2)} / 平 ${f(sN.d,2)} / 客胜 ${f(sN.a,2)}，去水 ${pc(pN[0])} / ${pc(pN[1])} / ${pc(pN[2])}。`}</div>
+    </div>
+    <div class="card hl"><h3>让球(${m.hand>0?"+"+m.hand:m.hand})：受让一侧的筹码走向</h3>
+      <table><thead><tr><th>时点</th><th class="mono">主胜</th><th class="mono">平</th><th class="mono">客胜</th><th class="mono">去水 主/平/客</th></tr></thead>
+      <tbody>${handRows}</tbody></table>
+      <div class="hint">${dHandAway!==null?`让胜 ${f(h0.h,2)}→${f(hN.h,2)}（去水 ${pc(hp0[0])}→${pc(hpN[0])}），让负 ${f(h0.a,2)}→${f(hN.a,2)}（${pc(hp0[2])}→${pc(hpN[2])}）。
+        ${Math.abs(dHandHome)>=0.5?"受让一方被抬价、让负被压价的反向读法是「打穿难度上升」："+sign(dHandHome)+"pp 与 "+sign(dHandAway)+"pp 都在说主队不败这一侧。":"让球盘只有这一次快照，没有位移可读。"}`:""}</div>
+      ${multi?`<div class="hint">与胜负盘对照：胜负盘客胜退水 ${dAway!==null?f(Math.abs(dAway),1):"—"}pp、让球盘让负退水 ${dHandAway!==null?f(Math.abs(dHandAway),1):"—"}pp，
+        两层同向退水，说明撤的是「客队赢两球以上」的筹码，不是「客队赢」的筹码。</div>`:""}
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card"><h3>总进球定价：模型 vs 市场<span class="x">${g?esc(g.t_old+" → "+g.t_new):""}</span></h3>
+      ${g?`<table><thead><tr><th>进球数</th><th class="mono">初盘</th><th class="mono">最新</th><th>变化</th><th class="mono">定价概率</th><th class="mono">模型</th><th class="mono">差</th></tr></thead>
+      <tbody>${goalRows}</tbody></table>
+      <div class="hint">定价把 ${esc(g.lowest)} 球放成全场最低赔率（最热的一格），模型这边峰值在
+        ${g.model.indexOf(Math.max(...g.model))} 球。两套口径对"几个球"的排序一致，分歧只在尾部：
+        ${g.lowest==="3"?"3 球定价比模型更热，4 球以上定价全线压":esc(g.lowest)+" 球被定成最热的一格"}，
+        说明市场怕的是「再多一个球」，不是「少一个球」。</div>`:'<div class="note">本场无总进球变盘记录</div>'}
+    </div>
+    <div class="card"><h3>半全场：剧本的方向<span class="x">${ht?esc(ht.t_old+" → "+ht.t_new):""}</span></h3>
+      ${ht?`<table><thead><tr><th>半场/全场</th><th class="mono">初盘</th><th class="mono">最新</th><th>变化</th><th class="mono">隐含</th></tr></thead>
+      <tbody>${htRows}</tbody></table>
+      <div class="hint">半场打平的三项（平胜/平平/平负）合计隐含 ${htDraw===null?"—":pc(htDraw)}，
+        其中「半场平、全场客胜」从 ${f(ht.rows.find(r=>r.k==="平负")?.old||0,2)} 压到 ${f(ht.rows.find(r=>r.k==="平负")?.new||0,2)}，
+        是这次变盘里唯一被明显压价的一格：市场在赌**上半场咬住、下半场才分胜负**。
+        反过来「半场落后半场赢」（负负）被抬价，说明开局被打穿的剧本被减配。</div>`:'<div class="note">本场无半全场变盘记录</div>'}
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h3>波胆池：定价锚在哪<span class="x">按赔率从低到高 · 共 ${pool.length} 格，列前 ${Math.min(12,pool.length)}</span></h3>
+      <table><thead><tr><th>比分</th><th class="mono">定价</th><th class="mono">隐含</th><th>方向</th><th>与模型结论</th></tr></thead>
+      <tbody>${poolRows}</tbody></table>
+      <div class="hint">定价锚是 ${pool.length?esc(pool[0].s):"—"}（${pool.length?f(pool[0].odd,2):"—"}，隐含 ${pool.length?pc(pool[0].p):"—"}），
+        模型首选是 ${v.first_score}（${pc(v.first_p)}）。锚点与首选是否同侧，就是这场"值不值"的第一道门槛。</div>
+    </div>
+    <div class="card"><h3>剧本切换条件</h3>
+      <div class="note">按当前定价与模型的差，把比赛拆成四种走向，各自的触发条件写在前面：</div>
+      <table style="margin-top:10px"><tbody>
+        <tr><td>上半场就破门</td><td>比分往 2-1 / 2-2 走：模型 大 2.5 ${pc(m.over["2.5"])}、双方进球 ${pc(m.btts)}，两边都能进球的场次里，零封是最先被排除的结果。</td></tr>
+        <tr><td>半场 0-0</td><td>半场打平隐含 ${htDraw===null?"—":pc(htDraw)}（半全场三项合计），单格概率最高的仍是首选的 ${v.first_score} 与次选的 ${v.second_score}，平局在模型里 ${pc(v.second_p)}、定价 ${pc(m.mk[1])}，${v.second_p>m.mk[1]?"模型比定价更看重平局":"定价比模型更看重平局"}。</td></tr>
+        <tr><td>客队先进球</td><td>客胜仍是定价最热（${pc(m.mk[2])}），防冷比分 ${v.guard_score}；若客队先进球后仍要防被拖回平局，模型平局 ${pc(v.second_p)} 是唯一能救回的格子。</td></tr>
+        <tr><td>主队先进球</td><td>让球(${m.hand>0?"+"+m.hand:m.hand}) 主胜一侧模型 ${pc(m.hp?m.hp[0]:null)} vs 定价 ${pc(m.hmk?m.hmk[0]:null)}，${m.hp&&m.hmk&&m.hp[0]>m.hmk[0]?"模型比定价更信这个剧本":"定价比模型更信这个剧本"}；追主队要接受赢球不穿盘的结果。</td></tr>
+      </tbody></table>
+      <div class="hint">这一页只看两件事：①撤的是"赢"还是"赢几个" ②定价锚与模型首选是否同侧。挪动幅度 ±1pp 以内当噪声处理。</div>
+    </div>
+  </div>
+
+  ${mv.notes&&mv.notes.length?`<div class="card" style="margin-top:14px"><h3>变盘原始记录<span class="x">逐条转录</span></h3>
+    <div class="note">${mv.notes.map(n=>"· "+esc(n)).join("<br>")}</div></div>`:""}`;
+}
+
+function paneConcl(m){
+  const v = m.verdict, k = m.cold;
+  const guardScore = v.guard_score;
+  const keep = [v.first_score, v.second_score, guardScore];
+  const excluded = (m.steps.exclude||[]).map(x=>x.k).join(" ");
+  const rich = (m.steps.rich||[]).filter(x=>!keep.some(s=>x.k===s) && !excluded.includes(x.k));
+  const triggers = [];
+  if((m.tech.meet.low2||0) >= 50) triggers.push(`交手总进球 ≤2 占 ${m.tech.meet.low2}%，低比分有土壤`);
+  if((m.conf.n_sample||0) <= 2) triggers.push(`主客分离样本只有 ${m.conf.n_sample} 场，口径偏薄`);
+  if(m.conf.agree < 3) triggers.push(`四方只有 ${m.conf.agree}/3 同向，外部参照系不站队`);
+  if(Math.abs(m.conf.maxpp) >= 15) triggers.push(`模型与定价差 ${f(Math.abs(m.conf.maxpp))}pp，定价更极端`);
+  if((m.over["2.5"]||0) >= 65) triggers.push(`大 2.5 球 ${pc(m.over["2.5"])}，总量高但比分分散，进球数比胜负更稳`);
+  return `
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card hl"><h3>四步推演闭环</h3>
+      <div class="step"><span class="i">01</span><div><div class="h">定格局<span>胜平负方向</span></div>
+        <div class="b">${esc(m.steps.pattern)}</div></div></div>
+      <div class="step"><span class="i">02</span><div><div class="h">定总量<span>总进球区间</span></div>
+        <div class="b">${esc(m.steps.total)}</div></div></div>
+      <div class="step"><span class="i">03</span><div><div class="h">跑矩阵<span>概率排序</span></div>
+        <div class="b">${esc(m.steps.matrix)}</div></div></div>
+      <div class="step"><span class="i">04</span><div><div class="h">做排除<span>情景证伪</span></div>
+        <div class="b">把与方向、总量相悖的比分先划掉，剩下的才是候选。见右侧清单。</div></div></div>
+    </div>
+    <div class="card"><h3>排除清单<span class="x">逻辑相悖先划掉</span></h3>
+      <table><thead><tr><th>比分 / 区间</th><th>判定</th><th>理由</th></tr></thead><tbody>
+        ${(m.steps.exclude||[]).map(x=>`<tr><td class="mono">${esc(x.k)}</td>
+          <td><span class="pill ${x.kind==="排除"?"r":"a"}">${x.kind}</span></td>
+          <td style="font-size:12px;color:var(--muted)">${esc(x.why)}</td></tr>`).join("")}
+        ${rich.map(x=>`<tr><td class="mono">${esc(x.k)}</td>
+          <td><span class="pill a">${x.kind}</span></td>
+          <td style="font-size:12px;color:var(--muted)">${esc(x.why)}</td></tr>`).join("")}
+      </tbody></table>
+      <div class="hint">总进球 5 球以上模型合计 ${pc(m.steps.tail5)}；平局一格 ${pc(m.steps.draw_p)}。与主推/次选/防冷重复的比分已从降权清单里剔除。</div>
+    </div>
+  </div>
+
+  <div class="grid3">
+    <div class="card"><h3>主推</h3>
+      <div class="kpi"><div class="k">首选</div><div class="n">${v.first}</div>
+        <div class="d">比分 ${v.first_score} · 模型 ${pc(v.first_p)}</div></div>
+      <div class="kpi" style="margin-top:12px"><div class="k">次选</div><div class="n">${v.second}</div>
+        <div class="d">比分 ${v.second_score} · 模型 ${pc(v.second_p)}</div></div>
+    </div>
+    <div class="card"><h3>防冷</h3>
+      <div class="kpi"><div class="k">定价最热</div><div class="n">${k.fav}</div>
+        <div class="d">定价 ${pc(k.fav_mk)} · 模型 ${pc(k.fav_model)} · 冷门空间 ${f(k.index,0)}</div></div>
+      <div class="kpi" style="margin-top:12px"><div class="k">${v.guard_mode==="退路"?"退路比分":"防守比分"}</div><div class="n" style="font-size:22px">${guardScore}</div>
+        <div class="d">${v.guard_mode==="退路"
+        ? `首选 ${v.first} 若落空，退路是 ${v.second}，比分往 ${guardScore} 走；${k.main_cold} 一侧模型给 ${pc(v.guard_model_p)}`
+        : `市场最热的 ${k.fav} 若站住，比分大概率是 ${guardScore}；被拖住时模型最可能接上的是 ${k.main_cold} ${pc(k.main_cold_p)}`}</div></div>
+      ${triggers.length?`<div class="hint">防冷触发条件：${triggers.map(t=>esc(t)).join("；")}。</div>`:""}
+    </div>
+    <div class="card"><h3>一句话结论</h3>
+      <div class="note" style="font-size:13px;color:var(--ink)">
+        ${esc(m.home)} 对 ${esc(m.away)}：模型 ${v.first} ${pc(v.first_p)}，首选比分 ${v.first_score}；信心 ${m.conf.total}/100（${m.conf.grade}）；
+        ${Math.abs(m.conf.maxpp)>=15?`最大风险是模型与定价差 ${f(Math.abs(m.conf.maxpp))}pp 这件事本身`:"两边结构基本可用"}；防冷看 ${guardScore}。
+      </div>
+      <div class="hint">内部资料，只做口径与判断记录，不构成任何购买建议。所有百分比都是估值，不是承诺。</div>
+    </div>
+  </div>`;
+}
+
+function paneCmp(m){
+  const sm = m.ext.sm, af = m.ext.af;
+  const smDir = sm ? (()=>{
+    const x = String(sm.predicted||"").match(/(\d+)\s*-\s*(\d+)/);
+    if(!x) return null;
+    const h = +x[1], a = +x[2];
+    return h>a?"主胜":h===a?"平":"客胜";
+  })() : null;
+  const afDir = af ? (af.predicted_dir || null) : null;
+  const votes = [m.conf.market_dir===m.conf.model_dir];
+  if(smDir) votes.push(smDir===m.conf.model_dir);
+  if(afDir) votes.push(afDir===m.conf.model_dir);
+  const agree = votes.filter(Boolean).length;
+  const row = (name, dir, detail, cls) => `<tr>
+      <td>${name}</td>
+      <td><span class="pill ${dir===m.conf.model_dir?"g":"r"}">${dir||"—"}</span></td>
+      <td style="color:var(--muted);font-size:12px">${detail||"—"}</td></tr>`;
+  const aStroke = agree/Math.max(1,votes.length);
+  return `
+  <div class="card hl" style="margin-bottom:14px"><h3>四种口径并排<span class="x">模型 · 定价 · 外媒预报 · AI 接口</span></h3>
+    <table><thead><tr><th>来源</th><th>方向</th><th>依据 / 原文摘要</th></tr></thead><tbody>
+      ${row("后台模型 v2.10", m.conf.model_dir, `主 ${pc(m.p[0])} / 平 ${pc(m.p[1])} / 客 ${pc(m.p[2])}，单格最高 ${(m.top[0]||{}).s||"—"}`)}
+      ${row("官方固定奖金（去水）", m.conf.market_dir, `主 ${pc(m.mk[0])} / 平 ${pc(m.mk[1])} / 客 ${pc(m.mk[2])}，返奖率 ${m.payout?f(m.payout,1)+"%":"—"}`)}
+      ${sm?row("公开赛前预报（Sports Mole）", smDir, `${esc(sm.predicted||"")}<br><span style="color:var(--dim)">${esc((sm.note||"").slice(0,220))}${(sm.note||"").length>220?"…":""}</span>`):'<tr><td>公开赛前预报</td><td><span class="pill">无</span></td><td style="color:var(--dim)">本场未取到</td></tr>'}
+      ${af?row("数据接口算法（API-Football）", afDir, `接口口径：${esc((af.note||"").slice(0,120))}<br><span style="color:var(--dim)">免费层百分比为坏值，只采信方向</span>`):'<tr><td>数据接口算法</td><td><span class="pill">无</span></td><td style="color:var(--dim)">本场未取到</td></tr>'}
+    </tbody></table>
+    <div class="hint">一致度 ${agree}/${votes.length}：${agree===votes.length?"全部同向，方向层面没有分歧":agree===0?"全部反向，这种场次只做记录不做判断":"存在分歧，分歧点写在下面"}</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h3>一致度</h3>
+      <div class="dim"><span class="k">同向比例</span>
+        <span class="b"><i style="width:${aStroke*100}%"></i></span>
+        <span class="v">${agree}/${votes.length}</span></div>
+      <div class="note" style="margin-top:10px">${esc(m.steps.pattern)}</div>
+      <div class="hint">外部两源只做参照系：公开预报给的是比分与理由，数据接口只给方向；它们不改变模型结论，只用来标出「几家站成几排」。</div>
+    </div>
+    <div class="card"><h3>${sm?"预报方给的阵容与理由":"外媒缺口"}</h3>
+      ${sm? `<div class="note">${esc(sm.lineup||"—")}</div>
+        <div class="hint">预计首发为预报方口径，与官方伤停名单冲突时以赛前公布名单为准。</div>
+        ${sm.url?`<div class="hint">来源：${esc(sm.url)}</div>`:""}`:
+        `<div class="note">本场没有取到公开赛前预报（索引页未覆盖或抓取失败），外部图层只有数据接口的方向，不做比分对照。</div>`}
+    </div>
+  </div>`;
+}
+
+const PANES = {overview:paneOverview, math:paneMath, tech:paneTech, intel:paneIntel, market:paneMarket, move:paneMove, concl:paneConcl, cmp:paneCmp};
+
+/* ── 主渲染 ── */
+function render(){
+  const m = M();
+  renderRail();
+  $("#tbmeta").innerHTML = `${DATA.meta.date.slice(0,4)}-${DATA.meta.date.slice(4,6)}-${DATA.meta.date.slice(6)} · <i>${DATA.meta.count}</i> 场 · 模型 ${esc(DATA.meta.model)} · ρ=${DATA.meta.rho} · 生成 ${esc(DATA.meta.stamp)}`;
+  const tabs = TABS.map(([k,t])=>`<button class="tab ${S.tab===k?"on":""}" data-tab="${k}">${t}</button>`).join("");
+  $("#main").innerHTML = renderHero(m) + `<div class="tabs">${tabs}</div><div class="pane">${PANES[S.tab](m)}</div>`;
+  $("#main").querySelectorAll(".tab").forEach(el=>{ el.onclick = ()=>{ S.tab = el.dataset.tab; render(); }; });
+  $("#main").querySelectorAll("[data-jump]").forEach(el=>{
+    el.onclick = ()=>{ S.i = +el.dataset.jump; S.tab="overview"; render(); window.scrollTo({top:0,behavior:"smooth"}); };
+  });
+  const sw = $("#swDC"); if(sw) sw.onclick = ()=>{ S.dc = !S.dc; render(); };
+  bindTips();
+}
+
+/* ── 悬停提示 ── */
+function bindTips(){
+  const tip = $("#tip");
+  document.querySelectorAll("[data-tip]").forEach(el=>{
+    el.addEventListener("mouseenter", e=>{ tip.textContent = el.dataset.tip; tip.classList.add("on"); });
+    el.addEventListener("mousemove", e=>{
+      const w = tip.offsetWidth, h = tip.offsetHeight;
+      let x = e.clientX + 14, y = e.clientY + 14;
+      if(x + w > innerWidth - 8) x = e.clientX - w - 14;
+      if(y + h > innerHeight - 8) y = e.clientY - h - 14;
+      tip.style.left = x+"px"; tip.style.top = y+"px";
+    });
+    el.addEventListener("mouseleave", ()=> tip.classList.remove("on"));
+  });
+}
+
+/* ── 复制结论 ── */
+function summary(){
+  return DATA.matches.map(m=>{
+    const v = m.verdict;
+    return `${m.no} ${m.home} vs ${m.away}（${m.kick||""}）信心 ${m.conf.total}/100 ${m.conf.grade}｜首选 ${v.first} ${v.first_score}｜次选 ${v.second} ${v.second_score}｜防冷 ${v.guard} ${v.guard_score}｜冷门指数 ${f(m.cold.index,0)}`;
+  }).join("\n");
+}
+function toast(t){ const el = $("#toast"); el.textContent = t; el.classList.add("on"); setTimeout(()=>el.classList.remove("on"),1600); }
+$("#btnCopy").onclick = async ()=>{
+  try{ await navigator.clipboard.writeText(summary()); toast("六场结论已复制"); }
+  catch(e){ toast("浏览器不允许复制，请手动选中"); }
+};
+$("#btnTheme").onclick = ()=>{ document.body.classList.toggle("light"); };
+
+/* ── 键盘 ── */
+addEventListener("keydown", e=>{
+  if(e.key==="ArrowLeft"||e.key==="ArrowRight"){
+    S.i = (S.i + (e.key==="ArrowRight"?1:-1) + DATA.matches.length) % DATA.matches.length;
+    render(); window.scrollTo({top:0,behavior:"smooth"});
+  }
+  const n = parseInt(e.key,10);
+  if(n>=1 && n<=TABS.length){ S.tab = TABS[n-1][0]; render(); }
+});
+
+render();
+</script>
+</body>
+</html>
