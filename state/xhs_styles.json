@@ -1,8 +1,9 @@
 {
-  "_last": "editorial",
+  "_last": "rouge",
   "小红书_周三六场": "rouge",
   "小红书_第一批": "rouge",
   "小红书_第二批": "editorial",
   "小红书_周五八场": "swiss",
-  "小红书_周六六场": "editorial"
+  "小红书_周六六场": "editorial",
+  "小红书_周日三场": "rouge"
 }

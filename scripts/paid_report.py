@@ -30,7 +30,7 @@ STATE = ROOT / "state"
 BATCH_DIR = STATE / "batch"
 RECORDS = STATE / "records"
 
-RE_HEAD = re.compile(r"^周六(\d{3})\s+(\S+)\s+vs\s+(\S+)\s+\[(.+?)\]\s+id=(\d+)")
+RE_HEAD = re.compile(r"^周([一二三四五六日])(\d{3})\s+(\S+)\s+vs\s+(\S+)\s+\[(.+?)\]\s+id=(\d+)")
 RE_F = r"([\d.]+)%"
 
 # 外媒理由中文摘要（付费资料里给读者看得懂的一句话；按展示队名键）
@@ -72,8 +72,8 @@ def parse_model(path: Path) -> list[dict]:
         if not m:
             continue
         d: dict = {
-            "no": "周六" + m.group(1), "home": m.group(2), "away": m.group(3),
-            "league": m.group(4), "mid": m.group(5), "warn": [], "top": [],
+            "no": "周" + m.group(1) + m.group(2), "home": m.group(3), "away": m.group(4),
+            "league": m.group(5), "mid": m.group(6), "warn": [], "top": [],
         }
         for ln in b:
             s = ln.strip()

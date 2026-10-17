@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026.10.18 3 场全维度推演 · 阿飞·赛博聊球</title>
+<style>
+:root{--bg:#F5F0E6;--bg2:#FBF7EE;--panel:#FFFDF7;--ink:#221E18;--muted:#6A5E50;--dim:#8C7F6E;
+  --line:rgba(60,45,30,.16);--line2:rgba(60,45,30,.34);--brick:#8C3B23;--ochre:#A8762F;--navy:#3D5064;
+  --red:#9E2B21;--green:#3F6B4A;
+  --mono:"IBM Plex Mono","JetBrains Mono",ui-monospace,Consolas,monospace;
+  --sans:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",system-ui,sans-serif;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif CJK SC",Georgia,serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.75 var(--sans)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 34px 70px}
+/* 封面 */
+.cover{padding:56px 0 30px;border-bottom:2px solid var(--ink);margin-bottom:30px}
+.cover .kick{font-family:var(--mono);font-size:11px;letter-spacing:.3em;color:var(--brick);margin-bottom:14px}
+.cover h1{font-family:var(--serif);font-size:46px;line-height:1.2;margin:0 0 10px;letter-spacing:.01em}
+.cover .sub{font-family:var(--serif);font-size:19px;color:#4A3E33;margin-bottom:20px}
+.cover .meta{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:26px 0 6px}
+.kpi{border-left:2px solid var(--line2);padding-left:14px}
+.kpi b{display:block;font-family:var(--mono);font-size:30px;line-height:1.1;color:var(--brick)}
+.kpi span{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--dim)}
+.kpi i{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:4px}
+.toc{display:grid;grid-template-columns:repeat(2,1fr);gap:4px 26px;margin-top:24px}
+.toc a{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px dotted rgba(60,45,30,.22);
+  color:var(--ink);text-decoration:none;font-size:13.5px}
+.toc a:hover{color:var(--brick)}
+.toc a span{font-family:var(--mono);font-size:11px;color:var(--dim)}
+/* 总览表 */
+h2.sec{font-family:var(--serif);font-size:24px;margin:34px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line2)}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0 4px}
+th,td{text-align:left;padding:7px 9px;border-bottom:1px solid rgba(60,45,30,.10);vertical-align:top}
+thead th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--dim);font-weight:400;
+  border-bottom:1px solid var(--line2);white-space:nowrap}
+tbody tr:hover td{background:rgba(140,59,35,.035)}
+table.kv th{width:44%;font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:400;letter-spacing:.02em}
+table.kv td{font-family:var(--mono);font-size:12px}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+/* 单场 */
+.match{margin-top:46px;padding-top:26px;border-top:2px solid var(--ink);break-after:page}
+.final{margin:26px 0 0;border:1px solid var(--line2);border-left:4px solid var(--brick);background:#FBF6EC;padding:18px 20px 6px}
+.final .fhd{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--line2);padding-bottom:8px;margin-bottom:6px}
+.final .fhd span{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+.final .fhd i{font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--dim);letter-spacing:.06em}
+.final .card{background:var(--panel)}
+.mhead .mno{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--dim)}
+.mhead h2{font-family:var(--serif);font-size:38px;line-height:1.2;margin:10px 0 12px;font-weight:700}
+.mhead h2 em{font-style:normal;color:var(--brick);font-size:19px;margin:0 14px;vertical-align:4px}
+.msum{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;
+  padding-bottom:14px;border-bottom:1px solid var(--line)}
+.msum b{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--dim);margin-right:6px}
+.msum .sep{color:var(--line2);margin:0 8px}
+.conf{text-align:right}
+.cnum{font-family:var(--mono);font-size:34px;line-height:1;color:var(--brick)}
+.cgrade{font-family:var(--mono);font-size:12px;color:var(--muted);margin-left:8px;letter-spacing:.08em}
+.cdim{display:block;font-family:var(--mono);font-size:9.5px;color:var(--dim);letter-spacing:.14em;margin-top:4px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 20px}
+.vcard{border:1px solid var(--line);background:var(--panel);border-top:2px solid var(--brick);padding:13px 15px}
+.vcard.v2{border-top-color:var(--ochre)} .vcard.v3{border-top-color:var(--navy)}
+.vcard .vt{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--dim);margin-bottom:6px}
+.vcard b{display:block;font-family:var(--serif);font-size:24px;line-height:1.3}
+.vcard .vs{display:block;font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:6px}
+/* 段 */
+.s{margin:26px 0 0;padding-top:18px;border-top:1px solid var(--line)}
+.s h3{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--brick);margin:0 0 14px;
+  display:flex;align-items:center;gap:10px;font-weight:400}
+.s h3 i{font-style:normal;font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.06em;
+  border:1px solid var(--line);padding:1px 6px}
+.s h3 .x{margin-left:auto;font-size:10px;color:var(--dim);letter-spacing:.08em}
+.col2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.col2>*{min-width:0}
+.cap{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--brick);margin:0 0 8px}
+.cap2{font-size:12px;color:var(--muted);line-height:1.7;margin:8px 0 0}
+.body{font-size:13px;line-height:1.78;margin:0}
+/* 条形 */
+.bar{display:grid;grid-template-columns:52px 1fr 104px;align-items:center;gap:10px;margin:6px 0}
+.bar .bl{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.bar .bt{position:relative;display:block;height:18px;background:rgba(60,45,30,.08)}
+.bar .bt .fill{position:absolute;left:0;top:0;bottom:0;display:block}
+.fill.h{background:var(--brick)} .fill.d{background:var(--ochre)} .fill.a{background:var(--navy)}
+.bar .bt .ghost{position:absolute;top:0;bottom:0;
+  background:repeating-linear-gradient(45deg,rgba(60,45,30,.42),rgba(60,45,30,.42) 3px,transparent 3px,transparent 7px)}
+.bar .bt .mark{position:absolute;top:-3px;bottom:-3px;width:2px;background:#221E18;opacity:.72}
+.bar .bv{font-family:var(--mono);font-size:11px;color:var(--ink);text-align:right;line-height:1.25}
+.bar .bv b{display:block}
+.bar .bv i{display:block;font-style:normal;font-size:10px;color:var(--dim)}
+/* 矩阵 */
+.mx{display:grid;grid-template-columns:26px repeat(7,1fr);gap:1px;max-width:460px}
+.mxh{font-family:var(--mono);font-size:10px;color:var(--dim);display:flex;align-items:center;justify-content:center}
+.mxc{font-family:var(--mono);font-size:11px;text-align:center;padding:9px 0;border:1px solid rgba(255,255,255,.55)}
+/* 柱图 */
+.gchart{display:flex;align-items:flex-end;gap:8px;height:150px;margin:6px 0 4px}
+.gcol{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;height:100%}
+.gcol i{display:block;width:100%;background:linear-gradient(180deg,var(--brick),#D2A78A)}
+.gcol .gv{font-family:var(--mono);font-size:10px;color:var(--muted)}
+.gcol .gl{font-family:var(--mono);font-size:10px;color:var(--dim)}
+.gax{font-family:var(--mono);font-size:10px;color:var(--dim)}
+/* 小卡 */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.grid4.tight .mini{padding:9px 10px}
+.mini{border:1px solid var(--line);background:var(--panel);padding:10px 12px}
+.mini span{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--dim)}
+.mini b{display:block;font-family:var(--mono);font-size:20px;line-height:1.4}
+.mini i{font-style:normal;font-size:10.5px;color:var(--muted)}
+/* 列表 */
+ul.gaps{list-style:none;margin:0;padding:0}
+ul.gaps li{display:flex;gap:9px;align-items:baseline;padding:6px 0;border-bottom:1px dotted rgba(60,45,30,.18);font-size:12px}
+ul.gaps b{font-family:var(--mono);font-size:9.5px;color:var(--red);border:1px solid rgba(158,43,33,.32);
+  padding:1px 5px;background:rgba(158,43,33,.05);white-space:nowrap}
+ul.gaps span{font-family:var(--mono);font-size:11px;color:var(--ink);white-space:nowrap}
+ul.notes{margin:8px 0 0;padding-left:18px;font-size:12px;color:var(--muted);line-height:1.75}
+ul.notes li{margin:3px 0}
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:st}
+ol.steps li{border-bottom:1px solid var(--line);padding:10px 0 12px}
+ol.steps li b{font-family:var(--serif);font-size:16px;display:block}
+ol.steps li span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--dim)}
+ol.steps li p{margin:6px 0 0;font-size:13px;line-height:1.78}
+/* 结论条 */
+.oneline{margin:22px 0 0;border:1px solid var(--line2);background:var(--panel);padding:16px 18px}
+.oneline>b{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--brick)}
+.oneline p{margin:8px 0 0;font-size:13.5px;line-height:1.8}
+.warns{margin-top:10px;font-size:12px;color:var(--muted)}
+.warns div{padding:4px 0}
+/* 附录 */
+.appendix{margin-top:56px;padding-top:26px;border-top:2px solid var(--ink);font-size:12.5px;color:var(--muted)}
+.appendix h3{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--brick);margin:20px 0 8px;font-weight:400}
+.appendix ol{padding-left:20px;line-height:1.8}
+.pill{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;padding:1px 5px;border:1px solid var(--line2);white-space:nowrap}
+.pill.r{color:var(--red);border-color:rgba(158,43,33,.34);background:rgba(158,43,33,.06)}
+.pill.a{color:#8A5A17;border-color:rgba(168,118,47,.36);background:rgba(168,118,47,.08)}
+.pill.g{color:var(--green);border-color:rgba(63,107,74,.34)}
+.foot{margin-top:34px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--mono);
+  font-size:10px;color:var(--dim);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (max-width:880px){
+  .wrap{padding:0 18px 50px}
+  .col2{grid-template-columns:1fr;gap:18px}
+  .grid3,.grid4,.kpis{grid-template-columns:1fr 1fr}
+  .cover h1{font-size:34px}
+  .mhead h2{font-size:28px}
+}
+@media print{
+  @page{size:A4;margin:14mm}
+  body{background:#fff;font-size:10.5pt}
+  .wrap{max-width:none;padding:0}
+  .match{page-break-before:always;border-top:none;padding-top:0;margin-top:0}
+  .cover{page-break-after:always}
+  .col2{grid-template-columns:1fr 1fr}
+  .vcard,.mini,.oneline{background:#fff}
+  a{color:inherit;text-decoration:none}
+}
+</style>
+</head><body>
+<div class="wrap">
+<section class="cover">
+  <div class="kick">付费内部资料 · 全维度推演 · 海报款</div>
+  <h1>2026.10.18 3 场</h1>
+  <div class="sub">盘口结构 · 数理模型 · 高阶数据 · 推演闭环</div>
+  <div class="meta">生成 2026-10-17 23:58 · 模型 _model_20261018_sun.txt · 抽样 20,000 次 · ρ = -0.08
+    · 每场按「门槛 → 数理 → 高阶 → 基本面 → 盘口 → 闭环 → 外媒」七段顺序读到底</div>
+  <div class="kpis">
+    <div class="kpi"><b>3</b><span>覆盖场次</span><i>日职 / 韩职</i></div>
+    <div class="kpi"><b>59</b><span>平均信心指数</span><i>满分 100 · 五维加权</i></div>
+    <div class="kpi"><b>1</b><span>场次分歧 ≥10pp</span><i>模型与定价的最大差距</i></div>
+    <div class="kpi"><b>0</b><span>场次三方同向</span><i>模型 / 定价 / 外部源</i></div>
+  </div>
+  <div class="toc"><a href="#m0"><b>周日001　町田泽维 vs 福冈黄蜂</b><span>10/18 15:00 · 73 · B</span></a><a href="#m1"><b>周日002　江原FC vs 仁川联</b><span>10/18 15:30 · 62 · C</span></a><a href="#m2"><b>周日003　首尔FC vs 金泉尚武</b><span>10/18 15:30 · 41 · D</span></a></div>
+</section>
+
+<h2 class="sec">总览 · 3 场一页看完</h2>
+<table class=""><thead><tr><th>场次</th><th>对阵 / 开赛</th><th>模型 主/平/客</th><th>定价 主/平/客（去水）</th><th>最大偏差</th><th>信心</th><th>冷门</th></tr></thead><tbody><tr><td><b>周日001</b></td><td>町田泽维 vs 福冈黄蜂<br><span class="dim2">日职 · 10/18 15:00</span></td><td>53.0 / 25.0 / 21.9</td><td>53.1 / 26.2 / 20.6</td><td>客胜 +1.3</td><td>73</td><td>47</td></tr><tr><td><b>周日002</b></td><td>江原FC vs 仁川联<br><span class="dim2">韩职 · 10/18 15:30</span></td><td>37.0 / 30.1 / 32.9</td><td>41.7 / 31.8 / 26.4</td><td>客胜 +6.5</td><td>62</td><td>63</td></tr><tr><td><b>周日003</b></td><td>首尔FC vs 金泉尚武<br><span class="dim2">韩职 · 10/18 15:30</span></td><td>46.6 / 28.7 / 24.7</td><td>66.5 / 20.3 / 13.1</td><td>主胜 −20.0</td><td>41</td><td>53</td></tr></tbody></table>
+<p class="cap2">定价为官方固定奖金去水后的隐含概率（按返奖率归一）。冷门指数＝定价最热那一格之外、模型给出的概率之和，数字越大，市场热的那头越站不住。
+  最大偏差取胜平负三项里绝对值最大的一格，偏差超过 15 个百分点时按纪律先假定我方样本有缺口，只做方向参考。</p>
+
+<section class="match" id="m0">
+<header class="mhead">
+  <div class="mno"><span>周日001</span><span>日职</span><span>10/18 15:00 开赛</span>
+    <span>λ 合计 2.53</span></div>
+  <h2>町田泽维<em>vs</em>福冈黄蜂</h2>
+  <div class="msum">
+    <div><b>模型方向</b>主胜<span class="sep">/</span><b>定价方向</b>主胜
+      <span class="sep">/</span><b>让球</b>-1</div>
+    <div class="conf"><span class="cnum">73</span><span class="cgrade">B · 中高</span>
+      <span class="cdim">五维加权 · 满分 100</span></div>
+  </div>
+</header>
+<div class="grid3">
+  <div class="vcard"><span class="vt">首选 · PRIMARY</span><b>主胜</b>
+    <span class="vs">比分 1-0 · 模型 53.0%</span></div>
+  <div class="vcard v2"><span class="vt">次选 · SECOND</span><b>平</b>
+    <span class="vs">比分 1-1 · 模型 25.0%</span></div>
+  <div class="vcard v3"><span class="vt">防范 · GUARD</span><b>平</b>
+    <span class="vs">比分 1-1 · 退路 25.0%</span></div>
+</div>
+<section class="s">
+  <h3><i>00</i>全维度扫盘 <span class="x">15 个维度 · 有源给读数，无源标缺口</span></h3>
+  <table class="scan"><thead><tr><th>维度</th><th>读数</th><th>来源 / 状态</th></tr></thead><tbody><tr><td>模型</td><td>λ 1.60 / 0.93，胜平负 53.0% / 25.0% / 21.9%</td><td><span class="ok">已接入 · 后台模型 2.10</span></td></tr><tr><td>市场</td><td>去水后 53.1% / 26.2% / 20.6%（返奖率 88.7%）</td><td><span class="ok">已接入 · 竞彩固定奖金</span></td></tr><tr><td>模型×市场</td><td>三项偏差 −0.1pp / −1.2pp / +1.3pp；最大 1.3 个点</td><td><span class="ok">已接入</span></td></tr><tr><td>让球结构</td><td>让球（-1）模型 28.1% / 24.9% / 47.0% vs 定价 26.4% / 27.7% / 45.9%</td><td><span class="ok">已接入</span></td></tr><tr><td>盘口变化</td><td>只有开盘一版（今天开的盘，暂无位移可读）</td><td><span class="gap">刚开盘</span></td></tr><tr><td>外媒预报</td><td>本批无外媒覆盖（英日韩小联赛 Sports Mole 不收录）</td><td><span class="gap">无源</span></td></tr><tr><td>AI 接口</td><td>方向 主胜（免费层百分比为坏值，只取方向）；记录 https://www.api-football.com/fixture/1556095</td><td><span class="ok">已接入</span></td></tr><tr><td>近期状态</td><td>主 5 场 1.2 进 1.0 失（零封 60%）｜客 5 场 0.8 进 1.2 失（零封 0%）</td><td><span class="ok">已接入</span></td></tr><tr><td>积分排名</td><td>官方表接口返回空（getMatchTablesV2），本批不估算</td><td><span class="gap">缺口</span></td></tr><tr><td>战意与交手</td><td>近 5 次交手平局 80%、总进球 ≤2 占 60%、场均 1.40 球</td><td><span class="ok">已接入</span></td></tr><tr><td>更衣室情绪</td><td>本地无来源（需队记/社媒），本页不臆测</td><td><span class="gap">缺口</span></td></tr><tr><td>关键球员与伤停</td><td>公开伤停栏为空（不等于全员健康，只是这一栏没列）</td><td><span class="gap">名单空</span></td></tr><tr><td>战术风格</td><td>主队上半场进球占 18%；双方进球率 48.4%；大 2.5 球 46.4%（由进球时段与大小球结构推断）</td><td><span class="ok">已接入</span></td></tr><tr><td>球队身价</td><td>无免费结构化来源，本页不给估算值</td><td><span class="gap">缺口</span></td></tr><tr><td>裁判与天气</td><td>无来源；会改变 0-0 / 1-0 的存活率，本页不调模型</td><td><span class="gap">缺口</span></td></tr></tbody></table>
+  <p class="cap2">口径：只写能核对的东西。缺口项不估算、不编造，写进上面的状态列——这也是这份资料与「凭印象写」的区别。</p>
+</section>
+<section class="s">
+  <h3><i>01</i>盘口反常门槛 <span class="x">先看门槛，再看结论</span></h3>
+  <div class="col2">
+    <div>
+      <div class="cap">胜平负 · 固定奖金 1.67 / 3.38 / 4.30（返奖率 88.7%）</div>
+      <div class="bar"><span class="bl">主胜</span>
+      <span class="bt"><i class="fill h" style="width:53.0%"></i><i class="ghost" style="left:53.0%;width:0.1%"></i><i class="mark" style="left:53.1%"></i></span>
+      <span class="bv"><b>53.0%</b><i>定价 53.1%</i></span></div>
+      <div class="bar"><span class="bl">平</span>
+      <span class="bt"><i class="fill d" style="width:25.0%"></i><i class="ghost" style="left:25.0%;width:1.2%"></i><i class="mark" style="left:26.2%"></i></span>
+      <span class="bv"><b>25.0%</b><i>定价 26.2%</i></span></div>
+      <div class="bar"><span class="bl">客胜</span>
+      <span class="bt"><i class="fill a" style="width:21.9%"></i><i class="ghost" style="left:20.6%;width:1.3%"></i><i class="mark" style="left:20.6%"></i></span>
+      <span class="bv"><b>21.9%</b><i>定价 20.6%</i></span></div>
+      <p class="cap2">浅色实心＝后台模型概率；斜纹＝定价去水后概率（同一把尺）。三项偏差：
+        <b>主 −0.1pp</b> / 平 −1.2pp / 客 <b>+1.3pp</b></p>
+    </div>
+    <div>
+      <div class="cap">让球（-1）· 模型 28.1% / 24.9% / 47.0%　定价 26.4% / 27.7% / 45.9%
+        <br>固定奖金 3.35 / 3.20 / 1.93</div>
+      <div class="bar"><span class="bl">让胜</span>
+      <span class="bt"><i class="fill h" style="width:28.1%"></i><i class="ghost" style="left:26.4%;width:1.7%"></i><i class="mark" style="left:26.4%"></i></span>
+      <span class="bv"><b>28.1%</b><i>定价 26.4%</i></span></div>
+      <div class="bar"><span class="bl">让平</span>
+      <span class="bt"><i class="fill d" style="width:24.9%"></i><i class="ghost" style="left:24.9%;width:2.8%"></i><i class="mark" style="left:27.7%"></i></span>
+      <span class="bv"><b>24.9%</b><i>定价 27.7%</i></span></div>
+      <div class="bar"><span class="bl">让负</span>
+      <span class="bt"><i class="fill a" style="width:47.0%"></i><i class="ghost" style="left:45.9%;width:1.1%"></i><i class="mark" style="left:45.9%"></i></span>
+      <span class="bv"><b>47.0%</b><i>定价 45.9%</i></span></div>
+      <p class="cap2">去掉平局后的胜负拆分：主 70.7% / 客 29.3%。
+        让球一侧最大偏差 <b>−2.8pp</b>，
+        方向落平。</p>
+    </div>
+  </div>
+</section>
+<section class="s">
+  <h3><i>02</i>数理模型 <span class="x">双法 λ · 泊松矩阵 · Dixon-Coles 低比分校准</span></h3>
+  <div class="col2">
+    <div>
+      <div class="cap">λ 两条路与修正</div>
+      <table class="kv"><tbody><tr><th>方法一 · 实际数据（主客分离 + 样本量权重）</th><td>1.600 / 1.003</td></tr><tr><th>方法二 · 定价反推（比分矩阵反解）</th><td>2.100 / 0.860</td></tr><tr><th>综合 λ（代入模型）</th><td><b>1.600 / 0.931</b></td></tr><tr><th>修正明细</th><td>form主+0.250 form客-0.160 | H2H factor 0.976 (API近5场 1胜4平0负)</td></tr><tr><th>伤停修正</th><td>伤停 主0人/客0人 → λ主×(1-0.000)  λ客×(1+0.000)</td></tr></tbody></table>
+      <p class="cap2">两条 λ 差得越多，说明市场与赛果之间存在叙事溢价，或者我方样本有缺口；修正幅度一般不超过 ±0.25，修正越大越说明基础数据有偏。</p>
+    </div>
+    <div>
+      <div class="cap">胜平负交叉核对</div>
+      <table class=""><thead><tr><th>口径</th><th>主胜</th><th>平</th><th>客胜</th></tr></thead><tbody><tr><td>官方模型（2 万次抽样）</td><td>53.0%</td><td>25.0%</td><td>21.9%</td></tr><tr><td>独立泊松（本页精确解）</td><td>52.9%</td><td>25.0%</td><td>21.9%</td></tr><tr><td>Dixon-Coles（ρ=-0.08）</td><td>52.0%</td><td>27.0%</td><td>21.0%</td></tr></tbody></table>
+      <div class="cap" style="margin-top:16px">低比分校准（ρ 只动 0-0 / 1-0 / 0-1 / 1-1 四格）</div>
+      <table class=""><thead><tr><th>比分</th><th>独立泊松</th><th>DC 修正</th><th>变化</th></tr></thead><tbody><tr><td>0-0</td><td>8.00%</td><td>8.90%</td><td>+0.9pp</td></tr><tr><td>1-0</td><td>12.70%</td><td>11.80%</td><td>−0.9pp</td></tr><tr><td>0-1</td><td>7.40%</td><td>6.50%</td><td>−0.9pp</td></tr><tr><td>1-1</td><td>11.90%</td><td>12.80%</td><td>+0.9pp</td></tr></tbody></table>
+      <p class="cap2">独立泊松假设两队进球互不相干，会低估平局与低比分；DC 用相关系数 ρ 把这四格重新加权再把整张表归一。ρ 取常用区间的中值保守值，本批每场样本不足，未做逐场拟合。</p>
+    </div>
+  </div>
+  <div class="col2" style="margin-top:18px">
+    <div>
+      <div class="cap">比分概率矩阵（DC 修正后，0–6 球，实色越深概率越高）</div>
+      <div class="mx"><div class="mxh"></div><div class="mxh">0</div><div class="mxh">1</div><div class="mxh">2</div><div class="mxh">3</div><div class="mxh">4</div><div class="mxh">5</div><div class="mxh">6</div><div class="mxh">0</div><div class="mxc" style="background:rgba(170,127,87,0.772);color:#FFFDF7">8.9</div><div class="mxc" style="background:rgba(189,154,119,0.629);color:#221E18">6.5</div><div class="mxc" style="background:rgba(213,188,159,0.452);color:#221E18">3.5</div><div class="mxc" style="background:rgba(231,215,191,0.313);color:#221E18">1.1</div><div class="mxc" style="background:rgba(238,225,202,0.265);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.253);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxh">1</div><div class="mxc" style="background:rgba(147,94,48,0.940);color:#FFFDF7">12</div><div class="mxc" style="background:rgba(140,83,35,1.000);color:#FFFDF7">13</div><div class="mxc" style="background:rgba(196,165,132,0.574);color:#221E18">5.5</div><div class="mxc" style="background:rgba(226,208,183,0.350);color:#221E18">1.7</div><div class="mxc" style="background:rgba(236,223,200,0.273);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.254);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxh">2</div><div class="mxc" style="background:rgba(160,112,69,0.847);color:#FFFDF7">10</div><div class="mxc" style="background:rgba(165,120,79,0.806);color:#FFFDF7">9.5</div><div class="mxc" style="background:rgba(205,178,147,0.509);color:#221E18">4.4</div><div class="mxc" style="background:rgba(229,212,187,0.330);color:#221E18">1.4</div><div class="mxc" style="background:rgba(237,224,201,0.269);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.254);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxh">3</div><div class="mxc" style="background:rgba(197,166,133,0.568);color:#221E18">5.4</div><div class="mxc" style="background:rgba(200,170,138,0.546);color:#221E18">5.1</div><div class="mxc" style="background:rgba(221,201,174,0.388);color:#221E18">2.4</div><div class="mxc" style="background:rgba(234,219,196,0.293);color:#221E18">0.7</div><div class="mxc" style="background:rgba(238,226,203,0.260);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.252);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxh">4</div><div class="mxc" style="background:rgba(222,203,176,0.378);color:#221E18">2.2</div><div class="mxc" style="background:rgba(224,205,178,0.369);color:#221E18">2.0</div><div class="mxc" style="background:rgba(232,217,193,0.305);color:#221E18">0.9</div><div class="mxc" style="background:rgba(237,224,202,0.267);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.254);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxh">5</div><div class="mxc" style="background:rgba(234,220,196,0.291);color:#221E18">0.7</div><div class="mxc" style="background:rgba(234,220,197,0.288);color:#221E18">0.7</div><div class="mxc" style="background:rgba(237,224,201,0.268);color:#221E18"></div><div class="mxc" style="background:rgba(239,226,204,0.255);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxh">6</div><div class="mxc" style="background:rgba(238,225,203,0.261);color:#221E18"></div><div class="mxc" style="background:rgba(238,226,203,0.260);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,204,0.255);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div></div>
+      <div class="gax">↓ 主队进球　→ 客队进球　ρ = -0.08</div>
+    </div>
+    <div>
+      <div class="cap">总进球分布与大小球</div>
+      <div class="gchart"><div class="gcol"><span class="gv">8.9</span><i style="height:32px"></i><span class="gl">0</span></div><div class="gcol"><span class="gv">18.3</span><i style="height:66px"></i><span class="gl">1</span></div><div class="gcol"><span class="gv">26.5</span><i style="height:96px"></i><span class="gl">2</span></div><div class="gcol"><span class="gv">21.5</span><i style="height:78px"></i><span class="gl">3</span></div><div class="gcol"><span class="gv">13.6</span><i style="height:49px"></i><span class="gl">4</span></div><div class="gcol"><span class="gv">6.9</span><i style="height:25px"></i><span class="gl">5</span></div><div class="gcol"><span class="gv">2.9</span><i style="height:11px"></i><span class="gl">6</span></div><div class="gcol"><span class="gv">1.4</span><i style="height:5px"></i><span class="gl">7+</span></div></div><div class="gax">总进球数分布（%）· 只算 90 分钟 · 7 球以上并入 7+</div>
+      <table class=""><thead><tr><th>大小球 / 双方进球</th><th>模型概率</th></tr></thead><tbody><tr><td>大 1.5 球</td><td>71.9%</td></tr><tr><td>大 2.5 球</td><td>46.4%</td></tr><tr><td>大 3.5 球</td><td>24.9%</td></tr><tr><td>双方进球</td><td>48.4%</td></tr></tbody></table>
+      <p class="cap2">市场侧大小球盘口未接入（无公开快照），这一组只有模型口径，不做交叉验证。</p>
+    </div>
+  </div>
+</section>
+<section class="s">
+  <h3><i>03</i>高阶数据 <span class="x">上下半场结构 · 进失球离散度 · 交手土壤 · 未接入清单</span></h3>
+  <div class="col2">
+    <div>
+      <div class="cap">上下半场进球结构（近 5 场）</div>
+      <table class=""><thead><tr><th>球队</th><th>上半场</th><th>下半场</th><th>上半场占比</th><th>形态</th></tr></thead><tbody><tr><td>町田泽维</td><td>2 球</td><td>9 球</td><td>18.2%</td><td>进球集中在后半段</td></tr><tr><td>福冈黄蜂</td><td>4 球</td><td>6 球</td><td>40.0%</td><td>上下半场均衡</td></tr></tbody></table>
+      <p class="cap2">竞彩公开数据只有半场/全场比分，没有分钟级进球与跑动；用「上半场进球占比」当体能曲线代理：占比越低说明越依赖下半场，反过来 70 分钟后被追的风险越大。</p>
+      <div class="cap" style="margin-top:16px">进失球离散度与零封率（近 5 场）</div>
+      <table class=""><thead><tr><th>球队</th><th>场均进</th><th>场均失</th><th>零封率</th><th>进球 σ</th><th>失球 σ</th><th>形态</th></tr></thead><tbody><tr><td>町田泽维</td><td>1.20</td><td>1.00</td><td>60%</td><td>0.84</td><td>1.73</td><td>输出稳定</td></tr><tr><td>福冈黄蜂</td><td>0.80</td><td>1.20</td><td>0%</td><td>0.84</td><td>0.45</td><td>输出稳定</td></tr></tbody></table>
+      <p class="cap2">σ 越大越不稳定；场均进失是粗糙口径，所以模型里用主客分离 + 样本量权重压噪音。</p>
+    </div>
+    <div>
+      <div class="cap">交手记录的比分土壤（近 5 次）</div>
+      <div class="grid4 tight">
+        <div class="mini"><span>总进球 ≤2 占比</span><b>60%</b><i>低比分土壤</i></div>
+        <div class="mini"><span>双方进球率</span><b>20%</b><i>同时开火</i></div>
+        <div class="mini"><span>平局率</span><b>80%</b><i>胶着度</i></div>
+        <div class="mini"><span>场均总进球</span><b>1.40</b><i>节奏</i></div>
+      </div>
+      <table class=""><thead><tr><th>日期</th><th>比分</th><th>联赛</th></tr></thead><tbody><tr><td>2025-10-18</td><td>町田泽维 0:0 福冈黄蜂</td><td>日职</td></tr><tr><td>2025-03-29</td><td>福冈黄蜂 2:2 町田泽维</td><td>日职</td></tr><tr><td>2024-09-14</td><td>福冈黄蜂 0:3 町田泽维</td><td>日职</td></tr><tr><td>2024-06-22</td><td>町田泽维 0:0 福冈黄蜂</td><td>日职</td></tr><tr><td>2020-10-21</td><td>町田泽维 0:0 福冈黄蜂</td><td>日乙</td></tr></tbody></table>
+      <p class="cap2">交手总局数偏干或偏湿，是低比分（0-0 / 1-0 / 1-1）概率上调的实证依据，也是 DC 修正方向与历史吻合的检验点。</p>
+      <div class="cap" style="margin-top:16px">未接入的高阶指标</div>
+      <ul class="gaps">
+        <li><b>未接入</b><span> xG / xGA / npxG</span>剥离神仙球与门将超神，判断进攻真实质量与运气透支</li>
+        <li><b>未接入</b><span> PPDA</span>高位逼抢强度：两支队 PPDA 差距大时，2-2 / 3-2 的开放比分概率会跳</li>
+        <li><b>未接入</b><span> 定位球 xG</span>现代足球约 25–30% 进球来自定位球，缺了会低估弱队得分下限</li>
+        <li><b>未接入</b><span> 射门 / 射正 / 角球</span>穿透到过程数据才看得见的效率差</li>
+        <li><b>未接入</b><span> 场地与天气</span>暴雨、积水会强行拉低总进球</li>
+        <li><b>未接入</b><span> 裁判尺度</span>场均出牌与点球倾向影响 0-0 与 1-0 的存活率</li>
+      </ul>
+      <p class="cap2">原因：竞彩官方公开页只有比分、半场比分、伤停与球员名单，不含过程数据；免费可得的 xG 源与竞彩队名映射尚未接通。本页用「半场结构 + 主客分离 + 交手中低比分频率」替代口径，缺口部分不算、不编数。</p>
+    </div>
+  </div>
+</section>
+<section class="s">
+  <h3><i>04</i>基本面 <span class="x">阵容伤停 · 赛程战意 · 状态底子</span></h3>
+  <div class="col2">
+    <div>
+      <div class="cap">伤停与缺阵</div>
+      <table class=""><thead><tr><th>球队</th><th>球员</th><th>位置</th><th>本季出场</th><th>性质</th></tr></thead><tbody><tr><td>—</td><td>两边伤停名单均为空</td><td>—</td><td>—</td><td>—</td></tr></tbody></table>
+      <p class="cap2" style="margin-top:6px">名单口径：町田泽维 0 人、福冈黄蜂 0 人（只收官方伤停与停赛表，不含赛前热身临时缺阵）。</p>
+      <div class="cap" style="margin-top:16px">赛程与战意</div>
+      <p class="body">主队主场 3 场 4 进 5 失（0 比 0 京都、2 比 1 枥木城、2 比 4 柏太阳神），客场两场 1 比 0 各胜一场（含 10 比 15 亚冠二级 1 比 0 淡宾尼士，含加时需打折）；客队客场 2 场 2 进 3 失（0 比 1 横滨FC、1 比 1 Osaka）；近10场场均进失 主1.5/0.9 客0.8/1.3；近5场 主 3胜1平1负 / 客 1胜1平3负；无伤停；让球 -1</p>
+    </div>
+    <div>
+      <div class="cap">两队近 5 场（左旧 → 右新）</div>
+      <table class=""><thead><tr><th>日期</th><th>主队近况</th><th>半场</th></tr></thead><tbody><tr><td>2026-10-15</td><td>淡宾尼士 0:1 町田泽维</td><td>0:0</td></tr><tr><td>2026-10-10</td><td>京都 0:1 町田泽维</td><td>0:0</td></tr><tr><td>2026-10-03</td><td>町田泽维 0:0 京都</td><td>0:0</td></tr><tr><td>2026-09-23</td><td>町田泽维 2:1 枥木城</td><td>1:0</td></tr><tr><td>2026-09-20</td><td>町田泽维 2:4 柏太阳神</td><td>1:0</td></tr></tbody></table>
+      <div class="cap" style="margin-top:12px">客队近况</div>
+      <table class=""><thead><tr><th>日期</th><th>客队近况</th><th>半场</th></tr></thead><tbody><tr><td>2026-10-14</td><td>鸟栖沙岩 2:1 福冈黄蜂</td><td>1:1</td></tr><tr><td>2026-10-10</td><td>福冈黄蜂 2:1 冈山绿雉</td><td>1:0</td></tr><tr><td>2026-10-07</td><td>福冈黄蜂 0:1 横滨FC</td><td>0:1</td></tr><tr><td>2026-09-29</td><td>Osaka 1:1 福冈黄蜂</td><td>0:0</td></tr><tr><td>2026-09-19</td><td>福冈黄蜂 0:1 广岛三箭</td><td>0:0</td></tr></tbody></table>
+    </div>
+  </div>
+</section>
+<section class="s">
+  <h3><i>05</i>盘口定价与变盘 <span class="x">三层定价交叉 · 波胆池 · 时间轴 · 半全场剧本</span></h3>
+  <div class="col2">
+    <div>
+      <div class="cap">固定奖金时间轴（胜平负，返奖率 88.7% 归一）</div>
+      <table class=""><thead><tr><th>时点</th><th>主胜</th><th>平</th><th>客胜</th></tr></thead><tbody><tr><td>10-17 09:46</td><td>1.67</td><td>3.38</td><td>4.30</td></tr></tbody></table>
+      <div class="cap" style="margin-top:14px">让球（-1）时间轴</div>
+      <table class=""><thead><tr><th>时点</th><th>让胜</th><th>让平</th><th>让负</th><th>盘口</th></tr></thead><tbody><tr><td>10-17 09:46</td><td>3.35</td><td>3.20</td><td>1.93</td><td>-1</td></tr></tbody></table>
+      <p class="cap2">开盘 1.67/3.38/4.30
+        → 最新 1.67/3.38/4.30；
+        去水后最新 53.1% / 26.2% / 20.6%。</p>
+      <ul class="notes"><li>总进球 10-17 16:17：2 球调到最低赔 3.25（最热一格）；1 球 4.25→4.05、2 球 3.25→3.25。</li><li>同盘 3 格变动，说明定价在「几个球」上做过一轮重估。</li><li>半全场 10-17 09:46：平负 9.75→9.75、平平 5.35→5.35、平胜 4.05→4.05、负负 7.75→7.75。</li><li>波胆全盘 28 格，最低赔是 1-0（5.75）；波胆只有当前版本，没有历史位移。</li></ul>
+    </div>
+    <div>
+      <div class="cap">波胆池：定价错在哪（按赔率从低到高）</div>
+      <table class=""><thead><tr><th>比分</th><th>定价</th><th>隐含</th><th>方向</th><th>溢价</th><th>与模型结论</th></tr></thead><tbody><tr><td><b>1-0</b></td><td>5.75</td><td>17.4%</td><td>主胜</td><td>−0.27</td><td>主推首选</td></tr><tr><td><b>2-1</b></td><td>6.25</td><td>16.0%</td><td>主胜</td><td>−0.41</td><td>—</td></tr><tr><td><b>1-1</b></td><td>6.25</td><td>16.0%</td><td>平</td><td>−0.26</td><td>主推次选</td></tr><tr><td><b>2-0</b></td><td>7.50</td><td>13.3%</td><td>主胜</td><td>−0.24</td><td>—</td></tr><tr><td><b>0-0</b></td><td>10.00</td><td>10.0%</td><td>平</td><td>−0.20</td><td>—</td></tr><tr><td><b>0-1</b></td><td>11.00</td><td>9.1%</td><td>客胜</td><td>−0.18</td><td>—</td></tr><tr><td><b>1-2</b></td><td>12.50</td><td>8.0%</td><td>客胜</td><td>−0.31</td><td>—</td></tr><tr><td><b>3-1</b></td><td>13.50</td><td>7.4%</td><td>主胜</td><td>—</td><td>—</td></tr><tr><td><b>3-0</b></td><td>13.50</td><td>7.4%</td><td>主胜</td><td>−0.27</td><td>—</td></tr><tr><td><b>2-2</b></td><td>14.50</td><td>6.9%</td><td>平</td><td>—</td><td>—</td></tr><tr><td><b>0-2</b></td><td>22.00</td><td>4.5%</td><td>客胜</td><td>—</td><td>—</td></tr><tr><td><b>3-2</b></td><td>26.00</td><td>3.8%</td><td>主胜</td><td>—</td><td>—</td></tr></tbody></table>
+      <p class="cap2">溢价 = 模型概率 × 定价 − 1；为正表示这一格模型估值高于定价。溢价为负的格子说明定价偏虚，不做主推。</p>
+    </div>
+  </div>
+  <div class="col2" style="margin-top:18px">
+    <div>
+      <div class="cap">总进球定价 vs 模型（初盘 10-17 09:46 → 最新 10-17 16:17）</div>
+      <table class=""><thead><tr><th>进球数</th><th>初盘</th><th>最新</th><th>变化</th><th>定价隐含（初）</th><th>定价隐含（新）</th><th>模型 − 定价</th></tr></thead><tbody><tr><td>0 球</td><td>10.00</td><td>10.00</td><td>—</td><td>8.2%</td><td>8.2%</td><td>−0.1pp</td></tr><tr><td>1 球</td><td>4.25</td><td>4.05</td><td>−0.20</td><td>19.2%</td><td>20.1%</td><td>+0.3pp</td></tr><tr><td>2 球</td><td>3.25</td><td>3.25</td><td>—</td><td>25.1%</td><td>25.1%</td><td>+0.8pp</td></tr><tr><td>3 球</td><td>3.55</td><td>3.55</td><td>—</td><td>23.0%</td><td>23.0%</td><td>−1.2pp</td></tr><tr><td>4 球</td><td>5.95</td><td>6.20</td><td>+0.25</td><td>13.7%</td><td>13.2%</td><td>+0.6pp</td></tr><tr><td>5 球</td><td>11.50</td><td>12.00</td><td>+0.50</td><td>7.1%</td><td>6.8%</td><td>+0.2pp</td></tr><tr><td>6 球</td><td>22.00</td><td>22.00</td><td>—</td><td>3.7%</td><td>3.7%</td><td>−0.8pp</td></tr></tbody></table>
+    </div>
+    <div>
+      <div class="cap">半全场：剧本的方向（初盘 10-17 09:46 → 最新 10-17 09:46）</div>
+      <table class=""><thead><tr><th>半场/全场</th><th>初盘</th><th>最新</th><th>变化</th><th>隐含</th></tr></thead><tbody><tr><td>平胜</td><td>4.05</td><td>4.05</td><td>—</td><td>33.9%</td></tr><tr><td>平平</td><td>5.35</td><td>5.35</td><td>—</td><td>25.7%</td></tr><tr><td>负负</td><td>7.75</td><td>7.75</td><td>—</td><td>17.7%</td></tr><tr><td>平负</td><td>9.75</td><td>9.75</td><td>—</td><td>14.1%</td></tr><tr><td>负平</td><td>16.00</td><td>16.00</td><td>—</td><td>8.6%</td></tr></tbody></table>
+      <div class="cap" style="margin-top:14px">剧本切换条件</div>
+      <ul class="notes">
+        <li>上半场：比分往 2-1 / 2-2 走：模型大 2.5 球 46.4%、双方进球 48.4%，两队都能进球的场次里，零封是最先被排除的结果。</li>
+        <li>半场 0-0：拿模型平局 25.0% 与定价 26.2% 对照，谁高谁更怕闷。</li>
+        <li>客队先：定价最热的那格是 主胜（53.1%），防冷比分 1-1；若先进球后仍要防被拖回平局，模型平局 25.0% 是唯一能救回的格子。</li>
+        <li>主队先：让球（-1）模型 28.1% vs 定价 26.4%，模型比定价更信任这个剧本；追主队要接受赢球不穿盘的结果。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<div class="final">
+  <div class="fhd"><span>综合分析</span><i>页末 · 推演闭环 / 四口径对照 / 一句话结论</i></div>
+  
+<section class="s">
+  <h3><i>06</i>推演闭环 <span class="x">定格局 → 定总量 → 跑矩阵 → 做排除 → 出结论</span></h3>
+  <div class="col2">
+    <div>
+      <ol class="steps">
+        <li><b>定格局</b><span>胜平负方向</span><p>模型给主胜 53.0%，定价去水后给主胜 53.1%，两边最大偏差在客胜 +1.3pp。两边结构基本重合，格局可以按「定价给的强弱势」直接用。</p></li>
+        <li><b>定总量</b><span>总进球区间</span><p>λ 合计 1.60+0.93=2.53，模型给大 2.5 球 46.4%、大 3.5 球 24.9%、双方进球 48.4%。总量居中，胜负方向确定后比分只剩两三个候选。</p></li>
+        <li><b>跑矩阵</b><span>概率排序</span><p>1-1 12.8%；1-0 11.8%；2-0 10.2%。 让球(-1) 里模型与定价偏差最大的一格是平 -2.8pp，让球一侧两边接近，盘口本身没有明显错位。</p></li>
+        <li><b>做排除</b><span>情景证伪</span><p>把与方向、总量相悖的比分先划掉，剩下的才是候选；被定价严重高估的格子一并降权。见右侧清单。</p></li>
+      </ol>
+    </div>
+    <div>
+      <div class="cap">排除与降权清单</div>
+      <table><tbody><tr><td>客队净胜 2 球以上</td><td><span class='pill r'>排除</span></td><td>与主推方向相悖，模型合计 7.5%</td></tr><tr><td>2-1</td><td><span class='pill a'>降权</span></td><td>定价 6.25 隐含 16.0%，模型给 9.5%，溢价 -0.41（定价虚高，不做主推）</td></tr></tbody></table>
+      <p class="cap2">总进球 5 球以上模型合计 11.2%；平局一格 25.0%。与主推/次选/防冷重复的比分已从降权清单里删掉。</p>
+      <div class="cap" style="margin-top:14px">防冷触发条件</div>
+      <p class="body">模型推 <b>主胜</b>（53.0%），定价最热是 <b>主胜</b>（53.1%），
+        冷门指数 <b>47</b>＝定价最热那一格之外、模型给出的概率之和。分歧 1.3 个百分点：
+        在可控范围内，方向可用、幅度打折。
+        若 主胜 站住，比分大概率是 1-1；反过来若这一格被拖住，模型最可能接上的是 平 25.0%。</p>
+    </div>
+  </div>
+</section>
+<section class="s">
+  <h3><i>07</i>外媒 × AI <span class="x">公开赛前预报 · 数据接口算法 · 后台模型 · 官方定价</span></h3>
+  <table class=""><thead><tr><th>来源</th><th>方向</th><th>给出的结论 / 原文摘要</th></tr></thead><tbody><tr><td>后台模型 v2.10</td><td>主胜</td><td>主 53.0% / 平 25.0% / 客 21.9%；比分最靠前 1-1（12.8%）</td></tr><tr><td>官方固定奖金（去水）</td><td>主胜</td><td>主 53.1% / 平 26.2% / 客 20.6%；返奖率 88.7%</td></tr><tr><td>公开赛前预报（Sports Mole）</td><td>—</td><td>胜平负 45/45/10%；Double chance : Machida Zelvia or draw；倾向胜或平</td></tr><tr><td>数据接口算法（API-Football）</td><td>—</td><td>免费层只给方向，百分比字段为坏值不采信</td></tr></tbody></table>
+  <div class="col2" style="margin-top:14px">
+    <div>
+      <div class="cap">预报方给的阵容</div>
+      <p class="body">未提供</p>
+      <p class="cap2">预计首发为预报方口径；与官方伤停名单冲突时以赛前公布名单为准。</p>
+    </div>
+    <div>
+      <div class="cap">四口径一致度</div>
+      <p class="body">同向 <b>2/3</b>（市场 / 公开预报 / 接口算法三者与模型同向的条数）。
+        外部两源只做参照系：公开预报给的是比分与理由，接口算法只给方向，它们不改变模型结论，只用来标出「三家站成几排」。</p>
+      <p class="cap2">来源：https://www.api-football.com/fixture/1556095</p>
+    </div>
+  </div>
+</section>
+<div class="oneline">
+  <b>一句话结论</b>
+  <p>町田泽维 对 福冈黄蜂：模型 主胜 53.0%，
+    首选比分 1-0；信心 73/100（B · 中高）；
+    最大风险是模型与定价差 1.3pp 这件事本身，防冷看 1-1。</p>
+  <div class="warns"><div>⚠️ ⚠️ 主/客分离样本≤2 场，口径A偏薄（已按样本量混入近10场）</div></div>
+</div>
+</div></section><section class="match" id="m1">
+<header class="mhead">
+  <div class="mno"><span>周日002</span><span>韩职</span><span>10/18 15:30 开赛</span>
+    <span>λ 合计 2.08</span></div>
+  <h2>江原FC<em>vs</em>仁川联</h2>
+  <div class="msum">
+    <div><b>模型方向</b>主胜<span class="sep">/</span><b>定价方向</b>主胜
+      <span class="sep">/</span><b>让球</b>-1</div>
+    <div class="conf"><span class="cnum">62</span><span class="cgrade">C · 中</span>
+      <span class="cdim">五维加权 · 满分 100</span></div>
+  </div>
+</header>
+<div class="grid3">
+  <div class="vcard"><span class="vt">首选 · PRIMARY</span><b>主胜</b>
+    <span class="vs">比分 1-0 · 模型 37.0%</span></div>
+  <div class="vcard v2"><span class="vt">次选 · SECOND</span><b>平</b>
+    <span class="vs">比分 1-1 · 模型 30.1%</span></div>
+  <div class="vcard v3"><span class="vt">防范 · GUARD</span><b>平</b>
+    <span class="vs">比分 1-1 · 退路 30.1%</span></div>
+</div>
+<section class="s">
+  <h3><i>00</i>全维度扫盘 <span class="x">15 个维度 · 有源给读数，无源标缺口</span></h3>
+  <table class="scan"><thead><tr><th>维度</th><th>读数</th><th>来源 / 状态</th></tr></thead><tbody><tr><td>模型</td><td>λ 1.08 / 1.00，胜平负 37.0% / 30.1% / 32.9%</td><td><span class="ok">已接入 · 后台模型 2.10</span></td></tr><tr><td>市场</td><td>去水后 41.7% / 31.8% / 26.4%（返奖率 88.5%）</td><td><span class="ok">已接入 · 竞彩固定奖金</span></td></tr><tr><td>模型×市场</td><td>三项偏差 −4.7pp / −1.8pp / +6.5pp；最大 6.5 个点</td><td><span class="ok">已接入</span></td></tr><tr><td>让球结构</td><td>让球（-1）模型 14.8% / 22.2% / 63.0% vs 定价 17.9% / 25.3% / 56.8%</td><td><span class="ok">已接入</span></td></tr><tr><td>盘口变化</td><td>只有开盘一版（今天开的盘，暂无位移可读）</td><td><span class="gap">刚开盘</span></td></tr><tr><td>外媒预报</td><td>本批无外媒覆盖（英日韩小联赛 Sports Mole 不收录）</td><td><span class="gap">无源</span></td></tr><tr><td>AI 接口</td><td>方向 主胜（免费层百分比为坏值，只取方向）；记录 https://www.api-football.com/fixture/1507086</td><td><span class="ok">已接入</span></td></tr><tr><td>近期状态</td><td>主 5 场 0.6 进 0.6 失（零封 60%）｜客 5 场 1.4 进 0.8 失（零封 40%）</td><td><span class="ok">已接入</span></td></tr><tr><td>积分排名</td><td>官方表接口返回空（getMatchTablesV2），本批不估算</td><td><span class="gap">缺口</span></td></tr><tr><td>战意与交手</td><td>近 5 次交手平局 20%、总进球 ≤2 占 60%、场均 2.20 球</td><td><span class="ok">已接入</span></td></tr><tr><td>更衣室情绪</td><td>本地无来源（需队记/社媒），本页不臆测</td><td><span class="gap">缺口</span></td></tr><tr><td>关键球员与伤停</td><td>公开伤停栏为空（不等于全员健康，只是这一栏没列）</td><td><span class="gap">名单空</span></td></tr><tr><td>战术风格</td><td>主队上半场进球占 33%；双方进球率 41.9%；大 2.5 球 34.6%（由进球时段与大小球结构推断）</td><td><span class="ok">已接入</span></td></tr><tr><td>球队身价</td><td>无免费结构化来源，本页不给估算值</td><td><span class="gap">缺口</span></td></tr><tr><td>裁判与天气</td><td>无来源；会改变 0-0 / 1-0 的存活率，本页不调模型</td><td><span class="gap">缺口</span></td></tr></tbody></table>
+  <p class="cap2">口径：只写能核对的东西。缺口项不估算、不编造，写进上面的状态列——这也是这份资料与「凭印象写」的区别。</p>
+</section>
+<section class="s">
+  <h3><i>01</i>盘口反常门槛 <span class="x">先看门槛，再看结论</span></h3>
+  <div class="col2">
+    <div>
+      <div class="cap">胜平负 · 固定奖金 2.12 / 2.78 / 3.35（返奖率 88.5%）</div>
+      <div class="bar"><span class="bl">主胜</span>
+      <span class="bt"><i class="fill h" style="width:37.0%"></i><i class="ghost" style="left:37.0%;width:4.7%"></i><i class="mark" style="left:41.7%"></i></span>
+      <span class="bv"><b>37.0%</b><i>定价 41.7%</i></span></div>
+      <div class="bar"><span class="bl">平</span>
+      <span class="bt"><i class="fill d" style="width:30.1%"></i><i class="ghost" style="left:30.1%;width:1.7%"></i><i class="mark" style="left:31.8%"></i></span>
+      <span class="bv"><b>30.1%</b><i>定价 31.8%</i></span></div>
+      <div class="bar"><span class="bl">客胜</span>
+      <span class="bt"><i class="fill a" style="width:32.9%"></i><i class="ghost" style="left:26.4%;width:6.5%"></i><i class="mark" style="left:26.4%"></i></span>
+      <span class="bv"><b>32.9%</b><i>定价 26.4%</i></span></div>
+      <p class="cap2">浅色实心＝后台模型概率；斜纹＝定价去水后概率（同一把尺）。三项偏差：
+        <b>主 −4.7pp</b> / 平 −1.8pp / 客 <b>+6.5pp</b></p>
+    </div>
+    <div>
+      <div class="cap">让球（-1）· 模型 14.8% / 22.2% / 63.0%　定价 17.9% / 25.3% / 56.8%
+        <br>固定奖金 4.95 / 3.50 / 1.56</div>
+      <div class="bar"><span class="bl">让胜</span>
+      <span class="bt"><i class="fill h" style="width:14.8%"></i><i class="ghost" style="left:14.8%;width:3.1%"></i><i class="mark" style="left:17.9%"></i></span>
+      <span class="bv"><b>14.8%</b><i>定价 17.9%</i></span></div>
+      <div class="bar"><span class="bl">让平</span>
+      <span class="bt"><i class="fill d" style="width:22.2%"></i><i class="ghost" style="left:22.2%;width:3.1%"></i><i class="mark" style="left:25.3%"></i></span>
+      <span class="bv"><b>22.2%</b><i>定价 25.3%</i></span></div>
+      <div class="bar"><span class="bl">让负</span>
+      <span class="bt"><i class="fill a" style="width:63.0%"></i><i class="ghost" style="left:56.8%;width:6.2%"></i><i class="mark" style="left:56.8%"></i></span>
+      <span class="bv"><b>63.0%</b><i>定价 56.8%</i></span></div>
+      <p class="cap2">去掉平局后的胜负拆分：主 52.9% / 客 47.1%。
+        让球一侧最大偏差 <b>+6.2pp</b>，
+        方向落客胜。</p>
+    </div>
+  </div>
+</section>
+<section class="s">
+  <h3><i>02</i>数理模型 <span class="x">双法 λ · 泊松矩阵 · Dixon-Coles 低比分校准</span></h3>
+  <div class="col2">
+    <div>
+      <div class="cap">λ 两条路与修正</div>
+      <table class="kv"><tbody><tr><th>方法一 · 实际数据（主客分离 + 样本量权重）</th><td>1.082 / 0.960</td></tr><tr><th>方法二 · 定价反推（比分矩阵反解）</th><td>1.736 / 1.045</td></tr><tr><th>综合 λ（代入模型）</th><td><b>1.082 / 1.003</b></td></tr><tr><th>修正明细</th><td>form主+0.180 form客+0.170 | H2H factor 1.016 (API近5场 4胜1平0负)</td></tr><tr><th>伤停修正</th><td>伤停 主0人/客0人 → λ主×(1-0.000)  λ客×(1+0.000)</td></tr></tbody></table>
+      <p class="cap2">两条 λ 差得越多，说明市场与赛果之间存在叙事溢价，或者我方样本有缺口；修正幅度一般不超过 ±0.25，修正越大越说明基础数据有偏。</p>
+    </div>
+    <div>
+      <div class="cap">胜平负交叉核对</div>
+      <table class=""><thead><tr><th>口径</th><th>主胜</th><th>平</th><th>客胜</th></tr></thead><tbody><tr><td>官方模型（2 万次抽样）</td><td>37.0%</td><td>30.1%</td><td>32.9%</td></tr><tr><td>独立泊松（本页精确解）</td><td>37.0%</td><td>30.1%</td><td>32.9%</td></tr><tr><td>Dixon-Coles（ρ=-0.08）</td><td>35.9%</td><td>32.2%</td><td>31.9%</td></tr></tbody></table>
+      <div class="cap" style="margin-top:16px">低比分校准（ρ 只动 0-0 / 1-0 / 0-1 / 1-1 四格）</div>
+      <table class=""><thead><tr><th>比分</th><th>独立泊松</th><th>DC 修正</th><th>变化</th></tr></thead><tbody><tr><td>0-0</td><td>12.40%</td><td>13.50%</td><td>+1.1pp</td></tr><tr><td>1-0</td><td>13.50%</td><td>12.40%</td><td>−1.1pp</td></tr><tr><td>0-1</td><td>12.50%</td><td>11.40%</td><td>−1.1pp</td></tr><tr><td>1-1</td><td>13.50%</td><td>14.60%</td><td>+1.1pp</td></tr></tbody></table>
+      <p class="cap2">独立泊松假设两队进球互不相干，会低估平局与低比分；DC 用相关系数 ρ 把这四格重新加权再把整张表归一。ρ 取常用区间的中值保守值，本批每场样本不足，未做逐场拟合。</p>
+    </div>
+  </div>
+  <div class="col2" style="margin-top:18px">
+    <div>
+      <div class="cap">比分概率矩阵（DC 修正后，0–6 球，实色越深概率越高）</div>
+      <div class="mx"><div class="mxh"></div><div class="mxh">0</div><div class="mxh">1</div><div class="mxh">2</div><div class="mxh">3</div><div class="mxh">4</div><div class="mxh">5</div><div class="mxh">6</div><div class="mxh">0</div><div class="mxc" style="background:rgba(147,93,47,0.945);color:#FFFDF7">14</div><div class="mxc" style="background:rgba(161,114,72,0.836);color:#FFFDF7">11</div><div class="mxc" style="background:rgba(197,165,132,0.572);color:#221E18">6.2</div><div class="mxc" style="background:rgba(225,207,181,0.358);color:#221E18">2.1</div><div class="mxc" style="background:rgba(236,222,199,0.277);color:#221E18">0.5</div><div class="mxc" style="background:rgba(239,226,204,0.256);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxh">1</div><div class="mxc" style="background:rgba(155,104,60,0.887);color:#FFFDF7">12</div><div class="mxc" style="background:rgba(140,83,35,1.000);color:#FFFDF7">15</div><div class="mxc" style="background:rgba(193,160,126,0.598);color:#221E18">6.8</div><div class="mxc" style="background:rgba(224,205,179,0.366);color:#221E18">2.3</div><div class="mxc" style="background:rgba(236,222,199,0.279);color:#221E18">0.6</div><div class="mxc" style="background:rgba(239,226,204,0.256);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxh">2</div><div class="mxc" style="background:rgba(190,155,120,0.625);color:#221E18">7.3</div><div class="mxc" style="background:rgba(189,155,120,0.626);color:#221E18">7.3</div><div class="mxc" style="background:rgba(214,191,163,0.438);color:#221E18">3.7</div><div class="mxc" style="background:rgba(231,215,191,0.313);color:#221E18">1.2</div><div class="mxc" style="background:rgba(237,224,202,0.266);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.253);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxh">3</div><div class="mxc" style="background:rgba(222,201,175,0.385);color:#221E18">2.6</div><div class="mxc" style="background:rgba(221,201,175,0.385);color:#221E18">2.6</div><div class="mxc" style="background:rgba(230,214,190,0.318);color:#221E18">1.3</div><div class="mxc" style="background:rgba(236,223,200,0.273);color:#221E18"></div><div class="mxc" style="background:rgba(239,226,204,0.256);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxh">4</div><div class="mxc" style="background:rgba(235,220,197,0.287);color:#221E18">0.7</div><div class="mxc" style="background:rgba(235,220,197,0.287);color:#221E18">0.7</div><div class="mxc" style="background:rgba(237,224,201,0.269);color:#221E18"></div><div class="mxc" style="background:rgba(239,226,204,0.256);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.252);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxh">5</div><div class="mxc" style="background:rgba(238,226,204,0.258);color:#221E18"></div><div class="mxc" style="background:rgba(238,226,204,0.258);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.254);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.252);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxh">6</div><div class="mxc" style="background:rgba(239,227,205,0.252);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.252);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div></div>
+      <div class="gax">↓ 主队进球　→ 客队进球　ρ = -0.08</div>
+    </div>
+    <div>
+      <div class="cap">总进球分布与大小球</div>
+      <div class="gchart"><div class="gcol"><span class="gv">13.5</span><i style="height:46px"></i><span class="gl">0</span></div><div class="gcol"><span class="gv">23.8</span><i style="height:81px"></i><span class="gl">1</span></div><div class="gcol"><span class="gv">28.1</span><i style="height:96px"></i><span class="gl">2</span></div><div class="gcol"><span class="gv">18.8</span><i style="height:64px"></i><span class="gl">3</span></div><div class="gcol"><span class="gv">9.8</span><i style="height:33px"></i><span class="gl">4</span></div><div class="gcol"><span class="gv">4.1</span><i style="height:14px"></i><span class="gl">5</span></div><div class="gcol"><span class="gv">1.4</span><i style="height:5px"></i><span class="gl">6</span></div><div class="gcol"><span class="gv">0.5</span><i style="height:4px"></i><span class="gl">7+</span></div></div><div class="gax">总进球数分布（%）· 只算 90 分钟 · 7 球以上并入 7+</div>
+      <table class=""><thead><tr><th>大小球 / 双方进球</th><th>模型概率</th></tr></thead><tbody><tr><td>大 1.5 球</td><td>61.6%</td></tr><tr><td>大 2.5 球</td><td>34.6%</td></tr><tr><td>大 3.5 球</td><td>15.8%</td></tr><tr><td>双方进球</td><td>41.9%</td></tr></tbody></table>
+      <p class="cap2">市场侧大小球盘口未接入（无公开快照），这一组只有模型口径，不做交叉验证。</p>
+    </div>
+  </div>
+</section>
+<section class="s">
+  <h3><i>03</i>高阶数据 <span class="x">上下半场结构 · 进失球离散度 · 交手土壤 · 未接入清单</span></h3>
+  <div class="col2">
+    <div>
+      <div class="cap">上下半场进球结构（近 5 场）</div>
+      <table class=""><thead><tr><th>球队</th><th>上半场</th><th>下半场</th><th>上半场占比</th><th>形态</th></tr></thead><tbody><tr><td>江原FC</td><td>2 球</td><td>4 球</td><td>33.3%</td><td>上下半场均衡</td></tr><tr><td>仁川联</td><td>6 球</td><td>5 球</td><td>54.5%</td><td>上下半场均衡</td></tr></tbody></table>
+      <p class="cap2">竞彩公开数据只有半场/全场比分，没有分钟级进球与跑动；用「上半场进球占比」当体能曲线代理：占比越低说明越依赖下半场，反过来 70 分钟后被追的风险越大。</p>
+      <div class="cap" style="margin-top:16px">进失球离散度与零封率（近 5 场）</div>
+      <table class=""><thead><tr><th>球队</th><th>场均进</th><th>场均失</th><th>零封率</th><th>进球 σ</th><th>失球 σ</th><th>形态</th></tr></thead><tbody><tr><td>江原FC</td><td>0.60</td><td>0.60</td><td>60%</td><td>0.89</td><td>0.89</td><td>输出稳定</td></tr><tr><td>仁川联</td><td>1.40</td><td>0.80</td><td>40%</td><td>1.14</td><td>0.84</td><td>输出稳定</td></tr></tbody></table>
+      <p class="cap2">σ 越大越不稳定；场均进失是粗糙口径，所以模型里用主客分离 + 样本量权重压噪音。</p>
+    </div>
+    <div>
+      <div class="cap">交手记录的比分土壤（近 5 次）</div>
+      <div class="grid4 tight">
+        <div class="mini"><span>总进球 ≤2 占比</span><b>60%</b><i>低比分土壤</i></div>
+        <div class="mini"><span>双方进球率</span><b>40%</b><i>同时开火</i></div>
+        <div class="mini"><span>平局率</span><b>20%</b><i>胶着度</i></div>
+        <div class="mini"><span>场均总进球</span><b>2.20</b><i>节奏</i></div>
+      </div>
+      <table class=""><thead><tr><th>日期</th><th>比分</th><th>联赛</th></tr></thead><tbody><tr><td>2026-09-27</td><td>江原FC 0:0 仁川联</td><td>韩职</td></tr><tr><td>2026-05-02</td><td>仁川联 0:1 江原FC</td><td>韩职</td></tr><tr><td>2024-10-06</td><td>仁川联 1:3 江原FC</td><td>韩职</td></tr><tr><td>2024-06-30</td><td>仁川联 0:1 江原FC</td><td>韩职</td></tr><tr><td>2024-04-21</td><td>江原FC 4:1 仁川联</td><td>韩职</td></tr></tbody></table>
+      <p class="cap2">交手总局数偏干或偏湿，是低比分（0-0 / 1-0 / 1-1）概率上调的实证依据，也是 DC 修正方向与历史吻合的检验点。</p>
+      <div class="cap" style="margin-top:16px">未接入的高阶指标</div>
+      <ul class="gaps">
+        <li><b>未接入</b><span> xG / xGA / npxG</span>剥离神仙球与门将超神，判断进攻真实质量与运气透支</li>
+        <li><b>未接入</b><span> PPDA</span>高位逼抢强度：两支队 PPDA 差距大时，2-2 / 3-2 的开放比分概率会跳</li>
+        <li><b>未接入</b><span> 定位球 xG</span>现代足球约 25–30% 进球来自定位球，缺了会低估弱队得分下限</li>
+        <li><b>未接入</b><span> 射门 / 射正 / 角球</span>穿透到过程数据才看得见的效率差</li>
+        <li><b>未接入</b><span> 场地与天气</span>暴雨、积水会强行拉低总进球</li>
+        <li><b>未接入</b><span> 裁判尺度</span>场均出牌与点球倾向影响 0-0 与 1-0 的存活率</li>
+      </ul>
+      <p class="cap2">原因：竞彩官方公开页只有比分、半场比分、伤停与球员名单，不含过程数据；免费可得的 xG 源与竞彩队名映射尚未接通。本页用「半场结构 + 主客分离 + 交手中低比分频率」替代口径，缺口部分不算、不编数。</p>
+    </div>
+  </div>
+</section>
+<section class="s">
+  <h3><i>04</i>基本面 <span class="x">阵容伤停 · 赛程战意 · 状态底子</span></h3>
+  <div class="col2">
+    <div>
+      <div class="cap">伤停与缺阵</div>
+      <table class=""><thead><tr><th>球队</th><th>球员</th><th>位置</th><th>本季出场</th><th>性质</th></tr></thead><tbody><tr><td>—</td><td>两边伤停名单均为空</td><td>—</td><td>—</td><td>—</td></tr></tbody></table>
+      <p class="cap2" style="margin-top:6px">名单口径：江原FC 0 人、仁川联 0 人（只收官方伤停与停赛表，不含赛前热身临时缺阵）。</p>
+      <div class="cap" style="margin-top:16px">赛程与战意</div>
+      <p class="body">主队主场 4 场 3 进 3 失（2 比 0 富川、0 比 0 仁川、0 比 1 济州、1 比 2 Crown），主场进球效率偏低；客队客场 2 场 1 进 2 失（0 比 0 江原、1 比 2 蔚山）；近10场场均进失 主1.1/0.8 客1.1/0.9，两队几乎同构；近5场 主 1胜2平2负 / 客 2胜2平1负；交锋 9 月 27 日 0 比 0；无伤停；让球 -1</p>
+    </div>
+    <div>
+      <div class="cap">两队近 5 场（左旧 → 右新）</div>
+      <table class=""><thead><tr><th>日期</th><th>主队近况</th><th>半场</th></tr></thead><tbody><tr><td>2026-10-15</td><td>江原FC 1:2 Crown</td><td>0:1</td></tr><tr><td>2026-10-09</td><td>江原FC 2:0 富川FC</td><td>0:0</td></tr><tr><td>2026-09-27</td><td>江原FC 0:0 仁川联</td><td>0:0</td></tr><tr><td>2026-09-20</td><td>江原FC 0:1 济州SK</td><td>0:1</td></tr><tr><td>2026-09-17</td><td>香港杰志 0:0 江原FC</td><td>0:0</td></tr></tbody></table>
+      <div class="cap" style="margin-top:12px">客队近况</div>
+      <table class=""><thead><tr><th>日期</th><th>客队近况</th><th>半场</th></tr></thead><tbody><tr><td>2026-10-09</td><td>仁川联 3:0 浦项制铁</td><td>3:0</td></tr><tr><td>2026-09-27</td><td>江原FC 0:0 仁川联</td><td>0:0</td></tr><tr><td>2026-09-20</td><td>仁川联 1:1 大田市民</td><td>1:0</td></tr><tr><td>2026-09-12</td><td>蔚山现代 2:1 仁川联</td><td>0:0</td></tr><tr><td>2026-09-08</td><td>仁川联 2:1 富川FC</td><td>1:1</td></tr></tbody></table>
+    </div>
+  </div>
+</section>
+<section class="s">
+  <h3><i>05</i>盘口定价与变盘 <span class="x">三层定价交叉 · 波胆池 · 时间轴 · 半全场剧本</span></h3>
+  <div class="col2">
+    <div>
+      <div class="cap">固定奖金时间轴（胜平负，返奖率 88.5% 归一）</div>
+      <table class=""><thead><tr><th>时点</th><th>主胜</th><th>平</th><th>客胜</th></tr></thead><tbody><tr><td>10-17 09:46</td><td>2.12</td><td>2.78</td><td>3.35</td></tr></tbody></table>
+      <div class="cap" style="margin-top:14px">让球（-1）时间轴</div>
+      <table class=""><thead><tr><th>时点</th><th>让胜</th><th>让平</th><th>让负</th><th>盘口</th></tr></thead><tbody><tr><td>10-17 09:46</td><td>4.95</td><td>3.50</td><td>1.56</td><td>-1</td></tr></tbody></table>
+      <p class="cap2">开盘 2.12/2.78/3.35
+        → 最新 2.12/2.78/3.35；
+        去水后最新 41.7% / 31.8% / 26.4%。</p>
+      <ul class="notes"><li>总进球 10-17 09:46：2 球调到最低赔 3.00（最热一格）；1 球 3.55→3.55、2 球 3.00→3.00。</li><li>半全场 10-17 09:46：平负 7.00→7.00、平平 4.00→4.00、平胜 4.80→4.80、负负 5.80→5.80。</li><li>波胆全盘 28 格，最低赔是 1-1（5.20）；波胆只有当前版本，没有历史位移。</li></ul>
+    </div>
+    <div>
+      <div class="cap">波胆池：定价错在哪（按赔率从低到高）</div>
+      <table class=""><thead><tr><th>比分</th><th>定价</th><th>隐含</th><th>方向</th><th>溢价</th><th>与模型结论</th></tr></thead><tbody><tr><td><b>1-1</b></td><td>5.20</td><td>19.2%</td><td>平</td><td>−0.30</td><td>主推次选</td></tr><tr><td><b>1-0</b></td><td>5.80</td><td>17.2%</td><td>主胜</td><td>−0.22</td><td>主推首选</td></tr><tr><td><b>0-0</b></td><td>7.00</td><td>14.3%</td><td>平</td><td>−0.13</td><td>—</td></tr><tr><td><b>0-1</b></td><td>7.25</td><td>13.8%</td><td>客胜</td><td>−0.10</td><td>—</td></tr><tr><td><b>2-1</b></td><td>7.50</td><td>13.3%</td><td>主胜</td><td>−0.45</td><td>—</td></tr><tr><td><b>2-0</b></td><td>8.50</td><td>11.8%</td><td>主胜</td><td>−0.38</td><td>—</td></tr><tr><td><b>1-2</b></td><td>10.50</td><td>9.5%</td><td>客胜</td><td>−0.29</td><td>—</td></tr><tr><td><b>0-2</b></td><td>15.00</td><td>6.7%</td><td>客胜</td><td>−0.06</td><td>—</td></tr><tr><td><b>2-2</b></td><td>17.00</td><td>5.9%</td><td>平</td><td>—</td><td>—</td></tr><tr><td><b>3-0</b></td><td>19.00</td><td>5.3%</td><td>主胜</td><td>—</td><td>—</td></tr><tr><td><b>3-1</b></td><td>20.00</td><td>5.0%</td><td>主胜</td><td>—</td><td>—</td></tr><tr><td><b>1-3</b></td><td>34.00</td><td>2.9%</td><td>客胜</td><td>—</td><td>—</td></tr></tbody></table>
+      <p class="cap2">溢价 = 模型概率 × 定价 − 1；为正表示这一格模型估值高于定价。溢价为负的格子说明定价偏虚，不做主推。</p>
+    </div>
+  </div>
+  <div class="col2" style="margin-top:18px">
+    <div>
+      <div class="cap">总进球定价 vs 模型（初盘 10-17 09:46 → 最新 10-17 09:46）</div>
+      <table class=""><thead><tr><th>进球数</th><th>初盘</th><th>最新</th><th>变化</th><th>定价隐含（初）</th><th>定价隐含（新）</th><th>模型 − 定价</th></tr></thead><tbody><tr><td>0 球</td><td>7.00</td><td>7.00</td><td>—</td><td>11.6%</td><td>11.6%</td><td>+0.9pp</td></tr><tr><td>1 球</td><td>3.55</td><td>3.55</td><td>—</td><td>22.8%</td><td>22.8%</td><td>+3.3pp</td></tr><tr><td>2 球</td><td>3.00</td><td>3.00</td><td>—</td><td>27.0%</td><td>27.0%</td><td>+0.2pp</td></tr><tr><td>3 球</td><td>3.90</td><td>3.90</td><td>—</td><td>20.8%</td><td>20.8%</td><td>−1.9pp</td></tr><tr><td>4 球</td><td>7.50</td><td>7.50</td><td>—</td><td>10.8%</td><td>10.8%</td><td>−0.9pp</td></tr><tr><td>5 球</td><td>17.00</td><td>17.00</td><td>—</td><td>4.8%</td><td>4.8%</td><td>−0.7pp</td></tr><tr><td>6 球</td><td>35.00</td><td>35.00</td><td>—</td><td>2.3%</td><td>2.3%</td><td>−0.9pp</td></tr></tbody></table>
+    </div>
+    <div>
+      <div class="cap">半全场：剧本的方向（初盘 10-17 09:46 → 最新 10-17 09:46）</div>
+      <table class=""><thead><tr><th>半场/全场</th><th>初盘</th><th>最新</th><th>变化</th><th>隐含</th></tr></thead><tbody><tr><td>平平</td><td>4.00</td><td>4.00</td><td>—</td><td>29.8%</td></tr><tr><td>平胜</td><td>4.80</td><td>4.80</td><td>—</td><td>24.8%</td></tr><tr><td>负负</td><td>5.80</td><td>5.80</td><td>—</td><td>20.5%</td></tr><tr><td>平负</td><td>7.00</td><td>7.00</td><td>—</td><td>17.0%</td></tr><tr><td>负平</td><td>15.00</td><td>15.00</td><td>—</td><td>7.9%</td></tr></tbody></table>
+      <div class="cap" style="margin-top:14px">剧本切换条件</div>
+      <ul class="notes">
+        <li>上半场：比分往 2-1 / 2-2 走：模型大 2.5 球 34.6%、双方进球 41.9%，两队都能进球的场次里，零封是最先被排除的结果。</li>
+        <li>半场 0-0：拿模型平局 30.1% 与定价 31.8% 对照，谁高谁更怕闷。</li>
+        <li>客队先：定价最热的那格是 主胜（41.7%），防冷比分 1-1；若先进球后仍要防被拖回平局，模型平局 30.1% 是唯一能救回的格子。</li>
+        <li>主队先：让球（-1）模型 14.8% vs 定价 17.9%，模型比定价更信任这个剧本；追主队要接受赢球不穿盘的结果。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<div class="final">
+  <div class="fhd"><span>综合分析</span><i>页末 · 推演闭环 / 四口径对照 / 一句话结论</i></div>
+  
+<section class="s">
+  <h3><i>06</i>推演闭环 <span class="x">定格局 → 定总量 → 跑矩阵 → 做排除 → 出结论</span></h3>
+  <div class="col2">
+    <div>
+      <ol class="steps">
+        <li><b>定格局</b><span>胜平负方向</span><p>模型给主胜 37.0%，定价去水后给主胜 41.7%，两边最大偏差在客胜 +6.5pp。偏差中等，说明市场在押某件模型还没反映的事，方向可信、幅度要打折。</p></li>
+        <li><b>定总量</b><span>总进球区间</span><p>λ 合计 1.08+1.00=2.08，模型给大 2.5 球 34.6%、大 3.5 球 15.8%、双方进球 41.9%。总量偏低，比分重心落在 1-0、1-1、0-0 一带，别指望大比分。</p></li>
+        <li><b>跑矩阵</b><span>概率排序</span><p>1-1 14.6%；0-0 13.5%；1-0 12.4%。 让球(-1) 里模型与定价偏差最大的一格是客胜 +6.2pp，让球一侧两边接近，盘口本身没有明显错位。</p></li>
+        <li><b>做排除</b><span>情景证伪</span><p>把与方向、总量相悖的比分先划掉，剩下的才是候选；被定价严重高估的格子一并降权。见右侧清单。</p></li>
+      </ol>
+    </div>
+    <div>
+      <div class="cap">排除与降权清单</div>
+      <table><tbody><tr><td>总进球 5 球以上</td><td><span class='pill r'>降权</span></td><td>模型合计 6.0%，尾部太薄；真出现 4-2、3-3 这类比分，说明早段就失控了</td></tr><tr><td>客队净胜 2 球以上</td><td><span class='pill r'>降权</span></td><td>与主推方向相悖，模型合计 12.4%</td></tr><tr><td>2-1</td><td><span class='pill a'>降权</span></td><td>定价 7.50 隐含 13.3%，模型给 7.3%，溢价 -0.45（定价虚高，不做主推）</td></tr></tbody></table>
+      <p class="cap2">总进球 5 球以上模型合计 6.0%；平局一格 30.1%。与主推/次选/防冷重复的比分已从降权清单里删掉。</p>
+      <div class="cap" style="margin-top:14px">防冷触发条件</div>
+      <p class="body">模型推 <b>主胜</b>（37.0%），定价最热是 <b>主胜</b>（41.7%），
+        冷门指数 <b>63</b>＝定价最热那一格之外、模型给出的概率之和。分歧 6.5 个百分点：
+        在可控范围内，方向可用、幅度打折。
+        若 主胜 站住，比分大概率是 1-1；反过来若这一格被拖住，模型最可能接上的是 客胜 32.9%。</p>
+    </div>
+  </div>
+</section>
+<section class="s">
+  <h3><i>07</i>外媒 × AI <span class="x">公开赛前预报 · 数据接口算法 · 后台模型 · 官方定价</span></h3>
+  <table class=""><thead><tr><th>来源</th><th>方向</th><th>给出的结论 / 原文摘要</th></tr></thead><tbody><tr><td>后台模型 v2.10</td><td>主胜</td><td>主 37.0% / 平 30.1% / 客 32.9%；比分最靠前 1-1（14.6%）</td></tr><tr><td>官方固定奖金（去水）</td><td>主胜</td><td>主 41.7% / 平 31.8% / 客 26.4%；返奖率 88.5%</td></tr><tr><td>公开赛前预报（Sports Mole）</td><td>—</td><td>胜平负 45/45/10%；Combo Double chance : Gangwon FC or draw and -3.5 goals；倾向胜或平</td></tr><tr><td>数据接口算法（API-Football）</td><td>—</td><td>免费层只给方向，百分比字段为坏值不采信</td></tr></tbody></table>
+  <div class="col2" style="margin-top:14px">
+    <div>
+      <div class="cap">预报方给的阵容</div>
+      <p class="body">未提供</p>
+      <p class="cap2">预计首发为预报方口径；与官方伤停名单冲突时以赛前公布名单为准。</p>
+    </div>
+    <div>
+      <div class="cap">四口径一致度</div>
+      <p class="body">同向 <b>2/3</b>（市场 / 公开预报 / 接口算法三者与模型同向的条数）。
+        外部两源只做参照系：公开预报给的是比分与理由，接口算法只给方向，它们不改变模型结论，只用来标出「三家站成几排」。</p>
+      <p class="cap2">来源：https://www.api-football.com/fixture/1507086</p>
+    </div>
+  </div>
+</section>
+<div class="oneline">
+  <b>一句话结论</b>
+  <p>江原FC 对 仁川联：模型 主胜 37.0%，
+    首选比分 1-0；信心 62/100（C · 中）；
+    最大风险是模型与定价差 6.5pp 这件事本身，防冷看 1-1。</p>
+  <div class="warns"><div>⚠️ ⚠️ 主/客分离样本≤2 场，口径A偏薄（已按样本量混入近10场）</div></div>
+</div>
+</div></section><section class="match" id="m2">
+<header class="mhead">
+  <div class="mno"><span>周日003</span><span>韩职</span><span>10/18 15:30 开赛</span>
+    <span>λ 合计 2.13</span></div>
+  <h2>首尔FC<em>vs</em>金泉尚武</h2>
+  <div class="msum">
+    <div><b>模型方向</b>主胜<span class="sep">/</span><b>定价方向</b>主胜
+      <span class="sep">/</span><b>让球</b>-1</div>
+    <div class="conf"><span class="cnum">41</span><span class="cgrade">D · 谨慎</span>
+      <span class="cdim">五维加权 · 满分 100</span></div>
+  </div>
+</header>
+<div class="grid3">
+  <div class="vcard"><span class="vt">首选 · PRIMARY</span><b>主胜</b>
+    <span class="vs">比分 1-0 · 模型 46.6%</span></div>
+  <div class="vcard v2"><span class="vt">次选 · SECOND</span><b>平</b>
+    <span class="vs">比分 1-1 · 模型 28.7%</span></div>
+  <div class="vcard v3"><span class="vt">防范 · GUARD</span><b>平</b>
+    <span class="vs">比分 1-1 · 退路 28.7%</span></div>
+</div>
+<section class="s">
+  <h3><i>00</i>全维度扫盘 <span class="x">15 个维度 · 有源给读数，无源标缺口</span></h3>
+  <table class="scan"><thead><tr><th>维度</th><th>读数</th><th>来源 / 状态</th></tr></thead><tbody><tr><td>模型</td><td>λ 1.28 / 0.85，胜平负 46.6% / 28.7% / 24.7%</td><td><span class="ok">已接入 · 后台模型 2.10</span></td></tr><tr><td>市场</td><td>去水后 66.5% / 20.3% / 13.1%（返奖率 88.5%）</td><td><span class="ok">已接入 · 竞彩固定奖金</span></td></tr><tr><td>模型×市场</td><td>三项偏差 −20.0pp / +8.4pp / +11.6pp；最大 20.0 个点</td><td><span class="ok">已接入</span></td></tr><tr><td>让球结构</td><td>让球（-1）模型 21.4% / 25.1% / 53.4% vs 定价 41.2% / 26.0% / 32.8%</td><td><span class="ok">已接入</span></td></tr><tr><td>盘口变化</td><td>只有开盘一版（今天开的盘，暂无位移可读）</td><td><span class="gap">刚开盘</span></td></tr><tr><td>外媒预报</td><td>本批无外媒覆盖（英日韩小联赛 Sports Mole 不收录）</td><td><span class="gap">无源</span></td></tr><tr><td>AI 接口</td><td>方向 主胜（免费层百分比为坏值，只取方向）；记录 https://www.api-football.com/fixture/1507082</td><td><span class="ok">已接入</span></td></tr><tr><td>近期状态</td><td>主 5 场 1.0 进 1.6 失（零封 0%）｜客 5 场 1.2 进 1.0 失（零封 40%）</td><td><span class="ok">已接入</span></td></tr><tr><td>积分排名</td><td>官方表接口返回空（getMatchTablesV2），本批不估算</td><td><span class="gap">缺口</span></td></tr><tr><td>战意与交手</td><td>近 5 次交手平局 20%、总进球 ≤2 占 40%、场均 3.60 球</td><td><span class="ok">已接入</span></td></tr><tr><td>更衣室情绪</td><td>本地无来源（需队记/社媒），本页不臆测</td><td><span class="gap">缺口</span></td></tr><tr><td>关键球员与伤停</td><td>公开伤停栏为空（不等于全员健康，只是这一栏没列）</td><td><span class="gap">名单空</span></td></tr><tr><td>战术风格</td><td>主队上半场进球占 38%；双方进球率 41.4%；大 2.5 球 35.9%（由进球时段与大小球结构推断）</td><td><span class="ok">已接入</span></td></tr><tr><td>球队身价</td><td>无免费结构化来源，本页不给估算值</td><td><span class="gap">缺口</span></td></tr><tr><td>裁判与天气</td><td>无来源；会改变 0-0 / 1-0 的存活率，本页不调模型</td><td><span class="gap">缺口</span></td></tr></tbody></table>
+  <p class="cap2">口径：只写能核对的东西。缺口项不估算、不编造，写进上面的状态列——这也是这份资料与「凭印象写」的区别。</p>
+</section>
+<section class="s">
+  <h3><i>01</i>盘口反常门槛 <span class="x">先看门槛，再看结论</span></h3>
+  <div class="col2">
+    <div>
+      <div class="cap">胜平负 · 固定奖金 1.33 / 4.35 / 6.75（返奖率 88.5%）</div>
+      <div class="bar"><span class="bl">主胜</span>
+      <span class="bt"><i class="fill h" style="width:46.6%"></i><i class="ghost" style="left:46.6%;width:19.9%"></i><i class="mark" style="left:66.5%"></i></span>
+      <span class="bv"><b>46.6%</b><i>定价 66.5%</i></span></div>
+      <div class="bar"><span class="bl">平</span>
+      <span class="bt"><i class="fill d" style="width:28.7%"></i><i class="ghost" style="left:20.3%;width:8.4%"></i><i class="mark" style="left:20.3%"></i></span>
+      <span class="bv"><b>28.7%</b><i>定价 20.3%</i></span></div>
+      <div class="bar"><span class="bl">客胜</span>
+      <span class="bt"><i class="fill a" style="width:24.7%"></i><i class="ghost" style="left:13.1%;width:11.6%"></i><i class="mark" style="left:13.1%"></i></span>
+      <span class="bv"><b>24.7%</b><i>定价 13.1%</i></span></div>
+      <p class="cap2">浅色实心＝后台模型概率；斜纹＝定价去水后概率（同一把尺）。三项偏差：
+        <b>主 −20.0pp</b> / 平 +8.4pp / 客 <b>+11.6pp</b></p>
+    </div>
+    <div>
+      <div class="cap">让球（-1）· 模型 21.4% / 25.1% / 53.4%　定价 41.2% / 26.0% / 32.8%
+        <br>固定奖金 2.15 / 3.40 / 2.70</div>
+      <div class="bar"><span class="bl">让胜</span>
+      <span class="bt"><i class="fill h" style="width:21.4%"></i><i class="ghost" style="left:21.4%;width:19.8%"></i><i class="mark" style="left:41.2%"></i></span>
+      <span class="bv"><b>21.4%</b><i>定价 41.2%</i></span></div>
+      <div class="bar"><span class="bl">让平</span>
+      <span class="bt"><i class="fill d" style="width:25.1%"></i><i class="ghost" style="left:25.1%;width:0.9%"></i><i class="mark" style="left:26.0%"></i></span>
+      <span class="bv"><b>25.1%</b><i>定价 26.0%</i></span></div>
+      <div class="bar"><span class="bl">让负</span>
+      <span class="bt"><i class="fill a" style="width:53.4%"></i><i class="ghost" style="left:32.8%;width:20.6%"></i><i class="mark" style="left:32.8%"></i></span>
+      <span class="bv"><b>53.4%</b><i>定价 32.8%</i></span></div>
+      <p class="cap2">去掉平局后的胜负拆分：主 65.4% / 客 34.6%。
+        让球一侧最大偏差 <b>+20.6pp</b>，
+        方向落客胜。</p>
+    </div>
+  </div>
+</section>
+<section class="s">
+  <h3><i>02</i>数理模型 <span class="x">双法 λ · 泊松矩阵 · Dixon-Coles 低比分校准</span></h3>
+  <div class="col2">
+    <div>
+      <div class="cap">λ 两条路与修正</div>
+      <table class="kv"><tbody><tr><th>方法一 · 实际数据（主客分离 + 样本量权重）</th><td>1.283 / 1.080</td></tr><tr><th>方法二 · 定价反推（比分矩阵反解）</th><td>2.529 / 0.620</td></tr><tr><th>综合 λ（代入模型）</th><td><b>1.283 / 0.850</b></td></tr><tr><th>修正明细</th><td>form主+0.250 form客+0.050 | H2H factor 0.976 (API近5场 1胜1平3负)</td></tr><tr><th>伤停修正</th><td>伤停 主0人/客0人 → λ主×(1-0.000)  λ客×(1+0.000)</td></tr></tbody></table>
+      <p class="cap2">两条 λ 差得越多，说明市场与赛果之间存在叙事溢价，或者我方样本有缺口；修正幅度一般不超过 ±0.25，修正越大越说明基础数据有偏。</p>
+    </div>
+    <div>
+      <div class="cap">胜平负交叉核对</div>
+      <table class=""><thead><tr><th>口径</th><th>主胜</th><th>平</th><th>客胜</th></tr></thead><tbody><tr><td>官方模型（2 万次抽样）</td><td>46.6%</td><td>28.7%</td><td>24.7%</td></tr><tr><td>独立泊松（本页精确解）</td><td>46.5%</td><td>28.7%</td><td>24.7%</td></tr><tr><td>Dixon-Coles（ρ=-0.08）</td><td>45.5%</td><td>30.8%</td><td>23.7%</td></tr></tbody></table>
+      <div class="cap" style="margin-top:16px">低比分校准（ρ 只动 0-0 / 1-0 / 0-1 / 1-1 四格）</div>
+      <table class=""><thead><tr><th>比分</th><th>独立泊松</th><th>DC 修正</th><th>变化</th></tr></thead><tbody><tr><td>0-0</td><td>11.80%</td><td>12.90%</td><td>+1.1pp</td></tr><tr><td>1-0</td><td>15.20%</td><td>14.20%</td><td>−1.0pp</td></tr><tr><td>0-1</td><td>10.10%</td><td>9.00%</td><td>−1.1pp</td></tr><tr><td>1-1</td><td>12.90%</td><td>14.00%</td><td>+1.1pp</td></tr></tbody></table>
+      <p class="cap2">独立泊松假设两队进球互不相干，会低估平局与低比分；DC 用相关系数 ρ 把这四格重新加权再把整张表归一。ρ 取常用区间的中值保守值，本批每场样本不足，未做逐场拟合。</p>
+    </div>
+  </div>
+  <div class="col2" style="margin-top:18px">
+    <div>
+      <div class="cap">比分概率矩阵（DC 修正后，0–6 球，实色越深概率越高）</div>
+      <div class="mx"><div class="mxh"></div><div class="mxh">0</div><div class="mxh">1</div><div class="mxh">2</div><div class="mxh">3</div><div class="mxh">4</div><div class="mxh">5</div><div class="mxh">6</div><div class="mxh">0</div><div class="mxc" style="background:rgba(149,96,50,0.932);color:#FFFDF7">13</div><div class="mxc" style="background:rgba(176,135,96,0.728);color:#FFFDF7">9.0</div><div class="mxc" style="background:rgba(209,184,154,0.477);color:#221E18">4.3</div><div class="mxc" style="background:rgba(231,215,191,0.314);color:#221E18">1.2</div><div class="mxc" style="background:rgba(238,225,202,0.264);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.252);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxh">1</div><div class="mxc" style="background:rgba(140,83,35,1.000);color:#FFFDF7">14</div><div class="mxc" style="background:rgba(141,85,37,0.989);color:#FFFDF7">14</div><div class="mxc" style="background:rgba(201,171,139,0.541);color:#221E18">5.5</div><div class="mxc" style="background:rgba(228,212,187,0.333);color:#221E18">1.6</div><div class="mxc" style="background:rgba(237,224,202,0.267);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.253);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxh">2</div><div class="mxc" style="background:rgba(171,128,88,0.767);color:#FFFDF7">9.8</div><div class="mxc" style="background:rgba(181,143,105,0.689);color:#FFFDF7">8.3</div><div class="mxc" style="background:rgba(215,191,163,0.436);color:#221E18">3.5</div><div class="mxc" style="background:rgba(232,217,193,0.303);color:#221E18">1.0</div><div class="mxc" style="background:rgba(238,225,203,0.261);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.252);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxh">3</div><div class="mxc" style="background:rgba(210,185,155,0.471);color:#221E18">4.2</div><div class="mxc" style="background:rgba(214,191,163,0.438);color:#221E18">3.5</div><div class="mxc" style="background:rgba(229,212,187,0.330);color:#221E18">1.5</div><div class="mxc" style="background:rgba(236,223,200,0.273);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,204,0.255);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxh">4</div><div class="mxc" style="background:rgba(230,214,189,0.321);color:#221E18">1.3</div><div class="mxc" style="background:rgba(231,216,192,0.310);color:#221E18">1.1</div><div class="mxc" style="background:rgba(236,223,200,0.275);color:#221E18"></div><div class="mxc" style="background:rgba(239,226,204,0.257);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.252);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxh">5</div><div class="mxc" style="background:rgba(237,224,201,0.268);color:#221E18"></div><div class="mxc" style="background:rgba(237,225,202,0.265);color:#221E18"></div><div class="mxc" style="background:rgba(239,226,204,0.256);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.252);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxh">6</div><div class="mxc" style="background:rgba(239,227,205,0.254);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.253);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.252);color:#221E18"></div><div class="mxc" style="background:rgba(239,227,205,0.251);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div><div class="mxc" style="background:rgba(240,228,206,0.250);color:#221E18"></div></div>
+      <div class="gax">↓ 主队进球　→ 客队进球　ρ = -0.08</div>
+    </div>
+    <div>
+      <div class="cap">总进球分布与大小球</div>
+      <div class="gchart"><div class="gcol"><span class="gv">12.9</span><i style="height:44px"></i><span class="gl">0</span></div><div class="gcol"><span class="gv">23.2</span><i style="height:80px"></i><span class="gl">1</span></div><div class="gcol"><span class="gv">28.0</span><i style="height:96px"></i><span class="gl">2</span></div><div class="gcol"><span class="gv">19.2</span><i style="height:66px"></i><span class="gl">3</span></div><div class="gcol"><span class="gv">10.2</span><i style="height:35px"></i><span class="gl">4</span></div><div class="gcol"><span class="gv">4.4</span><i style="height:15px"></i><span class="gl">5</span></div><div class="gcol"><span class="gv">1.6</span><i style="height:5px"></i><span class="gl">6</span></div><div class="gcol"><span class="gv">0.6</span><i style="height:4px"></i><span class="gl">7+</span></div></div><div class="gax">总进球数分布（%）· 只算 90 分钟 · 7 球以上并入 7+</div>
+      <table class=""><thead><tr><th>大小球 / 双方进球</th><th>模型概率</th></tr></thead><tbody><tr><td>大 1.5 球</td><td>62.9%</td></tr><tr><td>大 2.5 球</td><td>35.9%</td></tr><tr><td>大 3.5 球</td><td>16.8%</td></tr><tr><td>双方进球</td><td>41.4%</td></tr></tbody></table>
+      <p class="cap2">市场侧大小球盘口未接入（无公开快照），这一组只有模型口径，不做交叉验证。</p>
+    </div>
+  </div>
+</section>
+<section class="s">
+  <h3><i>03</i>高阶数据 <span class="x">上下半场结构 · 进失球离散度 · 交手土壤 · 未接入清单</span></h3>
+  <div class="col2">
+    <div>
+      <div class="cap">上下半场进球结构（近 5 场）</div>
+      <table class=""><thead><tr><th>球队</th><th>上半场</th><th>下半场</th><th>上半场占比</th><th>形态</th></tr></thead><tbody><tr><td>首尔FC</td><td>5 球</td><td>8 球</td><td>38.5%</td><td>上下半场均衡</td></tr><tr><td>金泉尚武</td><td>4 球</td><td>7 球</td><td>36.4%</td><td>上下半场均衡</td></tr></tbody></table>
+      <p class="cap2">竞彩公开数据只有半场/全场比分，没有分钟级进球与跑动；用「上半场进球占比」当体能曲线代理：占比越低说明越依赖下半场，反过来 70 分钟后被追的风险越大。</p>
+      <div class="cap" style="margin-top:16px">进失球离散度与零封率（近 5 场）</div>
+      <table class=""><thead><tr><th>球队</th><th>场均进</th><th>场均失</th><th>零封率</th><th>进球 σ</th><th>失球 σ</th><th>形态</th></tr></thead><tbody><tr><td>首尔FC</td><td>1.00</td><td>1.60</td><td>0%</td><td>1.00</td><td>0.89</td><td>输出稳定</td></tr><tr><td>金泉尚武</td><td>1.20</td><td>1.00</td><td>40%</td><td>1.10</td><td>1.00</td><td>输出稳定</td></tr></tbody></table>
+      <p class="cap2">σ 越大越不稳定；场均进失是粗糙口径，所以模型里用主客分离 + 样本量权重压噪音。</p>
+    </div>
+    <div>
+      <div class="cap">交手记录的比分土壤（近 5 次）</div>
+      <div class="grid4 tight">
+        <div class="mini"><span>总进球 ≤2 占比</span><b>40%</b><i>低比分土壤</i></div>
+        <div class="mini"><span>双方进球率</span><b>60%</b><i>同时开火</i></div>
+        <div class="mini"><span>平局率</span><b>20%</b><i>胶着度</i></div>
+        <div class="mini"><span>场均总进球</span><b>3.60</b><i>节奏</i></div>
+      </div>
+      <table class=""><thead><tr><th>日期</th><th>比分</th><th>联赛</th></tr></thead><tbody><tr><td>2026-08-08</td><td>金泉尚武 0:0 首尔FC</td><td>韩职</td></tr><tr><td>2026-05-02</td><td>首尔FC 2:3 金泉尚武</td><td>韩职</td></tr><tr><td>2025-11-22</td><td>首尔FC 1:3 金泉尚武</td><td>韩职</td></tr><tr><td>2025-08-17</td><td>金泉尚武 6:2 首尔FC</td><td>韩职</td></tr><tr><td>2025-05-28</td><td>金泉尚武 0:1 首尔FC</td><td>韩职</td></tr></tbody></table>
+      <p class="cap2">交手总局数偏干或偏湿，是低比分（0-0 / 1-0 / 1-1）概率上调的实证依据，也是 DC 修正方向与历史吻合的检验点。</p>
+      <div class="cap" style="margin-top:16px">未接入的高阶指标</div>
+      <ul class="gaps">
+        <li><b>未接入</b><span> xG / xGA / npxG</span>剥离神仙球与门将超神，判断进攻真实质量与运气透支</li>
+        <li><b>未接入</b><span> PPDA</span>高位逼抢强度：两支队 PPDA 差距大时，2-2 / 3-2 的开放比分概率会跳</li>
+        <li><b>未接入</b><span> 定位球 xG</span>现代足球约 25–30% 进球来自定位球，缺了会低估弱队得分下限</li>
+        <li><b>未接入</b><span> 射门 / 射正 / 角球</span>穿透到过程数据才看得见的效率差</li>
+        <li><b>未接入</b><span> 场地与天气</span>暴雨、积水会强行拉低总进球</li>
+        <li><b>未接入</b><span> 裁判尺度</span>场均出牌与点球倾向影响 0-0 与 1-0 的存活率</li>
+      </ul>
+      <p class="cap2">原因：竞彩官方公开页只有比分、半场比分、伤停与球员名单，不含过程数据；免费可得的 xG 源与竞彩队名映射尚未接通。本页用「半场结构 + 主客分离 + 交手中低比分频率」替代口径，缺口部分不算、不编数。</p>
+    </div>
+  </div>
+</section>
+<section class="s">
+  <h3><i>04</i>基本面 <span class="x">阵容伤停 · 赛程战意 · 状态底子</span></h3>
+  <div class="col2">
+    <div>
+      <div class="cap">伤停与缺阵</div>
+      <table class=""><thead><tr><th>球队</th><th>球员</th><th>位置</th><th>本季出场</th><th>性质</th></tr></thead><tbody><tr><td>—</td><td>两边伤停名单均为空</td><td>—</td><td>—</td><td>—</td></tr></tbody></table>
+      <p class="cap2" style="margin-top:6px">名单口径：首尔FC 0 人、金泉尚武 0 人（只收官方伤停与停赛表，不含赛前热身临时缺阵）。</p>
+      <div class="cap" style="margin-top:16px">赛程与战意</div>
+      <p class="body">主队主场样本仅 2 场 2 进 2 失，客场 0 比 3 墨胜利、1 比 0 万隆（亚冠二级）；客队客场 2 场 2 进 0 失（0 比 2 富川胜、0 比 0 浦项），客场防守是联赛最好一档；近10场场均进失 主1.9/1.1 客0.9/1.1；近5场 主 2胜0平3负 / 客 1胜3平1负；无伤停；让球 -1</p>
+    </div>
+    <div>
+      <div class="cap">两队近 5 场（左旧 → 右新）</div>
+      <table class=""><thead><tr><th>日期</th><th>主队近况</th><th>半场</th></tr></thead><tbody><tr><td>2026-10-14</td><td>墨胜利 3:0 首尔FC</td><td>0:0</td></tr><tr><td>2026-10-10</td><td>首尔FC 2:1 济州SK</td><td>0:0</td></tr><tr><td>2026-09-20</td><td>浦项制铁 2:1 首尔FC</td><td>2:0</td></tr><tr><td>2026-09-16</td><td>首尔FC 0:1 万隆</td><td>0:1</td></tr><tr><td>2026-09-12</td><td>全北现代 1:2 首尔FC</td><td>1:1</td></tr></tbody></table>
+      <div class="cap" style="margin-top:12px">客队近况</div>
+      <table class=""><thead><tr><th>日期</th><th>客队近况</th><th>半场</th></tr></thead><tbody><tr><td>2026-10-10</td><td>金泉尚武 0:1 安养FC</td><td>0:1</td></tr><tr><td>2026-09-19</td><td>富川FC 0:2 金泉尚武</td><td>0:0</td></tr><tr><td>2026-09-13</td><td>金泉尚武 2:2 江原FC</td><td>2:0</td></tr><tr><td>2026-09-09</td><td>浦项制铁 0:0 金泉尚武</td><td>0:0</td></tr><tr><td>2026-09-06</td><td>金泉尚武 2:2 光州FC</td><td>1:0</td></tr></tbody></table>
+    </div>
+  </div>
+</section>
+<section class="s">
+  <h3><i>05</i>盘口定价与变盘 <span class="x">三层定价交叉 · 波胆池 · 时间轴 · 半全场剧本</span></h3>
+  <div class="col2">
+    <div>
+      <div class="cap">固定奖金时间轴（胜平负，返奖率 88.5% 归一）</div>
+      <table class=""><thead><tr><th>时点</th><th>主胜</th><th>平</th><th>客胜</th></tr></thead><tbody><tr><td>10-16 09:42</td><td>1.33</td><td>4.35</td><td>6.75</td></tr></tbody></table>
+      <div class="cap" style="margin-top:14px">让球（-1）时间轴</div>
+      <table class=""><thead><tr><th>时点</th><th>让胜</th><th>让平</th><th>让负</th><th>盘口</th></tr></thead><tbody><tr><td>10-16 09:41</td><td>2.15</td><td>3.40</td><td>2.70</td><td>-1</td></tr></tbody></table>
+      <p class="cap2">开盘 1.33/4.35/6.75
+        → 最新 1.33/4.35/6.75；
+        去水后最新 66.5% / 20.3% / 13.1%。</p>
+      <ul class="notes"><li>总进球 10-16 09:41：3 球调到最低赔 3.40（最热一格）；1 球 5.80→5.80、2 球 3.80→3.80。</li><li>半全场 10-16 09:42：平负 15.00→15.00、平平 6.70→6.70、平胜 3.90→3.90、负负 12.00→12.00。</li><li>波胆全盘 28 格，最低赔是 2-0（6.50）；波胆只有当前版本，没有历史位移。</li></ul>
+    </div>
+    <div>
+      <div class="cap">波胆池：定价错在哪（按赔率从低到高）</div>
+      <table class=""><thead><tr><th>比分</th><th>定价</th><th>隐含</th><th>方向</th><th>溢价</th><th>与模型结论</th></tr></thead><tbody><tr><td><b>2-0</b></td><td>6.50</td><td>15.4%</td><td>主胜</td><td>−0.37</td><td>—</td></tr><tr><td><b>2-1</b></td><td>6.50</td><td>15.4%</td><td>主胜</td><td>−0.46</td><td>—</td></tr><tr><td><b>1-0</b></td><td>7.00</td><td>14.3%</td><td>主胜</td><td>+0.06</td><td>主推首选</td></tr><tr><td><b>1-1</b></td><td>7.50</td><td>13.3%</td><td>平</td><td>−0.03</td><td>主推次选</td></tr><tr><td><b>3-0</b></td><td>8.50</td><td>11.8%</td><td>主胜</td><td>—</td><td>—</td></tr><tr><td><b>3-1</b></td><td>10.00</td><td>10.0%</td><td>主胜</td><td>—</td><td>—</td></tr><tr><td><b>0-0</b></td><td>15.00</td><td>6.7%</td><td>平</td><td>+0.78</td><td>—</td></tr><tr><td><b>2-2</b></td><td>16.00</td><td>6.2%</td><td>平</td><td>—</td><td>—</td></tr><tr><td><b>4-0</b></td><td>16.00</td><td>6.2%</td><td>主胜</td><td>—</td><td>—</td></tr><tr><td><b>1-2</b></td><td>16.00</td><td>6.2%</td><td>客胜</td><td>−0.12</td><td>—</td></tr><tr><td><b>0-1</b></td><td>18.00</td><td>5.6%</td><td>客胜</td><td>+0.81</td><td>—</td></tr><tr><td><b>4-1</b></td><td>20.00</td><td>5.0%</td><td>主胜</td><td>—</td><td>—</td></tr></tbody></table>
+      <p class="cap2">溢价 = 模型概率 × 定价 − 1；为正表示这一格模型估值高于定价。溢价为负的格子说明定价偏虚，不做主推。</p>
+    </div>
+  </div>
+  <div class="col2" style="margin-top:18px">
+    <div>
+      <div class="cap">总进球定价 vs 模型（初盘 10-16 09:41 → 最新 10-16 09:41）</div>
+      <table class=""><thead><tr><th>进球数</th><th>初盘</th><th>最新</th><th>变化</th><th>定价隐含（初）</th><th>定价隐含（新）</th><th>模型 − 定价</th></tr></thead><tbody><tr><td>0 球</td><td>15.00</td><td>15.00</td><td>—</td><td>5.5%</td><td>5.5%</td><td>+6.4pp</td></tr><tr><td>1 球</td><td>5.80</td><td>5.80</td><td>—</td><td>14.3%</td><td>14.3%</td><td>+11.2pp</td></tr><tr><td>2 球</td><td>3.80</td><td>3.80</td><td>—</td><td>21.9%</td><td>21.9%</td><td>+5.3pp</td></tr><tr><td>3 球</td><td>3.40</td><td>3.40</td><td>—</td><td>24.5%</td><td>24.5%</td><td>−5.2pp</td></tr><tr><td>4 球</td><td>4.90</td><td>4.90</td><td>—</td><td>17.0%</td><td>17.0%</td><td>−6.7pp</td></tr><tr><td>5 球</td><td>7.50</td><td>7.50</td><td>—</td><td>11.1%</td><td>11.1%</td><td>−6.7pp</td></tr><tr><td>6 球</td><td>14.50</td><td>14.50</td><td>—</td><td>5.7%</td><td>5.7%</td><td>−4.2pp</td></tr></tbody></table>
+    </div>
+    <div>
+      <div class="cap">半全场：剧本的方向（初盘 10-16 09:42 → 最新 10-16 09:42）</div>
+      <table class=""><thead><tr><th>半场/全场</th><th>初盘</th><th>最新</th><th>变化</th><th>隐含</th></tr></thead><tbody><tr><td>平胜</td><td>3.90</td><td>3.90</td><td>—</td><td>42.0%</td></tr><tr><td>平平</td><td>6.70</td><td>6.70</td><td>—</td><td>24.4%</td></tr><tr><td>负负</td><td>12.00</td><td>12.00</td><td>—</td><td>13.6%</td></tr><tr><td>平负</td><td>15.00</td><td>15.00</td><td>—</td><td>10.9%</td></tr><tr><td>负平</td><td>18.00</td><td>18.00</td><td>—</td><td>9.1%</td></tr></tbody></table>
+      <div class="cap" style="margin-top:14px">剧本切换条件</div>
+      <ul class="notes">
+        <li>上半场：比分往 2-1 / 2-2 走：模型大 2.5 球 35.9%、双方进球 41.4%，两队都能进球的场次里，零封是最先被排除的结果。</li>
+        <li>半场 0-0：拿模型平局 28.7% 与定价 20.3% 对照，谁高谁更怕闷。</li>
+        <li>客队先：定价最热的那格是 主胜（66.5%），防冷比分 1-1；若先进球后仍要防被拖回平局，模型平局 28.7% 是唯一能救回的格子。</li>
+        <li>主队先：让球（-1）模型 21.4% vs 定价 41.2%，模型比定价更信任这个剧本；追主队要接受赢球不穿盘的结果。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<div class="final">
+  <div class="fhd"><span>综合分析</span><i>页末 · 推演闭环 / 四口径对照 / 一句话结论</i></div>
+  
+<section class="s">
+  <h3><i>06</i>推演闭环 <span class="x">定格局 → 定总量 → 跑矩阵 → 做排除 → 出结论</span></h3>
+  <div class="col2">
+    <div>
+      <ol class="steps">
+        <li><b>定格局</b><span>胜平负方向</span><p>模型给主胜 46.6%，定价去水后给主胜 66.5%，两边最大偏差在主胜 -19.9pp。偏差超过 15 个百分点，按纪律先假定我方样本有缺口，这一格只做方向参考。</p></li>
+        <li><b>定总量</b><span>总进球区间</span><p>λ 合计 1.28+0.85=2.13，模型给大 2.5 球 35.9%、大 3.5 球 16.8%、双方进球 41.4%。总量偏低，比分重心落在 1-0、1-1、0-0 一带，别指望大比分。</p></li>
+        <li><b>跑矩阵</b><span>概率排序</span><p>1-0 14.2%；1-1 14.0%；0-0 12.9%。 让球(-1) 里模型与定价偏差最大的一格是客胜 +20.6pp，说明分歧落在「赢几个」而不是「谁赢」。</p></li>
+        <li><b>做排除</b><span>情景证伪</span><p>把与方向、总量相悖的比分先划掉，剩下的才是候选；被定价严重高估的格子一并降权。见右侧清单。</p></li>
+      </ol>
+    </div>
+    <div>
+      <div class="cap">排除与降权清单</div>
+      <table><tbody><tr><td>总进球 5 球以上</td><td><span class='pill r'>降权</span></td><td>模型合计 6.5%，尾部太薄；真出现 4-2、3-3 这类比分，说明早段就失控了</td></tr><tr><td>客队净胜 2 球以上</td><td><span class='pill r'>降权</span></td><td>与主推方向相悖，模型合计 8.0%</td></tr><tr><td>2-1</td><td><span class='pill a'>降权</span></td><td>定价 6.50 隐含 15.4%，模型给 8.3%，溢价 -0.46（定价虚高，不做主推）</td></tr></tbody></table>
+      <p class="cap2">总进球 5 球以上模型合计 6.5%；平局一格 28.7%。与主推/次选/防冷重复的比分已从降权清单里删掉。</p>
+      <div class="cap" style="margin-top:14px">防冷触发条件</div>
+      <p class="body">模型推 <b>主胜</b>（46.6%），定价最热是 <b>主胜</b>（66.5%），
+        冷门指数 <b>53</b>＝定价最热那一格之外、模型给出的概率之和。分歧 20.0 个百分点：
+        超过 15，先假定我方数据有缺口，只做方向参考。
+        若 主胜 站住，比分大概率是 1-1；反过来若这一格被拖住，模型最可能接上的是 平 28.7%。</p>
+    </div>
+  </div>
+</section>
+<section class="s">
+  <h3><i>07</i>外媒 × AI <span class="x">公开赛前预报 · 数据接口算法 · 后台模型 · 官方定价</span></h3>
+  <table class=""><thead><tr><th>来源</th><th>方向</th><th>给出的结论 / 原文摘要</th></tr></thead><tbody><tr><td>后台模型 v2.10</td><td>主胜</td><td>主 46.6% / 平 28.7% / 客 24.7%；比分最靠前 1-0（14.2%）</td></tr><tr><td>官方固定奖金（去水）</td><td>主胜</td><td>主 66.5% / 平 20.3% / 客 13.1%；返奖率 88.5%</td></tr><tr><td>公开赛前预报（Sports Mole）</td><td>—</td><td>胜平负 35/35/30%；Double chance : FC Seoul or draw；倾向胜或平</td></tr><tr><td>数据接口算法（API-Football）</td><td>—</td><td>免费层只给方向，百分比字段为坏值不采信</td></tr></tbody></table>
+  <div class="col2" style="margin-top:14px">
+    <div>
+      <div class="cap">预报方给的阵容</div>
+      <p class="body">未提供</p>
+      <p class="cap2">预计首发为预报方口径；与官方伤停名单冲突时以赛前公布名单为准。</p>
+    </div>
+    <div>
+      <div class="cap">四口径一致度</div>
+      <p class="body">同向 <b>2/3</b>（市场 / 公开预报 / 接口算法三者与模型同向的条数）。
+        外部两源只做参照系：公开预报给的是比分与理由，接口算法只给方向，它们不改变模型结论，只用来标出「三家站成几排」。</p>
+      <p class="cap2">来源：https://www.api-football.com/fixture/1507082</p>
+    </div>
+  </div>
+</section>
+<div class="oneline">
+  <b>一句话结论</b>
+  <p>首尔FC 对 金泉尚武：模型 主胜 46.6%，
+    首选比分 1-0；信心 41/100（D · 谨慎）；
+    最大风险是模型与定价差 20.0pp 这件事本身，防冷看 1-1。</p>
+  <div class="warns"><div>⚠️ 🔴 客队叙事驱动风险（胜率24.7%&lt;40% 且 Edge+11.6pp&gt;8pp）→ 置信度减半</div><div>⚠️ 🔴 主队过热预警（1.33&lt;1.40）→ 主队胜率-2pp、平局+1.5pp</div><div>⚠️ ⚠️ 模型/市场≥10pp 分歧：按 skill「国内联赛定价更精准」原则，先假定我方数据有缺口，不直接采信</div><div>⚠️ ⚠️ 主/客分离样本≤2 场，口径A偏薄（已按样本量混入近10场）</div></div>
+</div>
+</div></section>
+
+
+<section class="appendix">
+  <h2 class="sec">附 · 方法论、口径与免责</h2>
+  <h3>一、进球期望（λ）两条路，再取一个值</h3>
+  <ol>
+    <li>实际数据法：分开算主队主场、客队客场的攻防效率；样本不足（≤3 场）时按样本量权重混入近十场，避免前三轮就把一支球队定死。</li>
+    <li>定价反推法：从官方固定奖金反解出一条隐含的比分分布，得到第二条 λ。两条路差得多，说明市场与赛果之间存在叙事溢价，或者我方样本有缺口。</li>
+    <li>取综合 λ 后按状态、交锋、伤停做很小的修正（一般不超过 ±0.25），修正越大越说明基础数据有偏。</li>
+  </ol>
+  <h3>二、概率与比分</h3>
+  <p>用泊松分布做 2 万次蒙特卡洛抽样，得到胜平负、让球、总进球与比分矩阵，抽样误差控制在 0.5 个百分点以内，所以正文百分比保留一位小数。所有结果只统计 90 分钟常规时间，加时与点球不计。</p>
+  <h3>三、Dixon-Coles 低比分校准</h3>
+  <p>独立泊松假设两队进球互不相干，会低估 0-0 / 1-0 / 0-1 / 1-1 这类低比分。本页用相关系数 ρ = -0.08 对四格加权后再整表归一，只用于展示「低比分被拉起多少」，不替换官方模型 2 万次抽样作为主口径；矩阵与胜平负给了三种口径的交叉核对。</p>
+  <h3>四、去水与溢价</h3>
+  <p>官方固定奖金三项隐含概率之和通常超过 100%，超出部分是结构成本（每场不同）。按比例归一后得到「去水后概率」，才能与模型概率放在同一把尺子上比较。溢价 EV = 模型概率 × 固定奖金 − 1，为正表示这一格模型估值高于定价，但溢价为正不等于值得下注，样本薄时它同样会错。</p>
+  <h3>五、信心指数五项</h3>
+  <ul class="notes">
+    <li>样本厚度（20 分）：主客分离样本场数，两场以内只能算参考。</li>
+    <li>双法收敛（20 分）：两条 λ 的相对差，差得多说明两套证据打架。</li>
+    <li>三方一致（25 分）：官方定价方向、公开预报、接口算法三条线里，有几条与模型同向。</li>
+    <li>分歧可控（25 分）：胜平负最大偏差，超过 10 个百分点按「先假定我方有缺口」处理，扣分。</li>
+    <li>比分集中（10 分）：Top3 比分概率之和，集中度低意味着结果更随机、比分推荐更不可靠。</li>
+  </ul>
+  <p>怎么读总分：A（≥78）结构与证据互相印证，可作为方向主参考；B（66–77）方向可信但幅度要打折；C（52–65）只能当一种视角；D（&lt;52）证据不足，本份只做记录不做参考。</p>
+  <h3>六、冷门指数</h3>
+  <p>定价最热那一格之外，模型给出的概率之和。数值越大，说明市场押的那一头越站不住，越值得留一手防守比分。</p>
+  <h3>七、本批口径</h3>
+  <ul class="notes">
+    <li>覆盖 3 场，日期 2026.10.18，全部为公开赛程与公开定价数据；后台模型 v2.10。</li>
+    <li>外部预报只取公开赛前预报的比分与理由，以及数据接口算法的方向；接口免费层的百分比字段有坏值（固定 10/45/45、进球 −2.5），不采信、不展示。</li>
+    <li>变盘时间轴取自竞彩官网「固定奖金」栏的历史快照；只有采到 ≥2 个时点的场次才给位移判读，其余只写「市场一开始就这么看」。</li>
+    <li>让球盘口若临场调整，让球一侧的偏差结论需要重算；本份不含临场首发变动后的重算。</li>
+    <li>市场侧大小球盘口、xG/xGA/npxG、PPDA、射门射正角球、场地天气、裁判尺度目前都未接入，相关结论只用模型口径或标注为缺口。</li>
+  </ul>
+  <h3>免责与使用范围</h3>
+  <p>本资料为内部复盘材料，用于检验模型口径与记录判断过程，不作公开投放、不对外销售、不作为任何形式的购买建议。文中百分比均为模型估值或定价隐含概率，不是承诺；足球比赛受红牌、伤退、天气、判罚等随机因素影响，任何概率都可能不成立。请理性看球。数据来源：公开赛果数据（竞彩官方定价、公开赛程与伤停、公开赛前预报）。生成 2026-10-17 23:58 · 内部资料。</p>
+</section>
+
+<div class="foot"><span>阿飞 · 赛博聊球 · 内部资料 · 2026.10.18 · 3 场全维度推演</span>
+  <span>仅统计 90 分钟常规时间 · 不构成任何购买建议</span></div>
+</div>
+</body></html>

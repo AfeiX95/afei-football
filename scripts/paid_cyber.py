@@ -402,6 +402,20 @@ def steps_text(m: dict, mat: list[list[float]], cold: dict, tech: dict) -> dict:
 
 
 # ---------------------------------------------------------------- 汇总
+
+def kick_of(mid: str) -> str:
+    """开赛时间兜底：state/matches/<id>/head.json 的 matchDateTime（2026-10-18 15:00 → 10/18 15:00）。"""
+    for mid_ in (str(mid),):
+        p = ROOT / "state" / "matches" / mid_ / "head.json"
+        try:
+            v = json.loads(p.read_text(encoding="utf-8")).get("value") or {}
+        except Exception:
+            continue
+        dt = (v.get("matchDateTime") or "").strip()
+        if len(dt) >= 16:
+            return dt[5:10].replace("-", "/") + " " + dt[11:16]
+    return ""
+
 def build(model_path: Path, date_tag: str) -> dict:
     matches_raw = pr.parse_model(model_path)
     ext_items = pr.load_ext(date_tag.replace("-", ""))
@@ -437,7 +451,7 @@ def build(model_path: Path, date_tag: str) -> dict:
         ]
         out.append({
             "no": m["no"], "league": m.get("league", ""), "home": m["home"], "away": m["away"],
-            "mid": mid, "kick": card.get("kick", ""), "hand": m.get("hand", 0),
+            "mid": mid, "kick": card.get("kick") or kick_of(mid), "hand": m.get("hand", 0),
             "lam": {"l1": m.get("lam1"), "l2": m.get("lam2"), "fin": lam,
                     "total": round(sum(lam), 2)},
             "p": m["p"], "mk": m["mk"], "edge": m.get("p_edge", [m["p"][i] - m["mk"][i] for i in range(3)]),

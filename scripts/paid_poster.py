@@ -108,6 +108,72 @@ def block_goals(m: dict) -> str:
     return f'<div class="gchart">{bars}</div><div class="gax">总进球数分布（%）· 只算 90 分钟 · 7 球以上并入 7+</div>'
 
 
+def block_scan(m: dict) -> str:
+    """00 全维度扫盘：15 个维度逐条给读数，无源的如实标缺口。"""
+    tech, o = m["tech"], (m.get("move") or {})
+    meet = tech.get("meet") or {}
+    intel = m.get("intel") or {}
+    inj = intel.get("inj") or []
+    th, ta = tech.get("home") or {}, tech.get("away") or {}
+    ext = m.get("ext") or {}
+    exts = ext.get("sm") or {}
+    exta = ext.get("af") or {}
+    n_snap = len(o.get("spf") or [])
+    rows = []
+
+    def st(ok: str, bad: str = "缺口") -> str:
+        return f'<span class="ok">{ok}</span>' if ok else f'<span class="gap">{bad}</span>'
+
+    rows.append(["模型", f"λ {f(m['lam']['fin'][0], 2)} / {f(m['lam']['fin'][1], 2)}，胜平负 "
+                 f"{pct(m['p'][0])} / {pct(m['p'][1])} / {pct(m['p'][2])}", st("已接入 · 后台模型 2.10")])
+    rows.append(["市场", f"去水后 {pct(m['mk'][0])} / {pct(m['mk'][1])} / {pct(m['mk'][2])}"
+                 f"（返奖率 {f(m['payout'])}%）", st("已接入 · 竞彩固定奖金")])
+    rows.append(["模型×市场", f"三项偏差 {sign(m['edge'][0], 1, 'pp')} / {sign(m['edge'][1], 1, 'pp')}"
+                 f" / {sign(m['edge'][2], 1, 'pp')}；最大 {f(abs(max(m['edge'], key=abs)))} 个点",
+                 st("已接入")])
+    rows.append(["让球结构", f"让球（{m['hand']:+d}）模型 {pct(m['hp'][0])} / {pct(m['hp'][1])} / {pct(m['hp'][2])}"
+                 f" vs 定价 {pct(m['hmk'][0])} / {pct(m['hmk'][1])} / {pct(m['hmk'][2])}", st("已接入")])
+    rows.append(["盘口变化", (f"{n_snap} 个时点，最早 {esc((o.get('spf') or [{}])[0].get('t', ''))}"
+                          if n_snap >= 2 else "只有开盘一版（今天开的盘，暂无位移可读）"),
+                 st("已接入" if n_snap >= 2 else "", "刚开盘")])
+    sm_ok = exts.get("provider") in (None, "", "sportsmole") and bool(exts.get("predicted"))
+    rows.append(["外媒预报", (f"{esc(exts.get('predicted'))} · 原文摘要见本场第 07 段" if sm_ok
+                          else "本批无外媒覆盖（英日韩小联赛 Sports Mole 不收录）"),
+                 st("已接入" if sm_ok else "", "无源")])
+    ai = exta or (exts if exts.get('provider') not in (None, "", "sportsmole") else {})
+    ai_dir = (ai or {}).get("predicted_dir") or ""
+    ai_url = (ai or {}).get("url") or ""
+    rows.append(["AI 接口", (f"方向 {esc(ai_dir)}（免费层百分比为坏值，只取方向）；记录 {esc(ai_url)}"
+                          if ai_dir else "本批无自动接口命中，只靠外媒预报与定价"),
+                 st("已接入" if ai_dir else "", "无源")])
+    rows.append(["近期状态", f"主 {th.get('n', 0)} 场 {f(th.get('gf_avg', 0), 1)} 进 {f(th.get('ga_avg', 0), 1)} 失"
+                 f"（零封 {pct(th.get('cs_rate', 0), 0)}）｜客 {ta.get('n', 0)} 场 {f(ta.get('gf_avg', 0), 1)} 进 "
+                 f"{f(ta.get('ga_avg', 0), 1)} 失（零封 {pct(ta.get('cs_rate', 0), 0)}）", st("已接入")])
+    rows.append(["积分排名", "官方表接口返回空（getMatchTablesV2），本批不估算", st("", "缺口")])
+    rows.append(["战意与交手", f"近 {meet.get('n', 0)} 次交手平局 {pct(meet.get('draw', 0), 0)}、"
+                 f"总进球 ≤2 占 {pct(meet.get('low2', 0), 0)}、场均 {f(meet.get('avg_total', 0), 2)} 球",
+                 st("已接入")])
+    rows.append(["更衣室情绪", "本地无来源（需队记/社媒），本页不臆测", st("", "缺口")])
+    names = [f"{x['name']}（{x.get('pos') or '-'}）" for x in (inj or [])][:4]
+    rows.append(["关键球员与伤停", ("公开名单：" + "、".join(names)) if names
+                 else "公开伤停栏为空（不等于全员健康，只是这一栏没列）", st("已接入" if names else "", "名单空")])
+    style = []
+    if th.get("share_1h") is not None:
+        style.append(f"主队上半场进球占 {pct(th['share_1h'], 0)}")
+    style.append(f"双方进球率 {pct(m.get('btts', 0))}")
+    style.append(f"大 2.5 球 {pct((m.get('over') or {}).get('2.5', 0))}")
+    rows.append(["战术风格", "；".join(style) + "（由进球时段与大小球结构推断）", st("已接入")])
+    rows.append(["球队身价", "无免费结构化来源，本页不给估算值", st("", "缺口")])
+    rows.append(["裁判与天气", "无来源；会改变 0-0 / 1-0 的存活率，本页不调模型", st("", "缺口")])
+
+    return f"""
+<section class="s">
+  <h3><i>00</i>全维度扫盘 <span class="x">15 个维度 · 有源给读数，无源标缺口</span></h3>
+  {rows_table(['维度', '读数', '来源 / 状态'], rows, 'scan')}
+  <p class="cap2">口径：只写能核对的东西。缺口项不估算、不编造，写进上面的状态列——这也是这份资料与「凭印象写」的区别。</p>
+</section>"""
+
+
 def section_match(m: dict, idx: int) -> str:
     c, k, v, st, tech = m["conf"], m["cold"], m["verdict"], m["steps"], m["tech"]
     lam = m["lam"]
@@ -139,6 +205,8 @@ def section_match(m: dict, idx: int) -> str:
   <div class="vcard v3"><span class="vt">防范 · GUARD</span><b>{esc(v['guard'])}</b>
     <span class="vs">比分 {esc(v['guard_score'])} · {esc(v['guard_mode'])} {pct(v['guard_p'])}</span></div>
 </div>"""
+
+    scan = block_scan(m)
 
     # ① 盘口反常门槛
     hcap = f"""
@@ -438,7 +506,7 @@ def section_match(m: dict, idx: int) -> str:
   {conclb}{extb}{tail}
 </div>"""
 
-    return f'<section class="match" id="m{idx}">{head}{concl}{hcap}{mathb}{techb}{baseb}{move_html}{final}</section>'
+    return f'<section class="match" id="m{idx}">{head}{concl}{scan}{hcap}{mathb}{techb}{baseb}{move_html}{final}</section>'
 
 
 # ── 整页 ──────────────────────────────────────────────
@@ -672,7 +740,7 @@ def render(data: dict) -> str:
 <div class="wrap">
 <section class="cover">
   <div class="kick">付费内部资料 · 全维度推演 · 海报款</div>
-  <h1>{dd} 六场</h1>
+  <h1>{dd} {len(ms)} 场</h1>
   <div class="sub">盘口结构 · 数理模型 · 高阶数据 · 推演闭环</div>
   <div class="meta">生成 {esc(meta['stamp'])} · 模型 {esc(meta['model'])} · 抽样 {meta['samples']:,} 次 · ρ = {f(meta['rho'], 2)}
     · 每场按「门槛 → 数理 → 高阶 → 基本面 → 盘口 → 闭环 → 外媒」七段顺序读到底</div>
@@ -685,7 +753,7 @@ def render(data: dict) -> str:
   <div class="toc">{toc}</div>
 </section>
 
-<h2 class="sec">总览 · 六场一页看完</h2>
+<h2 class="sec">总览 · {len(ms)} 场一页看完</h2>
 {overview}
 <p class="cap2">定价为官方固定奖金去水后的隐含概率（按返奖率归一）。冷门指数＝定价最热那一格之外、模型给出的概率之和，数字越大，市场热的那头越站不住。
   最大偏差取胜平负三项里绝对值最大的一格，偏差超过 15 个百分点时按纪律先假定我方样本有缺口，只做方向参考。</p>
@@ -694,7 +762,7 @@ def render(data: dict) -> str:
 
 {appendix}
 
-<div class="foot"><span>阿飞 · 赛博聊球 · 内部资料 · {dd} · 六场全维度推演</span>
+<div class="foot"><span>阿飞 · 赛博聊球 · 内部资料 · {dd} · {len(ms)} 场全维度推演</span>
   <span>仅统计 90 分钟常规时间 · 不构成任何购买建议</span></div>
 </div>
 </body></html>
@@ -724,7 +792,7 @@ def main() -> None:
 
     data = pc.build(model_path, date_tag)
     html = render(data)
-    out = Path(a.out) if a.out else (Path.cwd() / "📝文章" / date_tag / f"六场全维度推演_海报版_{date_tag}.html")
+    out = Path(a.out) if a.out else (Path.cwd() / "📝文章" / date_tag / f"{len(data['matches'])}场全维度推演_海报版_{date_tag}.html")
     out.parent.mkdir(parents=True, exist_ok=True)
     io.open(out, "w", encoding="utf-8", newline="\n").write(html)
     print(f"✅ {out} {out.stat().st_size / 1024:.0f}KB · {len(data['matches'])} 场 · 无 JS")
