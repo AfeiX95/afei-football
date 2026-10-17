@@ -2105,3 +2105,32 @@ C 篇文件名与标题的「幅度我不追」→「**幅度不必追**」（�
 4. **台账要记最终结构**：初稿形态记进去，下一批就会照着一个已经不存在的骨架去避开，档位账也就失真。
 
 **待拍板**：①029「预报押平 vs 模型押客」这处分歧，下一轮赛后校验单独记一笔 ②多场合集是否固定用这套六段节奏（已写进 WORKFLOW v2.7，等用户点头）③文件名「对」是否统一改成 vs（m12520 遗留，用户未答）
+
+---
+
+## 2026-10-17 深夜 · 四十六 — 目录分层（主次分区落地）
+
+**用户要求**：「整理一下阿飞项目本地文件夹结构和内容有点乱，建立主次文件夹分类」。
+
+**做法（方案 A · 三层落地）**：判据不是"重不重要"，而是**会不会被日常路径碰到**——主区＝每天管线读写、次区＝查历史才进。
+
+| 层 | 目录 |
+|:--|:--|
+| 主区 | `docs/` `📚知识库/` `📝文章/` `scripts/` `database/` `state/` `公司机_工程/` ＋ 根上 4 份 md ＋ 3 个 `.cmd` |
+| 次区 | `_archive/`（旧docx／旧文档／图像素材／桥接预览／工具脚本／data／杂项） |
+
+**动过的地方**：
+
+1. **根目录清零 57 项**：7 个旧 `.docx` → `_archive/旧docx/`；`git rm` 3 个 0 字节垃圾（`处理时间：2026-09-19` 等误重定向产物，曾入库）；`assets/`→`_archive/图像素材/`、`preview/`→`_archive/桥接预览/`、`⚙️工具/`→`_archive/工具脚本/`。根上只剩 9 个文件。
+2. **`state/` 分层（2026-10-17 起为契约）**：根上只留 6 个文件（`model-state.json` `task-log.json` `xhs_styles.json` `xhs_templates.json` `api-keys.json` `odds.sqlite`），其余 118 项搬进 `matches/<竞彩id>/`（44）、`cache/`（48）、`batch/`（4）、`records/`（2）、`tmp/`（20，含 128MB 出图浏览器目录）。6 个脚本改路径常量共 17 处（`model.py`／`sporttery_fetch.py`／`xhs_data.py`／`ext_predict.py`／`doc_pack.py`／`xhs_cards.py`），每处断言"恰好 1 次"才替换。`.gitignore` 改**整目录忽略**（`state/records/` 例外，要留档）。
+3. **`database/` 归拢**：`charts_*` 11 个目录 → `database/charts/<后缀>/`；74 个 2026-07/08 一次性脚本（`analyze_*` `gen_charts_*` `gen_docx_*` `fetch_preds*` 等）→ `database/legacy/`（**没有 `scripts/` 脚本 import 它们**，已 grep 验证）。
+4. **`📝文章/` 归档**：29 个 8 月及更早目录（41.3MB）→ `_归档/2026-07`（11）、`_归档/2026-08`（18）；`主号`/`子号A`/`子号B` 3 个公众号旧稿 → `_归档/公众号(已停用)/`；根上 3 个散落复盘素材 → `_归档/2026-08`。近 60 天 13 个日期目录保持扁平（`preflight`／`check_dup`／`journal`／`xhs_*` 都按 `YYYYMMDD` 取数）。
+5. **新文档**：`docs/STRUCTURE.md`（主次分区、state 分层契约、database/文章归档规则、**不许改名的路径清单**、整理记录）；`README.md` 重写成目录地图（主/次表 + 每天的路 + 三铁律）；`AGENTS.md` 路由表加一行、state 节加目录分层提示。
+
+**验证**：全链路冒烟 10/10 —— `brief`／`preflight`（1310 字 8/8 PASS AI 19.2）／`check_dup 20261017`（0 重复）／`journal`／`ext_predict doctor`／`ext_predict show`（6 场从 `state/records/` 读出）／`doc_pack`／`xhs_html`／`cards_pdf`／`wordcount`；另跑 `xhs_data.build_one` 确认单场缓存能从 `state/matches/2042024/` 读出来。
+
+**踩坑**：`坑#82`（`.gitignore` 写行尾注释 → 规则失效，`git add -A` 一次吞进 3226 个未跟踪文件、含 7 份 14MB 字体和 `node_modules`；`git reset` 改规则重来，540 项、零大文件入库）。
+
+**提交**：`ab36d92`（540 files，526 为 rename），双远端已推。
+
+**下一步（未做）**：①`📚知识库/` 只加了索引不搬结构（`skills/` 是 agent 契约，动它等于动所有入口）——如果要继续收，建议只给 `📚知识库/比赛分析/`、`球队档案/` 加月份子目录 ②`_archive/data/` 里还有旧 JSON 数据可再按来源分格 ③公司 PC 下次 `sync --pull` 后要真跑一次 `brief.py` 确认路径改造在那台机器同样成立（state 是本地缓存，重组后首次跑需重取单场数据）
