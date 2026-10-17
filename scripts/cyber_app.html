@@ -1,0 +1,1021 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>__TITLE__</title>
+<style>
+:root{
+  --bg:#05070C; --bg2:#080D15; --panel:rgba(13,21,33,.92); --panel2:rgba(17,27,42,.9);
+  --line:rgba(70,190,225,.16); --line2:rgba(70,190,225,.4);
+  --ink:#E9F3F8; --muted:#7C93A8; --dim:#54697C;
+  --cyan:#3BE8FF; --violet:#A98BFF; --amber:#FFB25B; --red:#FF5F7E; --green:#4FE39B;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Courier New",monospace;
+  --sans:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:
+    radial-gradient(900px 500px at 12% -8%,rgba(59,232,255,.10),transparent 60%),
+    radial-gradient(800px 460px at 88% 4%,rgba(169,139,255,.10),transparent 62%),
+    linear-gradient(180deg,#05070C,#070B12 40%,#05070C);
+  color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:linear-gradient(rgba(70,190,225,.045) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(70,190,225,.045) 1px,transparent 1px);
+  background-size:44px 44px,44px 44px;
+  mask-image:radial-gradient(1200px 800px at 50% 0%,#000 40%,transparent 100%);
+}
+#app{position:relative;z-index:1;display:grid;grid-template-columns:268px minmax(0,1fr);grid-template-rows:auto 1fr;min-height:100%}
+
+/* ── 顶栏 ── */
+.topbar{grid-column:1/-1;display:flex;align-items:center;gap:18px;padding:14px 22px;
+  border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(9,14,22,.96),rgba(9,14,22,.7));
+  position:sticky;top:0;z-index:20;backdrop-filter:blur(10px)}
+.brand{display:flex;align-items:baseline;gap:10px;white-space:nowrap}
+.brand b{font-size:15px;letter-spacing:.06em}
+.brand span{font-family:var(--mono);font-size:11px;color:var(--cyan);letter-spacing:.18em;
+  border:1px solid var(--line2);padding:2px 7px;border-radius:2px}
+.tb-meta{font-family:var(--mono);font-size:11.5px;color:var(--dim);letter-spacing:.04em;white-space:nowrap}
+.tb-meta i{color:var(--cyan);font-style:normal}
+.tb-sp{flex:1}
+.btn{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--ink);
+  background:rgba(59,232,255,.06);border:1px solid var(--line2);padding:6px 12px;border-radius:2px;
+  cursor:pointer;transition:.18s;white-space:nowrap}
+.btn:hover{background:rgba(59,232,255,.16);box-shadow:0 0 14px rgba(59,232,255,.28);color:#fff}
+.btn:active{transform:translateY(1px)}
+
+/* ── 左栏 ── */
+.rail{border-right:1px solid var(--line);padding:14px 12px 40px;overflow:auto;
+  background:linear-gradient(180deg,rgba(8,13,21,.6),rgba(5,7,12,.2))}
+.rail-h{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;color:var(--dim);
+  padding:4px 8px 10px;display:flex;justify-content:space-between}
+.mitem{position:relative;display:grid;grid-template-columns:1fr auto;gap:2px 8px;
+  padding:10px 11px 11px;border:1px solid transparent;border-left:2px solid transparent;
+  cursor:pointer;transition:.16s;margin-bottom:6px;background:rgba(255,255,255,.012);border-radius:3px}
+.mitem:hover{background:rgba(59,232,255,.06);border-color:var(--line)}
+.mitem.on{background:linear-gradient(90deg,rgba(59,232,255,.14),rgba(59,232,255,.03));
+  border-color:var(--line2);border-left-color:var(--cyan);box-shadow:0 0 22px rgba(59,232,255,.12) inset}
+.mitem .no{font-family:var(--mono);font-size:10.5px;color:var(--cyan);letter-spacing:.1em}
+.mitem .lg{font-family:var(--mono);font-size:10px;color:var(--dim);text-align:right}
+.mitem .vs{grid-column:1/-1;font-size:13.5px;font-weight:600;letter-spacing:.01em;margin-top:1px}
+.mitem .vs em{font-style:normal;color:var(--dim);font-weight:400;font-size:11px;margin:0 5px;font-family:var(--mono)}
+.mitem .tags{grid-column:1/-1;display:flex;gap:5px;margin-top:6px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;padding:1px 6px;border-radius:2px;
+  border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.c{color:var(--cyan);border-color:rgba(59,232,255,.45);background:rgba(59,232,255,.08)}
+.tag.a{color:var(--amber);border-color:rgba(255,178,91,.4);background:rgba(255,178,91,.07)}
+.tag.r{color:var(--red);border-color:rgba(255,95,126,.42);background:rgba(255,95,126,.08)}
+.tag.g{color:var(--green);border-color:rgba(79,227,155,.4);background:rgba(79,227,155,.07)}
+.tag.v{color:var(--violet);border-color:rgba(169,139,255,.4);background:rgba(169,139,255,.08)}
+
+/* ── 主区 ── */
+main{padding:20px 24px 64px;overflow:auto;max-width:1280px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:start;
+  padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.hero .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--cyan);margin-bottom:8px}
+.hero h1{font-size:31px;font-weight:700;letter-spacing:.01em;line-height:1.2}
+.hero h1 em{font-style:normal;font-family:var(--mono);font-size:15px;color:var(--dim);
+  margin:0 10px;letter-spacing:.1em;vertical-align:3px}
+.hero .sub{color:var(--muted);font-size:12.5px;margin-top:8px;font-family:var(--mono);letter-spacing:.03em}
+.gauge{text-align:center;min-width:150px}
+.gauge .num{font-family:var(--mono);font-size:44px;line-height:1;letter-spacing:-.02em}
+.gauge .num small{font-size:13px;color:var(--dim);letter-spacing:0}
+.gauge .gr{font-family:var(--mono);font-size:11px;letter-spacing:.14em;margin-top:4px}
+.gauge .lbl{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.2em;margin-top:2px}
+
+.verdict{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0 18px}
+.vcard{position:relative;border:1px solid var(--line);background:var(--panel);padding:14px 15px 15px;border-radius:4px;
+  overflow:hidden;transition:.2s}
+.vcard::before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:var(--cyan);opacity:.85}
+.vcard.v2::before{background:var(--amber)} .vcard.v3::before{background:var(--red)}
+.vcard:hover{border-color:var(--line2);transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.vcard .t{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--dim)}
+.vcard .d{font-size:21px;font-weight:700;margin:5px 0 2px}
+.vcard .s{font-family:var(--mono);font-size:12px;color:var(--cyan)}
+.vcard.v2 .s{color:var(--amber)} .vcard.v3 .s{color:var(--red)}
+.vcard .p{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:6px}
+
+/* ── 标签页 ── */
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:18px;overflow:auto}
+.tab{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--muted);
+  padding:9px 15px;cursor:pointer;border:1px solid transparent;border-bottom:none;
+  position:relative;transition:.16s;white-space:nowrap;background:none}
+.tab:hover{color:var(--ink);background:rgba(59,232,255,.05)}
+.tab.on{color:var(--cyan);background:linear-gradient(180deg,rgba(59,232,255,.13),transparent);
+  border-color:var(--line);border-bottom-color:transparent}
+.tab.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--cyan)}
+.pane{animation:fade .28s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ── 卡片 ── */
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.card{border:1px solid var(--line);background:var(--panel);border-radius:4px;padding:15px 16px 16px;position:relative}
+.card.hl{border-color:var(--line2);box-shadow:0 0 26px rgba(59,232,255,.09) inset}
+.card h3{font-size:12.5px;font-family:var(--mono);letter-spacing:.14em;color:var(--cyan);
+  font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card h3::before{content:"▸";color:var(--cyan);opacity:.8}
+.card h3 .x{margin-left:auto;font-size:10px;color:var(--dim);letter-spacing:.08em;font-weight:400}
+.kpi .n{font-family:var(--mono);font-size:26px;line-height:1.1}
+.kpi .n small{font-size:12px;color:var(--dim)}
+.kpi .k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--dim);margin-bottom:6px}
+.kpi .d{font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.5}
+.note{font-size:12px;color:var(--muted);line-height:1.7}
+.note b{color:var(--ink);font-weight:600}
+.hint{font-family:var(--mono);font-size:10.5px;color:var(--dim);letter-spacing:.05em;margin-top:10px;line-height:1.7}
+
+/* ── 概率条 ── */
+.prow{display:grid;grid-template-columns:52px minmax(0,1fr) 96px;gap:10px;align-items:center;margin-bottom:7px}
+.prow .lab{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.06em}
+.track{position:relative;height:19px;background:rgba(255,255,255,.04);border-radius:2px;overflow:hidden}
+.fill{position:absolute;left:0;top:0;bottom:0;border-radius:2px;transition:width .5s cubic-bezier(.2,.8,.3,1)}
+.fill.h{background:linear-gradient(90deg,rgba(59,232,255,.85),rgba(59,232,255,.45))}
+.fill.d{background:linear-gradient(90deg,rgba(255,178,91,.85),rgba(255,178,91,.4))}
+.fill.a{background:linear-gradient(90deg,rgba(169,139,255,.85),rgba(169,139,255,.4))}
+.fill.ghost{background:repeating-linear-gradient(45deg,rgba(255,255,255,.14),rgba(255,255,255,.14) 4px,transparent 4px,transparent 8px)}
+.prow .val{font-family:var(--mono);font-size:11.5px;text-align:right;color:var(--ink)}
+.prow .val i{font-style:normal;color:var(--dim);font-size:10px}
+.delta{font-family:var(--mono);font-size:11px;color:var(--dim)}
+.delta.up{color:var(--green)} .delta.down{color:var(--red)}
+
+/* ── 热力矩阵 ── */
+.heatbar{display:flex;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.sw{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;color:var(--muted);
+  cursor:pointer;letter-spacing:.06em;user-select:none}
+.sw i{width:26px;height:13px;border:1px solid var(--line2);border-radius:7px;position:relative;transition:.18s;display:inline-block}
+.sw i::after{content:"";position:absolute;top:2px;left:2px;width:7px;height:7px;border-radius:50%;
+  background:var(--dim);transition:.18s}
+.sw.on i{background:rgba(59,232,255,.22);border-color:var(--cyan)}
+.sw.on i::after{left:15px;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.sw.on{color:var(--cyan)}
+.heat{display:grid;gap:2px;font-family:var(--mono);font-size:10.5px;max-width:520px}
+.heat .hc{height:22px;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:10px}
+.heat .cell{height:34px;display:flex;align-items:center;justify-content:center;border-radius:2px;
+  color:#06121A;font-weight:700;cursor:crosshair;transition:.12s;position:relative;letter-spacing:-.02em}
+.heat .cell.empty{color:var(--dim);background:rgba(255,255,255,.02)}
+.heat .cell:hover{outline:1px solid var(--cyan);outline-offset:1px;transform:scale(1.06);z-index:2}
+.ax{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.1em;margin-top:8px;display:flex;gap:18px}
+.legend{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;color:var(--dim)}
+.legend b{display:inline-block;width:16px;height:8px;border-radius:1px}
+
+/* ── 表格 ── */
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--dim);text-align:left;
+  padding:6px 8px;border-bottom:1px solid var(--line);font-weight:500;white-space:nowrap}
+td{padding:7px 8px;border-bottom:1px solid rgba(70,190,225,.07);vertical-align:top}
+tr:hover td{background:rgba(59,232,255,.035)}
+td.mono,th.mono{font-family:var(--mono)}
+td.num{font-family:var(--mono);text-align:right;white-space:nowrap}
+.pos{color:var(--green)} .neg{color:var(--red)}
+.pill{font-family:var(--mono);font-size:9.5px;padding:1px 6px;border-radius:2px;border:1px solid var(--line);
+  color:var(--muted);white-space:nowrap}
+.pill.h{color:var(--cyan);border-color:rgba(59,232,255,.4)} .pill.r{color:var(--red);border-color:rgba(255,95,126,.4)}
+.pill.a{color:var(--amber);border-color:rgba(255,178,91,.4)} .pill.g{color:var(--green);border-color:rgba(79,227,155,.4)}
+
+/* ── 五维 ── */
+.dim{display:grid;grid-template-columns:82px minmax(0,1fr) 62px;gap:9px;align-items:center;margin-bottom:8px}
+.dim .k{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.05em}
+.dim .b{height:7px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden}
+.dim .b i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),rgba(59,232,255,.35));border-radius:4px}
+.dim .v{font-family:var(--mono);font-size:10.5px;color:var(--ink);text-align:right}
+.dim .v em{font-style:normal;color:var(--dim)}
+
+/* ── 步骤 ── */
+.step{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:12px 0;
+  border-bottom:1px dashed rgba(70,190,225,.14)}
+.step:last-child{border-bottom:none}
+.step .i{font-family:var(--mono);font-size:16px;color:var(--cyan);opacity:.55;line-height:1.2}
+.step .h{font-size:12.5px;font-weight:600;margin-bottom:3px;letter-spacing:.02em}
+.step .h span{font-family:var(--mono);font-size:10px;color:var(--dim);font-weight:400;letter-spacing:.1em;margin-left:8px}
+.step .b{font-size:12.5px;color:var(--muted);line-height:1.72}
+
+/* ── 上下半场结构 ── */
+.half{display:grid;grid-template-columns:88px minmax(0,1fr) 78px;gap:10px;align-items:center;margin-bottom:9px}
+.half .t{font-size:12px}
+.half .bar{display:flex;height:16px;border-radius:2px;overflow:hidden;background:rgba(255,255,255,.04)}
+.half .bar i{display:block;height:100%}
+.half .bar i.h1{background:linear-gradient(90deg,rgba(59,232,255,.9),rgba(59,232,255,.5))}
+.half .bar i.h2{background:linear-gradient(90deg,rgba(169,139,255,.85),rgba(169,139,255,.45))}
+.half .v{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-align:right}
+
+.gap-list{display:grid;gap:7px}
+.gap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:baseline;font-size:12px;color:var(--muted)}
+.gap b{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--red);border:1px solid rgba(255,95,126,.35);
+  padding:1px 6px;border-radius:2px;white-space:nowrap}
+
+.flag{border-left:2px solid var(--red);background:linear-gradient(90deg,rgba(255,95,126,.1),transparent);
+  padding:10px 13px;border-radius:2px;font-size:12.5px;color:#FFC9D4;margin-bottom:8px}
+.flag.w{border-left-color:var(--amber);background:linear-gradient(90deg,rgba(255,178,91,.1),transparent);color:#FFE0BB}
+.flag b{color:#fff}
+
+/* ── 提示层 ── */
+.tip{position:fixed;z-index:99;pointer-events:none;opacity:0;transition:opacity .12s;
+  background:rgba(6,12,20,.97);border:1px solid var(--line2);border-radius:3px;padding:8px 10px;
+  font-family:var(--mono);font-size:11px;line-height:1.6;color:var(--ink);white-space:pre;
+  box-shadow:0 12px 34px rgba(0,0,0,.6);max-width:280px}
+.tip.on{opacity:1}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);opacity:0;transition:.3s;
+  background:rgba(59,232,255,.14);border:1px solid var(--cyan);color:#DFFCFF;font-family:var(--mono);
+  font-size:12px;padding:9px 18px;border-radius:3px;z-index:100;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ── 浅色（打印） ── */
+body.light{--bg:#F6F7F9;--panel:#fff;--panel2:#F2F5F8;--line:rgba(20,60,80,.16);--line2:rgba(20,60,80,.36);
+  --ink:#111A22;--muted:#4A5A68;--dim:#7A8A98;--cyan:#0E8FA8;--violet:#6B4FD8;--amber:#B87413;--red:#C7304F;--green:#1C8F5C;
+  background:#F6F7F9;color:var(--ink)}
+body.light::before{opacity:.35}
+body.light .heat .cell{color:#0A1620}
+@media (max-width:1080px){
+  #app{grid-template-columns:1fr}
+  .rail{display:flex;gap:8px;overflow:auto;border-right:none;border-bottom:1px solid var(--line);padding:10px}
+  .mitem{min-width:196px;margin-bottom:0}
+  .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid2,.grid3{grid-template-columns:1fr}
+  .verdict{grid-template-columns:1fr}
+  main{padding:16px}
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand"><b>阿飞 · 赛博聊球</b><span>FULL-DIMENSION</span></div>
+    <div class="tb-meta" id="tbmeta"></div>
+    <div class="tb-sp"></div>
+    <button class="btn" id="btnTheme">◐ 主题</button>
+    <button class="btn" id="btnCopy">⧉ 复制结论</button>
+  </header>
+  <nav class="rail" id="rail"></nav>
+  <main id="main"></main>
+</div>
+<div class="tip" id="tip"></div>
+<div class="toast" id="toast"></div>
+<script>
+const DATA = /*__DATA__*/;
+const TABS = [
+  ["overview","总览"],["math","数理模型"],["tech","高阶数据"],["intel","基本面"],
+  ["market","盘口定价"],["move","盘口变盘"],["concl","推演闭环"],["cmp","外媒 × AI"]
+];
+const S = {i:0, tab:"overview", dc:true, odds:true};
+
+/* ── 工具 ── */
+const $ = s => document.querySelector(s);
+const f = (x,d=1) => (x===null||x===undefined||Number.isNaN(x)) ? "—" : Number(x).toFixed(d);
+const pc = (x,d=1) => f(x,d)+"%";
+const M = () => DATA.matches[S.i];
+const dirs = ["主胜","平","客胜"];
+const dirCls = ["h","d","a"];
+const esc = s => String(s??"").replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const sign = x => (x>0?"+":"") + f(x,1);
+
+function gradeColor(g){
+  if(g.startsWith("A")) return "var(--green)";
+  if(g.startsWith("B")) return "var(--cyan)";
+  if(g.startsWith("C")) return "var(--amber)";
+  return "var(--red)";
+}
+
+/* ── 左栏 ── */
+function renderRail(){
+  $("#rail").innerHTML = '<div class="rail-h"><span>MATCHES</span><span>'+DATA.matches.length+' 场</span></div>' +
+    DATA.matches.map((m,i)=>{
+      const c = m.conf, cold = m.cold;
+      const tags = [
+        `<span class="tag" style="color:${gradeColor(c.grade)};border-color:currentColor">${c.total} · ${c.grade.split(" · ")[0]}</span>`,
+        `<span class="tag c">${m.verdict.first} ${pc(m.verdict.first_p)}</span>`,
+        `<span class="tag ${Math.abs(c.maxpp)>=15?"r":(Math.abs(c.maxpp)>=6?"a":"g")}">偏差 ${f(Math.abs(c.maxpp))}pp</span>`,
+        cold.index>=60?`<span class="tag r">冷 ${f(cold.index,0)}</span>`:""
+      ].join("");
+      return `<div class="mitem ${i===S.i?"on":""}" data-i="${i}">
+        <span class="no">${m.no}</span><span class="lg">${esc(m.league)} · ${esc(m.kick||"")}</span>
+        <span class="vs">${esc(m.home)}<em>VS</em>${esc(m.away)}</span>
+        <span class="tags">${tags}</span></div>`;
+    }).join("");
+  $("#rail").querySelectorAll(".mitem").forEach(el=>{
+    el.onclick = ()=>{ S.i = +el.dataset.i; render(); };
+  });
+}
+
+/* ── 头部 + 结论卡 ── */
+function renderHero(m){
+  const c = m.conf, v = m.verdict;
+  const agree = c.agree;
+  const pills = [
+    `<span class="tag ${agree===3?"g":agree===2?"a":"r"}">三方一致 ${agree}/3</span>`,
+    `<span class="tag c">让球 ${m.hand>0?"+"+m.hand:m.hand}</span>`,
+    `<span class="tag ${m.cold.index>=60?"r":m.cold.index>=40?"a":"g"}">冷门指数 ${f(m.cold.index,0)}</span>`
+  ].join("");
+  return `
+  <section class="hero">
+    <div>
+      <div class="kicker">${esc(m.no)} · ${esc(m.league)} ${m.kick?" · "+esc(m.kick)+" 开赛":""} · 全维度推演</div>
+      <h1>${esc(m.home)}<em>VS</em>${esc(m.away)}</h1>
+      <div class="sub">λ 合计 ${f(m.lam.total,2)} · 模型方向 ${c.model_dir} ${pc(m.p[dirs.indexOf(c.model_dir)])} · 定价方向 ${c.market_dir} ${pc(m.mk[dirs.indexOf(c.market_dir)])}</div>
+      <div class="tags" style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">${pills}</div>
+    </div>
+    <div class="gauge">
+      <div class="num" style="color:${gradeColor(c.grade)}">${c.total}<small>/100</small></div>
+      <div class="gr" style="color:${gradeColor(c.grade)}">${c.grade}</div>
+      <div class="lbl">CONFIDENCE</div>
+    </div>
+  </section>
+  <div class="verdict">
+    <div class="vcard"><div class="t">首选 · PRIMARY</div><div class="d">${v.first}</div>
+      <div class="s">比分 ${v.first_score}</div><div class="p">模型 ${pc(v.first_p)}</div></div>
+    <div class="vcard v2"><div class="t">次选 · SECOND</div><div class="d">${v.second}</div>
+      <div class="s">比分 ${v.second_score}</div><div class="p">模型 ${pc(v.second_p)}</div></div>
+    <div class="vcard v3"><div class="t">防冷 · GUARD</div><div class="d">${v.guard}</div>
+      <div class="s">比分 ${v.guard_score}</div><div class="p">定价 ${pc(v.guard_p)}</div></div>
+  </div>`;
+}
+
+/* ── 通用块 ── */
+function probRows(m){
+  const rows = dirs.map((d,i)=>{
+    const p = m.p[i], k = m.mk[i], edge = m.edge[i];
+    return `<div class="prow">
+      <span class="lab">${d}</span>
+      <span class="track">
+        <span class="fill ${dirCls[i]}" style="width:${Math.min(100,p)}%"></span>
+        <span class="fill ghost" style="width:${Math.min(100,k)}%;opacity:.5;transform:translateX(${Math.min(100,p)}%)"></span>
+      </span>
+      <span class="val">${pc(p)} <i>定价 ${pc(k)}</i></span></div>
+      <div class="delta" style="margin:-3px 0 8px 62px">偏差 <span class="${edge>0?"up":"down"}">${sign(edge)}pp</span></div>`;
+  }).join("");
+  return rows;
+}
+
+function heatHTML(m){
+  const mat = S.dc ? m.matrix : m.matrix_pois;
+  const odds = {};
+  (m.top||[]).forEach(t=>{ odds[t.s] = t; });
+  let cells = '<div class="heat" style="grid-template-columns:26px repeat(7,minmax(0,1fr))">';
+  cells += '<div class="hc"></div>';
+  for(let j=0;j<7;j++) cells += `<div class="hc">${j}</div>`;
+  for(let i=0;i<7;i++){
+    cells += `<div class="hc">${i}</div>`;
+    for(let j=0;j<7;j++){
+      const p = mat[i][j];
+      const t = odds[`${i}-${j}`];
+      const inten = Math.min(1, p/11);
+      const bg = p<0.6 ? "rgba(255,255,255,.02)"
+        : `rgba(${Math.round(59+inten*40)},${Math.round(232-inten*90)},${Math.round(255-inten*120)},${0.16+inten*0.8})`;
+      const txt = p<1.2 ? "" : (p>=10 ? f(p,0) : f(p,1));
+      const tip = `${i}-${j}  概率 ${pc(p,2)}` + (t? `\n定价 ${f(t.odd,2)} · 溢价 ${sign(t.ev)}` : "\n（定价未覆盖这一格）");
+      cells += `<div class="cell ${p<0.6?"empty":""}" style="background:${bg}" data-tip="${esc(tip)}">${txt}</div>`;
+    }
+  }
+  cells += '</div>';
+  return `<div class="heatbar">
+      <label class="sw ${S.dc?"on":""}" id="swDC"><i></i>Dixon-Coles 修正</label>
+      <span class="legend">低 <b style="background:rgba(255,255,255,.06)"></b><b style="background:rgba(59,232,255,.35)"></b><b style="background:rgba(59,232,255,.95)"></b> 高</span>
+      <span class="hint" style="margin:0">悬停看该格概率与定价溢价</span>
+    </div>${cells}
+    <div class="ax"><span>↓ 主队进球</span><span>→ 客队进球</span><span>ρ = ${DATA.meta.rho}</span></div>
+    <div class="hint">矩阵为 ${S.dc?"Dixon-Coles 修正后":"独立双变量泊松"}精确概率（0–6 球，7 球以上并入忽略项）。
+    ${S.dc?"低比分格（0-0 / 1-0 / 0-1 / 1-1）已按相关系数 ρ 校正，平局与 1-1 会被抬起来。":"独立假设会低估平局与低比分相关性。"}</div>`;
+}
+
+function goalBar(m){
+  const raw = m.goals_dc || m.goals;
+  const g = raw.slice(0,7);
+  g.push(+raw.slice(7).reduce((a,b)=>a+b,0).toFixed(1));
+  const labels = [0,1,2,3,4,5,6,"7+"];
+  const mx = Math.max(...g);
+  return `<div class="heat" style="grid-template-columns:repeat(${g.length},1fr);gap:6px;max-width:none;align-items:end;height:150px">
+    ${g.map((v,i)=>`<div style="display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:4px">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--muted);text-align:center">${f(v,1)}</div>
+      <div style="height:${Math.max(3,(v/mx)*96)}px;background:linear-gradient(180deg,rgba(59,232,255,.9),rgba(59,232,255,.25));border-radius:2px 2px 0 0"></div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--dim);text-align:center">${labels[i]}</div>
+    </div>`).join("")}
+  </div><div class="ax"><span>总进球数分布（%）· 只算 90 分钟 · 7 球以上并入 7+</span></div>`;
+}
+
+/* ── 各页 ── */
+function paneOverview(m){
+  const c = m.conf, k = m.cold;
+  const rows = DATA.matches.map((x,i)=>{
+    const e = Math.max(...x.edge.map(v=>Math.abs(v)));
+    const mi = x.edge.indexOf(x.edge.reduce((a,b)=>Math.abs(b)>Math.abs(a)?b:a));
+    return `<tr style="cursor:pointer" data-jump="${i}">
+      <td class="mono">${x.no}<br><span style="color:var(--dim);font-size:10.5px">${esc(x.league)}</span></td>
+      <td>${esc(x.home)}<span style="color:var(--dim)"> vs </span>${esc(x.away)}<br>
+        <span style="color:var(--dim);font-size:10.5px;font-family:var(--mono)">${esc(x.kick||"")}</span></td>
+      <td class="num">${pc(x.p[0])} / ${pc(x.p[1])} / ${pc(x.p[2])}</td>
+      <td class="num">${pc(x.mk[0])} / ${pc(x.mk[1])} / ${pc(x.mk[2])}</td>
+      <td class="num">${dirs[mi]} <span class="${x.edge[mi]>0?"pos":"neg"}">${sign(x.edge[mi])}</span></td>
+      <td class="num" style="color:${gradeColor(x.conf.grade)}">${x.conf.total}</td>
+      <td class="num">${f(x.cold.index,0)}</td>
+    </tr>`;
+  }).join("");
+
+  return `
+  <div class="grid4" style="margin-bottom:14px">
+    <div class="card kpi"><div class="k">信心指数</div>
+      <div class="n" style="color:${gradeColor(c.grade)}">${c.total}<small>/100</small></div>
+      <div class="d">${c.grade} · 五项加权</div></div>
+    <div class="card kpi"><div class="k">最大偏差</div>
+      <div class="n" style="color:${Math.abs(c.maxpp)>=15?"var(--red)":Math.abs(c.maxpp)>=6?"var(--amber)":"var(--green)"}">${f(Math.abs(c.maxpp))}<small> pp</small></div>
+      <div class="d">${dirs[m.edge.map(v=>Math.abs(v)).indexOf(Math.max(...m.edge.map(v=>Math.abs(v))))]} · ${Math.abs(c.maxpp)>=15?"超过 15，先假定我方缺口":"偏差可控"}</div></div>
+    <div class="card kpi"><div class="k">冷门指数</div>
+      <div class="n" style="color:${k.index>=60?"var(--red)":k.index>=40?"var(--amber)":"var(--green)"}">${f(k.index,0)}</div>
+      <div class="d">定价最热 ${k.fav}，模型只给 ${pc(k.fav_model)}</div></div>
+    <div class="card kpi"><div class="k">进球期望 λ</div>
+      <div class="n">${f(m.lam.fin[0],2)}<small> / </small>${f(m.lam.fin[1],2)}</div>
+      <div class="d">合计 ${f(m.lam.total,2)} · 大 2.5 球 ${pc(m.over["2.5"])}</div></div>
+  </div>
+
+  <div class="card hl" style="margin-bottom:14px">
+    <h3>六场横向对照<span class="x">点任意一行切换</span></h3>
+    <table><thead><tr>
+      <th>场次</th><th>对阵 / 开赛</th><th class="mono">模型 主/平/客</th><th class="mono">定价 主/平/客</th>
+      <th class="mono">最大偏差</th><th class="mono">信心</th><th class="mono">冷门</th></tr></thead>
+      <tbody>${rows}</tbody></table>
+    <div class="hint">定价为官方固定奖金去水后的隐含概率（按返还率归一）。冷门指数＝定价最热那一格之外，模型给出的概率之和——数字越大，市场热的那头越站不住。</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h3>这一场怎么读</h3>
+      <div class="note">${esc(m.steps.pattern)}</div>
+      <div class="note" style="margin-top:10px">${esc(m.steps.total)}</div>
+      <div class="note" style="margin-top:10px">${esc(m.steps.matrix)}</div>
+    </div>
+    <div class="card"><h3>信心五维</h3>${dimsHTML(c)}
+      <div class="hint">满分 100：样本厚度 20 / 双法收敛 20 / 三方一致 25 / 分歧可控 25 / 比分集中 10。它衡量这份分析有多可靠，不是胜率。</div>
+    </div>
+  </div>`;
+}
+
+function dimsHTML(c){
+  const d = [
+    ["样本厚度", c.w1, 20, `主客分离样本 ${c.n_sample} 场`],
+    ["双法收敛", c.w2, 20, `两条 λ 平均相对差 ${c.gap}%`],
+    ["三方一致", c.w3, 25, `同向 ${c.agree}/3`],
+    ["分歧可控", c.w4, 25, `胜平负最大偏差 ${f(c.maxpp)}pp`],
+    ["比分集中", c.w5, 10, `Top3 合计 ${pc(c.top3)}`]
+  ];
+  return d.map(([k,v,mx,sub])=>`<div class="dim">
+    <span class="k">${k}</span>
+    <span class="b"><i style="width:${Math.max(2,(v/mx)*100)}%"></i></span>
+    <span class="v">${f(v,1)}<em>/${mx}</em></span></div>
+    <div style="margin:-4px 0 8px 91px;font-family:var(--mono);font-size:10px;color:var(--dim)">${esc(sub)}</div>`).join("");
+}
+
+function paneMath(m){
+  const gd = (m.goals_dc||m.goals||[]).slice(0,8);
+  const peak = gd.indexOf(Math.max(...gd));
+  const ld = m.low_delta.map(x=>{
+    const diff = x.p_dc - x.p_pois;
+    return `<tr><td class="mono">${x.s}</td><td class="num">${f(x.p_pois,2)}%</td><td class="num">${f(x.p_dc,2)}%</td>
+      <td class="num ${diff>0?"pos":"neg"}">${sign(diff)}pp</td></tr>`;
+  }).join("");
+  return `
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card"><h3>胜平负：模型 vs 定价</h3>
+      ${probRows(m)}
+      <div class="hint">条为模型概率，条纹为定价去水后概率（从模型条尾部接出）。两项隐含概率合计：返奖率 ${m.payout?f(m.payout,1)+"%":"—"}。</div>
+    </div>
+    <div class="card"><h3>λ 两条路与修正</h3>
+      <table>
+        <tr><td>方法一 · 实际数据（主客分离 + 样本量权重）</td><td class="num mono">${m.lam.l1?f(m.lam.l1[0],3)+" / "+f(m.lam.l1[1],3):"—"}</td></tr>
+        <tr><td>方法二 · 定价反推</td><td class="num mono">${m.lam.l2?f(m.lam.l2[0],3)+" / "+f(m.lam.l2[1],3):"—"}</td></tr>
+        <tr><td><b>综合 λ（代入模型）</b></td><td class="num mono" style="color:var(--cyan)">${f(m.lam.fin[0],3)} / ${f(m.lam.fin[1],3)}</td></tr>
+        <tr><td>修正明细</td><td class="mono" style="font-size:11.5px">${esc(m.intel.fix||"—")}</td></tr>
+        <tr><td>伤停修正</td><td class="mono" style="font-size:11.5px">${esc(m.intel.inj_text||"—")}</td></tr>
+      </table>
+      <div class="hint">两条 λ 差得越多，说明市场与赛果之间存在叙事溢价，或者我方样本有缺口；修正幅度一般不超过 ±0.25。</div>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card hl"><h3>比分概率矩阵<span class="x">0–6 球</span></h3>${heatHTML(m)}</div>
+    <div class="card"><h3>Dixon-Coles 低比分校准</h3>
+      <table><thead><tr><th>比分</th><th class="mono">独立泊松</th><th class="mono">DC 修正</th><th class="mono">变化</th></tr></thead>
+      <tbody>${ld}</tbody></table>
+      <div class="hint">独立泊松假设两队进球互不相干，会低估平局与低比分；DC 用相关系数 ρ=${DATA.meta.rho} 对 0-0 / 1-0 / 0-1 / 1-1 四格重加权，再把整张表归一。
+      ρ 取文献常用区间（−0.05~−0.15）中值偏保守，本批每场样本不足，未做逐场拟合。</div>
+      <h3 style="margin-top:16px">胜平负交叉核对</h3>
+      <table><thead><tr><th>口径</th><th class="mono">主胜</th><th class="mono">平</th><th class="mono">客胜</th></tr></thead>
+      <tbody>
+        <tr><td>官方模型（2 万次抽样）</td><td class="num">${pc(m.p[0])}</td><td class="num">${pc(m.p[1])}</td><td class="num">${pc(m.p[2])}</td></tr>
+        <tr><td>独立泊松（精确）</td><td class="num">${pc(m.oc.pois[0])}</td><td class="num">${pc(m.oc.pois[1])}</td><td class="num">${pc(m.oc.pois[2])}</td></tr>
+        <tr><td>Dixon-Coles（精确）</td><td class="num" style="color:var(--cyan)">${pc(m.oc.dc[0])}</td><td class="num" style="color:var(--cyan)">${pc(m.oc.dc[1])}</td><td class="num" style="color:var(--cyan)">${pc(m.oc.dc[2])}</td></tr>
+      </tbody></table>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h3>总进球分布</h3>${goalBar(m)}
+      <div class="hint">峰值 ${peak<=2?"落在 1–2 球：低比分区间，首选比分多在 1-0 / 1-1 / 2-1":peak<=4?"落在 ${peak} 球：最常见区间，首选比分多在 2-1 / 1-1 / 2-2":"已经推到 5 球以上：比分高度分散，进球数比具体比分更可靠"}。</div>
+    </div>
+    <div class="card"><h3>大小球与双方进球</h3>
+      <div class="grid2" style="gap:10px">
+        ${[["大 1.5 球",m.over["1.5"]],["大 2.5 球",m.over["2.5"]],["大 3.5 球",m.over["3.5"]],["双方进球",m.btts]]
+          .map(([k,v])=>`<div class="card kpi" style="padding:11px 12px"><div class="k">${k}</div>
+            <div class="n" style="font-size:22px">${pc(v)}</div></div>`).join("")}
+      </div>
+      <div class="hint">市场侧大小球盘口本批未接入（无可用公开快照），这一栏只有模型口径，不做交叉验证。</div>
+    </div>
+  </div>`;
+}
+
+function paneTech(m){
+  const th = m.tech.home, ta = m.tech.away, meet = m.tech.meet;
+  const half = (t, name) => {
+    const tot = t.goals_1h + t.goals_2h;
+    const w1 = tot ? (t.goals_1h/tot*100) : 50;
+    const risky = t.share_1h !== null && t.share_1h < 35;
+    return `<div class="half">
+      <span class="t">${esc(name)}</span>
+      <span class="bar">
+        <i class="h1" style="width:${w1}%"></i><i class="h2" style="width:${100-w1}%"></i>
+      </span>
+      <span class="v">${t.goals_1h} / ${t.goals_2h} 球</span></div>
+      <div style="margin:-4px 0 10px 98px;font-family:var(--mono);font-size:10px;color:var(--dim)">
+        上半场占比 ${t.share_1h===null?"—":f(t.share_1h)}%${risky?" · 进球集中在后半段，70 分钟后失球风险偏高":""}</div>`;
+  };
+  const sdNote = (t) => t.sd_against >= 1.3 ? "失球波动大" : (t.sd_for >= 1.3 ? "进球波动大" : "输出稳定");
+  const meets = (meet.detail||[]).map(x=>`<tr><td class="mono" style="white-space:nowrap">${esc(x.d)}</td>
+    <td>${esc(x.m)}</td><td class="mono" style="color:var(--dim)">${esc(x.league)}</td></tr>`).join("");
+  return `
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card hl"><h3>上下半场进球结构<span class="x">体能曲线代理</span></h3>
+      ${half(th, esc(m.home))}${half(ta, esc(m.away))}
+      <div class="hint">竞彩公开数据只有半场/全场比分，没有分钟级进球与跑动；用「上半场进球占比」当体能曲线代理：
+      占比越低，说明这支球队的进球越依赖下半场，反过来 70 分钟后被追的风险也越大。</div>
+    </div>
+    <div class="card"><h3>进失球离散度与零封率<span class="x">近 5 场</span></h3>
+      <table><thead><tr><th></th><th class="mono">场均进</th><th class="mono">场均失</th><th class="mono">零封率</th><th class="mono">进球 σ</th><th class="mono">失球 σ</th><th>形态</th></tr></thead>
+      <tbody>
+        <tr><td>${esc(m.home)}</td><td class="num">${f(th.gf_avg,2)}</td><td class="num">${f(th.ga_avg,2)}</td>
+          <td class="num">${th.cs_rate===null?"—":th.cs_rate+"%"}</td><td class="num">${f(th.sd_for,2)}</td><td class="num">${f(th.sd_against,2)}</td>
+          <td><span class="pill">${sdNote(th)}</span></td></tr>
+        <tr><td>${esc(m.away)}</td><td class="num">${f(ta.gf_avg,2)}</td><td class="num">${f(ta.ga_avg,2)}</td>
+          <td class="num">${ta.cs_rate===null?"—":ta.cs_rate+"%"}</td><td class="num">${f(ta.sd_for,2)}</td><td class="num">${f(ta.sd_against,2)}</td>
+          <td><span class="pill">${sdNote(ta)}</span></td></tr>
+      </tbody></table>
+      <div class="hint">σ 越大越不稳定；「场均」是粗糙口径，所以模型里用主客分离 + 样本量权重来压噪音（见 λ 修正明细）。</div>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card"><h3>交手记录的比分土壤<span class="x">近 ${meet.n} 次</span></h3>
+      <div class="grid4" style="gap:10px;margin-bottom:12px">
+        ${[["总进球 ≤2 占比",meet.low2,meet.low2>=60?"冷门土壤":"—"],
+           ["双方进球率",meet.btts,"—"],
+           ["平局率",meet.draw,"—"],
+           ["场均总进球",meet.avg_total,null]].map(([k,v,tag])=>`
+          <div class="card kpi" style="padding:11px 12px"><div class="k">${k}</div>
+            <div class="n" style="font-size:20px">${v===null?"—":f(v, tag===null?2:0)+(tag===null?"":"%")}</div>
+            ${tag&&tag!=="—"?`<div class="d">${tag}</div>`:""}</div>`).join("")}
+      </div>
+      <table><tbody>${meets||'<tr><td style="color:var(--dim)">无交手记录</td></tr>'}</tbody></table>
+      <div class="hint">交手总进球长期偏低，是低比分（0-0 / 1-0 / 1-1）概率上调的实证依据；这也是 DC 修正方向与历史吻合的检验点。</div>
+    </div>
+    <div class="card"><h3>未接入的高阶指标<span class="x">缺口清单</span></h3>
+      <div class="gap-list">
+        ${[["xG / xGA / npxG","剥离神仙球与门将超神表现，判断进攻真实质量与运气透支"],
+           ["PPDA","高位逼抢强度；两支低 PPDA 相遇才敢押 2-2 / 3-2 的开放式比分"],
+           ["定位球 xG","现代足球约 25%–30% 进球来自定位球，缺了会低估破门下限"],
+           ["射门 / 射正 / 控球","穿透到过程数据的基本项"],
+           ["场地与天气","暴雨、积水会强行拉低总进球"],
+           ["裁判尺度","场均出牌与点球倾向影响 0-0 与 1-0 的存活率"]]
+          .map(([k,v])=>`<div class="gap"><b>未接入</b><span><b style="color:var(--ink);font-family:var(--sans);font-size:12.5px;border:none;padding:0;background:none">${k}</b> · ${v}</span></div>`).join("")}
+      </div>
+      <div class="hint">原因：竞彩官方公开页只有比分、半场比分、伤停与球员名单，不含过程数据；免费可信的 xG 源（FBref 类）与竞彩队名映射尚未接通。
+      因此本页用「半场结构 + 主客分离 + 交手中低比分频率」当替代口径，缺口部分不估算、不编数。</div>
+    </div>
+  </div>`;
+}
+
+function paneIntel(m){
+  const inj = m.intel.inj || [];
+  const rows = inj.length ? inj.map(p=>`<tr>
+      <td>${esc(p.team)}</td><td>${esc(p.name)}</td><td>${esc(p.pos)}</td>
+      <td class="num">${p.apps}</td><td><span class="pill ${p.kind==="停赛"?"r":"a"}">${p.kind}</span></td></tr>`).join("")
+    : '<tr><td colspan="5" style="color:var(--dim)">双方名单无伤停记录</td></tr>';
+  const rest = (t) => {
+    if(!t.last_date) return "—";
+    const last = new Date(t.last_date), kick = new Date("2026-10-17");
+    const d = Math.round((kick-last)/86400000);
+    return `${d} 天`;
+  };
+  const res = (t,name) => `<table><tbody>${(t.results||[]).map(r=>`
+      <tr><td class="mono" style="white-space:nowrap;color:var(--dim)">${esc(r.d)}</td>
+      <td>${esc(r.m)}</td><td class="mono" style="color:var(--dim)">半 ${esc(r.ht)}</td></tr>`).join("")}</tbody></table>`;
+  return `
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card hl"><h3>伤停与阵容完整度</h3>
+      <table><thead><tr><th>球队</th><th>球员</th><th>位置</th><th class="mono">出场</th><th>状态</th></tr></thead>
+      <tbody>${rows}</tbody></table>
+      <div class="hint">出场次数是本赛季累计，用来判断「缺的是主力还是轮换」。模型的伤停修正已经落进 λ：${esc(m.intel.inj_text||"—")}。</div>
+    </div>
+    <div class="card"><h3>赛程密度与休整</h3>
+      <table><thead><tr><th>球队</th><th class="mono">上一场</th><th class="mono">间隔</th></tr></thead><tbody>
+        <tr><td>${esc(m.home)}</td><td class="mono">${esc(m.tech.home.last_date||"—")}</td><td class="num">${rest(m.tech.home)}</td></tr>
+        <tr><td>${esc(m.away)}</td><td class="mono">${esc(m.tech.away.last_date||"—")}</td><td class="num">${rest(m.tech.away)}</td></tr>
+      </tbody></table>
+      <div class="hint">间隔 3–4 天是常态；≤3 天且下周有关键战，要按轮换留力下调进攻端。跨洲飞行与赛程拥挤的量化口径本批未接入。</div>
+      <h3 style="margin-top:16px">模型备注（赛果底子）</h3>
+      <div class="note">${esc(m.intel.note||"—")}</div>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="card"><h3>${esc(m.home)} · 近 5 场</h3>${res(m.tech.home, m.home)}</div>
+    <div class="card"><h3>${esc(m.away)} · 近 5 场</h3>${res(m.tech.away, m.away)}</div>
+  </div>
+  <div class="card" style="margin-top:14px"><h3>环境与外部因素</h3>
+    <div class="gap-list">
+      ${[["天气与场地","无数据源，本批不做修正"],["裁判尺度","无数据源，本批不做修正"],["赛制与战意","联赛常规轮次，按模型备注的争冠/保级语境定性处理"]]
+        .map(([k,v])=>`<div class="gap"><b style="color:var(--amber);border-color:rgba(255,178,91,.4)">定性</b><span>${k} · ${v}</span></div>`).join("")}
+    </div></div>`;
+}
+
+function paneMarket(m){
+  const sameDir = m.conf.model_dir === m.conf.market_dir;
+  const hand = m.hand;
+  const hmax = m.h_edge ? m.h_edge.map(v=>Math.abs(v)) : [0,0,0];
+  const hi = hmax.indexOf(Math.max(...hmax));
+  const jump = Math.abs(m.edge[0])<6 && Math.abs(hand)<=2 ? "" :
+    `让球(${hand>0?"+"+hand:hand}) 一侧，模型与定价偏差最大的一格是${dirs[hi]} ${sign(m.h_edge[hi])}pp——` +
+    (Math.abs(m.h_edge[hi])>=10
+      ? "方向一致但幅度差得远，说明分歧落在「赢几个」而不是「谁赢」，这类位置先看比分结构再看胜负。"
+      : "两边接近，盘口本身没有明显错位，让球结论不额外加分。");
+  const top = (m.top||[]).slice(0,8);
+  const evmax = Math.max(0.01, ...top.map(t=>Math.abs(t.ev||0)));
+  return `
+  ${!sameDir?`<div class="flag"><b>方向相反</b> 模型指向 ${m.conf.model_dir}，定价去水后最热的是 ${m.conf.market_dir}（${pc(m.mk[dirs.indexOf(m.conf.market_dir)])}）。
+    这种组合最常见的解释是市场在押某件模型还没反映的事（伤停反转、轮换、赛程），按纪律先假定我方样本有缺口。</div>`
+    :Math.abs(m.conf.maxpp)>=15?`<div class="flag w"><b>同向但幅度差 ${f(Math.abs(m.conf.maxpp))}pp</b> 方向可以采信，幅度要打折：定价比模型更极端，说明热度里有叙事成分。</div>`:""}
+
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card hl"><h3>三层定价交叉：胜平负</h3>
+      ${probRows(m)}
+      ${m.move&&m.move.latest_spf?`<div class="hint" style="color:var(--cyan)">本页用的是模型快照（10:28）的定价；最新 16:15 去水为 ${m.move.latest_spf.p.map(x=>pc(x)).join(" / ")}，见「盘口变盘」页。</div>`:""}
+      <div class="hint">固定奖金 ${m.odds?m.odds.map(o=>f(o,2)).join(" / "):"—"}，三项隐含概率合计超 100% 的部分是结构成本，
+      按返奖率 ${m.payout?f(m.payout,1)+"%":"—"} 归一后才与模型可比。</div>
+    </div>
+    <div class="card hl"><h3>三层定价交叉：让球(${hand>0?"+"+hand:hand})</h3>
+      ${m.hp?dirs.map((d,i)=>`<div class="prow"><span class="lab">${d}</span>
+        <span class="track"><span class="fill ${dirCls[i]}" style="width:${Math.min(100,m.hp[i])}%"></span>
+        <span class="fill ghost" style="width:${Math.min(100,m.hmk[i])}%;opacity:.5;transform:translateX(${Math.min(100,m.hp[i])}%)"></span></span>
+        <span class="val">${pc(m.hp[i])} <i>定价 ${pc(m.hmk[i])}</i></span></div>
+        <div class="delta" style="margin:-3px 0 8px 62px">偏差 <span class="${m.h_edge[i]>0?"up":"down"}">${sign(m.h_edge[i])}pp</span></div>`).join(""):'<div class="note">本批无让球定价</div>'}
+      <div class="hint">${esc(jump)}</div>
+      <div class="hint">让球去掉平局后的胜负拆分：${m.win_nodraw?`主 ${pc(m.win_nodraw[0])} / 客 ${pc(m.win_nodraw[1])}`:"—"}。</div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h3>比分波胆：定价漏洞<span class="x">溢价 = 模型概率 × 定价 − 1</span></h3>
+      <table><thead><tr><th>比分</th><th class="mono">模型</th><th class="mono">定价</th><th class="mono">溢价</th><th style="width:90px"></th></tr></thead>
+      <tbody>${top.map(t=>{
+        const ev = t.ev ?? null;
+        const w = ev===null?0:Math.min(100,Math.abs(ev)/evmax*100);
+        return `<tr><td class="mono">${t.s}</td><td class="num">${pc(t.p)}</td>
+          <td class="num">${t.odd?f(t.odd,2):"—"}</td>
+          <td class="num ${ev>0?"pos":ev<0?"neg":""}">${ev===null?"—":(ev>0?"+":"")+f(ev,2)}</td>
+          <td><span style="display:block;height:6px;border-radius:3px;background:${ev>0?"var(--green)":"var(--red)"};width:${Math.max(2,w*0.4)}%;opacity:.75"></span></td></tr>`;
+      }).join("")}</tbody></table>
+      <div class="hint">溢价为正＝模型给的比定价隐含的高，这类格子才是「值博」；但样本薄的场次，正溢价同样可能是错觉（见信心指数）。</div>
+    </div>
+    <div class="card"><h3>热度与诱盘识别</h3>
+      <div class="note">${sameDir
+        ? `模型与定价同向（都指 ${m.conf.model_dir}），不存在方向上的诱盘信号。要看的是幅度：定价给 ${pc(m.mk[dirs.indexOf(m.conf.market_dir)])}，模型给 ${pc(m.p[dirs.indexOf(m.conf.model_dir)])}。`
+        : `模型指 ${m.conf.model_dir}，定价却在 ${m.conf.market_dir} 上加码（${pc(m.mk[dirs.indexOf(m.conf.market_dir)])}）。基本面全线利好却赔率不降，是最典型的阻盘形态。`}</div>
+      <table style="margin-top:12px"><tbody>
+        <tr><td>定价最热</td><td class="num mono">${m.cold.fav} ${pc(m.cold.fav_mk)}（模型 ${pc(m.cold.fav_model)}）</td></tr>
+        <tr><td>模型首选冷门</td><td class="num mono">${m.cold.main_cold} ${pc(m.cold.main_cold_p)}</td></tr>
+        <tr><td>次要冷门</td><td class="num mono">${m.cold.second_cold} ${pc(m.cold.second_cold_p)}</td></tr>
+        <tr><td>定价位移快照</td><td class="num mono">${m.quote&&m.quote.length? m.quote.length+" 条":"无（本批未采集）"}</td></tr>
+      </tbody></table>
+      <div class="hint">波胆临场 1–3 小时的赔付率异动本批无法观测：定价位移库只覆盖 10-12 的欧冠样本，今日六场无历史快照。
+      这一层只能等采集器补齐后才有意义，不做想象式描述。</div>
+    </div>
+  </div>`;
+}
+
+/* ── 盘口变盘（时间轴 + 半全场 + 总进球定价 + 波胆池） ── */
+function paneMove(m){
+  const mv = m.move;
+  const pay = (m.payout ?? 88.5)/100;
+  const devig = odds => { const r = odds.map(o=>pay/o*100); const s = r.reduce((a,b)=>a+b,0)||1; return r.map(x=>x/s*100); };
+  const arrow = d => d>0 ? `<span class="up">↑${f(Math.abs(d),2)}</span>` : d<0 ? `<span class="down">↓${f(Math.abs(d),2)}</span>` : `<span>—</span>`;
+
+  if(!mv){
+    return `<div class="card hl"><h3>盘口变盘：本场无历史快照</h3>
+      <div class="note">这一页要的是「同一场比赛、三个以上时点的固定奖金」。本批只有周六007 采到 4 个时点，
+      其余五场只有模型里那一次快照（10:28 早盘，也是定价去水用的那一份）——没有位移，就谈不上阻盘与诱盘的判断，
+      不做想象式描述。</div>
+      <table style="margin-top:12px"><tbody>
+        <tr><td>本场胜平负快照</td><td class="num mono">${m.odds?m.odds.map(o=>f(o,2)).join(" / "):"—"} → 去水 ${m.mk?m.mk.map(x=>pc(x)).join(" / "):"—"}</td></tr>
+        <tr><td>本场让球(${m.hand>0?"+"+m.hand:m.hand}) 快照</td><td class="num mono">${m.hmk?m.hmk.map(x=>pc(x)).join(" / "):"—"}</td></tr>
+        <tr><td>本批有变盘记录的场次</td><td class="num mono">1 / 6 · 周六007（4 个时点）</td></tr>
+      </tbody></table>
+      <div class="hint">补法：开赛前按 初盘 / 赛前 3 小时 / 临场 30 分钟 各抓一次胜平负与让球固定奖金，
+      写进 <span class="k">state/records/_move_&lt;日期&gt;.json</span>，本页会自动长出来（周六007 就是这么来的）。</div>
+    </div>`;
+  }
+
+  const spf = mv.spf || [], hand = mv.hand || [];
+  const s0 = spf[0], sN = spf[spf.length-1];
+  const p0 = s0 ? devig([s0.h,s0.d,s0.a]) : null;
+  const pN = sN ? devig([sN.h,sN.d,sN.a]) : null;
+  const h0 = hand[0], hN = hand[hand.length-1];
+  const hp0 = h0 ? devig([h0.h,h0.d,h0.a]) : null;
+  const hpN = hN ? devig([hN.h,hN.d,hN.a]) : null;
+  const g = mv.goals, ht = mv.htft, pool = mv.pool || [];
+  const v = m.verdict;
+
+  const spfRows = spf.map((r,idx)=>{
+    const p = devig([r.h,r.d,r.a]);
+    const last = idx === spf.length-1;
+    return `<tr${last?' style="background:rgba(34,211,238,.07)"':''}><td class="mono">${esc(r.t)}</td>
+      <td class="num mono">${f(r.h,2)}</td><td class="num mono">${f(r.d,2)}</td><td class="num mono">${f(r.a,2)}</td>
+      <td class="num mono">${pc(p[0])} / ${pc(p[1])} / ${pc(p[2])}</td>
+      <td class="num ${last?'':''}">${last?'<span style="color:var(--cyan)">最新</span>':''}</td></tr>`;
+  }).join("");
+
+  const handRows = hand.map((r,idx)=>{
+    const p = devig([r.h,r.d,r.a]);
+    const last = idx === hand.length-1;
+    return `<tr${last?' style="background:rgba(244,114,182,.06)"':''}><td class="mono">${esc(r.t)}</td>
+      <td class="num mono">${f(r.h,2)}</td><td class="num mono">${f(r.d,2)}</td><td class="num mono">${f(r.a,2)}</td>
+      <td class="num mono">${pc(p[0])} / ${pc(p[1])} / ${pc(p[2])}</td></tr>`;
+  }).join("");
+
+  const goalRows = g ? g.odds_new.map((oN,i)=>{
+    const o0 = g.odds_old[i];
+    const diff = +(g.model[i] - g.p_new[i]).toFixed(1);
+    const hot = g.p_new[i] === Math.max(...g.p_new);
+    return `<tr${hot?' style="background:rgba(34,211,238,.07)"':''}><td class="mono">${i} 球</td>
+      <td class="num mono">${f(o0,2)}</td><td class="num mono">${f(oN,2)}</td><td class="num">${arrow(+(oN-o0).toFixed(2))}</td>
+      <td class="num">${pc(g.p_new[i])}</td><td class="num">${pc(g.model[i])}</td>
+      <td class="num ${diff>0?'pos':diff<0?'neg':''}">${sign(diff)}pp</td></tr>`;
+  }).join("") : "";
+
+  const htRows = ht ? ht.rows.map(r=>{
+    const impl = r.new ? (pay/r.new*100) : null;
+    return `<tr><td class="mono">${esc(r.k)}</td><td class="num mono">${r.old?f(r.old,2):"—"}</td>
+      <td class="num mono">${r.new?f(r.new,2):"—"}</td><td class="num">${r.chg===null?"—":arrow(r.chg)}</td>
+      <td class="num">${impl===null?"—":pc(impl)}</td></tr>`;
+  }).join("") : "";
+
+  const poolRows = pool.map(x=>{
+    const tag = x.s===v.first_score ? "主推首选" : x.s===v.second_score ? "主推次选" : x.s===v.guard_score ? "防冷比分"
+      : (x.dir===v.first ? "同向" : "反向");
+    const tc = x.s===v.first_score||x.s===v.second_score ? "var(--cyan)" : x.s===v.guard_score ? "var(--mag)" : "var(--muted)";
+    return `<tr><td class="mono">${x.s}</td><td class="num mono">${f(x.odd,2)}</td><td class="num">${pc(x.p)}</td>
+      <td>${esc(x.dir)}</td><td style="color:${tc}">${tag}</td></tr>`;
+  }).join("");
+
+  const dAway = p0 && pN ? +(pN[2]-p0[2]).toFixed(1) : null;
+  const dHome = p0 && pN ? +(pN[0]-p0[0]).toFixed(1) : null;
+  const dHandAway = hp0 && hpN ? +(hpN[2]-hp0[2]).toFixed(1) : null;
+  const dHandHome = hp0 && hpN ? +(hpN[0]-hp0[0]).toFixed(1) : null;
+  const htDraw = ht ? (pay*ht.rows.filter(r=>["平胜","平平","平负"].includes(r.k) && r.new).reduce((a,r)=>a+1/r.new,0)*100) : null;
+
+  return `
+  <div class="flag" style="border-color:var(--cyan);background:rgba(34,211,238,.07)">
+    <b>变盘快照 16:15</b> 共 ${spf.length} 个时点 · 来源：竞彩官方固定奖金记录。
+    客胜水位从开盘 ${f(s0.a,2)} 走到 ${f(sN.a,2)}${dAway!==null&&dAway<0?"，去水概率退到 "+pc(pN[2]):""}；
+    主胜从 ${f(s0.h,2)} 降到 ${f(sN.h,2)}${dHome!==null&&dHome>0?"（"+pc(pN[0])+"，抬了 "+f(dHome)+"pp）":""}。
+    这不是大行情，是同一批筹码在赛前两小时倒手：客胜被从最热的位置推下来，主队不败一侧被抬高。
+  </div>
+
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card hl"><h3>胜平负：固定奖金时间轴<span class="x">去水按返还率 ${pc(pay*100)} 归一</span></h3>
+      <table><thead><tr><th>时点</th><th class="mono">主胜</th><th class="mono">平</th><th class="mono">客胜</th><th class="mono">去水 主/平/客</th><th></th></tr></thead>
+      <tbody>${spfRows}</tbody></table>
+      <div class="hint">${dAway!==null?`开盘→最新：主胜 ${sign(dHome)}pp、客胜 ${sign(dAway)}pp。
+        ${Math.abs(dAway)>=1?`客胜一侧退水 ${f(Math.abs(dAway))} 个百分点，是本场唯一一次方向级移动——`:"移动幅度不到 1 个百分点，属于噪声——"}
+        但退完之后客胜仍是三格最高（${pc(pN[2])}），市场没有翻边，只是不再把客胜当成「稳」的一格。`:""}</div>
+    </div>
+    <div class="card hl"><h3>让球(${m.hand>0?"+"+m.hand:m.hand})：受让一侧的筹码走向</h3>
+      <table><thead><tr><th>时点</th><th class="mono">主胜</th><th class="mono">平</th><th class="mono">客胜</th><th class="mono">去水 主/平/客</th></tr></thead>
+      <tbody>${handRows}</tbody></table>
+      <div class="hint">${dHandAway!==null?`让胜 ${f(h0.h,2)}→${f(hN.h,2)}（去水 ${pc(hp0[0])}→${pc(hpN[0])}），让负 ${f(h0.a,2)}→${f(hN.a,2)}（${pc(hp0[2])}→${pc(hpN[2])}）。
+        受让一方被抬价、让负被压价的反向读法是「打穿难度上升」：${sign(dHandHome)}pp 与 ${sign(dHandAway)}pp 都在说主队不败这一侧。`:""}</div>
+      <div class="hint">与胜负盘对照：胜负盘客胜退水 ${dAway!==null?f(Math.abs(dAway),1):"—"}pp、让球盘让负退水 ${dHandAway!==null?f(Math.abs(dHandAway),1):"—"}pp，
+        两层同向退水，说明撤的是「客队赢两球以上」的筹码，不是「客队赢」的筹码。</div>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card"><h3>总进球定价：模型 vs 市场<span class="x">${g?esc(g.t_old+" → "+g.t_new):""}</span></h3>
+      ${g?`<table><thead><tr><th>进球数</th><th class="mono">初盘</th><th class="mono">最新</th><th>变化</th><th class="mono">定价概率</th><th class="mono">模型</th><th class="mono">差</th></tr></thead>
+      <tbody>${goalRows}</tbody></table>
+      <div class="hint">定价把 ${esc(g.lowest)} 球放成全场最低赔率（最热的一格），模型这边峰值在
+        ${g.model.indexOf(Math.max(...g.model))} 球。两套口径对"几个球"的排序一致，分歧只在尾部：
+        ${g.lowest==="3"?"3 球定价比模型更热，4 球以上定价全线压":esc(g.lowest)+" 球被定成最热的一格"}，
+        说明市场怕的是「再多一个球」，不是「少一个球」。</div>`:'<div class="note">本场无总进球变盘记录</div>'}
+    </div>
+    <div class="card"><h3>半全场：剧本的方向<span class="x">${ht?esc(ht.t_old+" → "+ht.t_new):""}</span></h3>
+      ${ht?`<table><thead><tr><th>半场/全场</th><th class="mono">初盘</th><th class="mono">最新</th><th>变化</th><th class="mono">隐含</th></tr></thead>
+      <tbody>${htRows}</tbody></table>
+      <div class="hint">半场打平的三项（平胜/平平/平负）合计隐含 ${htDraw===null?"—":pc(htDraw)}，
+        其中「半场平、全场客胜」从 ${f(ht.rows.find(r=>r.k==="平负")?.old||0,2)} 压到 ${f(ht.rows.find(r=>r.k==="平负")?.new||0,2)}，
+        是这次变盘里唯一被明显压价的一格：市场在赌**上半场咬住、下半场才分胜负**。
+        反过来「半场落后半场赢」（负负）被抬价，说明开局被打穿的剧本被减配。</div>`:'<div class="note">本场无半全场变盘记录</div>'}
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h3>波胆池：定价锚在哪<span class="x">按赔率从低到高</span></h3>
+      <table><thead><tr><th>比分</th><th class="mono">定价</th><th class="mono">隐含</th><th>方向</th><th>与模型结论</th></tr></thead>
+      <tbody>${poolRows}</tbody></table>
+      <div class="hint">定价锚是 ${pool.length?esc(pool[0].s):"—"}（${pool.length?f(pool[0].odd,2):"—"}，隐含 ${pool.length?pc(pool[0].p):"—"}），
+        模型首选是 ${v.first_score}（${pc(v.first_p)}）。锚点与首选是否同侧，就是这场"值不值"的第一道门槛。</div>
+    </div>
+    <div class="card"><h3>剧本切换条件</h3>
+      <div class="note">按当前定价与模型的差，把比赛拆成四种走向，各自的触发条件写在前面：</div>
+      <table style="margin-top:10px"><tbody>
+        <tr><td>上半场就破门</td><td>比分往 2-1 / 2-2 走：模型 大 2.5 ${pc(m.over["2.5"])}、双方进球 ${pc(m.btts)}，两边都能进球的场次里，零封是最先被排除的结果。</td></tr>
+        <tr><td>半场 0-0</td><td>半场打平隐含 ${htDraw===null?"—":pc(htDraw)}（半全场三项合计），单格概率最高的仍是首选的 ${v.first_score} 与次选的 ${v.second_score}，平局在模型里 ${pc(v.second_p)}、定价 ${pc(m.mk[1])}，${v.second_p>m.mk[1]?"模型比定价更看重平局":"定价比模型更看重平局"}。</td></tr>
+        <tr><td>客队先进球</td><td>客胜仍是定价最热（${pc(m.mk[2])}），防冷比分 ${v.guard_score}；若客队先进球后仍要防被拖回平局，模型平局 ${pc(v.second_p)} 是唯一能救回的格子。</td></tr>
+        <tr><td>主队先进球</td><td>让球(${m.hand>0?"+"+m.hand:m.hand}) 主胜一侧模型 ${pc(m.hp?m.hp[0]:null)} vs 定价 ${pc(m.hmk?m.hmk[0]:null)}，${m.hp&&m.hmk&&m.hp[0]>m.hmk[0]?"模型比定价更信这个剧本":"定价比模型更信这个剧本"}；追主队要接受赢球不穿盘的结果。</td></tr>
+      </tbody></table>
+      <div class="hint">这一页只看两件事：①撤的是"赢"还是"赢几个" ②定价锚与模型首选是否同侧。挪动幅度 ±1pp 以内当噪声处理。</div>
+    </div>
+  </div>
+
+  ${mv.notes&&mv.notes.length?`<div class="card" style="margin-top:14px"><h3>变盘原始记录<span class="x">逐条转录</span></h3>
+    <div class="note">${mv.notes.map(n=>"· "+esc(n)).join("<br>")}</div></div>`:""}`;
+}
+
+function paneConcl(m){
+  const v = m.verdict, k = m.cold;
+  const guardScore = v.guard_score;
+  const keep = [v.first_score, v.second_score, guardScore];
+  const excluded = (m.steps.exclude||[]).map(x=>x.k).join(" ");
+  const rich = (m.steps.rich||[]).filter(x=>!keep.some(s=>x.k===s) && !excluded.includes(x.k));
+  const triggers = [];
+  if((m.tech.meet.low2||0) >= 50) triggers.push(`交手总进球 ≤2 占 ${m.tech.meet.low2}%，低比分有土壤`);
+  if((m.conf.n_sample||0) <= 2) triggers.push(`主客分离样本只有 ${m.conf.n_sample} 场，口径偏薄`);
+  if(m.conf.agree < 3) triggers.push(`四方只有 ${m.conf.agree}/3 同向，外部参照系不站队`);
+  if(Math.abs(m.conf.maxpp) >= 15) triggers.push(`模型与定价差 ${f(Math.abs(m.conf.maxpp))}pp，定价更极端`);
+  if((m.over["2.5"]||0) >= 65) triggers.push(`大 2.5 球 ${pc(m.over["2.5"])}，总量高但比分分散，进球数比胜负更稳`);
+  return `
+  <div class="grid2" style="margin-bottom:14px">
+    <div class="card hl"><h3>四步推演闭环</h3>
+      <div class="step"><span class="i">01</span><div><div class="h">定格局<span>胜平负方向</span></div>
+        <div class="b">${esc(m.steps.pattern)}</div></div></div>
+      <div class="step"><span class="i">02</span><div><div class="h">定总量<span>总进球区间</span></div>
+        <div class="b">${esc(m.steps.total)}</div></div></div>
+      <div class="step"><span class="i">03</span><div><div class="h">跑矩阵<span>概率排序</span></div>
+        <div class="b">${esc(m.steps.matrix)}</div></div></div>
+      <div class="step"><span class="i">04</span><div><div class="h">做排除<span>情景证伪</span></div>
+        <div class="b">把与方向、总量相悖的比分先划掉，剩下的才是候选。见右侧清单。</div></div></div>
+    </div>
+    <div class="card"><h3>排除清单<span class="x">逻辑相悖先划掉</span></h3>
+      <table><thead><tr><th>比分 / 区间</th><th>判定</th><th>理由</th></tr></thead><tbody>
+        ${(m.steps.exclude||[]).map(x=>`<tr><td class="mono">${esc(x.k)}</td>
+          <td><span class="pill ${x.kind==="排除"?"r":"a"}">${x.kind}</span></td>
+          <td style="font-size:12px;color:var(--muted)">${esc(x.why)}</td></tr>`).join("")}
+        ${rich.map(x=>`<tr><td class="mono">${esc(x.k)}</td>
+          <td><span class="pill a">${x.kind}</span></td>
+          <td style="font-size:12px;color:var(--muted)">${esc(x.why)}</td></tr>`).join("")}
+      </tbody></table>
+      <div class="hint">总进球 5 球以上模型合计 ${pc(m.steps.tail5)}；平局一格 ${pc(m.steps.draw_p)}。与主推/次选/防冷重复的比分已从降权清单里剔除。</div>
+    </div>
+  </div>
+
+  <div class="grid3">
+    <div class="card"><h3>主推</h3>
+      <div class="kpi"><div class="k">首选</div><div class="n">${v.first}</div>
+        <div class="d">比分 ${v.first_score} · 模型 ${pc(v.first_p)}</div></div>
+      <div class="kpi" style="margin-top:12px"><div class="k">次选</div><div class="n">${v.second}</div>
+        <div class="d">比分 ${v.second_score} · 模型 ${pc(v.second_p)}</div></div>
+    </div>
+    <div class="card"><h3>防冷</h3>
+      <div class="kpi"><div class="k">定价最热</div><div class="n">${k.fav}</div>
+        <div class="d">定价 ${pc(k.fav_mk)} · 模型 ${pc(k.fav_model)} · 冷门空间 ${f(k.index,0)}</div></div>
+      <div class="kpi" style="margin-top:12px"><div class="k">${v.guard_mode==="退路"?"退路比分":"防守比分"}</div><div class="n" style="font-size:22px">${guardScore}</div>
+        <div class="d">${v.guard_mode==="退路"
+        ? `首选 ${v.first} 若落空，退路是 ${v.second}，比分往 ${guardScore} 走；${k.main_cold} 一侧模型给 ${pc(v.guard_model_p)}`
+        : `市场最热的 ${k.fav} 若站住，比分大概率是 ${guardScore}；被拖住时模型最可能接上的是 ${k.main_cold} ${pc(k.main_cold_p)}`}</div></div>
+      ${triggers.length?`<div class="hint">防冷触发条件：${triggers.map(t=>esc(t)).join("；")}。</div>`:""}
+    </div>
+    <div class="card"><h3>一句话结论</h3>
+      <div class="note" style="font-size:13px;color:var(--ink)">
+        ${esc(m.home)} 对 ${esc(m.away)}：模型 ${v.first} ${pc(v.first_p)}，首选比分 ${v.first_score}；信心 ${m.conf.total}/100（${m.conf.grade}）；
+        ${Math.abs(m.conf.maxpp)>=15?`最大风险是模型与定价差 ${f(Math.abs(m.conf.maxpp))}pp 这件事本身`:"两边结构基本可用"}；防冷看 ${guardScore}。
+      </div>
+      <div class="hint">内部资料，只做口径与判断记录，不构成任何购买建议。所有百分比都是估值，不是承诺。</div>
+    </div>
+  </div>`;
+}
+
+function paneCmp(m){
+  const sm = m.ext.sm, af = m.ext.af;
+  const smDir = sm ? (()=>{
+    const x = String(sm.predicted||"").match(/(\d+)\s*-\s*(\d+)/);
+    if(!x) return null;
+    const h = +x[1], a = +x[2];
+    return h>a?"主胜":h===a?"平":"客胜";
+  })() : null;
+  const afDir = af ? (af.predicted_dir || null) : null;
+  const votes = [m.conf.market_dir===m.conf.model_dir];
+  if(smDir) votes.push(smDir===m.conf.model_dir);
+  if(afDir) votes.push(afDir===m.conf.model_dir);
+  const agree = votes.filter(Boolean).length;
+  const row = (name, dir, detail, cls) => `<tr>
+      <td>${name}</td>
+      <td><span class="pill ${dir===m.conf.model_dir?"g":"r"}">${dir||"—"}</span></td>
+      <td style="color:var(--muted);font-size:12px">${detail||"—"}</td></tr>`;
+  const aStroke = agree/Math.max(1,votes.length);
+  return `
+  <div class="card hl" style="margin-bottom:14px"><h3>四种口径并排<span class="x">模型 · 定价 · 外媒预报 · AI 接口</span></h3>
+    <table><thead><tr><th>来源</th><th>方向</th><th>依据 / 原文摘要</th></tr></thead><tbody>
+      ${row("后台模型 v2.10", m.conf.model_dir, `主 ${pc(m.p[0])} / 平 ${pc(m.p[1])} / 客 ${pc(m.p[2])}，单格最高 ${(m.top[0]||{}).s||"—"}`)}
+      ${row("官方固定奖金（去水）", m.conf.market_dir, `主 ${pc(m.mk[0])} / 平 ${pc(m.mk[1])} / 客 ${pc(m.mk[2])}，返奖率 ${m.payout?f(m.payout,1)+"%":"—"}`)}
+      ${sm?row("公开赛前预报（Sports Mole）", smDir, `${esc(sm.predicted||"")}<br><span style="color:var(--dim)">${esc((sm.note||"").slice(0,220))}${(sm.note||"").length>220?"…":""}</span>`):'<tr><td>公开赛前预报</td><td><span class="pill">无</span></td><td style="color:var(--dim)">本场未取到</td></tr>'}
+      ${af?row("数据接口算法（API-Football）", afDir, `接口口径：${esc((af.note||"").slice(0,120))}<br><span style="color:var(--dim)">免费层百分比为坏值，只采信方向</span>`):'<tr><td>数据接口算法</td><td><span class="pill">无</span></td><td style="color:var(--dim)">本场未取到</td></tr>'}
+    </tbody></table>
+    <div class="hint">一致度 ${agree}/${votes.length}：${agree===votes.length?"全部同向，方向层面没有分歧":agree===0?"全部反向，这种场次只做记录不做判断":"存在分歧，分歧点写在下面"}</div>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h3>一致度</h3>
+      <div class="dim"><span class="k">同向比例</span>
+        <span class="b"><i style="width:${aStroke*100}%"></i></span>
+        <span class="v">${agree}/${votes.length}</span></div>
+      <div class="note" style="margin-top:10px">${esc(m.steps.pattern)}</div>
+      <div class="hint">外部两源只做参照系：公开预报给的是比分与理由，数据接口只给方向；它们不改变模型结论，只用来标出「几家站成几排」。</div>
+    </div>
+    <div class="card"><h3>${sm?"预报方给的阵容与理由":"外媒缺口"}</h3>
+      ${sm? `<div class="note">${esc(sm.lineup||"—")}</div>
+        <div class="hint">预计首发为预报方口径，与官方伤停名单冲突时以赛前公布名单为准。</div>
+        ${sm.url?`<div class="hint">来源：${esc(sm.url)}</div>`:""}`:
+        `<div class="note">本场没有取到公开赛前预报（索引页未覆盖或抓取失败），外部图层只有数据接口的方向，不做比分对照。</div>`}
+    </div>
+  </div>`;
+}
+
+const PANES = {overview:paneOverview, math:paneMath, tech:paneTech, intel:paneIntel, market:paneMarket, move:paneMove, concl:paneConcl, cmp:paneCmp};
+
+/* ── 主渲染 ── */
+function render(){
+  const m = M();
+  renderRail();
+  $("#tbmeta").innerHTML = `${DATA.meta.date.slice(0,4)}-${DATA.meta.date.slice(4,6)}-${DATA.meta.date.slice(6)} · <i>${DATA.meta.count}</i> 场 · 模型 ${esc(DATA.meta.model)} · ρ=${DATA.meta.rho} · 生成 ${esc(DATA.meta.stamp)}`;
+  const tabs = TABS.map(([k,t])=>`<button class="tab ${S.tab===k?"on":""}" data-tab="${k}">${t}</button>`).join("");
+  $("#main").innerHTML = renderHero(m) + `<div class="tabs">${tabs}</div><div class="pane">${PANES[S.tab](m)}</div>`;
+  $("#main").querySelectorAll(".tab").forEach(el=>{ el.onclick = ()=>{ S.tab = el.dataset.tab; render(); }; });
+  $("#main").querySelectorAll("[data-jump]").forEach(el=>{
+    el.onclick = ()=>{ S.i = +el.dataset.jump; S.tab="overview"; render(); window.scrollTo({top:0,behavior:"smooth"}); };
+  });
+  const sw = $("#swDC"); if(sw) sw.onclick = ()=>{ S.dc = !S.dc; render(); };
+  bindTips();
+}
+
+/* ── 悬停提示 ── */
+function bindTips(){
+  const tip = $("#tip");
+  document.querySelectorAll("[data-tip]").forEach(el=>{
+    el.addEventListener("mouseenter", e=>{ tip.textContent = el.dataset.tip; tip.classList.add("on"); });
+    el.addEventListener("mousemove", e=>{
+      const w = tip.offsetWidth, h = tip.offsetHeight;
+      let x = e.clientX + 14, y = e.clientY + 14;
+      if(x + w > innerWidth - 8) x = e.clientX - w - 14;
+      if(y + h > innerHeight - 8) y = e.clientY - h - 14;
+      tip.style.left = x+"px"; tip.style.top = y+"px";
+    });
+    el.addEventListener("mouseleave", ()=> tip.classList.remove("on"));
+  });
+}
+
+/* ── 复制结论 ── */
+function summary(){
+  return DATA.matches.map(m=>{
+    const v = m.verdict;
+    return `${m.no} ${m.home} vs ${m.away}（${m.kick||""}）信心 ${m.conf.total}/100 ${m.conf.grade}｜首选 ${v.first} ${v.first_score}｜次选 ${v.second} ${v.second_score}｜防冷 ${v.guard} ${v.guard_score}｜冷门指数 ${f(m.cold.index,0)}`;
+  }).join("\n");
+}
+function toast(t){ const el = $("#toast"); el.textContent = t; el.classList.add("on"); setTimeout(()=>el.classList.remove("on"),1600); }
+$("#btnCopy").onclick = async ()=>{
+  try{ await navigator.clipboard.writeText(summary()); toast("六场结论已复制"); }
+  catch(e){ toast("浏览器不允许复制，请手动选中"); }
+};
+$("#btnTheme").onclick = ()=>{ document.body.classList.toggle("light"); };
+
+/* ── 键盘 ── */
+addEventListener("keydown", e=>{
+  if(e.key==="ArrowLeft"||e.key==="ArrowRight"){
+    S.i = (S.i + (e.key==="ArrowRight"?1:-1) + DATA.matches.length) % DATA.matches.length;
+    render(); window.scrollTo({top:0,behavior:"smooth"});
+  }
+  const n = parseInt(e.key,10);
+  if(n>=1 && n<=TABS.length){ S.tab = TABS[n-1][0]; render(); }
+});
+
+render();
+</script>
+</body>
+</html>

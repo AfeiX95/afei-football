@@ -11,7 +11,7 @@
 用法：
   python scripts/paid_report.py                       # 自动取 state/batch 里最新的 _model_*.txt
   python scripts/paid_report.py --model state/batch/_model_20261017_sat.txt --out "📝文章/20261017/xxx.html"
-  python scripts/paid_report.py --no-pdf              # 只出 HTML，不导 A4 PDF
+  python scripts/paid_report.py                      # 只出 A4 打印版 HTML（PDF 已默认关闭）
 """
 from __future__ import annotations
 
@@ -835,8 +835,8 @@ def main() -> None:
     ap.add_argument("--model", default="", help="模型文本，默认 state/batch 最新 _model_*.txt")
     ap.add_argument("--out", default="", help="输出 html 路径")
     ap.add_argument("--date-dir", default="", help="日期目录，用于取 cards.json（默认从模型文件名推）")
-    ap.add_argument("--pdf", action=argparse.BooleanOptionalAction, default=True,
-                    help="是否同时导出 A4 PDF（默认导；--no-pdf 只出 HTML）")
+    ap.add_argument("--pdf", action=argparse.BooleanOptionalAction, default=False,
+                    help="是否同时导出 A4 PDF（默认不导；付费成品已改用赛博可交互 HTML）")
     args = ap.parse_args()
 
     mpath = Path(args.model) if args.model else max(BATCH_DIR.glob("_model_*.txt"), key=lambda p: p.stat().st_mtime)
