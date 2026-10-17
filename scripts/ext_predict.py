@@ -45,6 +45,15 @@ UA = {
 }
 SM_INDEX = "https://www.sportsmole.co.uk/football/predictions/"
 
+# Sportskeeda 的联赛聚合页（预测多以「某专家预测本轮各场」的汇总文形式出现）
+SK_HUBS = {
+    "英超": "https://www.sportskeeda.com/go/premier-league",
+    "西甲": "https://www.sportskeeda.com/go/la-liga",
+    "法甲": "https://www.sportskeeda.com/go/ligue-1",
+    "意甲": "https://www.sportskeeda.com/go/serie-a",
+    "德甲": "https://www.sportskeeda.com/go/bundesliga",
+}
+
 try:
     import requests
 except ImportError:  # pragma: no cover
@@ -175,15 +184,98 @@ def save_store(data: dict) -> Path:
     return p
 
 
-def add_item(home: str, away: str, row: dict | None, parsed: dict, stamp: str, manual: str | None = None) -> dict:
+# ------------------------------------------------------ Sportskeeda（第二自动源）
+def _frag(name: str, aliases: dict) -> list[str]:
+    """把中文队名压成一串可用于 slug 比对的英文片段（含空格与连字符两种写法）。"""
+    ent = aliases.get(name, {})
+    words = [ent.get("sm_slug", ""), ent.get("en", "")] + list(ent.get("sm_alias", []))
+    out = []
+    for w in words:
+        w = (w or "").lower().replace(" ", "-")
+        if w:
+            out.append(w)
+            out.append(w.replace("-", ""))
+    return sorted(set(out))
+
+
+def find_sk_roundup(home: str, away: str, league: str, aliases: dict) -> list[dict]:
+    """在 Sportskeeda 联赛聚合页里找同时含两队名字的文章链接（预测汇总文）。"""
+    hub = SK_HUBS.get(league)
+    if not hub:
+        return []
+    html = _get(hub, RAW / f"sk_hub_{league}.html")
+    links = sorted(set(re.findall(r'href="(/football/[^"]{10,200})"', html)))
+    h, a = _frag(home, aliases), _frag(away, aliases)
+    hits = []
+    for l in links:
+        low = l.lower().replace("-", "")
+        if any(x.replace("-", "") in low for x in h) and any(y.replace("-", "") in low for y in a):
+            hits.append(l)
+    hits.sort(key=lambda s: (0 if "predict" in s.lower() else 1, s))
+    return [{"href": "https://www.sportskeeda.com" + l, "text": l} for l in hits[:5]]
+
+
+def parse_sk_prediction(html: str, home: str, away: str, aliases: dict) -> dict:
+    """从汇总文里抠 `Prediction: Everton 2-1 Chelsea` 这一句，并拾取前一句作摘要。"""
+    import html as _h
+    plain = _h.unescape(html).replace("\xa0", " ")
+    plain = " ".join(re.sub(r"<[^>]+>", " ", plain).split())
+    h, a = _frag(home, aliases), _frag(away, aliases)
+
+    def _hit(team: str) -> bool:
+        t = team.lower().replace("-", "")
+        return any(f.replace("-", "") in t for f in h + a)
+
+    def _canon(team: str, name: str) -> str:
+        """把抓到的队名还原成别名表里的规范英文名（顺带切掉黏在后面的下一场标题）。"""
+        clean = re.split(r"\s+vs\s+|[A-Za-z]vs[A-Za-z]", team)[0].strip()
+        for key in (name,):
+            ent = aliases.get(key, {})
+            if ent.get("en") and ent["en"].lower().replace("-", "") in clean.lower().replace("-", ""):
+                return ent["en"]
+        # 别名反查：clean 里含哪支队伍就算哪支
+        for zh, ent in aliases.items():
+            if not isinstance(ent, dict):
+                continue
+            for f in [ent.get("sm_slug", ""), ent.get("en", "")]:
+                f2 = (f or "").lower().replace("-", "").replace(" ", "")
+                if f2 and f2 in clean.lower().replace("-", "").replace(" ", ""):
+                    return ent.get("en") or clean
+        return clean
+
+    pat = re.compile(r"Prediction:\s*([A-Za-z .'\u2019-]{2,40}?)\s+(\d{1,2})\s*-\s*(\d{1,2})\s+([A-Za-z .'\u2019-]{2,40})")
+    for m in pat.finditer(plain):
+        t1, t2 = m.group(1).strip(), m.group(4).strip()
+        if _hit(t1) and _hit(t2):
+            head = plain[max(0, m.start() - 170):m.start()].strip()
+            c1, c2 = _canon(t1, home), _canon(t2, away)
+            g1, g2 = m.group(2), m.group(3)
+            # 汇总文常把客队写在前面，统一转成「主队在前」再进表
+            home_en = (aliases.get(home, {}) or {}).get("en", "")
+            if home_en and c1.lower() != home_en.lower() and c2.lower() == home_en.lower():
+                c1, c2 = c2, c1
+                g1, g2 = g2, g1
+            return {
+                "predicted": f"{c1} {g1}-{g2} {c2}",
+                "note": head[-160:],
+                "lineup": "",
+                "stale_risk": True,
+            }
+    return {}
+
+
+def add_item(home: str, away: str, row: dict | None, parsed: dict, stamp: str,
+             manual: str | None = None, provider: str = "sportsmole") -> dict:
     data = load_store(stamp)
     item = {
         "home": home,
         "away": away,
-        "source": "manual" if manual else "sportsmole",
+        "provider": "manual" if manual else provider,
+        "source": "manual" if manual else provider,
         "predicted": manual or (parsed.get("predicted") or ""),
         "note": parsed.get("note", ""),
         "lineup": parsed.get("lineup", ""),
+        "stale_risk": bool(parsed.get("stale_risk")),
         "url": (row or {}).get("href", ""),
         "fetched_at": dt.datetime.now().strftime("%Y-%m-%d %H:%M"),
     }
@@ -202,39 +294,103 @@ def cmd_index(args) -> int:
     return 0
 
 
+def _via_sportsmole(home: str, away: str, aliases: dict, idx: list[dict]) -> tuple[dict | None, dict]:
+    row = find_preview(home, away, aliases, idx)
+    if not row:
+        return None, {}
+    html = _get(row["href"], RAW / (re.sub(r"[^a-z0-9]+", "_", row["href"].lower())[-80:] + ".html"))
+    return row, parse_preview(html)
+
+
+def _via_sportskeeda(home: str, away: str, league: str, aliases: dict) -> tuple[dict | None, dict]:
+    for row in find_sk_roundup(home, away, league, aliases):
+        html = _get(row["href"], RAW / (re.sub(r"[^a-z0-9]+", "_", row["href"].lower())[-70:] + ".html"))
+        parsed = parse_sk_prediction(html, home, away, aliases)
+        if parsed:
+            return row, parsed
+    return None, {}
+
+
 def cmd_match(args) -> int:
     aliases = load_aliases()
-    idx = fetch_index()
-    row = find_preview(args.home, args.away, aliases, idx)
-    if not row:
-        print(f"未找到 Sports Mole 预测页：{args.home} vs {args.away}")
-        print("  可能原因：未开赛太早/索引未收录/队名没在 team_aliases.json 里")
-        print("  兜底：把外部预测手写成 --manual \"埃弗顿 2-1 切尔西\"")
+    league = args.league or ""
+    item = None
+    if args.provider in ("auto", "sportsmole"):
+        idx = fetch_index()
+        row, parsed = _via_sportsmole(args.home, args.away, aliases, idx)
+        if row:
+            item = add_item(args.home, args.away, row, parsed, args.date,
+                            manual=args.manual, provider="sportsmole")
+    if item is None and args.provider in ("auto", "sportskeeda"):
+        if not league:
+            print("Sportskeeda 需要联赛（--league 英超/西甲/法甲/意甲/德甲）")
+        else:
+            row, parsed = _via_sportskeeda(args.home, args.away, league, aliases)
+            if row:
+                item = add_item(args.home, args.away, row, parsed, args.date,
+                                manual=args.manual, provider="sportskeeda")
+    if item is None and args.manual:
+        item = add_item(args.home, args.away, None, {}, args.date, manual=args.manual, provider="manual")
+    if item is None:
+        print(f"两个自动源都没拿到：{args.home} vs {args.away}")
+        print("  兜底：--manual \"埃弗顿 2-1 切尔西\"（人工摘录，标注 manual）")
         return 2
-    html = _get(row["href"], RAW / (re.sub(r"[^a-z0-9]+", "_", row["href"].lower())[-80:] + ".html"))
-    parsed = parse_preview(html)
-    item = add_item(args.home, args.away, row, parsed, args.date, manual=None)
     print(json.dumps(item, ensure_ascii=False, indent=2))
     return 0
 
 
 def cmd_batch(args) -> int:
-    lines = [l.strip() for l in Path(args.file).read_text(encoding="utf-8").splitlines() if l.strip()]
+    lines = [l.strip() for l in Path(args.file).read_text(encoding="utf-8").splitlines() if l.strip() and not l.startswith("#")]
     aliases = load_aliases()
     idx = fetch_index()
+    ok = miss = 0
     for line in lines:
         parts = line.replace(",", " ").split()
         if len(parts) < 2:
             continue
         home, away = parts[0], parts[1]
-        row = find_preview(home, away, aliases, idx)
+        league = parts[2] if len(parts) > 2 else ""
+        row, parsed, prov = None, {}, ""
+        if args.provider in ("auto", "sportsmole"):
+            row, parsed = _via_sportsmole(home, away, aliases, idx)
+            prov = "sportsmole"
+        if not row and args.provider in ("auto", "sportskeeda") and league:
+            row, parsed = _via_sportskeeda(home, away, league, aliases)
+            prov = "sportskeeda"
         if not row:
             print(f"[MISS] {home} vs {away}")
+            miss += 1
             continue
-        html = _get(row["href"], RAW / (re.sub(r"[^a-z0-9]+", "_", row["href"].lower())[-80:] + ".html"))
-        parsed = parse_preview(html)
-        add_item(home, away, row, parsed, args.date)
-        print(f"[OK]   {home} vs {away} → {parsed.get('predicted', '?')}")
+        add_item(home, away, row, parsed, args.date, provider=prov)
+        tag = "SK" if prov == "sportskeeda" else "SM"
+        print(f"[OK/{tag}] {home} vs {away} → {parsed.get('predicted', '?')}")
+        ok += 1
+    print(f"命中 {ok} 场 / 未命中 {miss} 场")
+    return 0
+
+
+def cmd_doctor(args) -> int:
+    """体检：哪个源能用、哪个要 key、哪个被墙。"""
+    import os as _os
+    rows = []
+    try:
+        idx = fetch_index(force=True)
+        rows.append(("Sports Mole", "可用", f"索引 {len(idx)} 条"))
+    except Exception as e:
+        rows.append(("Sports Mole", "失败", type(e).__name__))
+    for lg, hub in SK_HUBS.items():
+        try:
+            html = _get(hub, RAW / f"sk_hub_{lg}.html", timeout=20)
+            n = len(set(re.findall(r'href="(/football/[^"]*-vs-[^"]*)"', html)))
+            rows.append((f"Sportskeeda {lg}", "可用", f"vs 链接 {n} 条"))
+        except Exception as e:
+            rows.append((f"Sportskeeda {lg}", "失败", type(e).__name__))
+    key = _os.environ.get("API_FOOTBALL_KEY", "")
+    rows.append(("API-Football", "有 key" if key else "缺 key", "环境变量 API_FOOTBALL_KEY" if key else "去 dashboard.api-football.com 免费注册后 export"))
+    print(f"{'源':18s} {'状态':8s} 说明")
+    print("-" * 60)
+    for a, b, c in rows:
+        print(f"{a:18s} {b:8s} {c}")
     return 0
 
 
@@ -298,8 +454,8 @@ def cmd_report(args) -> int:
         "",
         "> 外部预测只作第三方参照，不改模型结论；引用时写「公开赛前预报」这类中性说法，不带操作建议。",
         "",
-        "| 对阵 | 外部预测 | 外部方向 | 后台模型 主/平/客 | 市场折算 主/平/客 | 模型最靠前 | 摘要 |",
-        "|:--|:--|:--|:--|:--|:--|:--|",
+        "| 对阵 | 来源 | 外部预测 | 外部方向 | 后台模型 主/平/客 | 市场折算 主/平/客 | 模型最靠前 | 摘要 |",
+        "|:--|:--|:--|:--|:--|:--|:--|:--|",
     ]
     flags = []
     for it in data["items"]:
@@ -316,7 +472,11 @@ def cmd_report(args) -> int:
                 flags.append(f"{it['home']}（外部 {d} / 模型 {top}）")
         fmt = lambda t: " / ".join(f"{x:.1f}" for x in t) if t else "—"
         note = (it.get("note") or "").replace("|", "/")[:60]
-        lines.append(f"| {it['home']} vs {it['away']} | {pred} | {d or '—'} | {fmt(mdl)} | {fmt(mkt)} | {top or '—'} | {note} |")
+        prov = {"sportsmole": "Sports Mole", "sportskeeda": "Sportskeeda", "manual": "人工摘录"}.get(
+            it.get("provider") or it.get("source") or "", "—")
+        if it.get("stale_risk"):
+            prov += " ⚠️往轮"
+        lines.append(f"| {it['home']} vs {it['away']} | {prov} | {pred} | {d or '—'} | {fmt(mdl)} | {fmt(mkt)} | {top or '—'} | {note} |")
     if flags:
         lines += ["", "**方向不一致（值得单独读的场次）**：" + "；".join(flags)]
     lines += ["", f"抓取时间：{dt.date.today().isoformat()}"
@@ -337,14 +497,19 @@ def main() -> int:
     s.add_argument("--force", action="store_true")
     s.add_argument("--limit", type=int, default=15)
     s.set_defaults(func=cmd_index)
-    s = sub.add_parser("match", help="抓单场")
+    s = sub.add_parser("match", help="抓单场（--provider auto 先 Sports Mole 再 Sportskeeda）")
     s.add_argument("home")
     s.add_argument("away")
     s.add_argument("--manual", default=None)
+    s.add_argument("--league", default="", help="英超/西甲/法甲/意甲/德甲（Sportskeeda 需要）")
+    s.add_argument("--provider", default="auto", choices=["auto", "sportsmole", "sportskeeda"])
     s.set_defaults(func=cmd_match)
-    s = sub.add_parser("batch", help="批量（每行：主队 客队）")
+    s = sub.add_parser("batch", help="批量（每行：主队 客队 [联赛]）")
     s.add_argument("--file", required=True)
+    s.add_argument("--provider", default="auto", choices=["auto", "sportsmole", "sportskeeda"])
     s.set_defaults(func=cmd_batch)
+    s = sub.add_parser("doctor", help="体检：哪个源能用/要 key/被墙")
+    s.set_defaults(func=cmd_doctor)
     s = sub.add_parser("show", help="打印本批记录")
     s.set_defaults(func=cmd_show)
     s = sub.add_parser("report", help="生成 md 对照表")

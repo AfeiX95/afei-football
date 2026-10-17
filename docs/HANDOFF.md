@@ -1987,3 +1987,31 @@ C 篇文件名与标题的「幅度我不追」→「**幅度不必追**」（�
 **坑（已进坑清单）**：①索引页漏场 → 球队页 `/football/<slug>/` 筛 `/preview/` 兜；②`html.unescape` 要先于灭标签，否则 `&nbsp;` 进比分串；③模型文本「让球」行与胜平负行同形，解析要先跳过（否则胜平负被让球三向覆盖——首次即踩）。
 
 **下一步**：外部对照再接进「写稿读取顺序」（Step 6 前先看 `_外部预测对照.md`）；周六八场小红书卡片、付费样册待用户点头；三篇头条稿待发布。
+
+## 2026-10-17 夜里·四十一 — 扩源三条路径实测（Sportskeeda 接成第二源）
+
+**起因（m11169）**：用户给了三条绕开 Cloudflare/登录墙的扩源思路（①公开 API ②低防静态媒体站 ③开源模型/社区均值），要求「不掉进泥潭」地扩 1 个备选自动源。
+
+**逐条实测**
+
+| 路径 | 目标 | 结果 |
+|:--|:--|:--|
+| ① | API-Football（api-sports.io） | 无 key **403**；`/predictions` 可用但要注册；已留 `API_FOOTBALL_KEY` 位 |
+| ① | football-data.org | 无 token 返回错误 JSON，且 **v4 无预测端点**（只有赛程比分）→ 不是预测源 |
+| ② | **Sportskeeda** | ✅ 站没被墙（200 无 CF）；汇总文格式 `Prediction: Everton 2-1 Chelsea`，**已接成第二自动源**；但聚合页常列**往轮**（实测 GW31/32/34），本轮命中 2/6 且都 `stale_risk` |
+| ② | Squawka | ❌ 403 `Just a moment...`（Cloudflare） |
+| ② | WhoScored | ❌ 403 `Attention Required!`，且要 matchId 才能进 Preview |
+| ③ | GitHub 权重 / Superbru | 口径不可对齐、社区均值需登录 → 暂不接 |
+| Agent 路线 | 端到端 Agent 爬虫 | **不做**（慢、贵、易断流）；改为「缺 1–2 场时由 agent 现场搜 → `--manual` 回填」 |
+
+**代码改动**（`scripts/ext_predict.py`）
+- 新增 `SK_HUBS`（英超/西甲/法甲/意甲/德甲 → `/go/<联赛>`）+ `find_sk_roundup()` + `parse_sk_prediction()`（抠 `Prediction:` 行、规范化队名、**客队在前自动翻转成主队在前**、标 `stale_risk`）
+- `match`/`batch` 加 `--provider {auto,sportsmole,sportskeeda}`；批量文件第三列＝联赛（才会走 SK 兜底）
+- 新命令 `doctor`：逐源体检（SM 索引条数 / SK 各联赛 vs 链接数 / API key 是否在）
+- `add_item` 增 `provider` + `stale_risk` 字段；`report` 加**来源列**（Sportskeeda 命中标 ⚠️往轮）
+
+**实测输出**：`doctor` → SM 可用（索引 25 条）、SK 英超可用 14 条 / 西甲 3 条 / 法甲 0 条 / 意甲 0 条 / 德甲 1 条、API-Football 缺 key。SK 六场命中 2（埃弗顿 1-1 切尔西、布伦特 1-3 利物浦，均往轮汇总）。
+
+**文档**：`📚知识库/写作指南/外部预测源实测.md` 增「一B 三条扩源路径实测」「一C Browser Agent 怎么用」，限制补到 7 条；`docs/WORKFLOW.md` §3B 改写为双源 + doctor。
+
+**待用户拍板**：要不要去 dashboard.api-football.com 注册免费 key（100 次/天，能彻底补覆盖率）——拿到后 `export API_FOOTBALL_KEY=...` 即可开；SK 的往轮问题是否值得再写个「轮次校验」（会多一次页面解析，收益不确定）。
