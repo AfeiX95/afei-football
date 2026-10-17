@@ -593,6 +593,12 @@ def _dir_from_score(pred: str) -> str:
 def cmd_key(args) -> int:
     """写入/查看 API-Football key（落 state/api-keys.json，已 gitignore）。"""
     if args.set:
+        val = args.set.strip()
+        if val == "-":
+            val = sys.stdin.read().strip()
+            if not val:
+                print("stdin 是空的：Get-Clipboard | python scripts/ext_predict.py key --set -")
+                return 2
         KEYS_FILE.parent.mkdir(parents=True, exist_ok=True)
         d = {}
         if KEYS_FILE.exists():
@@ -600,7 +606,7 @@ def cmd_key(args) -> int:
                 d = json.loads(KEYS_FILE.read_text(encoding="utf-8"))
             except Exception:
                 d = {}
-        d["api_football"] = args.set.strip()
+        d["api_football"] = val
         KEYS_FILE.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"已写入 {KEYS_FILE.relative_to(ROOT)}（key 长度 {len(d['api_football'])}）")
         return 0
