@@ -1,4 +1,4 @@
-# 写作管线速查（10步 · v2.5 — 2026-10-15）
+# 写作管线速查（10步 · v2.6 — 2026-10-17）
 
 > 完整版在技能 `football-match-preview-pipeline` v3.0。此处为速查卡片，任何 agent 都能照着走。
 > v2.5 变更（2026-10-15，周五档三篇两轮改写沉淀）：
@@ -52,6 +52,18 @@ python scripts/brief.py
 - `home_stats = {scored, conceded, played, weight}`；纸面 = `{attack, midfield, defense, worthScore, morale}`
 - 🔴 **样本质量权重惯例**：热身 2/10→0.90、4/10→0.85、5-6/10→0.75-0.80；**升班马/次级联赛+热身灌水样本→0.45-0.60**（失真悬崖，权重选择须在分析文件写明并解释）；对手质量高（vs 强队热身）可不下调
 - 🔴 **临时 runner 惯例**：写 ASCII 路径（`database/`）输出 JSON，跑完即删；**emoji 路径（📝文章/📚知识库）python 子进程写入被沙箱拒**（WinError 5）
+
+### 3B. 外部预测对照（第三方参照层 · 2026-10-17 起，v2.6）
+- 一条命令出「外部预测 / 后台模型 / 市场折算」三方表：
+  ```bash
+  python scripts/ext_predict.py --date YYYYMMDD batch --file state/_tmp_fixtures.txt   # 每行：主队 客队
+  python scripts/ext_predict.py --date YYYYMMDD report                                 # → 📝文章/<日期>/_外部预测对照.md
+  ```
+  脚本自带别名表 `database/config/team_aliases.json`（中文队名 → 联赛 / Sports Mole slug），缓存落 `state/_ext_raw/`，本批记录落 `state/_ext_<日期>.json`
+- **能接的只有 Sports Mole**：Forebet／PredictZ／Windrawwin／NerdyTips／FootyStats／AiScore／KickOff 全部被 Cloudflare 或登录墙挡死（requests 与 Playwright 真 Chrome 都试过），别在这上面耗时间；无 Sports Mole 预览页的场次走 `match --manual --predicted "2-1"` 人工摘录（标注 `manual`）
+- 🔴 **用法边界**：外部预测**只作参照，不改模型结论**；方向不一致的场次反而是选题金矿（分歧＝可写的结构性矛盾），在稿子里写成「公开赛前预报怎么看 vs 后台模型怎么看」
+- 🔴 **合规写法**：外媒预测一律写成「公开赛前预报／第三方直播站的赛前判断」，**不带操作建议**，不写「推荐」「跟着买」；摘要引用英文原句时只取判断句，不取赔率句
+- 详细平台实测记录与源清单：`📚知识库/写作指南/外部预测源实测.md`
 - 🔴 **引擎局限背书（必做）**：引擎无 H2H/伤停/战意输入 → 深度版必须人工补「H2H 克星 / 伤停折损 / 战意」背书，模型数字只作参照；无外媒源不编造，**直接省略该段**（不写"待补"占位）
 - 🔴 **模型翻转信号降权**：连续多批看空豪门时全体打折——强队让-1 打穿下修三连证伪（皇马42.6%/巴萨40.1%/米兰12.7%→全打穿）→ **强队让-1 打穿不下修**；LASK/里尔式翻转用「保护层」（受让+1）表达，不直取方向
 

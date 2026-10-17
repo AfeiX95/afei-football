@@ -120,6 +120,10 @@
     {
       "type": "发布",
       "text": "20261017 周六头条三篇已出稿并过门禁（3/3）：A 019+018+007 1787 字 / B 026+029 1480 字 / C 022 1137 字，用户今日分时段自行后台发布（不用 agent 代发）；周六八场小红书卡片与付费样册未开工"
+    },
+    {
+      "type": "待拍板",
+      "text": "外部预测对照层已接进管线（2026-10-17，用户 m11010「帮我接搭建落地」）：`scripts/ext_predict.py`（index/match/batch/show/report）+ `database/config/team_aliases.json` + `state/_ext_raw/` 缓存，报告落 `📝文章/<日期>/_外部预测对照.md`（三方表 + 方向不一致清单），文档见 `📚知识库/写作指南/外部预测源实测.md`、WORKFLOW v2.6 §3B、坑#77/#78。实测：十家里只有 Sports Mole 能自动抓，其余被 Cloudflare/登录墙挡死。待拍板：①这条对照要不要正式写进头条稿（现在只在报告里参照）——写成「公开赛前预报怎么看 vs 后台模型怎么看」是否需要固定成一段？②要不要把外部预测接进小红书卡片的 brief 字段？③Sofascore/足彩站的人工摘录要不要固化成模板。"
     }
   ],
   "pending_checks": [
@@ -190,7 +194,7 @@
     }
   ],
   "counters": {
-    "open_items": 18,
+    "open_items": 19,
     "pending_checks": 3,
     "task_log": 103,
     "candidate_rules": 26

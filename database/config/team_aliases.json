@@ -1,0 +1,146 @@
+{
+  "_comment": "中文队名 → 外部源标识（Sports Mole slug 为主）。新队按下例加，slug 可在 sportsmole 站 URL 里看到。",
+  "曼城": {
+    "sm_slug": "man-city",
+    "en": "Man City"
+  },
+  "伊普斯": {
+    "sm_slug": "ipswich-town",
+    "sm_alias": [
+      "ipswich"
+    ],
+    "en": "Ipswich"
+  },
+  "布伦特": {
+    "sm_slug": "brentford",
+    "en": "Brentford"
+  },
+  "利物浦": {
+    "sm_slug": "liverpool",
+    "en": "Liverpool"
+  },
+  "埃弗顿": {
+    "sm_slug": "everton",
+    "en": "Everton"
+  },
+  "切尔西": {
+    "sm_slug": "chelsea",
+    "en": "Chelsea"
+  },
+  "贝蒂斯": {
+    "sm_slug": "real-betis",
+    "en": "Real Betis",
+    "sm_alias": [
+      "betis"
+    ]
+  },
+  "巴萨": {
+    "sm_slug": "barcelona",
+    "en": "Barcelona",
+    "sm_alias": [
+      "barca"
+    ]
+  },
+  "巴伦西亚": {
+    "sm_slug": "valencia",
+    "en": "Valencia"
+  },
+  "毕尔巴鄂": {
+    "sm_slug": "athletic-bilbao",
+    "en": "Athletic Bilbao"
+  },
+  "斯特拉斯": {
+    "sm_slug": "strasbourg",
+    "en": "Strasbourg"
+  },
+  "巴黎圣曼": {
+    "sm_slug": "paris-saint-germain",
+    "sm_alias": [
+      "psg"
+    ],
+    "en": "Paris Saint-Germain"
+  },
+  "阿森纳": {
+    "sm_slug": "arsenal",
+    "en": "Arsenal"
+  },
+  "曼联": {
+    "sm_slug": "man-utd",
+    "sm_alias": [
+      "manchester-united"
+    ],
+    "en": "Man Utd"
+  },
+  "热刺": {
+    "sm_slug": "tottenham-hotspur",
+    "sm_alias": [
+      "tottenham"
+    ],
+    "en": "Tottenham"
+  },
+  "皇马": {
+    "sm_slug": "real-madrid",
+    "en": "Real Madrid"
+  },
+  "马竞": {
+    "sm_slug": "atletico-madrid",
+    "en": "Atletico Madrid"
+  },
+  "拜仁": {
+    "sm_slug": "bayern-munich",
+    "sm_alias": [
+      "bayern"
+    ],
+    "en": "Bayern Munich"
+  },
+  "多特": {
+    "sm_slug": "borussia-dortmund",
+    "sm_alias": [
+      "dortmund"
+    ],
+    "en": "Dortmund"
+  },
+  "尤文": {
+    "sm_slug": "juventus",
+    "en": "Juventus"
+  },
+  "国米": {
+    "sm_slug": "inter-milan",
+    "sm_alias": [
+      "inter"
+    ],
+    "en": "Inter Milan"
+  },
+  "米兰": {
+    "sm_slug": "ac-milan",
+    "en": "AC Milan"
+  },
+  "那不勒斯": {
+    "sm_slug": "napoli",
+    "en": "Napoli"
+  },
+  "罗马": {
+    "sm_slug": "roma",
+    "en": "Roma"
+  },
+  "拉齐奥": {
+    "sm_slug": "lazio",
+    "en": "Lazio"
+  },
+  "里昂": {
+    "sm_slug": "lyon",
+    "en": "Lyon"
+  },
+  "马赛": {
+    "sm_slug": "marseille",
+    "en": "Marseille"
+  },
+  "摩纳哥": {
+    "sm_slug": "monaco",
+    "en": "Monaco"
+  },
+  "里尔": {
+    "sm_slug": "lille",
+    "en": "Lille"
+  }
+}
