@@ -34,7 +34,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-RAW = ROOT / "state" / "_ext_raw"
+RAW = ROOT / "state" / "cache" / "_ext_raw"
+RECORDS = ROOT / "state" / "records"
+BATCH_DIR = ROOT / "state" / "batch"
 ALIASES = ROOT / "database" / "config" / "team_aliases.json"
 UA = {
     "User-Agent": (
@@ -172,7 +174,8 @@ def parse_preview(html: str) -> dict:
 
 # ---------------------------------------------------------------- 落盘
 def store_path(stamp: str) -> Path:
-    return ROOT / "state" / f"_ext_{stamp}.json"
+    RECORDS.mkdir(parents=True, exist_ok=True)
+    return RECORDS / f"_ext_{stamp}.json"
 
 
 def load_store(stamp: str) -> dict:
@@ -662,7 +665,7 @@ def cmd_compare(args) -> int:
         return 2
     model_path = Path(args.model) if args.model else None
     if model_path is None:
-        cands = sorted(ROOT.joinpath("state").glob(f"_model_{date}*.txt"))
+        cands = sorted(BATCH_DIR.glob(f"_model_{date}*.txt"))
         model_path = cands[0] if cands else None
     model = load_model(model_path) if model_path else {}
     m_map = {(x["home"], x["away"]): x for x in main["items"]}
@@ -721,7 +724,7 @@ def cmd_report(args) -> int:
         return 2
     model_path = Path(args.model) if args.model else None
     if model_path is None:
-        cands = sorted(ROOT.joinpath("state").glob(f"_model_{args.date}*.txt"))
+        cands = sorted(BATCH_DIR.glob(f"_model_{args.date}*.txt"))
         model_path = cands[0] if cands else None
     model = load_model(model_path) if model_path else {}
     out_dir = ROOT / "📝文章" / args.date

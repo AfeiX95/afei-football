@@ -25,6 +25,9 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATE = os.path.join(ROOT, "state")
+# state 分层（2026-10-17）：契约文件留在 state/ 根，缓存与批次产物进子目录
+STATE_MATCHES = os.path.join(STATE, "matches")   # state/matches/<竞彩id>/
+STATE_BATCH = os.path.join(STATE, "batch")       # state/batch/_model_*.txt、_slate.json
 
 # ── 手填区：联赛「主/客分离」进失球（来源＝竞彩官方特征分析页的积分榜）──────────
 # league = (场次, 进球, 失球)
@@ -181,7 +184,7 @@ def run(mid, slate):
     if not m:
         print("!! %s 不在 MATCHES 里" % mid)
         return
-    d = os.path.join(STATE, "_match_%s" % mid)
+    d = os.path.join(STATE_MATCHES, str(mid))
     fe = (jload(os.path.join(d, "feature.json")) or {}).get("value") or {}
     hi = (jload(os.path.join(d, "history.json")) or {}).get("value") or {}
     inj = (jload(os.path.join(d, "injury.json")) or {}).get("value") or {}
@@ -317,7 +320,7 @@ def main():
     ap.add_argument("--all", action="store_true")
     a = ap.parse_args()
     ids = list(MATCHES) if a.all else a.ids
-    sp = os.path.join(STATE, "_slate.json")
+    sp = os.path.join(STATE_BATCH, "_slate.json")
     slate = {}
     if os.path.exists(sp):
         val = jload(sp).get("value") or {}

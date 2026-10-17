@@ -236,7 +236,7 @@ def build_one(card: dict, root: Path) -> dict:
     mid = card.get("sporttery_match_id") or card.get("matchId")
     if not mid:
         raise ValueError("缺 sporttery_match_id")
-    d = root / "state" / f"_match_{mid}"
+    d = root / "state" / "matches" / str(mid)
     if not d.exists():
         raise FileNotFoundError(f"没有本地缓存 {d}（先跑 python scripts/sporttery_fetch.py match {mid}）")
     feat, res, hist = val(d, "feature"), val(d, "result"), val(d, "history")
@@ -282,7 +282,7 @@ def build_one(card: dict, root: Path) -> dict:
             "h2h_short": ("近 %d 次交锋 %d胜%d平%d负" % (n_h2h, hw, dr, aw_)) if n_h2h else "",
             "h2h_used": bool(use_h2h), "window": "近 5 场 / 同主客 10 场"}
     brief = brief_of(card, form, hm, aw, inj, head_, eh)
-    return {"form": form, "radar": radar, "match_dir": f"state/_match_{mid}", "brief": brief}
+    return {"form": form, "radar": radar, "match_dir": f"state/matches/{mid}", "brief": brief}
 
 
 def enrich(cards_path: Path, force=False, dry=False) -> int:

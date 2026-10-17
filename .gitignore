@@ -6,33 +6,25 @@ venv/
 .uv-cache/
 _incoming/
 
-# 竞彩官方 webapi 取数的临时产物（scripts/sporttery_fetch.py 默认落 state/，不入库）
-state/_tmp_*
-state/_match_*/
-state/_form*.json
-state/_bonus_*.json
-state/_slate.json
-state/_results_*.json
+# ── state 分层（2026-10-17，结构见 docs/STRUCTURE.md）───────────────────
+# state 根只留契约文件：model-state.json / task-log.json / xhs_styles.json /
+# xhs_templates.json / api-keys*.json / odds.sqlite。其余一律进子目录并整体忽略。
+# 注意：.gitignore 不支持行尾注释，注释必须单独成行（坑#82）
+state/matches/
+state/cache/
+state/batch/
+state/tmp/
+# state/records/ 不忽略：外部预测记录 state/records/_ext_<日期>.json 体量小、要留档
+
 # 本地盘口库（scripts/odds_snapshot.py 攒的盘口位移历史，属本机采集资产，见 📚知识库/数据源/本地盘口库.md）
 state/odds.sqlite
 state/odds.sqlite-journal
-# 小红书「市场版」矩阵的默认出图目录（正式批次在 📝文章/<日期>/小红书/）
-state/xhs_auto/
-# 出图风格试版/预览（选版后正式出到 📝文章/<日期>/小红书/，预览不入库）
-state/xhs_preview/
-state/xhs_html_*/
-# xhs_html.py 的临时 HTML 目录残留（进程被杀时）→ 上面那条
-📝文章/*/小红书_预览/
-# 临时日志（pwsh 里 `python x.py | Out-File -Encoding utf8 state\_x.txt`）
-state/_*.txt
-state/_*.log
+
 # 小红书出图后的派生产物（scripts/cards_post.py 的 WebP 发布版、scripts/cards_pdf.py 的合订 PDF）：
 # 都能用 `卡片发布版.cmd` 几秒重生，不入库，免得每批多背 6 MB
 📝文章/*/小红书*/发布版/
 📝文章/*/小红书*/卡片合集.pdf
-
-# 外部预测原始 HTML 缓存（可重新抓取，不入库）
-state/_ext_raw/
+📝文章/*/小红书_预览/
 
 # 本地 API key（不入库）
 state/api-keys.json

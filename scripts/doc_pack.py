@@ -38,6 +38,7 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 ROOT = Path(__file__).resolve().parent.parent
 STATE = ROOT / "state"
+STATE_BATCH = STATE / "batch"   # 分层后模型文本落在 state/batch/
 
 CHROME_CANDIDATES = [
     r"C:\Program Files\Google\Chrome\Application\chrome.exe",
@@ -510,7 +511,7 @@ def html_to_pdf(html_path: Path, pdf_path: Path) -> tuple[bool, str]:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--model", default=str(STATE / "_model_20261016_fri.txt"))
+    ap.add_argument("--model", default=str(STATE_BATCH / "_model_20261016_fri.txt"))
     ap.add_argument("--cards", default=str(ROOT / "📝文章/20261016/小红书_周五八场/cards.json"))
     ap.add_argument("--out", default=str(ROOT / "📝文章/20261016/付费资料_全维度拆解_样册_v0.1.pdf"))
     ap.add_argument("--html-only", action="store_true")

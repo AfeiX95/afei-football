@@ -499,7 +499,7 @@ def run(input_path=None, auto=False, num="", limit=0, out=""):
     else:
         data = auto_cards(num)
         cards = data["matches"]
-        outdir = out or os.path.join(ROOT, "state", "xhs_auto")
+        outdir = out or os.path.join(ROOT, "state", "cache", "xhs_auto")
 
     if limit:
         cards = cards[:limit]

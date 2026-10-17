@@ -54,6 +54,7 @@ python scripts/sync.py --status   # 只看状态
 | 历史比赛分析 | `📚知识库/比赛分析/{联赛}/` |
 | 模型参数全量 | `database/config/model-parameters.json` |
 | 图表/文章交付物 | `📝文章/YYYYMMDD/` |
+| **目录结构 / 新文件放哪 / 归档规则** | `docs/STRUCTURE.md`（主次分区、state 分层、不许改名的路径清单；一句话版见根 `README.md`） |
 | 项目真源声明 | `SOURCE_OF_TRUTH.md` |
 | 跨机同步 / 换机器 / 推远端 | `python scripts/sync.py` + `docs/SYNC.md` |
 | **公司电脑那份工程**（AFEI 引擎 monorepo） | `公司机_工程/`（该子树自带 `AGENTS.md`/`.hermes.md`/`.gitignore`）|
@@ -111,6 +112,9 @@ python scripts/sync.py --status   # 只看状态
 常用路径：写文 = `afei-writing-standards` → `football-match-preview-article` → `humanizer-zh`；跑模型 = `match-model-pipeline`；赛后校验 = `football-calibration-batch`。
 
 ## state 结构（schema v2 · 2026-10-07 冷热分离）
+
+> 📁 **目录分层（2026-10-17 起）**：`state/` 根上只留 6 个契约文件（`model-state.json` `task-log.json` `xhs_styles.json` `xhs_templates.json` `api-keys.json` `odds.sqlite`），其余进 `matches/<竞彩id>/`（单场缓存）、`batch/`（`_model_*.txt`/`_slate.json`）、`cache/`（形态/赛果/外部预测原始页/出图临时）、`records/`（`_ext_<日期>.json`，入库）、`tmp/`（临时，永不入库）。新增缓存先落子目录，别往根上扔 —— 详见 `docs/STRUCTURE.md`。
+
 | 键 | 含义 | 热/冷 |
 |:---|:---|:---|
 | `calibration` | 批次 / 累计场次 / 方向正确数 / 方向率 | 热 |

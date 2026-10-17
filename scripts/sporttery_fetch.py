@@ -45,6 +45,10 @@ HOME = "https://www.sporttery.cn/"
 HOST = "https://webapi.sporttery.cn"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "state")
+# state 分层（2026-10-17）：见 docs/STRUCTURE.md
+OUT_MATCHES = os.path.join(OUT, "matches")
+OUT_BATCH = os.path.join(OUT, "batch")
+OUT_CACHE = os.path.join(OUT, "cache")
 
 # 比赛全量：路径 → 落盘文件名（全部实测 200，2026-10-11）
 MATCH_EPS = [
@@ -103,7 +107,7 @@ def summarize(b):
 
 def cmd_match(ids, term=10):
     for mid in ids:
-        d = os.path.join(OUT, "_match_%s" % mid)
+        d = os.path.join(OUT_MATCHES, str(mid))
         os.makedirs(d, exist_ok=True)
         print("=" * 70)
         print("MATCH", mid, "→", os.path.relpath(d, ROOT))
@@ -119,7 +123,7 @@ def cmd_form(team_ids, term=10):
     for tid in team_ids:
         st, b = get("/gateway/uniform/football/team/getMatchResultV1.qry",
                     {"gmTeamId": tid, "termLimits": term},
-                    os.path.join(OUT, "_form%d_%s.json" % (term, tid)))
+                    os.path.join(OUT_CACHE, "_form%d_%s.json" % (term, tid)))
         print("  team %-9s %-5s raw=%-9s %s" % (tid, st, len(b), summarize(b)))
         time.sleep(0.25)
 
@@ -137,7 +141,7 @@ def cmd_bonus(ids):
 def cmd_slate(nums=None, dump=True):
     """在售全盘口；nums 给竞彩编号（如 周日013）则只列这些场。"""
     st, b = get("/gateway/uniform/football/getMatchCalculatorV1.qry", {"channel": "c"},
-                os.path.join(OUT, "_slate.json") if dump else None)
+                os.path.join(OUT_BATCH, "_slate.json") if dump else None)
     print("calculator %s raw=%d" % (st, len(b)))
     if st != 200:
         return
@@ -189,7 +193,7 @@ def cmd_results(begin, end=None, nums=None):
     end = end or begin
     params = {"matchBeginDate": begin, "matchEndDate": end, "leagueId": "",
               "pageSize": 100, "pageNo": 1, "isFix": 0, "matchPage": 1, "pcOrWap": 1}
-    out = os.path.join(OUT, "_results_%s_%s.json" % (begin, end))
+    out = os.path.join(OUT_CACHE, "_results_%s_%s.json" % (begin, end))
     st, b = get("/gateway/uniform/football/getUniformMatchResultV1.qry",
                 params, out, referer=REF_SGKJ)
     if st != 200:
