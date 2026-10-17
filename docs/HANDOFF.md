@@ -2199,3 +2199,27 @@ C 篇文件名与标题的「幅度我不追」→「**幅度不必追**」（�
 - 其余五场没有变盘记录（含 022 置信度最高的那场）——要把 `sporttery_fetch.py slate` 改成开赛前多次抓取并落 `_move_` 记录
 - 市场侧大小球盘口、xG/xGA/npxG、PPDA、射门/射正/角球仍未接入（页面已列缺口）
 - 半全场只有 007 有定价，其余场次只在模型侧
+
+## 2026-10-17 夜里·四十九 — 变盘数据接成活链（六场全有）
+
+**起因**：我在交付里写「变盘只有 1/6 场，其余五场没数据」，用户直接指出「竞彩页上有啊，在固定奖金那一栏」。查证成立——`scripts/sporttery_fetch.py` 早就有 `bonus` 模式（`/gateway/uniform/football/getFixedBonusV1.qry`，参数必须**恰好** `clientCode=3001` + `matchId`），我此前只用手工转录的那份，等于把已有能力当缺口。
+
+**做法**：
+- `bonus` 输出目录从 `state/` 根改到 `state/cache/_bonus_<id>.json`（跟新目录分层对齐）
+- 新增 `scripts/move_from_bonus.py`：把 `oddsHistory` 的五个池转成赛博版吃的 `_move_<日期>.json`
+  - `hadList` → `spf[]`（完整时间轴）· `hhadList` → `hand[]`（带 goalLine）
+  - `ttgList` → `goals{old,new}`（s0–s6）· `hafuList` → `htft{old,new}`（半场×全场九格）
+  - `crsList` → `score_pool`（波胆只有当前一版，无历史）
+  - `notes` 自动写读数；手工补录的场次（无 `auto`）转换时保留，不被覆盖
+- 变盘页支持单快照场次：只有一次记录就只报「初盘即最新」，不硬编位移（018 就是这种）
+
+**本批六场的时间轴长度**：007 五个时点 / 018 一个 / 019 两个 / 022 六个 / 026 五个 / 029 两个。（007 的 API 版比手工转录多出 14:37 与 15:34 两次）
+
+**新增两个坑**：
+1. 半全场 API 的键是「半场×全场」两位码（`hh/hd/ha/dh/dd/da/ah/ad/aa`），我第一版把 `hd/ha` 映射反了（把「胜平」当「胜负」）→ 改成 `hh=胜胜 hd=胜平 ha=胜负 dh=平胜 dd=平平 da=平负 ah=负胜 ad=负平 aa=负负`。**别按字面猜顺序**，先看三个真实值是否自洽。
+2. PowerShell 单引号里 `
+` 是字面量，用它替换 JS 代码会写进真反斜杠 + n → `node --check` 报 `Invalid or unexpected token`。多行替换一律走 Python 脚本。
+
+**顺带修的语义**：`pay/rows.reduce(...)*100` 的优先级事故（半场打平算成 169.9%）已改 `pay*rows.reduce(...)*100`；波胆全盘 28 格只列前 12（按赔率升序），表头标注「共 N 格，列前 12」。
+
+**下一步**：变盘现在只需「开赛前多跑几次 bonus」，不需要新采集器——真正要做的是把它挂到日常流程：开赛前 3 小时与临场 30 分钟各跑一次 `bonus` + `move_from_bonus`，下批就有六场完整时间轴。

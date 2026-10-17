@@ -136,6 +136,12 @@ python scripts/brief.py
 - **口径红线（与公开稿不同，别混）**：内部资料可用「盘口/固定奖金/返奖率/溢价/水位」；公开稿仍走 R41 禁用词。接口免费层的坏值（`10/45/45`、进球 `-2.5`）**内部资料同样不采信**，只留方向
 - 🔴 免责必留：内部复盘、不公开投放、不对外销售、不构成购买建议、只统计 90 分钟；让球临场调整后不许复用旧偏差结论
 - 🔴 **没有数据就写缺口，不许编**：市场侧大小球盘口、xG/xGA/npxG、PPDA、射门射正角球、场地天气、裁判尺度目前都未接入，页面有专门的「未接入的高阶指标」卡逐项列出原因；变盘页只有采到 ≥2 个时点的场次才出图（本批 1/6）
+- **变盘数据是自动的（2026-10-17 补）**：竞彩官网「固定奖金」栏的历史就在 `getFixedBonusV1` 端点里（参数必须恰好 `clientCode=3001` + `matchId`）。三步链：
+  1. `python scripts/sporttery_fetch.py bonus 2042024 2042035 ...` → 落 `state/cache/_bonus_<竞彩id>.json`（每个 pool 都是逐次变盘的数组）
+  2. `python scripts/move_from_bonus.py --date YYYYMMDD` → 转成 `state/records/_move_<日期>.json`（spf/hand 留完整时间轴；goals/htft 给初盘与最新；score_pool 只有当前盘，波胆本身没有历史）
+  3. `python scripts/paid_cyber.py` → 变盘页自动长出来
+  - 手工补录的场次（JSON 里没有 `auto: true`）优先级更高，转换脚本不会覆盖
+  - 位移判读口径：胜负盘与让球盘**同向退水**＝撤的是「赢几个」的筹码；只有让球退水是「打穿难度」变了；单快照场次只敢说「市场一开始就这么看」
 - 旧 A4 打印版：`scripts/paid_report.py`（数据解析层被 `paid_cyber.py` 复用；PDF 默认已关闭，只在明确要打印件时加 `--pdf`）
 
 ## 铁律（写进任何文章前必查）

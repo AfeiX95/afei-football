@@ -767,7 +767,8 @@ function paneMove(m){
       <td class="num">${impl===null?"—":pc(impl)}</td></tr>`;
   }).join("") : "";
 
-  const poolRows = pool.map(x=>{
+  const poolTop = pool.slice(0,12);
+  const poolRows = poolTop.map(x=>{
     const tag = x.s===v.first_score ? "主推首选" : x.s===v.second_score ? "主推次选" : x.s===v.guard_score ? "防冷比分"
       : (x.dir===v.first ? "同向" : "反向");
     const tc = x.s===v.first_score||x.s===v.second_score ? "var(--cyan)" : x.s===v.guard_score ? "var(--mag)" : "var(--muted)";
@@ -781,29 +782,35 @@ function paneMove(m){
   const dHandHome = hp0 && hpN ? +(hpN[0]-hp0[0]).toFixed(1) : null;
   const htDraw = ht ? (pay*ht.rows.filter(r=>["平胜","平平","平负"].includes(r.k) && r.new).reduce((a,r)=>a+1/r.new,0)*100) : null;
 
+  const multi = spf.length >= 2;
   return `
   <div class="flag" style="border-color:var(--cyan);background:rgba(34,211,238,.07)">
-    <b>变盘快照 16:15</b> 共 ${spf.length} 个时点 · 来源：竞彩官方固定奖金记录。
-    客胜水位从开盘 ${f(s0.a,2)} 走到 ${f(sN.a,2)}${dAway!==null&&dAway<0?"，去水概率退到 "+pc(pN[2]):""}；
-    主胜从 ${f(s0.h,2)} 降到 ${f(sN.h,2)}${dHome!==null&&dHome>0?"（"+pc(pN[0])+"，抬了 "+f(dHome)+"pp）":""}。
-    这不是大行情，是同一批筹码在赛前两小时倒手：客胜被从最热的位置推下来，主队不败一侧被抬高。
+    <b>变盘快照</b> 最新 ${esc(sN? sN.t : "—")} · 共 ${spf.length} 个时点 · 来源：竞彩官方固定奖金（getFixedBonusV1）。
+    ${multi
+      ? `客胜水位从开盘 ${f(s0.a,2)} 走到 ${f(sN.a,2)}${dAway<0?"，去水概率退到 "+pc(pN[2]):dAway>0?"，去水概率升到 "+pc(pN[2]):""}；
+         主胜 ${f(s0.h,2)}→${f(sN.h,2)}（${sign(dHome)}pp）。${Math.abs(dAway)>=1
+           ? "撤的是这一侧的筹码，不是小数目。"
+           : "位移不到 1 个百分点，当噪声处理，定价与模型的差才是本场的主要矛盾。"}`
+      : `本场只有开盘这一次快照（初盘即最新），没有位移可读——变盘要 ≥2 个时点才有意义。
+         定价停在 ${pc(pN[2])}（客胜），这张表能给的只有「市场一开始就这么看」，不能给筹码走向。`}
   </div>
 
   <div class="grid2" style="margin-bottom:14px">
     <div class="card hl"><h3>胜平负：固定奖金时间轴<span class="x">去水按返还率 ${pc(pay*100)} 归一</span></h3>
       <table><thead><tr><th>时点</th><th class="mono">主胜</th><th class="mono">平</th><th class="mono">客胜</th><th class="mono">去水 主/平/客</th><th></th></tr></thead>
       <tbody>${spfRows}</tbody></table>
-      <div class="hint">${dAway!==null?`开盘→最新：主胜 ${sign(dHome)}pp、客胜 ${sign(dAway)}pp。
+      <div class="hint">${multi?`开盘→最新：主胜 ${sign(dHome)}pp、客胜 ${sign(dAway)}pp。
         ${Math.abs(dAway)>=1?`客胜一侧退水 ${f(Math.abs(dAway))} 个百分点，是本场唯一一次方向级移动——`:"移动幅度不到 1 个百分点，属于噪声——"}
-        但退完之后客胜仍是三格最高（${pc(pN[2])}），市场没有翻边，只是不再把客胜当成「稳」的一格。`:""}</div>
+        但退完之后客胜仍是三格最高（${pc(pN[2])}），市场没有翻边，只是不再把客胜当成「稳」的一格。`
+        :`只有一次快照，主胜 ${f(sN.h,2)} / 平 ${f(sN.d,2)} / 客胜 ${f(sN.a,2)}，去水 ${pc(pN[0])} / ${pc(pN[1])} / ${pc(pN[2])}。`}</div>
     </div>
     <div class="card hl"><h3>让球(${m.hand>0?"+"+m.hand:m.hand})：受让一侧的筹码走向</h3>
       <table><thead><tr><th>时点</th><th class="mono">主胜</th><th class="mono">平</th><th class="mono">客胜</th><th class="mono">去水 主/平/客</th></tr></thead>
       <tbody>${handRows}</tbody></table>
       <div class="hint">${dHandAway!==null?`让胜 ${f(h0.h,2)}→${f(hN.h,2)}（去水 ${pc(hp0[0])}→${pc(hpN[0])}），让负 ${f(h0.a,2)}→${f(hN.a,2)}（${pc(hp0[2])}→${pc(hpN[2])}）。
-        受让一方被抬价、让负被压价的反向读法是「打穿难度上升」：${sign(dHandHome)}pp 与 ${sign(dHandAway)}pp 都在说主队不败这一侧。`:""}</div>
-      <div class="hint">与胜负盘对照：胜负盘客胜退水 ${dAway!==null?f(Math.abs(dAway),1):"—"}pp、让球盘让负退水 ${dHandAway!==null?f(Math.abs(dHandAway),1):"—"}pp，
-        两层同向退水，说明撤的是「客队赢两球以上」的筹码，不是「客队赢」的筹码。</div>
+        ${Math.abs(dHandHome)>=0.5?"受让一方被抬价、让负被压价的反向读法是「打穿难度上升」："+sign(dHandHome)+"pp 与 "+sign(dHandAway)+"pp 都在说主队不败这一侧。":"让球盘只有这一次快照，没有位移可读。"}`:""}</div>
+      ${multi?`<div class="hint">与胜负盘对照：胜负盘客胜退水 ${dAway!==null?f(Math.abs(dAway),1):"—"}pp、让球盘让负退水 ${dHandAway!==null?f(Math.abs(dHandAway),1):"—"}pp，
+        两层同向退水，说明撤的是「客队赢两球以上」的筹码，不是「客队赢」的筹码。</div>`:""}
     </div>
   </div>
 
@@ -827,7 +834,7 @@ function paneMove(m){
   </div>
 
   <div class="grid2">
-    <div class="card"><h3>波胆池：定价锚在哪<span class="x">按赔率从低到高</span></h3>
+    <div class="card"><h3>波胆池：定价锚在哪<span class="x">按赔率从低到高 · 共 ${pool.length} 格，列前 ${Math.min(12,pool.length)}</span></h3>
       <table><thead><tr><th>比分</th><th class="mono">定价</th><th class="mono">隐含</th><th>方向</th><th>与模型结论</th></tr></thead>
       <tbody>${poolRows}</tbody></table>
       <div class="hint">定价锚是 ${pool.length?esc(pool[0].s):"—"}（${pool.length?f(pool[0].odd,2):"—"}，隐含 ${pool.length?pc(pool[0].p):"—"}），

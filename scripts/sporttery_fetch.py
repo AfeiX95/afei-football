@@ -133,7 +133,7 @@ def cmd_bonus(ids):
     for mid in ids:
         st, b = get("/gateway/uniform/football/getFixedBonusV1.qry",
                     {"clientCode": "3001", "matchId": mid},
-                    os.path.join(OUT, "_bonus_%s.json" % mid))
+                    os.path.join(OUT_CACHE, "_bonus_%s.json" % mid))
         print("  bonus %-9s %-5s raw=%-9s %s" % (mid, st, len(b), summarize(b)))
         time.sleep(0.25)
 
