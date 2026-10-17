@@ -93,6 +93,9 @@ def scan_cards(data: dict, cards=None) -> list:
     for i, it in enumerate(data.get("cover_items") or [], 1):
         hits += scan_text(it, "cover_items[%d]" % i)
     # 每场（注意：`no`（如「周二005」）只是本地文件名标识，数据向卡片不渲染、文案也不写，故不扫）
+    # ⚠️ 2026-10-18：`caption_para` 是**小红书正文**原文，正文判点由 scan_caption 负责
+    #    （禁比分猜测/概率数字）；这里再按通用词表扫一遍没有意义——渲染器会把正文
+    #    原样喂给 scan_text，历史上「机构/定价/三向概率」这类误判由此而来。
     for c in cards:
         tag = "%s %s vs %s" % (c.get("no") or "?", c.get("home") or "?", c.get("away") or "?")
         for key in ("stance", "stance_label", "contrast", "contradiction", "will",

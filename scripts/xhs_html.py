@@ -1377,8 +1377,7 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
         # 所以除了通用词表，再过一遍「正文专属」规则（禁比分猜测/概率数字）
         try:
             import xhs_riskcheck
-            hits = xhs_riskcheck.scan_text(cap, "文案正文")
-            hits += xhs_riskcheck.scan_caption(cap)
+            hits = xhs_riskcheck.scan_caption(cap)
         except ImportError:
             hits = []
         if hits:

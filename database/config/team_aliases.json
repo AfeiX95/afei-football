@@ -195,5 +195,154 @@
   "金泉尚武": {
     "en": "Gimcheon Sangmu",
     "af": "Gimcheon Sangmu"
+  },
+  "兹沃勒": {
+    "en": "PEC Zwolle",
+    "af": "PEC Zwolle"
+  },
+  "前进之鹰": {
+    "en": "Go Ahead Eagles",
+    "af": "Go Ahead Eagles"
+  },
+  "乌迪内斯": {
+    "en": "Udinese",
+    "af": "Udinese"
+  },
+  "莱切": {
+    "en": "Lecce",
+    "af": "Lecce"
+  },
+  "奥萨苏纳": {
+    "en": "Osasuna",
+    "af": "Osasuna"
+  },
+  "桑坦德": {
+    "en": "Racing Santander",
+    "af": "Racing Santander"
+  },
+  "天狼星": {
+    "en": "IK Sirius",
+    "af": "Sirius"
+  },
+  "埃夫斯堡": {
+    "en": "Elfsborg",
+    "af": "IF Elfsborg"
+  },
+  "库奥皮奥": {
+    "en": "KuPS",
+    "af": "KuPS"
+  },
+  "瓦萨": {
+    "en": "VPS",
+    "af": "VPS Vaasa"
+  },
+  "萨普斯堡": {
+    "en": "Sarpsborg 08",
+    "af": "Sarpsborg 08"
+  },
+  "罗森博格": {
+    "en": "Rosenborg",
+    "af": "Rosenborg"
+  },
+  "利兹联": {
+    "en": "Leeds",
+    "af": "Leeds United"
+  },
+  "伯恩茅斯": {
+    "en": "Bournemouth",
+    "af": "Bournemouth"
+  },
+  "桑德兰": {
+    "en": "Sunderland",
+    "af": "Sunderland"
+  },
+  "佛罗伦萨": {
+    "en": "Fiorentina",
+    "af": "Fiorentina"
+  },
+  "科莫": {
+    "en": "Como",
+    "af": "Como"
+  },
+  "昂热": {
+    "en": "Angers",
+    "af": "Angers"
+  },
+  "勒沃库森": {
+    "en": "Bayer Leverkusen",
+    "af": "Bayer Leverkusen"
+  },
+  "弗赖堡": {
+    "en": "Freiburg",
+    "af": "Freiburg"
+  },
+  "塞尔塔": {
+    "en": "Celta Vigo",
+    "af": "Celta Vigo"
+  },
+  "阿拉维斯": {
+    "en": "Alaves",
+    "af": "Deportivo Alaves"
+  },
+  "格罗宁根": {
+    "en": "Groningen",
+    "af": "Groningen"
+  },
+  "阿贾克斯": {
+    "en": "Ajax",
+    "af": "Ajax"
+  },
+  "洛里昂": {
+    "en": "Lorient",
+    "af": "Lorient"
+  },
+  "诺丁汉": {
+    "en": "Nottm Forest",
+    "af": "Nottingham Forest"
+  },
+  "门兴": {
+    "en": "B Monchengladbach",
+    "af": "Borussia Monchengladbach"
+  },
+  "霍芬海姆": {
+    "en": "Hoffenheim",
+    "af": "Hoffenheim"
+  },
+  "亚特兰大": {
+    "en": "Atalanta",
+    "af": "Atalanta"
+  },
+  "马拉加": {
+    "en": "Malaga",
+    "af": "Malaga"
+  },
+  "皇家社会": {
+    "en": "Real Sociedad",
+    "af": "Real Sociedad"
+  },
+  "尤文图斯": {
+    "en": "Juventus",
+    "af": "Juventus"
+  },
+  "尼斯": {
+    "en": "Nice",
+    "af": "Nice"
+  },
+  "塞维利亚": {
+    "en": "Sevilla",
+    "af": "Sevilla"
+  },
+  "弗鲁米嫩": {
+    "en": "Fluminense",
+    "af": "Fluminense"
+  },
+  "桑托斯": {
+    "en": "Santos",
+    "af": "Santos"
+  },
+  "AC米兰": {
+    "sm_slug": "ac-milan",
+    "en": "AC Milan",
+    "af": "AC Milan"
   }
 }
