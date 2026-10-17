@@ -26,3 +26,7 @@ state/xhs_html_*/
 # 临时日志（pwsh 里 `python x.py | Out-File -Encoding utf8 state\_x.txt`）
 state/_*.txt
 state/_*.log
+# 小红书出图后的派生产物（scripts/cards_post.py 的 WebP 发布版、scripts/cards_pdf.py 的合订 PDF）：
+# 都能用 `卡片发布版.cmd` 几秒重生，不入库，免得每批多背 6 MB
+📝文章/*/小红书*/发布版/
+📝文章/*/小红书*/卡片合集.pdf

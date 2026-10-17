@@ -1840,3 +1840,26 @@ C 篇文件名与标题的「幅度我不追」→「**幅度不必追**」（�
 **同步真源**：`📚知识库/写作指南/小红书图文卡片.md` 新增「📝 正文文案模板（2026-10-16 用户定版）」节，输入字段表加 `caption_para` 行，发布流程第 2 步标注口径变更。
 
 **下一步**：本批 9 张 + 文案等发布执行（发布时点待拍板）；三篇头条稿（1791／1350／1440 字）等赛果复核。
+
+## 2026-10-16 夜·三十四 — 出图之后的两步接进管线（用户：接进管线）
+
+**指令（m10259／m10331）**：User said：「接进管线」——把 ArtCraft 套件里真能用的两个（PhotoCraft 批处理、PdfCraft 多页 PDF）做成脚本 + 双击入口，接在 `xhs_html.py` 出图之后。
+
+**新增三件（都在仓库里）**：
+
+| 文件 | 干什么 | 实测（周五八场） |
+|:--|:--|:--|
+| `scripts/cards_post.py` | 逐张 `photocraft-cli convert` 出 WebP 发布版（质量 82），或 `--actions/--action` 走整目录统一动作 | 9 张 **4824 KB → 2906 KB（−40%）**，封面 369→158 KB（−57%） |
+| `scripts/cards_pdf.py` | `batch --steps convert` 逐张转 PDF → `combine` 合并 → `edit --title/--author` 写文档属性；没 PdfCraft 自动退 bundled Pillow | **9 页 3.32 MB**，第 1 页＝封面；`--engine pil` 则 4.89 MB |
+| `卡片发布版.cmd` | 双击跑上面两步（不带参数＝最近一批 小红书*，也可拖文件夹） | 2 张临时批次端到端跑通 |
+
+- 产出落在 `<批次>/发布版/*.webp` 与 `<批次>/卡片合集.pdf`；两者**已加进 `.gitignore`**（几秒可重生，不给每批多背 6 MB）。
+- `cards_pdf.py` 的标题/作者没传时自动从同目录 `cards.json` 取：优先 `caption_title`（带日期，归档有意义）→ `xhs_title` → `title`，作者取 `brand`；实测写入后 `pdfcraft info` 显示 `title=10/16 八场数据：主客场差在哪`、`author=@阿飞·赛博聊球`、`pages=9`。
+
+**踩坑（都是这次现场撞出来的）**：①`photocraft-cli batch` 少了 `--actions` 直接报错，逐张转要走 `convert`；②actions JSON **带 BOM** 会 `actions JSON: expected value at line 1 column 1`；③pwsh 传 `--cmd ID={"preset":"A4"}` 会被拆引号（`key must be a string at line 1 column 2`）→ 从 Python `subprocess` 传 list 参数才安全；④`write` 工具写的 `.cmd` 是 **LF** 行尾，cmd.exe 会拆错行（`'p0"' is not recognized`）→ 必须 CRLF；⑤PdfCraft 没有 image→pdf 的单步，用 `batch --steps convert` + `combine`；⑥`edit` 只写 `--out` 新文件，要 `shutil.move` 覆盖。
+
+**没接的**：DesignCraft（能自己排版导 PDF，是将来做「版式化多页」的正路，但要多页定位命令，未探明）／DeckCraft（ppt 草稿）／FigCraft、PicCraft、ArtCraft、VectorCraft（设计素材，卡片用不上）。现有 HTML+Chrome 渲染仍是定版，不替换。
+
+**真源同步**：`📚知识库/写作指南/小红书图文卡片.md` 新增「📦 出图之后：发布版（WebP）与合订 PDF」节，发布流程加第 6 步。
+
+**下一步**：同上——周五八场 9 张 + 935 字文案等发布时点拍板；三篇头条稿等赛果复核。
