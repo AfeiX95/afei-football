@@ -55,6 +55,7 @@ python scripts/sync.py --status   # 只看状态
 | 模型参数全量 | `database/config/model-parameters.json` |
 | 图表/文章交付物 | `📝文章/YYYYMMDD/` |
 | **目录结构 / 新文件放哪 / 归档规则** | `docs/STRUCTURE.md`（主次分区、state 分层、不许改名的路径清单；一句话版见根 `README.md`） |
+| **可用 skills / 插件对本项目的改进评估** | `docs/TOOLBOX.md`（A/B/C 分级 + 明确不要碰的；只做评估不含配置） |
 | 项目真源声明 | `SOURCE_OF_TRUTH.md` |
 | 跨机同步 / 换机器 / 推远端 | `python scripts/sync.py` + `docs/SYNC.md` |
 | **公司电脑那份工程**（AFEI 引擎 monorepo） | `公司机_工程/`（该子树自带 `AGENTS.md`/`.hermes.md`/`.gitignore`）|
