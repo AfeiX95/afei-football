@@ -297,7 +297,7 @@ def build(date_tag: str) -> str:
             L.append("")
         mv = mv_line(it)
         if mv:
-            L.append(f"**位移**：{mv}")
+            L.append(f"**位移**（{no}）：{mv}")
             L.append("")
         L.append(f"**球队**：{team_line(it)}")
         L.append("")
