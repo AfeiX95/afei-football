@@ -540,15 +540,24 @@ def tactic_read(m) -> str:
     # 攻防强度差 → 谁压谁
     dh = (h.get("gf_avg") or 0) - (a.get("ga_avg") or 0)
     da = (a.get("gf_avg") or 0) - (h.get("ga_avg") or 0)
-    if dh - da >= 0.6:
-        ps.append(f"主队进攻对客队防守占 {sg(dh, 2)} 球的净优势，客队进攻对主队防守只有 {sg(da, 2)}，"
+    # dh / da 是「进球期望减对方失球期望」的正负差，负数意味着连自己那点进攻都补不上对方漏的球。
+    # 必须分开判正负，否则会出现「占 −1.42 球的净优势」这种自相矛盾的句子。
+    if dh >= 0.3 and dh - da >= 0.5:
+        ps.append(f"主队进攻（{f(h.get('gf_avg'), 2)}）对客队失球（{f(a.get('ga_avg'), 2)}）算下来是 "
+                  f"{sg(dh, 2)} 球的正差，客队那一侧只有 {sg(da, 2)}，"
                   "这一场是单边压制形态，主队场面上更主动。")
-    elif da - dh >= 0.6:
-        ps.append(f"客队进攻对主队防守占 {sg(da, 2)} 球的净优势，主队进攻对客队防守只有 {sg(dh, 2)}，"
+    elif da >= 0.3 and da - dh >= 0.5:
+        ps.append(f"客队进攻（{f(a.get('gf_avg'), 2)}）对主队失球（{f(h.get('ga_avg'), 2)}）算下来是 "
+                  f"{sg(da, 2)} 球的正差，主队那一侧只有 {sg(dh, 2)}，"
                   "客队会在场面上更主动，主队多被动应付。")
+    elif dh <= -0.3 and da <= -0.3:
+        ps.append(f"两侧都算不出正差（主 {sg(dh, 2)} / 客 {sg(da, 2)}）："
+                  "两队的进攻产量都补不上对方漏的球，这类场次进球多来自失误与定位球，"
+                  "不是靠阵地打出来的。")
     else:
         ps.append(f"两队攻防对位几乎对称（主 {sg(dh, 2)} / 客 {sg(da, 2)}），"
-                  "谁也没有明显的结构优势，比赛容易在均势里拖延。")
+                  "谁也没有明显的结构优势，胜负多半取决于谁先犯错——"
+                  "注意这只是说没有一边压制，不等于比分小。")
 
     # 节奏：上半场进球占比
     sh, sa = h.get("share_1h"), a.get("share_1h")
@@ -675,6 +684,21 @@ def factor_rows(m) -> str:
     return "".join(out)
 
 
+def _conf_use(total: float) -> str:
+    """按 paid_report.py:236 的档位给「这个分数怎么用」。
+
+    阈值必须与 grade 同源：A≥78 / B≥66 / C≥52 / D<52。
+    早先这里另写了一套 50/70 的阈值，于是出现「信心 52（D · 谨慎）…分数中等」这种自相矛盾。
+    """
+    if total < 52:
+        return "落在 D 档：方向可以看，幅度打对折用，主要问题不是方向不明，而是样本太薄与两法不收敛。"
+    if total < 66:
+        return "落在 C 档：方向可以采信，幅度留余量。"
+    if total < 78:
+        return "落在 B 档：方向与幅度基本可用，仍留一点余量。"
+    return "落在 A 档：方向与幅度都可以按读数采信。"
+
+
 def summary_read(m) -> str:
     """总结分析：一段收口。方向、比分、风险点三件事都要落地。"""
     v = m.get("verdict") or {}
@@ -694,10 +718,7 @@ def summary_read(m) -> str:
         f"这场能不能信，看的是信心 {f(conf.get('total'), 0)}/100"
         f"（{conf.get('grade') or '—'}）：样本 {conf.get('n_sample', 0)} 场、三方同向 "
         f"{conf.get('agree', 0)}/3、比分集中度 {f(conf.get('top3'), 1)}%。"
-        + ("分数偏低，主要不是方向不明，而是样本太薄与两法不收敛，读的时候把幅度打对折。" 
-           if (conf.get("total") or 0) < 45 else
-           "分数中等偏上，方向可以采信，幅度仍要留余量。" if (conf.get("total") or 0) < 70 else
-           "分数偏高，方向与幅度都可以按读数采信。")
+        + _conf_use(conf.get("total") or 0)
     )
     if cold:
         ps.append(

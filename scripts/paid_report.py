@@ -233,9 +233,12 @@ def confidence(d: dict, ext: dict) -> dict:
     w5 = min(10.0, 10 * top3 / 26)
 
     total = w1 + w2 + w3 + w4 + w5
-    grade = "A · 高" if total >= 78 else "B · 中高" if total >= 66 else "C · 中" if total >= 52 else "D · 谨慎"
+    # 档位必须按**展示出来的整数**判，否则 51.6 会显示成 52 却判进 D 档，
+    # 页面上就成了「信心 52（D · 谨慎）」，跟档位说明自相矛盾。
+    shown = round(total)
+    grade = "A · 高" if shown >= 78 else "B · 中高" if shown >= 66 else "C · 中" if shown >= 52 else "D · 谨慎"
     return {
-        "total": round(total), "grade": grade, "n_sample": n, "gap": round(g * 100),
+        "total": shown, "grade": grade, "n_sample": n, "gap": round(g * 100),
         "agree": agree, "maxpp": maxpp, "top3": round(top3, 1),
         "w1": round(w1), "w2": round(w2), "w3": w3, "w4": w4, "w5": round(w5, 1),
         "model_dir": mdl, "market_dir": mkt,
