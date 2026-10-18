@@ -486,6 +486,8 @@ def main() -> None:
     ap.add_argument("--date", default=None, help="YYYYMMDD，缺省取 slate 里最近的 businessDate")
     ap.add_argument("--no-fetch", action="store_true", help="只用已有缓存，不联网抓")
     ap.add_argument("--ext", action="store_true", help="顺带跑一次外部预测采集")
+    ap.add_argument("--leagues", action="store_true",
+                    help="顺带跑一次联赛排名与天气（R48 A 级，走 league_intel.py）")
     ap.add_argument("--quiet", action="store_true")
     a = ap.parse_args()
 
@@ -553,6 +555,25 @@ def main() -> None:
             print("  已跑一次外部预测采集")
         except Exception as exc:  # noqa: BLE001
             print(f"  ⚠️ 外部预测失败：{exc}")
+
+    if a.leagues:
+        cmd = [sys.executable, "-X", "utf8", str(SCRIPTS / "league_intel.py"),
+               "--date", date_tag, "--md", "--quiet", "--nums", *sorted(slate)]
+        if a.no_fetch:
+            cmd.append("--no-net")
+        try:
+            r = subprocess.run(cmd, cwd=str(ROOT), capture_output=True, text=True, timeout=900)
+            lj = INTEL / date_tag / f"_leagues_{date_tag}.json"
+            if lj.exists():
+                ld = json.loads(lj.read_text(encoding="utf-8"))
+                ok = sum(1 for m in ld.get("matches", {}).values()
+                         if m.get("home_rank") and m.get("away_rank"))
+                print(f"  联赛排名 {ok}/{len(ld.get('matches', {}))} 场 · 缺源 {len(ld.get('missing', []))} 条")
+            else:
+                tail = ((r.stderr or "") + (r.stdout or "")).strip().splitlines()[-1:] or [""]
+                print(f"  ⚠️ 联赛排名没出文件：{tail[0][:90]}")
+        except Exception as exc:  # noqa: BLE001
+            print(f"  ⚠️ 联赛排名失败（不影响盘口）：{exc}")
 
     recs = [build_one(no, s, not a.no_fetch, verbose=not a.quiet)
             for no, s in sorted(slate.items())]

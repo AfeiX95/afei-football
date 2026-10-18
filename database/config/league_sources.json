@@ -1,0 +1,103 @@
+{
+ "_comment": "竞彩联赛简称 → 中文维基赛季页检索用的联赛名。kind=split 跨年赛季（2026年至2027年），kind=calendar 日历年赛季（2026年）。页面标题不用写死，脚本按「{年}年{zh}」检索后自动挑。",
+ "意甲": {
+  "zh": "意大利足球甲級聯賽",
+  "kind": "split",
+  "en": "Serie A"
+ },
+ "英超": {
+  "zh": "英格蘭足球超級聯賽",
+  "kind": "split",
+  "en": "Premier League"
+ },
+ "西甲": {
+  "zh": "西班牙足球甲級聯賽",
+  "kind": "split",
+  "en": "La Liga"
+ },
+ "德甲": {
+  "zh": "德國足球甲級聯賽",
+  "kind": "split",
+  "en": "Bundesliga"
+ },
+ "法甲": {
+  "zh": "法國足球甲級聯賽",
+  "kind": "split",
+  "en": "Ligue 1"
+ },
+ "葡超": {
+  "zh": "葡萄牙足球超級聯賽",
+  "kind": "split",
+  "en": "Primeira Liga"
+ },
+ "荷甲": {
+  "zh": "荷蘭足球甲級聯賽",
+  "kind": "split",
+  "en": "Eredivisie"
+ },
+ "英冠": {
+  "zh": "英格蘭足球冠軍聯賽",
+  "kind": "split",
+  "en": "EFL Championship"
+ },
+ "法乙": {
+  "zh": "法國足球乙級聯賽",
+  "kind": "split",
+  "en": "Ligue 2"
+ },
+ "德乙": {
+  "zh": "德國足球乙級聯賽",
+  "kind": "split",
+  "en": "2. Bundesliga"
+ },
+ "荷乙": {
+  "zh": "荷蘭足球乙級聯賽",
+  "kind": "split",
+  "en": "Eerste Divisie"
+ },
+ "澳超": {
+  "zh": "澳大利亞足球甲級聯賽",
+  "kind": "split",
+  "en": "A-League Men"
+ },
+ "巴甲": {
+  "zh": "巴西足球甲級聯賽",
+  "kind": "calendar",
+  "en": "Campeonato Brasileiro Série A"
+ },
+ "瑞超": {
+  "zh": "瑞典足球超級聯賽",
+  "kind": "calendar",
+  "en": "Allsvenskan"
+ },
+ "挪超": {
+  "zh": "挪威足球超級聯賽",
+  "kind": "calendar",
+  "en": "Eliteserien"
+ },
+ "芬超": {
+  "zh": "芬蘭足球超級聯賽",
+  "kind": "calendar",
+  "en": "Veikkausliiga"
+ },
+ "日职": {
+  "zh": "日本職業足球甲級聯賽",
+  "kind": "calendar",
+  "en": "J1 League"
+ },
+ "日乙": {
+  "zh": "日本職業足球乙級聯賽",
+  "kind": "calendar",
+  "en": "J2 League"
+ },
+ "韩职": {
+  "zh": "韓國K聯賽1",
+  "kind": "calendar",
+  "en": "K League 1"
+ },
+ "美职": {
+  "zh": "美國職業足球大聯盟",
+  "kind": "calendar",
+  "en": "Major League Soccer"
+ }
+}

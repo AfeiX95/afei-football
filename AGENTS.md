@@ -19,7 +19,7 @@ python scripts/brief.py
 
 ### 🔴 写稿前必跑：盘口采集与情报单（R48 · 2026-10-18 起）
 ```bash
-python -X utf8 scripts/prematch_intel.py --date YYYYMMDD     # 抓盘口 + 处理 + 情报
+python -X utf8 scripts/prematch_intel.py --date YYYYMMDD --leagues     # 抓盘口 + 处理 + 情报
 ```
 - **写头条文章、做小红书信息卡之前必须先跑**，产出 `state/intel/<date>/_intel_<date>.md`，先读这份再动笔
 - 采集：五套盘口（胜平负 / 让球 / 总进球 / 半全场 / 波胆）历史快照 + 伤停 + 球员 + 近期 + 交锋

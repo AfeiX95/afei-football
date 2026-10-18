@@ -144,6 +144,10 @@
   {
    "type": "研究",
    "text": "三档比分（首选/次选/防范）改法待拍板：2026-10-16~17 窗口 14 场只中 4（28.6%），且 4 个命中里 3 个落在首选档、防范档 0 命中 → 现格式更像「形态描述」而非预测。两个改法：①按比分分布铺开（覆盖累计概率≥40% 的格子，不再固定三档）②保留三档但明写「仅描述最可能形态，不作比分预测」。等用户定。"
+  },
+  {
+   "type": "流程",
+   "text": "联赛排名与天气已脚本化（R48-A · 2026-10-19）：python -X utf8 scripts/league_intel.py --date YYYYMMDD --weekday 周一 --md，或 prematch_intel.py --leagues 一并跑。落 state/intel/<日期>/_leagues_<日期>.{json,md}。10/19 周一 8 场实测 8/8 覆盖。**必须按竞彩编号/周字取场次**（跨零点批次 matchDate 是次日）。仍缺：xG/xGA/npxG、PPDA、定位球 xG（fbref 403、xgstat 429 需换源）、裁判、战意。"
   }
  ],
  "pending_checks": [
@@ -160,7 +164,7 @@
   }
  ],
  "counters": {
-  "open_items": 24,
+  "open_items": 25,
   "pending_checks": 2,
   "task_log": 103,
   "candidate_rules": 26
