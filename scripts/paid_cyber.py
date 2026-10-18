@@ -277,37 +277,76 @@ def score_odds(d: dict) -> dict:
     return {t["s"]: {"p": t["p"], "odd": t["odd"], "ev": t["ev"]} for t in d.get("top", [])}
 
 
-def pick_score(top: list[dict], outcome: str) -> str:
+def pick_score(top: list[dict], outcome: str, exclude: tuple = (), strict: bool = False) -> str:
+    """取该方向下概率最高的比分。
+
+    exclude：已用过的比分跳过，保证首选/次选/防范三档不撞车。
+    strict：只在本方向内取；本方向内没有可选格时返回空串，由调用方决定退回。
+
+    注意：调用方应传入「按概率降序的全矩阵格子」（不是 top12）——
+    top12 里某个方向可能只占一格，排除后就会跨方向退让，
+    这正是「防范 主胜 1-3」这种方向与标签相反的比分的来源。
+    """
     want = {"主胜": lambda s: int(s.split("-")[0]) > int(s.split("-")[1]),
             "平": lambda s: int(s.split("-")[0]) == int(s.split("-")[1]),
             "客胜": lambda s: int(s.split("-")[0]) < int(s.split("-")[1])}[outcome]
     for t in top:
-        if want(t["s"]):
+        if want(t["s"]) and t["s"] not in exclude:
+            return t["s"]
+    if strict:
+        return ""
+    for t in top:
+        if t["s"] not in exclude:
             return t["s"]
     return top[0]["s"]
 
 
-def verdicts(m: dict, top: list[dict]) -> dict:
+def all_cells(mat: list[list[float]]) -> list[dict]:
+    """按概率降序的全部 49 个格子（not top-N）。
+
+    三档比分要保证「防范」落在它自己的方向上，就必须能往下翻——
+    top12 里客胜档常常只有一格，翻不到第二格就只能退回跨方向，
+    于是出现「防范 客胜」却写了主胜比分。全矩阵取保证同向永远有解。
+    """
+    cells = [(i, j, mat[i][j]) for i in range(MAXG) for j in range(MAXG)]
+    cells.sort(key=lambda x: -x[2])
+    return [{"s": f"{i}-{j}", "p": round(p * 100, 1)} for i, j, p in cells]
+
+
+def verdicts(m: dict, top: list[dict], cells: list[dict] | None = None) -> dict:
     p, mk = m["p"], m["mk"]
     order = sorted(range(3), key=lambda i: -p[i])
     lab = ["主胜", "平", "客胜"]
     first = lab[order[0]]
     guard_idx = max(range(3), key=lambda i: mk[i])
-    second_i = [i for i in range(3) if i != order[0]][0]
+    # 次选＝模型概率第二高的那一格。旧写法是「第一个不等于首选的序号」，
+    # 对 004（模型 10.7 / 12.7 / 76.5）会取成主胜 10.7%，把平 12.7% 漏过去。
+    second_i = order[1]
     second = lab[second_i]
-    f = pick_score(top, first)
-    s = pick_score(top, second)
+    grid = cells if cells else top
+    f = pick_score(grid, first)
+    s = pick_score(grid, second, exclude=(f,))
     if guard_idx == order[0]:
         # 定价与模型同向时，「防冷」= 模型第二选择（首选落空时的退路）
-        guard, guard_p, guard_score, guard_mode = second, p[second_i], s, "退路"
+        guard, guard_p = second, p[second_i]
+        guard_mode = "退路"
     else:
-        guard, guard_p, guard_score = lab[guard_idx], mk[guard_idx], pick_score(top, lab[guard_idx])
-        guard_mode = "市场热格"
+        # 定价最热那格与模型首选不是同一格：防范方向走定价热格，
+        # 但概率一律用模型口径（挂市场那个数会被误读成「模型看好它」），
+        # 市场值只作为说明写进 guard_mode。
+        guard = lab[guard_idx]
+        guard_p = p[guard_idx]
+        guard_mode = f"定价热格 {mk[guard_idx]:.1f}%"
+    # 三档比分必须各自落在自己的方向上。先在本方向内严格取一格（排除前两档已用），
+    # 该方向在格子里确实没有第二格时才退回剔重后的最高格 —— 正常不会走到。
+    guard_score = pick_score(grid, guard, exclude=(f, s), strict=True) \
+        or pick_score(grid, guard, exclude=(f, s))
     return {
         "first": first, "first_p": p[order[0]], "first_score": f,
         "second": second, "second_p": p[second_i], "second_score": s,
         "guard": guard, "guard_p": guard_p, "guard_score": guard_score,
-        "guard_model_p": p[lab.index(guard)], "guard_mode": guard_mode,
+        "guard_model_p": p[lab.index(guard)], "guard_mk_p": mk[lab.index(guard)],
+        "guard_mode": guard_mode,
     }
 
 
@@ -464,7 +503,7 @@ def build(model_path: Path, date_tag: str) -> dict:
             "matrix_pois": [[round(v * 100, 2) for v in r] for r in mat_p],
             "oc": {"pois": [round(v, 1) for v in oc_p], "dc": [round(v, 1) for v in oc_dc]},
             "low_delta": low_delta,
-            "verdict": verdicts(m, top),
+            "verdict": verdicts(m, top, all_cells(mat_dc)),
             "conf": conf, "cold": cold, "steps": steps,
             "tech": {"home": tech_h, "away": tech_a, "meet": meet},
             "intel": {"inj": inj, "note": pr.clean_note(m.get("note") or ""),

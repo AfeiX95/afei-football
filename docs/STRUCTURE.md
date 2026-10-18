@@ -26,13 +26,14 @@ state/
 ├── odds.sqlite           # 本地盘口库（gitignored）
 ├── matches/<竞彩id>/      # 单场官方缓存：feature/history/injury/odds…（可重取）
 ├── batch/                # _model_YYYYMMDD_<星期>.txt、_slate.json
-├── cache/                # _form*.json、_results_*.json、_brief.txt、_ext_raw/、xhs_auto/
-├── records/              # _ext_<日期>.json 外部预测记录（**入库**，体量小、要留档）
+├── cache/                # _bonus_<matchId>.json 盘口快照、_form*.json、_results_*.json、_ext_raw/、xhs_auto/
+├── records/              # _ext_<日期>.json 外部预测、_move_<日期>.json 盘口位移（**入库**，体量小、要留档）
+├── intel/<日期>/         # 赛前情报单 _intel_<日期>.md / .json（**入库**，R48 写稿前必看）
 └── tmp/                  # 临时件，永不入库（出图浏览器目录本机可达 100MB+）
 ```
 
-- `.gitignore` 按**整个子目录**忽略：`state/matches/` `state/cache/` `state/batch/` `state/tmp/`；`state/records/` 不忽略
-- 脚本里的路径常量：`model.py` 有 `STATE_MATCHES`/`STATE_BATCH`，`sporttery_fetch.py` 有 `OUT_MATCHES`/`OUT_BATCH`/`OUT_CACHE`，`ext_predict.py` 有 `RAW`/`RECORDS`/`BATCH_DIR`，`doc_pack.py` 有 `STATE_BATCH`
+- `.gitignore` 按**整个子目录**忽略：`state/matches/` `state/cache/` `state/batch/` `state/tmp/`；`state/records/` 与 `state/intel/` 不忽略
+- 脚本里的路径常量：`model.py` 有 `STATE_MATCHES`/`STATE_BATCH`，`sporttery_fetch.py` 有 `OUT_MATCHES`/`OUT_BATCH`/`OUT_CACHE`，`ext_predict.py` 有 `RAW`/`RECORDS`/`BATCH_DIR`，`prematch_intel.py` 有 `INTEL`/`CACHE`/`MATCHES`，`doc_pack.py` 有 `STATE_BATCH`
 - 新增一类缓存时：先落 `state/cache/<类别>/`，再在对应脚本加常量，**不要往 state 根上扔**
 
 ## 三、📝文章 的规则

@@ -17,6 +17,15 @@ python scripts/brief.py
 - 旧「开工三步」（全量读 HANDOFF + state + 四个重技能 ≈100K tokens/会话）**已废除**
 - **换机器 / 新克隆先拉一次**：`python scripts/sync.py --pull`（跨机同步见下节）
 
+### 🔴 写稿前必跑：盘口采集与情报单（R48 · 2026-10-18 起）
+```bash
+python -X utf8 scripts/prematch_intel.py --date YYYYMMDD     # 抓盘口 + 处理 + 情报
+```
+- **写头条文章、做小红书信息卡之前必须先跑**，产出 `state/intel/<date>/_intel_<date>.md`，先读这份再动笔
+- 采集：五套盘口（胜平负 / 让球 / 总进球 / 半全场 / 波胆）历史快照 + 伤停 + 球员 + 近期 + 交锋
+- 处理：逐盘去水、快照次数、开盘→最新位移、**跨盘一致性校验**、冷热与抽水
+- 纪律：盘口只作背后研判依据，公开稿按 **R41** 换成非盘口语；位移只说「定价动过」，不编资金流向；缺源项一律省略不写「待补」
+
 ### Token 纪律（2026-10-07 定）
 1. **开工只跑 `brief.py`**，不要全量读 `docs/HANDOFF.md`（562 行 ≈16K tokens）或 `state/model-state.json`
 2. **技能按需加载**：先看 `📚知识库/skills/INDEX.md`（含分节行号）定位，再 `read SKILL.md offset=<行> limit=<长度>`；行数 >400 的技能**禁止全量读**（`match-model-pipeline` 1243 行 ≈17K tokens）
