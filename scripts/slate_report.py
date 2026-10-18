@@ -28,6 +28,17 @@ import paid_pdf as pp  # noqa: E402  复用版面层写好的研判文字（mark
 
 DIRS = ["主胜", "平", "客胜"]
 
+_WD = "一二三四五六日"
+
+
+def no_of(num: int) -> str:
+    """matchNum → 竞彩编号。周一=1001…周日=7025，千位就是星期，后三位是场次号。"""
+    n = int(num or 0)
+    d = n // 1000
+    return "周%s%03d" % (_WD[d - 1] if 1 <= d <= 7 else "日", n % 1000)
+
+
+
 
 def f(x, n: int = 1) -> str:
     if x is None:
@@ -71,7 +82,7 @@ def slate_of(date_tag: str) -> dict:
             if m.get("businessDate") and m["businessDate"] != iso:
                 continue
             num = m.get("matchNum", 0)
-            out["周日%03d" % (num if num < 1000 else num - 7000)] = {
+            out[no_of(num)] = {
                 "matchId": str(m.get("matchId")), "league": m.get("leagueAbbName", ""),
                 "home": m.get("homeTeamAbbName", ""), "away": m.get("awayTeamAbbName", ""),
                 "kick": (m.get("matchTime") or "")[:5],
@@ -152,6 +163,23 @@ def join_zh(items: list[str]) -> str:
     return "；".join(out) + "。" if out else ""
 
 
+
+def _wd_of(date_tag: str) -> str:
+    """按排期给个星期标签，用 slate 里的编号前缀（周一=1001…周日=7025）。"""
+    import json as _json
+    sp = STATE / "batch" / "_slate.json"
+    iso = f"{date_tag[:4]}-{date_tag[4:6]}-{date_tag[6:]}"
+    try:
+        d = _json.loads(sp.read_text(encoding="utf-8"))
+        for b in d.get("value", {}).get("matchInfoList", []):
+            for m in (b.get("subMatchList") or []):
+                if m.get("businessDate") == iso:
+                    return no_of(int(m.get("matchNum") or 7))[:2]
+    except Exception:
+        pass
+    return "周日"
+
+
 def build(date_tag: str) -> str:
     slate = slate_of(date_tag)
     intel = load_intel(date_tag)
@@ -165,9 +193,11 @@ def build(date_tag: str) -> str:
     ms = {m["no"]: m for m in data["matches"]}
 
     order = sorted(slate.keys())
+    wd = order[0][:2] if order else "周日"
+    WD_LABEL = wd
     have_model = sum(1 for no in order if no in ms)
     L = []
-    L.append(f"# {date_tag[:4]}-{date_tag[4:6]}-{date_tag[6:]} 周日全盘分析报告")
+    L.append(f"# {date_tag[:4]}-{date_tag[4:6]}-{date_tag[6:]} {WD_LABEL} 全盘分析报告")
     L.append("")
     L.append(f"- 场次：**{len(order)} 场**（有模型 {have_model} 场，"
              f"无模型 {len(order) - have_model} 场）")
@@ -336,6 +366,32 @@ def build(date_tag: str) -> str:
             L.append("- **胜平负位移最大的三场**：" + "；".join(
                 f"{a} 最大 {c:.1f}pp" for a, _, c in mv_big[:3])
                 + "。位移只说明定价动过，不解释动的理由。")
+    # 偏差体检：≥15pp 的场次逐场看「模型看高的是哪一格，那一方近期什么样」
+    bigs = [m for m in have if abs(pp.maxpp(m)) >= 15]
+    if bigs:
+        L.append("- **偏差体检（≥15pp，逐场看模型看高哪一格）**：")
+        L.append("")
+        for m in sorted(bigs, key=lambda x: -abs(pp.maxpp(x))):
+            d = pp.maxpp(m)
+            i = max(range(3), key=lambda k: (m["p"][k] - m["mk"][k]))
+            _tech = m.get("tech") or {}
+            form = (_tech.get("home") or {}, _tech.get("away") or {})
+            mine = form[0] if DIRS[i] == "主胜" else form[1] if DIRS[i] == "客胜" else ({}, {})
+            other = form[1] if DIRS[i] == "主胜" else form[0] if DIRS[i] == "客胜" else ({}, {})
+            L.append(f"  - {m['no']} {m['home']} vs {m['away']}：模型看高 **{DIRS[i]}** "
+                     f"（模型 {f(m['p'][i])}% vs 定价 {f(m['mk'][i])}%，差 {d:+.1f}pp）；"
+                     f"该方近期 {f(mine.get('gf_avg'), 2)}进{f(mine.get('ga_avg'), 2)}失，"
+                     f"对面 {f(other.get('gf_avg'), 2)}进{f(other.get('ga_avg'), 2)}失。"
+                     if DIRS[i] != "平" else
+                     f"  - {m['no']} {m['home']} vs {m['away']}：模型看高 **平**（差 {d:+.1f}pp）。")
+        L.append("")
+        n_away = sum(1 for m in bigs if DIRS[max(range(3), key=lambda k: m["p"][k] - m["mk"][k])] == "客胜")
+        L.append(f"  - **本批 {len(bigs)} 场大偏差里，模型看高客胜的有 {n_away} 场**。"
+                 "模型只吃「近期进失 + 同主客战绩 + 交锋 + 伤停」，**不看阵容档次与身价**，"
+                 "所以遇到「强队近期状态差」的场子，它一定往状态好的那一边压，"
+                 "而定价压的是球队本身的实力基线。这类偏差不代表模型发现了好东西，"
+                 "大概率是方法学缺口的同一副面孔（重读 open_items 里「后台模型方法学缺口」那条）。")
+        L.append("")
     L.append("")
     L.append("---")
     L.append("")
@@ -364,7 +420,7 @@ def main() -> None:
     ap.add_argument("--out", default=None)
     a = ap.parse_args()
     md = build(a.date)
-    out = Path(a.out) if a.out else (ROOT / "📝文章" / a.date / f"{a.date}_周日全盘分析报告.md")
+    out = Path(a.out) if a.out else (ROOT / "📝文章" / a.date / f"{a.date}_{_wd_of(a.date)}全盘分析报告.md")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(md, encoding="utf-8")
     print(f"✅ {out}  {len(md)} 字符 / {md.count(chr(10)) + 1} 行")

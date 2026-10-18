@@ -35,6 +35,17 @@ sys.path.insert(0, str(SCRIPTS))
 import paid_cyber as pc  # noqa: E402  复用 read_json / devig / team_form / meetings / injuries
 
 DIRS = ["主胜", "平", "客胜"]
+
+_WD = "一二三四五六日"
+
+
+def no_of(num: int) -> str:
+    """matchNum → 竞彩编号。周一=1001…周日=7025，千位就是星期，后三位是场次号。"""
+    n = int(num or 0)
+    d = n // 1000
+    return "周%s%03d" % (_WD[d - 1] if 1 <= d <= 7 else "日", n % 1000)
+
+
 TTG_KEYS = ["s0", "s1", "s2", "s3", "s4", "s5", "s6", "s7"]
 HAFU_KEYS = [
     ("hh", "胜胜"), ("hd", "胜平"), ("ha", "胜负"),
@@ -503,7 +514,7 @@ def main() -> None:
         if m.get("businessDate") and m["businessDate"] != iso:
             continue
         num = m.get("matchNum", 0)
-        no = "周日%03d" % (num if num < 1000 else num - 7000)
+        no = no_of(num)
         slate[no] = {
             "matchId": m.get("matchId"), "league": m.get("leagueAbbName", ""),
             "home": m.get("homeTeamAbbName", ""), "away": m.get("awayTeamAbbName", ""),

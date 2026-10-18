@@ -289,6 +289,33 @@ MATCHES = {
 }
 
 
+# ── 外挂场次表（2026-10-19 起）──────────────────────────────────────────────
+# MATCHES 只留手写的历史批次；每天新场次写到 state/batch/_matches_<日期>.json，
+# 由 scripts/model_autofill.py 从本地竞彩缓存自动生成，这里读入并覆盖同名键。
+# 这样每天不用手改本文件，也避免把 600 行手写 dict 越堆越长。
+def _load_auto_matches() -> dict:
+    import glob as _glob
+    out = {}
+    for _p in sorted(_glob.glob(os.path.join(STATE_BATCH, "_matches_*.json"))):
+        try:
+            with open(_p, encoding="utf-8") as _f:
+                _d = json.load(_f)
+        except Exception as _exc:                     # noqa: BLE001
+            print(f"⚠️ 外挂场次表读取失败 {os.path.basename(_p)}：{_exc}")
+            continue
+        if not isinstance(_d, dict):
+            continue
+        for _k, _v in _d.items():
+            if isinstance(_v, dict) and _v.get("no"):
+                out[str(_k)] = _v
+    return out
+
+
+_AUTO = _load_auto_matches()
+if _AUTO:
+    MATCHES.update(_AUTO)
+
+
 # ── 工具 ────────────────────────────────────────────────────────────────────
 def jload(p):
     with open(p, encoding="utf-8") as f:
