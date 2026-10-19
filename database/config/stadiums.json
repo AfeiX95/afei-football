@@ -1,19 +1,139 @@
 {
  "_comment": "主场所在城市（英文，供 open-meteo geocoding 用；中文城市名会解析到美国同名城市）。只配比赛日真用到的队，未配置的场次天气一律留空，不猜。",
- "蒙扎": { "city": "Monza", "cc": "IT" },
- "卡利亚里": { "city": "Cagliari", "cc": "IT" },
- "代格福什": { "city": "Degerfors", "cc": "SE" },
- "卡尔马": { "city": "Kalmar", "cc": "SE" },
- "帕尔马": { "city": "Parma", "cc": "IT" },
- "都灵": { "city": "Turin", "cc": "IT" },
- "罗德兹": { "city": "Rodez", "cc": "FR" },
- "蒙彼利埃": { "city": "Montpellier", "cc": "FR" },
- "热刺": { "city": "London", "cc": "GB" },
- "考文垂": { "city": "Coventry", "cc": "GB" },
- "赫塔费": { "city": "Getafe", "cc": "ES" },
- "巴列卡诺": { "city": "Madrid", "cc": "ES" },
- "布拉加": { "city": "Braga", "cc": "PT" },
- "吉维森特": { "city": "Barcelos", "cc": "PT" },
- "科林蒂安": { "city": "Sao Paulo", "cc": "BR" },
- "维多利亚": { "city": "Salvador", "cc": "BR" }
+ "蒙扎": {
+  "city": "Monza",
+  "cc": "IT"
+ },
+ "卡利亚里": {
+  "city": "Cagliari",
+  "cc": "IT"
+ },
+ "代格福什": {
+  "city": "Degerfors",
+  "cc": "SE"
+ },
+ "卡尔马": {
+  "city": "Kalmar",
+  "cc": "SE"
+ },
+ "帕尔马": {
+  "city": "Parma",
+  "cc": "IT"
+ },
+ "都灵": {
+  "city": "Turin",
+  "cc": "IT"
+ },
+ "罗德兹": {
+  "city": "Rodez",
+  "cc": "FR"
+ },
+ "蒙彼利埃": {
+  "city": "Montpellier",
+  "cc": "FR"
+ },
+ "热刺": {
+  "city": "London",
+  "cc": "GB"
+ },
+ "考文垂": {
+  "city": "Coventry",
+  "cc": "GB"
+ },
+ "赫塔费": {
+  "city": "Getafe",
+  "cc": "ES"
+ },
+ "巴列卡诺": {
+  "city": "Madrid",
+  "cc": "ES"
+ },
+ "布拉加": {
+  "city": "Braga",
+  "cc": "PT"
+ },
+ "吉维森特": {
+  "city": "Barcelos",
+  "cc": "PT"
+ },
+ "科林蒂安": {
+  "city": "Sao Paulo",
+  "cc": "BR"
+ },
+ "维多利亚": {
+  "city": "Salvador",
+  "cc": "BR"
+ },
+ "费内巴切": {
+  "city": "Istanbul",
+  "cc": "TR"
+ },
+ "斯拉维亚": {
+  "city": "Prague",
+  "cc": "CZ"
+ },
+ "萨巴赫": {
+  "city": "Baku",
+  "cc": "AZ"
+ },
+ "多特蒙德": {
+  "city": "Dortmund",
+  "cc": "DE"
+ },
+ "那不勒斯": {
+  "city": "Naples",
+  "cc": "IT"
+ },
+ "博德闪耀": {
+  "city": "Bodo",
+  "cc": "NO"
+ },
+ "罗马": {
+  "city": "Rome",
+  "cc": "IT"
+ },
+ "布拉迪斯": {
+  "city": "Bratislava",
+  "cc": "SK"
+ },
+ "巴黎圣曼": {
+  "city": "Paris",
+  "cc": "FR"
+ },
+ "巴萨": {
+  "city": "Barcelona",
+  "cc": "ES"
+ },
+ "利物浦": {
+  "city": "Liverpool",
+  "cc": "GB"
+ },
+ "比利亚雷": {
+  "city": "Villarreal",
+  "cc": "ES"
+ },
+ "曼城": {
+  "city": "Manchester",
+  "cc": "GB"
+ },
+ "雅典AEK": {
+  "city": "Athens",
+  "cc": "GR"
+ },
+ "斯图加特": {
+  "city": "Stuttgart",
+  "cc": "DE"
+ },
+ "马竞": {
+  "city": "Madrid",
+  "cc": "ES"
+ },
+ "波尔图": {
+  "city": "Porto",
+  "cc": "PT"
+ },
+ "埃因霍温": {
+  "city": "Eindhoven",
+  "cc": "NL"
+ }
 }

@@ -99,5 +99,10 @@
   "zh": "美國職業足球大聯盟",
   "kind": "calendar",
   "en": "Major League Soccer"
+ },
+ "欧冠": {
+  "zh": "歐洲冠軍聯賽",
+  "kind": "split",
+  "en": "UEFA Champions League"
  }
 }

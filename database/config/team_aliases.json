@@ -399,7 +399,9 @@
   "wiki": "巴列卡诺"
  },
  "比利亚雷": {
-  "wiki": "比利亚雷亚尔"
+  "wiki": "比利亚雷亚尔",
+  "en": "Villarreal",
+  "af": "Villarreal"
  },
  "拉科": {
   "wiki": "拉科鲁尼亚"
@@ -488,5 +490,55 @@
  },
  "维多利亚": {
   "en": "Vitoria"
+ },
+ "费内巴切": {
+  "wiki": "费内巴切",
+  "en": "Fenerbahce",
+  "af": "Fenerbahce"
+ },
+ "斯拉维亚": {
+  "wiki": "布拉格斯拉维亚",
+  "en": "Slavia Prague",
+  "af": "Slavia Prague"
+ },
+ "萨巴赫": {
+  "wiki": "沙巴",
+  "en": "Sabah",
+  "af": "Sabah"
+ },
+ "多特蒙德": {
+  "wiki": "多特蒙德",
+  "en": "Dortmund",
+  "af": "Borussia Dortmund"
+ },
+ "博德闪耀": {
+  "wiki": "博德闪耀",
+  "en": "Bodo/Glimt",
+  "af": "Bodo/Glimt"
+ },
+ "布拉迪斯": {
+  "wiki": "斯拉夫人",
+  "en": "Slovan Bratislava",
+  "af": "Slovan Bratislava"
+ },
+ "雅典AEK": {
+  "wiki": "AEK雅典",
+  "en": "AEK Athens",
+  "af": "AEK Athens"
+ },
+ "斯图加特": {
+  "wiki": "斯图加特",
+  "en": "Stuttgart",
+  "af": "VfB Stuttgart"
+ },
+ "波尔图": {
+  "wiki": "波尔图",
+  "en": "Porto",
+  "af": "Porto"
+ },
+ "埃因霍温": {
+  "wiki": "PSV埃因霍温",
+  "en": "PSV Eindhoven",
+  "af": "PSV"
  }
 }

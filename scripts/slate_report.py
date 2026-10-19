@@ -62,6 +62,24 @@ def strip_html(html: str) -> list[str]:
     return out
 
 
+def load_leagues(date_tag: str) -> dict:
+    """读 state/intel/<date>/_leagues_<date>.json：排名 + 天气（R48-A）。"""
+    p = ROOT / "state" / "intel" / date_tag / f"_leagues_{date_tag}.json"
+    if not p.exists():
+        return {}
+    try:
+        d = json.loads(p.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return {}
+    out = {}
+    ms = d.get("matches") or []
+    rows = ms.values() if isinstance(ms, dict) else ms
+    for row in rows:
+        if row.get("no"):
+            out[row["no"]] = row
+    return out
+
+
 def load_intel(date_tag: str) -> dict:
     p = STATE / "intel" / date_tag / f"_intel_{date_tag}.json"
     if not p.exists():
@@ -208,14 +226,29 @@ def build(date_tag: str) -> str:
     L.append("- 口径：**只统计 90 分钟常规时间**，加时与点球不计入任何一格")
     L.append("- 性质：内部研判汇总，含盘口读数；公开稿按 R41 换成非盘口语，不直接外发")
     L.append("")
-    L.append("**缺源声明**：联赛排名与战意（积分榜接口返回空壳）、xG / xGA / npxG、PPDA、"
-             "定位球 xG、裁判尺度、天气与场地、轮换与欧战赛程——本期均无数据源，一律不赋值。")
+    lg = load_leagues(date_tag)
+    ranked = sum(1 for r in lg.values() if (r.get("home_rank") or {}).get("pos"))
+    snow = sum(1 for r in lg.values() if (r.get("weather") or {}).get("temp") is not None)
+    have, miss = [], []
+    if ranked:
+        have.append(f"联赛排名与进失球（{ranked}/{len(order)} 场，`_leagues_{date_tag}.md`）")
+    else:
+        miss.append("联赛排名与进失球")
+    if snow:
+        have.append(f"比赛时刻天气（{snow}/{len(order)} 场）")
+    else:
+        miss.append("天气与场地")
+    miss += ["战意与更衣室情绪（只能读新闻，不可量化）", "xG / xGA / npxG", "PPDA",
+             "定位球 xG", "裁判尺度", "轮换与欧战赛程"]
+    if have:
+        L.append("**已有源**：" + "；".join(have) + "。")
+    L.append("**缺源声明**：" + "、".join(miss) + "——本期无数据源，一律不赋值。")
     L.append("")
 
     # 总览表
     L.append("## 一、全盘总览")
     L.append("")
-    L.append("| # | 场次 | 联赛 | 开赛 | 定价去水（主/平/客） | 模型（主/平/客） | 最大偏差 | 信心 | 首选比分 |")
+    L.append("| # | 场次 | 排名（主／客） | 开赛 | 定价去水（主/平/客） | 模型（主/平/客） | 最大偏差 | 信心 | 首选比分 |")
     L.append("|---|---|---|---|---|---|---|---|---|")
     for i, no in enumerate(order, 1):
         s = slate[no]
@@ -223,13 +256,17 @@ def build(date_tag: str) -> str:
         it = intel.get(no) or {}
         had = ((it.get("markets") or {}).get("had")) or {}
         mk = " / ".join(f"{x:.1f}%" for x in had["p"]) if had else "未开售"
+        lgrow = lg.get(no) or {}
+        hp_ = (lgrow.get("home_rank") or {}).get("pos")
+        ap_ = (lgrow.get("away_rank") or {}).get("pos")
+        rk = f"第{hp_}／第{ap_}" if hp_ and ap_ else "—"
         if m:
-            L.append(f"| {i:02d} | {no} {s['home']} vs {s['away']} | {s['league']} | {s['kick']} | "
+            L.append(f"| {i:02d} | {no} {s['home']} vs {s['away']} | {rk} | {s['kick']} | "
                      f"{mk} | " + " / ".join(f"{x:.1f}%" for x in m["p"])
                      + f" | {pc_sg(pp.maxpp(m))}pp | {f((m.get('conf') or {}).get('total'), 0)} | "
                      f"{(m.get('verdict') or {}).get('first_score') or '—'} |")
         else:
-            L.append(f"| {i:02d} | {no} {s['home']} vs {s['away']} | {s['league']} | {s['kick']} | "
+            L.append(f"| {i:02d} | {no} {s['home']} vs {s['away']} | {rk} | {s['kick']} | "
                      f"{mk} | 无胜平负固定奖金 · 模型跳过 | — | — | — |")
     L.append("")
 
