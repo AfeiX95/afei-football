@@ -3641,3 +3641,51 @@ python -X utf8 scripts/intel_full.py --date 20261020 --weekday 周二 --model st
 1. 周二 7 场已发两篇（3+4），**赛果出来后按 §10 一条命令回填**（跨零点，`--dates 20261021`）；这批是第一次同时验「方向／剧本比分／让球／大小／跨盘一致性」
 2. 周一 8 场同理（竞彩 matchDate 挂 2026-10-20）
 3. 付费资料线继续暂停，不再提议
+## 2026-10-20 凌晨·八十 — Agent skills 初始化（issue tracker / 标签词汇 / 域文档）+ gh 安装向导
+
+### 一、用户指令（m08653 `/setup-matt-pocock-skills`，后端已定 GitHub）
+
+> 「初始化本仓库配置（技能套件已安装；本命令仅记录 issue tracker / 标签词汇 / 文档路径，不安装、不克隆任何技能）」
+
+### 二、三份产物 + AGENTS.md 块
+
+| 文件 | 内容 |
+|---|---|
+| `docs/agents/issue-tracker.md`（1859B） | GitHub Issues on `AfeiX95/afei-football`；**本仓两个远端**（gitee 只同步代码、没有 tracker）→ 先 `gh repo set-default` 固定一次，之后不必带 `-R`；`gh issue *` 全套路子 |
+| `docs/agents/triage-labels.md`（1727B） | triage 五角色（与规范同名）+ **wayfinder 五枚**（`wayfinder:map` / `research` / `prototype` / `grilling` / `task`，取自 `bundled-skills/wayfinder/SKILL.md`）；明写「除这十枚不强制任何标签」 |
+| `docs/agents/domain.md`（2763B） | **single-context**：根目录共用一份 `GLOSSARY.md`，架构决定放 `docs/adr/`；不建 `GLOSSARY-MAP.md`、不给子项目分层（`公司机_工程/` 共用根这份）；另附本仓真源优先级与已有固定说法（后台模型/定价/设置/门槛/机构/溢价） |
+| `AGENTS.md` | 新增 `## Agent skills` 块（三段各一行摘要 + See 指向），Domain docs 那行用的就是 **single-context** 这个词 |
+
+- **没有旧文件要改名**：全仓 `**/CONTEXT*.md` 一个都没有（`CONTEXT.md` / `CONTEXT-MAP.md` 皆无），所以「改名成 GLOSSARY.md / GLOSSARY-MAP.md」这一步无事可做，已写进 `domain.md` 说明。
+- **`GLOSSARY.md` 与 `docs/adr/` 本次不建**（用户口径：留到第一次真写下词条/决定时再建）；`domain.md` 按技能要求写成「不存在就静静往下走」。
+- **块放在 `AGENTS.md` 而不是 `CLAUDE.md`**：技能默认「有 CLAUDE.md 就改 CLAUDE.md」，但用户这条指令两次点名 `AGENTS.md`；且本仓 `CLAUDE.md` 自述是薄桥接层、真源在 `AGENTS.md`。以用户指令为准。
+- 顺手改：`AGENTS.md` 技能真源「共 28 个」→ **29**（`lieflat-less-ai-tone` 已入库，INDEX 早已是 29）。
+
+### 三、gh 安装向导（上一轮 `/wizard` 待办，本次一并落地）
+
+- **gh 2.102.0 已装**：`winget install --id GitHub.cli --source winget --silent`，落在 `C:\Program Files\GitHub CLI\gh.exe`，当前会话 PATH 已能解析。**尚未登录**。
+- `scripts/wizard_gh_setup.sh`（339 行 / 14.3KB）：**7 阶段**＝预检 → winget 安装 → 验证版本与 PATH 提示 → 浏览器一次性码登录（ssh 协议）→ `gh repo set-default` → 建齐 10 枚标签 → 冒烟（auth status / api user / repo view / ssh -T）。库部分取自 `bundled-skills/wizard/template.sh` **前 181 行逐字一致**（已用 Python 比对确认 identical: True），只作者 STAGES 段。
+- `scripts/gh_labels_setup.sh`（78 行）：10 枚标签幂等创建（`gh label create --force`）+ 事后复核清单。gh 没装/没登录时提前退出并指路。
+- 两个脚本均 `bash -n` 通过、`chmod +x`；`docs/SYNC.md` 新增「GitHub CLI（gh）：换机器跑一次向导」小节（含不写 .env/不写 secret 的理由）。
+- 冒烟注意点写进脚本：`ssh -T git@github.com` **成功时退出码是 1**（GitHub 故意），不能拿退出码当判据，要 grep `successfully authenticated`。
+
+### 四、未完成的一件事（卡在需要人）
+
+🔴 **10 枚标签还没建**——`gh label create` 要登录后才能调，登录必须由人在浏览器里贴一次性码。两条路任选：
+
+```bash
+bash scripts/wizard_gh_setup.sh      # 交互，第 4 阶段登录、第 6 阶段建标签
+# 或者
+gh auth login --hostname github.com --git-protocol ssh --web
+bash scripts/gh_labels_setup.sh
+```
+
+### 五、环境侧记录
+
+- `deck_probe` 正常（`tools:true`、`bridgeTools` 九件齐全）；`deck_context` 返回 `gate-defer`（读额度用完、只保写），所以「setup 变绿」这一步本次核不了，下次额度过闸时补看。
+- 仓库里 `docs/agents/workspace.yaml`（724B，deck 插件自动生成，`backendId: github`）与本轮选择一致，未改。
+
+### 六、下一步
+
+1. 人类登录 gh → 跑标签脚本 → 复核十枚齐全。
+2. 之后 `to-issues` / `triage` / `to-prd` / `wayfinder` 才开始有可用的落点。

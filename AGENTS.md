@@ -118,8 +118,22 @@ python scripts/sync.py --status   # 只看状态
 会话中学到的经验：**直接写进上述本地文件**（尤其 `修正规则.md`、`WORKFLOW.md`、`afei-writing-standards/SKILL.md`），不依赖任何外部记忆服务。
 
 ## 技能真源
-所有技能在 `📚知识库/skills/<技能名>/SKILL.md`（唯一真源，共 28 个）。**清单与分节行号见 `📚知识库/skills/INDEX.md`**——技能按任务按需加载，不再无脑按固定顺序全量读。
+所有技能在 `📚知识库/skills/<技能名>/SKILL.md`（唯一真源，共 29 个）。**清单与分节行号见 `📚知识库/skills/INDEX.md`**——技能按任务按需加载，不再无脑按固定顺序全量读。
 常用路径：写文 = `afei-writing-standards` → `football-match-preview-article` → `humanizer-zh`；跑模型 = `match-model-pipeline`；赛后校验 = `football-calibration-batch`。
+
+## Agent skills
+
+### Issue tracker
+
+GitHub Issues on `AfeiX95/afei-football`（`origin`；`gitee` 只同步代码，没有 issue tracker）。See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+triage 五角色同名字符串，另加 wayfinder 五枚（`wayfinder:map` / `research` / `prototype` / `grilling` / `task`）；除这十枚不强制任何标签。See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+single-context（一个仓库共用根目录 `GLOSSARY.md`，架构决定放 `docs/adr/`；当前两者都还没建，第一次落词条/决定时才建）。See `docs/agents/domain.md`.
 
 ## state 结构（schema v2 · 2026-10-07 冷热分离）
 

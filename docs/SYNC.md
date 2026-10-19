@@ -44,6 +44,22 @@ python scripts/sync.py --status
 SSH 公钥（`~/.ssh/id_ed25519`，指纹 `SHA256:zX7JkobNkBNNa3xEHS0Ig9F+F6hS7wtuarJ8fMdICqA`）已注册到
 GitHub 与 Gitee。Gitee 后台：设置 → 安全设置 → **SSH 公钥**。
 
+### GitHub CLI（gh）：换机器跑一次向导
+
+`gh` 管 GitHub 侧的 issue / PR / 标签，跟代码同步是两条线（`sync.py` 不依赖它）。
+新机器上跑一次交互向导，7 个阶段：预检 → winget 安装 → 验证 → **浏览器一次性码登录（ssh 协议）**
+→ 把 `origin` 固定为默认仓库（本仓两个远端，gh 不会自己猜）→ 建齐 issue 标签 → 冒烟。
+
+```bash
+bash scripts/wizard_gh_setup.sh      # 交互，中途要你在浏览器里贴一次性码
+bash scripts/gh_labels_setup.sh      # 只补标签时可单独跑（幂等）
+```
+
+- 家里 PC 2026-10-20 已装 **gh 2.102.0**（`C:\Program Files\GitHub CLI\gh.exe`，winget 源）
+- 剧本不写 `.env`、不写 GitHub secret：本仓无 CI，凭据由 gh 自己存 `%APPDATA%\GitHub CLI\hosts.yml`
+- 标签共 10 枚：triage 五角色 + wayfinder 五枚（词汇见 `docs/agents/triage-labels.md`）
+
+
 ## 2026-10-11：公司那棵历史并进来了（架构变了）
 
 **发生了什么**：Gitee 的 `gitee/master` 不是空仓库，它是**公司 PC 那条独立历史**
