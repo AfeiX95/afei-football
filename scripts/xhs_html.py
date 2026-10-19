@@ -486,7 +486,7 @@ DATA_CSS = """
 /* 队名 4 个字（国际米兰/比利亚雷/埃因霍温）不能折行；「数据要点」标签也不能折 */
 .card.data .frow .tn{flex:0 0 152px}
 .card.data .note .nl{flex:0 0 118px}
-.ed.data h1{font-size:76px}
+.ed.data h1{font-size:72px}
 .ed.data .cq .lab{color:#9b5a2e}
 .ed.data .frow .tn{font-size:27px}
 .ed.data .frow .num{font-size:24px}
@@ -521,19 +521,23 @@ DATA_CSS = """
 .card.data .viz .c1{flex:0 0 516px}
 .card.data .viz .c2{flex:1;min-width:0;padding-left:20px;border-left:1px solid rgba(10,10,11,.14)}
 .card.data .viz .c2 .head2{white-space:nowrap}
+.card.data .cvbox{margin-top:12px;padding-top:10px;border-top:1px dashed rgba(10,10,11,.24)}
+.card.data .cvrow{display:flex;align-items:baseline;gap:9px;font-size:19px;line-height:1.52;margin-top:5px}
+.card.data .cvrow i{flex:0 0 auto;font-style:normal;font-weight:700;font-size:17px;letter-spacing:.12em;color:#0aa3c2}
+.card.data .cvrow span{flex:1;min-width:0;color:#14110d}
 .card.data .viz .radar{margin-top:0;padding-top:0}
 /* 雷达默认会撑满栏宽（448px 栏→340px 方图），并进单卡后必须按 size 收住，否则整行 590px */
 .card.data .viz .radar .wrap svg{width:516px;height:auto;max-width:none;display:block;margin:0 auto}
 .card.data .viz .wdl .head2{flex-wrap:nowrap;white-space:nowrap;margin-bottom:10px}
 .card.data .viz .wdl .lab{letter-spacing:.08em}
-.card.data .viz .wdl{margin-top:14px;padding-top:12px;border-top:1px solid rgba(10,10,11,.16)}
+.card.data .viz .wdl{margin-top:10px;padding-top:10px;border-top:1px solid rgba(10,10,11,.16)}
 .card.data .heat{margin-top:0;padding-top:0;border-top:0}
 .card.data .notesrow .c1,.card.data .notesrow .c2{flex:1 1 0;min-width:0}
 .card.data .notesrow .c2{padding-left:28px;border-left:1px solid rgba(10,10,11,.14)}
 .card.data .notesrow .note:first-child{margin-top:0}
 /* 底部四格一行：看点①② ＋ 战意 ＋ 数据要点（省 ~180px，见 quad_row_html 注释） */
 .card.data .quad{display:grid;gap:18px;margin-top:15px}
-.card.data .quad .qcell{background:#fff;border-left:3px solid #9b5a2e;padding:9px 12px 10px;min-width:0}
+.card.data .quad .qcell{background:#fff;border-left:3px solid #9b5a2e;padding:7px 11px 8px;min-width:0}
 .card.data .quad .qlab{font-size:16px;font-weight:700;letter-spacing:.08em;color:#9b5a2e;margin-bottom:5px}
 .card.data .quad p{margin:0;font-size:20px;line-height:1.45;color:#14110d}
 .card.data .wdl .hint,.card.data .heat .hint{font-size:18px;color:rgba(10,10,11,.55)}
@@ -574,6 +578,32 @@ DATA_CSS = """
 # 封面（2026-10-13 用户要求重做）：要日期 + 「今日赛事前瞻」 + 主客队名，
 # 字体要大、内容不多但抓眼。三套风格共用这套结构，颜色走 var(--accent)。
 # --------------------------------------------------------------------------- #
+WM_CSS = """
+/* ---- 水印名片（2026-10-20 用户：名片字体放大、像水印，每张都有） ---- */
+.card{position:relative;overflow:hidden}
+.card .foot .brand{font-weight:800;letter-spacing:.06em;line-height:1}
+.card.data .foot .brand{font-size:32px}
+.card.cover .foot .brand{font-size:34px}
+.card .foot .r{display:flex;align-items:center;justify-content:flex-end;gap:12px}
+.card .foot .bmk{display:inline-block;width:26px;height:8px;background:currentColor;opacity:.55}
+.card.ed .foot .brand,.card.ed .foot .bmk{color:#14110d}
+.card.sw .foot .brand,.card.sw .foot .bmk{color:#0a0a0a}
+.card.rg .foot .brand,.card.rg .foot .bmk{color:#b8322a}
+.card.cy .foot .brand,.card.cy .foot .bmk{color:#0aa3c2}
+.card.ed .wm{color:rgba(155,90,46,.07)}
+.card.sw .wm{color:rgba(232,64,42,.07)}
+.card.rg .wm{color:rgba(184,50,42,.07)}
+.card > *:not(.wm){position:relative;z-index:1}
+.card .foot .brand{font-weight:800;letter-spacing:.02em}
+.card.data .foot .brand{font-size:28px;line-height:1.05}
+.card.cover .foot .brand{font-size:30px;line-height:1.05}
+.card.ed .foot .brand{color:#14110d}
+.card.sw .foot .brand{color:#0a0a0a}
+.card.rg .foot .brand{color:#b8322a}
+.card.cy .foot .brand{color:#0aa3c2}
+"""
+
+
 COVER_CSS = """
 .cover{padding-top:88px}
 .cover .top{align-items:center}
@@ -685,9 +715,17 @@ def notes_html(card: dict, cluster: str, labels: tuple = ("战意", "信号")) -
 
 
 def footer_html(card: dict) -> str:
-    return ('<div class="foot"><div class="l">' + esc(card.get("source", "数据来源：中国体育官方数据平台")) +
-            '</div><div class="r">' + esc(card.get("brand", "@阿飞·赛博聊球")) +
-            f'<div class="tags">{esc(card.get("tags", ""))}</div></div></div>')
+    # 2026-10-20 用户定：卡片底部不挂话题标签（标签只留在文案里），
+    # 名片字号放大当水印用 —— 大号底纹见 watermark_html()。
+    return ('<div class="foot"><div class="l">' + esc(card.get("source", "数据来源：公开赛事数据")) +
+            '</div><div class="r"><span class="bmk"></span><span class="brand">' +
+            esc(card.get("brand", "@阿飞·赛博聊球")) + '</span></div></div>')
+
+
+def watermark_html(card: dict) -> str:
+    """大号半透明名片底纹（每张都带，压右下角）。只做视觉签名，不参与读数。"""
+    name = (card.get("brand") or "@阿飞·赛博聊球").lstrip("@")
+    return '<div class="wm" aria-hidden="true">%s</div>' % esc(name)
 
 
 # --------------------------------------------------------------------------- #
@@ -855,7 +893,7 @@ TEMPLATES = ("A", "B", "C")
 TPL_NAME = {"A": "战绩在前", "B": "简报提前", "C": "简报开篇"}
 TPL_HEAT = {"A": 34, "B": 36, "C": 32}       # 热力图单格边长
 TPL_BAR = {"A": 36, "B": 40, "C": 34}        # 胜率条高度
-TPL_RADAR = {"A": 260, "B": 250, "C": 270}
+TPL_RADAR = {"A": 228, "B": 220, "C": 236}
 TPL_STATE = Path(ROOT) / "state" / "xhs_templates.json"
 
 
@@ -994,6 +1032,21 @@ def heat_html(card: dict, tpl: str = "A") -> str:
                ('<div class="hnote mnote">%s</div>' % esc(md.get("note"))) if md.get("note") else ""))
 
 
+def converge_html(card: dict) -> str:
+    """三面读数：媒体前瞻倾向 / 技术面 / 综合。
+
+    2026-10-20 用户「空白处加点其他信息因素：全球媒体和AI预测、战术与技术分析、综合结论」。
+    放在模型行右栏热力图下方（那里本来就空着），所以每行必须短（右栏约 300px 宽）。
+    **只做读数陈述**：不写谁该赢、不写方向建议（判罚史见坑#69），百分比只来自模型块。
+    """
+    rows = card.get("cv") or []
+    if not rows:
+        return ""
+    items = "".join('<div class="cvrow"><i>%s</i><span>%s</span></div>' % (esc(r[0]), esc(r[1]))
+                    for r in rows if r and len(r) >= 2)
+    return '<div class="cvbox">%s</div>' % items if items else ""
+
+
 def vizrow_html(card: dict, cluster: str, tpl: str = "A", heat_left: bool = False) -> str:
     """模型行：左栏＝六维雷达＋胜率条，右栏＝比分概率热力图（B 模板左右互换）。
 
@@ -1006,6 +1059,9 @@ def vizrow_html(card: dict, cluster: str, tpl: str = "A", heat_left: bool = Fals
         nt = notes_html(card, cluster, ("战意", "数据要点"))
         return ('<div class="row2 tail2"><div class="c1">%s</div><div class="c2">%s</div></div>'
                 % (rz, nt)) if (rz and nt) else (rz + nt)
+    cv = converge_html(card)
+    # 三面读数紧贴热力图脚注（塞进 heat 的 </section> 里），避免被拉到底、中间留一段空白
+    ht = ht.replace("</section>", cv + "</section>", 1) if cv else ht
     l, r = (ht, rz + wd) if heat_left else (rz + wd, ht)
     return ('<div class="row2 tail2 viz"><div class="c1">%s</div><div class="c2">%s</div></div>'
             % (l, r))
@@ -1071,7 +1127,7 @@ def all_card_html(card: dict, meta: dict, style: str, idx: int, total: int, vari
             % (rz, nt)) if (rz and nt) else (rz + nt)
     body = sep + st + contradiction_html(card) + row1 + fm + ((fc + row2) if variant % 2 else (row2 + fc))
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<style>{BASE_CSS}{css}{ext_css(cluster)}</style></head><body>
+<style>{BASE_CSS}{css}{ext_css(cluster)}{WM_CSS}</style></head><body>
 <div id="fit"><div class="card {cluster} all">
   {top}
   {head}
@@ -1120,7 +1176,7 @@ def data_card_html(card: dict, meta: dict, style: str, idx: int, total: int, var
         order = order[:-2] + (order[-1], order[-2])
     body = sep + "".join(blocks[k] for k in order)
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<style>{BASE_CSS}{css}{ext_css(cluster)}</style></head><body>
+<style>{BASE_CSS}{css}{ext_css(cluster)}{WM_CSS}</style></head><body>
 <div id="fit"><div class="card {cluster} all data tpl{tpl}">
   {top}
   {head}
@@ -1163,7 +1219,7 @@ def model_card_html(card: dict, meta: dict, style: str, idx: int, total: int, va
         order = order[:-2] + (order[-1], order[-2])
     body = sep + "".join(blocks[k] for k in order)
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<style>{BASE_CSS}{css}{ext_css(cluster)}</style></head><body>
+<style>{BASE_CSS}{css}{ext_css(cluster)}{WM_CSS}</style></head><body>
 <div id="fit"><div class="card {cluster} all data model tpl{tpl}">
   {top}
   {head}
@@ -1216,7 +1272,7 @@ def card_html(card: dict, meta: dict, style: str, idx: int, total: int,
         rz, nt = radar_html(card, cluster), notes_html(card, cluster)
         body = sep + (nt + rz if variant % 2 == 1 else rz + nt)
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<style>{BASE_CSS}{css}{ext_css(cluster)}</style></head><body>
+<style>{BASE_CSS}{css}{ext_css(cluster)}{WM_CSS}</style></head><body>
 <div id="fit"><div class="card {cluster}">
   {top}
   {head}
@@ -1252,7 +1308,7 @@ def cover_html(meta: dict, items: list, total: int, style: str) -> str:
     tail = meta.get("cover_tail") or ("每场一张图：数据反差 · 近期战绩 · 六维雷达 · 后台模型胜率与比分概率 · "
                                       "数据看点 · 战意与要点 →")
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<style>{BASE_CSS}{css}{COVER_CSS}</style></head><body>
+<style>{BASE_CSS}{css}{COVER_CSS}{WM_CSS}</style></head><body>
 <div id="fit"><div class="card {cluster} cover{' many' if len(items) >= 5 else ''}">
   {top}
   <div class="date">{esc(date)}</div>
