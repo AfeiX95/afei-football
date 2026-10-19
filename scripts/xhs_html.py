@@ -215,8 +215,54 @@ body{background:#f8f0e9;color:#1a1310}
 .rg.data .foot .tags{color:#b8322a}
 """
 
+# --------------------------------------------------------------------------- #
+# 风格四：赛博 cyber（2026-10-20 新增）
+# 冷白纸底 + 电光青/品红双霓虹 + 等宽标注 + 36px 淡网格；正文仍是深色。
+# ⚠️ 底必须浅：正文 #141310 是通用规则给的，深底整块读不出来（同 swiss 那个坑）。
+# --------------------------------------------------------------------------- #
+MONO = '"Consolas","JetBrains Mono","Microsoft YaHei UI",monospace'
+CYBER_CSS = EDITORIAL_CSS.replace(".ed", ".cy").replace("#9b5a2e", "#0aa3c2") + """
+body{background:#eaf1f6;color:#0a1014}
+.cy{--accent:#0aa3c2;--heat:10,163,194;
+  background-image:linear-gradient(rgba(10,163,194,.05) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(10,163,194,.05) 1px,transparent 1px);
+  background-size:36px 36px;background-position:-1px -1px}
+.cy .top{font-family:@M@;color:#0aa3c2;letter-spacing:.28em}
+.cy .pager{font-family:@M@;color:#ff2d78;letter-spacing:.1em}
+.cy h1{margin-top:30px;letter-spacing:-.01em}
+.cy h1 .vsx{color:#ff2d78;font-weight:700}
+.cy .rule{height:3px;background:linear-gradient(90deg,#0aa3c2 0 46%,#ff2d78 46% 100%)}
+.cy .thick{height:3px;background:linear-gradient(90deg,#0aa3c2,#ff2d78);flex:none}
+.cy .chip{background:#0a1014;color:#7ff3ff;letter-spacing:.14em;font-family:@M@}
+.cy .time{color:#0a1014}
+.cy .cq{border-left:5px solid #0aa3c2;background:rgba(10,163,194,.06);padding:10px 0 10px 26px;
+  box-shadow:inset 0 0 0 1px rgba(10,163,194,.14)}
+.cy .cq .lab{font-family:@M@;color:#0aa3c2}
+.cy .cq p{color:#0a1014}
+.cy .focus{border-left:4px solid #ff2d78}
+.cy.data .brief{border-top:2px dashed rgba(10,163,194,.5)}
+.cy.data .brief .lab{font-family:@M@;color:#0aa3c2}
+.cy.data .quad .qcell{background:rgba(255,255,255,.74);border-left:2px solid #0aa3c2;
+  box-shadow:inset 0 0 0 1px rgba(10,163,194,.16)}
+.cy.data .quad .qlab{color:#ff2d78;font-family:@M@}
+.cy.data .wbar .s1{background:#0aa3c2}
+.cy.data .wbar .s3{background:#ff2d78}
+.cy.data .hcell.hmax{box-shadow:inset 0 0 0 3px #0aa3c2}
+.cy.data .wmark{background:repeating-linear-gradient(to bottom,#ff2d78 0 9px,transparent 9px 15px)}
+.cy.data .wmark:after{border-top-color:#ff2d78}
+.cy.data .foot{border-top-color:rgba(10,163,194,.35)}
+.cy.data .foot .tags{color:#0aa3c2}
+.cy.cover .kicker{background:#0a1014;color:#7ff3ff;font-family:@M@;letter-spacing:.16em}
+.cy.cover .date{color:#0aa3c2;font-family:@M@}
+.cy.cover .rule{height:6px;background:linear-gradient(90deg,#0aa3c2 0 46%,#ff2d78 46% 100%)}
+.cy.cover .it{border-bottom:1px dashed rgba(10,163,194,.3)}
+.cy.cover .it .n{color:#ff2d78;font-family:@M@}
+.cy.cover .it .vs{color:#0aa3c2;font-size:28px;letter-spacing:.1em}
+.cy.cover .tail{border-left-color:#0aa3c2}
+""".replace("@M@", MONO)
+
 STYLES = {"editorial": (EDITORIAL_CSS, "ed", "CardSerif"), "swiss": (SWISS_CSS, "sw", None),
-          "rouge": (ROUGE_CSS, "rg", "CardSerif")}
+          "rouge": (ROUGE_CSS, "rg", "CardSerif"), "cyber": (CYBER_CSS, "cy", None)}
 
 
 def ext_css(cluster: str) -> str:
@@ -226,7 +272,13 @@ def ext_css(cluster: str) -> str:
     （战绩行、简报、四格、模型行……）全部不生效——2026-10-13 瑞色风首渲踩到过这个坑。
     """
     s = EXTRA_CSS + ALL_CSS + DATA_CSS
-    return s if cluster == "ed" else s.replace(".ed", "." + cluster)
+    if cluster == "ed":
+        return s
+    s = s.replace(".ed", "." + cluster)
+    if cluster == "cy":
+        # 扩展块里的强调色是 editorial 的赭石/钢蓝，赛博风换成电光青/品红
+        s = s.replace("#9b5a2e", "#0aa3c2").replace("#3f5f80", "#ff2d78")
+    return s
 
 
 # --------------------------------------------------------------------------- #
@@ -662,6 +714,10 @@ def radar_svg(radar: dict, cluster: str, size: int = 300, label_font: int = 23) 
         c_home, c_away = "#b8322a", "#2f5560"
         f_home, f_away = "rgba(184,50,42,.15)", "rgba(47,85,96,.10)"
         c_grid, c_lab, c_sep = "rgba(26,19,16,.20)", "#1a1310", "rgba(26,19,16,.32)"
+    elif cluster == "cy":
+        c_home, c_away = "#0aa3c2", "#ff2d78"
+        f_home, f_away = "rgba(10,163,194,.18)", "rgba(255,45,120,.12)"
+        c_grid, c_lab, c_sep = "rgba(10,16,20,.20)", "#0a1014", "rgba(10,16,20,.32)"
     else:
         c_home, c_away = "#9b5a2e", "#3f5f80"
         f_home, f_away = "rgba(155,90,46,.16)", "rgba(63,95,128,.10)"
@@ -775,6 +831,7 @@ def radar_html(card: dict, cluster: str, size: int = 300, label_font: int = 23) 
         return ""
     c_home, c_away = (("#e8402a", "#000000") if cluster == "sw"
                       else ("#b8322a", "#2f5560") if cluster == "rg"
+                      else ("#0aa3c2", "#ff2d78") if cluster == "cy"
                       else ("#9b5a2e", "#3f5f80"))
     lg = ('<div class="lg"><div><i style="background:%s"></i>%s</div>'
           '<div><i style="background:%s"></i>%s</div></div>'
@@ -826,7 +883,7 @@ def pick_template(meta: dict, out_dir: Path) -> tuple:
 
 
 STYLE_STATE = Path(ROOT) / "state" / "xhs_styles.json"
-STYLES_ORDER = ("editorial", "rouge", "swiss")
+STYLES_ORDER = ("editorial", "rouge", "swiss", "cyber")
 
 
 def pick_style(meta: dict, out_dir: Path, want: str = "auto") -> tuple:
@@ -1208,7 +1265,8 @@ def shot(html_path: Path, png_path: Path, chrome: str, scale: int = DPR) -> tupl
            "--virtual-time-budget=1200",
            f"--force-device-scale-factor={scale}", f"--window-size={W},{H}",
            f"--screenshot={png_path}", html_path.resolve().as_uri()]
-    r = subprocess.run(cmd, capture_output=True)
+    # ⚠️ 沙箱里不能建管道（CreatePipe WinError 5），所以不抓 chrome 的 stdout/stderr
+    r = subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     err = (r.stderr or b"").decode("utf-8", "ignore").strip().splitlines()
     ok = png_path.exists() and png_path.stat().st_size > 0
     return ok, ("" if ok else ("rc=%s " % r.returncode + " | ".join(err[-3:])))
@@ -1313,7 +1371,15 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
     print(f"  引擎：{engine}" + (f"（{chrome}）" if engine == "chrome" else "（playwright 内置 chromium，版本固定）"))
 
     out_dir.mkdir(parents=True, exist_ok=True)
-    tmp = Path(tempfile.mkdtemp(prefix="xhs_html_", dir=str(Path(ROOT) / "state")))
+    # ⚠️ Windows 下 mkdtemp 造的目录只有 creator 能写，沙箱会话里写不进去（PermissionError），
+    # 用 XHS_HTML_TMP 指向一个已存在的可写目录绕过，且该目录不清除。
+    _tmp_env = os.environ.get("XHS_HTML_TMP", "").strip()
+    _own_tmp = not _tmp_env
+    if _own_tmp:
+        tmp = Path(tempfile.mkdtemp(prefix="xhs_html_", dir=str(Path(ROOT) / "state")))
+    else:
+        tmp = Path(_tmp_env)
+        tmp.mkdir(parents=True, exist_ok=True)
     if style == "editorial" and os.path.exists(SERIF_FONT):
         shutil.copy2(SERIF_FONT, tmp / "font-serif.ttf")
 
@@ -1368,7 +1434,8 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
               (f"  {png.stat().st_size // 1024}KB" if ok else f"  {why}") + note)
         if ok:
             made.append(png)
-    shutil.rmtree(tmp, ignore_errors=True)  # HTML/字体已按需复制到 --html-out，临时目录总是清掉
+    if _own_tmp:
+        shutil.rmtree(tmp, ignore_errors=True)  # HTML/字体已按需复制到 --html-out，临时目录清掉
     if made:
         data["per_match_cards"] = per
         data["card_mode"] = "data" if kind in ("data", "dm", "model") else kind
@@ -1442,7 +1509,7 @@ def _pause() -> None:
 def main() -> None:
     ap = argparse.ArgumentParser(description="小红书卡片 HTML+Chrome 渲染")
     ap.add_argument("--input", default="", help="cards.json 路径")
-    ap.add_argument("--style", default="auto", choices=["auto", "editorial", "swiss", "rouge", "both"],
+    ap.add_argument("--style", default="auto", choices=["auto", "editorial", "swiss", "rouge", "cyber", "both"],
                     help="卡片风格：auto=按批次目录每期轮换（默认，账本 state/xhs_styles.json）、"
                          "editorial=杂志米白赭石、rouge=瑞色朱砂暖红、swiss=瑞士黑白正红、both=前两套各出一遍")
     ap.add_argument("--out", default="", help="输出目录（默认 cards.json 同级 试版/<style>）")
