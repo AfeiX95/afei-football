@@ -25,18 +25,28 @@ FIXED = (
     "请理性看待比赛",
 )
 
+# R44 第八则管的是**可发布的前瞻正文**。内部分析报告（每场固定六块）与全盘分析报告
+# 天生就是同一套骨架逐场复用，把它们拉进跨篇去重只会永远报红，属于误用。
+# 需要连内部报告一起查时加 --include-internal。
+SKIP_MARK = ("内部分析报告", "全盘分析报告", "赛后校验")
 
-def iter_articles(arg):
+
+def iter_articles(arg, include_internal=False):
     p = arg
     if not os.path.isabs(p):
         p = os.path.join(ROOT, p)
+    def keep(files):
+        if include_internal:
+            return files
+        return [x for x in files if not any(k in os.path.basename(x) for k in SKIP_MARK)]
+
     if os.path.isdir(p):
-        return sorted(glob.glob(os.path.join(p, "*.md")))
+        return keep(sorted(glob.glob(os.path.join(p, "*.md"))))
     if p.endswith(".md"):
         return [p]
     # 当作日期目录名
     d = os.path.join(ROOT, "📝文章", arg)
-    return sorted(glob.glob(os.path.join(d, "*.md")))
+    return keep(sorted(glob.glob(os.path.join(d, "*.md"))))
 
 
 def is_body(line, min_len):
@@ -56,6 +66,8 @@ def main(argv):
         sys.stdout.write(__doc__)
         return 2
     min_len = 12
+    include_internal = "--include-internal" in argv
+    argv = [x for x in argv if x != "--include-internal"]
     args = []
     i = 0
     while i < len(argv):
@@ -68,7 +80,7 @@ def main(argv):
 
     files = []
     for a in args:
-        files.extend(iter_articles(a))
+        files.extend(iter_articles(a, include_internal))
     if not files:
         sys.stdout.write("no article found\n")
         return 2

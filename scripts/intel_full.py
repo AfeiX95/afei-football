@@ -274,14 +274,30 @@ def sec_tech(m: dict, lg: dict) -> list[str]:
 def sec_converge(m: dict, it: dict) -> list[str]:
     L = ["### 六、收敛", ""]
     v = m["verdict"]
-    L.append("三档＝**三个赛果按模型概率从高到低各占一格**，不是三个独立建议；比分取该赛果下概率最高的一格。")
+    sc = v["scenario"]
+    L.append("比分按**剧本**给：主剧本两格（怎么赢最可能），其他剧本一格（不按主剧本走会是什么样）。")
     L.append("")
-    L.append("| 档位 | 方向 | 模型概率 | 比分 | 定价同一格 |")
-    L.append("|---|---|---|---|---|")
+    main_p_s = "、".join(
+        f"{s} {pct(p)}" for s, p in zip(sc["main_scores"], sc["main_scores_p"])
+    )
+    L.append(f"| 剧本 | 覆盖方向 | 合计概率 | 比分 |")
+    L.append("|---|---|---|---|")
+    L.append(f"| **{sc['main']}** | {' + '.join(sc['main_sides'])} | {pct(sc['main_p'])} | {main_p_s} |")
+    L.append(f"| {sc['alt']}（其他） | {sc['alt']} | {pct(sc['alt_p'])} | "
+             f"{sc['alt_score']} {pct(sc['alt_score_p'])} |")
+    L.append("")
+    if sc["main_merged"]:
+        gap = abs(sorted(m["p"], reverse=True)[0] - sorted(m["p"], reverse=True)[1])
+        L.append(f"- 前两路只差 {gap:.1f}pp，写死单一赛果会过窄，所以主剧本按「{sc['main']}」处理，"
+                 f"两个比分分别取赢和平各自的最高一格。")
+    L.append("**三个赛果的概率排序**（辅助读数，不是三个建议）")
+    L.append("")
+    L.append("| 序 | 方向 | 模型概率 | 定价同一格 |")
+    L.append("|---|---|---|---|")
     mk_p = m["mk"]
-    for name, dk in (("首选", "first"), ("次选", "second"), ("兜底", "guard")):
+    for name, dk in (("1", "first"), ("2", "second"), ("3", "guard")):
         d = v[dk]
-        L.append(f"| {name} | {d} | {pct(v[dk + '_p'])} | {v[dk + '_score']} | {pct(mk_p[LAB.index(d)])} |")
+        L.append(f"| {name} | {d} | {pct(v[dk + '_p'])} | {pct(mk_p[LAB.index(d)])} |")
     L.append("")
     hot_note = "，与模型首选同格" if v["hot_is_first"] else f"，模型只给 {pct(v['market_hot_model_p'])}"
     L.append(f"- 定价最热的是 **{v['market_hot']}**（{pct(v['market_hot_mk_p'])}）{hot_note}。")
@@ -326,8 +342,8 @@ def main() -> None:
     L = [f"# {a.weekday}档 · 全维度内部分析报告（{a.date}）", "",
          "> **口径**：90 分钟常规时间，加时与点球不计。所有概率均按各自盘口返还率去水后重算。",
          "> **顺序**：盘口 → 泊松 → 蒙特卡洛 → 外媒与 AI → 技术面 → 收敛。全批总结放在最后。",
-         "> **三档说明**：首选 / 次选 / 兜底是**三个赛果按模型概率从高到低各占一格**，"
-         "不是三个独立建议；比分取该赛果下概率最高的一格。", ""]
+         "> **比分口径**：按剧本给比分——主剧本两格（怎么赢最可能），其他剧本一格（不按主剧本走长什么样）。"
+         "主剧本与次选差距在 10pp 以内且能合成「某队不败」时，主剧本按不败写，比分取赢和平各自最高一格。", ""]
 
     for m in ms:
         it = by_no.get(m["no"]) or {}

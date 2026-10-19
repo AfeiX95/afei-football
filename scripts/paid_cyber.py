@@ -313,6 +313,96 @@ def all_cells(mat: list[list[float]]) -> list[dict]:
     return [{"s": f"{i}-{j}", "p": round(p * 100, 1)} for i, j, p in cells]
 
 
+def _side_match(score: str, outcome: str) -> bool:
+    h, a = (int(x) for x in score.split("-"))
+    return {"主胜": h > a, "平": h == a, "客胜": h < a}[outcome]
+
+
+def scenario_view(m: dict, grid: list[dict]) -> dict:
+    """剧本视图（2026-10-19 用户 m08051 定）。
+
+    用户原话：「比如综合下来主胜的概率大一点，那么主胜剧本的高概率比分为 2-1，2-0，
+    冷门或其他剧本为 1-2；要是为主不败的剧本则为 2-1、1-1，这样才不会影响阅读。」
+
+    也就是：**按剧本给比分，不按「首选/次选/防范」三格给方向**。
+      · 主剧本 = 模型概率最高的那一路。差距拉得开就给单一赛果（主胜 / 平 / 客胜），
+        该赛果下取两格比分；
+      · 首选与次选差距小、而且能合成「某队不败」时，主剧本就是**主不败 / 客不败**，
+        两个比分分别取「赢」那一路的最高一格与「平」那一路的最高一格；
+      · 其他剧本 = 剩余方向里概率最高的那一路，只给一格比分（用来交代「不按主剧本走会是什么样」）。
+
+    合并阈值 MERGE_GAP：首选与次选差 <10pp 才承认「不败」这种合并说法，
+    差得更大就该老老实实写单一赛果，写成不败反而模糊。
+    """
+    MERGE_GAP = 10.0
+    p, mk = m["p"], m["mk"]
+    order = sorted(range(3), key=lambda i: -p[i])
+    lab = ["主胜", "平", "客胜"]
+    i0, i1, i2 = order[0], order[1], order[2]
+
+    merged = False
+    if i0 == 0 and i1 == 1 and (p[0] - p[1]) < MERGE_GAP:
+        main_label, main_sides, main_p = "主不败", ["主胜", "平"], p[0] + p[1]
+        merged = True
+    elif i0 == 2 and i1 == 1 and (p[2] - p[1]) < MERGE_GAP:
+        main_label, main_sides, main_p = "客不败", ["客胜", "平"], p[2] + p[1]
+        merged = True
+    else:
+        main_label, main_sides, main_p = lab[i0], [lab[i0]], p[i0]
+
+    if merged:
+        main_scores = []
+        for s in main_sides:
+            sc = pick_score(grid, s, exclude=tuple(main_scores), strict=True) \
+                or pick_score(grid, s, exclude=tuple(main_scores))
+            main_scores.append(sc)
+    else:
+        a = pick_score(grid, main_sides[0])
+        # 第二格刻意取「总进球和第一格不同」的最高概率格子：
+        # 主队 2-1 与 3-1 都是赢一球/两球的大比分，叠在一起读起来像重复；
+        # 换成 2-1 + 2-0（一个 3 球、一个 2 球）才是一格小胜、一格更省事的赢法。
+        tot_a = sum(int(x) for x in a.split("-"))
+        b = ""
+        # 先找「总进球更少」的最高概率格子（一行更省事的赢法），
+        # 找不到再退到「总进球不同」的最高概率格子。
+        for want in ("less", "diff"):
+            for cell in grid:
+                s = cell["s"]
+                if s == a or not _side_match(s, main_sides[0]):
+                    continue
+                tot_s = sum(int(x) for x in s.split("-"))
+                if (want == "less" and tot_s < tot_a) or (want == "diff" and tot_s != tot_a):
+                    b = s
+                    break
+            if b:
+                break
+        if not b:
+            b = pick_score(grid, main_sides[0], exclude=(a,), strict=True) \
+                or pick_score(grid, main_sides[0], exclude=(a,))
+        main_scores = [a, b] if b and b != a else [a]
+
+    alt_i = i2 if merged else i1
+    alt_label = lab[alt_i]
+    alt_score = pick_score(grid, alt_label, exclude=tuple(main_scores), strict=True) \
+        or pick_score(grid, alt_label, exclude=tuple(main_scores))
+
+    return {
+        "main": main_label,
+        "main_sides": main_sides,
+        "main_p": round(main_p, 1),
+        "main_merged": merged,
+        "main_scores": main_scores,
+        "main_scores_p": [
+            next((x["p"] for x in grid if x["s"] == s), None) for s in main_scores
+        ],
+        "alt": alt_label,
+        "alt_p": p[alt_i],
+        "alt_score": alt_score,
+        "alt_score_p": next((x["p"] for x in grid if x["s"] == alt_score), None),
+        "market_hot": lab[max(range(3), key=lambda i: mk[i])],
+    }
+
+
 def verdicts(m: dict, top: list[dict], cells: list[dict] | None = None) -> dict:
     """三档＝三个赛果按模型概率从高到低各占一格，不是三个独立建议。
 
@@ -339,6 +429,7 @@ def verdicts(m: dict, top: list[dict], cells: list[dict] | None = None) -> dict:
 
     hot_i = max(range(3), key=lambda i: mk[i])
     return {
+        "scenario": scenario_view(m, grid),
         "first": lab[first_i], "first_p": p[first_i], "first_score": f,
         "second": lab[second_i], "second_p": p[second_i], "second_score": s,
         "guard": lab[third_i], "guard_p": p[third_i], "guard_score": g,
