@@ -274,15 +274,28 @@ def build(dates: list[str]) -> str:
                          f"{f(pp_[DIRS.index(r['judge']['model_pick'])])}%）")
         L.append(f"2. **平局仍然是盲区**：实际打出 {len(draws)} 场平局，模型一次都没把平列为首选"
                  "——" + "；".join(dlist) + "。"
-                 "三场里平的概率都没进过第一格，说明模型没有独立的平局触发器，"
+                 f"这 {len(draws)} 场里平的概率都没进过第一格，说明模型没有独立的平局触发器，"
                  "只能在「主客差距小」时被动分走一点概率。")
     L.append(f"3. **让球盘方向 {hit_h}/{len(hs)}**：与胜平负方向（{hit_d}/{n}）基本同档，"
              "没有出现早期「让球盘明显更差」的现象；但样本只有 "
              f"{len(hs)} 场，还不能据此推翻旧结论（batch37 让球盘 4/15=26.7%）。")
-    L.append(f"4. **比分三档 {hit_s}/{n}**：命中集中在首选档 "
-             f"（{sum(1 for r in order if r['judge']['score_hit_which'] == '首选')} 场），"
-             "次选与防范几乎没起过作用——说明比分网格过窄，"
-             "要么把三档改成按分布铺开，要么承认它只能当形态描述、不能当预测。")
+    # 比分三档：命中落在哪一格必须按本批数据算，不能写死（10/16-17 与 10/18 结论相反）
+    w1 = sum(1 for r in order if r["judge"]["score_hit_which"] == "首选")
+    w2 = sum(1 for r in order if r["judge"]["score_hit_which"] == "次选")
+    w3 = sum(1 for r in order if r["judge"]["score_hit_which"] == "防范")
+    if hit_s == 0:
+        s4 = (f"4. **比分三档 {hit_s}/{n}**：一个都没进，说明比分网格与实际落点脱节，"
+              "只能当形态描述用，不能当预测。")
+    elif w1 >= hit_s - 0.1:
+        s4 = (f"4. **比分三档 {hit_s}/{n}**：命中全在首选档（{w1} 场），"
+              "次选与防范一次没起过作用——网格过窄，要么按分布铺开，要么承认它只能描述形态。")
+    elif w1 == 0:
+        s4 = (f"4. **比分三档 {hit_s}/{n}**：首选档一次没中，命中全在次选（{w2}）与防范（{w3}）——"
+              "说明「最可能的那一格」系统性偏了，比分该往分布的中段挪。")
+    else:
+        s4 = (f"4. **比分三档 {hit_s}/{n}**：首选 {w1}、次选 {w2}、防范 {w3} 分散，"
+              "三档确实起了覆盖作用，网格宽度是合适的。")
+    L.append(s4)
     pend = [r for r in rows if not r["judge"]]
     if pend:
         L.append(f"5. **待开奖**：" + "、".join(f"{r['no']}（{r['rec']['home']} vs {r['rec']['away']}）"
