@@ -1,0 +1,150 @@
+{
+ "_note": "2026-10-19 周一八场（竞彩挂 matchDate 2026-10-20，00:30–07:00 开球）的外媒与全球 AI 预测读数。全部来自公开页面，只记页面明写的数字与倾向，不推断、不补全。kind：ai=统计/AI 模型，media=媒体前瞻，market=预测市场或博彩报价，vote=用户投票。lean 用本项目的三向口径（主胜/平/客胜），页面只给总进球或双方进球时如实写成「总进球」类倾向，不硬塞进三向。",
+ "date": "20261019",
+ "matches": {
+  "周一001": {
+   "sources": [
+    {
+     "src": "懂球帝",
+     "kind": "media",
+     "lean": "主胜",
+     "read": "「本场更看好蒙扎主场取胜，需要警惕平局」，比分参考 2-1、1-1；文中贴的胜平负参考值 2.32 / 3.00 / 2.75 与竞彩一致",
+     "url": "https://beta.dongqiudi.com/articles/6516056.html"
+    },
+    {
+     "src": "TFA（Total Football Analysis）",
+     "kind": "ai",
+     "lean": "客胜",
+     "read": "同一赔率页给的方向是 Cagliari to win；页内最佳价蒙扎主胜 2.45",
+     "url": "https://totalfootballanalysis.com/odds/match/monza-vs-cagliari-1550153"
+    }
+   ]
+  },
+  "周一002": {
+   "sources": [
+    {
+     "src": "APWin",
+     "kind": "ai",
+     "lean": "主胜",
+     "read": "按最新赔率代格福什被列为热门（2.62，隐含 38.17%）；合算数据给「大 2.5 球」39%",
+     "url": "https://www.apwin.com/match/degerfors-kalmar/bwCbNf/#1"
+    },
+    {
+     "src": "懂球帝 · 彩经前瞻",
+     "kind": "media",
+     "lean": "主胜",
+     "read": "「更看好代格福什保持不败，主队胜或平方向」；比分 1-0 或 1-1；进球数 1-2 球；理由是卡尔马近 5 场不胜、阵容缺口更大",
+     "url": "https://beta.dongqiudi.com/articles/6515539.html"
+    }
+   ]
+  },
+  "周一003": {
+   "sources": [
+    {
+     "src": "APWin",
+     "kind": "ai",
+     "lean": "客胜",
+     "read": "都灵被列为热门（2.76，隐含 36.23%）；合算数据给双方进球 84%、大 2.5 球 50%",
+     "url": "https://www.apwin.com/match/torino-parma/bbyOMy/#1"
+    },
+    {
+     "src": "7M 体育 · 意甲前瞻",
+     "kind": "media",
+     "lean": "客胜",
+     "read": "「此役倾向看好都灵在客场顺利告捷」，理由是帕尔马困境与都灵上役取胜后士气起势、打法克制对手",
+     "url": "https://news.7m.com.cn/mobi/news/20261019/743074.shtml"
+    }
+   ]
+  },
+  "周一004": {
+   "sources": [
+    {
+     "src": "RMC Sport · Pronos Paris",
+     "kind": "media",
+     "lean": "平",
+     "read": "当日 Ligue 2 的「平局首选」就选这场：「pas de vainqueur entre Rodez et Montpellier」（3.05）",
+     "url": "https://rmcsport.bfmtv.com/pari-sportif/pronos-paris-rmc-le-nul-du-jour-du-19-octobre-ligue-2_AN-202610180245.html"
+    },
+    {
+     "src": "球探网 · 竞足冲出江湖",
+     "kind": "media",
+     "lean": "无明确倾向",
+     "read": "人员情报：罗德兹积 7 分排第 17；主力右翼卫伊桑舒（7 场 2 球）缺一场后复出，名单较上轮有变动",
+     "url": "https://ba2.titan007.com/60443/35143057.html"
+    }
+   ]
+  },
+  "周一005": {
+   "sources": [
+    {
+     "src": "USA Today",
+     "kind": "media",
+     "lean": "主胜",
+     "read": "「Prediction: Tottenham 2, Coventry City 1」",
+     "url": "https://www.usatoday.com/story/sports/soccer/epl/2026/10/19/where-to-watch-tottenham-coventry-city-prediction-odds-stream/92323451007/"
+    },
+    {
+     "src": "TNT Sports",
+     "kind": "media",
+     "lean": "主胜",
+     "read": "预测热刺 2-0；首选小 2.5 球（Top Tip Under 2.5）",
+     "url": "https://www.tntsports.co.uk/betting/tips/tottenham-vs-coventry-prediction-tips-and-odds-premier-league-19-10-26/"
+    }
+   ]
+  },
+  "周一006": {
+   "sources": [
+    {
+     "src": "APWin",
+     "kind": "ai",
+     "lean": "总进球",
+     "read": "只给双方进球与进球数：BTTS-Yes 2.04、62%；未给三向方向",
+     "url": "https://www.apwin.com/predictions/getafe-vs-rayo-vallecano-prediction-la-liga-19-10-2026/"
+    },
+    {
+     "src": "Championat（Семён Зигаев）",
+     "kind": "media",
+     "lean": "总进球",
+     "read": "判断「至少两球」，选择大 2 球（ТБ 2 @ 1.89），不给胜平负",
+     "url": "https://www.championat.ru/bets/news-6663434-hetafe-rajo-valekano-prognoz-semyona-zigaeva-na-match-primery.html#comments"
+    }
+   ]
+  },
+  "周一007": {
+   "sources": [
+    {
+     "src": "APWin",
+     "kind": "ai",
+     "lean": "主胜",
+     "read": "按最新赔率布拉加被列为热门（1.74，隐含 57.47%）。⚠️ 同页又写「该场已于 19/10/2026 结束，布拉加 0-0 吉尔维森特」，与赛程表（10/20 03:15 开球）矛盾，疑为页面占位或抓错场次，**该比分不作读数**",
+     "url": "https://www.apwin.com/match/sporting-braga-gil-vicente/sranO/#1"
+    },
+    {
+     "src": "懂球帝",
+     "kind": "media",
+     "lean": "主胜",
+     "read": "「两队同积 11 分」；原文预测比分 布拉加 1-0 吉尔维森特",
+     "url": "https://pc.dongqiudi.com/articles/6507077.html"
+    }
+   ]
+  },
+  "周一008": {
+   "sources": [
+    {
+     "src": "APWin",
+     "kind": "ai",
+     "lean": "主胜",
+     "read": "结果市场倾向科林蒂安 62%；按最新赔率科林蒂安热门 1.76（隐含 56.82%）；合算数据给大 2.5 球 47%",
+     "url": "https://www.apwin.com/match/corinthians-vitoria/bsKUvV/#1"
+    },
+    {
+     "src": "懂球帝 · 彩经前瞻",
+     "kind": "media",
+     "lean": "主胜",
+     "read": "「更倾向科林蒂安在 90 分钟内取胜」，比分 1-0 或 2-0；背景是维多利亚客场 15 战不胜、科林蒂安要结束连败",
+     "url": "http://pc.dongqiudi.com/articles/6516103.html"
+    }
+   ]
+  }
+ }
+}

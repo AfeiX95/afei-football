@@ -24,6 +24,8 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import paid_cyber as pc  # noqa: E402
 
 STATE = ROOT / "state"
+DIRS_CN = ["主胜", "平", "客胜"]
+
 OUT = ROOT / "📝文章"
 LAB = ["主胜", "平", "客胜"]
 
@@ -246,8 +248,10 @@ def sec_tech(m: dict, lg: dict) -> list[str]:
         L += ["", f"- **数据口径**：{intel['note']}"]
     inj = intel.get("inj") or []
     if inj:
+        side_cn = {"home": "主", "away": "客"}
         L.append(f"- **伤停 / 停赛 {len(inj)} 人**：" + "；".join(
-            f"{i.get('side', '')}{i.get('name', '')}（{i.get('pos', '')}）" for i in inj[:6]))
+            f"{side_cn.get(i.get('side', ''), '')} {i.get('name', '')}（{i.get('pos', '')}）"
+            for i in inj[:6]))
     else:
         L.append("- **伤停**：官方名单为空（缺源，不做推断）")
     def rank_line(r: dict | None) -> str:
@@ -376,40 +380,96 @@ def main() -> None:
                  f"{b_['dir_stable']:.0f}% | {lean_s} |")
     L.append("")
 
-    # ── 站位建议（按「稳定率 × 分歧 × 外媒同侧」三条硬规则机械判定，不凭感觉）
+    # ── 站位建议（按「分歧在哪个轴 × 稳定率 × 外媒同侧」机械判定，不凭感觉）
+    # 2026-10-19 改版：旧规则只看分歧大小，把「同向分歧（只是幅度差）」误判成「方向被打脸」，
+    # 差点把 007 那类正确的稿子改坏。现在先分同向/反向，再各自裁决。
     L += ["## 站位建议（机械判定，不是推荐）", ""]
-    L.append("规则：稳定率 ≥80% 且最大分歧 <15pp → 可站模型方向；"
-             "稳定率 ≥80% 但分歧 ≥15pp → 不站（模型稳、定价不认，先假定我方缺口）；"
-             "稳定率 <50% → 方向不站，只谈总进球与比分形态。外媒/AI 与模型同侧加一档，与定价同侧减一档。")
+    L.append("第一步不是看分歧大小，而是看**分歧在哪个轴上**：同向分歧（模型与定价 argmax 一致，只是幅度差）"
+             "跟方向就能用；反向分歧（argmax 相反）要先问「谁更可能错」，再用外媒/AI 与稳定性裁决。"
+             "稳定率低于 50% 的一律不碰方向。")
     L.append("")
-    L.append("| 场次 | 首选方向稳定率 | 最大分歧 | 外媒/AI 与谁同侧 | 判定 |")
-    L.append("|---|---|---|---|---|")
+    L.append("| 站法 | 触发条件 |")
+    L.append("|:--|:--|")
+    L.append("| 跟模型方向 | 同向、分歧 <15pp、稳定率 ≥80% |")
+    L.append("| 跟方向不跟幅度 | 同向但分歧 ≥15pp |")
+    L.append("| 跟定价方向 | 反向，但外媒/AI 至少两家站定价侧 |")
+    L.append("| 让球观察（±1 盘才成立） | 定价胜平负给得高，但让一球那格明显低（它在说赢不出净胜球）；或给了客胜却让受让主队最高（让球盘自己不信客队能赢） |")
+    L.append("| 方向不站，只谈总进球 | 稳定率 <50%，或两边读数打平到没有差价 |")
+    L.append("")
+    L.append("| 场次 | 同向/反向 | 最大分歧 | 首选方向稳定率 | 外媒/AI 与谁同侧 | 判定 |")
+    L.append("|---|---|---|---|---|---|")
+
+    def _argmax(xs) -> int:
+        return max(range(3), key=lambda i: xs[i])
+
     for m in ms:
         b_ = mc_stability(m["lam"]["fin"][0], m["lam"]["fin"][1])
         gap = max(abs(x) for x in m["edge"])
         v = m["verdict"]
+        m_pick = _argmax(m["mk"])
+        model_i, mk_i = _argmax(m["p"]), m_pick
+        same_axis = "同向" if model_i == mk_i else "**反向**"
         srcs = ((ext.get("matches") or {}).get(m["no"]) or {}).get("sources") or []
         model_side = sum(1 for s in srcs if s.get("lean") == v["first"])
         mk_side = sum(1 for s in srcs if s.get("lean") == v["market_hot"])
         if model_side > mk_side:
-            side = f"模型（{model_side} 家）"
-            adj = "，加一档"
+            side, adj = f"模型（{model_side} 家）", "，外媒同侧加一档"
         elif mk_side > model_side:
-            side = f"定价（{mk_side} 家）"
-            adj = "，减一档"
+            side, adj = f"定价（{mk_side} 家）", "，外媒反向减一档"
         else:
-            side = "两边都不靠" if not srcs else "两家打平"
-            adj = ""
-        if b_["dir_stable"] < 50:
-            verdict_txt = f"方向不站，只谈总进球（稳定率 {b_['dir_stable']:.0f}%）"
-        elif gap >= 15:
-            verdict_txt = f"不站模型方向（分歧 {gap:.1f}pp 超过 15）"
+            side, adj = ("两边都不靠" if not srcs else "两家打平"), ""
+        stable = b_["dir_stable"]
+
+        # m 是 paid_cyber 的场次字典（没有 markets）；让球三向与线都在 intel 记录里
+        it_ = by_no.get(m["no"]) or {}
+        hh = (it_.get("markets") or {}).get("hhad") or {}
+        hs = hh.get("p") or []
+        line = hh.get("line") if hh.get("line") is not None else m.get("hand")
+        gate_flip = len(hs) == 3 and _argmax(hs) != mk_i
+
+        # 让球那格的观察：只在恰好 ±1 的盘上成立。深盘（如 +2）讲的是「差几个球」，
+        # 跟胜平负的「谁赢」不是同一件事，硬套会误判（周二002 就被套过一次）。
+        mg = ""
+        try:
+            line_abs = abs(int(str(line).replace("+", "").strip()))
+        except (TypeError, ValueError):
+            line_abs = 0
+        if len(hs) == 3 and line_abs == 1:
+            if str(line).strip().startswith("-") and mk_i == 0 and m["mk"][0] >= 50 and hs[0] < 40:
+                mg = (f"定价给{DIRS_CN[mk_i]} {f(m['mk'][0])}%，但让一球那格只有 {f(hs[0])}%，"
+                      "它自己在说赢不出净胜球，受让一侧不吃亏")
+            elif str(line).strip().startswith("+") and mk_i == 2 and _argmax(hs) == 0 and hs[0] >= 50:
+                mg = (f"定价给{DIRS_CN[mk_i]} {f(m['mk'][mk_i])}%，但让球盘把主队受让不败"
+                      f"放到 {f(hs[0])}%、是让球三格最高的一格，两边不是同一件事")
+
+        # 方向怎么站：先看稳定性，再看分歧落在哪个轴
+        if stable < 50:
+            dir_txt = f"方向不站，只谈总进球（稳定率 {stable:.0f}%）"
+        elif model_i == mk_i:
+            dir_txt = (f"可站模型方向 {v['first']}{adj}" if gap < 15
+                       else f"跟方向不跟幅度（同向、分歧 {gap:.1f}pp）")
         else:
-            verdict_txt = f"可站模型方向 {v['first']}{adj}"
-        L.append(f"| {m['no']} | {b_['dir_stable']:.0f}% | {gap:.1f}pp | {side} | {verdict_txt} |")
+            if mk_side > model_side:
+                dir_txt = f"跟定价方向 {DIRS_CN[mk_i]}（反向，外媒 {mk_side} 家站定价）"
+            elif model_side > mk_side:
+                dir_txt = f"可站模型方向 {v['first']}{adj}（反向，但外媒 {model_side} 家站模型）"
+            else:
+                dir_txt = "方向不站（反向且无第三方裁决）"
+        verdict_txt = dir_txt + (f"｜让球观察：{mg}" if mg else "")
+        L.append(f"| {m['no']} | {same_axis} | {gap:.1f}pp | {stable:.0f}% | {side} | {verdict_txt} |")
+    L.append("")
+    L.append("**两条读表提醒**：")
+    L.append("")
+    L.append("- 「让球观察」不是站方向——读的是**定价自己承认或自相矛盾**的那一格，"
+             "说的是「定价知道主队赢不出净胜球」，不是「主队赢不了」。")
+    L.append("- 「方向不站」不等于这场没话说：总进球期望、双方进球、比分剧本照样能给，只是不认方向。")
     L.append("")
 
-    out = Path(a.out) if a.out else OUT / a.date / f"{a.date}_{a.weekday}欧冠{len(ms)}场_内部分析报告.md"
+    # 文件名不能写死「欧冠」——这一批可能是意甲/英超/巴甲混编
+    leagues = {m["league"] for m in ms}
+    label = "欧冠" if leagues == {"欧冠"} else ""
+    out = Path(a.out) if a.out else OUT / a.date / (
+        f"{a.date}_{a.weekday}{label}{len(ms)}场_内部分析报告.md")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("\n".join(L), encoding="utf-8")
     print(f"✅ {out}  {len(''.join(L))} 字符 / {len(L)} 行")
