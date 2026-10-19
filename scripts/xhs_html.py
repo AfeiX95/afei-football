@@ -518,11 +518,12 @@ DATA_CSS = """
 /* ── 后台模型块：胜率条 + 比分概率热力图（2026-10-13 起并入同一张卡）──────
    用户 2026-10-12 拍板「模型结果要进卡片」，2026-10-13 再定「只出一张卡」，
    所以模型块不再单开一张，改成左右两栏：左栏＝六维雷达＋胜率条，右栏＝比分概率热力图。 */
-.card.data .viz .c1{flex:0 0 448px}
-.card.data .viz .c2{flex:1;min-width:0;padding-left:28px;border-left:1px solid rgba(10,10,11,.14)}
+.card.data .viz .c1{flex:0 0 516px}
+.card.data .viz .c2{flex:1;min-width:0;padding-left:20px;border-left:1px solid rgba(10,10,11,.14)}
+.card.data .viz .c2 .head2{white-space:nowrap}
 .card.data .viz .radar{margin-top:0;padding-top:0}
 /* 雷达默认会撑满栏宽（448px 栏→340px 方图），并进单卡后必须按 size 收住，否则整行 590px */
-.card.data .viz .radar .wrap svg{width:220px;height:220px;max-width:none;display:block;margin:0 auto}
+.card.data .viz .radar .wrap svg{width:516px;height:auto;max-width:none;display:block;margin:0 auto}
 .card.data .viz .wdl .head2{flex-wrap:nowrap;white-space:nowrap;margin-bottom:10px}
 .card.data .viz .wdl .lab{letter-spacing:.08em}
 .card.data .viz .wdl{margin-top:14px;padding-top:12px;border-top:1px solid rgba(10,10,11,.16)}
@@ -564,6 +565,7 @@ DATA_CSS = """
 .hax{display:flex;justify-content:center;gap:44px;font-size:17px;color:rgba(10,10,11,.55);margin-top:4px}
 .hfoot{margin-top:8px;font-size:18px;color:rgba(10,10,11,.72);text-align:center}
 .hnote{margin-top:6px;font-size:16px;line-height:1.45;color:rgba(10,10,11,.5);text-align:center}
+.hnote.mnote{margin-top:4px;color:rgba(10,10,11,.72);font-weight:600}
 .ed.data .wdl .lab,.ed.data .heat .lab{color:#9b5a2e;font-size:20px;font-weight:700;letter-spacing:.16em}
 """
 
@@ -722,8 +724,13 @@ def radar_svg(radar: dict, cluster: str, size: int = 300, label_font: int = 23) 
         c_home, c_away = "#9b5a2e", "#3f5f80"
         f_home, f_away = "rgba(155,90,46,.16)", "rgba(63,95,128,.10)"
         c_grid, c_lab, c_sep = "rgba(10,10,11,.20)", "#26241f", "rgba(10,10,11,.32)"
-    px, py = size + 300, size + 150   # 横向多留 300：六轴标签（5 个字）要比纵向更宽
-    cx, cy, r = px / 2.0, py / 2.0 + 4, size / 2.0
+    # 画布按标签文字实际宽度算（2026-10-20 用户「雷达图要大一倍，数字看不清」）：
+    # 横向 = 圆半径 + 轴向留白 + 最长标签（5 字），纵向 = 顶部标签两行（名字 + 数值）。
+    gap = 26
+    lab_w = label_font * 5
+    px = int(2 * (size / 2.0 + gap + lab_w))
+    py = int(2 * (size / 2.0 + gap + label_font * 2))
+    cx, cy, r = px / 2.0, py / 2.0, size / 2.0
 
     def axis(i):
         a = math.radians(-90 + 360.0 / n * i)
@@ -758,7 +765,7 @@ def radar_svg(radar: dict, cluster: str, size: int = 300, label_font: int = 23) 
     labels = ""
     for i, d in enumerate(dims):
         ca, sa = axis(i)
-        lx, ly = cx + (r + 36) * ca, cy + (r + 36) * sa + 8
+        lx, ly = cx + (r + gap) * ca, cy + (r + gap) * sa + 8
         anchor = "middle" if abs(ca) < 0.3 else ("start" if ca > 0 else "end")
         labels += ('<text x="%.1f" y="%.1f" text-anchor="%s" font-size="%d" font-weight="700" '
                    'fill="%s">%s</text>' % (lx, ly, anchor, label_font, c_lab, esc(d)))
@@ -766,7 +773,7 @@ def radar_svg(radar: dict, cluster: str, size: int = 300, label_font: int = 23) 
                    '<tspan fill="%s" font-weight="700">%.0f</tspan>'
                    '<tspan fill="%s"> / </tspan>'
                    '<tspan fill="%s" font-weight="700">%.0f</tspan></text>'
-                   % (lx, ly + 26, anchor, label_font - 2, c_home, hv[i], c_sep, c_away, av[i]))
+                   % (lx, ly + label_font + 4, anchor, label_font - 2, c_home, hv[i], c_sep, c_away, av[i]))
     return ('<svg width="%d" height="%d" viewBox="0 0 %d %d" xmlns="http://www.w3.org/2000/svg">%s%s%s%s%s%s</svg>'
             % (px, py, px, py, grid, polygon(av, c_away, f_away, 3), polygon(hv, c_home, f_home, 5),
                dots, labels, ""))
@@ -846,9 +853,9 @@ def radar_html(card: dict, cluster: str, size: int = 300, label_font: int = 23) 
 # --------------------------------------------------------------------------- #
 TEMPLATES = ("A", "B", "C")
 TPL_NAME = {"A": "战绩在前", "B": "简报提前", "C": "简报开篇"}
-TPL_HEAT = {"A": 46, "B": 48, "C": 44}       # 热力图单格边长
-TPL_BAR = {"A": 42, "B": 46, "C": 38}        # 胜率条高度
-TPL_RADAR = {"A": 220, "B": 205, "C": 235}
+TPL_HEAT = {"A": 34, "B": 36, "C": 32}       # 热力图单格边长
+TPL_BAR = {"A": 36, "B": 40, "C": 34}        # 胜率条高度
+TPL_RADAR = {"A": 260, "B": 250, "C": 270}
 TPL_STATE = Path(ROOT) / "state" / "xhs_templates.json"
 
 
@@ -981,9 +988,10 @@ def heat_html(card: dict, tpl: str = "A") -> str:
             '<div class="hgrid" style="grid-template-columns:40px repeat(%d,var(--cell))">%s</div>'
             '<div class="hax"><span>↓ 主队进球</span><span>客队进球 →</span></div>'
             '<div class="hfoot">最高三格：%s</div>'
-            '<div class="hnote">%d 球以内 %.1f%%；λ %.2f/%.2f，只算 90 分钟。</div></section>'
+            '<div class="hnote">%d 球以内 %.1f%%；λ %.2f/%.2f，只算 90 分钟。</div>%s</section>'
             % (cell, n, "".join(cells), esc(foot),
-               n - 1, shown * 100, float(lam[0]), float(lam[1])))
+               n - 1, shown * 100, float(lam[0]), float(lam[1]),
+               ('<div class="hnote mnote">%s</div>' % esc(md.get("note"))) if md.get("note") else ""))
 
 
 def vizrow_html(card: dict, cluster: str, tpl: str = "A", heat_left: bool = False) -> str:
@@ -991,7 +999,7 @@ def vizrow_html(card: dict, cluster: str, tpl: str = "A", heat_left: bool = Fals
 
     没跑过 xhs_model.py（卡片里没有 model）时退回「雷达｜战意与要点」，不影响出图。
     """
-    rz = radar_html(card, cluster, TPL_RADAR.get(tpl, 220), 20)
+    rz = radar_html(card, cluster, TPL_RADAR.get(tpl, 260), 22)
     wd = wdl_html(card, tpl)
     ht = heat_html(card, tpl)
     if not ht:
