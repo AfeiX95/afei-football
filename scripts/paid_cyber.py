@@ -314,39 +314,40 @@ def all_cells(mat: list[list[float]]) -> list[dict]:
 
 
 def verdicts(m: dict, top: list[dict], cells: list[dict] | None = None) -> dict:
+    """三档＝三个赛果按模型概率从高到低各占一格，不是三个独立建议。
+
+    🔴 旧写法的病灶（2026-10-19 用户 m07919 指出「首选主胜然后次选客胜，看着逻辑不通」）：
+    只要定价最热的那格与模型首选同格，旧代码就把「防范」直接赋值成「次选」，
+    于是出现「首选主胜 51.3%｜次选客胜 28.3%｜防范客胜 28.3%」——两档同向、同概率、同比分，
+    读者看到的是一句自相矛盾的话。现在改成：
+        首选 = order[0]（模型最高）
+        次选 = order[1]（模型第二）
+        兜底 = order[2]（模型最低）
+    三个方向一定互不相同，比分各自在该方向内取概率最高的一格。
+    定价热格的信息不再塞进方向位，而是单独放在 guard_mk_p / market_hot 里说明。
+    """
     p, mk = m["p"], m["mk"]
     order = sorted(range(3), key=lambda i: -p[i])
     lab = ["主胜", "平", "客胜"]
-    first = lab[order[0]]
-    guard_idx = max(range(3), key=lambda i: mk[i])
-    # 次选＝模型概率第二高的那一格。旧写法是「第一个不等于首选的序号」，
-    # 对 004（模型 10.7 / 12.7 / 76.5）会取成主胜 10.7%，把平 12.7% 漏过去。
-    second_i = order[1]
-    second = lab[second_i]
     grid = cells if cells else top
-    f = pick_score(grid, first)
-    s = pick_score(grid, second, exclude=(f,))
-    if guard_idx == order[0]:
-        # 定价与模型同向时，「防冷」= 模型第二选择（首选落空时的退路）
-        guard, guard_p = second, p[second_i]
-        guard_mode = "退路"
-    else:
-        # 定价最热那格与模型首选不是同一格：防范方向走定价热格，
-        # 但概率一律用模型口径（挂市场那个数会被误读成「模型看好它」），
-        # 市场值只作为说明写进 guard_mode。
-        guard = lab[guard_idx]
-        guard_p = p[guard_idx]
-        guard_mode = f"定价热格 {mk[guard_idx]:.1f}%"
-    # 三档比分必须各自落在自己的方向上。先在本方向内严格取一格（排除前两档已用），
-    # 该方向在格子里确实没有第二格时才退回剔重后的最高格 —— 正常不会走到。
-    guard_score = pick_score(grid, guard, exclude=(f, s), strict=True) \
-        or pick_score(grid, guard, exclude=(f, s))
+
+    first_i, second_i, third_i = order[0], order[1], order[2]
+    f = pick_score(grid, lab[first_i])
+    s = pick_score(grid, lab[second_i], exclude=(f,))
+    g = pick_score(grid, lab[third_i], exclude=(f, s), strict=True) \
+        or pick_score(grid, lab[third_i], exclude=(f, s))
+
+    hot_i = max(range(3), key=lambda i: mk[i])
     return {
-        "first": first, "first_p": p[order[0]], "first_score": f,
-        "second": second, "second_p": p[second_i], "second_score": s,
-        "guard": guard, "guard_p": guard_p, "guard_score": guard_score,
-        "guard_model_p": p[lab.index(guard)], "guard_mk_p": mk[lab.index(guard)],
-        "guard_mode": guard_mode,
+        "first": lab[first_i], "first_p": p[first_i], "first_score": f,
+        "second": lab[second_i], "second_p": p[second_i], "second_score": s,
+        "guard": lab[third_i], "guard_p": p[third_i], "guard_score": g,
+        "guard_model_p": p[third_i], "guard_mk_p": mk[third_i],
+        "guard_mode": "第三可能",
+        # 定价最热那格（可能与首选同格，也可能不同）——单独给，不占方向位
+        "market_hot": lab[hot_i], "market_hot_mk_p": mk[hot_i], "market_hot_model_p": p[hot_i],
+        "hot_is_first": hot_i == first_i,
+        "order": [lab[i] for i in order],
     }
 
 

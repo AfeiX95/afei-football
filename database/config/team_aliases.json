@@ -540,5 +540,25 @@
   "wiki": "PSV埃因霍温",
   "en": "PSV Eindhoven",
   "af": "PSV"
+ },
+ "巴黎圣日耳曼": {
+  "en": "Paris Saint-Germain",
+  "af": "Paris Saint Germain",
+  "sm_slug": "paris-saint-germain"
+ },
+ "巴塞罗那": {
+  "en": "Barcelona",
+  "af": "Barcelona",
+  "sm_slug": "barcelona"
+ },
+ "比利亚雷亚尔": {
+  "en": "Villarreal",
+  "af": "Villarreal",
+  "sm_slug": "villarreal"
+ },
+ "马德里竞技": {
+  "en": "Atletico Madrid",
+  "af": "Atletico Madrid",
+  "sm_slug": "atletico-madrid"
  }
 }

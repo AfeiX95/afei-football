@@ -1,0 +1,55 @@
+{
+ "_note": "2026-10-20 周二欧冠七场的外媒与全球 AI 预测读数。全部来自公开页面，只记页面明写的数字与倾向，不推断、不补全。kind：ai=统计/AI 模型，media=媒体前瞻，market=预测市场或博彩报价，vote=用户投票。",
+ "date": "20261020",
+ "matches": {
+  "周二001": {
+   "sources": [
+    {"src": "Forebet", "kind": "ai", "lean": "主胜", "read": "费内巴切胜率 37%（1X2 首选主胜，附正确比分与场均进球预测）", "url": "https://www.forebet.com/en/football/matches/fenerbah%c3%a7e-slavia-praha-2547567#1"},
+    {"src": "Sports Mole", "kind": "ai", "lean": "主胜", "read": "斯拉维亚 25.81%、平 25.37%；费内巴切赢的最可能比分 1-0，概率 11.73%", "url": "https://www.sportsmole.co.uk/football/champions-league/fenerbahce-vs-slavia-prague_game_260413.html"},
+    {"src": "Jan Rajnoch（捷克名宿）", "kind": "media", "lean": "平", "read": "预测 1-1", "url": "https://www.fanatik.com.tr/en/jan-rajnochs-take-on-the-fenerbahce-vs-slavia-prague-match-my-prediction-is-a-1-1-draw-2641424"},
+    {"src": "bongda24h", "kind": "media", "lean": "主胜", "read": "预测 2-1，理由「-3/4 的差距足够大，费内巴切大概会赢」", "url": "https://bongda24h.vn/nhan-dinh-bong-da/du-doan-fenerbahce-vs-slavia-praha-hom-nay-344-462523.html"},
+    {"src": "yyscores 用户投票", "kind": "vote", "lean": "主胜", "read": "67% 费内巴切 / 19% 平 / 14% 斯拉维亚", "url": "https://www.ysscores.com/fr/match/6106333/Fenerbahce-vs-SK-Slavia-Prague"}
+   ]
+  },
+  "周二002": {
+   "sources": [
+    {"src": "OneFootball", "kind": "media", "lean": "客胜", "read": "称多特蒙德被预期取胜，同时提醒萨巴赫刚以 2-0 赢斯拉维亚拿到队史欧冠首胜、信心正盛；两队此前从未交手", "url": "https://onefootball.com/en/news/preview-sabah-vs-borussia-dortmund-team-news-lineups-predictions-champions-league-2010-43632663"},
+    {"src": "OneFootball（阵容版）", "kind": "media", "lean": "客胜", "read": "「Dortmund will be expected to win」，但把萨巴赫的 2-0 首胜单列为变量", "url": "https://onefootball.com/en/news/sabah-fk-vs-borussia-dortmund-preview-team-news-and-predicted-lineups-43636658"}
+   ]
+  },
+  "周二004": {
+   "sources": [
+    {"src": "Sports Mole", "kind": "ai", "lean": "平", "read": "前瞻给出的比分是 1-1；形容那不勒斯为「ailing Napoli」，欧冠至今一分未得", "url": "https://www.sportsmole.co.uk/football/napoli/champions-league/preview/napoli-vs-bodoglimt-prediction-team-news-lineups_607142.html"},
+    {"src": "Robinhood 预测市场", "kind": "market", "lean": "主胜（大比分）", "read": "那不勒斯赢 2.5 球以上 20¢；博德闪耀赢 1.5 球以上 7¢；赢 2.5 球以上 0¢", "url": "https://robinhood.com/us/en/prediction-markets/soccer/events/napoli-vs-bodoeglimt-spread-oct-20-2026/"}
+   ]
+  },
+  "周二006": {
+   "sources": [
+    {"src": "Opta 超级计算机", "kind": "ai", "lean": "主胜（极窄）", "read": "巴黎 39.7% 胜 / 巴萨 37.7% 胜，接近五五开，未给平局单列", "url": "https://theanalyst.com/articles/psg-vs-barcelona-prediction-champions-league-10-2026"},
+    {"src": "Championat 报价", "kind": "market", "lean": "五五开", "read": "巴黎 2.47 / 平 4.38 / 巴萨 2.47——两家同价", "url": "https://www.championat.com/bets/article-6659804-pszh-barselona-prognoz-na-match-ligi-chempionov-20-oktyabrya-2026-goda.html"}
+   ]
+  },
+  "周二007": {
+   "sources": [
+    {"src": "Forebet", "kind": "ai", "lean": "主胜", "read": "利物浦胜率 47%（1X2 首选主胜，附正确比分与场均进球）", "url": "https://www.forebet.com/en/football/matches/liverpool-villarreal-2547570#1"},
+    {"src": "Garuda Lions", "kind": "ai", "lean": "主胜", "read": "利物浦 48% / 平 22% / 比利亚雷亚尔 30%", "url": "https://garudalionsfc.com/predictions/world-uefa-champions-league/liverpool-vs-villarreal-2026-10-20/#h2h"},
+    {"src": "Goalence（Pi-Ratings）", "kind": "ai", "lean": "主胜（极强）", "read": "利物浦 77% / 平 15% / 比利亚雷亚尔 8%，给 ELITE 档，预期比分 2-0", "url": "https://goalence.com/league/champions-league/liverpool-vs-villarreal-2026-10-20"},
+    {"src": "FootyStats", "kind": "ai", "lean": "大球+双方进球", "read": "双方进球：利物浦 70% / 比利亚雷亚尔 60% / 平均 65%；大 4.5：40% / 10% / 平均 25%", "url": "https://footystats.org/europe/villarreal-cf-vs-liverpool-fc-h2h-stats#1"}
+   ]
+  },
+  "周二009": {
+   "sources": [
+    {"src": "Sports Illustrated（西语版）", "kind": "media", "lean": "客胜", "read": "预测斯图加特 1-2 马竞，理由双方都可能进球＋马竞连胜", "url": "https://www.si.com/es-us/stuttgart-vs-atletico-de-madrid-previa-predicciones-y-alineaciones"},
+    {"src": "Sport.fr（法媒阵容）", "kind": "media", "lean": "客胜", "read": "斯图加特第 4（两战两胜，6 进 1 失）、马竞第 15（一胜一负）；Koke 缺阵、李刚仁进首发；原文称「纸面上马竞更被看好」，同时对斯图加特排名这么高表示意外", "url": "https://www.sport.fr/football/ligue-des-champions-compos-probables-pour-vfb-stuttgart-atletico-madrid-mardi-a-21h-avec-lee-kang-in-dans-le-onze-et-koke-absent-1491323.shtm"},
+    {"src": "Africafoot", "kind": "media", "lean": "平", "read": "预测 1-1；同时列出另一组报价「斯图加特 1.42 / 平 4.50 / 马竞 5.50」——与竞彩的客队被看好方向相反，疑为异构口径或数据源拿错，不作读数", "url": "https://africasoccer.com/stuttgart-v-atletico-madrid-champions-league-date-kick-off-time-and-how-to-watch/"}
+   ]
+  },
+  "周二010": {
+   "sources": [
+    {"src": "Sports Mole", "kind": "ai", "lean": "主胜", "read": "波尔图 48.58% / 平 21.64% / 埃因霍温 29.78%；波尔图赢的最可能比分 2-1，概率 9.38%", "url": "https://www.sportsmole.co.uk/football/champions-league/porto-vs-psv-eindhoven_game_260445.html"},
+    {"src": "Garuda Lions", "kind": "ai", "lean": "主胜", "read": "波尔图 53% / 平 23% / 埃因霍温 24%；最可能 2-1，概率 9%", "url": "https://garudalionsfc.com/predictions/world-uefa-champions-league/fc-porto-vs-psv-eindhoven-2026-10-20/#h2h"},
+    {"src": "SAPO（超级计算机·赛季维度）", "kind": "ai", "lean": "—", "read": "赛季夺冠概率：波尔图 0.8%、葡萄牙体育 1.4%（非本场读数，只作量级参考）", "url": "https://sapo.pt/artigo/supercomputador-preve-campeao-da-champions-e-aponta-hipoteses-do-fc-porto-e-sporting-6a9ee69fab85cd93d6c23fe7#1"}
+   ]
+  }
+ }
+}
