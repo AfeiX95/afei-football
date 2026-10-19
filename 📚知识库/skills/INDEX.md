@@ -3,7 +3,7 @@
 > 生成：`python scripts/skill_index.py`（SKILL.md 增删或改标题后重跑）。
 > **用法**：先在本文件定位技能与目标小节行号，再
 > `read 📚知识库/skills/<技能>/SKILL.md offset=<行号> limit=<小节长度>`，避免整篇加载。
-> 行数 > 400 的技能**禁止全量读**（`match-model-pipeline` 1243 行 ≈17K tokens，`afei-writing-standards` 877 行 ≈12K tokens，`humanizer` 647 行 ≈9K tokens，`football-match-preview-article` 729 行 ≈10K tokens，`football-lottery-assistant` 478 行 ≈6K tokens，`humanizer-zh` 473 行 ≈6K tokens，`football-14dim-full-analysis` 580 行 ≈8K tokens）。
+> 行数 > 400 的技能**禁止全量读**（`afei-writing-standards` 1071 行 ≈15K tokens，`match-model-pipeline` 1243 行 ≈17K tokens，`humanizer` 647 行 ≈9K tokens，`football-match-preview-article` 729 行 ≈10K tokens，`lieflat-less-ai-tone` 464 行 ≈6K tokens，`football-lottery-assistant` 478 行 ≈6K tokens，`humanizer-zh` 473 行 ≈6K tokens，`football-14dim-full-analysis` 580 行 ≈8K tokens）。
 
 ## 常用组合（按任务，只加载需要的）
 
@@ -19,10 +19,11 @@
 
 | 技能 | 行数 | 版本 | 加载策略 | 用途 |
 |---|---:|---|---|---|
+| `afei-writing-standards` | 1071 | 1.11.0 | 先查本索引定位，只读目标小节 | 阿飞说球写作偏好覆盖层 — 不断累积的用户格式/风格/维度修正。加载在football-match-preview-article之上，覆盖其默… |
 | `match-model-pipeline` | 1243 | 3.0.0 | 先查本索引定位，只读目标小节 | 在撰写赛事前瞻文章前，先运行全维度后台模型。包含官方数据优先原则、H2H数据读取陷阱、国内联赛专项分析、竞彩90分钟口径铁律、双方法lambda… |
-| `afei-writing-standards` | 877 | 1.11.0 | 先查本索引定位，只读目标小节 | 阿飞说球写作偏好覆盖层 — 不断累积的用户格式/风格/维度修正。加载在football-match-preview-article之上，覆盖其默… |
 | `humanizer` | 647 | 2.5.1 | 先查本索引定位，只读目标小节 | Humanize text: strip AI-isms and add real voice. |
 | `football-match-preview-article` | 729 | 2.8.0 | 先查本索引定位，只读目标小节 | 写足球赛事前瞻文章的完整工作流（阿飞说球风格）。v2.2新增：数据来源标注行、伤病语言缓冲措辞、违规词"赔率"在标题中也可能被判定违规。v2.1… |
+| `lieflat-less-ai-tone` | 464 | 1.0.0 | 先查本索引定位，只读目标小节 | 按 SKILL.md 明确列出的规则识别并改写写作中的 AI 痕迹。只能处理清单内的问题；未命中规则的文字必须原样保留，也不能改变文章框架。适用… |
 | `football-lottery-assistant` | 478 | 4.1.0 | 先查本索引定位，只读目标小节 | 顶级足球竞猜单场数据分析师 / 锦标赛博弈推演专家 / 资本盘口行为解构专家。七层漏斗+十二维因子+MPS决策引擎，覆盖小组赛出线形势穷举、淘汰… |
 | `football-publishing-calendar` | 372 | 1.4.0 | 读前 30 行 + 跳读目标小节 | 阿飞说球每日发文日历管理 — 何时发、发什么、发多少。覆盖16:30凌晨场前瞻、20:30赛后复盘/明日预热两个窗口的决策框架，含日发文量限制、… |
 | `humanizer-zh` | 473 | 2.0.0 | 先查本索引定位，只读目标小节 | ／ |
@@ -52,7 +53,7 @@
 
 > 编号型标题（R1/R41/C15b…）可能藏在三级 `###` 里，这里给出行号，免去全篇找。
 
-| `afei-writing-standards` | L21=R1 · L28=R2 · L33=R3 · L37=R4 · L41=R5 · L56=R6 · L84=R7 · L91=R8 · L96=R9 · L111=R10 · L124=R11 · L138=R12 · L154=R13 · L169=R14 · L178=R15 · L203=R16 · L220=R17 · L244=R18 · L267=R19 · L302=R20 · L324=R21 · L338=R22 · L371=R20b · L385=R23 · L401=R24 · L414=R25 · L424=R26 · L433=R27 · L446=R27b · L468=R28 · L486=R29 · L514=R30 · L520=R31 · L532=R32 · L544=R33 · L597=R34 · L633=R35 · L699=R36 · L748=R37 · L779=R38 · L789=R39 · L801=R40 · L809=R41 · L861=R42 · L872=R43 |
+| `afei-writing-standards` | L21=R1 · L28=R2 · L33=R3 · L37=R4 · L41=R5 · L56=R6 · L84=R7 · L91=R8 · L96=R9 · L111=R10 · L124=R11 · L138=R12 · L154=R13 · L169=R14 · L178=R15 · L203=R16 · L220=R17 · L244=R18 · L267=R19 · L302=R20 · L324=R21 · L338=R22 · L371=R20b · L385=R23 · L401=R24 · L414=R25 · L424=R26 · L433=R27 · L446=R27b · L468=R28 · L486=R29 · L514=R30 · L520=R31 · L532=R32 · L544=R33 · L597=R34 · L633=R35 · L699=R36 · L748=R37 · L779=R38 · L789=R38c · L815=R39 · L828=R40 · L836=R41 · L888=R42 · L899=R43 · L906=R44 · L936=R45 · L947=R46 · L955=R47 · L978=R48 · L1038=R49 |
 | `football-calibration-batch` | L73=R8 · L79=R9 · L111=R10 |
 
 ## 分节行号（二级 `##`）
@@ -60,16 +61,16 @@
 > 三级小节（`###`）不在此逐一索引（长技能里有 479 条，全收会让本文件翻倍）。
 > 要定位时直接 `grep "^### " 📚知识库/skills/<技能>/SKILL.md`，零成本拿行号。
 
+### `afei-writing-standards`（1071 行，先查本索引定位，只读目标小节）
+- L16｜用途
+- L19｜修正记录
+- L296｜更新规则
+
 ### `match-model-pipeline`（1243 行，先查本索引定位，只读目标小节）
 - L15｜When to Use
 - L21｜Pipeline Steps
 - L587｜国内联赛分析模式（K联赛/瑞超等 ⚠️ 世界杯参数不适用）
 - L712｜多场综合方案（v1.4新增 — 批量输出格式）（v1.4新增 — 批量输出格式）
-
-### `afei-writing-standards`（877 行，先查本索引定位，只读目标小节）
-- L16｜用途
-- L19｜修正记录
-- L296｜更新规则
 
 ### `humanizer`（647 行，先查本索引定位，只读目标小节）
 - L22｜When to use this skill
@@ -98,6 +99,15 @@
 - L647｜常见陷阱
 - L670｜评论区置顶写作（2026-07-14新增）
 - L706｜发布前检查清单（2026-07-06 v2.1更新）
+
+### `lieflat-less-ai-tone`（464 行，先查本索引定位，只读目标小节）
+- L21｜有风格参考时先读它
+- L29｜硬性边界（最高优先级）
+- L55｜用法
+- L66｜不改的情况
+- L78｜不作为改写理由
+- L103｜改写规则（按优先级排序）
+- L438｜最终验收
 
 ### `football-lottery-assistant`（478 行，先查本索引定位，只读目标小节）
 - L17｜一、 🧠 系统人设与核心纪律

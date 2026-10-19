@@ -3134,3 +3134,59 @@ R49 的「收尾固定 `推演跟重侧`」容易被读成「场场跟定价」�
 
 1. 发布窗口按 R39：最早 00:45 开球，须提前 ≥3 小时，即 **21:45 前**发出；两篇之间要间隔 ≥2 小时。
 2. 赛后回填七场，重点验三件事：萨巴赫不输（模型对）、利物浦只赢一球（幅度虚）、巴黎巴萨打出 2-2 或更大（总进球可谈方向不可谈）。
+## 2026-10-19 夜·七十 — 引入技能 lieflat-less-ai-tone（去 AI 味 · 白名单式）
+
+### 一、用户要求（m07700）
+
+> 「帮我部署github上作者为larasheroro3-dotcom的lieflat-less-ai-tone到我的技能库」
+
+### 二、用户名修正（重要）
+
+用户写的 `larasheroro3-dotcom` **GitHub 上不存在**（`api.github.com/users/larasheroro3-dotcom` → 404，`git ls-remote` → Repository not found）。实际作者是 **`larashero3-dotcom`**（少了两个字母 `ro`）。用 GitHub 搜索接口 `search/repositories?q=lieflat-less-ai-tone` 找到正主：
+
+`https://github.com/larashero3-dotcom/lieflat-less-ai-tone`（描述：一个基于 283 万字语料统计的去 AI 味 skill）
+
+同名的还有三个 fork/备份（`jinjinzhang2025-art` ×2、`linhucong814-cyber` 的「自然语气」维护版），未采用。
+
+### 三、装到哪里（两处都装）
+
+| 位置 | 作用 |
+|---|---|
+| `📚知识库/skills/lieflat-less-ai-tone/` | 项目技能真源，随 git 跨机同步（12 个文件） |
+| `C:\Users\wuyan\.dsh\skills\lieflat-less-ai-tone\SKILL.md` | 会话内可被 `skill` 工具加载；与 `humanizer-zh` 的现有做法一致（它也是两处各一份） |
+
+- 源：`git clone --depth 1` 到 `state/tmp/_skill_src`，commit `27d2923`（2026-08-24），LICENSE = MIT。
+- 落地文件：`SKILL.md`(464 行) / `README.md` / `README.en.md` / `RESEARCH.md` / `RESEARCH.en.md` / `LICENSE` / `.gitignore` / `assets/`(2 张 hero 图) / `scripts/`(3 个 py)。
+- **frontmatter 按本项目约定补齐**：原只有 `name`+`description`，补了 `version: 1.0.0` / `author: larashero3-dotcom` / `license: MIT` / `metadata.upstream` + `upstream_commit` + `imported: 2026-10-19` + `metadata.hermes.tags` + `related_skills: [humanizer-zh, humanizer, afei-writing-standards]`。
+- `python -X utf8 scripts/skill_index.py` 重生成 INDEX：**skills=29**（原 28），已收录第 26 行一览与第 103 行分节。
+
+### 四、这个 skill 是什么
+
+**白名单式去 AI 味**，和现有 `humanizer-zh` 的路子不同：`humanizer-zh` 是「AI 写作特征清单 + 修复」，会顺手润色；这个是**只改命中清单的句子，其余逐字保留**，并且把「不改的情况」写成了硬边界（框架、对话体、问句、文学表达、体裁要求、代码块、引文一律不动）。
+
+11 条改写规则（按优先级）：1 翻案腔 2 顿号罗列过密 3 相邻句结构同款 4 破折号滥用 5 冒号滥用 6 序数词当小标题 7 拟人化喻体 8 把已有的具体数据写回概括表述 9 禁用起手式 10 翻译腔（只留五种）11 段首零主语评论。
+
+规则来源是实测：629 篇文章 / 2,826,972 汉字 / 95,551 句 / 45,721 段，其中 300 篇由五个模型受控生成、329 篇人类文本。
+
+### 五、三个脚本是研究工具，不是单文件 lint
+
+实测用法（**都要求目录，不是文件**）：
+
+```bash
+python -X utf8 "📚知识库/skills/lieflat-less-ai-tone/scripts/check-translationese.py" "📝文章/20261020"
+python -X utf8 ".../scripts/compare-human-ai.py" --human <目录> --ai <目录>
+python -X utf8 ".../scripts/check-structure.py" --human <目录> --ai <目录>
+```
+
+用本项目 10/20 的三篇实跑 `check-translationese.py`：语料 3 篇 / 0.9 万汉字，几乎全部标记 0.00，只有 `[基准]破折号` 1.12 次/千字（10 处，主要在分析报告里）、`[基准]不是…而是` 0.67（6 处）、`并列连词密集` 0.22。**和我们 AI 评分 18–19 分的结论一致**，说明这个 skill 要治的毛病，我们目前的稿子基本没有。所以它更适合当**成稿后的最后一道复查**，不是日常必跑。
+
+### 六、和 humanizer-zh 的分工（给我的判断）
+
+- 要「改语气、加人味、拆句子」→ `humanizer-zh`
+- 要「只清规则内的 AI 标记、一个字都不许顺手改」→ `lieflat-less-ai-tone`
+- 两者**不要连着用**：先改语气会破坏后者的白名单判断基准。
+
+### 七、下一步
+
+1. 下次成稿后试一次「lieflat-less-ai-tone 复查 + preflight 门禁」的组合，看是否会把 AI 分压得更低而不掉字数。
+2. 上游若更新（`27d2923` 之后），重新 clone 覆盖 `SKILL.md` 并保留我们补的 frontmatter 字段。
