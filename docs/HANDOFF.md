@@ -3744,3 +3744,43 @@ bash scripts/gh_labels_setup.sh
 - **页脚改版**：图上删掉 `#话题`（标签只留文案），名片改成签名块——品牌色短条 + `@阿飞·赛博聊球` 32px 加粗宽字距（封面 34px）。试过 104px 幽灵水印，压住页脚文字已弃用。
 - **为腾 100px 做的收紧**：简报压到 60–77 字（2 行，原来是 121–154 字 3–4 行）、`TPL_RADAR` A228、四格 padding 9→7、胜率块 margin 14→10。全 10 张 `bottom_margin` 统一 69@2x，无裁切。
 - 正文 **997 字**不变，`xhs_riskcheck` 通过。
+
+## 2026-10-20 外媒 / AI 预测接入（DeepSeek Search · Fetch）
+
+**用户 2026-10-20 决定**：把 DeepSeek 的 Search/Fetch 接进情报管线，抓外媒与 AI 预测，**文章和卡片都要用**。
+
+### 新增脚本
+| 文件 | 作用 |
+|:--|:--|
+| `scripts/ds_search.py` | DeepSeek `POST /v1/tools/search`、`POST /v1/tools/fetch` 的薄封装；`search()` / `fetch()`；CLI `search/fetch/test` |
+| `scripts/media_intel.py` | 外媒采集：按 slate 取场次 → 队名转 en 别名 → 两轮检索（preview/zh，可选 injury）→ 逐源判倾向 → 落 `state/intel/<date>/_media_<date>.{json,md}` |
+| `scripts/prematch_intel.py --media` | 步骤 1 里顺带跑一次外媒采集（失败只告警，不挡主线） |
+
+### 用法
+```bash
+python -X utf8 scripts/media_intel.py --date 20261020 --fetch-top 3        # 采 + 抓正文
+python -X utf8 scripts/media_intel.py --date 20261020 --only 周二001,周二006 --fetch-top 1
+python -X utf8 scripts/media_intel.py --date 20261020 --apply-cards "📝文章/20261020/小红书_周二九场/cards.json"
+python -X utf8 scripts/prematch_intel.py --date 20261020 --media            # 并进主流程
+```
+
+### 成本与限流
+- Search / Fetch **各 5 元/1000 次**，失败与无结果不计费，`count` 不影响单价 → 一轮 9 场 ≈ 18 次 ≈ **0.09 元**；带 `--injuries` 加倍；`--fetch-top N` 每场最多再 N 次。
+- QPS：Search 100 / Fetch 25；`_post()` 对 402（余额）/429（限流）/4xx 抛中文 `SystemExit`。
+
+### Key（🔴 当前缺失，尚未实跑）
+- 两种放法：环境变量 `DEEPSEEK_API_KEY`，或 `state/api-keys.json` 加 `"deepseek": "sk-…"`（也支持 `{"key": "sk-…"}`）。
+- 联调可用 `DEEPSEEK_BASE=http://127.0.0.1:8765` 指向本地假服务器（`state/tmp/mock_ds.py` 已验过端到端：2 条源、线索计数、比分线索、`--apply-cards` 回填均正确）。
+
+### 纪律（R41 上层）
+- `_media_*.md` 是**内部原料**：原始倾向与比分只在这里。公开稿/卡片只写「N 家媒体里有几家偏向哪边」这类计数，**不写比分串、不写百分比、不写谁赢**。
+- 带否定词（unlikely / doubt / 难说…）的源标「疑似否定，请核原文」，不计入结论。
+- `--apply-cards` 只回填 `cv[0]`（媒体行）；`技术`、`综合` 两行必须手写（要人判断）。
+
+### 已知局限
+- `summary/snippet` 是模型摘要，非原文；倾向判定是关键词法（主>客>平>进球），会有误判 → 落笔前核原文。
+- 未接「文章段落自动引用」：写头条稿时仍要人读 `_media_<date>.md` 后再转写。
+
+### 下一步
+1. 用户给 Key 后实跑 `--date 20261020`（约 0.09 元），把九场 `cv` 媒体行换成真数。
+2. 观察一周误判率，再决定是否把「技术/综合」也做半自动草稿。

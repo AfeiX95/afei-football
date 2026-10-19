@@ -54,12 +54,22 @@ python -X utf8 scripts/prematch_intel.py --date YYYYMMDD              # 抓盘�
 python -X utf8 scripts/prematch_intel.py --date YYYYMMDD --no-fetch   # 只用缓存
 python -X utf8 scripts/prematch_intel.py --date YYYYMMDD --leagues    # 顺带并进联赛排名与天气（R48-A）
 python -X utf8 scripts/league_intel.py --date YYYYMMDD --weekday 周一 --md   # 只跑排名+天气
+python -X utf8 scripts/prematch_intel.py --date YYYYMMDD --media       # 顺带采外媒与 AI 预测（DeepSeek）
+python -X utf8 scripts/media_intel.py --date YYYYMMDD --fetch-top 3 --apply-cards <cards.json>  # 只跑外媒并回填 cv 媒体行
 ```
 - 一次做完：`sporttery_fetch.py bonus <ids>`（五套盘口历史快照）+ `match <ids>`（伤停/球员/近期/交锋）+ `move_from_bonus.py`（位移处理）+ `league_intel.py`（中文/英文维基赛季页积分榜 + open-meteo 比赛时刻天气）
 - 产出 `state/intel/<date>/_intel_<date>.md`（人读，写稿前看这份）与 `_intel_<date>.json`（机器读）；排名与天气另出 `_leagues_<date>.{json,md}`
 - 情报单逐场给：胜平负 / 让球 / 总进球 / 半全场 / 波胆五套盘的最新赔率与去水概率、快照次数与开盘→最新位移、跨盘一致性（让球与不让球之间的恒等关系对不上就说明定价有缝）、冷热与抽水、伤停、近期、交锋、**缺源清单**
 - 🔴 **跨零点批次不能按日期取场次**：竞彩 `matchDate` 对 00:30 的球是次日（周一期挂 2026-10-20）→ 用 `--nums` 或 `--weekday`；天气取 slate 的 `matchDate` 且 `timezone=Asia/Shanghai`
 - 🔴 **纪律**：盘口读数只作背后研判依据，公开稿换成「公开数据口径」，不写赔率/盘口/机构（R41/R48）；位移只说「定价动过」，**不编资金流向**；缺源项直接省略，不写「待补」
+#### 1B. 外媒与 AI 预测（`scripts/media_intel.py` · 2026-10-20 起）
+- 走 **DeepSeek Search / Fetch**（`scripts/ds_search.py`）：Search 与 Fetch 各 5 元/1000 次，失败与无结果不计费，`count` 不影响单价；QPS Search 100 / Fetch 25。
+- Key 放 `state/api-keys.json` 的 `"deepseek"`（或环境变量 `DEEPSEEK_API_KEY`）；`DEEPSEEK_BASE` 可指向本地假服务器做联调。
+- 产出 `state/intel/<date>/_media_<date>.json|md`：每场来源表（站点/日期/权威/分数）+ **线索计数**（主/客/平/进球/无信号/疑似否定）+ 逐条命中词 + 比分线索 + 可选正文前 700 字。
+- `--apply-cards <cards.json>` 只回填 `cv[0]`（媒体行，写家数与方向分布），技术/综合两行仍手写。
+- 🔴 纪律：**情报是内部原料**。公开稿与卡片按 R41 转写——不写比分串、不写百分比、不写「谁赢」；只写「N 家媒体里有几家偏向哪边」这类计数。带否定词的源标「疑似否定」，不当结论。
+- ⚠️ 已知局限：`snippet/summary` 是模型摘要不是原文，倾向判定靠关键词，必须人工核原文再落笔。
+
 - **投注页**（SPF/让球/比分/总进球/半全场）→ 市场解析先行版
 - **特征分析页**（近况/H2H/积分榜/射手/伤停）→ 深度版前提
 - 🔴 **页面去重惯例**：赛果页粘贴后，先 grep `📚知识库/赛后校验/` 查旧批次是否已覆盖同窗口（跨天编号如 周三/周四/周五 可能已并入早批）——只统计真正的新数据，绝不重复计 batch/totals

@@ -486,6 +486,8 @@ def main() -> None:
     ap.add_argument("--date", default=None, help="YYYYMMDD，缺省取 slate 里最近的 businessDate")
     ap.add_argument("--no-fetch", action="store_true", help="只用已有缓存，不联网抓")
     ap.add_argument("--ext", action="store_true", help="顺带跑一次外部预测采集")
+    ap.add_argument("--media", action="store_true",
+                    help="顺带跑一次外媒与 AI 预测采集（DeepSeek Search/Fetch，走 media_intel.py）")
     ap.add_argument("--leagues", action="store_true",
                     help="顺带跑一次联赛排名与天气（R48 A 级，走 league_intel.py）")
     ap.add_argument("--quiet", action="store_true")
@@ -555,6 +557,15 @@ def main() -> None:
             print("  已跑一次外部预测采集")
         except Exception as exc:  # noqa: BLE001
             print(f"  ⚠️ 外部预测失败：{exc}")
+
+    if a.media:
+        try:
+            subprocess.run([sys.executable, "-X", "utf8", str(SCRIPTS / "media_intel.py"),
+                            "--date", date_tag], cwd=str(ROOT), capture_output=True,
+                           text=True, timeout=1800)
+            print(f"  已采外媒情报 → state/intel/{date_tag}/_media_{date_tag}.md")
+        except Exception as exc:  # noqa: BLE001
+            print(f"  ⚠️ 外媒采集失败（缺 Key 或网络）：{exc}")
 
     if a.leagues:
         cmd = [sys.executable, "-X", "utf8", str(SCRIPTS / "league_intel.py"),

@@ -15,6 +15,9 @@
 
 ### A2. 抓外媒 / 媒体预测：`autocli` / `agent-reach`
 
+> ✅ **2026-10-20 已用自建脚本落地**：`scripts/media_intel.py` + `scripts/ds_search.py`（DeepSeek Search/Fetch，5 元/1000 次）。
+> 下面这套 CLI 方案仍可作补充通道（DeepSeek 检索不到时用），不是必需。
+
 - **解的痛点**：`open_items` 记录的「Sports Mole / Sportskeeda 全被 Cloudflare 挡（ProxyError / MaxRetryError）」，以及 `scripts/ext_predict.py` 首轮 22 场全 MISS（别名表缺队名）。
 - `autocli`：55+ 站点 CLI（含 Google / Reuters / Bloomberg / BBC / Reddit / 雪球 等），走的是站点自己的通道，不是裸 HTTP，绕 Cloudflare 的成功率高于 `requests`。
 - `agent-reach`：15 平台调研路由（小红书 / X / B站 / Reddit / YouTube / GitHub），带多后端路由。
