@@ -14,6 +14,8 @@
 Key 解析顺序（谁在前用谁）：
     1) 环境变量 DEEPSEEK_API_KEY
     2) state/api-keys.json 的 "deepseek"（字符串，或 {"key": "..."}）
+    3) DSH 自己的密钥库 %USERPROFILE%\.dsh\.credentials.yaml 的 DEEPSEEK_API_KEY
+       —— 用户在 DSH「插件管理 → 网页搜索」里配过的那把，直接复用，不再单存一份
 
 用法
     python scripts/ds_search.py search "Arsenal vs Chelsea preview" --count 6
@@ -37,6 +39,25 @@ BASE = os.environ.get("DEEPSEEK_BASE", "https://api.deepseek.com").rstrip("/")
 TIMEOUT = 30
 
 
+def _dsh_credentials_key() -> str:
+    """从 DSH 自己的密钥库取 DEEPSEEK_API_KEY（插件管理里配过就在这儿）。
+
+    只认这一个键名，不做任何别的推断 —— 免得把别的服务的密钥当搜索额度花掉。
+    """
+    home = Path(os.environ.get("USERPROFILE") or os.path.expanduser("~"))
+    cf = home / ".dsh" / ".credentials.yaml"
+    if not cf.exists():
+        return ""
+    try:
+        for line in cf.read_text(encoding="utf-8", errors="ignore").splitlines():
+            t = line.strip()
+            if t.startswith("DEEPSEEK_API_KEY:"):
+                return t.split(":", 1)[1].strip().strip("'\"")
+    except Exception:  # noqa: BLE001
+        return ""
+    return ""
+
+
 def api_key() -> str:
     k = (os.environ.get("DEEPSEEK_API_KEY") or "").strip()
     if k:
@@ -53,10 +74,14 @@ def api_key() -> str:
             for f in ("key", "api_key", "token"):
                 if isinstance(v.get(f), str) and v[f].strip():
                     return v[f].strip()
+    k = _dsh_credentials_key()
+    if k:
+        return k
     raise SystemExit(
-        "没有 DeepSeek API Key。二选一：\n"
+        "没有 DeepSeek API Key。三选一：\n"
         "  1) 环境变量 DEEPSEEK_API_KEY=sk-...\n"
         "  2) state/api-keys.json 里加 \"deepseek\": \"sk-...\"\n"
+        "  3) 在 DSH 插件管理里配好网页搜索（自动读 ~/.dsh/.credentials.yaml）\n"
         "（Search/Fetch 按次计费 5 元/1000 次，失败与无结果不计费）"
     )
 

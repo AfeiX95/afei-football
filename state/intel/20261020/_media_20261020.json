@@ -1,0 +1,966 @@
+{
+  "date": "20261020",
+  "fetched_at": "2026-10-20T02:35:06",
+  "calls": 18,
+  "items": [
+    {
+      "no": "周二001",
+      "league": "欧冠",
+      "home": "费内巴切",
+      "away": "斯拉维亚",
+      "home_en": "Fenerbahce",
+      "away_en": "Slavia Prague",
+      "queries": [
+        "\"Fenerbahce vs Slavia Prague\" preview prediction lang:en",
+        "费内巴切 斯拉维亚 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Fenerbahce v Slavia Prague | Goal.com US",
+          "url": "https://www.goal.com/en-us/match/fenerbahce-vs-slavia-prague/lPbnNLMfECCc7GnjOBOTL",
+          "site": "Goal.com",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.842631220817566,
+          "summary": "Champions League\n\nChobani Stadyumu Fenerbahce Sukru Saracoglu Spor Kompleksi\nSlavia Prague\n\n# Fenerbahce vs Slavia PragueMatch preview,\n\n## Head to head\n\nFB\n\nLast 3 matches\n\nSLP\n\n1\n\nWin\n\n0\n\nDraws\n\n2\n\nWins\n\n6\n\nGoals scored\n7\n- Games over 2.5 goals\n- 3/3\n- Both teams scored\n...\nChampions League - Game Week 3\n\n## Match details",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=2042096&gm=2633775",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.7187873125076294,
+          "summary": "排名: League Stage 第28名\n\n赛季总成绩: 0胜 1平 1负\n\n赛季主场成绩: 0胜 1平 0负\n...\nLeague Stage 第31名\n...\n0胜 0平 2负\n\n赛季客场成绩: 0胜 0平 1负\n\n特征分析\n\n费内巴切 (主)\n\n1胜/0平/2负\n\n0胜/0平/1负\n\n6胜/2平/2负\n\n6胜/3平/1负\n\n2.2个\n\n1.0个\n\n近3场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n斯拉维亚 (客)\n\n2胜/0平/1负\n\n1胜/0平/0负\n...\n2.1个\n\n0.9个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n近3场费内巴切1胜 (33%) | 0平 (0%) | 2负 (67%)\n\n积分榜 欧冠2026/2027\n\n费内巴切League Stage 第28名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 2 | 0/1/1 | 0% | 1/7 | -6 | 1 | 28 \n主 | 1 | 0/1/0 | 0% | 1/1 | 0 | 1 | 23 \n客 | 1 | 0/0/1 | 0% | 0/6 | -6 | 0 | 36 \n\n斯拉维亚League Stage 第31名 查看更多>\n...\n总 | 2 | 0/0/2 | 0% | 2/5 | -3 | 0 | 31 \n主 | 1 | 0/0/1 | 0% | 2/3 | -1 | 0 | 29 \n客 | 1 | 0/0/1 | 0% | 0/2 | -2 | 0 | 29 \n\n比赛近况\n...\n费内巴切近10场6胜 (60%) | 2平 (20%) | 2负 (20%)\n\n进22球，失10球，净进12球\n\n斯拉维亚近10场6胜 (60%) | 2平 (20%) | 2负 (20%)\n\n进21球，失9球，净进12球\n\n射手信息 欧冠2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n94-塔利斯卡(中场) | 6 (6/0) | 4 (80%) | 0 (0%) | 0.7/0 \n3-A. Brown(后卫) | 2 (2/0) | 1 (20%) | 0 (0%) | 0.5/0 \n11-M.格林伍德(前锋) | 2 (2/0) | 0 (0%) | 1 (50%) | 0/0.5\n...\n10-D. Šturm(前锋) | 2 (2/0) | 2 (100%) | 0 (0%) | 1.0/0 \n14-S. Isife(后卫) | 2 (1/1) | 0 (0%) | 1 (100%) | 0/0.5 \n\n伤停一览\n...\n暂无数据\n...\n注：赛事数据统计进行至全场90分钟（含伤停补时阶段）结果。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "Opta预测欧冠：曼城、罗马优势明显，巴黎迎战巴萨难分高下",
+          "url": "https://www.sohu.com/a/1089876974_121814866?scm=10008.1479_13-1479_13-68_68.4935001-0.0-1-0-0-0.0&spm=smpc.content-abroad.fd-d.8.1792431434164MxSrOMR",
+          "site": "Sohu",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6720572710037231,
+          "summary": "2026-10-20 01:15 来源: 咸鱼看球\n...\n欧冠联赛阶段第3轮将于北京时间10月21日凌晨开打。\n...\n以下是Opta对北京时间10月21日进行的9场欧冠比赛的观点：\n...\n- 费内巴切 vs 布拉格斯拉维亚\n\n费内巴切上轮客场0-6惨败于阿斯顿维拉，本轮回到主场迎战布拉格斯拉维亚，有望借此机会争取反弹。\n\n布拉格斯拉维亚上轮不敌萨巴赫，目前仍在寻找本赛季欧冠联赛阶段的首个积分。更值得注意的是，布拉格斯拉维亚已经连续21场欧冠比赛未能取胜，战绩为7平14负。Opta因此更青睐费内巴切。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Preview: Fenerbahce vs Slavia Prague - prediction, team news, lineups - Sports Mole",
+          "url": "https://www.sportsmole.co.uk/football/fenerbahce/champions-league/preview/fenerbahce-vs-slavia-prague-prediction-team-news-lineups_607168.html",
+          "site": "Sports Mole",
+          "date": "2026-10-17T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6412975788116455,
+          "summary": "Champions League Gameweek 3\n\nOct 20, 2026 5.45pm\n\n# Preview: Fenerbahce vs Slavia Prague - prediction, team news, lineups\n\nFenerbahce welcome Slavia Prague to the Sukru Saracoglu Stadium on Tuesday evening for a UEFA Champions League league-phase encounter, with both sides seeking their first victory of the 2026-27 campaign.\n\nThe Turkish side are looking to recover from a humiliating 6-0 defeat away to Aston Villa, while Slavia arrive in Istanbul after losing 2-0 to Sabah and are now without a win in their last two matches across all competitions.\n\n## Match preview\n\nFenerbahce's heavy defeat at Villa Park on matchday two was a major setback for a side hoping to make an impression on their return to the Champions League's league phase.\n\nAston Villa took control early through Johan Manzambi before Nicolas Jackson and Ross Barkley both scored twice, with Tammy Abraham completing the rout as the Yellow Canaries struggled to contain Villa's movement and attacking combinations, conceding three times in each half without finding a response.\n\nThe result left Fenerbahce with just one point from their opening two league-phase matches, having drawn 1-1 at home against Roma in their opener.\n\nIsmail Kartal's men will now hope to carry their domestic form into Europe and secure their first Champions League victory of the season on Tuesday.\n\nThe Yellow Canaries are unbeaten in their last four league matches, scoring 14 goals and conceding none, a run that includes 3-0 victories over Caykur Rizespor and Alanyaspor, an emphatic 8-0 win against Eyupspor and a goalless draw with Gaziantep.\n\nHowever, the hosts must remain wary, particularly against opponents who have beaten them twice in the past, with Slavia winning both legs of their 2021-22 Conference League knockout tie against Fenerbahce, recording 3-2 victories on each occasion, although the Turkish side subsequently won 2-1 away to the Czech club in the 2024-25 Europa League.\n\nSlavia Prague also have plenty to prove after losing their first two Champions League matches, as they opened their campaign with a 3-2 home defeat against Lens despite putting up a spirited fight in a match during which they played almost an entire half with 10 men.\n\nAfter a goalless first half, Mikulas Konecny was sent off just four minutes after coming on as a substitute at the interval – nevertheless, the Red and Whites took the lead through Danijel Sturm two minutes later, before Sturm scored again late in the game after Lens had equalised; however, two stoppage-time goals from the visitors condemned Jindrich Trpisovsky's side to defeat.\n\nSlavia will hope to draw encouragement from their resilience in that encounter, although their subsequent 2-0 loss away to Sabah was another disappointment, and they remain among the teams yet to collect a point in this league phase.\n\nTheir domestic form offers a more encouraging picture, as they put together a four-game winning streak between their two Champions League defeats – they did, however, settle for a goalless draw against Hradec Kralove in their most recent league match, leaving them top of the Czech First League with 27 points.\n\nPrevious meetings suggest Slavia are capable of troubling Fenerbahce, although the Czech side have struggled against Turkish opposition in recent encounters, failing to win any of their last three matches against teams from Turkey, recording two draws and one defeat.\n\nFenerbahce Champions League form:\n\n- D\n- L\n\nFenerbahce form (all competitions):\n\n- D\n- W\n...\nSlavia Prague Champions League form:\n...\nSlavia Prague form (all competitions):\n...\n## Team News\n\nFenerbahce are expected to be without Jayden Oosterwolde, who is recovering from an Achilles tendon injury, and Mert Muldur, who has a knee problem.\n\nMarco Asensio has been listed with a muscle issue but has returned to training, leaving his availability uncertain, while Amara Diouf is also a doubt ahead of Tuesday's encounter.\n\nRomelu Lukaku started as the centre-forward in the weekend victory over Alanyaspor and found the net, but Vedat Muriqi also scored after coming off the bench — Kartal therefore faces a decision over who should lead the line against Slavia.\n\nSlavia Praha have a longer list of reported absentees, as Stepan Chaloupek is sidelined with a muscle injury, while Igoh Ogbu is recovering from an Achilles problem and Adonija Ouanda is also unavailable.\n\nDavid Jurasek has a thigh injury, while Ivan Schranz and Elias Pitak have also been listed with fitness concerns.\n\nKonecny, however, is available for selection after serving his suspension following his red card on the opening matchday.\n\nF...",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": [],
+          "fetch_ok": true,
+          "fetch_head": "Menu\n\nChampions League Gameweek 3\n\nOct 20\\, 2026 5\\.45pm\n\n\\# Preview\\: Fenerbahce vs Slavia Prague \\- prediction\\, team news\\, lineups\n\nFenerbahce welcome Slavia Prague to the Sukru Saracoglu Stadium on Tuesday evening for a UEFA Champions League league\\-phase encounter\\, with both sides seeking their first victory of the 2026\\-27 campaign\\.\n\nThe Turkish side are looking to recover from a humiliating 6\\-0 defeat away to Aston Villa\\, while Slavia arrive in Istanbul after losing 2\\-0 to Sabah and are now without a win in their last two matches across all competitions\\.\n\n\\#\\# Match preview\n\nFenerbahce\\'s heavy defeat at Villa Park on matchday two was a major setback for a side hoping to make a"
+        },
+        {
+          "kind": "zh",
+          "title": "费内巴切 vs 布拉格斯拉维亚 赛事推介",
+          "url": "https://v2.news.7m.com.cn/prediction/data/5178535.shtml",
+          "site": "7M体育",
+          "date": null,
+          "authority": 2,
+          "score": 1.4064805507659912,
+          "summary": "费内巴切\n\n[胜][负][胜][胜][胜][和]\n\nVS\n\n布拉格斯拉维亚\n\n[和][负][胜][胜][胜][胜]\n\n2026-10-21 00:45 | 往绩分析 | 现场赛事情况\n\n澳门推介： 和局 (★★★★)\n\n双方在欧冠联联赛阶段均未尝胜绩，彼此间也没有优势可言，两队此番握手言和合情合理。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "握手言和"
+          ],
+          "scores": [],
+          "fetch_ok": false
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 1,
+        "goals": 1,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 2,
+        "zh": 3,
+        "home_mentions": 3,
+        "away_mentions": 3
+      },
+      "scores": [],
+      "fetched": 1
+    },
+    {
+      "no": "周二002",
+      "league": "欧冠",
+      "home": "萨巴赫",
+      "away": "多特蒙德",
+      "home_en": "Sabah",
+      "away_en": "Dortmund",
+      "queries": [
+        "\"Sabah vs Dortmund\" preview prediction lang:en",
+        "萨巴赫 多特蒙德 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "PREVIEW | Sabah vs Borussia Dortmund: team news, lineups, predictions (Champions League 20/10)",
+          "url": "https://onefootball.com/en/news/preview-sabah-vs-borussia-dortmund-team-news-lineups-predictions-champions-league-2010-43632663",
+          "site": "OneFootball",
+          "date": "2026-10-17T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.2717252272954163,
+          "summary": "# PREVIEW | Sabah vs Borussia Dortmund: team news, lineups, predictions (Champions League 20/10) | OneFootball\n\nPlaymakerstats\n\n·18 October 2026\n...\nSabah and Borussia Dortmund face off this Tuesday at the Baku Olympic Stadium in UEFA Champions League. The match will be broadcast live at 17:45 on TNT Sports 2.\n\nLast time out, Sabah triumphed 0-4 against FK Qabala (Premyer Liqasi 2026/27). In their last outing, Borussia Dortmund drew 0-0 against 1. FC Union Berlin (1. Bundesliga 2026/27).\n...\n- Emre Can - No Eligibility\n- Giannis Konstantelias - Cruciate Ligament Tear\n...\n### TEAMS\n\n- Away from home, Borussia Dortmund currently have one defeat in their last five games.\n- Away from home, Borussia Dortmund are on a two-game winless run.\n- Borussia Dortmund currently have one defeat in their last nine games.\n- Borussia Dortmund are on a three-game winless run.\n- At home, Sabah have scored in eight consecutive games.\n- At home, Sabah are on an eight-game unbeaten run.\n- At home, Sabah are on an eight-game winning streak.\n- Sabah currently have one defeat in their last nine games.\n- Sabah currently have one draw in their last 17 games.\n- Sabah are on a five-game unbeaten run.\n- Sabah are coming off two consecutive wins.\n\n### HEAD TO HEAD\n\n- Sabah and Borussia Dortmund have met zero times before; there is no advantage between Sabah and Borussia Dortmund: zero wins for either team in zero games.\n- In the Champions League, the two teams meet for the first time",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [],
+          "fetch_ok": false
+        },
+        {
+          "kind": "preview",
+          "title": "Kovac: Sabah clash offers Dortmund perfect chance to end scoring struggles",
+          "url": "https://prod.beinsports.com/en-nz/football/uefa-champions-league/articles/kovac-sabah-clash-offers-dortmund-perfect-chance-to-end-scoring-struggles-2026-10-19",
+          "site": "beIN SPORTS",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.15336924264864,
+          "summary": "# Kovac: Sabah clash offers Dortmund perfect chance to end scoring struggles\n\n## Borussia Dortmund are without a goal in their last two matches in all competitions, and they face Champions League debutants Sabah next.\n\nBorussia Dortmund's Champions League fixture against Sabah could be the perfect opportunity to reignite their recently misfiring attack, so says Niko Kovac.\n\nDortmund return to Champions League action on Tuesday when they make the trip to Baki Olimpiya Stadionu to face the Azerbaijani minnows, who made history last time out.\n...\nIn what was just their second game in major European competition, Sabah recorded their first win on the European stage when they beat Slavia Praha 2-0 on home soil.\n\nAnd they may fancy their chances against a Dortmund side that have struggled since returning from the international break, with their problems coming in the final third.\n\nThey have scored just two goals in their last three matches across all competitions, while they have failed to find the back of the net in back-to-back games for the first time since February 2025, after losing 1-0 to Bodo/Glimt and playing out a goalless draw with Union Berlin last week.\n\nKovac's side registered an expected goals (xG) total of just 1.09 from their 10 shots against Union, and only two of those forced Frederik Ronnow into making a save.\n\nDortmund have also had fewer than 10 shots in five of their last six Champions League matches (83%). In their first 12 games in the competition under Kovac, they had fewer than 10 shots on just two occasions (17%), averaging 14.1 attempts per game.\n\n\"We need to play much more accurately, much more precisely, and much more automatically in the final third,\" Kovac told reporters of his team's attack.\n\n\"Union defended well, but we also didn’t play the way I would have liked, because it would have been possible to attack behind the opponent's defence to ultimately break through their line.\n\n\"We need to get back to doing that quickly, because you can only win games by scoring goals.\"\n\nWe go again, together. https://t.co/2Ksr538cOf\n\n— Borussia Dortmund (@BlackYellow) October 18, 2026\nThis will be just the second European Cup or Champions League game between teams from Azerbaijan and Germany, following Qarabag's 3-2 win over Eintracht Frankfurt in January earlier this year, though Dortmund have a good record against teams from that part of the world.\n\nBVB have won all four of their matches against Azerbaijani opponents in European competitions (including qualifiers), beating Qarabag twice in Europa League qualifying in 2010-11 and Qabala twice in the Europa League group stage in 2015-16.\n\nThey have, however, lost four of their last six Champions League matches (W2), as many defeats as they had in their previous 17 matches in the competition combined (four).\n\nAnd after going without a win in their last three games in all competitions, Dortmund's Sporting Director Lars Ricken said things must improve quickly if they are to maintain the standards they set during the early parts of the campaign.\n\n\"We can see that we're going through a somewhat difficult phase right now. Going three games in a row without a win isn't normal for Borussia Dortmund,\" Ricken conceded.\n...\n\"But we have to remind ourselves that we established an excellent position for ourselves early in the season, in the Bundesliga, the DFB-Pokal and the Champions League.\n\n\"That's still the case. Now it's about showing our willingness to fight and, in the truest sense of the word, to defend that position.\n\n\"But of course, we also want to take the initiative more often on offence again, to be aggressive and determined, create scoring chances, score goals, and regain that hunger to win games at all costs.\n\n\"When you have a challenge like this in the Champions League, you can fly to Baku with enthusiasm and anticipation. That should be our mindset now.\"",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Sabah FK vs. Borussia Dortmund preview: Team news and predicted lineups",
+          "url": "https://sports.yahoo.com/articles/sabah-fk-vs-borussia-dortmund-120200578.html",
+          "site": "Yahoo Sports",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.1026451923360225,
+          "summary": "# Sabah FK vs. Borussia Dortmund preview: Team news and predicted lineups\n...\nAfter a six-match winning streak, Borussia Dortmund have hit a slump, going three games without a win. Their most recent outing saw them settle for a frustrating 0-0 draw against 1. FC Union Berlin in the Bundesliga over the weekend.\n\nWith criticism of Dortmund's performances and their playing style under Niko Kovac growing, pressure is mounting on the Black and Yellows to return to winning ways as they travel to Azerbaijan for Tuesday's Champions League clash with Sabah FK.\n...\nDortmund will be expected to win, although Sabah will approach the match with plenty of confidence after securing their first-ever victory in Europe's premier club competition with a 2-0 win over Slavia Prague last week, followed by a convincing 4-0 domestic victory over Gabala.\n\nBVB sporting director Ole Book acknowledged the team's recent struggles following Saturday's goalless draw against Union Berlin, while also highlighting signs of improvement.\n\n\"Sure, we'd been on a better run before, especially in terms of results. It was a tough away game, and we may have lacked a bit of freshness. Though I did think it went much better, especially in terms of attitude,\" Book said.\n\nLooking ahead to the clash in Baku, Book emphasised the importance of learning from recent setbacks.\n...\n\"It's also a test of willpower – it'll be 25 degrees there. That's where we can show what lessons we've learned and that the UEFA Champions League match in Norway was just a slip-up. We've just been given the opportunity to learn and improve together as a team. We're eager to take it,\" Book said.\n\n## Team news and predicted lineups:\n\nSabah are not expected to have any new injury concerns ahead of the match. Borussia Dortmund, however, will be without youngster Konstantinos Karetsas, who suffered a foot injury in Saturday's 0-0 draw against 1. FC Union Berlin.\n\nMeanwhile, Emre Can and Giannis Konstantelias remain sidelined with long-term knee injuries.",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Sabah FK vs Dortmund - live score, predicted lineups and H2H stats",
+          "url": "https://www.fotmob.com/matches/borussia-dortmund-vs-sabah-fk/5wfix3jc",
+          "site": "FotMob",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.8122471570968628,
+          "summary": "Sabah FK faces Borussia Dortmund at Bakı Olimpiya Stadionu on Tue, Oct 20, 2026, 16:45 UTC. This match is part of the Champions League.\n...\nSabah FK (4-2-3-1):\n...\nBorussia Dortmund (3-4-2-1): Gregor Kobel - Joane Gadou, Waldemar Anton, Nico Schlotterbeck - Julian Ryerson, Joey Veerman, Felix Nmecha, Daniel Svensson - Fábio Silva, Maximilian Beier - Serhou Guirassy.\n\nSabah FK does not have any unavailable players. Unavailable players for Borussia Dortmund: Emre Can (injury), Giannis Konstantelias (injury), Justin Lerma (injury), Konstantinos Karetsas (injury).\n...\n## Who will win?\n\nBakı Olimpiya StadionuBaku, Azerbaijan\n\nCapacity68,700\n\nSurfaceGrass\n\nWeather forecast\n\n19°C\n\n## Referee\n\nYellow cards\n\n3.8/ match\n\nBelow average\n\nFouls\n\n27.8/ match\n\nAbove average\n...\n## Insights\n\nSabah scored 15 goals in six Champions League qualifying matches to reach the group stage\n\nNavigated four qualifying rounds to reach the Champions League league phase\n\nWon five of their last seven matches across all competitions\n\nBeat Slavia Prague 2-0 in their last Champions League match\n\nKovac is the only Dortmund manager to start two Bundesliga seasons with 13+ points from five matches\n\nDortmund generated just 0.79 xG in their Champions League loss at Bodø/Glimt\n\nKovač criticized his squad's lack of passion after their latest Champions League defeat\n\nSchlotterbeck scored six Bundesliga goals since last season, the most of any centre-back in the league\n\n### Top scorers\n...\n7.18FotMob rating7.11\n\n1Goals2\n\n0.73Expected goals (xG)2.20\n\n0Assists0\n\n2Matches played2\n...\nChampions League · 3\n\nSabah FK-vs-Borussia Dortmund_Tue, Oct 20, 2026, 16:45 UTC\n\nSabah FKvsBorussia Dortmund\n\nWednesday, 21 October 2026 - 00:45 | Bakı Olimpiya Stadionu, Baku | Capacity: 68,700 | Ref: Javier Alberola Rojas\n\nWeather: Partly Cloudy, 19°C\n\n### Lineups(Predicted)\n\n#### Sabah FK (4-2-3-1)\n\n92 | Stas Pokatilov | - \n---|---|---\n80 | Akim Zedadka | - \n3 | Steve Solvet | - \n4 | Aden McCarthy | - \n27 | Tymoteusz Puchacz | - \n7 | Umarali Rakhmonaliev | - \n13 | Ivan Lepinjica | - \n11 | Kaheem Parris | - \n37 | Du Queiroz | - \n21 | Veljko Simić | - \n20 | Joy-Lance Mickels | - \n\nCoach: Valdas Dambrauskas\n\n#### Borussia Dortmund (3-4-2-1)\n\n1 | Gregor Kobel | - \n---|---|---\n22 | Joane Gadou | - \n3 | Waldemar Anton | - \n4 | Nico Schlotterbeck | - \n26 | Julian Ryerson | - \n25 | Joey Veerman | - \n8 | Felix Nmecha | - \n24 | Daniel Svensson | - \n21 | Fábio Silva | - \n14 | Maximilian Beier | - \n9 | Serhou Guirassy | - \n\nCoach: Niko Kovač\n\n### Unavailable Players\n...\nEmre Can(injury)\n\nGiannis Konstantelias(injury)\n\nJustin Lerma(injury)\n\nKonstantinos Karetsas(injury)\n\n### Match Review\n\nKovac: Sabah clash offers Dortmund perfect chance to end scoring struggles\n\nBorussia Dortmund are without a goal in their last two matches in all competitions, and they face Champions League debutants Sabah next.\n\nOpta\n\n### Insights\n\n- Sabah scored 15 goals in six Champions League qualifying matches to reach the group stage\n- Navigated four qualifying rounds to reach the Champions League league phase\n- Won five of their last seven matches across all competitions\n- Beat Slavia Prague 2-0 in their last Champions League match\n- Kovac is the only Dortmund manager to start two Bundesliga seasons with 13+ points from five matches\n- Dortmund generated just 0.79 xG in...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "百度体育直播 萨巴赫vs多特蒙德 2026-10-21 00:45_百度体育",
+          "url": "https://tiyu.baidu.com/live/detail/5qyn5rSy5Yag5Yab6IGU6LWbIzIwMjYtMDktMDkj6JCo5be06LWrdnPlpJrnibnokpnlvrc%3D",
+          "site": "百度体育",
+          "date": null,
+          "authority": 3,
+          "score": 1.6182396411895752,
+          "summary": "百度体育\n\n欧冠第3轮2026-10-21 00:45\n\n萨巴赫\n\n未开赛\n\n多特蒙德\n...\n491人参与 截止时间 10月21日\n...\n萨巴赫近期战绩 (近6场)\n...\n同主客\n\n胜率 67%\n\n赢盘率 50%\n\n大球率 50%\n\n时间/赛事\n\n2026-10-14\n...\n2026-10-09\n\n阿塞超\n\n2026-09-19\n...\n2026-09-11\n...\n2026-09-05\n...\n2026-08-31\n...\n主队/比分/客队\n\n让球\n\n进球数\n\n萨巴赫 2 - 0 布拉格斯拉维亚\n\n-0.5\n...\n2.75\n\n小球\n\n尼菲治巴库 0 - 0 萨巴赫\n\n-0.25\n\n输盘\n...\n萨巴赫 3 - 1 米尔姆甘FK\n\n1.75\n...\n3.0\n...\n曼彻斯特联 4 - 0 萨巴赫\n\n2.25\n...\n3.75\n...\n萨巴赫 5 - 0 兹拉\n...\n纳希切万 0 - 1 萨巴赫\n\n-1.0\n\n走盘\n...\n多特蒙德近期战绩 (近6场)\n...\n2026-10-15\n...\n2026-10-10\n\n德甲\n\n2026-09-20\n...\n2026-09-12\n...\n2026-09-09\n...\n博德闪耀 1 - 0 多特蒙德\n...\n3.5\n...\n多特蒙德 2 - 2 云达不莱梅\n\n1.5\n...\n斯图加特 0 - 1 多特蒙德\n...\n多特蒙德 3 - 0 帕德博恩\n...\n多特蒙德 3 - 2 比利亚雷亚尔\n...\n霍芬海姆 2 - 3 多特蒙德\n\n0.0\n...\n3.25\n...\n赛前预测\n\n12%\n\n萨巴赫 本场胜率\n\n70%\n\n多特蒙德 本场胜率\n\n过去3年，相似赔率共出现17326次\n\n主场胜利平局客场胜利\n\n11% 17%平局 72%\n\n有利情报 不利情报\n\n1. 萨巴赫6场比赛4胜1平，状态出色。\n\n2. 萨巴赫近10场正赛主场8胜0平2负，表现出色。\n\n1. 多特蒙德近10场正赛6胜2平2负，状态不俗。\n\n2. 多特蒙德近10场正赛主场7胜1平2负，表现出色。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 1,
+        "goals": 0,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 1,
+        "home_mentions": 1,
+        "away_mentions": 1
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周二004",
+      "league": "欧冠",
+      "home": "那不勒斯",
+      "away": "博德闪耀",
+      "home_en": "Napoli",
+      "away_en": "Bodo/Glimt",
+      "queries": [
+        "\"Napoli vs Bodo/Glimt\" preview prediction lang:en",
+        "那不勒斯 博德闪耀 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "那不勒斯欧冠主场迎博德闪耀，阿莱格里需止颓",
+          "url": "https://beta.dongqiudi.com/articles/6514343.html",
+          "site": "懂球帝",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.926580965514424,
+          "summary": "# 那不勒斯欧冠主场迎博德闪耀，阿莱格里需止颓\n\n欧冠联赛阶段第三轮，那不勒斯将在北京时间10月21日03:00（当地时间10月20日21:00）坐镇迭戈-阿曼多-马拉多纳球场迎战博德闪耀。\n\n那不勒斯此前先后输给阿森纳和比利亚雷亚尔，两轮过后尚未拿到欧战积分，本场必须取胜才能收获本赛季欧冠首分。球队近期还在联赛中负于威尼斯，这场失利让那不勒斯内部出现新的裂痕，阿莱格里和他的球队需要在球场上给出回应。\n\n据Calcio Napoli 1926报道，这场在威尼斯进行的比赛中，阿利松-桑托斯是球队为数不多的亮点，但他随后又停了下来；胡安-热苏斯则在社交媒体上对德劳伦蒂斯和曼纳发表了暗讽言论。意大利各报的评分也认为，那不勒斯踢得过于缓慢和混乱，阿莱格里必须从零开始。\n\n博德闪耀方面，原文未提供本场的伤停、首发或主帅表态信息。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "阿莱格里处境艰难 博德闪耀之战或将成为生死战",
+          "url": "https://news.7m.com.cn/mobi/news/20261018/742930.shtml",
+          "site": "7M足球新闻",
+          "date": "2026-10-17T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.7214103875656228,
+          "summary": "阿莱格里处境艰难 博德闪耀之战或将成为生死战\n\n来源：7M体育 2026-10-18\n\n根据《米兰体育报》的消息，阿莱格里的下课指数出现明显变动，已经从 3.00 下降到 2.00，即将打响的对阵博德闪耀的欧冠较量，很有可能成为决定他帅位走向的关键一战。\n\n此前面对联赛垫底、一分未得的威尼斯，那不勒斯迎来一场输不起的比赛，结果球队依旧吞下失利苦果。这是在欧冠负于比利亚雷亚尔之后，那不勒斯又一次遭遇惨痛败仗。俱乐部老板德劳伦蒂斯原本对球队新赛季抱有很高期待，但如今队伍在联赛与欧战双线都陷入挣扎，主教练自然成为舆论焦点。短短数小时之内，多家菠菜机构大幅调低阿莱格里的下课指数。\n\n算上本场，阿莱格里执教那不勒斯的 9 场正式比赛已经输掉 5 场，其中就包括客场输给当时积分榜零分垫底的威尼斯。\n\n不过阿莱格里本人心态相对平静，赛后他谈到：“焦虑解决不了任何问题。对阵比利亚雷亚尔的时候我们团队凝聚力不足，而今天我们其实创造出大量得分机会。足球就是如此，能否走出低谷，主动权掌握在我们自己手上。”\n\n这名经验丰富的主帅希望依靠全队斗志渡过难关，但摆在眼前的赛程难度极大。周三球队要在欧冠迎战博德闪耀，全力争取欧战积分；国家队比赛间歇来临之前，还需要接连面对罗马、蒙扎、尤文图斯、波尔图以及拉齐奥。这六场硬仗将直接左右阿莱格里的未来，如果球队依旧无法扭转颓势，他的帅位将会彻底亮起红灯。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "百度体育直播 那不勒斯vs博德闪耀 2026-10-21 03:00_百度体育",
+          "url": "https://tiyu.baidu.com/live/detail/5qyn5rSy5Yag5Yab6IGU6LWbIzIwMjYtMDktMDkj6YKj5LiN5YuS5pavdnPljZrlvrfpl6rogIA%3D",
+          "site": "百度体育",
+          "date": null,
+          "authority": 3,
+          "score": 1.687633991241455,
+          "summary": "百度体育\n\n欧冠第3轮2026-10-21 03:00\n\n那不勒斯\n\n未开赛\n\n博德闪耀\n...\n300人参与 截止时间 10月21日\n...\n那不勒斯近期战绩 (近6场)\n...\n同主客\n\n胜率 33%\n\n赢盘率 33%\n\n大球率 50%\n\n时间/赛事\n\n2026-10-14\n...\n2026-10-11\n\n意甲\n\n2026-09-20\n...\n2026-09-14\n...\n2026-09-10\n...\n2026-09-06\n...\n主队/比分/客队\n\n让球\n\n进球数\n\n比利亚雷亚尔 3 - 1 那不勒斯\n\n0.25\n\n输盘\n\n2.75\n...\n那不勒斯 3 - 0 弗罗西诺内\n\n1.25\n...\n佛罗伦萨 1 - 1 那不勒斯\n\n-0.25\n...\n2.5\n\n小球\n\n那不勒斯 1 - 0 博洛尼亚\n\n0.75\n...\n2.25\n...\n那不勒斯 0 - 1 阿森纳\n\n-0.5\n...\n国际米兰 3 - 2 那不勒斯\n...\n博德闪耀近期战绩 (近6场)\n...\n胜率 67%\n\n赢盘率 17%\n\n大球率 33%\n...\n2026-10-15\n...\n2026-10-10\n\n挪超\n\n2026-10-02\n\n挪威杯\n\n2026-09-21\n...\n2026-09-15\n...\n博德闪耀 1 - 0 多特蒙德\n...\n3.5\n...\n博德闪耀 3 - 1 克里斯蒂安松\n\n3.0\n...\n4.5\n...\n拉纳 2 - 6 博德闪耀\n\n布兰 2 - 1 博德闪耀\n\n-0.75\n...\n博德闪耀 3 - 2 桑德菲杰\n...\n4.0\n...\n拜仁慕尼黑 5 - 0 博德闪耀\n...\n3.75\n...\n赛前预测\n\n61%\n\n那不勒斯 本场胜率\n\n16%\n\n博德闪耀 本场胜率\n\n过去3年，相似赔率共出现95129次\n\n主场胜利平局客场胜利\n\n65% 21%平局 14%\n\n有利情报 不利情报\n\n1. 那不勒斯身价≥博德闪耀身价的5倍，那不勒斯阵容实力优于博德闪耀。\n\n1. 博德闪耀4场比赛连胜，状态极佳。\n\n2. 博德闪耀近10场正赛主场10胜0平0负，表现出色。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Preview: Napoli vs Bodo/Glimt - prediction, team news, lineups - Sports Mole",
+          "url": "https://www.sportsmole.co.uk/football/napoli/champions-league/preview/napoli-vs-bodoglimt-prediction-team-news-lineups_607142.html",
+          "site": "Sports Mole",
+          "date": "2026-10-17T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.5874958038330078,
+          "summary": "Champions League Gameweek 3\n\nOct 20, 2026 8.00pm\n\n# Preview: Napoli vs Bodo/Glimt - prediction, team news, lineups\n\nStill without a point in this season's Champions League, ailing Napoli will welcome Bodo/Glimt to Stadio Maradona on Tuesday.\n\nAlso struggling in Serie A, the Italian side must try to get off the mark at their third attempt, but Bodo beat Borussia Dormund last week and are on a four-game winning run.\n\n## Match preview\n\nAfter losing at home to Arsenal on the opening matchday, Napoli visited Villarreal last week, as two teams with grim recent Champions League records clashed in Spain.\n\nDespite seizing the lead through Amir Rrahmani after only eight minutes, the Partenopei then conceded twice before half time and ultimately lost 3-1.\n\nSo, having failed to escape the league phase last term - finishing 30th in the 36-team table - Napoli could be treading the same path this season.\n\nA former finalist with Juventus, current coach Massimiliano Allegri has now lost eight of his last nine Champions League matches - as many defeats as in the previous 40 combined.\n\nAllegri is also under pressure for some dismal domestic results, after his team lost 1-0 to Serie A's rock-bottom club on Saturday: Kevin De Bruyne missed a penalty as Napoli went down to previously pointless Venezia.\n\nAcross all competitions, Napoli have lost five of their first nine fixtures this season, which represents their worst start for 25 years.\n\nStill seeking their 100th win in Europe, the Campanian club will now meet Bodo/Glimt for the first time since winning both legs of a 1976 European Cup Winners' Cup tie - their only competitive games against Norwegian opposition.\n\nMeanwhile, Bodo have enjoyed meeting several Italian sides in the recent past, narrowly losing against AC Milan in 2020, before beating both Rome clubs, then toppling mighty Inter Milan last term.\n\nDefeating Inter in the knockout playoffs was perhaps the highlight of a stellar Champions League run, which ultimately ended in the last 16.\n\nAfter coming through qualifying, this year's campaign kicked off less positively, with a 5-0 thrashing by Bayern Munich in Bavaria, but Kjetil Knutsen's men bounced straight back on matchday two.\n\nTurning over another German giant, Bodo's 1-0 win against Dortmund was their sixth consecutive home success in UEFA competition, with Fredrik Sjovold's goal getting the job done.\n\nAll told, they have won nine and only lost two of their last 13 continental matches, while keeping pace with reigning champions Viking in Norway's Eliteserien.\n\nSaturday's 2-0 victory over HamKam left Bodo level at the top in a thrilling title race, as they look to reclaim the summit in domestic football - the pair are both 17 points clear of third place.\n\nHowever, before heading to Naples, they have conceded in their last 17 European away fixtures, and last season's win at San Siro is Bodo's lone success from eight previous trips down to Italy.\n\nNapoli Champions League form:\n\n- L\n- L\n\nNapoli form (all competitions):\n\n- L\n- W\n- D\n...\nBodo/Glimt Champions League form:\n...\nBodo/Glimt form (all competitions):\n...\n## Team News\n\nWith games coming thick and fast until the next international break, Allegri is set to rotate his squad once again, after De Bruyne and Rasmus Hojlund were both benched in Venice.\n\nLorenzo Lucca was handed a rare start but failed to deliver, so Hojlund should return to the starting XI: the Danish striker scored seven goals in his first eight Champions League appearances but has only added one in seven games since then.\n\nAlthough Mathias Olivera and Frank Anguissa recently returned to fitness, Napoli are still missing David Neres, Antonio Vergara, Costantino Favasuli and Alessandro Buongiorno; Alisson Santos could be a doubt after injuring himself at Stadio Penzo.\n\nBodo/Glimt boss Knutsen also tweaked his lineup at the weekend, but regular starters such as Patrick Helmersen and Sondre Fet are set to return.\n\nHaving been benched on Saturday, ex-Milan winger Jens Petter Hauge - who scored against Napoli in November 2020 - will hope to play from the start.\n\nThe visitors are currently without injured pair Hakon Evjen and August Mikkelsen, but Odin Bjortuft is back from the ban imposed for his red card against Bayern.\n\nNapoli possible starting lineup:\n\nMilinkovic-Savic; Marin, Rrahmani, Badiashile; Di Lorenzo, Lobotka, McTominay, Spinazzola; Pol...",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": [],
+          "fetch_ok": true,
+          "fetch_head": "Menu\n\nChampions League Gameweek 3\n\nOct 20\\, 2026 8\\.00pm\n\n\\# Preview\\: Napoli vs Bodo\\/Glimt \\- prediction\\, team news\\, lineups\n\nStill without a point in this season\\'s Champions League\\, ailing Napoli will welcome Bodo\\/Glimt to Stadio Maradona on Tuesday\\.\n\nAlso struggling in Serie A\\, the Italian side must try to get off the mark at their third attempt\\, but Bodo beat Borussia Dormund last week and are on a four\\-game winning run\\.\n\n\\#\\# Match preview\n\nAfter losing at home to Arsenal on the opening matchday\\, Napoli visited Villarreal last week\\, as two teams with grim recent Champions League records clashed in Spain\\.\n\nDespite seizing the lead through Amir Rrahmani after only eight minu"
+        },
+        {
+          "kind": "zh",
+          "title": "百度体育直播 那不勒斯 vs 博德闪耀 明天 03:00_百度体育",
+          "url": "https://tiyu.baidu.com/al/live/detail?matchId=5qyn5rSy5Yag5Yab6IGU6LWbIzIwMjYtMDktMDkj6YKj5LiN5YuS5pavdnPljZrlvrfpl6rogIA%3D&tab=%E5%88%86%E6%9E%90",
+          "site": "百度体育",
+          "date": null,
+          "authority": 3,
+          "score": 1.5874958038330078,
+          "summary": "532人参与 截止时间 明天 03:\n...\n那不勒斯近期战绩 (近6场)\n...\n同主客\n\n胜率 33%\n\n赢盘率 33%\n\n大球率 33%\n\n时间/赛事\n\n2026-10-17\n\n意甲\n\n2026-10-14\n\n欧冠\n\n2026-10-11\n...\n2026-09-20\n...\n2026-09-14\n...\n2026-09-10\n...\n对阵比分\n\n让球\n\n进球数\n\n威尼斯 1 - 0 那不勒斯\n\n-0.75\n\n输盘\n\n2.75\n\n小球\n\n比利亚雷亚尔 3 - 1 那不勒斯\n\n0.25\n...\n大球\n\n那不勒斯 3 - 0 弗罗西诺内\n\n1.25\n...\n佛罗伦萨 1 - 1 那不勒斯\n...\n2.5\n...\n那不勒斯 1 - 0 博洛尼亚\n...\n2.25\n...\n那不勒斯 0 - 1 阿森纳\n\n-0.5\n...\n博德闪耀近期战绩 (近6场)\n...\n胜率 83%\n\n赢盘率 17%\n\n大球率 17%\n...\n挪超\n\n2026-10-15\n...\n2026-10-10\n...\n2026-10-02\n\n挪威杯\n\n2026-09-21\n...\n2026-09-15\n...\n汉坎 0 - 2 博德闪耀\n\n-2.0\n\n走盘\n\n3.75\n...\n博德闪耀 1 - 0 多特蒙德\n...\n3.5\n...\n博德闪耀 3 - 1 克里斯蒂安松\n\n3.0\n...\n4.5\n...\n拉纳 2 - 6 博德闪耀\n\n布兰 2 - 1 博德闪耀\n...\n博德闪耀 3 - 2 桑德菲杰\n...\n4.0\n...\n赛前预测\n\n61%\n\n那不勒斯 本场胜率\n\n16%\n...\n过去3年，相似赔率共出现95129次\n\n主场胜利平局客场胜利\n\n65% 21%平局 14%\n\n有利情报 不利情报\n\n1. 那不勒斯身价≥博德闪耀身价的5倍，那不勒斯阵容实力优于博德闪耀。\n\n1. 博德闪耀4场比赛连胜，状态极佳。\n\n2. 博德闪耀近10场正赛主场10胜0平0负，表现出色。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 2,
+        "goals": 0,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 3,
+        "zh": 4,
+        "home_mentions": 4,
+        "away_mentions": 4
+      },
+      "scores": [],
+      "fetched": 1
+    },
+    {
+      "no": "周二005",
+      "league": "欧冠",
+      "home": "罗马",
+      "away": "布拉迪斯",
+      "home_en": "Roma",
+      "away_en": "Slovan Bratislava",
+      "queries": [
+        "\"Roma vs Slovan Bratislava\" preview prediction lang:en",
+        "罗马 布拉迪斯 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Roma vs Slovan Bratislava stats, schedule, H2H | APWin - Roma vs Slovan Bratislava",
+          "url": "https://www.apwin.com/match/slovan-bratislava-roma/eWbJt/#1",
+          "site": "APWin",
+          "date": "2026-10-14T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.210863072543259,
+          "summary": "# Roma vs Slovan Bratislava\n\nEurope - UEFA Champions League\n\nv.s\n\n21 Oct 2026 00:30\n\nRoma are creating the better shooting profile with average 5 overall shots and 1.46 xG. Their season scoring average is 2 goals per game, so the next major chance is likely to come from their side.\n\n## Result Probability\n\n87%\nRoma to win\n9%\nDraw\n4%\nSlovan Bratislava to win\n\n## Key Statistics\n\nAvg. Goals\n\nAbove average\n3.75\nLeague 3.26\n\nOver 2.5 Goals\n\nBelow average\n50%\nLeague 60%\n\nBoth Teams Score\n\nWell above avg\n82%\nLeague 56%\n\nCards\n...\n4.25\nLeague 4.33\n\nCorners\n\nWell below avg\n6.88\nLeague 9.75\n\nCorner volume is the clearest signal here. Roma average 14 corners in this split, compared with the league benchmark of 9.75, which points to sustained attacking territory.\n\n## Over / Under\n\n0.5\n\n1+ gol\nOVER100%UNDER0%\n\n1.5\n\n2+ gol\n...\n3+ gol\nOVER50%UNDER50%\n\n3.5\n\n4+ gol\nOVER20%UNDER80%\n\nThe recent scoring sample is stronger for Over 0.5 at 100% across the last 10 relevant matches. That makes the goal market a top pick for this match.\n\n## Team Performance\n...\nLLWDW\n\nPoints & Results\n\n- 0.50PPG1.75\n- 0%Wins50%\n- 100%First to Score50%\n\nGoals Scored & Conceded\n\n- Scored/game2.001.38\n- Conceded/game2.501.63\n- xG1.461.40\n- xGA1.541.64\n\nTrends\n\n- 100%Both Score63%\n- 0%Clean Sheet25%\n\nRoma scored in 2/2 recent form matches and averaged 2 goals.\n\nSlovan Bratislava scored in 6/7 recent form matches and averaged 1.29 goals.\n...\nScored/gameRoma +45%\n...\nRoma is +45% better in terms of Scored/game\n\nConceded/gameSlovan Bratislava +53%\n...\nSlovan Bratislava is +53% better in terms of Conceded/game\n\nxGRoma +4%\n\n1.46\n\n1.40\n...\nRoma is +4% better in terms of xG\n\nxGARoma +6%\n\n1.54\n...\nRoma is +6% better in terms of xGA\n\nFirst-Half FormRoma +60%\n\n2.00\n\n1.25\n\nOver 0.5Average 87.5%100%75%\n\nOver 1.5Average 50%50%50%\n\nOver 2.5Average 6.5%0%13%\n\nRoma is +60% better in terms of First-Half Form\n\nOffsidesSlovan Bratislava +150%\n\n1.50\n...\nSlovan Bratislava is +150% better in terms of Offsides\n\nCornersRoma +12%\n\n9.00\n...\nRoma is +12% better in terms of Corners\n\nCardsRoma +43%\n...\nRoma is +43% better in terms of Cards\n\nShots on TargetRoma +25%\n\n5.00\n\n4.00\n...\nRoma is +25% better in terms of Shots on Target\n\n## Roma vs Slovan Bratislava: Statistics and Analysis - UEFA Champions League 2026/2027\n\nOn this page you can check all the key statistics for Roma vs Slovan Bratislava - goals, corners, form, trends, head-to-head record and more.\n\nThis UEFA Champions League match will be played on 20/10/2026 (Tuesday) at 20:00.\n\nThe fixture is part of game week 3rd of the UEFA Champions League season. Roma currently sits in position 64th of the UEFA Champions League table. Slovan Bratislava occupies position 4th.\n\n## Stat Probabilities for Roma vs Slovan Bratislava\n\nOur projection system combines both teams' numbers into percentage chances for the key statistical markets in this match:\n\nBoth teams to score: our projection puts the chance of both teams scoring in Roma vs Slovan Bratislava at 82%.\n\nOver 2.5 goals: the combined stats for Roma and Slovan Bratislava point...",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5",
+            "both teams to score"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "加斯佩里尼：想进附加赛要拿10到11分，我们需要赢得主场比赛",
+          "url": "https://pc.dongqiudi.com/articles/6518537.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.8122471570968628,
+          "summary": "# 加斯佩里尼：想进附加赛要拿10到11分，我们需要赢得主场比赛\n\n北京时间10月21日凌晨3时，罗马将在欧冠联赛阶段第3轮主场迎战布拉迪斯拉发。比赛前夕，罗马主教练加斯佩里尼出席了新闻发布会。\n\n## 教练，我想先从对手谈起，因为在这样一项世界上最重要的赛事当中绝不存在轻松的对手，布拉迪斯拉发显然也不例外，我想问您的是，在深入研究这支球队之后，您认为他们具备的哪些特点在理论上可能会给罗马制造困难？\n\n这绝对是一支富有动态活力的球队，在体能和竞技状态方面准备非常充分，阵中也有几名出色的球员。很显然，在欧冠的大背景下，他们并不属于第一梯队的顶尖强队，但是在欧冠的每一场比赛都是非常艰难的。我们绝对不会低估这个对手，更何况我们明天必须赢得比赛，以延续并增加我们小组出线的希望。\n\n## 您好，有一个问题想请教主教练，现在两位正统中锋都已经可供调遣，我想问的是，除了您之前提到的——在赛季的某些阶段他们确实有可能同时上场，但可能是在比赛的不同时段，或者比如在比赛尾声阶段——鉴于明天这场比赛我们有必须取胜的压迫感，同时为了不打断像卡斯特罗这样正处于极佳状态的球员的势头，这场比赛会不会成为让他们俩真正同时首发出场的契机呢？\n\n不，不存在打断谁良好势头的问题，因为卡斯特罗在前几天晚上刚打进了一个非常精彩的进球。从技术特点来看，这确实可能是一场他们俩可以同时上场的比赛。但我不知道是会从比赛一开始就同时首发，还是更有可能在比赛进行的过程中根据形势换上来。\n\n我绝不希望仅仅为了“想看到两名球员同时在场上合作”这种念头，就去破坏和改变一支正在持续进球、创造大量进攻机会的球队现有的战术结构和整体阵型。我们拥有一条运转良好而且球员风格互补的前锋线，所以目前来看这样就已经运作得很好了，我没有必要非去刻意寻找其他变阵方案。当然，这也并非完全不可能，因为这场比赛的形式和进程也确实可能需要这种尝试。\n\n## 教练下午好，有一个问题想请教您，在您的战术体系当中，我们通常习惯看到两名后腰承载着大量的防守和技术工作，而在当前这种人员紧急的状况下——比如缺乏科内和克里斯坦特——我想了解一下，为了进行更合理的阵容轮换，您是否认为将洛伦佐的位置适当后撤、让他在中场枢纽位置踢球是一个可行的选择？我记得您曾经说过他完全可以胜任这个位置，或者说我们是否会看到像今年夏天那种极度紧急的情况下，让埃尔莫索客串中场的情形？\n\n那是极度特殊的紧急状况，当时连洛伦佐都不在，德容恩也不在，所以我们当时面临的是更加严峻的人员短缺。不，我真希望不要再出现那种情况了，希望埃尔莫索能留在自己的本职位置上，不需要去客串中场。目前我们有皮西利和德容恩，尤其是德容恩，他已经一周踢了三场比赛。\n\n至于洛伦佐，他既可以像以前那样作为偏向进攻的角色使用，也可以在前场和中场之间过渡，或者在等待克里斯坦特等伤员复出的这段时间里直接回撤踢中场。关于克里斯坦特，我们希望他能在对阵那不勒斯的比赛里伤愈复出，或者至少能进入大名单供我们调遣。\n\n## 我有一个问题提给主教练，请问你们是否针对晋级欧冠淘汰赛附加赛设定了一个具体的积分目标门槛？除此之外，关于迪巴拉的身体状况，明天他是否有机会至少进入比赛的大名单？\n\n关于晋级所需的积分门槛，参考这种全新赛制实施以来的情况，积分通常是在10分左右，或者是11分。很显然，为了达到这个目标，我们需要赢得主场的比赛，从明天开始，如果能拿下主场积分，可能就足够了。当然我们在客场也有拿分的机会，尽管客场都不好踢。因此，我们的目标无疑是挺进这个积分安全区域。\n\n至于迪巴拉，我们原本希望他的恢复速度能更快一些，但是昨天最新的核磁共振检查结果显示，他依然有一处哪怕非常轻微的损伤，这将会导致他的康复周期有所延长，我认为大约需要增加两个星期左右的时间。\n\n## 教练下午...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=2042100&gm=2633774",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.5798097848892212,
+          "summary": "排名: League Stage 第25名\n\n赛季总成绩: 0胜 1平 1负\n\n赛季主场成绩: 0胜 0平 1负\n\n周二005 欧冠>\n\n2026/2027 League Stage 第3轮 2026-10-21 03:00\n...\nLeague Stage 第36名\n...\n0胜 0平 2负\n\n赛季客场成绩:\n...\n特征分析\n\n罗马 (主)\n\n0胜/0平/0负\n...\n5胜/4平/1负\n\n7胜/2平/1负\n\n2.2个\n\n1.0个\n\n近0场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n布拉迪斯 (客)\n...\n4胜/2平/4负\n\n6胜/2平/2负\n...\n1.9个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n\n相同主客场\n...\n近20场\n\n近0场罗马0胜 (0%) | 0平 (0%) | 0负 (0%)\n\n暂无数据\n\n积分榜 欧冠2026/2027\n\n罗马League Stage 第25名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 2 | 0/1/1 | 0% | 4/5 | -1 | 1 | 25 \n主 | 1 | 0/0/1 | 0% | 3/4 | -1 | 0 | 26 \n客 | 1 | 0/1/0 | 0% | 1/1 | 0 | 1 | 14 \n\n布拉迪斯League Stage 第36名 查看更多>\n...\n总 | 2 | 0/0/2 | 0% | 1/9 | -8 | 0 | 36 \n主 | 1 | 0/0/1 | 0% | 0/3 | -3 | 0 | 36 \n客 | 1 | 0/0/1 | 0% | 1/6 | -5 | 0 | 34 \n\n比赛近况\n...\n罗马近10场5胜 (50%) | 4平 (40%) | 1负 (10%)\n\n进22球，失10球，净进12球\n\n布拉迪斯近10场4胜 (40%) | 2平 (20%) | 4负 (40%)\n\n进22球，失19球，净进3球\n\n射手信息 欧冠2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n | 进球\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n14-马伦(前锋) | 2 (2/0) | 2 (50%) | 1 (25%) | 1.0/0.5 \n4-B. Cristante(中场) | 1 (1/0) | 1 (25%) | 0 (0%) | 1.0/0 \n15-德罗恩(中场) | 2 (1/1) | 1 (25%) | 0 (0%) | 0.5/0\n...\n9-M. Kukharevych(前锋) | 4 (3/1) | 1 (33%) | 1 (50%) | 0.3/0.3 \n19-M. Kianga(前锋) | 3 (1/2) | 1 (33%) | 0 (0%) | 0.3/0 \n21-Suleiman Camara(前锋) | 2 (2/0) | 1 (33%) | 0 (0%) | 0.5/0 \n\n伤停一览\n...\n注：赛事数据统计进行至全场90分钟（含伤停补时阶段）结果。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "加斯佩里尼：欧冠晋级要10-11分，目标主场全胜&从明天开始",
+          "url": "https://news.qq.com/rain/a/20261019A0D1RK00?id=20261019A0D1RK00&path=a&app=news&suid=&redirect_pc=1",
+          "site": "QQ News",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.5646584033966064,
+          "summary": "# 加斯佩里尼：欧冠晋级要10-11分，目标主场全胜&从明天开始\n...\n虎扑10月19日讯 罗马即将在欧冠第一阶段第3轮比赛主场对阵布拉迪斯拉发斯洛万，赛前罗马主帅加斯佩里尼出席了新闻发布会。\n\n像欧冠这样的赛事，不存在轻松的对手。斯洛万有哪些特点可能给罗马制造困难？\n\n“他们肯定是一支很有活力的球队，身体层面准备得也很好，而且有几名非常不错的球员。很明显，在欧冠这个舞台上，他们不属于第一档球队，但欧冠里的每一场比赛都很困难。我们绝对不会低估对手，也因为我们需要赢球，来继续增加晋级下一阶段的可能性。”\n\n这会不会是尝试双中锋的机会？\n\n“卡斯特罗前几天打进了一个非常精彩的进球，从特点上来说，这场比赛确实可能适合他们一起出场。我不知道是不是从一开始，更可能的话也许是在比赛进行过程中。我不想只是为了看到两名球员一起踢，就改变一支目前能够进球、也能创造很多机会的球队原有的结构和战术体系。我们的进攻线运转得很好，球员特点也不同，所以目前这样就很好。我没有必要刻意去寻找其他解决方案。当然，共同出场也是有可能的，因为这种类型的比赛确实可能适合这么做。”\n\n轮换方面，有没有可能让佩莱格里尼踢中场？或者埃尔莫索也能踢？\n\n“让埃尔莫索踢中场更是紧急情况下的选择，我希望不要再出现这种必要。现在有皮西利和德容恩，尤其是德容恩，他一周踢了3场比赛。然后洛伦佐既可以踢得更靠前，也可以踢中场。我们现在等着克里斯坦特回来，希望对那不勒斯时他至少能够进入名单。”\n\n你们有没有设定一个晋级所需要的积分目标？迪巴拉有可能进入大名单吗？\n\n“目标积分通常是在10分左右，也许11分。要做到这一点，我们需要赢下主场比赛，从明天开始，而这样可能就足够了。然后我们在客场当然也还有机会，尽管那些客场都很难踢。所以目标就是进入这个积分区间。至于迪巴拉，我们原本希望他的恢复能够更快一些，但最近一次核磁共振显示存在非常轻微的损伤，所以他的恢复时间会更长，大概还要再多两周。”\n\n对热那亚那场比赛有没有让你得到更多确定性？\n\n“我从来没有怀疑过现在这些球员。问题只是人数上的问题，是因为赛程太密集。球员们一直都得到我的信任。事实上前几天晚上，我还主动让另外一些球员休息，给了一些此前出场时间比较少的人机会，因为我相信即便这样我们也能够拿到结果。想要拿到结果本来就很困难，在意甲赢球也很困难。”\n...\n我去年就已经注意到卢利了，也把他带进过一线队训练。他首先拥有非常高水平的身体特点。一个球员只要有某项能力明显高于平均水平，总会很容易引起注意。他的速度，以及在高速状态下持续跑动的能力，相比一般球员一直都处于非常高的水平。然后他还是一个非常谦逊的年轻人，很渴望成长和提高，会在技术和战术层面投入很多工作。他还非常年轻，有无数方面需要成长，但同时也有一两项能力明显高于平均水平。遇到这种情况，就应该继续把这些优势发展下去。”\n\n莫拉和戈利尼现在分别处在怎样的发展阶段？\n\n“戈利尼一直都是一名非常优秀的门将。早在8、9年前，我们就一起经历过很重要的赛季。也许他职业生涯里曾经缺少一点成熟度，而现在随着年龄增长，他可能已经获得了这种成熟。有时候年轻球员就是这样。他一直都具备很好的能力，只是以前也许没有像现在这样强烈的提升欲望。”\n\n“莫拉不是一个‘进入轮换’的球员，他本身就在轮换之中。只要身体允许，他一直都会出场。他的身体条件比较特别，目前还比较瘦小，而且也非常年轻，但他的天赋是一眼就能看出来的。我们需要帮助他成长。和其他一些球员相比，他还需要让自己的身体更强壮一些，但从技术层面来说，他已经处在很高的水平。”",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Roma v Slovan Bratislava | Goal.com US",
+          "url": "https://www.goal.com/en-us/match/roma-vs-slovan-bratislava/_REzB-KGFWGMLEFWnAkbt",
+          "site": "Goal.com",
+          "date": null,
+          "authority": 3,
+          "score": 1.50467848777771,
+          "summary": "# Roma vs Slovan BratislavaMatch preview,\n\n## ROM-Form\n\n- Goal Scored (Conceded)\n- 8/7\n- Games over 2.5 goals\n- 2/5\n- Both teams scored\n- 3/5\n\n## Head to head\n\nROM\n\nLast 2 matches\n\nSBR\n\n0\n\nWins\n\n1\n\nDraw\n...\n- 0/2\n...\n- 1/2\n\n## Injuries and Suspensions\n\n- No sidelined players\n...\n### Pick your winner\n\nChampions League - Game Week 3\n\n## Match details\n\nStadio Olimpico, Rome",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 2,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 4,
+        "zh": 3,
+        "home_mentions": 3,
+        "away_mentions": 3
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周二006",
+      "league": "欧冠",
+      "home": "巴黎圣曼",
+      "away": "巴萨",
+      "home_en": "Paris Saint-Germain",
+      "away_en": "Barcelona",
+      "queries": [
+        "\"Paris Saint-Germain vs Barcelona\" preview prediction lang:en",
+        "巴黎圣曼 巴萨 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "恩里克：对阵巴萨必须掌控球权，这是我最看重的对手",
+          "url": "https://beta.dongqiudi.com/articles/6517430.html",
+          "site": "懂球帝",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.260459885703253,
+          "summary": "# 恩里克：对阵巴萨必须掌控球权，这是我最看重的对手\n\n巴黎圣日耳曼主帅恩里克认为，欧冠对阵巴塞罗那一战，巴黎必须掌控球权，才能有效限制亚马尔的发挥。他同时坦言，巴萨仍是自己执教生涯中最重要的对手。\n\n在赛前新闻发布会上，恩里克谈到了限制亚马尔的方法、两队在战术上的相似之处，以及自己与巴萨的深厚渊源。\n\n巴萨是带着开季11连胜来到这场比赛的，而巴黎则有机会成为本赛季首支击败巴萨的球队。\n\n不过，尽管比赛分量十足，恩里克提醒，不能在赛事刚进入联赛阶段时就把这场球视为决定性对决。\n\n“赛制让我们在这个阶段相遇，但这不是决赛，一切才刚刚开始。”他说。\n\n亚马尔的个人能力无疑是巴黎必须面对的主要威胁，但恩里克认为，解题思路不应是单纯盯防这名年轻边锋，而应从切断巴萨的球权开始。\n\n“很简单：不能让他拿到球，因为他一拿球就是威胁。防守拉明最好的方式，就是确保巴萨没有球权。”\n\n“我们必须专注于自己能做的事。要知道，他们阵中不只有拉明——拉菲尼亚、佩德里、库巴西、霍安·加西亚……天才球员太多了。”\n\n恩里克也拒绝将亚马尔与梅西作比较。他认为，这名巴萨年轻人应当建立自己的身份认同，而不是被拿来丈量另一位定义了时代的球员。\n\n“亚马尔想成为亚马尔。我们不能把他和梅西或任何人比较。他很聪明，必须继续做自己。”\n\n恩里克预计，这将是一场两支球队都想主导球权的硬仗。他盛赞巴萨的踢法，并强调仅靠个人能力无法决定胜负。\n\n“我们很了解巴萨，我喜欢他们的踢法。这会是一场艰难的比赛，他们的球员质量很高，细节可能决定一切。”\n\n“两队都有出色的个人，但胜利必须依靠团队。他们有着很强的归属感，我知道这会是一场精彩的比赛。”\n\n巴萨的11连胜，反而给了巴黎额外的动力。恩里克将这份挑战定义为动力，而非压力。\n\n“这对我们是动力。想到有机会成为本赛季唯一击败巴萨的球队，我们就很有斗志。”\n\n恩里克还谈到了两家俱乐部之间的特殊联系——无论作为球员还是教练，他都曾效力于巴萨。\n\n“我当过巴萨球员，也当过巴萨教练，我和加泰罗尼亚感情很深……对我来说，巴萨是最像巴黎的俱乐部。”\n\n当被问及弗里克的巴萨是否像他当年执教的那支球队时，恩里克肯定了德国教头的工作，同时指出巴黎必须主动出击。\n\n“很明显，弗里克改善了球队的成绩，也打出了类似他在拜仁时期的那种风格。我们如果想赢，就必须主动进攻。”\n\n这场比赛对恩里克而言无疑带有个人色彩，他与巴萨的过往让这场欧冠绝非一场普通较量。但他强调，这份情感不会改变眼前的目标——为巴黎拿下胜利。\n\n“我是巴黎主帅。刚带队打巴萨时，对我来说确实不容易，但我已经习惯了。尽管如此，我明天还是想赢。”\n\n“面对我职业生涯中最重要的俱乐部，这是巨大的动力。他们拥有一些顶级球员，是一家价值观鲜明的体育俱乐部。”恩里克最后说道。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "塞尔电台：巴萨踢巴黎时不要打对攻，那等于自杀式踢法",
+          "url": "https://pc.dongqiudi.com/articles/6517358.html",
+          "site": "懂球帝",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.208834665821733,
+          "summary": "# 塞尔电台：巴萨踢巴黎时不要打对攻，那等于自杀式踢法\n\n塞尔电台表示，巴萨正准备迎来本赛季最危险的几周，但他们拿出的武器并不是熟悉的那一套：俱乐部内部反而给弗里克送去了一条令人意外的建议——进攻慢一点！\n\n这支加泰罗尼亚豪门本赛季至今全胜，如今将迎来两场硬仗：周二在王子公园球场对阵巴黎圣日耳曼的欧冠比赛，周日则是对阵皇家马德里的国家德比。这两场较量可能决定赛季走向，尽管现在才10月。\n\n据西班牙电台《Cadena Ser》节目《Carrusel》中的记者桑蒂-奥瓦耶透露，巴萨管理层和体育总监已经向弗里克传递了明确消息：对阵巴黎时，不能沿用他面对所有对手时那种开放、对攻的进攻风格，因为那等同于在恩里克的球队面前自杀式踢法。俱乐部认为，耐心和控球才是关键。\n\n奥瓦耶转述了巴萨认为能够限制这支欧冠双冠王的秘密方案：“我们需要比以往更多地控制球权，以比平时更慢的节奏进攻，并遏制巴黎圣日耳曼的快速转换。”\n\n这种极度谨慎来自挥之不去的巴黎阴影：最近两次客场造访，胜利都属于法国球队。上赛季欧冠小组赛，巴黎在费兰-托雷斯先破门后完成逆转，马尤卢和贡萨洛-拉莫斯在第90分钟先后进球，而费兰-托雷斯如今自己也穿上了巴黎球衣。\n\n再往前一个赛季，也就是2023-2024赛季，恩里克的球队在诺坎普球场以4-1羞辱性击败巴萨，成功晋级，当时阿劳霍被罚下，登贝莱、姆巴佩和维蒂尼亚表现出色。\n\n尽管巴萨上一次做客王子公园球场时曾3-2险胜，但一周后发生的事情再次证明，光靠一场胜利远远不够。\n\n奥瓦耶在报道最后抛出一个所有人都在等待答案的问题：“我们会看看弗里克是听从管理层的建议，踢得更有耐心，还是像往常一样要求球员沿用对攻式打法。”\n\n这场密集赛程还伴随着严重的后勤混乱：巴萨刚以5-2击败皇家贝蒂斯，球队周六晚上的航班又先后被推迟到午夜、凌晨2点和凌晨4点，导致全队滞留塞维利亚。弗里克只能先把球员带回酒店休息，结果周一飞往巴黎时又因为法国首都上空浓雾，航班再次延误。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "巴萨客战巴黎面临战术两难，弗里克考虑让罗德里客串中卫",
+          "url": "http://pc.dongqiudi.com/articles/6517277.html",
+          "site": "懂球帝",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.208834665821733,
+          "summary": "# 巴萨客战巴黎面临战术两难，弗里克考虑让罗德里客串中卫\n\n巴萨防线遭遇伤病危机，迫使弗里克在欧冠对阵巴黎圣日耳曼之前，考虑一个不同寻常的应对方案。\n\n据《每日体育报》报道，在客场挑战巴黎一战中，罗德里可能出现在中卫位置上——尽管这名中场球员的影响力，正越来越多地体现在中路。\n\n报道称，弗里克可能复制巴萨击败皇家贝蒂斯一役尾声阶段的实验，让这位西班牙国脚改踢中卫，以弥补埃里克·加西亚、孔德和克里斯滕森同时缺阵留下的空缺。\n\n但这一潜在调整的战术代价相当高。罗德里已成为巴萨掌控球权、在压迫下完成推进、驾驭比赛节奏的核心。将他后撤，固然能解决眼前的防线问题，却可能让中场在面对欧洲最强球队之一时失去硬度。\n\n赫拉德·马丁能否出场，可能成为决定性的变量。这名后卫在对阵贝蒂斯一役中脚后跟遭到重击，但已进入巴萨客战巴黎的大名单。\n\n如果马丁的身体状况允许他与库巴西搭档中卫，弗里克就能把罗德里留在自己更偏好的中场位置；反之，如果马丁的伤势仍有影响，巴萨主帅可能不得不让罗德里临时客串中卫。\n\n这个决定之所以尤为重要，是因为巴黎坐拥由维蒂尼亚、鲁伊斯和内维斯组成的豪华中场。让罗德里与佩德里搭档坐镇中路，能让巴萨在中场对抗中获得更强的控制力。\n\n因此，防线缺员如何填补，不只是一道“填空题”，更是一道需要精密计算的战术题。\n\n而巴萨近期的比赛数据，恰恰解释了弗里克为何对后撤罗德里心存犹豫：\n\n- 对阵赫塔菲：罗德里在71分钟内尝试124次传球，成功119次，成功率高达96%。巴萨该场控球率达到83%，为弗里克执教以来的最高纪录；\n\n- 对阵加拉塔萨雷（4-1）：罗德里踢满90分钟，巴萨全队694次传球成功632次，控球率71%；\n\n- 对阵贝蒂斯（5-2）：罗德里再次打满全场，不仅打进俱乐部生涯首球，还交出了126次传球98%成功率的成绩单，创造2次机会，10次长传全部找到队友。\n\n这些表现进一步巩固了他作为巴萨攻防连接点的地位。本赛季他的传球准确率达到了95%，为西甲中场球员中最高，其重要性可见一斑。\n\n据《每日体育报》统计，巴萨以70.1%的场均控球率领跑西甲，领先于比利亚雷亚尔的60.6%、马竞的59.8%、毕尔巴鄂竞技的53.9%和皇家马德里的53.1%——这在很大程度上要归功于罗德里。\n\n正是这名西班牙球员，帮助巴萨摆脱对手的压迫、连接锋线，并决定着何时该加速进攻、何时该放慢节奏。\n\n因此，弗里克必须在两项风险之间做出权衡：将罗德里放进后防线，固然能增加防守保障，却可能失去他在中场的统治力。\n\n巴黎无论在控球还是压迫方面，都将是巴萨的一场重大考验。马丁的身体状况，最终可能决定巴萨是得以保持惯用的战术结构，还是必须牺牲自己最重要的中场之一，去填补防线的空缺。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "'All the ingredients are in place!' – Vitinha issues exciting prediction ahead of Paris Saint-Germain vs Barcelona | Goal.com",
+          "url": "https://www.goal.com/en/lists/vitinha-paris-saint-germain-barcelona-champions-league/bltc66a2dc398213679",
+          "site": "Goal.com",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.1846735929804844,
+          "summary": "# 'All the ingredients are in place!' – Vitinha issues exciting prediction ahead of Paris Saint-Germain vs Barcelona\n\nParis Saint-Germain midfielder Vitinha insisted all the ingredients are present for a classic Champions League showdown against FC Barcelona. Backed by manager Luis Enrique, the Portuguese international believes both possession-obsessed sides will produce an extraordinary tactical contest at the Parc des Princes.\n\n## Vitinha relishes heavyweight Barcelona clash\n\nParis Saint-Germain midfielder Vitinha expressed immense excitement ahead of his side's UEFA Champions League Matchday 3 encounter against FC Barcelona at the Parc des Princes. Both European heavyweights enter the fixture with flawless records in this season's league phase.\n\nPSG head into the game following impressive victories, including a 4-2 win at Manchester City and a 3-1 comeback victory against Strasbourg.\n\nVitinha highlighted the squad's eagerness to measure themselves against another continental giant on home soil.\n\n- AFP\n\n## Portuguese star predicts high-intensity tactical battle\n\nSpeaking ahead of the fixture, Vitinha emphasized that both teams share identical footballing philosophies centered around possession and aggressive pressing. \"We have had two big victories... Now we have another big match that we are all looking forward to. It is a pleasure to be involved,\" Vitinha stated.\n\n\"I think all the ingredients are in place for this to be one of the great games.\"\n\n\"We don't know what will happen, but it is two teams with brilliant individuals,\" the midfielder added. \"Both teams want the ball all the times and will press when they do not have it.\"\n\n## Luis Enrique backs Vitinha assessment of PSG 'machine'\n\nPSG head coach Luis Enrique echoed Vitinha's thoughts, emphasizing the emotional significance of facing his former club, whom he guided to a historic treble in 2015. \"It will be a tight match because both teams have so much individual quality,\" Luis Enrique observed.\n\n\"Playing at home makes a difference to us; we are much stronger here.\"\n\n\"We are a machine: that is what I think when I see our players press,\" the Spanish tactician asserted, praising his team's relentless work rate.\n...\n## Unbeaten French champions target record-equalling run\n\nPSG enter the contest unbeaten in their last 12 Champions League matches, standing just one game away from equalling their all-time club record of 13.\n\nWith former Barcelona figures Ousmane Dembele, Ferran Torres, and Dro Fernandez adding extra narrative depth, the Parc des Princes fixture promises fireworks.\n\nVitinha and his team-mates aim to secure three vital points to maintain their flawless European campaign.",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "队报前瞻巴黎迎战巴萨：欧洲最犀利两大攻击线相聚王子公园球场",
+          "url": "https://news.zhibo8.com/zuqiu/2026-10-19/6ad5fda0be381native.htm",
+          "site": "zhibo8.com",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.14000103931304,
+          "summary": "# 队报前瞻巴黎迎战巴萨：欧洲最犀利两大攻击线相聚王子公园球场\n\n直播吧10月19日讯 巴黎将在本周的欧冠主场迎战巴萨，队报也在赛前撰写了前瞻文章。\n\n文章写道，在巴黎，所有人的目光早已投向巴黎圣日耳曼与巴塞罗那的欧冠大战。\n\n尽管本周一早晨的法甲积分榜上有5支球队并列榜首，其中自然少不了巴黎圣日耳曼，但人们的思绪早已飞向了周二晚在王子公园球场上演的欧冠焦点战——巴黎与巴萨的强强对话。\n\n法甲诸强若想挑战巴黎的霸权，那他们掩饰得可真好。7轮战罢，即便巴黎圣日耳曼只分出三分之一的精力应对联赛，他们依然稳居第二，仅因净胜球劣势屈居里昂之后。\n\n里昂击败尼斯后，本周日他们将做客王子公园球场，捍卫其脆弱的榜首地位。\n\n不得不佩服里昂的反弹能力，这支球队曾与欧冠资格失之交臂。尽管如此，保罗·丰塞卡执教的球队依然坚挺，他们极有可能像往常一样，给巴黎制造巨大的麻烦。\n\n然而，里昂领跑积分榜也恰恰暴露了法甲竞争力不足的症状。目前共有5支球队同分领跑法甲积分榜，但法甲榜首球队的场均积分在欧洲五大联赛中却是最低的。\n\n他们不仅落后于拜仁慕尼黑和国际米兰，更是远逊于在英超和西甲保持全胜的曼城与巴塞罗那。\n\n欧洲最犀利两大攻击线周二相聚王子公园球场\n\n上周三在阿提哈德球场上半场发生的故事还历历在目。而到了周二晚上，路易斯·恩里克的球队或许将成为唯一一支击败过欧洲两大最具竞争力联赛领头羊的球队。\n\n事实上，法国足坛现在关心的并不是里昂能否一黑到底，而是恩里克将如何在缺少世界最佳左后卫的情况下，去限制现象级新星亚马尔的发挥，尽管潜在的替补人选（迪涅、卢卡斯·埃尔南德斯、扎伊尔-埃梅里）都是法国国脚。\n\n到了周二，现任金球奖得主将与潜在接班人正面对决，当下最具观赏性的两大攻击线将齐聚王子公园球场，巴黎将再次化身为一场足球盛宴。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 5,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 4,
+        "home_mentions": 0,
+        "away_mentions": 4
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周二007",
+      "league": "欧冠",
+      "home": "利物浦",
+      "away": "比利亚雷",
+      "home_en": "Liverpool",
+      "away_en": "Villarreal",
+      "queries": [
+        "\"Liverpool vs Villarreal\" preview prediction lang:en",
+        "利物浦 比利亚雷 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Liverpool vs Villarreal Champions League preview: All you need to know | Goal.com",
+          "url": "https://www.goal.com/en/news/liverpool-villarreal-champions-league-preview/blt0338b51b42718cbd",
+          "site": "Goal.com",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.220233810458792,
+          "summary": "# Liverpool vs Villarreal Champions League preview: All you need to know\n\nComprehensive match preview of Liverpool vs Villarreal in the Champions League. We talk tactics, team news, form and more\n\nLiverpool vs Villarreal kicks off on 20 Oct 2026 at 15:00 EST and 19:00 GMT.\n\n## Liverpool hope to continue flawless UCL run at Anfield\n\nAndoni Iraola's men showed character against Brentford at the weekend in the Premier League, coming from behind to win 2-1. It was a much-needed result, following a 3-0 thrashing against Manchester City. The Reds have had things their own way in the Champions League so far, though, beating Atletico Madrid 2-1 at Anfield and thrashing LASK 6-3 away from home. Despite a patchy start to their domestic campaign, Iraola's men have now won six of their last eight outings across all competitions.\n...\n### A mixed bag from Villarreal so far\n\nVillarreal's seven-match UCL losing streak finally came to an end last time out when they beat Napoli 3-1 despite conceding first. The Yellow Submarine started this season dismally, failing to win any of their last six across all competitions, a sequence including four defeats on the trot. They've steadied the ship somewhat, winning three out of five, including that win over Napoli.\n...\n### Goals could be on the menu at Anfield\n\nThe Yellow Submarine haven't kept a clean sheet in any of their last 13 Champions League appearances, and the chances of a shutout at Anfield look slim, given that they've only kept three shutouts in their last 33 matches in this competition.\n\n### Key stats & injuries\n\n- Liverpool have scored twice or more in 13 of their last 15 UCL group stage clashes at Anfield.\n- Liverpool will be without Dominik Szoboszlai and Jeremie Frimpong, who both got hurt against Brentford at the weekend, while Villarreal will be minus Nicolas Pepe and Tajon Buchanan for the trip to Anfield.\n\n## Team news & squads\n\nAndoni Iraola is expected to name a strong side, with his projected XI reading: Alisson Becker; Jeremy Jacquet, Jeremie Frimpong, Konstantinos Tsimikas, Ronald Araujo; Trey Nyoni, Ryan Gravenberch; Bradley Barcola, Florian Wirtz, Rio Ngumoha; Lewis Koumas. No injuries or suspensions are currently reported for the home side, though updates will be added closer to kick-off.\n\nVillarreal head coach Inigo Perez is set to line up with Luiz Junior in goal, supported by a back four of Carlos Romero, Pau Navarro, Renato Veiga, and Santiago Mourino. Alberto Moleiro and Gerard Moreno are among the attacking options projected to feature. No injuries or suspensions have been confirmed for the away side at this stage.\n\n### Form\n\nLIV - Form\n\n- Goal Scored (Conceded)\n- 12/8\n- Games over 2.5 goals\n- 4/5\n- Both teams scored\n- 3/5\n\nVIL - Form\n...\n- 9/4\n...\nLiverpool head into this fixture in strong form, recording four wins from their last five matches with one defeat. Their most recent outing was a 2-1 comeback victory over Brentford in the Premier League, following a 6-3 win at LASK in the Champions League. The only blemish in that run was a 3-0 home defeat to Manchester City. Across those five matches, the Reds have scored 11 goals and conceded seven, reflecting an expansive but occasionally open style.\n\nVillarreal's recent form shows three wins, one draw, and one loss from their last five outings. They drew 0-0 with Elche in LaLiga at the weekend before that impressive 3-1 Champions League win over Napoli. A 1-0 defeat to Real Madrid is the only loss in the sequence. Villarreal have scored eight goals and conceded three across those five games, suggesting they arrive at Anfield with genuine attacking momentum.\n\n### Head-to-Head Record\n\nThe most recent meeting between these clubs came in the 2022 Champions League semi-finals, when Liverpool won 2-0 at Anfield before Villarreal claimed a 2-3 defeat at home — Liverpool progressing 5-2 on aggregate. Across the five documented meetings between the sides, Liverpool have the stronger record, also defeating Villarreal across both legs of the 2016 Europa League semi-finals, with the only Villarreal win coming in the first leg of that tie.\n...\nQualification to 1/8 finals\n\nIn the Champions League league phase, Liverpool sit fifth — a position that places them firmly in contention for a direct route into the round of 16. Villarreal are 14th, meaning they face...",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5"
+          ],
+          "scores": [],
+          "fetch_ok": true,
+          "fetch_head": "This page contains affiliate links\\. When you purchase through the links provided\\, we may earn a commission\\.\n\nAnfield\nVillarreal\nAssisted by\n\n\\# Liverpool vs Villarreal Champions League preview\\: All you need to know\n\nComprehensive match preview of Liverpool vs Villarreal in the Champions League\\. We talk tactics\\, team news\\, form and more\n\nLiverpool vs Villarreal kicks off on 20 Oct 2026 at 15\\:00 EST and 19\\:00 GMT\\.\n\n\\#\\# Liverpool hope to continue flawless UCL run at Anfield\n\nAndoni Iraola\\'s men showed character against Brentford at the weekend in the Premier League\\, coming from behind to win 2\\-1\\. It was a much\\-needed result\\, following a 3\\-0 thrashing against Manchester City\\. "
+        },
+        {
+          "kind": "preview",
+          "title": "PREVIEW | Liverpool vs Villarreal CF: team news, lineups, predictions (Champions League 20/10)",
+          "url": "https://onefootball.com/en/news/preview-liverpool-vs-villarreal-cf-team-news-lineups-predictions-champions-league-2010-43633404",
+          "site": "OneFootball",
+          "date": "2026-10-17T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.220233810458792,
+          "summary": "# PREVIEW | Liverpool vs Villarreal CF: team news, lineups, predictions (Champions League 20/10) | OneFootball\n\nPlaymakerstats\n\n·18 October 2026\n\n## PREVIEW | Liverpool vs Villarreal CF:\n...\nLiverpool host Villarreal CF this Tuesday at the Anfield of the UEFA Champions League. The match will be broadcast live at 20:00 on Amazon Prime.\n\nIn their last match, Liverpool prevailed 1-2 against Brentford (Premier League 2026/27). In their last fixture, Villarreal CF shared the spoils 0-0 with Elche CF (La Liga 2026/27).\n...\nThe last meeting between the two teams ended with Liverpool winning 3-2.\n\n### Unavailable\n\n### Liverpool\n\n- Conor Bradley - Injury\n- Hugo Ekitiké - Injury\n- Giovanni Leoni - Injury\n\n### Villarreal CF\n\n- Nicolas Pépé - Eye Injury\n- Tajon Buchanan - Hamstring Injury\n...\n### MANAGERS\n\n- Andoni Iraola has faced Villarreal CF on five occasions, recording three wins and two defeats\n\n### TEAMS\n\n- Away from home, Villarreal CF currently have one win in their last six matches.\n- Away from home, Villarreal CF have conceded in six consecutive matches.\n- Villarreal CF currently have one defeat in their last five matches.\n- Villarreal CF are coming off two consecutive matches without defeat.\n- At home, Liverpool currently have one defeat in their last five matches.\n- Liverpool currently have one defeat in their last ten matches.\n- Liverpool have conceded in three consecutive matches.\n- Liverpool are coming off two consecutive matches without defeat.\n- Liverpool are coming off two consecutive wins.\n\n### HEAD TO HEAD\n\n- Liverpool and Villarreal CF have faced each other four times already, with Liverpool holding the advantage: three wins, compared with one victory for Villarreal CF.\n- At Anfield, Liverpool hold the advantage in clashes against Villarreal CF: two wins in two matches.\n- In the Champions League, the two teams have played two matches against each other, with two Liverpool wins.",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [],
+          "fetch_ok": false
+        },
+        {
+          "kind": "zh",
+          "title": "优势明显，利物浦在欧战小组/联赛阶段对西班牙球队7连胜",
+          "url": "https://beta.dongqiudi.com/articles/6518373.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.040015935897827,
+          "summary": "# 优势明显，利物浦在欧战小组/联赛阶段对西班牙球队7连胜\n\n北京时间10月21日凌晨3:00，欧冠联赛阶段第3轮，利物浦将主场迎战比利亚雷亚尔。\n\n据统计， 双方此前的交锋均发生在欧战半决赛中，利物浦两次都晋级。在2015/16赛季的欧联杯半决赛，比利亚雷亚尔主场以1-0取胜，而利物浦次回合则在安菲尔德3-0逆转。\n\n克洛普率领的利物浦在2021/22赛季欧冠半决赛中两回合全胜，主场以2-0、客场以3-2赢球。\n\n此外，利物浦在最近7场对阵西班牙球队的欧战小组赛/联赛阶段比赛中均取得胜利，最近6场均有4次零封。\n\n与此同时，伊萨克在对阵比利亚雷亚尔的5场比赛中攻入3球。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "欧冠赛场相遇，伊劳拉球员生涯最后一球是对黄潜打进的",
+          "url": "https://beta.dongqiudi.com/articles/6516347.html",
+          "site": "懂球帝",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.985440824074757,
+          "summary": "# 欧冠赛场相遇，伊劳拉球员生涯最后一球是对黄潜打进的\n\n欧冠联赛阶段第3轮，利物浦将在安菲尔德主场迎战比利亚雷亚尔，利物浦此前已经取得欧冠两连胜，赛前，利物浦官网盘点了本场比赛值得关注的14项数据。\n\n1、利物浦与比利亚雷亚尔此前曾有过4次交手，全部发生在欧战半决赛，分别是2015-16赛季欧联杯半决赛和2021-22赛季欧冠半决赛。\n\n2、利物浦最近16场在安菲尔德进行的欧冠小组赛或联赛阶段比赛中，取得了15场胜利。\n\n3、这将是利物浦队史第59次与西班牙俱乐部交手。西班牙也是利物浦在欧战中交手次数最多的对手所属国家。\n\n4、伊劳拉职业生涯的最后一粒进球出现在2015年5月，当时他代表毕尔巴鄂竞技在4-0击败比利亚雷亚尔的比赛中取得进球。\n\n5、利物浦最近7场对阵西班牙球队的欧冠小组赛或联赛阶段比赛全部取胜，其中最近6场比赛有4场完成零封。\n\n6、阿劳霍此前职业生涯曾7次对阵比利亚雷亚尔，其中取得5场胜利。\n\n7、伊萨克此前效力皇家社会期间，曾5次对阵比利亚雷亚尔，打进3球。\n\n8、利物浦最近45场欧战比赛均未出现平局。球队上一次在欧战中战平对手，还要追溯到2022年4月在安菲尔德与本菲卡战成3-3的比赛。\n\n9、麦卡利斯特职业生涯在欧冠中打进的6粒进球，全部是在安菲尔德取得的。\n\n10、利物浦此前曾4次在10月20日参加欧战，但至今未能在这一天取得胜利。这4场比赛分别是1971年主场战平拜仁慕尼黑、1976年客场不敌特拉布宗体育、1998年在安菲尔德战平瓦伦西亚，以及2009年主场不敌里昂。\n\n11、比利亚雷亚尔一周前在主场3-1击败那不勒斯，结束了此前在欧冠正赛中连续12场不胜的纪录。在此前12场比赛中，他们取得2平10负的战绩，并且一度遭遇7连败。因此，这也是球队最近13场欧冠正赛中的首场胜利。\n\n12、比利亚雷亚尔此前曾11次做客英格兰参加比赛，但只取得过1场胜利。那场胜利发生在2005年的欧冠资格赛中，当时这支绰号为“黄色潜水艇”的球队客场2-1击败埃弗顿。\n\n13、比利亚雷亚尔门将古拉西奇曾在2008年至2013年效力于利物浦。效力期间，他曾51次进入比赛替补席，但从未代表利物浦在正式比赛中出场。\n\n14、比利亚雷亚尔主帅伊尼戈-佩雷斯于今年夏天接手球队。2022-23赛季，他曾在巴列卡诺担任伊劳拉的助理教练。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "利物浦迎战比利亚雷亚尔，伊萨克加克波复出",
+          "url": "https://beta.dongqiudi.com/articles/6514457.html",
+          "site": "懂球帝",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9335763140857745,
+          "summary": "# 利物浦迎战比利亚雷亚尔，伊萨克加克波复出\n\n北京时间10月21日03:00，欧冠联赛阶段，利物浦将在安菲尔德迎战比利亚雷亚尔。利物浦方面，加克波和伊萨克已经恢复可用，但索博斯洛伊的伤病尚未痊愈，弗林蓬也在对阵布伦特福德的比赛中受伤，两人都将缺席。此外，莱昂尼、康纳-布拉德利和埃基蒂克同样因伤无法出战。\n\n利物浦预计首发（4-2-3-1）：阿利松；阿劳霍、雅凯、范戴克、凯尔凯兹；赫拉芬贝赫、麦卡利斯特；巴尔科拉、维尔茨、加克波；伊萨克。\n\n比利亚雷亚尔方面，布坎南在国际比赛日期间出现腿筋问题，尼古拉-佩佩则在对阵皇家马德里时眼部受伤，两人均无法出战。比利亚雷亚尔预计首发（4-4-2）：路易斯-儒尼奥尔；圣地亚哥-莫里尼奥、保-纳瓦罗、雷纳托-韦加、卡洛斯-罗梅罗；内森-萨利巴、科梅萨尼亚、帕普-盖伊、莫莱罗；赫拉德-莫雷诺、米卡塔泽。\n\n利物浦在伊劳拉执教的开局并不平稳，国际比赛日后曾0-3不敌曼城，但此后连续取得两场胜利：欧冠6-3击败LASK，随后在联赛客场逆转十人应战的布伦特福德。比利亚雷亚尔在间歇期前曾以3-1先后战胜马拉加和莱万特，间歇期后0-1不敌皇家马德里，欧战击败那不勒斯，上周末与埃尔切0-0战平。\n\n伊尼戈-佩雷斯曾在巴列卡诺师从伊劳拉，他原本有望前往伯恩茅斯担任伊劳拉的助理教练，但因未获得工作许可未能成行。如今他率领比利亚雷亚尔做客安菲尔德，对阵伊劳拉执教的利物浦。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "4 比 2",
+            "4 比 4"
+          ]
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 1,
+        "goals": 1,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 3,
+        "home_mentions": 3,
+        "away_mentions": 3
+      },
+      "scores": [
+        "4 比 2",
+        "4 比 4"
+      ],
+      "fetched": 1
+    },
+    {
+      "no": "周二008",
+      "league": "欧冠",
+      "home": "曼城",
+      "away": "雅典AEK",
+      "home_en": "Man City",
+      "away_en": "AEK Athens",
+      "queries": [
+        "\"Man City vs AEK Athens\" preview prediction lang:en",
+        "曼城 雅典AEK 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "马雷斯卡：哈兰德可出战雅典AEK，塞门约大概将缺席8周",
+          "url": "https://tiyu-migu.com/77775/zcjjjxn.html",
+          "site": "",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.0691957423554475,
+          "summary": "您的位置： 咪咕体育直播 > 足球新闻 > 马雷斯卡：哈兰德可出战雅典AEK，塞门约大概将缺席8周 >\n...\n- 更新时间：2026-10-19 21:28:06\n\n咪咕体育直播讯 曼城主帅马雷斯卡在出席欧冠对阵雅典AEK的赛前新闻发布会时表示，哈兰德可能在本场比赛中出场，而塞门约预计将缺阵约八周。\n\n马雷斯卡透露，哈兰德具备出场条件，但仍需在赛前训练中进一步观察：“上周比赛后我们确实有些疑虑和担忧，不过看到他昨天的状态相当不错，情况有所好转，今天会再密切观察一下。”\n\n相较之下，塞门约的伤情更为明确。马雷斯卡表示，这名球员大概将缺席八周时间，伤处为韧带和关节部位，并非肌肉问题。他坦言最初曾担心情况更糟，但扫描结果出来后球队安心了许多，“等他12月左右伤愈归队时，我们就像迎来一名全新的强援”。\n\n北京时间10月21日凌晨，曼城将在欧冠联赛阶段第3轮主场迎战雅典AEK。此役对曼城而言至关重要，球队在上一场欧冠失利后急需拿满三分。哈兰德若能出战，将为球队锋线提供有力保障。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "马雷斯卡：哈兰德可出战雅典AEK，塞门约大概将缺席8周",
+          "url": "https://pc.dongqiudi.com/articles/6517109.html",
+          "site": "懂球帝",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.983745656724682,
+          "summary": "# 马雷斯卡：哈兰德可出战雅典AEK，塞门约大概将缺席8周\n\n曼城主帅恩佐-马雷斯卡在出席欧冠对阵雅典AEK的赛前新闻发布会中表示，哈兰德可能在对阵AEK雅典的比赛中出场，但塞门约“大概将缺阵八周”。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "哈兰德等四将伤退，曼城欧冠战雅典AEK存疑",
+          "url": "http://pc.dongqiudi.com/articles/6514267.html",
+          "site": "懂球帝",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.983745656724682,
+          "summary": "# 哈兰德等四将伤退，曼城欧冠战雅典AEK存疑\n\n曼城在英超主场取胜后，主帅马雷斯卡面临伤情困扰。哈兰德在伤停补时一次剧烈铲球后一瘸一拐离场，塞门约同样出现跛行，科瓦契奇和努内斯也因伤被换下。四人能否在北京时间10月21日03:00（当地时间周二）欧冠对阵雅典AEK的比赛中出场，目前存疑。\n\n这场比赛曼城做出六处轮换，包括一套全新的中场三人组。马雷斯卡周五曾表示福登会对阵伊普斯维奇进球，并称五名最常用的球星需要休息；福登随后首开纪录，哈兰德打入本赛季各项赛事第11球和第12球，连续第六场联赛破门，帮助球队拿下胜利。\n\n曼城在联赛中只丢七球，但其中五球出现在自己进球后的五分钟内。格伊本场表现不佳，一次草率的禁区内铲球送给对手扳平机会。马雷斯卡的球队目前以七连胜创下英超新帅最佳开局，领先阿森纳六分、利物浦九分、曼联15分。\n\n马雷斯卡从瓜迪奥拉手中接过教鞭后，已在有罪判决后公开表态，并在比赛中做出半场换人、展现进攻意图。原文还提到，这一判决可能让球队的成绩受到影响；终场哨响后，更直接的担忧是四名球员的伤情。\n\n曼城球迷在比赛中高唱支持老板谢赫-曼苏尔和主席穆巴拉克，并告诉伊普斯维奇支持者他们将“和曼城一起降级”。",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "马雷斯卡：塞门约大概将缺席8周，哈兰德可出战雅典AEK",
+          "url": "https://beta.dongqiudi.com/articles/6517109.html",
+          "site": "懂球帝",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.7938016095839822,
+          "summary": "# 马雷斯卡：塞门约大概将缺席8周，哈兰德可出战雅典AEK\n\n曼城主帅恩佐-马雷斯卡在出席欧冠对阵雅典AEK的赛前新闻发布会中表示，哈兰德可能在对阵AEK雅典的比赛中出场，但塞门约“大概将缺阵八周”。\n\n马雷斯卡表示：“最初我们预计塞门约的伤势会更严重。但经过昨天的检查，我们感觉好多了，因为伤势没有我们预期的那么严重。”\n\n“恢复需要八周，现在最重要的是恢复。当他12月回归时，将会像一个新球员一样。他是侧副韧带的伤情，不是肌肉受伤。”\n...\n不是，哈兰德腿都肿成那个样子了还上啊\n...\n好消息是没受伤，但下场肯定要轮休了\n...\nnb现在边锋也不够用了，赶紧练麦卡杜和阿兰吧，中锋实在没招只能让太子和桑巴客串了",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "專業分析 - 曼城攻銳大捷可期",
+          "url": "https://football.hkjc.com/zh-hk/preview-summary/details-page?path=MatchPreview/2026-10/19/FB7258&Expert=&MatchID=FB7258&Title=%E6%9B%BC%E5%9F%8E%E6%94%BB%E9%8A%B3%E5%A4%A7%E6%8D%B7%E5%8F%AF%E6%9C%9F&b_cid=SPFBSPA_PreviewArticle_article",
+          "site": "香港賽馬會",
+          "date": null,
+          "authority": 3,
+          "score": 1.687633991241455,
+          "summary": "## 曼城攻銳大捷可期\n\n推介: 主客和 – 主勝\n...\n半全場 – 主/主\n\n軍情\n\n曼城上仗大聯賽排出「4-2-3-1」，艾寧夏蘭特續任箭頭，安東尼施美安、謝利美杜古及卓基後上支援攻堅；球隊面對對手超強的攻擊力，上半場已失3球；下半場雖然靠神鋒艾寧夏蘭特梅開二度，追近比分，但亦再失1球，主場大敗收場。\n\nAEK雅典上仗大聯賽排出「4-4-2」，盧卡祖域及辛尼組成前鋒組合，路禾奴馬積及阿布巴卡利高達作兩翼側擊。球隊上半場中段由路禾奴馬積建功領先，但不久後便被對手逼和。AEK雅典下半場後段體力不繼，被對手再連入2球，敗陣收場。\n\n曼城\n\n受傷：／\n\n停賽：／\n...\n受傷：湯馬士史查高沙（門將）\n...\n近況\n\n曼城上仗大聯賽主場2比4負巴黎聖日耳門，大聯賽1勝1負；該仗主場受挫歐聯霸主，不足為辱，攻擊力依然可恃，實力遠勝AEK雅典，主場再擺擂台，有力大捷吐口烏氣。AEK雅典上仗大聯賽1比3不敵薩克達，大聯賽1勝1負；但球隊攻擊力不太可靠，遇上心急求反彈的主隊，要守也難，只求輸少當贏。\n\n往績\n\n‧雙方近年未有交手。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [],
+          "fetch_ok": true,
+          "fetch_head": "重要事項\\: 頁面所示的賠率僅供參考，最終賠率將於投注獲接納時確定。此等頁面上所示的任何數據、文章和其他資料皆以「現況」形式提供，並只作提供資訊之用。若閣下使用該等資料，此免責聲明將適用。"
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 5,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 5,
+        "home_mentions": 5,
+        "away_mentions": 4
+      },
+      "scores": [],
+      "fetched": 1
+    },
+    {
+      "no": "周二009",
+      "league": "欧冠",
+      "home": "斯图加特",
+      "away": "马竞",
+      "home_en": "Stuttgart",
+      "away_en": "Atletico Madrid",
+      "queries": [
+        "\"Stuttgart vs Atletico Madrid\" preview prediction lang:en",
+        "斯图加特 马竞 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "马竞稳了？斯图加特从未在欧冠中战胜西班牙球队",
+          "url": "https://beta.dongqiudi.com/articles/6518437.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9109567403793335,
+          "summary": "# 马竞稳了？斯图加特从未在欧冠中战胜西班牙球队\n\n北京时间10月21日凌晨3:00，欧冠联赛阶段第3轮比赛，斯图加特将主场迎战马德里竞技。\n\n据统计，斯图加特在最近4场对阵西班牙球队的欧战中赢下3场（1负），但他们从未在欧冠联赛中战胜过西班牙球队，7次交手的战绩为2平5负。\n\n马竞在最近3次对阵德国球队的欧冠比赛中全部获胜，不过都是在主场赢球。\n\n此外，斯图加特已连续13场欧冠主场比赛都失球。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "马竞客战斯图加特，阿尔瓦雷斯状态回升",
+          "url": "http://pc.dongqiudi.com/articles/6514275.html",
+          "site": "懂球帝",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.843064735634529,
+          "summary": "# 马竞客战斯图加特，阿尔瓦雷斯状态回升\n\n马德里竞技将在欧冠联赛阶段第三轮客场对阵斯图加特，比赛于北京时间10月21日03:00开球。马竞上一场欧冠主场2比0战胜曼联，随后在西甲第九轮1比0击败西班牙人。\n\n胡利安-阿尔瓦雷斯在这两场比赛中扮演关键角色。对阵西班牙人一役，他在第88分钟盘带过掉一名防守球员后助攻巴埃纳，后者打入全场唯一进球。这是阿尔瓦雷斯本赛季在俱乐部的第二次助攻，此前他在欧冠首轮对阵利物浦的比赛中送出过一次助攻，那场比赛马竞1比2落败。\n\n原文提到，阿尔瓦雷斯本赛季在西班牙赛场尚未取得进球，但参与了多次进攻，状态和信心正在回升。他与前任经纪人解除合作关系，可能签下新经纪人巴勃罗-巴尔克罗，后者也是罗德里的经纪人。哈维尔-帕斯托雷通过The Elegant Game公司代理他的可能性已被排除。\n\n原文还提到，阿尔瓦雷斯因渴望加盟巴塞罗那而遭到部分球迷抵触。他在马竞的数据为出场112次、打入49球、送出19次助攻，尚未随队获得冠军。\n\n马竞在西甲击败西班牙人后积三分，距离将要对阵贝蒂斯的巴塞罗那还差两分。原文称马竞梦想打破多年无冠的局面，但2026年中期即便拥有阿尔瓦雷斯作为头号球星也未能实现。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=2042104&gm=2633890",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.6720572710037231,
+          "summary": "排名: League Stage 第4名\n\n赛季总成绩: 2胜 0平 0负\n\n赛季主场成绩: 1胜 0平 0负\n\n周二009 欧冠>\n\n2026/2027 League Stage 第3轮 2026-10-21 03:00\n...\nLeague Stage 第15名\n...\n1胜 0平 1负\n\n赛季客场成绩: 0胜 0平 1负\n\n特征分析\n\n斯图加特 (主)\n\n0胜/1平/0负\n...\n6胜/0平/4负\n\n6胜/3平/1负\n\n2.2个\n\n1.1个\n\n近1场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n马竞 (客)\n...\n7胜/1平/2负\n\n5胜/0平/5负\n\n2.0个\n\n1.0个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n近1场斯图加特0胜 (0%) | 1平 (100%) | 0负 (0%)\n\n比赛日期 | 赛制 | \n主队\n\nVS\n\n客队\n | 总进球走势\n...\n2018-08-05 | 俱乐部赛\n...\n1:1\n\n（半 0:0）\n...\n积分榜 欧冠2026/2027\n\n斯图加特League Stage 第4名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 2 | 2/0/0 | 100% | 6/1 | 5 | 6 | 4 \n主 | 1 | 1/0/0 | 100% | 3/1 | 2 | 3 | 10 \n客 | 1 | 1/0/0 | 100% | 3/0 | 3 | 3 | 3 \n\n马竞League Stage 第15名 查看更多>\n...\n总 | 2 | 1/0/1 | 50% | 3/2 | 1 | 3 | 15 \n主 | 1 | 1/0/0 | 100% | 2/0 | 2 | 3 | 12 \n客 | 1 | 0/0/1 | 0% | 1/2 | -1 | 0 | 19 \n\n比赛近况\n...\n斯图加特近10场6胜 (60%) | 0平 (0%) | 4负 (40%)\n\n进22球，失11球，净进11球\n\n马竞近10场7胜 (70%) | 1平 (10%) | 2负 (20%)\n\n进20球，失10球，净进10球\n...\n| 轮次\n...\n2026-10-25 | 西甲 | Regular Season 第10轮 \n2026-10-31 | 西甲 | Regular Season 第11轮 \n2026-11-04 | 欧冠 | League Stage 第4轮 \n2026-11-09 | 西甲 | Regular Season 第12轮 \n\n射手信息 欧冠2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n9-E. Demirović(前锋) | 2 (1/1) | 4 (80%) | 0 (0%) | 2.0/0 \n26-温达夫(前锋) | 2 (2/0) | 1 (20%) | 2 (40%) | 0.5/1.0 \n6-A. Stiller(中场) | 2 (2/0) | 0 (0%) | 2 (40%) | 0/1.0\n...\n11-卢克曼(前锋) | 2 (0/2) | 1 (33%) | 0 (0%) |...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "赫内斯：这是城市期待已久的比赛，球队必须用强度迎接马竞",
+          "url": "https://news.qq.com/rain/a/20261019A0EAG900?id=20261019A0EAG900&path=a&app=news&suid=&redirect_pc=1",
+          "site": "QQ News",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6240853750665896,
+          "summary": "# 赫内斯：这是城市期待已久的比赛，球队必须用强度迎接马竞\n\n问AI · 效率低迷的斯图加特如何破解马竞高效反击？\n\n虎扑10月19日讯 斯图加特将在主场迎来欧冠联赛对阵马德里竞技的比赛。赛前发布会上，赫内斯介绍了球队的人员情况，谈到了马竞、主帅西蒙尼以及球队近期面对汉堡时暴露出的效率问题。他表示，这场比赛对俱乐部、城市和地区都意义重大，斯图加特必须用足够的强度、侵略性和冷静应对这支欧洲顶级球队。\n...\n赫内斯： 现在主要有几名球员回归。马克西已经回来了，尼科也重新参加训练，阿明同样完成了全部训练。根据医疗部门刚刚给我的信息，他们都将有机会进入比赛名单。\n\n记者： 马克西米利安·米特尔施泰特已经具备首发条件了吗？\n\n赫内斯： 他当然是候选人。他并没有缺席太长时间，但今天才第一次完成百分之百的训练，昨天也只是进行了一些训练内容。他肯定会进入名单，我们也会保留让他首发的可能性。\n\n记者： 托马斯·穆勒曾经把马德里竞技称作欧洲足坛的“闹事者”。在详细分析对手之后，你是否也得出了类似的结论？\n\n赫内斯： 其实不需要等到分析之后我才知道这一点。只要你对足球感兴趣，过去几年也经常看欧冠，就一定看过马竞的很多球员，而且往往是在最重要的比赛中看到他们，比如四分之一决赛、半决赛，甚至决赛。\n\n马德里竞技无论是俱乐部、球员，还是教练，都处在欧洲足球的最高层级。上赛季结束后，你之所以能带着灿烂的笑容去度假，是因为你知道未来总会有这样的比赛。现在我们就迎来了这样的机会，明天能够面对一支深刻影响了欧洲足球的特殊球队，我们非常期待。\n\n记者： 西蒙尼在场边的执教方式很有激情，也有人认为他的表现有时过于激烈。\n...\n是否已经做好了场边气氛升温的准备？\n\n赫内斯： 我认为，人们对于他的职业生涯没有太多不同意见。他的球员生涯非常出色，作为教练同样如此。他已经形成了属于自己的风格，而这种激情和火焰也成为他职业道路的重要组成部分。\n\n我刚才还看到，他已经在同一家俱乐部执教了十五年或十六年。能够年复一年、在三个赛事中持续工作，这本身就非常了不起。他对我来说属于最高级别的教练。\n\n两年前，我们有机会对阵皇家马德里，也有机会面对安切洛蒂。安切洛蒂当然是最伟大的教练之一，而在我看来，西蒙尼也属于同一个层级。他的职业生涯非常出色，我们对此抱有最高程度的尊重。\n\n当然，这场比赛不只是两个教练之间的较量。马竞拥有一支非常有竞争力的球队，也拥有很多不可思议的球员。他们的阵容价值也能说明这一点，而且他们目前在西班牙足坛依然保持着很高的水平，上赛季还打进了欧冠半决赛。\n\n能够在斯图加特主场迎接他们，对我们来说是一件非常伟大的事情。两队此前没有正式比赛交手记录，现在我们终于有机会面对他们，也可以让对手感受到斯图加特主场同样拥有能量和激情。\n\n记者： 马竞的攻防转换非常高效，你们准备怎样应对他们的快速反击？\n\n赫内斯： 马竞在比赛的每个阶段都有自己的优势，但进攻转换确实是他们非常擅长的部分。对我们来说，首先要让球队在这个阶段更加稳定。过去三场比赛里，这一直是我们重点关注的问题。\n\n我们需要在场上保持良好的站位和整体平衡，同时也要更好地处理球。我们必须在保持纵向进攻的同时，学会调动对手，给自己创造进入反抢和回收位置的时间，也要确保身后有足够好的保护。\n\n比赛节奏同样非常重要。对阵汉堡时，我们在很多时间里都拥有控制力，但我们也缺少足够的纵向速度。明天我们必须把高强度和控制力结合起来，这会是比赛的重要因素。\n...\n赫内斯： 门将是谁，你们明天就会知道。到时候看到首发名单，大家自然会得到答案。\n\n至于第一部分，球队确实已经明显感受到这场比赛即将到来。并不是说我们平时不会期待比赛，而是这场比赛对于俱乐部、城市和整个地区来说，过去很长时间都显得难以想象。现在我们终于有机会在主场踢这样的比赛，所以每个人都很兴奋，包括球员、工作人员和教练组。\n\n但我们不能把明天当成一场只需要享受的比赛...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "歐冠 運彩分析與預測》斯圖加特 vs 馬德里競技 2026年10月21日 03:00 | 世界足球網",
+          "url": "https://soccerinfo.tw/stuttgart-vs-atletico-madrid-match-prediction-2026-10-21-0300/",
+          "site": "史特拉斯堡 vs 利哈佛 | 世界足球網",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 1,
+          "score": 1.5468465900113784,
+          "summary": "# 歐冠 運彩分析與預測》斯圖加特 vs 馬德里競技 2026年10月21日 03:00\n\n## 歐冠 | 斯圖加特 vs 馬德里競技 10月21日\n\n歐冠聯賽階段第 3 輪，斯圖加特在曼合普競技場迎戰馬德里競技。兩隊沒有正式交手紀錄，唯一一次碰頭是 2018 年 8 月的熱身賽 1 比 1，不列入統計。歐冠前兩輪斯圖加特 2 戰全勝，進 6 球失 1 球積 6 分，Oddspedia 的積分榜排在第 4；馬德里競技第 1 輪落敗、第 2 輪主場 2 比 0 擊敗曼聯，積 3 分排第 15。國內聯賽的落差更大：斯圖加特德甲 6 戰 2 勝 4 負積 6 分排第 13，進 8 球失 10 球，落後榜首拜仁慕尼黑 8 分；馬德里競技西甲 9 戰 7 勝 1 和 1 負積 22 分排第 2，進 19 球失 8 球，落後巴塞隆納 5 分。\n\nOddspedia 的預測陣容顯示，斯圖加特由赫內斯排出 4-2-3-1，塞門把關，卡拉佐與施蒂勒雙後腰，萊韋林、翁達夫與埃爾・哈努斯在德米羅維奇身後；馬德里競技由西蒙尼排 4-4-2，奧布拉克守門，巴里奧斯與尤爾曼坐鎮中場，鋒線是喬納森・大衛搭配盧克曼。兩隊射門量相近，差別在守：斯圖加特近 2 場德甲讓對手場均射門 18.5 次，馬德里競技近 4 場西甲只讓對手射門 7.3 次。\n\n斯圖加特近 3 場正式賽 2 勝 1 負，進 5 球只失 1 球，但 3 場全是客場。10 月 10 日作客帕德博恩 2 比 0，射門 18 比 23 反而被壓著打；10 月 15 日歐冠作客施洛萬 3 比 0，射正 8 比 1；10 月 17 日作客漢堡卻 0 比 1 落敗，控球率 66.3%、射門 23 比 14 都佔優，漢堡門將撲救 5 次。射手榜上斯圖加特沒有人超過 1 球，瓦格諾曼、米特爾施泰特、埃爾・哈努斯與菲里希各 1 球，火力分散。傷停表列了 5 人：前鋒蒂亞戈・托馬斯肌肉受傷、中場納泰大腿受傷、後衛阿爾達希爾膝傷、前鋒阿雷瓦洛上背受傷，後衛米特爾施泰特標的是「其他」型別，5 人都不在預測先發與替補名單裡。\n\n馬德里競技近 5 場正式賽全勝，進 11 球只失 2 球，3 場零封。9 月 17 日主場 4 比 0 奧薩蘇納射門 27 比 3，9 月 20 日主場 2 比 1 擊敗皇家馬德里，10 月 10 日作客阿拉維斯 2 比 1，10 月 14 日歐冠主場 2 比 0 曼聯，10 月 17 日作客西班牙人 1 比 0。近期的兩場西甲客場都贏，但都只贏 1 球。射手榜上喬納森・大衛 3 球 2 助攻、格里馬爾多 3 球 1 助攻、巴埃納 2 球 1 助攻。傷停表上馬德里競技沒有任何傷兵或停賽；Oddspedia 自己的傷兵欄另外把科克列為受傷、強尼・卡多索標為「其他」，兩人都不在預測先發與替補名單裡。\n\n- 比賽時間：2026年10月21日 03:0...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "1 比 1"
+          ],
+          "fetch_ok": true,
+          "fetch_head": "\\# 歐冠 運彩分析與預測》斯圖加特 vs 馬德里競技 2026年10月21日 03\\:00\n\n\\#\\# 歐冠 \\| 斯圖加特 vs 馬德里競技 10月21日\n\n歐冠聯賽階段第 3 輪，斯圖加特在曼合普競技場迎戰馬德里競技。兩隊沒有正式交手紀錄，唯一一次碰頭是 2018 年 8 月的熱身賽 1 比 1，不列入統計。歐冠前兩輪斯圖加特 2 戰全勝，進 6 球失 1 球積 6 分，Oddspedia 的積分榜排在第 4；馬德里競技第 1 輪落敗、第 2 輪主場 2 比 0 擊敗曼聯，積 3 分排第 15。國內聯賽的落差更大：斯圖加特德甲 6 戰 2 勝 4 負積 6 分排第 13，進 8 球失 10 球，落後榜首拜仁慕尼黑 8 分；馬德里競技西甲 9 戰 7 勝 1 和 1 負積 22 分排第 2，進 19 球失 8 球，落後巴塞隆納 5 分。\n\nOddspedia 的預測陣容顯示，斯圖加特由赫內斯排出 4\\-2\\-3\\-1，塞門把關，卡拉佐與施蒂勒雙後腰，萊韋林、翁達夫與埃爾・哈努斯在德米羅維奇身後；馬德里競技由西蒙尼排 4\\-4\\-2，奧布拉克守門，巴里奧斯與尤爾曼坐鎮中場，鋒線是喬納森・大衛搭配盧克曼。兩隊射門量相近，差別在守：斯圖加特近 2 場德甲讓對手場均射門 18\\.5 次，馬德里競技近 4 場西甲只讓對手射門 7\\.3 次。\n\n斯圖加特近 3 場正式賽 2 勝 1 負，進 5 球只失 1 球，但 3 場全是客場。10 月 10 日作客帕德博恩 2 比 0，射門 18 比 23 反而被壓著打；10 月 15 日歐冠作客施洛萬 3 比 0，射正 8 比 1；10 月 17"
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 5,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 3,
+        "zh": 5,
+        "home_mentions": 4,
+        "away_mentions": 4
+      },
+      "scores": [
+        "1 比 1"
+      ],
+      "fetched": 1
+    },
+    {
+      "no": "周二010",
+      "league": "欧冠",
+      "home": "波尔图",
+      "away": "埃因霍温",
+      "home_en": "Porto",
+      "away_en": "PSV Eindhoven",
+      "queries": [
+        "\"Porto vs PSV Eindhoven\" preview prediction lang:en",
+        "波尔图 埃因霍温 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "FC Porto v PSV Eindhoven | Goal.com US",
+          "url": "https://www.goal.com/en-us/match/fc-porto-vs-psv-eindhoven/bSQqZk0drZcZdEO6Pz8oZ",
+          "site": "Goal.com",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.6720572710037231,
+          "summary": "# FC Porto vs PSV EindhovenMatch preview,\n\n## Head to head\n\nPOR\n\nLast match\n\nPSV\n\n0\n\nWins\n\n0\n\nDraws\n...\nGoals scored\n3\n- Games over 2.5 goals\n- 1/1\n- Both teams scored\n- 0/1\n...\nChampions League - Game Week 3\n\n## Match details\n\nEstadio do Dragao",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=2042105&gm=2633770",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.6720572710037231,
+          "summary": "排名: League Stage 第30名\n\n赛季总成绩: 0胜 0平 2负\n\n赛季主场成绩: 0胜 0平 1负\n\n周二010 欧冠>\n\n2026/2027 League Stage 第3轮 2026-10-21 03:00\n...\nLeague Stage 第26名\n...\n0胜 1平 1负\n\n赛季客场成绩:\n...\n特征分析\n\n波尔图 (主)\n\n0胜/0平/1负\n\n0胜/0平/0负\n\n8胜/0平/2负\n\n8胜/1平/1负\n\n2.2个\n\n0.9个\n\n近1场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n埃因霍温 (客)\n\n1胜/0平/0负\n\n0胜/0平/0负\n\n6胜/1平/3负\n\n5胜/1平/4负\n\n2.6个\n\n1.2个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n近1场波尔图0胜 (0%) | 0平 (0%) | 1负 (100%)\n\n比赛日期 | 赛制 | \n主队\n\nVS\n\n客队\n | 总进球走势\n...\n2016-07-22 | 俱乐部赛\n...\n3:0\n\n（半 2:0）\n...\n积分榜 欧冠2026/2027\n\n波尔图League Stage 第30名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 2 | 0/0/2 | 0% | 2/5 | -3 | 0 | 30 \n主 | 1 | 0/0/1 | 0% | 0/2 | -2 | 0 | 33 \n客 | 1 | 0/0/1 | 0% | 2/3 | -1 | 0 | 17 \n\n埃因霍温League Stage 第26名 查看更多>\n...\n总 | 2 | 0/1/1 | 0% | 1/2 | -1 | 1 | 26 \n主 | 1 | 0/1/0 | 0% | 1/1 | 0 | 1 | 24 \n客 | 1 | 0/0/1 | 0% | 0/1 | -1 | 0 | 23 \n\n比赛近况\n...\n波尔图近10场8胜 (80%) | 0平 (0%) | 2负 (20%)\n\n进22球，失9球，净进13球\n\n埃因霍温近10场6胜 (60%) | 1平 (10%) | 3负 (30%)\n\n进26球，失12球，净进14球\n...\n射手信息 欧冠2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n9-Samu Omorodion(前锋) | 1 (0/1) | 1 (50%) | 0 (0%) | 1.0/0 \n10-加布里 维加(中场) | 2 (2/0) | 1 (50%) | 0 (0%) | 0.5/0 \n11-佩佩(前锋) | 2 (2/0) | 0 (0%) | 1 (100%) | 0/0.5\n...\n8-德斯特(后卫) | 2 (2/0) | 1 (100%) | 0 (0%) | 0.5/0 \n4-奥比斯波(后卫) | 2 (2/0) | 0 (0%) | 1 (100%) | 0/0.5 \n\n伤停一览\n...\n暂无数据\n...\n注：赛事数据统计进行至全场90分钟（含伤停补时阶段）...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Preview: Porto vs PSV Eindhoven - prediction, team news, lineups - Sports Mole",
+          "url": "https://www.sportsmole.co.uk/football/champions-league/preview/porto-vs-psv-prediction-team-news-lineups_607179.html",
+          "site": "Sports Mole",
+          "date": "2026-10-17T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6028677225112915,
+          "summary": "Champions League Gameweek 3\n\nOct 20, 2026 8.00pm\n\n# Preview: Porto vs PSV Eindhoven - prediction, team news, lineups\n\nTwo sides chasing their first Champions League win of the season meet at Estadio do Dragao on Tuesday, when Porto host PSV in matchday three of the league phase.\n\nThe hosts from Portugal have lost both of their opening two fixtures of this European campaign and sit 30th on the 36-team table, four spots below the Netherlands visitors, who have managed just one point from a possible six.\n\n## Match preview\n\nPorto’s return to the Champions League main stage after a two-year absence was made possible by an impressive run on the domestic front last term, where they lifted the Portuguese championship, ending a three-year wait for the title.\n\nFrancesco Farioli’s men have continued that fine form into this season, having won each of their opening eight fixtures of the top-flight campaign to sit five points clear atop the Primeira Liga table.\n\nHowever, it has been a different story in Europe, with the Dragons one of only eight teams yet to pick up a point in this season’s Champions League league phase, after suffering a 2-0 defeat against Manchester City on matchday one before their 3-2 loss at Betis last week.\n\nIn an encounter where the decisive actions came after the interval, Porto came from a one-goal deficit to take a 2-1 lead through strikes from Gabriel Veiga and Samu Omorodion only to concede two late goals from Cucho Hernandez and Isco.\n\nWith no domestic fixtures over the weekend, Farioli’s side have a full week of rest heading into Tuesday’s continental assignment, and the 2004 Champions League winners can draw inspiration from winning six of their last seven competitive matches (L1) at the Dragao.\n\nPSV, on the other hand, were in domestic action at the weekend, though that encounter ended in a disappointing 2-1 defeat to ADO Den Haag, where midfielder Sven Mijnans turned hero to villain, scoring the opener before receiving his marching orders later on.\n\nThe result leaves the Boeren four points adrift of the Dutch top-flight summit, and it means they have now lost three consecutive Eredivisie games against promoted sides for the second time in the club’s history, having also done so in 1966.\n\nPSV have lost back-to-back competitive fixtures in the space of four days, having suffered a 1-0 setback at Leipzig in last week’s continental outing, following a 1-1 home draw against Shakhtar Donetsk on matchday one.\n\nAt risk of losing three consecutive matches for the first time since March 2025, Peter Bosz’s team are also struggling for away form this midweek, having lost each of their last three outings on the road.\n\nPSV have the inferior head-to-head record too, winning just one of the previous four meetings between the sides – all coming in the European Cup/Champions League – and losing two, though their last visit to Porto ended in a 2-2 draw in 1992.\n\nPorto Champions League form:\n\n- L\n- L\n\nPorto form (all competitions):\n\n- W\n...\nPSV Eindhoven Champions League form:\n\n- D\n- L\n\nPSV Eindhoven form (all competitions):\n...\n## Team News\n\nPorto are expected to remain without William Gomes and Vasco Sousa as both players continue their recovery from respective injuries.\n\nMeanwhile, Chris Smalling, Gabriel Mec and Dominik Prpic are ineligible to feature on Tuesday, as they are not registered with UEFA.\n\nOn a positive note, Jan Bednarek is back into contention after completing his continental suspension and is likely to partner his fellow Polish teammate Jakob Kiwior at the heart of defence.\n\nIt would not be much of a surprise to see Samu handed his first start of the season since returning from his lengthy injury, having found the net in last week’s trip to Betis.\n\nFor PSV, there are several injury absentees, including midfielder Paul Wanner, and attackers Ricardo Pepi and Sam Lammers, while Guus Til’s availability for Tuesday is doubtful after the midfielder was forced off at the weekend.\n\nRuben van Bommel could return to the line-up if deemed fit enough after the winger was left out of the squad at Den Haag as a precautionary measure, while Mijnans’s domestic suspension does not carry into Europe, so he is likely to lead the line again.\n\nPorto possible starting lineup:\n\nD Costa; M Fernandes, Bednarek, Kiwior, F Moura; Froholdt, Rosario, Veiga; Sainz, Samu, Pepe\n\nPSV Eindhoven possible starting lineup:\n\nKovar; Dest, Geertruida, Obispo, Kostic; Sano, Junior; Perisic, Santos, Van Bommel;...",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": [],
+          "fetch_ok": true,
+          "fetch_head": "Menu\n\nChampions League Gameweek 3\n\nOct 20\\, 2026 8\\.00pm\n\n\\# Preview\\: Porto vs PSV Eindhoven \\- prediction\\, team news\\, lineups\n\nTwo sides chasing their first Champions League win of the season meet at Estadio do Dragao on Tuesday\\, when Porto host PSV in matchday three of the league phase\\.\n\nThe hosts from Portugal have lost both of their opening two fixtures of this European campaign and sit 30th on the 36\\-team table\\, four spots below the Netherlands visitors\\, who have managed just one point from a possible six\\.\n\n\\#\\# Match preview\n\nPorto’s return to the Champions League main stage after a two\\-year absence was made possible by an impressive run on the domestic front last term\\, wher"
+        },
+        {
+          "kind": "zh",
+          "title": "百度体育直播 波尔图vs埃因霍温 2026-10-21 03:00_百度体育",
+          "url": "https://tiyu.baidu.com/live/detail/5qyn5rSy5Yag5Yab6IGU6LWbIzIwMjYtMDktMDkj5rOi5bCU5Zu%2BdnPln4Plm6DpnI3muKk%3D",
+          "site": "百度体育",
+          "date": null,
+          "authority": 3,
+          "score": 1.5951817035675049,
+          "summary": "百度体育\n\n欧冠第3轮2026-10-21 03:00\n\n波尔图\n\n未开赛\n\n埃因霍温\n...\n270人参与 截止时间 10月21日\n...\n历史战绩 (近1场)\n\n以下数据均为主队(波尔图)视角\n\n胜率 0%\n\n赢盘率 0%\n\n大球率 0%\n\n时间/赛事\n\n2016-07-22\n\n球会友谊\n\n主队/比分/客队\n\n让球\n\n进球数\n\n埃因霍温 3 - 0 波尔图\n\n0.25\n\n输盘\n\n3.0\n\n走盘\n\n波尔图近期战绩 (近6场)\n\n全部\n\n同主客\n\n胜率 67%\n\n赢盘率 50%\n\n大球率 83%\n...\n2026-10-15\n...\n2026-10-11\n\n葡超\n\n2026-10-03\n...\n2026-09-21\n...\n2026-09-13\n...\n2026-09-09\n...\n皇家贝蒂斯 3 - 2 波尔图\n...\n2.75\n...\n马里迪莫 1 - 2 波尔图\n\n-1.5\n...\n拉科鲁尼亚 1 - 3 波尔图\n\n-0.5\n...\n波尔图 3 - 1 本菲卡\n\n0.0\n...\n2.5\n...\n卡萨比亚 1 - 4 波尔图\n\n-1.75\n...\n波尔图 0 - 2 曼彻斯特城\n\n-0.75\n...\n小球\n\n埃因霍温近期战绩 (近6场)\n...\n赢盘率 33%\n\n大球率 50%\n...\n2026-10-14\n...\n2026-10-10\n\n荷甲\n\n2026-09-20\n...\n2026-09-14\n...\n2026-09-11\n...\n2026-09-06\n...\nRB莱比锡 1 - 0 埃因霍温\n...\n3.5\n...\n埃因霍温 2 - 0 海伦芬\n\n2.0\n...\n4.25\n...\n特温特 3 - 2 埃因霍温\n...\n3.75\n...\n埃因霍温 4 - 1 鹿特丹斯巴达\n...\n4.0\n...\n埃因霍温 1 - 1 顿涅茨克矿工\n...\n阿贾克斯 1 - 3 埃因霍温\n...\n赛前预测\n\n54%\n\n波尔图 本场胜率\n\n22%\n\n埃因霍温 本场胜率\n\n过去3年，相似赔率共出现223707次\n\n主场胜利平局客场胜利\n\n54% 25%平局 21%\n\n有利情报 不利情报\n\n1. 波尔图6场比赛4胜0平，状态出色。\n\n2. 波尔图近10场正赛主场7胜2平1负，表现出色。\n\n1. 埃因霍温近10场正赛6胜1平3负，状态不俗。\n\n2. 埃因霍温近10场正赛多达9场比赛半场有得失球。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "百度体育直播 波尔图 vs 埃因霍温 明天 03:00_百度体育",
+          "url": "https://tiyu.baidu.com/al/live/detail?matchId=5qyn5rSy5Yag5Yab6IGU6LWbIzIwMjYtMDktMDkj5rOi5bCU5Zu%2BdnPln4Plm6DpnI3muKk%3D&tab=%E5%88%86%E6%9E%90",
+          "site": "百度体育",
+          "date": null,
+          "authority": 3,
+          "score": 1.5496634244918823,
+          "summary": "474人参与 截止时间 明天 03:\n...\n历史战绩 (近1场)\n\n以下数据均为主队(波尔图)视角\n\n胜率 0%\n\n赢盘率 0%\n\n大球率 0%\n\n时间/赛事\n\n2016-07-22\n\n球会友谊\n\n对阵比分\n\n让球\n\n进球数\n\n埃因霍温 3 - 0 波尔图\n\n0.25\n\n输盘\n\n3.0\n\n走盘\n\n波尔图近期战绩 (近6场)\n\n全部\n\n同主客\n\n胜率 67%\n\n赢盘率 50%\n\n大球率 83%\n...\n2026-10-15\n\n欧冠\n\n2026-10-11\n\n葡超\n\n2026-10-03\n...\n2026-09-21\n...\n2026-09-13\n...\n2026-09-09\n...\n皇家贝蒂斯 3 - 2 波尔图\n...\n2.75\n...\n马里迪莫 1 - 2 波尔图\n\n-1.5\n...\n拉科鲁尼亚 1 - 3 波尔图\n\n-0.5\n...\n波尔图 3 - 1 本菲卡\n\n0.0\n...\n2.5\n...\n卡萨比亚 1 - 4 波尔图\n\n-1.75\n...\n波尔图 0 - 2 曼彻斯特城\n\n-0.75\n...\n小球\n\n埃因霍温近期战绩 (近6场)\n...\n胜率 33%\n\n赢盘率 17%\n\n大球率 33%\n...\n2026-10-17\n\n荷甲\n\n2026-10-14\n...\n2026-10-10\n...\n2026-09-20\n...\n2026-09-14\n...\n2026-09-11\n...\n海牙 2 - 1 埃因霍温\n\n-2.0\n...\n4.0\n...\nRB莱比锡 1 - 0 埃因霍温\n...\n3.5\n...\n埃因霍温 2 - 0 海伦芬\n...\n4.25\n...\n特温特 3 - 2 埃因霍温\n...\n3.75\n...\n埃因霍温 4 - 1 鹿特丹斯巴达\n...\n埃因霍温 1 - 1 顿涅茨克矿工\n...\n赛前预测\n\n54%\n\n波尔图 本场胜率\n\n22%\n\n埃因霍温 本场胜率\n\n过去3年，相似赔率共出现223707次\n\n主场胜利平局客场胜利\n\n54% 25%平局 21%\n\n有利情报 不利情报\n\n1. 波尔图6场比赛4胜0平，状态出色。\n\n2. 波尔图近10场正赛主场7胜2平1负，表现出色。\n\n1. 埃因霍温近10场正赛6胜1平3负，状态不俗。\n\n2. 埃因霍温近10场正赛多达9场比赛半场有得失球。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 2,
+        "goals": 1,
+        "none": 2,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 4,
+        "zh": 3,
+        "home_mentions": 3,
+        "away_mentions": 3
+      },
+      "scores": [],
+      "fetched": 1
+    }
+  ]
+}

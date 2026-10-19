@@ -3768,9 +3768,17 @@ python -X utf8 scripts/prematch_intel.py --date 20261020 --media            # �
 - Search / Fetch **各 5 元/1000 次**，失败与无结果不计费，`count` 不影响单价 → 一轮 9 场 ≈ 18 次 ≈ **0.09 元**；带 `--injuries` 加倍；`--fetch-top N` 每场最多再 N 次。
 - QPS：Search 100 / Fetch 25；`_post()` 对 402（余额）/429（限流）/4xx 抛中文 `SystemExit`。
 
-### Key（🔴 当前缺失，尚未实跑）
-- 两种放法：环境变量 `DEEPSEEK_API_KEY`，或 `state/api-keys.json` 加 `"deepseek": "sk-…"`（也支持 `{"key": "sk-…"}`）。
-- 联调可用 `DEEPSEEK_BASE=http://127.0.0.1:8765` 指向本地假服务器（`state/tmp/mock_ds.py` 已验过端到端：2 条源、线索计数、比分线索、`--apply-cards` 回填均正确）。
+### Key（✅ 2026-10-20 已通）
+- 解析顺序：环境变量 `DEEPSEEK_API_KEY` → `state/api-keys.json` 的 `"deepseek"` → **`~/.dsh/.credentials.yaml` 的 `DEEPSEEK_API_KEY`**。
+- 用户 2026-10-20 说明：Key 已在 DSH「插件管理 → 网页搜索」配好 → 脚本直接复用那把，repo 里**不再存密钥**。
+- 联调可用 `DEEPSEEK_BASE=http://127.0.0.1:8765` 指向本地假服务器（`state/tmp/mock_ds.py` 已验过端到端）。
+
+### 首跑实绩（2026-10-20 · 20261020 九场）
+- `python -X utf8 scripts/media_intel.py --date 20261020 --fetch-top 2` → **18 次检索 ≈ 0.09 元**，9 场各 5 条源，产出 `state/intel/20261020/_media_20261020.{json,md}`。
+- 来源结构：中文聚合/门户（懂球帝、直播吧、竞彩网、百度体育、7M、QQ/虎扑）+ 英文站（Goal、Sports Mole、OneFootball、FotMob、beIN、APWin、香港馬會）。
+- **关键发现**：检索回来的多是赛前发布会、伤停、历史战绩、Opta 观点，真正写「谁赢」的预测句极少 → 方向词命中率很低（多数场「无明确倾向」），但**家数/权威段位/伤病与发布会口径**可用性高。因此 `media_row()` 改成「N 家 · 权威 3 以上 M 家（+ 命中方向的才附主/客/平/进球计数）」。
+- 中文站得分高（rerank 2.1–2.3），英文预览站标题里有 "prediction" 但摘要短，`--fetch-top` 才拿到正文。
+- ⚠️ `--apply-cards` 会把媒体行写回 cards.json；2026-10-20 这次回填后**已回滚**（用户当天已发布那套图，不再改卡），命令本身可用。
 
 ### 纪律（R41 上层）
 - `_media_*.md` 是**内部原料**：原始倾向与比分只在这里。公开稿/卡片只写「N 家媒体里有几家偏向哪边」这类计数，**不写比分串、不写百分比、不写谁赢**。

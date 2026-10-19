@@ -46,9 +46,11 @@ COST_PER_CALL = 0.005    # 元/次（5 元 / 1000 次）
 
 # 倾向词（英/中）：只做「线索」，不下结论
 HOME_WORDS = ("back the home", "home win", "favour the home", "favor the home", "home side should",
-              "hosts to win", "hosts should", "主队占优", "看好主队", "主胜")
+              "hosts to win", "hosts should", "主队占优", "看好主队", "主胜",
+              "主场优势", "占据主动", "主场作战", "压制对手", "主场不败")
 AWAY_WORDS = ("back the away", "away win", "favour the away", "favor the away", "visitors to win",
-              "visitors should", "away side should", "客队占优", "看好客队", "客胜")
+              "visitors should", "away side should", "客队占优", "看好客队", "客胜",
+              "客场作战", "客场反击", "客队有机会", "客场取分")
 DRAW_WORDS = ("draw is likely", "could end level", "share the spoils", "draw looks",
               "平局", "握手言和", "五五开")
 GOALS_WORDS = ("over 2.5", "high-scoring", "goals at both ends", "both teams to score",
@@ -162,6 +164,10 @@ def collect(no: str, row: dict, aliases: dict, count: int, injuries: bool,
             except SystemExit:
                 src["fetch_ok"] = False
 
+    cover = {"n": len(sources), "auth3": sum(1 for x in sources if (x.get("authority") or 0) >= 3),
+             "zh": sum(1 for x in sources if re.search(r"[一-鿿]", x.get("summary") or "")),
+             "home_mentions": sum(1 for x in sources if home and home in (x.get("summary") or "")),
+             "away_mentions": sum(1 for x in sources if away and away in (x.get("summary") or ""))}
     tally = {"home": 0, "away": 0, "draw": 0, "goals": 0, "none": 0, "neg": 0}
     for src in sources:
         tally[src.get("side") or "none"] += 1
@@ -174,7 +180,8 @@ def collect(no: str, row: dict, aliases: dict, count: int, injuries: bool,
                 scores.append(sc)
     return {"no": no, "league": row.get("league"), "home": home, "away": away,
             "home_en": he, "away_en": ae, "queries": [q for _, q in queries],
-            "sources": sources, "tally": tally, "scores": scores[:3], "fetched": fetched}
+            "sources": sources, "tally": tally, "cover": cover, "scores": scores[:3],
+            "fetched": fetched}
 
 
 NEG_WORDS = ("unlikely", "not expected", "no chance", "doubt", "ruled out", "improbable",
@@ -226,6 +233,10 @@ def to_md(items: list[dict], date_tag: str, calls: int) -> str:
         L.append(f"**线索计数**（{len(it['sources'])} 条源：主 {t['home']} / 客 {t['away']} / "
                  f"平 {t['draw']} / 进球 {t['goals']} / 无信号 {t['none']}"
                  + (f" / 疑似否定 {t['neg']}" if t['neg'] else "") + "）")
+        c = it.get("cover") or {}
+        if c.get("n"):
+            L.append(f"**覆盖度**：{c['n']} 家（权威 3 以上 {c.get('auth3', 0)} 家，中文源 {c.get('zh', 0)} 家，"
+                     f"提主队 {c.get('home_mentions', 0)} 家 / 提客队 {c.get('away_mentions', 0)} 家）")
         for i, src in enumerate(it["sources"], 1):
             if src.get("side"):
                 mark = "（疑似否定，请核原文）" if src.get("neg") else ""
@@ -248,6 +259,7 @@ def media_row(it: dict) -> str:
     n = len(it.get("sources") or [])
     if not n:
         return "暂无前瞻源"
+    c = it.get("cover") or {}
     bits = [f"{n} 家"]
     if t.get("home"):
         bits.append(f"主 {t['home']}")
@@ -257,6 +269,8 @@ def media_row(it: dict) -> str:
         bits.append(f"平 {t['draw']}")
     if t.get("goals"):
         bits.append(f"进球 {t['goals']}")
+    if c.get("auth3"):
+        bits.append(f"权威 3 以上 {c['auth3']} 家")
     if not any(t.get(k) for k in ("home", "away", "draw", "goals")):
         bits.append("无明确倾向")
     row = " · ".join(bits)

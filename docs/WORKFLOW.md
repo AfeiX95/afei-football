@@ -64,7 +64,8 @@ python -X utf8 scripts/media_intel.py --date YYYYMMDD --fetch-top 3 --apply-card
 - 🔴 **纪律**：盘口读数只作背后研判依据，公开稿换成「公开数据口径」，不写赔率/盘口/机构（R41/R48）；位移只说「定价动过」，**不编资金流向**；缺源项直接省略，不写「待补」
 #### 1B. 外媒与 AI 预测（`scripts/media_intel.py` · 2026-10-20 起）
 - 走 **DeepSeek Search / Fetch**（`scripts/ds_search.py`）：Search 与 Fetch 各 5 元/1000 次，失败与无结果不计费，`count` 不影响单价；QPS Search 100 / Fetch 25。
-- Key 放 `state/api-keys.json` 的 `"deepseek"`（或环境变量 `DEEPSEEK_API_KEY`）；`DEEPSEEK_BASE` 可指向本地假服务器做联调。
+- Key 解析顺序：环境变量 `DEEPSEEK_API_KEY` → `state/api-keys.json` 的 `"deepseek"` → **DSH 自己的 `~/.dsh/.credentials.yaml`**（即「插件管理 → 网页搜索」里配的那把，默认直接复用，不用再存一份）；`DEEPSEEK_BASE` 可指向本地假服务器做联调。
+- **实测（2026-10-20 首跑 20261020 九场）**：18 次检索 = 0.09 元，每场稳定拿 5 条源；来源以中文聚合/门户（懂球帝、直播吧、竞彩网、百度体育）＋英文站（Goal / Sports Mole / OneFootball / FotMob / beIN）为主，内容多是**赛前发布会、伤停、历史战绩**，真正写「谁赢」的预测句很少 → 方向线索命中率低，但**家数、权威段位、伤病与新闻发布会口径很好用**。所以卡片 `cv` 的媒体行改成「N 家 · 权威 3 以上 M 家」，不再硬凑「偏谁」。
 - 产出 `state/intel/<date>/_media_<date>.json|md`：每场来源表（站点/日期/权威/分数）+ **线索计数**（主/客/平/进球/无信号/疑似否定）+ 逐条命中词 + 比分线索 + 可选正文前 700 字。
 - `--apply-cards <cards.json>` 只回填 `cv[0]`（媒体行，写家数与方向分布），技术/综合两行仍手写。
 - 🔴 纪律：**情报是内部原料**。公开稿与卡片按 R41 转写——不写比分串、不写百分比、不写「谁赢」；只写「N 家媒体里有几家偏向哪边」这类计数。带否定词的源标「疑似否定」，不当结论。
