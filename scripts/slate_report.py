@@ -280,7 +280,7 @@ def build(date_tag: str) -> str:
         L.append(f"### {no} {s['league']} {s['home']} vs {s['away']}　{s['kick']} 开赛")
         L.append("")
         if not m:
-            L.append("**预测**：本场没有胜平负固定奖金（未开售或已封盘），模型按纪律跳过 —— "
+            L.append(f"**预测**（{no}）：本场没有胜平负固定奖金（未开售或已封盘），模型按纪律跳过 —— "
                      "不出入球期望、不出胜平负概率、不出比分矩阵，**不拿估算值冒充模型读数**。")
             L.append("")
             L.append(f"**盘口**：{mk_line(it) or '无盘口快照'}")
