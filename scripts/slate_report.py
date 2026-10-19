@@ -198,7 +198,7 @@ def _wd_of(date_tag: str) -> str:
     return "周日"
 
 
-def build(date_tag: str) -> str:
+def build(date_tag: str, nums: list[str] | None = None) -> str:
     slate = slate_of(date_tag)
     intel = load_intel(date_tag)
     model_path = STATE / "batch" / f"_model_{date_tag}_sun_all.txt"
@@ -211,24 +211,35 @@ def build(date_tag: str) -> str:
     ms = {m["no"]: m for m in data["matches"]}
 
     order = sorted(slate.keys())
+    if nums:
+        want = {n.strip() for n in nums}
+        order = [n for n in order if n in want]
+        if not order:
+            raise SystemExit(f"--nums 里没有一个对得上当日场次：{sorted(want)}")
     wd = order[0][:2] if order else "周日"
     WD_LABEL = wd
     have_model = sum(1 for no in order if no in ms)
     L = []
-    L.append(f"# {date_tag[:4]}-{date_tag[4:6]}-{date_tag[6:]} {WD_LABEL} 全盘分析报告")
+    title_tail = "全盘分析报告" if not nums else "指定场次内部分析报告"
+    L.append(f"# {date_tag[:4]}-{date_tag[4:6]}-{date_tag[6:]} {WD_LABEL} {title_tail}")
     L.append("")
     L.append(f"- 场次：**{len(order)} 场**（有模型 {have_model} 场，"
-             f"无模型 {len(order) - have_model} 场）")
+             f"无模型 {len(order) - have_model} 场"
+             + ("　｜　本报告只出指定场次" if nums else "") + "）")
     mv_name = data["meta"].get("model", "")
     ver = f"（{mv_name}）" if mv_name and mv_name != model_path.name else ""
     L.append(f"- 数据源：模型 `{model_path.name}`{ver}"
              f" + 盘口情报 `state/intel/{date_tag}/_intel_{date_tag}.md`")
     L.append("- 口径：**只统计 90 分钟常规时间**，加时与点球不计入任何一格")
     L.append("- 性质：内部研判汇总，含盘口读数；公开稿按 R41 换成非盘口语，不直接外发")
+    L.append("- 三档比分是**模型概率序**（首选=最高那格方向里概率最高的比分）；"
+             "公开稿按自己的站位另取，两者不同属正常")
     L.append("")
     lg = load_leagues(date_tag)
-    ranked = sum(1 for r in lg.values() if (r.get("home_rank") or {}).get("pos"))
-    snow = sum(1 for r in lg.values() if (r.get("weather") or {}).get("temp") is not None)
+    ranked = sum(1 for no in order
+                 if ((lg.get(no) or {}).get("home_rank") or {}).get("pos"))
+    snow = sum(1 for no in order
+               if ((lg.get(no) or {}).get("weather") or {}).get("temp") is not None)
     have, miss = [], []
     if ranked:
         have.append(f"联赛排名与进失球（{ranked}/{len(order)} 场，`_leagues_{date_tag}.md`）")
@@ -377,19 +388,29 @@ def build(date_tag: str) -> str:
             f"{m['no']} {m['home']}vs{m['away']} {pp.maxpp(m):+.1f}pp" for m in devs[:5]) + "。")
         # 盘口自洽率
         ok = bad = 0
+        nodraw = []
         for no in order:
             xs = ((intel.get(no) or {}).get("cross") or [])
+            if any("做不了直接换算" in x for x in xs):
+                nodraw.append(no)
             for x in xs:
-                if "实测差" in x:
-                    num = re.search(r"实测差 (-?\d+\.\d+)pp", x)
-                    if num:
-                        if abs(float(num.group(1))) <= 2.5:
-                            ok += 1
-                        else:
-                            bad += 1
+                # 只算跨盘对照那两句；「不让球盘主客差 xx pp」是盘内差，不是跨盘差
+                if "与不让球对照" not in x and "应接近" not in x:
+                    continue
+                # 两种写法都要抓：-1 盘写「实测差 -1.1pp」，+1 盘写「实测 59.1%，差 -0.7pp」
+                num = re.search(r"差\s*(-?\d+\.\d+)pp", x)
+                if not num:
+                    continue
+                if abs(float(num.group(1))) <= 2.5:
+                    ok += 1
+                else:
+                    bad += 1
         if ok + bad:
             L.append(f"- **让球盘与不让球盘的自洽率**：{ok} 组对得上、{bad} 组对不上"
-                     "（阈值 ±2.5pp）；对不上的场次两套盘不能当同一件事读。")
+                     "（阈值 ±2.5pp，主队一侧与客队一侧各算一组）；"
+                     "对不上的场次两套盘不能当同一件事读。"
+                     + (f"深盘（±2 等）与不让球盘做不了换算，未计入：" + "、".join(nodraw) + "。"
+                        if nodraw else ""))
         mv_big = []
         for no in order:
             xs = ((intel.get(no) or {}).get("move") or [])
@@ -455,8 +476,10 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="当日赛程全盘分析报告")
     ap.add_argument("--date", default="20261018")
     ap.add_argument("--out", default=None)
+    ap.add_argument("--nums", nargs="*", default=None,
+                    help="只出这些场次，例如 --nums 周二001 周二002；省略则出全盘")
     a = ap.parse_args()
-    md = build(a.date)
+    md = build(a.date, a.nums)
     out = Path(a.out) if a.out else (ROOT / "📝文章" / a.date / f"{a.date}_{_wd_of(a.date)}全盘分析报告.md")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(md, encoding="utf-8")
