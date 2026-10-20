@@ -1,0 +1,1096 @@
+{
+  "date": "20261020",
+  "fetched_at": "2026-10-20 23:36:42",
+  "calls": 5,
+  "betfa": {
+    "周二001": {
+      "league": "欧冠",
+      "kick": "10-21 00:45",
+      "home": "费内巴切",
+      "away": "布拉格斯拉维亚",
+      "odds": {
+        "主胜": {
+          "volume": 1086527.0,
+          "hot": 44.0,
+          "market_idx": 72.0,
+          "bf_odds": 1.62,
+          "bf_ratio": 89.82,
+          "avg_odds": 1.52,
+          "avg_prob": 62.39,
+          "pnl": -550455.0
+        },
+        "平局": {
+          "volume": 47344.0,
+          "hot": -81.0,
+          "market_idx": 9.0,
+          "bf_odds": 4.7,
+          "bf_ratio": 3.91,
+          "avg_odds": 4.64,
+          "avg_prob": 20.44,
+          "pnl": 987202.0
+        },
+        "客胜": {
+          "volume": 75848.0,
+          "hot": -63.0,
+          "market_idx": 18.0,
+          "bf_odds": 5.9,
+          "bf_ratio": 6.27,
+          "avg_odds": 5.52,
+          "avg_prob": 17.17,
+          "pnl": 762216.0
+        }
+      }
+    },
+    "周二002": {
+      "league": "欧冠",
+      "kick": "10-21 00:45",
+      "home": "沙巴巴库",
+      "away": "多特蒙德",
+      "odds": {
+        "主胜": {
+          "volume": 115196.0,
+          "hot": -21.0,
+          "market_idx": 34.0,
+          "bf_odds": 11.0,
+          "bf_ratio": 8.05,
+          "avg_odds": 9.31,
+          "avg_prob": 10.18,
+          "pnl": 164691.0
+        },
+        "平局": {
+          "volume": 140304.0,
+          "hot": -38.0,
+          "market_idx": 25.0,
+          "bf_odds": 6.6,
+          "bf_ratio": 9.8,
+          "avg_odds": 6.0,
+          "avg_prob": 15.79,
+          "pnl": 505841.0
+        },
+        "客胜": {
+          "volume": 1176347.0,
+          "hot": 11.0,
+          "market_idx": 42.0,
+          "bf_odds": 1.33,
+          "bf_ratio": 82.16,
+          "avg_odds": 1.28,
+          "avg_prob": 74.03,
+          "pnl": -132695.0
+        }
+      }
+    },
+    "周二004": {
+      "league": "欧冠",
+      "kick": "10-21 03:00",
+      "home": "那不勒斯",
+      "away": "博德闪耀",
+      "odds": {
+        "主胜": {
+          "volume": 1215854.0,
+          "hot": 59.0,
+          "market_idx": 74.0,
+          "bf_odds": 1.8,
+          "bf_ratio": 88.24,
+          "avg_odds": 1.71,
+          "avg_prob": 55.4,
+          "pnl": -810638.0
+        },
+        "平局": {
+          "volume": 55126.0,
+          "hot": -83.0,
+          "market_idx": 8.0,
+          "bf_odds": 4.3,
+          "bf_ratio": 4.0,
+          "avg_odds": 4.04,
+          "avg_prob": 23.45,
+          "pnl": 1140857.0
+        },
+        "客胜": {
+          "volume": 106919.0,
+          "hot": -63.0,
+          "market_idx": 17.0,
+          "bf_odds": 4.8,
+          "bf_ratio": 7.76,
+          "avg_odds": 4.48,
+          "avg_prob": 21.15,
+          "pnl": 864688.0
+        }
+      }
+    },
+    "周二005": {
+      "league": "欧冠",
+      "kick": "10-21 03:00",
+      "home": "罗马",
+      "away": "布拉迪斯拉发",
+      "odds": {
+        "主胜": {
+          "volume": 1918454.0,
+          "hot": 8.0,
+          "market_idx": 46.0,
+          "bf_odds": 1.16,
+          "bf_ratio": 92.08,
+          "avg_odds": 1.11,
+          "avg_prob": 85.5,
+          "pnl": -141975.0
+        },
+        "平局": {
+          "volume": 103641.0,
+          "hot": -49.0,
+          "market_idx": 22.0,
+          "bf_odds": 10.5,
+          "bf_ratio": 4.97,
+          "avg_odds": 9.68,
+          "avg_prob": 9.8,
+          "pnl": 995202.0
+        },
+        "客胜": {
+          "volume": 61337.0,
+          "hot": -37.0,
+          "market_idx": 32.0,
+          "bf_odds": 25.0,
+          "bf_ratio": 2.94,
+          "avg_odds": 20.24,
+          "avg_prob": 4.7,
+          "pnl": 550007.0
+        }
+      }
+    },
+    "周二006": {
+      "league": "欧冠",
+      "kick": "10-21 03:00",
+      "home": "巴黎圣曼",
+      "away": "巴萨",
+      "odds": {
+        "主胜": {
+          "volume": 751190.0,
+          "hot": -17.0,
+          "market_idx": 29.0,
+          "bf_odds": 2.6,
+          "bf_ratio": 32.38,
+          "avg_odds": 2.44,
+          "avg_prob": 38.98,
+          "pnl": 366556.0
+        },
+        "平局": {
+          "volume": 413072.0,
+          "hot": -18.0,
+          "market_idx": 28.0,
+          "bf_odds": 4.6,
+          "bf_ratio": 17.81,
+          "avg_odds": 4.38,
+          "avg_prob": 21.71,
+          "pnl": 419519.0
+        },
+        "客胜": {
+          "volume": 1155388.0,
+          "hot": 27.0,
+          "market_idx": 43.0,
+          "bf_odds": 2.52,
+          "bf_ratio": 49.81,
+          "avg_odds": 2.42,
+          "avg_prob": 39.31,
+          "pnl": -591928.0
+        }
+      }
+    },
+    "周二007": {
+      "league": "欧冠",
+      "kick": "10-21 03:00",
+      "home": "利物浦",
+      "away": "比利亚雷",
+      "odds": {
+        "主胜": {
+          "volume": 2339560.0,
+          "hot": 35.0,
+          "market_idx": 62.0,
+          "bf_odds": 1.55,
+          "bf_ratio": 86.18,
+          "avg_odds": 1.48,
+          "avg_prob": 63.98,
+          "pnl": -911456.0
+        },
+        "平局": {
+          "volume": 173612.0,
+          "hot": -68.0,
+          "market_idx": 15.0,
+          "bf_odds": 5.0,
+          "bf_ratio": 6.39,
+          "avg_odds": 4.71,
+          "avg_prob": 20.1,
+          "pnl": 1846802.0
+        },
+        "客胜": {
+          "volume": 201690.0,
+          "hot": -53.0,
+          "market_idx": 23.0,
+          "bf_odds": 6.8,
+          "bf_ratio": 7.43,
+          "avg_odds": 5.95,
+          "avg_prob": 15.92,
+          "pnl": 1343370.0
+        }
+      }
+    },
+    "周二008": {
+      "league": "欧冠",
+      "kick": "10-21 03:00",
+      "home": "曼城",
+      "away": "雅典AEK",
+      "odds": {
+        "主胜": {
+          "volume": 5897452.0,
+          "hot": 12.0,
+          "market_idx": 54.0,
+          "bf_odds": 1.15,
+          "bf_ratio": 94.75,
+          "avg_odds": 1.13,
+          "avg_prob": 84.53,
+          "pnl": -558001.0
+        },
+        "平局": {
+          "volume": 188795.0,
+          "hot": -70.0,
+          "market_idx": 18.0,
+          "bf_odds": 12.0,
+          "bf_ratio": 3.03,
+          "avg_odds": 9.37,
+          "avg_prob": 10.19,
+          "pnl": 3958529.0
+        },
+        "客胜": {
+          "volume": 137822.0,
+          "hot": -58.0,
+          "market_idx": 28.0,
+          "bf_odds": 25.0,
+          "bf_ratio": 2.21,
+          "avg_odds": 18.09,
+          "avg_prob": 5.28,
+          "pnl": 2778519.0
+        }
+      }
+    },
+    "周二009": {
+      "league": "欧冠",
+      "kick": "10-21 03:00",
+      "home": "斯图加特",
+      "away": "马竞",
+      "odds": {
+        "主胜": {
+          "volume": 185648.0,
+          "hot": -67.0,
+          "market_idx": 14.0,
+          "bf_odds": 3.55,
+          "bf_ratio": 9.53,
+          "avg_odds": 3.27,
+          "avg_prob": 28.96,
+          "pnl": 1289783.0
+        },
+        "平局": {
+          "volume": 174522.0,
+          "hot": -64.0,
+          "market_idx": 15.0,
+          "bf_odds": 4.0,
+          "bf_ratio": 8.96,
+          "avg_odds": 3.81,
+          "avg_prob": 24.85,
+          "pnl": 1250745.0
+        },
+        "客胜": {
+          "volume": 1588663.0,
+          "hot": 76.0,
+          "market_idx": 72.0,
+          "bf_odds": 2.16,
+          "bf_ratio": 81.52,
+          "avg_odds": 2.05,
+          "avg_prob": 46.19,
+          "pnl": -1482679.0
+        }
+      }
+    },
+    "周二010": {
+      "league": "欧冠",
+      "kick": "10-21 03:00",
+      "home": "波尔图",
+      "away": "埃因霍温",
+      "odds": {
+        "主胜": {
+          "volume": 1206150.0,
+          "hot": 35.0,
+          "market_idx": 60.0,
+          "bf_odds": 1.59,
+          "bf_ratio": 84.52,
+          "avg_odds": 1.51,
+          "avg_prob": 62.7,
+          "pnl": -490761.0
+        },
+        "平局": {
+          "volume": 67371.0,
+          "hot": -77.0,
+          "market_idx": 11.0,
+          "bf_odds": 5.0,
+          "bf_ratio": 4.72,
+          "avg_odds": 4.58,
+          "avg_prob": 20.67,
+          "pnl": 1090163.0
+        },
+        "客胜": {
+          "volume": 153497.0,
+          "hot": -35.0,
+          "market_idx": 30.0,
+          "bf_odds": 6.2,
+          "bf_ratio": 10.76,
+          "avg_odds": 5.69,
+          "avg_prob": 16.63,
+          "pnl": 475337.0
+        }
+      }
+    }
+  },
+  "zhishu": {
+    "周二008": {
+      "league": "欧冠",
+      "kick": "10-21 03:00",
+      "home": "曼城",
+      "away": "雅典AEK",
+      "init": [
+        0.81,
+        0.52,
+        0.48
+      ],
+      "latest": [
+        0.89,
+        0.63,
+        0.56
+      ]
+    },
+    "周二010": {
+      "league": "欧冠",
+      "kick": "10-21 03:00",
+      "home": "波尔图",
+      "away": "埃因霍温",
+      "init": [
+        0.91,
+        0.76,
+        0.86
+      ],
+      "latest": [
+        0.88,
+        0.85,
+        0.77
+      ]
+    }
+  },
+  "chayi": {
+    "周二001": {
+      "home": "费内巴切",
+      "away": "布拉格斯拉维亚",
+      "items": {
+        "主胜": {
+          "popularity": 75.54,
+          "jc_odds": 1.36,
+          "prob": 65.12,
+          "diff": 10.0
+        },
+        "平局": {
+          "popularity": 12.49,
+          "jc_odds": 4.68,
+          "prob": 18.92,
+          "diff": 6.0
+        },
+        "客胜": {
+          "popularity": 11.97,
+          "jc_odds": 5.55,
+          "prob": 15.96,
+          "diff": 3.0
+        }
+      },
+      "tip": "胜 平"
+    },
+    "周二002": {
+      "home": "沙巴巴库",
+      "away": "多特蒙德",
+      "items": {
+        "主胜": {
+          "popularity": 13.83,
+          "jc_odds": 9.5,
+          "prob": 9.32,
+          "diff": 4.0
+        },
+        "平局": {
+          "popularity": 12.17,
+          "jc_odds": 6.15,
+          "prob": 14.39,
+          "diff": 2.0
+        },
+        "客胜": {
+          "popularity": 74.0,
+          "jc_odds": 1.16,
+          "prob": 76.29,
+          "diff": 2.0
+        }
+      },
+      "tip": "负 平"
+    },
+    "周二004": {
+      "home": "那不勒斯",
+      "away": "博德闪耀",
+      "items": {
+        "主胜": {
+          "popularity": 57.64,
+          "jc_odds": 1.61,
+          "prob": 55.06,
+          "diff": 2.0
+        },
+        "平局": {
+          "popularity": 18.63,
+          "jc_odds": 4.1,
+          "prob": 21.62,
+          "diff": 2.0
+        },
+        "客胜": {
+          "popularity": 23.73,
+          "jc_odds": 3.8,
+          "prob": 23.32,
+          "diff": 0.0
+        }
+      },
+      "tip": "胜 负"
+    },
+    "周二006": {
+      "home": "巴黎圣曼",
+      "away": "巴萨",
+      "items": {
+        "主胜": {
+          "popularity": 24.77,
+          "jc_odds": 2.33,
+          "prob": 38.0,
+          "diff": 13.0
+        },
+        "平局": {
+          "popularity": 30.59,
+          "jc_odds": 4.33,
+          "prob": 20.45,
+          "diff": 10.0
+        },
+        "客胜": {
+          "popularity": 44.64,
+          "jc_odds": 2.13,
+          "prob": 41.55,
+          "diff": 3.0
+        }
+      },
+      "tip": "负 胜"
+    },
+    "周二007": {
+      "home": "利物浦",
+      "away": "比利亚雷",
+      "items": {
+        "主胜": {
+          "popularity": 74.18,
+          "jc_odds": 1.34,
+          "prob": 66.05,
+          "diff": 8.0
+        },
+        "平局": {
+          "popularity": 16.75,
+          "jc_odds": 4.5,
+          "prob": 19.67,
+          "diff": 2.0
+        },
+        "客胜": {
+          "popularity": 9.07,
+          "jc_odds": 6.2,
+          "prob": 14.28,
+          "diff": 5.0
+        }
+      },
+      "tip": "胜 平"
+    },
+    "周二009": {
+      "home": "斯图加特",
+      "away": "马竞",
+      "items": {
+        "主胜": {
+          "popularity": 9.37,
+          "jc_odds": 3.52,
+          "prob": 25.17,
+          "diff": 15.0
+        },
+        "平局": {
+          "popularity": 20.73,
+          "jc_odds": 3.9,
+          "prob": 22.72,
+          "diff": 1.0
+        },
+        "客胜": {
+          "popularity": 69.89,
+          "jc_odds": 1.7,
+          "prob": 52.11,
+          "diff": 17.0
+        }
+      },
+      "tip": "负 平"
+    },
+    "周二010": {
+      "home": "波尔图",
+      "away": "埃因霍温",
+      "items": {
+        "主胜": {
+          "popularity": 70.53,
+          "jc_odds": 1.32,
+          "prob": 67.1,
+          "diff": 3.0
+        },
+        "平局": {
+          "popularity": 14.28,
+          "jc_odds": 4.85,
+          "prob": 18.26,
+          "diff": 3.0
+        },
+        "客胜": {
+          "popularity": 15.18,
+          "jc_odds": 6.05,
+          "prob": 14.64,
+          "diff": 0.0
+        }
+      },
+      "tip": "胜 平"
+    }
+  },
+  "injured": {
+    "周二001": {
+      "home": "费内巴切",
+      "away": "布拉格斯拉维亚",
+      "sides": {
+        "home": [
+          {
+            "pos": "后卫",
+            "name": "穆尔杜尔",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "后卫",
+            "name": "杰登",
+            "status": "是",
+            "reason": "受伤"
+          }
+        ],
+        "away": [
+          {
+            "pos": "后卫",
+            "name": "查卢佩克",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "前锋",
+            "name": "乌安达·阿多尼亚",
+            "status": "是",
+            "reason": "受伤"
+          }
+        ]
+      }
+    },
+    "周二002": {
+      "home": "沙巴巴库",
+      "away": "多特蒙德",
+      "sides": {
+        "away": [
+          {
+            "pos": "中场",
+            "name": "卡雷萨斯",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "中场",
+            "name": "埃姆雷詹",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "中场",
+            "name": "贾斯廷·莱尔马",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "中场",
+            "name": "扬尼斯·康斯坦特利亚斯",
+            "status": "是",
+            "reason": "受伤"
+          }
+        ]
+      }
+    },
+    "周二004": {
+      "home": "那不勒斯",
+      "away": "博德闪耀",
+      "sides": {
+        "home": [
+          {
+            "pos": "中场",
+            "name": "法瓦苏利",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "后卫",
+            "name": "布诺吉尼奥",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "前锋",
+            "name": "内雷斯",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "中场",
+            "name": "安东尼奥",
+            "status": "是",
+            "reason": "受伤"
+          }
+        ],
+        "away": [
+          {
+            "pos": "门将",
+            "name": "斯琼",
+            "status": "是",
+            "reason": "受伤"
+          }
+        ]
+      }
+    },
+    "周二005": {
+      "home": "罗马",
+      "away": "布拉迪斯拉发",
+      "sides": {
+        "home": [
+          {
+            "pos": "中场",
+            "name": "克里斯坦特",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "中场",
+            "name": "科恩",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "中场",
+            "name": "穆罕默德·巴",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "门将",
+            "name": "斯维拉尔",
+            "status": "是",
+            "reason": "受伤"
+          }
+        ]
+      }
+    },
+    "周二006": {
+      "home": "巴黎圣曼",
+      "away": "巴萨",
+      "sides": {
+        "home": [
+          {
+            "pos": "中场",
+            "name": "马尤鲁",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "后卫",
+            "name": "门德斯",
+            "status": "是",
+            "reason": "受伤"
+          }
+        ],
+        "away": [
+          {
+            "pos": "后卫",
+            "name": "克里斯滕森",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "中场",
+            "name": "巴德吉",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "后卫",
+            "name": "孔德",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "后卫",
+            "name": "马特雷特",
+            "status": "是",
+            "reason": "受伤"
+          }
+        ]
+      }
+    },
+    "周二007": {
+      "home": "利物浦",
+      "away": "比利亚雷",
+      "sides": {
+        "home": [
+          {
+            "pos": "中场",
+            "name": "索博斯洛伊",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "后卫",
+            "name": "布拉德利",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "后卫",
+            "name": "莱奥尼·乔瓦尼",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "前锋",
+            "name": "埃基提克",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "后卫",
+            "name": "弗林蓬",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "后卫",
+            "name": "纳洛",
+            "status": "是",
+            "reason": "受伤"
+          }
+        ],
+        "away": [
+          {
+            "pos": "前锋",
+            "name": "布坎南",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "前锋",
+            "name": "佩佩",
+            "status": "是",
+            "reason": "受伤"
+          }
+        ]
+      }
+    },
+    "周二008": {
+      "home": "曼城",
+      "away": "雅典AEK",
+      "sides": {
+        "away": [
+          {
+            "pos": "门将",
+            "name": "斯特拉科沙",
+            "status": "是",
+            "reason": "受伤"
+          }
+        ]
+      }
+    },
+    "周二009": {
+      "home": "斯图加特",
+      "away": "马竞",
+      "sides": {
+        "home": [
+          {
+            "pos": "后卫",
+            "name": "达希尔",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "前锋",
+            "name": "迪尔",
+            "status": "是",
+            "reason": "受伤"
+          }
+        ],
+        "away": [
+          {
+            "pos": "中场",
+            "name": "科克",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "后卫",
+            "name": "罗梅罗",
+            "status": "是",
+            "reason": "受伤"
+          }
+        ]
+      }
+    },
+    "周二010": {
+      "home": "波尔图",
+      "away": "埃因霍温",
+      "sides": {
+        "away": [
+          {
+            "pos": "前锋",
+            "name": "普利亚",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "中场",
+            "name": "斯豪滕",
+            "status": "是",
+            "reason": "受伤"
+          },
+          {
+            "pos": "后卫",
+            "name": "基利安",
+            "status": "是",
+            "reason": "受伤"
+          }
+        ]
+      }
+    }
+  },
+  "kelly": {
+    "周二001": {
+      "home": "费内巴切",
+      "away": "布拉格斯拉维亚",
+      "items": {
+        "主胜": {
+          "mean_sq": 0.51,
+          "max_sq": 6.78,
+          "mean_kelly": 0.938,
+          "n": 25
+        },
+        "平局": {
+          "mean_sq": 1.09,
+          "max_sq": 5.15,
+          "mean_kelly": 0.957,
+          "n": 25
+        },
+        "客胜": {
+          "mean_sq": 2.17,
+          "max_sq": 7.3,
+          "mean_kelly": 0.944,
+          "n": 25
+        }
+      }
+    },
+    "周二002": {
+      "home": "沙巴巴库",
+      "away": "多特蒙德",
+      "items": {
+        "主胜": {
+          "mean_sq": 2.25,
+          "max_sq": 7.26,
+          "mean_kelly": 0.926,
+          "n": 25
+        },
+        "平局": {
+          "mean_sq": 1.6,
+          "max_sq": 6.38,
+          "mean_kelly": 0.948,
+          "n": 25
+        },
+        "客胜": {
+          "mean_sq": 0.68,
+          "max_sq": 7.48,
+          "mean_kelly": 0.947,
+          "n": 25
+        }
+      }
+    },
+    "周二004": {
+      "home": "那不勒斯",
+      "away": "博德闪耀",
+      "items": {
+        "主胜": {
+          "mean_sq": 0.79,
+          "max_sq": 8.5,
+          "mean_kelly": 0.939,
+          "n": 25
+        },
+        "平局": {
+          "mean_sq": 0.85,
+          "max_sq": 5.8,
+          "mean_kelly": 0.942,
+          "n": 25
+        },
+        "客胜": {
+          "mean_sq": 1.9,
+          "max_sq": 24.15,
+          "mean_kelly": 0.944,
+          "n": 25
+        }
+      }
+    },
+    "周二005": {
+      "home": "罗马",
+      "away": "布拉迪斯拉发",
+      "items": {
+        "主胜": {
+          "mean_sq": 0.49,
+          "max_sq": 6.68,
+          "mean_kelly": 0.946,
+          "n": 25
+        },
+        "平局": {
+          "mean_sq": 4.95,
+          "max_sq": 46.21,
+          "mean_kelly": 0.962,
+          "n": 25
+        },
+        "客胜": {
+          "mean_sq": 18.89,
+          "max_sq": 55.57,
+          "mean_kelly": 0.939,
+          "n": 25
+        }
+      }
+    },
+    "周二006": {
+      "home": "巴黎圣曼",
+      "away": "巴萨",
+      "items": {
+        "主胜": {
+          "mean_sq": 0.29,
+          "max_sq": 1.61,
+          "mean_kelly": 0.94,
+          "n": 25
+        },
+        "平局": {
+          "mean_sq": 1.48,
+          "max_sq": 12.98,
+          "mean_kelly": 0.936,
+          "n": 25
+        },
+        "客胜": {
+          "mean_sq": 0.71,
+          "max_sq": 10.44,
+          "mean_kelly": 0.947,
+          "n": 25
+        }
+      }
+    },
+    "周二007": {
+      "home": "利物浦",
+      "away": "比利亚雷",
+      "items": {
+        "主胜": {
+          "mean_sq": 0.52,
+          "max_sq": 6.54,
+          "mean_kelly": 0.938,
+          "n": 25
+        },
+        "平局": {
+          "mean_sq": 0.57,
+          "max_sq": 1.34,
+          "mean_kelly": 0.937,
+          "n": 25
+        },
+        "客胜": {
+          "mean_sq": 2.2,
+          "max_sq": 10.85,
+          "mean_kelly": 0.95,
+          "n": 25
+        }
+      }
+    },
+    "周二008": {
+      "home": "曼城",
+      "away": "雅典AEK",
+      "items": {
+        "主胜": {
+          "mean_sq": 0.41,
+          "max_sq": 5.99,
+          "mean_kelly": 0.949,
+          "n": 25
+        },
+        "平局": {
+          "mean_sq": 4.74,
+          "max_sq": 34.61,
+          "mean_kelly": 0.936,
+          "n": 25
+        },
+        "客胜": {
+          "mean_sq": 10.95,
+          "max_sq": 21.98,
+          "mean_kelly": 0.91,
+          "n": 25
+        }
+      }
+    },
+    "周二009": {
+      "home": "斯图加特",
+      "away": "马竞",
+      "items": {
+        "主胜": {
+          "mean_sq": 1.61,
+          "max_sq": 20.28,
+          "mean_kelly": 0.934,
+          "n": 25
+        },
+        "平局": {
+          "mean_sq": 0.6,
+          "max_sq": 2.84,
+          "mean_kelly": 0.946,
+          "n": 25
+        },
+        "客胜": {
+          "mean_sq": 0.8,
+          "max_sq": 14.63,
+          "mean_kelly": 0.942,
+          "n": 25
+        }
+      }
+    },
+    "周二010": {
+      "home": "波尔图",
+      "away": "埃因霍温",
+      "items": {
+        "主胜": {
+          "mean_sq": 0.65,
+          "max_sq": 7.4,
+          "mean_kelly": 0.937,
+          "n": 25
+        },
+        "平局": {
+          "mean_sq": 0.53,
+          "max_sq": 4.45,
+          "mean_kelly": 0.936,
+          "n": 25
+        },
+        "客胜": {
+          "mean_sq": 2.44,
+          "max_sq": 15.03,
+          "mean_kelly": 0.954,
+          "n": 25
+        }
+      }
+    }
+  }
+}

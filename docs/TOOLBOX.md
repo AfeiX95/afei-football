@@ -3,6 +3,7 @@
 > 2026-10-18 建。只做**候选评估**，不动配置。采纳与否由人决定，采纳后把结论并进 `docs/WORKFLOW.md` 或对应技能真源。
 > 判断标准：能不能解**本项目已记录的痛点**（不是「看起来能用」）。痛点来源 = `state/model-state.json` 的 `open_items` + 五十五/五十六节 HANDOFF。
 
+- **澳客指数（必发盈亏/胜负指数/盘口评测/凯利方差/差异分析/伤停/排序）** —— 2026-10-20 起可用：`scripts/okooo_intel.py`，`www.okooo.com/jingcai/shuju/<页>/`，必须带 Referer、gb2312。**覆盖窗口 ≈ 开赛 24h**，临场再抓；bifaw.com 无可用比赛页（弃用）。内部研判层，按 R41 不进公开稿。
 - **懂球帝结构化数据（身价/积分榜）** —— 2026-10-20 起可用：`scripts/team_profile.py` 直接抓 `pc.dongqiudi.com/data` 的整张联赛身价表（cid 映射见 `state/cache/_dq_cid.json`），配欧冠联赛阶段榜；**不参与 λ 计算**，只做底档交叉检验。Transfermarkt、雷速实测抓不到（404），别再试。
 ## 一、优先级 A（直接对应已记录的痛点，建议先试）
 
