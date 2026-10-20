@@ -417,7 +417,8 @@ def caption_text(data, cards):
                  % (_t, len(_t), "" if _has_date else "，⚠️ 缺日期"), ""]
     # caption_para（逐场分析段落，2026-10-16 用户给模板）在场时，正文首行与卡片说明都省掉
     manual = [str(c.get("caption_para") or "").strip() for c in cards]
-    has_manual = any(manual)
+    has_lines = any(c.get("caption_lines") for c in cards)
+    has_manual = any(manual) or has_lines
     if not has_manual:
         caps += ["【正文】", data.get("title", ""), ""]
     else:
@@ -434,6 +435,13 @@ def caption_text(data, cards):
                      ("每场一张图：战绩 · 雷达 · 主客场攻防数据 · 看点" if compact else
                       "每场一张图：近期战绩 · 六维雷达 · 主客场攻防数据 · 数据看点"), ""]
         for c, para in zip(cards, manual):
+            lines = [str(x).strip() for x in (c.get("caption_lines") or []) if str(x).strip()]
+            if lines:
+                # 2026-10-21 用户：每场用 1/2/3 分段（状态与打法 / 方向 / 一句）
+                caps.append("%s 对 %s" % (c.get("home", ""), c.get("away", "")))
+                caps += ["%d %s" % (i, ln) for i, ln in enumerate(lines, 1)]
+                caps.append("")
+                continue
             if para:
                 caps.append("%s 对 %s：%s" % (c.get("home", ""), c.get("away", ""), para))
                 caps.append("")
@@ -477,8 +485,14 @@ def caption_text(data, cards):
     if mode == "data" and ("中国体育" in src or "彩票" in src or not src):
         src = "数据来源：公开赛事数据"
     src = src or "数据来源：公开赛事数据"
-    tail = ("以上为公开赛果数据与技术面整理，只做数据对比，不含胜负与比分判断，不构成任何购买建议。"
-            if mode == "data" else "仅供参考，请理性看待比赛。")
+    # 2026-10-21：正文已含方向（用户要求），免责就不能再写「不含胜负判断」——口径要与内容一致
+    direction = any(c.get("caption_lines") or c.get("caption_dir") for c in cards)
+    if mode == "data" and direction:
+        tail = "以上为公开数据整理与个人观察，仅供交流，不构成任何购买建议，请理性看待比赛。"
+    elif mode == "data":
+        tail = "以上为公开赛果数据与技术面整理，只做数据对比，不含胜负与比分判断，不构成任何购买建议。"
+    else:
+        tail = "仅供参考，请理性看待比赛。"
     caps += ["", data.get("tags", "#足球前瞻 #数据分析 #赛博聊球"), src, tail,
              "", "【发布窗口】主档 10:30–13:00（避开 16:00–19:00，见 R39）"]
     return "\n".join(caps) + "\n"
