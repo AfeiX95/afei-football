@@ -1,0 +1,1366 @@
+{
+  "date": "20261021",
+  "fetched_at": "2026-10-20T23:03:08",
+  "calls": 26,
+  "items": [
+    {
+      "no": "周三001",
+      "league": "日职",
+      "home": "东京FC",
+      "away": "柏太阳神",
+      "home_en": "东京FC",
+      "away_en": "柏太阳神",
+      "queries": [
+        "\"东京FC vs 柏太阳神\" preview prediction lang:en",
+        "东京FC 柏太阳神 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "FC东京主场迎柏太阳神，松桥力藏强调防守",
+          "url": "http://pc.dongqiudi.com/articles/6519463.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.237903481837982,
+          "summary": "# FC东京主场迎柏太阳神，松桥力藏强调防守\n\nFC东京将于北京时间10月21日18:00在味之素体育场迎战柏太阳神。赛前，主帅松桥力藏在东京德比4-0击败东京绿茵后表示，球队在防守端值得肯定，但“不能在这里满足”，并强调“也许只有一次，但绝不允许那一次出现，这一点必须像以往一样继续下去”。后卫稻村隼翔则称：“现在球队真的有只要不丢球就能赢的自信。”\n\nFC东京本赛季开局战绩为7胜2平1负，10轮积23分，仅次于2019年同期。揭幕战1-5负于FC町田泽维亚后，球队从第2轮对阵神户胜利船开始9场打进20球仅失3球，最近5场连续零封。10场比赛全部取得首开纪录，场均控球率54.7%排名联赛第4，场均冲刺137次排名第2，预期失球值8.9仅次于广岛三箭。\n\n伤病方面，后卫桥本健人、长友佑都、室屋成，中场桥本拳人、本间至恩、尼古拉-瓦利斯等主力级球员因伤等离队，但现有战力成功弥补空缺。中后卫亚历山大-舒尔茨和稻村隼翔表现稳定，新援石原广教融入球队，大森理生、铃木枫、常盘亨太、永野修都等青训球员崭露头角。进攻端，从葡萄牙二级联赛租借回归的安斋飒马已打进4球，佐藤惠允、俵积田晃太、山田枫喜、仲川辉人等均取得进球。\n\n松桥力藏表示“无论谁出场都没有问题”。上轮东京德比，东京绿茵前锋染野唯月因对稻村隼翔的危险动作在上半场第18分钟被直接红牌罚下，FC东京随后由亚历山大-舒尔茨、马塞洛-瑞安、长仓干树和达尼-戈麦斯进球，4-0获胜。长仓干树本赛季10场贡献7球3助攻，他表示“球队的胜利也回馈到了自己身上”。\n\n柏太阳神目前与FC东京积分差距为2分。2025赛季两队交锋，FC东京1平1负。松桥力藏执教新潟时曾依靠阵容轮换弥补主力离队，如今他再次面临类似考验。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "日媒：J1第11轮争冠混战，东京战柏、广岛客战长崎",
+          "url": "http://pc.dongqiudi.com/articles/6517491.html",
+          "site": "懂球帝",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.031238183159182,
+          "summary": "# 日媒：J1第11轮争冠混战，东京战柏、广岛客战长崎\n\n2026/27明治安田J1联赛第11轮将于10月21日进行。 第10轮结束后，广岛三箭、FC町田泽维亚和FC东京同积23分，形成激烈争冠混战。由于净胜球优势，广岛排名第一，町田第二，FC东京第三，神户胜利船积22分，柏太阳神21分，鹿岛鹿角19分紧随其后。从榜首到第6名的差距只有4分。\n\n本轮将上演排名第3的FC东京与第5的柏太阳神的直接对话。\n...\n若上游球队战果出现变化，积分榜榜首位置可能再次易主。 本轮还是在第10轮结束仅3、4天后进行的周中赛事。\n...\n第11轮最受关注的对决之一，是排名第3的FC东京与第5的柏太阳神之战。 FC东京上轮在东京德比中4-0击败东京绿茵，联赛豪取5连胜。球队战绩来到7胜2平1负，积23分，仅因净胜球劣势排在广岛之后位列第3。 他们10场打进21球、丢8球，攻防都很稳，尤其在连胜期间展现出很强的取胜能力。对东京绿茵一战中，亚历山大-舒尔茨、马塞洛-希安、长仓干树和丹尼-戈麦斯等多名球员先后破门。 柏太阳神上轮则1-3不敌名古屋鲸八，联赛3连胜被终结，排名也从榜首一下滑落到第5。 不过他们目前仍积21分，距榜首只有2分。本赛季柏太阳神7胜3负，还没有打出过平局，已经证明了自己的拿分能力。若能击败FC东京，积分将升至24分，并有机会根据其他场次结果重返榜首。 柏太阳神的瀬川祐辅和FC东京的长仓干树，都是本赛季带动球队进攻的关键人物。这场直接对话将左右上半区争夺的走势。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "10月21日 对阵柏太阳神 MATCH PREVIEW & INTERVIEW supported by PLAUD｜FC TOKYO FANZONE｜FC东京官方网站",
+          "url": "https://www.fctokyo.co.jp/zh-cn/fan/fanzone/detail/342859/",
+          "site": "FC東京",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.022971566019758,
+          "summary": "采访 2026.10.20\n\n## 10月21日 对阵柏 MATCH PREVIEW & INTERVIEW\nsupported by PLAUD\n\n# 上轮·对阵东京V的回顾\n\n将周中客场在水户尝到的遗憾铭记于心，这是一场绝不能输──不，是必须取胜的重要比赛。蓝红十一人在这场较量中活力十足，以4-0在味之素体育馆取得大胜，充分展现了东京的蓝红本色。\n\n东京从开场便牢牢掌控球权并持续发起进攻，两名边后卫站位靠前，进一步增强了进攻火力。上半场第18分钟，对方球员被罚下场，东京取得人数优势后，比赛呈现一边倒的局面。面对严密收缩防守、封锁禁区前沿的对手，东京如何破局成为关键。上半场第41分钟，东京通过左侧角球由Alexander SCHOLZ头球率先破门；下半场第6分钟，SCHOLZ的传中又制造点球。Marcelo RYAN稳稳将点球罚进，东京凭借定位球将领先优势扩大到两球。\n\n即使在人数占优且扩大领先优势的情况下，东京也毫不松懈，凭借迅速的预判与判断、攻防转换持续占据压倒性优势。仿佛在诠释“进攻是最好的防守”，他们将对手压制在半场，不断消耗比赛时间。\n\n下半场第23分钟，稻村隼翔送出一记如穿针引线般的对角线长传，担任右后卫的大森理生送出贴地回传，前插至近门柱的长仓干树一脚触球破门，打入第3球。此后在下半场补时阶段，刚刚替补登场的达尼·戈麦斯与山田枫喜完成传球配合后插入身后空当，一脚将球送入网内，打入个人联赛首球，锁定胜局。\n\n进攻端轰入4粒进球，防守端则展现出高度专注、完全不给对手创造机会的防守表现。尽管官方记录显示对手有1次射门，但球队没有让对手获得任何机会，全员展现出充满斗志的表现，取得了一场大胜。\n\n至此，球队在联赛中连续5场零封，取得5连胜。以7胜2平1负、积23分的战绩，位居与榜首同分的第3位。\n\n# 本轮比赛预览\n\nFC东京从在水户品尝到的不甘中及时调整过来，并大胜东京Verdy。青红军团在关键一战中拼下胜利，本轮将在主场迎战柏太Reysol。与榜首同分、排名第3的东京，对阵落后2分、排名第5的柏太Reysol，这是一场强强对话。毫无疑问，这是赛季初期的一场关键大战。\n\n这将是刚刚在客场取得一场大胜后的比赛，但球员们的目光已立即投向下一场。高宇洋表示：“在东京V一战返程的大巴上，我就已经在考虑对阵柏的比赛了。能否在这里取胜将改变今后的走势，所以我想把这股势头稳稳延续下去。”他对周三的比赛充满期待。\n\n我们不能停下脚步。东京是蓝红军团，这一点已通过上轮比赛的结果和表现得到了充分证明。现在必须以积极的心态调整好状态，继续向前迈进。因为本轮还有一场检验蓝红军团真正价值的重要比赛在等待着我们。\n\n一贯要求每场必胜的主教练松桥力藏，在柏队比赛前一天谈及此战的重要性：“每场比赛的分量当然不会改变，但在强强对话中积累积分，就能再向前迈进一步。不能和过去的我们一样。希望能进一步提升这股势头。”\n\n柏太阳神则由 Ricardo RODRIGUEZ 教练率领，凭借流畅且极具冲击力的进攻跻身积分榜前列。得分点众多也是他们的特点之一，其中，此前一直身穿蓝红战袍征战至今年明治安田J1百年构想联赛的远藤球员表现尤为出色，以势大力沉的中距离射门攻入3球。正因他凭借积极的突破成为柏太阳神攻击线上的亮点，对东京而言，他是必须严加限制的球员之一。\n\n即将与熟悉的球员重逢，佐藤惠允球员表示：“在训练中每次都会与他对位，所以包括他的习惯在内，我全都了解。感觉他最近踢得很自由，这次我想严密贴防到让他感到沮丧，做到不让他...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "松桥力藏：对柏是争冠关键战，冲6连胜",
+          "url": "http://pc.dongqiudi.com/articles/6520565.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.8715848884808883,
+          "summary": "# 松桥力藏：对柏是争冠关键战，冲6连胜\n\nJ1FC东京20日在东京小平市进行了封闭训练，备战21日对阵柏的比赛（味之素球场）。主帅松桥力藏在训练后接受采访时表示：“这真是一场关键战。面对争冠集团的直接对话，只有在这种比赛里持续拿分，才能向前迈进一步。我们会努力保持势头，继续前进。” 球队自2009年以来，时隔17年再度取得联赛5连胜，如果拿下6连胜，也将是同一赛季中首次做到这一点。防守端，球队已连续5场零封，后卫稻村和绍尔茨组成的中卫搭档表现尤其突出。进攻端，长仓已打进7球，攻防两端都运转顺畅。 目前，领头羊广岛和第2名町田同积23分，东京FC因净胜球劣势暂列第3。若能在这场与积21分、排名第5的柏的直接对话中取胜，将对后续争冠形势至关重要。主帅点头表示：“带着真的要举起奖盘的决心过每一天，这一点非常重要；如果没有这种心态，一切都无从谈起。我觉得大家都在一点点铭记并贯彻这一点。”",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "日職聯：FC東京vs柏太陽神預測分析 主場零封能否延續？",
+          "url": "https://zht.qiumiwu.com/news/2024628320268",
+          "site": "黃蜂vs魔術簡介",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.8631040900984503,
+          "summary": "# 日職聯：FC東京vs柏太陽神預測分析 主場零封能否延續？\n\n預知球路 2026-10-20 18:17\n\n10月21日，日職聯第11輪將展開FC東京與柏太陽神較量，2026-2027賽季兩隊排名在積分榜前列。FC東京前10輪拿到23分，戰績爲7勝2平1負，打入21球丟8球，排在第3；柏太陽神同期21分，7勝0平3負，22個進球、17個失球，排在第5，雙方之間只有2分差距。這樣分差讓本場對決關係到排名位置，主隊需要守住主場，客隊也想縮小距離。\n\nFC東京前10輪聯賽場均2.1個進球和0.8個失球對應第3位置，主場5場取得4勝0平1負，打入9球丟5球。最近6個主場正式比賽全部取勝，合計進18球且沒有丟球。上一場客場面對東京綠茵，朔爾茨、馬塞洛、長倉幹樹和丹尼·戈麥斯各進1球，其中朔爾茨接俵積田晃太助攻，長倉幹樹接大森理生助攻，丹尼·戈麥斯由山田楓喜助攻，最終比分4比0。長倉幹樹在聯賽中打進7球並送出3次助攻，馬塞洛完成29次射門、11次射正。FC東京大概率延續4-2-3-1，馬塞洛頂在最前，長倉幹樹、俵積田晃太和安齋颯馬在其身後。\n\n10月7日橋本健人遭遇腿部骨折，9月30日室屋成遭遇小腿受傷，9月14日長友佑都遭遇膝關節受傷；9月14日本間至恩遭遇腿筋受傷，8月2日尼古拉·瓦利斯遭遇膝關節受傷。這些缺員集中在後衛與中場，輪換餘地收窄；主場連續不丟球與多人缺陣同時存在，FC東京排兵佈陣或許更偏向先穩住防線，再尋找反擊機會。\n\n柏太陽神前10輪每場進2.2球、失1.7球，客場5場4勝0平1負，打入11球丟7球；最近6場聯賽客場拿下5勝0平1負，入17球失9球。上輪在主場以1比3負於名古屋鯨魚，遠藤溪太曾接藤尾翔太傳球將比分扳平，第36分鐘和第79分鐘又各丟1球；第46分鐘瀨川祐輔替補登場，柏太陽神之後沒能改寫比分。瀨川祐輔聯賽打進7球，射門21次，其中9次射正，渡井理己聯賽助攻數爲5次。上輪柏太陽神排出3-4-2-1，藤尾翔太站在最前，遠藤溪太、小泉佳穂和山內日向汰分佈在中場。9月29日熊坂光希遭遇膝關節受傷，8月27日手冢康平遭遇膝關節受傷，5月24日大久保智明遭遇跟腱受傷，2025年10月26日山田雄士遭遇膝關節受傷。\n\n兩隊最近6次碰面，FC東京只取得1勝2平3負，2026年4月29日曾在客場3比1贏過柏太陽神，2026年2月28日在主場0比2輸給對手。主隊最近6場主場正式賽事入18球未失球，客隊最近6場聯賽客場入17球失9球。主隊主場連續不丟球走勢，會在這場比賽被終結，還是柏太陽神客場破門能力繼續生效？\n\n## FC東京vs柏太陽神勝平負預測\n\n球迷屋對本場比賽給出勝平負預測：FC東京勝率36%，平率24%，柏太陽神勝率40%。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "4 比 0"
+          ]
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 1,
+        "goals": 0,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 4,
+        "zh": 5,
+        "home_mentions": 1,
+        "away_mentions": 3
+      },
+      "scores": [
+        "4 比 0"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周三002",
+      "league": "日职",
+      "home": "川崎前锋",
+      "away": "神户胜利",
+      "home_en": "川崎前锋",
+      "away_en": "神户胜利",
+      "queries": [
+        "\"川崎前锋 vs 神户胜利\" preview prediction lang:en",
+        "川崎前锋 神户胜利 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "川崎前锋主场迎战神户胜利船，长谷部茂利盼延续连胜",
+          "url": "http://pc.dongqiudi.com/articles/6522754.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.0248324871063232,
+          "summary": "# 川崎前锋主场迎战神户胜利船，长谷部茂利盼延续连胜\n\n2026/27赛季明治安田J1联赛第11轮，川崎前锋将于北京时间10月21日18:00（当地时间19:00）在富士通Uvance等力球场迎战神户胜利船。川崎目前排名第7，16分，4胜4平2负，进21球失16球；神户排名第4，22分，7胜1平2负，进17球失9球。两队积分相差6分，川崎若取胜差距缩小至3分，若告负则扩大至9分。10月19日公布的第11轮停赛名单中，两队均无球员列入。上次交手为2025年6月21日J1第21轮，川崎在等力球场1-2告负。\n\n川崎在最近5场联赛中取得3胜1平1负，10月11日主场1-2负于名古屋后，17日以4-2击败大阪樱花。对阵樱花一战，佩德罗-罗曼诺第10分钟任意球首开纪录，橘田健人在上半场结束前重新取得领先，下半场胁坂泰斗进球，大关友翔在比赛末段再入一球。不过樱花在第19分钟被罚下一人，川崎在长时间人数占优的情况下于第43分钟和第48分钟被对手抓住机会。赛后长谷部茂利主教练指出了在人数优势下管理比赛的问题，山本悠树也反思传球过慢让对手防线得以组织。\n\n10月14日联赛杯第三轮，川崎大幅调整首发，4-0击败磐田，丸山祐市、河原创、佩德罗-罗曼诺和山岸翔太取得进球。丸山祐市、河原创和大关友翔随后在对阵大阪樱花的比赛中替补出场。\n\n伤病方面，对阵大阪樱花一战，佐佐木旭第31分钟被换下，罗曼诺半场离场，三浦飒太在比赛即将结束时离场。长谷部茂利表示他认为伤势并不严重，考虑到连续比赛不想过度使用他们，但这是17日赛后的解释，并不保证三人出战神户。俱乐部最近公布的伤情为：野田裕人右腓肠肌拉伤，谷口荣斗右长收肌拉伤，绀野和也右利斯弗兰克韧带损伤；此外林骏佑左膝内侧副韧带损伤，罗曼尼奇左足底筋膜损伤，宫城天左腿筋拉伤并已接受手术。\n\n神户最近5场联赛4胜1负，在击败长崎、鹿岛、G大阪后于10月9日2-4负于柏队，但14日亚冠精英联赛2-0击败全北现代汽车，18日3-0击败冈山。对阵冈山的上半场，神户依靠权田修一的扑救以0-0进入半场，岩本悠庵下半场开始时登场，大迫勇也在第49分钟和第56分钟连续进球，图尔勒第64分钟再入一球。大迫在对阵全北和冈山的两场比赛中总共打进3球，其中对阵冈山的第一个进球来自武藤嘉纪传给岩本悠庵的进攻后的散落球，第二个是武藤传球后的头球。\n\n川崎自上一场比赛以来有3天休息，神户只有2天。神户当天的首发阵容尚未公布，目前无法确定个人可用情况。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "即時新聞｜港澳｜on.cc東網",
+          "url": "https://hk.on.cc/keyword/index.html?keywordid=402883478898d43b0189256f51896128&keywordname=%e4%b8%ad%e6%9d%91%e7%a5%90%e4%ba%ba",
+          "site": "on.cc東網",
+          "date": "2026-10-15T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.827447772026062,
+          "summary": "日本超級盃於中立場舉行，神戶勝利船對川崎前鋒。一直以來，日超盃都是每個新球季展開之前的一個傳統序幕大戰，雖然各支球隊仍在提升比賽狀態及作最後調整，以迎接新一季的來臨，但這個盃賽為參賽球隊提供一個正式的比賽機會，去讓一些新加盟球員落場及給予球隊嘗試執行一些戰術部署。<br/><br/>川崎前鋒將以上屆日本天皇盃冠軍的身份參戰，大家都知道當他們建立攻勢時，都會嘗試控球在腳，之後再尋找入波機會。另一邊廂，應屆日職冠軍神戶勝利船樂於取得較少控球時間，然後當時機適當時，便會以快速反擊攻勢爭取入球。<br/><br/>除了可以看到兩支去年的冠軍球隊作出正面文鋒之外，日超盃還可以讓球迷一睹新簽入球員的表現，其中兩名中場好手井手口陽介及山本悠樹分別加盟了神戶勝利船及川崎前鋒，我特別期待他們的表現。<br/><br/>談到雙方的主力球員，我認為大迫勇也毫無疑問是神戶勝利船前場的進攻核心，他不但是一位把握力十分好的射手，還可以於前場停下皮球，協助球隊保持控球權，而脇坂泰斗將會是川崎前鋒中場策動進攻的重心球員。<br/><br/>看過神戶勝利船跟國際邁阿密進行的季前熱身賽，以及早前川崎前鋒作客對FC山東的亞冠盃賽事之後，我認為神戶勝利船的防守似乎較佳。川崎前鋒往往未能應付對方的快速反擊攻勢，所以我預計神戶勝利船今仗可以於東京國立競技場小勝奪冠。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "川崎前鋒對神戶勝利船 交手統計數據 | FootyStats - Loading",
+          "url": "https://footystats.org/zht/japan/vissel-kobe-vs-kawasaki-frontale-h2h-stats?early_season=enable#1",
+          "site": "FootyStats",
+          "date": null,
+          "authority": 3,
+          "score": 1.610553741455078,
+          "summary": "# 川崎前鋒對神戶勝利船數據、分析及正面交鋒\n\n2.33\n\nDWW\n...\n2.00\n\nWLW\n...\n## 正面交手統計數據 / 以前的結果 - 川崎前鋒對神戶勝利船\n\n29\n賽事\n\n45%\n\n24%\n\n31%\n\n13 贏\n\n7 平局(24%)\n\n9 贏\n\n川崎前鋒 vs 神戶勝利船的交鋒紀錄顯示29, 川崎前鋒 13 次獲勝且 神戶勝利船 9次獲勝。 川崎前鋒和神戶勝利船之間有7次交鋒在以和局告終。\n\n79%高於1.5\n\n23 / 29 賽事\n\n72%高於2.5\n\n21 / 29 賽事\n\n41%高於3.5\n\n12 / 29 賽事\n\n62%兩隊都得分\n\n18 / 29 賽事\n\n21%沒有失球\n...\n## 所有預測- 川崎前鋒對神戶勝利船\n\n50%高於2.5\n\n聯盟平均 : 54%\n\n67%高於1.5\n...\n80%\n\n50%兩隊都得分\n...\n60%\n\n3.00每場賽事進球數\n...\n2.97\n\n高於1.5進球，上半場/下半場 ＆ 更多\n\n高於 8.5, 9.5進球 & 更多\n\n*本賽季川崎前鋒和神戶勝利船之間的平均統計數據\n...\n總體\n...\n客場\n\n贏%\n\n43%\n\n67%\n\n25%\n...\n3.14\n\n4.67\n...\n1.86\n\n3.00\n\n1.00\n...\n1.29\n\n1.67\n...\n86%\n\n100%\n\n75%\n...\n14%\n...\n第一隊入球\n...\nxG\n\n1.89\n\n2.12\n\n1.71\n\n預計失球數\n\n1.49\n\n1.58\n\n1.43\n\n這些統計數據是什麼?\n...\n71%\n...\n2.29\n\n3.00\n\n1.33\n...\n1.57\n...\n0.71\n\n1.00\n\n0.33\n...\n33%\n...\n1.65\n\n1.21\n...\n1.15\n\n1.39\n\n0.90\n\n## 進球數 誰得分更多？\n\n川崎前鋒 是 +200% 更好 方面 進球\n\n3 每場賽事進球數\n\n川崎前鋒 (主場)\n\n1 每場賽事進球數\n\n神戶勝利船 (客場)\n\n全場\n\n上半場/下半場\n\n每場平均得分 | Kawasaki Frontale | Vissel Kobe \n---|---|---\n高於0.5 | 100% | 67% \n高於1.5 | 100% | 33% \n高於2.5 | 67% | 0% \n高於3.5 | 33% | 0% \n未能得分 | 0% | 33% \n\n上半場/下半場 得分 | Kawasaki Frontale | Vissel Kobe \n---|---|---\n上半場得分 | 100% | 67% \n下半場得分 | 67% | 33% \n上下半場均得分 | 67% | 33% \n上半場平均得分 | 2 | 0.67 \n下半場平均得分 | 1.00 | 0.33 \n\n*數據來源於川崎前鋒的主場得分紀錄和 神戶勝利船 的客場數據。\n\n## 失球數 誰會失球？\n\n神戶勝利船 是 +80% 更好 方面 失球\n\n1.67 每場球賽失球\n...\n0.33 每場賽事進球數\n...\n角球 / 比賽 | Kawasaki Frontale | Vissel Kobe \n---|---|---\n高於1.5 | 67% | 0% \n高於2.5 | 0% | 0% \n高於3.5 | 0% | 0%\n...\n*數據來源於川崎前鋒的主場失球數和...",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "川崎前锋对神户胜利船 交手统计数据 | FootyStats - Loading",
+          "url": "https://footystats.org/cn/japan/vissel-kobe-vs-kawasaki-frontale-h2h-stats?early_season=disable#1",
+          "site": "FootyStats",
+          "date": null,
+          "authority": 3,
+          "score": 1.497181057929993,
+          "summary": "# 川崎前锋对神户胜利船数据、分析及正面交锋\n\n1.00\n...\n1.50\n...\n因为这是一个季前赛程，所以显示最近10次的统计数据。\n...\n## 正面交手统计数据 / 以前的结果 - 川崎前锋对神户胜利船\n...\n45%\n\n24%\n\n31%\n\n13 赢\n\n7 平局(24%)\n\n9 赢\n\n川崎前锋 vs 神户胜利船的交锋纪录显示29, 川崎前锋 13 次获胜且 神户胜利船 9 次获胜。 川崎前锋 和 神户胜利船之间有7次交锋在以和局告终。\n\n79%高于1.5\n\n23 / 29 赛事\n\n72%高于2.5\n\n21 / 29 赛事\n\n41%高于3.5\n\n12 / 29 赛事\n\n62%两队都得分\n\n18 / 29 赛事\n\n21%没有失球\n...\n## 所有预测- 川崎前锋对神户胜利船\n\n50%高于2.5\n\n联盟平均 : 62%\n\n50%高于1.5\n...\n76%\n\n50%两队都得分\n...\n2.50每场赛事进球数\n...\n3.17\n\n高于1.5进球，上半场/下半场 ＆ 更多\n\n高于 8.5, 9.5进球 & 更多\n\n*本赛季川崎前锋和神户胜利船之间的平均统计数据\n\n### 川崎前锋\n日本 - J1 League\n联赛位置. 13 / 20\n\n状态表\n\n结果\n\n场均得分\n\n主场\n\n1.00\n\n客场\n...\n总体\n...\n赢%\n\n0%\n...\n2.67\n\n4.00\n\n2.00\n...\n1.33\n\n2.00\n\n1.00\n...\n100%\n...\n没有失球\n...\n第一队入球\n...\nxG\n\n1.94\n\n2.19\n\n1.81\n\n预计失球数\n\n1.59\n\n1.47\n\n1.64\n\n这些统计数据是什么?\n...\n33%\n...\n0.50\n...\n1.13\n\n1.57\n\n0.91\n...\n1.21\n\n1.61\n\n1.01\n\n## 进球数 谁得分更多？\n\n川崎前锋 是+300% 更好 方面进球\n\n2 每场赛事进球数\n\n川崎前锋 (主场)\n\n0.5 每场赛事\n\n神户胜利船 (客场)\n\n全场\n\n上半场/下半场\n\n每场平均得分 | Kawasaki Frontale | Vissel Kobe \n---|---|---\n高于0.5 | 100% | 50% \n高于1.5 | 100% | 0% \n高于2.5 | 0% | 0% \n高于3.5 | 0% | 0% \n未能得分 | 0% | 50% \n\n上半场/下半场 得分 | Kawasaki Frontale | Vissel Kobe \n---|---|---\n上半场得分 | 100% | 50% \n下半场得分 | 100% | 0% \n上下半场均得分 | 100% | 0% \n上半场平均得分 | 1 | 0.5 \n下半场平均得分 | 1.00 | 0.00 \n\n*数据来源于 川崎前锋 的主场得分纪录和 神户胜利船 的客场数据。\n\n## 失球数 谁会失球？\n\n神户胜利船 是+75% 更好 方面失球\n\n2 每场球赛失球\n...\n0.5 每场赛事进球数\n...\n角球 / 比赛 | Kawasaki Frontale | Vissel Kobe \n---|---|---\n高于1.5 | 100% | 0% \n高于2.5 | 0% | 0% \n高于3.5 | 0% | 0% \n没有失球 | 0% | 50%\n...\n*数据来源于 川崎前锋的主场失球数和 神户胜利船的客场数据。\n\n## 大于 2.5球 &...",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "百度体育直播 川崎前锋 vs 神户胜利船 明天 18:00_百度体育",
+          "url": "https://tiyu.baidu.com/al/live/detail?matchId=5pel5pys6IGM5Lia6Laz55CD55Sy57qn6IGU6LWb77yISjHvvIkjMjAyNi0xMC0yMSPlt53ltI7liY3plIt2c%2BelnuaIt%2BiDnOWIqeiIuQ%3D%3D&tab=%E5%88%86%E6%9E%90",
+          "site": "百度体育",
+          "date": null,
+          "authority": 3,
+          "score": 1.452371597290039,
+          "summary": "日职联第11轮明天 18:00\n\n川崎前锋\n...\n神户胜利船\n...\n85人参与 截止时间 明天 18:00\n...\n历史战绩 (近6场)\n...\n同主客\n\n以下数据均为主队(川崎前锋)视角\n\n胜率 33%\n\n赢盘率 33%\n\n大球率 50%\n\n时间/赛事\n\n2025-06-21\n...\n2025-04-16\n...\n2024-08-07\n...\n2024-06-16\n...\n2024-02-17\n\n日超杯\n\n2023-08-12\n...\n对阵比分\n\n让球\n\n进球数\n\n川崎前锋 1 - 2 神户胜利船\n\n0.0\n\n输盘\n\n2.5\n...\n神户胜利船 2 - 1 川崎前锋\n\n0.5\n...\n川崎前锋 3 - 0 神户胜利船\n\n-0.25\n...\n2.75\n...\n神户胜利船 1 - 0 川崎前锋\n...\n小球\n\n神户胜利船 0 - 1 川崎前锋\n...\n川崎前锋 0 - 1 神户胜利船\n\n0.25\n...\n川崎前锋近期战绩 (近6场)\n...\n胜率 67%\n...\n2026-10-17\n...\n2026-10-14\n\n日联杯\n\n2026-10-11\n...\n2026-10-07\n\n天皇杯\n\n2026-09-29\n...\n2026-09-19\n...\n大阪樱花 2 - 4 川崎前锋\n...\n3.0\n...\n磐田喜悦 0 - 4 川崎前锋\n\n-0.75\n...\n川崎前锋 1 - 2 名古屋鲸八\n...\n3.25\n...\n川崎前锋 2 - 0 特格瓦嘉洛宫崎\n\n熊本深红 0 - 1 川崎前锋\n\n-1.5\n...\n川崎前锋 3 - 3 鹿岛鹿角\n\n0.0\n\n走盘\n...\n神户胜利船近期战绩 (近6场)\n...\n胜率 83%\n...\n2026-10-18\n...\n亚精英赛\n\n2026-10-09\n...\n2026-09-23\n...\n2026-09-20\n...\n2026-09-16\n...\n冈山绿雉 0 - 3 神户胜利船\n...\n2.25\n...\n神户胜利船 2 - 0 全北现代\n...\n柏太阳神 4 - 2 神户胜利船\n...\n神户胜利船 1 - 0 鸟栖砂岩\n\n1.25\n...\n大阪钢巴 0 - 1 神户胜利船\n...\n泰港 1 - 2 神户胜利船\n...\n赛前预测\n\n41%\n\n川崎前锋 本场胜率\n\n33%\n\n神户胜利船 本场胜率\n\n过去3年，相似赔率共出现523645次\n\n主场胜利平局客场胜利\n\n40% 28%平局 32%\n\n有利情报 不利情报\n\n1. 川崎前锋6场比赛4胜1平，状态出色。\n\n2. 川崎前锋近5场正赛连续进球，且场均进球达2.4球。\n\n1. 神户胜利船6场比赛5胜0平，状态出色。\n\n2. 本赛季联赛神户胜利船6客场，4胜0平2负，表现出色。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 3,
+        "goals": 0,
+        "none": 2,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 5,
+        "home_mentions": 3,
+        "away_mentions": 3
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周三003",
+      "league": "日乙",
+      "home": "大宫松鼠",
+      "away": "富山胜利",
+      "home_en": "大宫松鼠",
+      "away_en": "富山胜利",
+      "queries": [
+        "\"大宫松鼠 vs 富山胜利\" preview prediction lang:en",
+        "大宫松鼠 富山胜利 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "富山胜利客战RB大宫松鼠，郑又荣仍缺阵",
+          "url": "http://pc.dongqiudi.com/articles/6521840.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9337319135665896,
+          "summary": "# 富山胜利客战RB大宫松鼠，郑又荣仍缺阵\n\n富山胜利将在北京时间10月21日18:00客场对阵RB大宫松鼠。富山上轮主场1-1战平湘南比马，控球率、传球总数、传球成功率、传中总数、创造机会总数等数据均位列联赛前列，但主场已连续5场不胜，其中4场为平局。\n\n富山由安达亮执教，采用3-4-2-1阵型，追求控球风格。原韩国国家队中场郑又荣自第7轮起离队缺阵，但球队在首发阵容基本固定的情况下仍保持运转效率。\n\n上轮对阵湘南，富山全场射门18比5占优。第31分钟，谷本骏介从右侧送出斜向纵传，古川真人做球后插入禁区，金泰元送出最后一传，古川挑射破门。第73分钟富山被对手从左路突破扳平，补时阶段替补出场的小川庆次朗与门将一对一，左脚射门被封堵。\n\nRB大宫松鼠由佩拉赫执教，本轮对阵鸟栖砂岩遭遇赛季首败。原文称，RB大宫绝对要避免连败，预计开场就会展开激烈的主导权争夺。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "大宫松鼠主场迎富山胜利，两队仅差1分",
+          "url": "http://pc.dongqiudi.com/articles/6516882.html",
+          "site": "懂球帝",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.8578146696090696,
+          "summary": "# 大宫松鼠主场迎富山胜利，两队仅差1分\n\n2026/27赛季明治安田J2联赛第12轮将于10月21日进行，北京时间18:00开球的RB大宫松鼠主场对阵富山胜利是本轮数一数二的焦点战，排名第2的大宫与第4的富山直接对话。\n\n大宫上轮1-2不敌鸟栖砂岩，开局以来连续10场不败的纪录就此终结，但仍以5胜5平1负积20分排名第2。球队本赛季已打入21球，为联赛最多，卡利尼奥斯以7球成为队内头号得分手。\n\n富山上轮1-1战平湘南比马，联赛已连续7场不败，战绩为5胜4平2负积19分，与大宫仅差1分。球队进20球、失11球，攻守较为平衡，吉平翼和古川真人各入4球。\n\n这场比赛对大宫而言是赛季首败后能否立即重整旗鼓的考验，对富山则是取胜即可跃入自动升级区的机会，对追赶榜首仙台同样意义不小。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=2042108&gm=2532133",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.8122471570968628,
+          "summary": "排名: Regular Season 第2名\n\n赛季总成绩: 5胜 5平 1负\n\n赛季主场成绩: 3胜 2平 0负\n\n周三003 日乙>\n\n2026/2027 Regular Season 第12轮 2026-10-21 18:00\n...\nRegular Season 第4名\n...\n5胜 4平 2负\n\n赛季客场成绩: 4胜 0平 1负\n\n特征分析\n\n大宫松鼠 (主)\n\n1胜/2平/1负\n\n0胜/1平/1负\n\n2胜/5平/3负\n\n6胜/2平/2负\n\n1.6个\n\n1.4个\n\n近4场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n富山胜利 (客)\n...\n1胜/1平/0负\n\n4胜/4平/2负\n\n6胜/1平/3负\n...\n1.3个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n近4场大宫松鼠1胜 (25%) | 2平 (50%) | 1负 (25%)\n\n积分榜 日乙2026/2027\n\n大宫松鼠Regular Season 第2名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 11 | 5/5/1 | 45% | 21/11 | 10 | 20 | 2 \n主 | 5 | 3/2/0 | 60% | 11/4 | 7 | 11 | 5 \n客 | 6 | 2/3/1 | 33% | 10/7 | 3 | 9 | 4 \n\n富山胜利Regular Season 第4名 查看更多>\n...\n总 | 11 | 5/4/2 | 45% | 20/11 | 9 | 19 | 4 \n主 | 6 | 1/4/1 | 17% | 11/8 | 3 | 7 | 14 \n客 | 5 | 4/0/1 | 80% | 9/3 | 6 | 12 | 3 \n\n比赛近况\n...\n大宫松鼠近10场2胜 (20%) | 5平 (50%) | 3负 (30%)\n\n进16球，失14球，净进2球\n\n富山胜利近10场4胜 (40%) | 4平 (40%) | 2负 (20%)\n\n进16球，失13球，净进3球\n...\n射手信息 日乙2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n | 进球\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n9-Carlinhos(前锋) | 11 (11/0) | 7 (33%) | 1 (7%) | 0.6/0.1 \n14-T. Izumi(中场) | 11 (10/1) | 3 (14%) | 1 (7%) | 0.3/0.1 \n11-Caprini(前锋) | 11 (11/0) | 2 (10%) | 3 (20%) | 0.2/0.3\n...\n39-M. Furukawa(前锋) | 11 (11/0) | 5 (28%) | 2 (13%) | 0.5/0.2 \n9-T. Yoshihira(前锋) | 11 (6/5) | 4 (22%) | 2 (13%) | 0.4/0.2 \n11-金泰元(前锋) | 9 (4/5) | 2 (11%) | 1 (7%) | 0.2/0.1 \n\n伤停一览\n...\n暂...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "日职乙：RB大宫松鼠vs富山胜利预测分析 主场不败遇客场强势",
+          "url": "https://www.qiumiwu.com/news/2024640370136",
+          "site": "球迷屋",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.7810938358306885,
+          "summary": "# 日职乙：RB大宫松鼠vs富山胜利预测分析 主场不败遇客场强势\n\n看球老登 2026-10-20 18:37\n\n10月21日，日职乙第12轮迎来一场前列对话，RB大宫松鼠坐镇主场迎战富山胜利。前11轮战罢，主队5胜5平1负拿到20分，排第2，进21球失11球；客队5胜4平2负积19分排第4，进20球失11球。1分差距让这场比赛分量不只在3分本身，还关系到谁能留在积分榜前端。\n\nRB大宫松鼠前11轮场均1.9个进球、1.0个失球，主场战绩为3胜2平0负，打入11球丢4球。最近一场客场面对鸟栖砂岩，控球率61%、射正5次，直到第83分钟才由加藤圣追回1球，仍以1比2落败。进攻端卡利尼奥斯已有7球入账，射门33次，泉柊椰完成13次射正，加藤圣送出4次助攻。2025年6月9日，志村滉小腿受伤，目前仍在伤情记录中。上一场球队排出4-3-3，本场延续这一结构可能性更大。\n\n富山胜利上一场与湘南丽海1比1收场，该场射正与射偏同为11次，角球有7次，古川真人在第31分钟接金泰元助攻首开纪录，第72分钟被对手扳平。前11轮客队场均进1.8球、失1.0球，客场战绩为4胜0平1负，打入9球丢3球。古川真人联赛5球、射正10次，金泰元完成27次射门，高桥馨希有2次助攻。上一场采用3-4-2-1，本场继续这一阵型可能性不小。\n\n前11轮，主队场均完成14.5次射门，其中5次射正，进球转化率为13.1%；客队场均20.5次射门、7次射正，转化率为8.8%。富山胜利累计75个角球、183次关键传球，主队分别为54个和117次；客队快攻转化率仍为0%，快攻端尚未转化成进球。主队传球成功率为77.1%，客队为83.8%。两队此前4次相遇，主队取得1胜2平1负，2025年8月2日曾在客场以2比0战胜富山胜利。\n\n积分榜上20分与19分紧挨着，RB大宫松鼠联赛主场尚未输球，富山胜利在联赛客场拿到4胜0平1负。主场不败遇上客场强势，RB大宫松鼠能否守住，富山胜利又能否延续客场拿分？\n\n## RB大宫松鼠vs富山胜利胜平负预测\n\n球迷屋对本场比赛给出胜平负预测：RB大宫松鼠胜率25%，平率47%，富山胜利胜率28%。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场不败"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "日职乙比赛前瞻：RB大宫松鼠vs富山胜利预测分析(2026年10月21日)",
+          "url": "https://www.qiumiwu.com/news/2024463441934",
+          "site": "球迷屋",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.765517234802246,
+          "summary": "# 日职乙比赛前瞻：RB大宫松鼠vs富山胜利预测分析(2026年10月21日)\n\n后卫绝杀王 2026-10-20 11:38\n\n【日职乙】RB大宫松鼠vs富山胜利，将于北京时间10月21日18点00分进行。赛前排行数据：RB大宫松鼠当前战绩为5胜5平1负，积分20，排在联赛第2名；富山胜利当前战绩为5胜4平2负，积分19，排在联赛第4名。下面分享具体的比赛前瞻RB大宫松鼠vs富山胜利预测分析：\n\n## RB大宫松鼠vs富山胜利预测分析\n\nRB大宫松鼠情报消息：\n\n近6场赛事取得2胜2平2负，进13球失9球，胜率33%\n[日职乙] 2026-10-17 鸟栖砂岩（2 : 1）RB大宫松鼠\n[日职乙] 2026-10-10 RB大宫松鼠（3 : 1）八户于南乡\n[天皇杯] 2026-10-07 浦和红钻（3 : 2）RB大宫松鼠\n[日职乙] 2026-10-04 宫崎棒牛鸟（1 : 1）RB大宫松鼠\n[日职乙] 2026-09-26 RB大宫松鼠（5 : 1）甲府风林\n[日职乙] 2026-09-19 藤枝MYFC（1 :\n...\n近6主场取得4胜2平0负，进13球失4球，胜率67%\n...\n[日职乙] 2026-09-12 RB大宫松鼠（0 : 0）大分三神\n[日职乙] 2026-08-29 RB大宫松鼠（2 : 2）湘南丽海\n[天皇杯] 2026-08-26 RB大宫松鼠（2 : 0）八户于南乡\n[日职乙] 2026-08-08 RB大宫松鼠（1 : 0）新潟天鹅\n\n球队伤病最新报告：\n[门将]志村滉，小腿受伤，开始日期2025年06月09日\n\n富山胜利情报消息：\n\n近6场赛事取得2胜3平1负，进11球失9球，胜率33%\n[日职乙] 2026-10-17 富山胜利（1 : 1）湘南丽海\n[日职乙] 2026-10-11 富山胜利（1 : 1）宫崎棒牛鸟\n[日职乙] 2026-10-03 甲府风林（1 : 2）富山胜利\n[日联杯] 2026-09-29 富山胜利（2 : 3）浦和红钻\n[日职乙] 2026-09-26 富山胜利（3 : 3）横滨FC\n[日职乙] 2026-09-19 山形山神（0 :\n...\n近6客场取得5胜0平1负，进11球失6球，胜率83%\n...\n[日职乙] 2026-09-06 磐田喜悦（0 :\n...\n[日联杯] 2026-09-02 宫崎棒牛鸟（1 :\n...\n[天皇杯] 2026-08-26 鸟栖砂岩（4 :\n...\n[日职乙] 2026-08-15 秋田蓝闪电（0 : 4）富山胜利\n...\n暂无伤病球员\n\n双方交战数据：\n\n2025-08-02 富山胜利（0 :\n...\n2025-05-03 RB大宫松鼠（2 : 2）富山胜利\n2024-11-24 RB大宫松鼠（1 :\n...\n2024-06-16 富山胜利（1 : 1）RB大宫松鼠\n\nRB大宫松鼠联赛排名2，5胜5...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 0,
+        "draw": 1,
+        "goals": 0,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 3,
+        "zh": 5,
+        "home_mentions": 5,
+        "away_mentions": 5
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周三004",
+      "league": "欧冠",
+      "home": "科莫",
+      "away": "曼联",
+      "home_en": "Como",
+      "away_en": "Man Utd",
+      "queries": [
+        "\"Como vs Man Utd\" preview prediction lang:en",
+        "科莫 曼联 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Como v Man Utd: Prediction, team news, lineups and odds",
+          "url": "https://onefootball.com/en/news/como-v-man-utd-prediction-team-news-lineups-and-odds-43641774",
+          "site": "OneFootball",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.4322625446624553,
+          "summary": "# Como v Man Utd: Prediction, team news, lineups and odds | OneFootball\n\nFootball365\n\n·20 October 2026\n...\nManchester United are aiming to get back to winning ways when they face Cesc Fabregas’ Como in the Champions League.\n\nA 1-1 draw at Leeds extended their winless streak to six consecutive matches across all competitions, with their last win coming against Sabah in the Champions League opener.\n...\nThe Red Devils lost 2-0 away at Atletico Madrid on matchday two, while Como are also on three points in the competition after a 4-1 win over RB Leipzig and a 3-2 defeat at Feyenoord.\n\n### Como v Man Utd kick-off time\n\nComo v Man Utd kicks off at 5.45pm BST on Wednesday, October 21 at the Stadio Giuseppe Sinigaglia.\n\n### Como v Man Utd how to watch\n\nThe game will be shown live in the UK via TNT Sports 2 and HBO Max, with coverage starting from 5pm.\n\nTalkSPORT 2 will provide full match commentary.\n\n### Como team news\n\nComo picked up three points against Fiorentina last weekend, but also suffered a double injury blow during their trip to Florence.\n\nYan Couto withdrew from the starting line-up after experiencing discomfort during the warm-up, while former Chelsea centre-back Trevoh Chalobah was forced off in the 14th minute with an ankle injury.\n\nIvan Smolcic and Jacobo Ramon replaced the pair, who will now need late fitness tests to decide if they can play against United.\n\nAssane Diao opened the scoring against Feyenoord but had to be replaced after picking up a thigh injury, and he may not return until after the next international break.\n\nStriker Moise Kean is also expected to miss the game due to a knee injury, with Anastasios Douvikas set to lead the line.\n\n### Man Utd team news\n\nLisandro Martinez kept his place in the starting line-up against Leeds after apologising for his explosive comments about United’s hierarchy, but he felt a problem in his thigh during the first half and was replaced at half-time.\n\nThe Argentina international is now a doubt for the game against Como, and United are currently short of options at centre-back.\n\nLeny Yoro has to serve a one-match suspension following his red card against Atletico Madrid, while Ayden Heaven missed the draw at Leeds through illness.\n\nMatthijs de Ligt has been an unused substitute in the last two games and isn’t yet ready to start, having not made a competitive appearance since November 2025.\n\nNoussair Mazraoui played the second half at Leeds after recovering from a back injury and should start in one of the full-back positions, with Diogo Dalot on the opposite flank.\n\nKobbie Mainoo and Luke Shaw are both doubts after missing the last two games, while Patrick Dorgu (hamstring), Benjamin Sesko (shin) and Manuel Ugarte (knee) remain sidelined.\n\n### Como v Man Utd odds\n\nComo are the 5/4 favourites to win the game and move on to six points in the league phase.\n\nUnited are 19/10 to do likewise, while The Draw is 11/4.\n\nIn the outright betting, United are 33/1 to win the Champions League, and Como are 80s.\n\n### Como v Man Utd prediction\n\nWhile United have shown signs of improvement in their last two games, a 2-0 defeat to Atletico Madrid and a 1-1 draw with Leeds have done little to ease the pressure on Michael Carrick.\n\nTheir only two wins this season have been at Old Trafford, and they have also won just one of their last 10 away Champions League matches, drawing three and losing six.\n\nComo had a dream home Champions League debut with a 4-1 win over RB Leipzig and have now lost just one of their last 10 matches at home in all competitions, a record going back to February this year.\n\nBut the Serie A side have only kept one clean sheet in all competitions this season, and United have enough attacking firepower to get on the scoresheet.\n\nWe’re backing United to come away with a point, so a draw and Both Teams to Score is worth a punt at 3/1.\n\nThree of United’s last four games have finished 1-1, and a repeat of that scoreline can be backed at 6/1.\n\nDouvikas netted against both RB Leipzig and Feyenoord and is averaging a goal every 47.5 minutes in the Champions League this season.\n\nThe striker also has three goals in six Serie A starts and is 6/4 to find the back of the net against United.\n\nBryan Mbeumo has played through the middle since the international break and has scored two goals in...",
+          "side": "goals",
+          "neg": true,
+          "hits": [
+            "both teams to score"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "UEFA Champions League Preview: Como vs Manchester United – Team News, Lineups & Prediction",
+          "url": "https://onefootball.com/en/news/uefa-champions-league-preview-como-vs-manchester-united-team-news-lineups-prediction-43642361",
+          "site": "OneFootball",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.3973920683683603,
+          "summary": "# UEFA Champions League Preview: Como vs Manchester United – Team News, Lineups & Prediction | OneFootball\n\nThe Cult of Calcio\n\n·20 October 2026\n...\nArguably the biggest night in the history of the Giuseppe Sinigaglia Stadium pits Como against Manchester United in a high-stakes UEFA Champions League showdown. Wednesday’s clash finds two teams in starkly contrasting circumstances.\n\nComo produced another emphatic performance at the weekend, beating Fiorentina 3-1 in Tuscany to end a three-game winless streak in all competitions (D1, L2). That underwhelming run featured a 3-2 defeat at Feyenoord in their last Champions League outing, which canceled out their heroics from matchday one.\n...\nIt was a dream European debut for Cesc Fabregas’ side as they humbled RB Leipzig 4-1 at this venue, putting themselves in a position to become the first Serie A team since Lazio in 1999/2000 to win their first two Champions League home matches. However, Lariani should know better than to take anything for granted against the three-time European champions.\n\nGlory days are long gone at Old Trafford, but Como can ill afford to underestimate Manchester United. Under-fire boss Michael Carrick is standing on the precipice of an expulsion amid the Red Devils’ dreadful start. They’ve won just two of their ten competitive games in 2026/27 so far (D4, L4) and are currently on a six-game winless streak in all competitions.\n\nDesperate to end their longest such run since 2019, Man Utd will be out to make amends for a 2-0 defeat at Atletico Madrid last week and get their faltering Champions League campaign back on track.\n\n### Match Preview\n\nComo\n\nWith high-profile clashes against high-flying La Liga leaders Barcelona and reigning European champions Paris Saint-Germain still yet to come, Como must make the most out of their next few Champions League outings, including this one. Playing at the Sinigaglia should inspire confidence in Fabregas’ camp, given that the Lariani have only lost one home match since February (W6, D3).\n\nIt’s also worth noting that they won their first two home games this season by an aggregate score of 6-2 before being held to a frustrating scoreless draw by a 10-man Roma side last time out. Another dull contest is unlikely to take place on Wednesday, especially considering the fact that three of Como’s last four fixtures have featured at least two first-half goals.\n\nMeanwhile, if there’s a man aware of the gravity of the threat Man Utd could pose, it’s Fabregas. The former Arsenal, Barcelona, and Chelsea star faced the Red Devils 24 times during his illustrious playing career. He’s likely to put his side’s fate into the hands of in-form striker Tasos Douvikas, who has scored in both Champions League appearances this term.\n...\nAnything other than a win in Italy could spell the end of Carrick’s tenure at the Theatre of Dreams, but Man Utd’s recent continental struggles paint a bleak picture for the former midfielder. Atletico Madrid inflicted United’s sixth defeat across their last nine Champions League matches (D3, L6), overshadowing their 4-0 victory over Sabah Baku on the opening matchday.\n\nFurthermore, the Red Devils have traveled poorly of late, picking up just one win in their last ten Champions League away games (D3, L6). Even the most optimistic Man Utd fans would not dare to dream big here, knowing the 20-time English champions have yet to win a competitive fixture on the road this season (D3, L2).\n\nAs if that’s not ominous enough, the visitors have conceded two or more goals in eight of their last ten Champions League away outings, perhaps best summarising their travel sickness. Against this backdrop, a six-game unbeaten away run against Italian opposition (W3, D3), stretching back to 2007, offers a glimmer of hope to Carrick that he could dodge the bullet tomorrow.\n\n### Team News\n\nApart from the injured Assane Diao, Como must also perform late checks on Trevoh Chalobah and Moise Kean, who are both at risk of missing this showdown due to minor fitness problems. Even if deemed fit, Kean would likely start on the bench, with Douvikas expected to lead the line alongside Nico Paz and Martin Baturina.\n\nMeanwhile, Man Utd are still without former Serie A star Patrick Dorgu and Slovenian striker Benjamin Sesko. Leny Yoro is also unavailable for selection after being sent off against Atletico Madrid. Lisandro Martinez is likely to take the Frenchman’s place in the starting lineup and partner up with Harry Maguire at the heart of Carrick’s defense.\n\n### Como vs Manchester United Potential Starting...",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Como vs Man Utd Prediction: Champions League Preview | Opta Analyst",
+          "url": "https://theanalyst.com/articles/como-vs-man-utd-prediction-champions-league-preview-10-2026",
+          "site": "Opta Analyst",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.3450863539272175,
+          "summary": "# Como vs Man Utd Prediction: Champions League Preview\n\nWe look ahead to Wednesday’s Champions League clash at Stadio Giuseppe Sinigaglia with our Como vs Man Utd prediction and preview. Can the Red Devils end their winless streak?\n\n## Como vs Man Utd: The Key Stats\n\n- Como are slight favourites to win this one according to the Opta supercomputer, doing so in 41.7% of pre-match simulations.\n- Manchester United have just one win from their last 10 Champions League away matches (D3 L6), and have only kept one clean sheet in their last 15 on the road.\n- Como are aiming to become the first Italian side to win their first two home games in the European Cup/Champions League since Lazio in 1999-2000.\n\nManchester United will look to ease the pressure on Michael Carrick and put their recent struggles behind them when they resume their Champions League campaign against Como.\n\nFollowing Sunday’s 1-1 draw with cross-Pennine rivals Leeds United, in which Dominic Calvert-Lewin cancelled out Bryan Mbeumo‘s first-half effort, Carrick has now overseen a six-match winless run in all competitions (D3 L3).\n\nThe Red Devils have been unable to build on the momentum of their 4-0 rout of Sabah on Matchday 1, beaten 2-0 by Atlético Madrid in Spain last week.\n\nPablo Barrios struck after just 47 seconds as United conceded in the opening minute of a Champions League game for only the fourth time – also doing so against Juventus in October 1997, Barcelona in November 1998, and Basel in November 2002.\n\nLeny Yoro was sent off for a professional foul in the 74th minute – meaning he will miss Wednesday’s trip to Italy – before Ademola Lookman condemned the Red Devils to their sixth defeat in nine Champions League matches (W1 D2).\n\nMan Utd only lost 21% of their 190 matches in the competition under Alex Ferguson (W102 D49 L39). Since his retirement, though, they have been beaten in 38% of their 56 games (W24 D11 L21).\n\nLast week’s reverse at the Metropolitano also marked a sixth defeat in 10 Champions League outings away from Old Trafford (W1 D2), while they have only kept a single clean sheet in their last 15 such matches on the road (a 2-0 victory over Villarreal in November 2021).\n\nUnited did have their chances in Madrid, though. They created four big chances without scoring any, their most without scoring in a Champions League game since September 2012 against Galatasaray (also 0/4).\n\nCarrick will be looking for inspiration in Lombardy from the likes of Marcus Rashford, who could make his 50th Champions League appearance (34 for Man Utd, four for Aston Villa, 11 for Barcelona). Harry Kane (34), Raheem Sterling (20) and Andrew Cole (18) are the only English players to better Rashford’s tally of 17 goals in their first 50 games in the competition.\n\nMeanwhile, Como and Cesc Fàbregas will hope Assane Diao can shine again following his impressive start to the Champions League campaign.\n\nAfter scoring in the 4-1 win over RB Leipzig and last week’s 3-2 defeat at Feyenoord, the Senegal international became only the third player to find the net in an Italian club’s opening two Champions League matches, after Alessandro Del Piero for Juventus in 1995, and former Man Utd striker Edinson Cavani for Napoli in 2011.\n\nAt 21 years and 37 days old, Diao also became the youngest African player to find the target in both his first two appearances in the competition.\n\nHowever, his exploits last week in Rotterdam were not enough to prevent Como from becoming the 10th successive Italian side to fail to win their first away game in the Champions League (D4 L6).\n\nI Lariani did make history, though, as only the second team not to name a single player from their own nation in the starting XI for either of their first two matches in the competition, after Sheriff Tiraspol in 2021-22.\n\nYet, Italy under-21 international Mattia Liberali did his hopes of featuring from the start on Matchday 3 no harm on Sunday, as he scored in a 3-1 victory at Fiorentina that ended his side’s three-game winless streak in all competitions.\n\nThe only negative from Florence was the early withdrawal of Trevoh Chalobah, who faces a race to be fit...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "How to watch Como vs Manchester United live: Stream, TV, team news, prediction",
+          "url": "https://www.nbcsports.com/soccer/news/how-to-watch-como-vs-manchester-united-live-stream-tv-team-news-prediction",
+          "site": "NBC Sports",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.3450863539272175,
+          "summary": "# How to watch Como vs Manchester United live: Stream, TV, team news, prediction\n\nPublished October 20, 2026 06:37 AM\n...\nFairytale story Como host struggling giants Manchester United in the UEFA Champions League on the banks of Lake Como on Wednesday.\n\nCesc Fabregas has done a wonderful job as Como have only been in Serie A for the last two years and finished fourth last season. They have built a very solid squad with plenty of savvy loan signings, and hammered RB Leipzig 4-1 in their Champions League opener at home before losing 3-2 at Feyenoord last week. Fabregas has created an exciting, attacking team and their tiny stadium is perhaps the most picturesque in Europe and it will be rocking.\n\nMichael Carrick is rocking at the start of this season, as United have won just two of their first 10 games. They grabbed a draw at Leeds on Sunday but were well beaten at Atletico Madrid last week. There are signs United are looking a bit more solid and their new-look midfield is starting to gel. But they need their talented attackers to hit top form as it’s all very clunky and predictable at the moment.\n\n## How to watch Como vs Manchester United live, stream link and start time\n\nKick off time: 12:45pm ET Wednesday (October 21)\nVenue: Stadio Giuseppe Sinigaglia — Como, Italy\nTV Channel/Streaming: Paramount+\n\n## Como team news\n\nThe likes of Robert Sanchez, Trevoh Chalobah, Nico Paz and Moise Kean are all names we know well, while Fabregas has some emerging stars with French international Lucas Da Cunha a real talent in midfield. Greek forward Anastasios Douvikas is the main threat up top and Como love to play direct, free-flowing football and push high up the pitch. Como need to get points on the board early in the Champions League as their final two league phase games are against PSG and Barcelona.\n\n## Manchester United team news\n\nUnited badly need a confidence-boosting win and Carrick could stick to the back three he used at Leeds at the weekend. It worked well and gave them more control in the game, while also being able to switch easily to a back four when in possession. Leny Yoro is suspended, while Kobbie Mainoo and Luke Shaw remain doubts and Lisandro Martinez and Marcus Rashford didn’t train on Tuesday with Ayden Heaven missing the session through sickness. The most important thing for Carrick is getting the most out of Bruno Fernandes, Matheus Cunha and Bryan Mbeumo in attack. In midfield Carlos Baleba is really impressing, while fellow new signings Andrey Santos and Youri Tielemans are starting to settle down too.\n\n## Como vs Manchester United prediction\n\nThis feels like it will be quite fun and United will edge it on the counter attack. Como 2-3 Manchester United.",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "小法谈科莫战曼联：3年前还在意乙，如今在科莫湖畔等红魔",
+          "url": "https://beta.dongqiudi.com/articles/6521428.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.073992577692521,
+          "summary": "# 小法谈科莫战曼联：3年前还在意乙，如今在科莫湖畔等红魔\n\n法布雷加斯说，他刚加盟科莫时，等曼联来辛尼加利亚球场踢欧冠简直是\"不可想象\"的事。\n\n本周四这场在朱塞佩·辛尼加利亚球场的对决，是两支球队历史上的首次交锋。欧冠联赛阶段前两轮过后，双方同积3分。\n\n科莫的首次欧战之旅以一场大胜莱比锡开局，但上一轮2比3不敌费耶诺德。曼联则没能延续4比0击败萨巴赫的势头，0比2负于马德里竞技，2026-27赛季的平淡开局仍在继续。\n\n法布雷加斯与卡里克将以对手主帅的身份碰面。17年前，两人曾以球员身份在2008-09赛季欧冠半决赛两回合中各为其主——阿森纳对阵曼联，红魔以总比分4比1晋级。\n\n科莫正力争成为自1999-2000赛季拉齐奥以来，首支在欧冠前两个主场均取胜的意大利球队。面对英超豪门，法布雷加斯非常享受这个时刻。\n\n\"他们是一支很棒的球队。就在3年前，我们还在意乙的时候，曼联可能来辛尼加利亚比赛，那是不可想象的，\"法布雷加斯说。\n\n\"但周中，这一切真的会发生。对我们来说，这是梦想成真，我们会抓住机会。\"\n\n自上赛季开始以来，欧冠中意大利球队与英格兰球队共交手6次，英超球队赢下其中5场，唯一的例外是亚特兰大2比1战胜切尔西。\n\n但曼联眼下状态糟糕，各项赛事近6场不胜，4平2负。本赛季英超前7轮，曼联仅赢1场，4平2负，这是球队自1986-87赛季以来同期的顶级联赛最少胜场纪录。\n\n科莫则在意甲势头正盛。周日3比1击败佛罗伦萨后，科莫位列积分榜第5，落后榜首国际米兰5分。\n\n自意甲进入3分制时代以来，科莫前7轮拿到14分，追平了1950-51赛季的队史同期积分纪录——当时球队同样是4胜2平1负。\n\n\"为这样的比赛做准备当然很棒，但我们绝不能忘记，意甲对我们来说才是最重要的，\"法布雷加斯补充道。\n\n\"对我们来说，每一天都是成长中重要的一步。我们是一家新俱乐部——不是说没有历史，而是因为3年前我们是从零开始的。所以，在很多情况的处理上，我们必须小心谨慎。\"",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "4 比 1"
+          ]
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 1,
+        "none": 4,
+        "neg": 1
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 1,
+        "home_mentions": 1,
+        "away_mentions": 1
+      },
+      "scores": [
+        "4 比 1"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周三005",
+      "league": "欧冠",
+      "home": "里尔",
+      "away": "加拉塔萨",
+      "home_en": "Lille",
+      "away_en": "加拉塔萨",
+      "queries": [
+        "\"Lille vs 加拉塔萨\" preview prediction lang:en",
+        "里尔 加拉塔萨 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "專業分析 - 里爾鋒力減捧和",
+          "url": "https://football.hkjc.com/zh-hk/preview-summary/details-page?path=MatchPreview/2026-10/19/FB7270&Expert=&MatchID=FB7270&Title=%E9%87%8C%E7%88%BE%E9%8B%92%E5%8A%9B%E6%B8%9B%E6%8D%A7%E5%92%8C&b_cid=SPFBSPA_PreviewHome_AllArticle_FB7270",
+          "site": "香港賽馬會",
+          "date": null,
+          "authority": 3,
+          "score": 1.765517234802246,
+          "summary": "## 里爾鋒力減捧和\n\n推介: 主客和 – 和\n...\n半場主客和 – 和\n\n軍情\n\n里爾主力中場伊登麥巴比要繼續停賽，重心射手上田綺世上仗歐聯受傷，繼續缺陣，大大削弱了鋒力，前線要由老將基奧特支撐。主力右閘泰亞高山度士重傷長休，其位置已改由麥斯馬高菲擔正；但此子表現平平，防守欠穩。\n\n加拉塔沙雷主力防中盧卡斯托拉拿上仗歐聯傷出，今場缺陣，影響攻守連繫。星級翼鋒拉菲爾利亞奧早前土超後備登場，卻又傷出，今場難望登場，又是一大打擊。近期傷癒回歸的王牌前鋒域陀奧森漢，狀態始終未復舊觀，暫難有太大期望。\n\n里爾\n\n受傷：泰亞高山度士（後衛）、上田綺世（前鋒）\n\n停賽：伊登麥巴比（中場）\n...\n受傷：韋費特辛高（後衛）、盧卡斯托拉拿（中場）、拉菲爾利亞奧（前鋒）\n...\n近況\n\n里爾上仗歐聯淨吞阿仙奴3蛋，聯賽階段2戰全敗，未具頂級質素；近期表現反覆，今場雖有地利，但鋒力不太可靠，不宜高估。加拉塔沙雷上仗歐聯以1比4大敗巴塞隆拿腳下，對手太強，輸得合理，同是歐聯2戰全敗，質素一般，客場戰力再打折扣；今場與里爾旗鼓相當，難分高低，半和、全和皆可兼投。\n\n往績\n\n‧雙方近年未有交手。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "利爾硬撼加拉塔沙雷",
+          "url": "https://news.7m.com.cn/news/20261020/743186.shtml",
+          "site": "7M足球新闻",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.679845690727234,
+          "summary": "利爾硬撼加拉塔沙雷\n\nwww.7m.com.cn 2026年10月20日 来源：澳彩\n\n週四凌晨，歐冠聯聯賽階段第三輪，利爾將坐鎮主場迎戰加拉塔沙雷。利爾過去6次歐戰面對土超隊伍有多達4次以和局告終，兩隊今季聯賽階段都以失利告終，雙方猶如水兵鬥水手，一場和局無法避免。\n\n利爾聯賽階段賽程比較艱辛，開局前2輪都面對五大聯賽對手，最終都吞下敗仗，得失球比為2比6。值得留意的是，利爾已經連續10場歐冠聯比賽未能保持清白之軀，他們的防線歐冠聯賽場難以抵擋對手侵襲。既然防守端如此不濟，相信利爾今鋪會以攻代守，球隊近8場歐冠聯主場都有入球，並且都在上半場破門率先取得領先，奧利維亞.基奧特領銜的攻擊線今仗將繼續保持侵略性。陣容方面，迪亞高山度士因傷倦勤，伊頓.麥巴比停賽受罰。\n\n加拉塔沙雷與利爾在今季歐冠聯簡直是難兄難弟，但球隊班底並不弱，尤其在鋒線上，域陀.奧森漢雖然征戰土超，但依然被不少五大聯賽豪門球會關注，此子今仗重返老東家，話題性十足。不過加拉塔沙雷過去6場歐冠聯聯賽階段只得1和5負，歐冠聯作客更是慘遭五連敗，加拉塔沙雷此行想要帶走3分難度不言而喻，能夠帶走1分已算心滿意足。不過加拉塔沙雷近8場歐冠聯比賽上半場都有入球，他們或將上半場就與利爾展開對攻戰。人腳方面，拉菲爾.利亞奧傷缺。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "豪强集结！传足特色奖期第26208期聚焦欧冠赛事",
+          "url": "https://www.sporttery.cn/ctzc/zjdp/20261020/10056150.html",
+          "site": "竞彩网",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.648983597755432,
+          "summary": "传足特色奖期第26208期聚焦欧冠赛事\n\n2026-10-20 17:18 竞彩网\n...\n传足4/6场游戏特色奖期第26208期竞猜对象为2026-27赛季欧冠联赛阶段赛事，具体对阵为科莫VS曼彻斯特联、里尔VS加拉塔萨雷、阿斯顿维拉VS维京、拜仁慕尼黑VS阿森纳、皇家贝蒂斯VS费耶诺德和皇家马德里VS莱比锡红牛。\n...\n里尔VS加拉塔萨雷，里尔新赛季表现差强人意，欧冠赛场球队两连败，加拉塔萨雷同样欧冠两连败，两队取分意愿强烈。本场里尔小将伊森・姆巴佩红牌停赛，上田绮世出场待定，蒂亚戈・桑托斯、伊加马内等人伤缺。加拉塔萨雷门将居文克、后卫辛戈因伤无法出战。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Preview: Lille vs Galatasaray - prediction, team news, lineups - Sports Mole",
+          "url": "https://www.sportsmole.co.uk/football/lille/champions-league/preview/lille-vs-galatasaray-prediction-team-news-lineups_607256.html",
+          "site": "Sports Mole",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.5798097848892212,
+          "summary": "Champions League Gameweek 3\n\nOct 21, 2026 5.45pm\n\n# Preview: Lille vs Galatasaray - prediction, team news, lineups\n\nLille welcome Galatasaray to the Decathlon Arena - Stade Pierre-Mauroy on Wednesday evening for a UEFA Champions League league-phase encounter between two sides desperate to claim their first European points of the campaign.\n\nBoth teams have endured difficult starts in Europe despite showing greater consistency in their domestic competitions, with the hosts suffering a 3-0 defeat away to Arsenal last time out, while Cimbom were beaten 4-1 at home by Barcelona.\n\n## Match preview\n\nLille return to Champions League action after their disappointing defeat at Arsenal, where three second-half goals condemned Davide Ancelotti's side to another European setback.\n\nThe French club competed reasonably well before the interval but struggled to contain Arsenal after the hosts increased the tempo, with Jurrien Timber, Eberechi Eze and Bukayo Saka finding the net in the second half.\n\nThat result followed a 3-2 home defeat to Real Betis in Lille's opening league-phase fixture, leaving them without a point after two matches, while their defensive shortcomings have proved particularly costly, with five goals conceded across those encounters.\n\nHowever, Les Dogues’ domestic performances have offered considerably more encouragement, drawing 1-1 with Brest in their most recent league outing, recovering from an early deficit through an Olivier Giroud penalty in the second half.\n\nAlthough the draw prevented them from securing another victory, Lille extended their unbeaten home run in Ligue 1 this season to four matches, recording two wins and two draws, which represents a contrast to their UCL home form, having lost their last three home matches in the competition.\n\nLille will also be looking to preserve their unbeaten record against Turkish opposition, having won twice and drawn four times in six previous meetings with clubs from the country, with both victories coming in three home matches, alongside one draw, although Wednesday's encounter will be their first meeting with Galatasaray.\n\nGalatasaray, meanwhile, arrive in France after securing a 1-0 victory away to Genclerbirligi in the Super Lig, as Deniz Gul scored the decisive goal in the 88th minute, ensuring the Istanbul side remained top of the standings with 19 points.\n\nOkan Buruk's side have been less convincing in Europe, however, losing 3-1 away to Sporting in their opening fixture before suffering a 4-1 home defeat against Barcelona.\n\nAgainst the Spanish champions, Galatasaray took the lead through Aleksey Batrakov but could not maintain their advantage, conceding four times in a 22-minute spell as Barcelona took control and left the Turkish champions still searching for their first points of the league phase.\n\nHistory offers little encouragement ahead of their trip to France where Galatasaray have won only once in their previous 11 away matches against French opposition – winless in their last six away matches in France, drawing twice and losing four times, while their overall record against French clubs across their last 11 encounters stands at two wins, four draws and five defeats.\n\nFurthermore, the visitors have lost their last five Champions League away matches and eight of their last nine, with just one victory in that sequence, a poor record on the road that raises the prospect of another difficult evening as they attempt to avoid beginning a Champions League campaign with three consecutive defeats for the first time since 1997-98.\n\nLille Champions League form:\n\n- L\n- L\n\nLille form (all competitions):\n\n- W\n...\n- D\n\nGalatasaray Champions League form:\n...\nGalatasaray form (all competitions):\n...\n## Team News\n\nLille will be without Tiago Santos, who is recovering from a serious knee injury, while Ethan Mbappe is suspended.\n\nAyase Ueda is also a doubt after picking up a foot problem, and goalkeeper Berke Ozer has been listed as doubtful, leaving Orlando Gill with an opportunity to make his European debut after making his club debut against Brest.\n\nLille have also struggled defensively in the Champions League, having gone 10 matches without keeping a clean sheet, Gill will therefore be hoping to help the hosts address that weakness if he is selected.\n\nGalatasaray are expected to be without Rafael Leao, who has reportedly been struggling with a groin problem following the weekend match against Genclerbirligi, and his absence would deprive him of the opportunity to return to Lille, where he scored eight goals in 26 appearances during the 2018-19 campaign.\n\nWilfried Singo remains a doubt with a thigh injury, leaving Buruk with a potential decision to make in defence.\n\nVictor Osimhen will be hoping to make the difference on his return to his former club, where he scored 18 goals in 38 appearances during the 2019-20 season.\n\nLille possible starting lineup:\n\nGill; Goffi, Ngoy, Alexsandro,...",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=2042110&gm=2633768",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.5346684455871582,
+          "summary": "排名: League Stage 第34名\n\n赛季总成绩: 0胜 0平 2负\n\n赛季主场成绩: 0胜 0平 1负\n\n周三005 欧冠>\n\n2026/2027 League Stage 第3轮 2026-10-22 00:45\n...\nLeague Stage 第35名\n...\n赛季客场成绩:\n...\n特征分析\n\n里尔 (主)\n\n0胜/0平/0负\n...\n4胜/3平/3负\n\n4胜/4平/2负\n\n1.3个\n\n1.2个\n\n近0场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n加拉塔萨 (客)\n...\n6胜/1平/3负\n\n5胜/1平/4负\n\n2.0个\n\n1.9个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n近0场里尔0胜 (0%) | 0平 (0%) | 0负 (0%)\n\n暂无数据\n\n积分榜 欧冠2026/2027\n\n里尔League Stage 第34名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 2 | 0/0/2 | 0% | 2/6 | -4 | 0 | 34 \n主 | 1 | 0/0/1 | 0% | 2/3 | -1 | 0 | 28 \n客 | 1 | 0/0/1 | 0% | 0/3 | -3 | 0 | 31 \n\n加拉塔萨League Stage 第35名 查看更多>\n...\n总 | 2 | 0/0/2 | 0% | 2/7 | -5 | 0 | 35 \n主 | 1 | 0/0/1 | 0% | 1/4 | -3 | 0 | 35 \n客 | 1 | 0/0/1 | 0% | 1/3 | -2 | 0 | 25 \n\n比赛近况\n...\n里尔近10场4胜 (40%) | 3平 (30%) | 3负 (30%)\n\n进13球，失12球，净进1球\n\n加拉塔萨近10场6胜 (60%) | 1平 (10%) | 3负 (30%)\n\n进20球，失19球，净进1球\n\n未来赛事\n...\n比赛日期 | 赛制 | \n主队\n...\n| 轮次\n...\n2026-10-25 | 法甲 | Regular Season 第8轮 \n2026-10-31 | 法甲 | Regular Season 第9轮 \n2026-11-04 | 欧冠 | League Stage 第4轮 \n2026-11-08 | 法甲 | Regular Season 第10轮 \n\n射手信息 欧冠2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n18-上田绮世(前锋) | 2 (2/0) | 1 (50%) | 0 (0%) | 0.5/0 \n4-Alexsandro Ribeiro(后卫) | 2 (2/0) | 1 (50%) | 0 (0%) | 0.5/0 \n8-E. Mbappé(中场) | 1 (1/0) | 0 (0%) | 1 (50%) | 0/1.0\n...\n83-A. Batrakov(中场) | 2 (2/0) | 1 (100%) | 0 (0%) | 0.5/0 \n27-Rafael Leão(前锋) | 2 (1/1) | 0 (0%) | 1 (100%) | 0/0.5 \n\n伤停一览\n...\n注：赛事数据统计进行...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 5,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 3,
+        "zh": 4,
+        "home_mentions": 2,
+        "away_mentions": 2
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周三006",
+      "league": "西甲",
+      "home": "莱万特",
+      "away": "毕尔巴鄂",
+      "home_en": "莱万特",
+      "away_en": "Athletic Bilbao",
+      "queries": [
+        "\"莱万特 vs Athletic Bilbao\" preview prediction lang:en",
+        "莱万特 毕尔巴鄂 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "拉特科夫有望首发，莱万特主场迎毕尔巴鄂竞技",
+          "url": "http://pc.dongqiudi.com/articles/6518782.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.1840887033582206,
+          "summary": "# 拉特科夫有望首发，莱万特主场迎毕尔巴鄂竞技\n\n莱万特本周三（北京时间10月22日02:00）主场迎战毕尔巴鄂竞技，塞尔维亚前锋拉特科夫有望进入首发阵容。他在上一场对阵拉科鲁尼亚的比赛中替补登场后送出一次助攻，帮助达尼-雷克纳破门，促成了球队的扳平进球。\n\n莱万特今夏组建了伊万-罗梅罗、埃永、拉特科夫和穆苏阿伊四名前锋的配置，以填补卡洛斯-埃斯皮离队加盟皇家马德里留下的空缺。不过由于路易斯-卡斯特罗惯用单中锋阵型，无人彻底锁定这个位置。罗梅罗目前处于领先，但他的多面性让他也能踢边锋和前腰，为其他人留出了空间。\n\n穆苏阿伊此前对阵塞维利亚获得首发机会但表现未能令人信服，拉特科夫替补登场后球队有所改善并最终扳平比分。对阵拉科鲁尼亚时情况类似，球队进攻一度陷入僵局，路易斯-卡斯特罗在最后阶段换人，拉特科夫登场后改变了球队面貌。他在里亚索球场沿底线斜插摆脱后回敲，助攻队友完成射门得分。\n\n埃永已经伤愈，预计本周回归，可能在对阵毕尔巴鄂竞技或皇家社会的比赛中复出，这也让前锋位置的竞争范围进一步缩小。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Terzić: \"We’re close to turning draws into wins\" | Athletic Club's Official Website",
+          "url": "https://www.athletic-club.eus/en/news/2026/10/20/terzic-we-re-close-to-turning-draws-into-wins/en/club/complaints-channel/?utm_source=athletic-club.eus&utm_medium=referral&utm_campaign=ecosistema-ac&utm_content=menu-footer",
+          "site": "Athletic",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.827447772026062,
+          "summary": "# Terzić: \"We’re close to turning draws into wins\"\n...\nThis is what the gaffer said to the press before Wednesday's rescheduled clash at the Ciutat de Valencia (20:00 CEST)\n\nEdin Terzić stressed that there are “no easy games” in LaLiga as Athletic Club get ready to face Levante UD in their rescheduled LaLiga Matchday 6 clash in Valencia.\n\nWith the Lions having drawn their last three league fixtures, Edin is optimistic his players can start to turn those results into wins.\n\n“Drawing means we’re close to winning and now we’re focusing on turning these draws into wins,” the Athletic boss said at his pre-match conference.\n\n“I’m happy to keep clean sheets, it's a good foundation, but we want to create more danger. One part is to protect our own goal but we want to create more danger and be winning games.”\n\n💪 \"We're focusing on turning these draws into wins.\" 🎙️ Edin Terzić previews tomorrow's #LevanteUDAthletic #AthleticClub 🦁 https://t.co/4Nwcx6x73Z\n\n— Athletic Club (@Athletic_en) October 20, 2026\n\nAsked about Gorka Guruzeta’s potentially long-term injury, Edin reiterated that the entire team will need to adapt to the striker’s absence.\n\nHe continued: “We’re sad and we feel for Guruzeta, but he’s optimistic and positive. Our job now is to support him and make sure he’s joining a successful team when he's ready to come back.\n\n“We know about Guru’s qualities and what we’re going to miss. Now we need to find someone to take this responsibility but as a team we also need to adapt.\n\n“We have to find the best way to bring all our players’ strengths and talent in to every game.”\n\nAs for Wednesday’s opponents, the gaffer sees some “clear patterns” in Levante's play, saying “they’re comfortable pressing high to stress the opposition goalkeeper”.\n\nHe added: “They use their midfielders to be flexible and if you don’t press the centre-backs they’ll play good long passes into the final third. I’m expecting a tough away match.”",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "西甲第6轮前瞻：莱万特主场迎战毕尔巴鄂竞技，锋线危机考验客队",
+          "url": "http://www.ksnf.cn/news/zuqiu/3131.html",
+          "site": "ksnf.cn",
+          "date": "2026-09-15T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.790944637252994,
+          "summary": "西甲第6轮前瞻：莱万特主场迎战毕尔巴鄂竞技，锋线危机考验客队\n\n文章来源：24直播网 更新时间：2026-09-16 14:38\n\n北京时间9月17日03:30，西甲联赛第6轮，莱万特坐镇 Ciutat de Valencia 球场迎战毕尔巴鄂竞技。莱万特本赛季开局的表现比积分所显示的更好，球队希望在主场迎来一场胜利。而毕尔巴鄂竞技在圣马梅斯被埃尔切逼平后，也急需一场胜利来提振士气。\n\n毕尔巴鄂竞技目前面临严重的锋线危机。古鲁泽塔的腿筋、卡纳莱斯的比目鱼肌、维维安的内收肌、伊尼亚基·威廉斯的脚——毕尔巴鄂竞技的锋线在九月的国际比赛日后被拆成了一地零件。最让主帅特尔齐奇不安的不是缺阵本身，而是缺阵的位置全部集中在进攻端。古鲁泽塔是禁区内唯一能背身拿球的支点，威廉斯是纵向冲刺和反越位的第一选择，卡纳莱斯是肋部渗透的传球源头。三个人同时不在，毕尔巴鄂的前场进攻逻辑等于被连根拔起。\n\n莱万特这边几乎是另一幅景象。路易斯·卡斯特罗手里只有两名伤员：替补门将普里莫肩部受伤，前锋埃塔·埃永大腿伤势未愈。其余球员全部可用。上一轮客场2比4输给巴萨，莱万特在半场就被打穿，但回到城市城体育场，这支球队完全是另一种生物。本赛季首个主场5比2血洗贝蒂斯，自今年2月以来主场不败。34岁的马修·瑞安场均完成4.3次扑救，是西甲目前最忙碌的门将，他的存在让莱万特即便在被动局面下也能守住底线。\n\n历史数据站在毕尔巴鄂一边。两队近10次交手，莱万特0胜4平6负，上一次击败毕尔巴鄂还是2018年12月的事。但那些交锋大多发生在莱万特降级前后的混乱时期。本赛季这支莱万特的开局表现——包括主场5比2血洗贝蒂斯——说明他们并非没有在城市城体育场制造麻烦的能力。毕尔巴鄂近3轮联赛2胜1平，打进6球只丢1球，状态确实在回暖。但锋线支点的缺失会直接影响他们的进攻效率，缺少中锋的毕尔巴鄂能否把控球转化为进球，是这场比赛最大的悬念。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场不败"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "畢爾包有「利」可圖",
+          "url": "https://news.7m.com.cn/news/20261020/743185.shtml",
+          "site": "7M足球新闻",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.782397741825113,
+          "summary": "畢爾包有「利」可圖\n\nwww.7m.com.cn 2026年10月20日 来源：澳彩\n\n週四凌晨，西甲上演獨角戲，利雲特主迎畢爾包。前者連續5輪聯賽不勝，而且球隊目前排名倒數，利雲特是役難逃失利命運。\n\n利雲特今季依然是保組份子，聯賽前8輪過後僅贏1場，其餘4和3負，球隊唯一高光就是曾經主場5比2擊敗貝迪斯。如今球隊處於連續5輪不勝中，而且他們近4仗均場失2.75球之多。防守糟糕無疑是利雲特的弱點，他們聯賽至今均場失2球，主場更是均場失3球之多。此番面對過去多次擊敗己隊的畢爾包，利雲特主場淪陷在即。人腳方面，曉高蘇迪路和阿歷斯比莫等人因傷倦勤。\n\n畢爾包上季排名下半區，今季球隊需要重新找回競爭力，他們前2輪吞下連敗，此後迅速找回狀態，過去5輪斬獲2勝3和不敗戰績。如今球隊僅踢了7場，排名已經在踢了8場的利雲特之上。畢爾包今季進攻火力麻麻，全隊僅羅拔.拿華路入球超過1個，而此子顯然是隊內福將，聯賽中他取得入球的場次畢爾包均全取3分。畢爾包過去3次面對利雲特全部取勝，期間均場攻入3球，如今兩隊再戰，畢爾包贏波毫無懸念。陣容方面，U.艾古列斯和奧漢.辛斯特傷缺。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Levante 0-2 Athletic Club - LaLiga 2025/2026 Statistical Preview - Predicted Lineups",
+          "url": "https://www.whoscored.com/matches/1914019/preview/#1",
+          "site": "WhoScored.com",
+          "date": null,
+          "authority": 3,
+          "score": 1.6954222917556765,
+          "summary": "## Predicted Lineups\n\n## Probable Lineups Statistical Comparison\n\n(47) 23 Goals 22 (42)\n\n(31) 15 Assists 18 (30)\n\n(6.5) 6.5 Average Ratings 6.5 (6.4)\n\n27.5 Average Age 28.8\n\n179.5 Average Height (cm) 182.9\n\n(0.8) 0.7 Shots pg 1 (0.8)\n\n(50%) 49% Aerial Duel Success 50% (50%)\n\n(0.4) 0.5 Dribbles pg 0.5 (0.5)\n\n(1.1) 1 Tackles pg 0.9 (1)\n\n* Values in brackets (x) are overall player statistics in LaLiga.\n\n## Team News\n\nLevante\n\nAthletic Club\n\n- Carlos Espi and Pablo Martinez could miss out due to injury, with the duo doubts for the home side.\n- Unai Vencedor will be unavailable, as he's not allowed to face his parent club, due to being on loan from Athletic Club.\n\n- Benat Prados, Unai Egiluz, and Maroan Sannadi are all out injured for their game against Levante.\n- Nico Serrano could also miss out as he's a doubt, while Inigo Ruiz de Galarreta and Oihan Sancet are both suspended for the away side.\n- Mikel Vesga and Unai Gomez could replace them in the starting XI.\n\n### Head to Head Stats\n\nR | Team | W | D | L | Pts \n---|---|---|---|---|---\n12  | A. Club  | 13 | 6 | 19 | 45 \n16  | Levante  | 11 | 9 | 18 | 42 \n\n## Prediction\n\n- Levante have picked up just nine points so far this season in La Liga as they sit in 19th place heading into the weekend's fixtures. They've won just twice this season, failing to secure a victory in their previous five games.\n- Athletic Club have won just once in their previous five games, with that victory coming against bottom side Real Oviedo. It's been a disappointing run for them, but a game against Levante is a chance for them to pick up three points.\n- It's been a while since these two teams faced each other. Back in 2022, when they last played, Athletic Club secured a 3-1 victory. Levante's last win over Athletic Club came all the way back in 2018.\n\n© WhoScored.com\n\n## User Predictions\n\n### Man of the Match\n...\n### Correct Score\n\n- Away 0-1 100%\n\n### Three-way\n\n- Home\n- Draw\n- Away\n\n- 0%",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 4,
+        "zh": 3,
+        "home_mentions": 2,
+        "away_mentions": 2
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周三007",
+      "league": "欧冠",
+      "home": "皇马",
+      "away": "莱红牛",
+      "home_en": "Real Madrid",
+      "away_en": "莱红牛",
+      "queries": [
+        "\"Real Madrid vs 莱红牛\" preview prediction lang:en",
+        "皇马 莱红牛 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=2042112&gm=2633763",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.6643555164337158,
+          "summary": "排名: League Stage 第8名\n\n赛季总成绩: 2胜 0平 0负\n\n赛季主场成绩: 1胜 0平 0负\n\n周三007 欧冠>\n\n2026/2027 League Stage 第3轮 2026-10-22 03:00\n...\nLeague Stage 第21名\n...\n1胜 0平 1负\n\n赛季客场成绩: 0胜 0平 1负\n\n特征分析\n\n皇马 (主)\n\n2胜/1平/1负\n\n1胜/1平/0负\n\n8胜/0平/2负\n\n8胜/2平/0负\n\n2.5个\n\n1.2个\n\n近4场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n莱红牛 (客)\n\n1胜/1平/2负\n\n0胜/1平/1负\n\n5胜/0平/5负\n\n2胜/0平/8负\n...\n1.8个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n\n相同主客场\n...\n近20场\n\n近4场皇马2胜 (50%) | 1平 (25%) | 1负 (25%)\n\n比赛日期 | 赛制 | \n主队\n\nVS\n\n客队\n | 总进球走势\n...\n2024-03-07 | 欧冠\n皇马\n\n1:1\n\n（半 0:0）\n...\n2024-02-14 | 欧冠\n...\n0:\n...\n2022-10-26 | 欧冠\n...\n3:2\n\n（半 2:1）\n...\n2022-09-15 | 欧冠\n皇马\n\n2:0\n...\n积分榜 欧冠2026/2027\n\n皇马League Stage 第8名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 2 | 2/0/0 | 100% | 6/4 | 2 | 6 | 8 \n主 | 1 | 1/0/0 | 100% | 2/1 | 1 | 3 | 18 \n客 | 1 | 1/0/0 | 100% | 4/3 | 1 | 3 | 8 \n\n莱红牛League Stage 第21名 查看更多>\n...\n总 | 2 | 1/0/1 | 50% | 2/4 | -2 | 3 | 21 \n主 | 1 | 1/0/0 | 100% | 1/0 | 1 | 3 | 21 \n客 | 1 | 0/0/1 | 0% | 1/4 | -3 | 0 | 30 \n\n比赛近况\n...\n皇马近10场8胜 (80%) | 0平 (0%) | 2负 (20%)\n\n进25球，失12球，净进13球\n\n莱红牛近10场5胜 (50%) | 0平 (0%) | 5负 (50%)\n\n进25球，失18球，净进7球\n\n未来赛事\n...\n| 轮次\n...\n2026-10-26 | 西甲 | Regular Season 第10轮 \n2026-11-01 | 西甲 | Regular Season 第11轮 \n2026-11-05 | 欧冠 | League Stage 第4轮 \n2026-11-08 | 西甲 | Regular Season 第12轮 \n\n射手信息 欧冠2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n | 进球\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n10-K. Mbappé(前锋) | 2 (2/0) | 2 (33%) | 0 (0%) | 1.0/0 \n19-Carlos Espí(前锋) | 2 (0/2) |...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情 - 中国体育彩票服务热线95086",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=&gm=2633763#1",
+          "site": "中国竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.6412975788116455,
+          "summary": "排名: League Stage 第8名\n\n赛季总成绩: 2胜 0平 0负\n\n赛季主场成绩: 1胜 0平 0负\n\n2026/2027 League Stage 第3轮 2026-10-22 03:00\n...\nLeague Stage 第21名\n...\n1胜 0平 1负\n\n赛季客场成绩: 0胜 0平 1负\n\n特征分析\n\n皇马 (主)\n\n2胜/1平/1负\n\n1胜/1平/0负\n\n8胜/0平/2负\n\n8胜/2平/0负\n\n2.5个\n\n1.2个\n\n近4场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n莱红牛 (客)\n\n1胜/1平/2负\n\n0胜/1平/1负\n\n5胜/0平/5负\n\n2胜/0平/8负\n\n2.4个\n\n1.3个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n\n相同主客场\n...\n近20场\n\n近4场皇马2胜 (50%) | 1平 (25%) | 1负 (25%)\n\n比赛日期 | 赛制 | \n主队\n\nVS\n\n客队\n | 总进球走势\n...\n2024-03-07 | 欧冠\n皇马\n\n1:1\n\n（半 0:0）\n...\n2024-02-14 | 欧冠\n...\n2022-10-26 | 欧冠\n...\n3:2\n\n（半 2:1）\n...\n2022-09-15 | 欧冠\n皇马\n\n2:0\n...\n积分榜 欧冠2026/2027\n\n皇马League Stage 第8名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 2 | 2/0/0 | 100% | 6/4 | 2 | 6 | 8 \n主 | 1 | 1/0/0 | 100% | 2/1 | 1 | 3 | 18 \n客 | 1 | 1/0/0 | 100% | 4/3 | 1 | 3 | 8 \n\n莱红牛League Stage 第21名 查看更多>\n...\n总 | 2 | 1/0/1 | 50% | 2/4 | -2 | 3 | 21 \n主 | 1 | 1/0/0 | 100% | 1/0 | 1 | 3 | 21 \n客 | 1 | 0/0/1 | 0% | 1/4 | -3 | 0 | 30 \n\n比赛近况\n...\n皇马近10场8胜 (80%) | 0平 (0%) | 2负 (20%)\n\n进25球，失12球，净进13球\n\n莱红牛近10场5胜 (50%) | 0平 (0%) | 5负 (50%)\n\n进24球，失13球，净进11球\n\n未来赛事\n...\n| 轮次\n...\n2026-10-26 | 西甲 | Regular Season 第10轮 \n2026-11-01 | 西甲 | Regular Season 第11轮 \n2026-11-05 | 欧冠 | League Stage 第4轮 \n2026-11-08 | 西甲 | Regular Season 第12轮 \n\n射手信息 欧冠2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n | 进球\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n10-K. Mbappé(前锋) | 2 (2/0) | 2 (33%) | 0 (0%) | 1.0/0 \n19-Carlos Espí(前锋) | 2 (0/2) | 1 (17...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "皇马vs莱比锡红牛，穆帅将兵行险招，安排维尼修斯首发，期待其回暖",
+          "url": "https://m.163.com/dy/article_v5/L9M33DA90549SJKT.html",
+          "site": "网易",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.5496634244918823,
+          "summary": "# 皇马vs莱比锡红牛，穆帅将兵行险招，安排维尼修斯首发，期待其回暖\n...\n皇马在上周末击败塞维利亚赛后，穆里尼奥确认维尼修斯将在 10 月 22 日欧冠对阵莱比锡红牛一战首发。皇马希望拿下此役实现小组赛三连胜，稳固小组头名，直接晋级淘汰赛，避免参加欧冠附加轮次。\n\n不少观点认为，对阵莱比锡本是国家德比前最好的实战演练，穆里尼奥理应沿用击败塞维利亚的那套取胜首发，检验这套新战术面对更强对手的成色。莱比锡擅长高强度高位逼抢、跑动积极，恰好可以暴露这套阵容面对压迫时存在的隐患，方便球队提前打磨对策。\n\n这将是维尼修斯染红停赛后，首次重返伯纳乌登场，他将承受巨大舆论与现场球迷的压力，外界也会对比有无维尼修斯时皇马的竞技状态。穆帅表示，缺席上轮联赛的维尼修斯体能储备充足，欧冠赛场能够激发他的斗志，期待他拿出好表现，同时提醒莱比锡实力不容小觑。\n\n此番用人属于一步险棋：若维尼修斯状态回暖，将利好球队备战德比；一旦发挥低迷，球员信心与处境都会进一步恶化。最终的抉择，完全交由穆里尼奥承担。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Real Madrid vs. RB Leipzig preview: Team news and predicted lineups",
+          "url": "https://onefootball.com/en/news/real-madrid-vs-rb-leipzig-preview-team-news-and-predicted-lineups-43638930",
+          "site": "OneFootball",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.4896944761276243,
+          "summary": "# Real Madrid vs. RB Leipzig preview: Team news and predicted lineups | OneFootball\n\nBulinews\n\n·19 October 2026\n\n## Real Madrid vs.\n...\nYan Diomande will face his former club on Wednesday as he and Real Madrid welcome RB Leipzig to the Estadio Santiago Bernabéu in the Champions League.\n\nAfter taking a few weeks to settle into his new surroundings, Diomande has found his stride in recent outings, showcasing the qualities that convinced Real Madrid to spend up to €140 million to secure his signature last summer.\n...\nThe Ivorian winger has registered at least one goal involvement in each of his last three appearances, most recently scoring and assisting in Real Madrid’s emphatic 4-1 La Liga victory over Sevilla.\n\nLeipzig, meanwhile, endured another miserable away day at the weekend, suffering a humiliating 6-1 defeat to Bayern Munich to make it four losses from four away games so far this season.\n\nDie Roten Bullen had won back-to-back matches heading into the encounter, but their performance against the German champions fell well short of expectations. The display was so disappointing that sporting managing director Marcel Schäfer said his side had “failed completely in every area of the game”.\n\nMartin Demichelis’ men will be desperate to respond with a stronger performance on Wednesday, although they face a significant challenge against one of European football’s heavyweights.\n\nThe two sides have met four times previously, most recently at the Bernabéu in 2024, when they played out a 1-1 draw. Leipzig have won one of their other three meetings, while Real Madrid have claimed two victories.\n\n### Team news and predicted lineups:\n\nReal Madrid will be without Raúl Asencio (tibia) and Rodrygo (ligaments).\n...\nChristoph Baumgartner (hamstring) and Assan Ouedraogo (shoulder) are set to miss out for Leipzig.",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Preview: Real Madrid vs. Red Bull Salzburg - Back",
+          "url": "http://lite.apex-football.com/en-ZA/news/6b30a02e250120en_za#1",
+          "site": "Apex Football",
+          "date": null,
+          "authority": 3,
+          "score": 1.452371597290039,
+          "summary": "Preview: Real Madrid vs. Red Bull Salzburg - prediction, team news, lineups\n\nReal Madrid will look to ease the pressure on themselves in the Champions League when they host Red Bull Salzburg on Wednesday night.\n\nIt has been a worrying start for the reigning champions, who looked in danger of missing out on the knockouts entirely at one point, but a win here will all but secure a spot in the top 24.\n\n## Match preview\n\nHad it not been for a vital win away to Atalanta on matchday six, holders Real Madrid would have been in grave danger of missing out on the top 24 of the league phase.\n\nCarlo Ancelotti's side enter matchday seven just two points inside the playoffs, and pressure could be placed on them by some of the sides playing 24 hours earlier on Tuesday.\n\nThe top eight is virtually unassailable now, with Real on just nine points from their first six games, so ensuring they place themselves as strongly as possible in the playoff zone will be the goal from this point, and their final two games are certainly winnable.\n\nSalzburg have been well below par this season, while Brest await on matchday eight, so barring a remarkable collapse, a playoff place will be theirs.\n\nMorale will be much higher among the Real players too, following a fine response to their pasting by Barcelona in the Spanish Super Cup.\n\nA 5-2 win over Celta Vigo saw them reach the quarter-finals of the Copa del Rey, while dropped points by both Barca and Atletico Madrid allowed them to go top of La Liga courtesy of a 4-1 win over Las Palmas.\n\nAfter playing catch-up for most of the campaign, Los Blancos now remarkably find themselves seven points clear of Barca, with rivals Atletico now their closest challengers, and they will feel they have four winnable matches before the Madrid derby in a few weeks against Salzburg, Real Valladolid, Brest and Espanyol.\n\nFocus will be on the Champions League for now though, and they will be big favourites here in a game where they can extend their current run of 32 straight home games which have seen them score in the Champions League.\n\nAncelotti saw his side lose their last UCL home game though, going down 3-1 against his former club AC Milan, and they are now in danger of losing back-to-back games at the Bernabeu in this competition for the first time in over six years.\n\nIt will be a first ever meeting with Salzburg, but the home faithful will hope it goes in the same fashion as their last encounter with an Austrian club, which came all the way back in 1998, when they thrashed Sturm Graz 5-1.\n\nThat is a real possibility too given the campaign Salzburg are enduring at present, with them set to be eliminated from this competition while sitting a long way off the pace domestically.\n\nUnwanted history could be made here too, because if Salzburg lose by two or more goals without scoring, they will equal the record for the number of times a club has suffered that fate in one campaign - currently held by fellow Austrian's Sturm (six).\n\nAn out-of-sorts Paris Saint-Germain beat them 3-0 on matchday six, ultimately leading to the sacking of Pep Lijnders, who had also overseen a 5-0 thrashing away to Bayer Leverkusen, a 4-0 home loss versus Brest, a rare away win for Dinamo Zagreb, and a 3-0 humbling at Sparta Prague.\n\nThomas Letsch is the man who has come in to replace him, having been out of work since suffering the sack at Bochum in April, and this will be his first game in charge, with the Austrian Bundesliga still on their winter break until February 9.\n\nSalzburg need a minor miracle to progress, facing the two Madrid clubs, and two wins will leave them on just nine points, which does not look like being enough to advance anyway.\n\nA 3-0 win against Klagenfurt on December 14 was the last time Salzburg took to the field domestically, with two mid-season friendlies not going well for them, losing 6-0 against Bayern Munich, and 3-2 against Midtjylland.\n\nReal Madrid Champions League form:\n\n- W\n- L\n...\nReal Madrid form (all competitions):\n...\nRed Bull Salzburg Champions League form:\n...\nRed Bull Salzburg form (all competitions):\n\n- L\n- D\n...\n## Team News\n\nReal Madrid will be without Lucas Vazquez after he picked up his third continental booking of the season against Atalanta, ruling him out with suspension here, so Ancelotti will need someone to cover in that area, as Dani Carvajal is also out injured.\n\nFederico Valverde started there against Liverpool recently, while Aurelien Tchouameni could also fill in after proving his capabilities of deputising in defence over the past year, but he is a doubt for this one after missing the weekend win....",
+          "side": "away",
+          "neg": true,
+          "hits": [
+            "away win"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 1,
+        "draw": 0,
+        "goals": 0,
+        "none": 4,
+        "neg": 1
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 4,
+        "zh": 3,
+        "home_mentions": 3,
+        "away_mentions": 2
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周三008",
+      "league": "欧冠",
+      "home": "维拉",
+      "away": "维京",
+      "home_en": "维拉",
+      "away_en": "维京",
+      "queries": [
+        "\"维拉 vs 维京\" preview prediction lang:en",
+        "维拉 维京 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Mbaye starts, left-back solution - Aston Villa starting XI vs Viking predicted",
+          "url": "https://www.birminghammail.co.uk/sport/football/football-news/mbaye-starts-left-back-solution-34786764",
+          "site": "Birmingham Live",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.8578146696090696,
+          "summary": "# Mbaye starts, left-back solution - Aston Villa starting XI vs Viking predicted\n\n## Unai Emery has several selection dilemmas for Aston Villa's Champions League clash against Viking FK\n\nAston Villa take on Viking FK on Wednesday night as they look to retain their 100 per cent start in the Champions League.\n\nUnai Emery’s side beat Club Brugge 3-2 before the international break and then thrashed Fenerbahce 6-0 last week, before following it up with a 1-0 win at Newcastle United in the Premier League.\n\nThere were injuries for Villa in the win on Tyneside, however, as Aaron Wan-Bissaka came off with a hamstring injury and Johan Manzambi picked up a knock, too.\n\nWan-Bissaka is now set for a spell on the sidelines, but Emery will be asked at his press conference on Tuesday whether Manzambi has managed to shake off his injury.\n\nIan Maatsen is also due to return to training at Bodymoor Heath this week, but Wednesday night’s match may come too soon for him after weeks out injured.\n...\nZion Suzuki will start in goal, possibly behind a defence made up of Matty Cash, Victor Lindelof, Pau Torres and Tyrone Mings. The latter could operate at left-back, with Matteo Ruggeri also sidelined with a hamstring injury.\n\nIn midfield, Emery could opt to rest Boubacar Kamara, given that he has started all but one match so far this season. The likelihood is that he continues, however, and could start alongside Ross Barkley, as he did last week.\n\nLeon Goretzka is another option, with the German making his debut for Villa against Fenerbahce last week and impressing off the bench against Newcastle last time out.\n\nAlysson was a surprise starter for Villa at St James’ Park, and he could keep his place on the right should Manzambi not be risked, helping to maximise his recovery ahead of Saturday’s match against Man City.\n\nJohn McGinn could occupy the No. 10 role, with Ibrahim Mbaye playing on the left and his Senegalese teammate Nicolas Jackson leading the line.\n\nTaylor Harwood-Bellis and Brian Madjo were not included in the Champions League squad, while Emi Buendia, Alejandro Garnacho, Joao Gomes and Tammy Abraham are also options for Emery. George Hemmings could also return from injury.\n\nVilla predicted XI: Suzuki; Cash, Lindelof, Torres, Mings; Kamara, Barkley; Alysson, McGinn, Mbaye;",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Jamie Carragher predicts Champions League history to be made with Aston Villa vs Viking result",
+          "url": "https://sports.yahoo.com/articles/jamie-carragher-predicts-champions-league-161000633.html?fr=yhssrp_catchall",
+          "site": "Yahoo Sports",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.827447772026062,
+          "summary": "# Jamie Carragher predicts Champions League history to be made with Aston Villa vs Viking result\n...\nJamie Carragher is confident of a routine win for Aston Villa in Wednesday's Champions League clash with Viking.\n\nThe Villans have a 100 per cent record across their first two matches in the league phase of the competition.\n...\nUnai Emery's men were 3-2 winners away at Club Brugge in their opener, before thumping Fenerbahce 6-0 at Villa Park last week.\n\nThat was the Villans' biggest ever European victory in terms of the scoreline and leaves them nicely on track to advance to the knockouts.\n\nNext up is a visit from Norwegian side Viking, who are making their debut in the Champions League proper this season.\n\nViking were beaten 3-1 by Stuttgart in their only away game so far, before playing out a thrilling 3-3 draw with Bayern Munich last time out.\n\nWhat history could be made by Viking vs Aston Villa?\n\nViking's point at home to Bayern shows they cannot be completely underestimated, even if Villa are the strong favourites.\n...\nThe Norwegians may be newbies to this competition, but they have previously taken part in the European Cup.\n\nUnfortunately for them, they do not have the best of record in UEFA's elite club competition.\n\nIn fact, if they lose in the West Midlands on Wednesday night, they will make history as only the second side - along with Tirana - to lose each of their first eight away matches in the Champions League and European Cup.\n\nThey have shipped 22 goals in that period, including three against Stuttgart in their only away game this campaign.\n\nPredicting the result for Sky Sports' Super 6, Carragher backed Villa to inflict another defeat on Viking as he went with a 3-0 home win.\n...\nJeff Stelling namedrops Aston Villa trio who wowed him vs Newcastle - 'Absolutely outstanding' The remarkable Real Madrid company Aston Villa could find themselves in\n\nVilla have found some momentum under Emery after a poor start to the campaign.\n\nContinuing to climb up the Premier League is key, but for now focus is on this latest European clash.\n\nRemarkably, if Villa win this game they will become the second-fastest team to reach 20 European Cup/ Champions League wins, doing so in their 30th match.\n\nReal Madrid are the only side to better that - just - having won 20 of their first 29.\n\nVilla have certainly not looked out of their depth on the biggest stage, which is testament to Emery and his players.",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "home win"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Aston Villa predicted XI vs Viking: Nicolas Jackson benched in six Unai Emery changes",
+          "url": "https://uk.sports.yahoo.com/news/aston-villa-predicted-xi-vs-174000112.html",
+          "site": "Yahoo",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.765517234802246,
+          "summary": "# Aston Villa predicted XI vs Viking: Nicolas Jackson benched in six Unai Emery changes\n...\nAston Villa are preparing to welcome Viking to Villa Park on Wednesday, with changes to the side to be expected.\n\nThe Champions League is back at B6 just a week after the 6-0 demolition of Fenerbahce last week.\n...\nThere were bigger expectations from the Turkish giants, but goals from Nicolas Jackson, Ross Barkley and Tammy Abraham secured a massive victory.\n\nThat made way for a hard-fought win away to Newcastle United in the Premier League.\n\nAttention now turns to the Norwegian outfit, who are travelling to B6 after drawing with Bayern Munich in their last outing.\n\nViking will serve as an unknown quantity for many as we assess how Villa could line up.\n\nWho will start at left-back for Aston Villa?\n...\nThere is certainly an air of frustration around the injury problems at left-back for the Villans.\n\nThe same can't be said about Zion Suzuki, who continues to capture the attention in goal.\n\nHe could be set to start once again after his one save in Newcastle and may be joined by Victor Lindelof and Pau Torres, with Tyrone Mings potentially set to drop out for the latter.\n\nMatty Cash may keep his place at right-back after 10 defensive actions last time out, but it looks likely that a new left-back will be in place.\n...\nAaron Wan-Bissaka was forced off at St James' Park and it could be Lamare Bogarde who comes in for him.\n\nThere could be further change in the midfield as a rest could be awarded to Boubacar Kamara after he covered 11.7km and put up 17 defensive actions against Newcastle.\n\nThe Frenchman could be replaced by Barkley after his Champions League double at Villa Park.\n\nHe could link up with Joao Gomes after he picked up an assist for Johan Manzambi in the North-East.\n...\nJeff Stelling namedrops Aston Villa trio who wowed him vs Newcastle - 'Absolutely outstanding' Unai Emery could make three attacking changes vs Viking\n\nThe Switzerland international scored against the Magpies and put up some star stats.\n\nHis two chances created, 100 per cent dribble success rate and four duel wins certainly painted a superb picture.\n\nUnai Emery could opt to rest him against Viking, with Alysson potentially set to join him in a move to the bench.\n...\nIbrahim Mbaye and Alejandro Garnacho could come in from the start to add pace and width to the Villans.\n\nThey could all work with Emi Buendia after he started at St James' Park on Saturday.\n\nAnother star name could be benched in the shape of Jackson.\n\nSteven Warnock described his performance against Fenerbahce as \"absolutely perfect\" as he bagged a brace, but a rest could be what he needs.\n\nThe Senegal international covered 11km of ground at St James' Park and was excellent, but Emery has to be clever with his squad.\n...\nAbraham could come in from the first whistle, but may have Jackson breathing over his shoulder waiting to get his chance.\n\nAston Villa predicted XI vs Viking: Suzuki; Cash, Lindelof, Torres, Bogarde; Barkley, Gomes; Buendia; Mbaye, Garnacho, Abraham.",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "維拉「維」所欲為",
+          "url": "https://news.7m.com.cn/news/20261020/743183.shtml",
+          "site": "7M足球新闻",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.7187873125076294,
+          "summary": "維拉「維」所欲為\n\nwww.7m.com.cn 2026年10月20日 来源：澳彩\n\n週四凌晨，歐冠聯聯賽階段繼續進行，阿士東維拉將主迎維京。維拉近況火熱，並且歐戰主場戰鬥力強勁，此番面對挪超球隊維京，維拉有力敲響勝鼓。\n\n維拉近期狀態回暖明顯，近6仗各項賽事斬獲5勝1和佳績，防守端更是愈發穩健。在歐冠聯賽場，聯賽階段頭兩輪維拉斬獲兩連勝，尤其上輪尼古拉斯.積臣與羅斯.巴克利各自上演梅開二度，率領球隊6球大勝費倫巴治，這不僅是球隊在歐戰賽事的最大比分勝利，還將球隊歐戰主場連勝場次擴大到11場，刷新隊史紀錄。此外，維拉近23場歐戰僅1場未能取得入球，近8仗更是有6仗攻入3球或以上。在此等攻擊力的加持下，維拉是役主場大勝可期。\n\n維京近況同樣火熱，近6仗各項賽事亦斬獲5勝1和的出色戰績，期間合計攻入22球，球隊進攻能力不容小覷。其中Z.查碧的發揮尤為值得關注，球隊今季歐冠聯的4個入球此子參與了其中3個(1球2助攻)，今仗他勢必成為維拉守將的心腹大患。不過需要指出，維京雖然絕非是可以輕視的魚腩球隊，但在歐冠聯的競爭力確實較為低下，聯賽階段頭兩輪僅得1和1負未嘗勝績，而在挪超賽場，他們需要與波杜基林特爭奪冠軍，多線作戰的壓力相當之大。因此今鋪走訪維拉，維京唯有輸少當贏。\n\n傷停情況\n\n維拉：伊恩.馬特臣與馬迪奧.路基尼等人傷缺；\n\n維京：洛施夫與比佐梳爾等人傷缺。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Aston Villa vs. Viking FK - Live Score - October 21, 2026",
+          "url": "https://www.foxsports.com/soccer/champions-league-aston-villa-vs-viking-fk-oct-21-2026-game-boxscore-1003368",
+          "site": "FOX Sports",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.6259256601333618,
+          "summary": "### TEAM STATS\n\nAVL\n\n4.5 Goals per Game 2.0\n\n2.4 Expected Goals (xG) per Game 0.5\n\n1.0 Goals Against per Game 3.0\n\n20.0 Shots per Game 7.5\n\n49 Average Possession (%) 0\n\n14.0 Chances Created per Game 6.0\n\nVIK\n\n### TEAM LEADERS\n...\n### ODDS\n...\nTEAM TO WIN\n\nA bet of $442 would win $542 total if Aston Villa wins and a bet of $100 would win $1,115 total if Viking FK wins\n\n-442\n\nAVL\n\n+1015\n\nVIK\n\nOVER/UNDER 3.5 GOALS\n\nThe combined final score of both teams is set at 3.5\n\n-138\n\nOVER 3.5\n\n+107\n\nUNDER 3.5",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 4,
+        "zh": 1,
+        "home_mentions": 0,
+        "away_mentions": 0
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周三009",
+      "league": "欧冠",
+      "home": "贝蒂斯",
+      "away": "费耶诺德",
+      "home_en": "Real Betis",
+      "away_en": "费耶诺德",
+      "queries": [
+        "\"Real Betis vs 费耶诺德\" preview prediction lang:en",
+        "贝蒂斯 费耶诺德 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "PREVIEW | Real Betis vs Feyenoord: team news, lineups, predictions (Champions League 21/10)",
+          "url": "https://onefootball.com/en/news/preview-real-betis-vs-feyenoord-team-news-lineups-predictions-champions-league-2110-43638914",
+          "site": "OneFootball",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.994465708732605,
+          "summary": "# PREVIEW | Real Betis vs Feyenoord: team news, lineups, predictions (Champions League 21/10) | OneFootball\n\nPlaymakerstats\n\n·19 October 2026\n\n## PREVIEW | Real Betis vs Feyenoord:\n...\nReal Betis and Feyenoord face off this Wednesday at the Estadio de La Cartuja in UEFA Champions League. The match will be broadcast live at 20:00 on TNT Sports.\n\nLast time out, Real Betis slipped to a 2-5 defeat against Barcelona (La Liga 2026/27). In their last game, Feyenoord won 3-4 against Telstar (Eredivisie 2026/27).\n...\n### Unavailable\n\n### Real Betis\n\n- Júnior Firpo - Muscle Injury\n\n### Feyenoord\n\n- Shaqueel van Persie - Unknown Injury\n- Jordan Bos - Knee Surgery\n- Thomas Beelen - No Eligibility\n- Gijs Smal - Ankle Injury\n- Reiss Nelson - Muscle Injury\n...\n### MANAGERS\n\n- Manuel Pellegrini has faced Feyenoord on one occasion, recording one win.\n\n### TEAMS\n\n- Away from home, Feyenoord currently have one defeat in their last six matches.\n- Away from home, Feyenoord have now scored in six consecutive matches.\n- Away from home, Feyenoord are on a run of two consecutive matches without defeat.\n- Away from home, Feyenoord are on a run of two consecutive wins.\n- Feyenoord currently have one defeat in their last 11 matches.\n- Feyenoord have now scored in 11 consecutive matches.\n- Feyenoord are on a run of five consecutive matches without defeat.\n- Feyenoord are on a run of five consecutive wins.\n- At home, Real Betis currently have one defeat in their last six matches.\n- At home, Real Betis have now scored in six consecutive matches.\n- At home, Real Betis have now conceded in three consecutive matches.\n- Real Betis currently have one defeat in their last eight matches.\n- Real Betis currently have one draw in their last 11 matches.\n- Real Betis have now scored in 11 consecutive matches.\n- Real Betis have now conceded in four consecutive matches.\n\n### HEAD TO HEAD\n\n- Real Betis and Feyenoord have already faced each other once, with Real Betis holding the advantage: one win\n- At Estadio de La Cartuja, Real Betis have the edge in meetings against Feyenoord: one win in one match.\n- In the Champions League, the two teams meet for the first time",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Predicted Feyenoord line-up: Van Bronckhorst picks a strong team against Real Betis | Goal.com India",
+          "url": "https://www.goal.com/en-in/news/feyenoord-s-likely-line-up-van-bronckhorst-picks-strong-team-against-real-betis/blt12c37eb4d85ce525",
+          "site": "Goal.com",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9337319135665896,
+          "summary": "# Feyenoord’s likely line-up: Van Bronckhorst picks strong team against Real Betis\n\nFeyenoord return to Champions League action on Wednesday against Real Betis in the league phase. Giovanni van Bronckhorst is set to name a strong side in Spain, Voetbalzone predicts. The match kicks off in Seville at 21:00, with live coverage on Ziggo Sport Select.\n\nVan Bronckhorst started Thijs Kraaijeveld, Sem Steijn and Gaoussou Diarra against Telstar last Saturday, when Feyenoord won 3-4. None of the three is expected to start against Real Betis on Wednesday.\n\nTjark Ernst is set to start in goal for Feyenoord, with Givairo Read at right-back and Mika Mármol at left-back. Jeremiah St. Juste returns to the heart of the defence alongside Tsuyoshi Watanabe.\n\nOussama Targhalline replaces Steijn, who scored twice against Telstar, in midfield. Charles Vanhoutte and Gjivai Zechiël complete Feyenoord's midfield in Spain.\n\nAnis Hadj Moussa will play on the right wing on Wednesday, with Luciano Valente returning on the left. Nacho Ferri will lead the line for the visitors in a front three.\n\nFeyenoord beat Como 3-2 in impressive fashion last week. Real Betis defeated FC Porto 3-2, then suffered a 2-5 home defeat against FC Barcelona three days later.\n\nPredicted Feyenoord line-up: Ernst; Read, St. Juste, Wattanabe, Mármol; Vanhoutte, Targhalline, Zechiël; Hadj Moussa, Ferri, Valente.",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "每体：贝蒂斯战费耶诺德，库乔、菲尔波缺阵",
+          "url": "https://beta.dongqiudi.com/articles/6516879.html",
+          "site": "懂球帝",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.913227723925071,
+          "summary": "# 每体：贝蒂斯战费耶诺德，库乔、菲尔波缺阵\n\n皇家贝蒂斯将于周三在欧冠第三场比赛主场迎战费耶诺德。贝蒂斯此役来到拉卡图哈球场，球队刚在西甲中以2-5负于巴塞罗那，那场比赛因裁判判罚引发争议。在欧冠赛场，佩莱格里尼的球队前两轮先后击败里尔和波尔图，拿到6分；荷兰球队则在首轮于诺坎普球场1-5告负，随后又在德库伊普球场3-2击败科莫1907。\n\n在身体状态方面，贝蒂斯本周一在路易斯-德尔-索尔体育城训练时，库乔-埃尔南德斯缺席，菲尔波也因伤无法出场；鲁伊瓦尔已连续几次参与全队训练，是否准备好进入名单仍有疑问。无论如何，佩莱格里尼除了这名多米尼加边卫外，还得再做3个减员，洛萨达通常会是被排除在外的人选之一。\n\n法昆多-贝尔纳尔在贝蒂斯对巴塞罗那的比赛中被罚下，他大概率会在周三对费耶诺德时首发。德-布尔戈斯-本戈埃切亚在裁判报告中的写法，意味着他在联赛中至少会被停赛4场。不过，若依据第103.2条，停赛期可能缩短到2至3场，因为该条款规定，若暴力行为发生在争抢球权之外或比赛暂停时，且未达到攻击行为的程度，可适用这一处罚。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "范布隆克霍斯特面临轮换难题，费耶诺德欧冠客战贝蒂斯",
+          "url": "https://beta.dongqiudi.com/articles/6519251.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.8536223976474804,
+          "summary": "# 范布隆克霍斯特面临轮换难题，费耶诺德欧冠客战贝蒂斯\n\n费耶诺德本周迎来关键一周，欧冠客场对阵皇家贝蒂斯，随后在荷甲迎来与PSV的焦点战。荷兰媒体FR-Fans.nl在赛前讨论中指出，由于赛程密集，主帅范布隆克霍斯特可能不得不在排兵布阵上做出选择。\n...\n该媒体表示，费耶诺德希望在欧洲赛场走得更远，同时也要在荷甲争夺奖杯，两个目标都对球员阵容和技术团队提出很高要求。文章向球迷提问：对费耶诺德来说，欧冠对阵皇家贝蒂斯的较量和对阵PSV的焦点战哪场更重要，范布隆克霍斯特是否应该在其中一场让球员轮休。\n\n范布隆克霍斯特此前在谈到球队状况时表示：“在这个阶段观察球员们的感受也是明智的。”他还曾评价一场比赛的最后阶段：“最后阶段就是求生，而我们做到了。”\n\n费耶诺德近期在繁忙赛程中连续取胜，相关报道提到球队在这段时期踢了3场并全部获胜，期间PSV输球。斯泰恩在进球大战后提出批评：“我们宁愿让自己轻松一点。”里德则表示：“那非常艰难。”\n\n本场比赛将于北京时间10月22日03:00开球。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "2026-2027赛季欧冠杯 皇家贝蒂斯 VS 费耶诺德足球分析-新球体育-球探体育",
+          "url": "https://m.titan007.com/Analy/Analysis/3073160.htm?pagefrom=b",
+          "site": "球探",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.8451073696553568,
+          "summary": "欧冠杯 联赛阶段 10-22 03:00\n\n皇家贝蒂斯\n...\n费耶诺德\n...\n赛前指数\n\n欧 | 1.574.655.2 | 1.594.954.8 \n---|---|---\n亚 | 0.910.98 | 0.9110.97 \n大 | 0.963.250.92 | 0.973.50.91 \n\n胜平负\n\n总进球\n\n比分\n\n半全场\n\n1.434.54.8 | 1.414.54.87 \n---|---\n-1 | 2.263.82.36 | 2.223.82.41\n...\n全场 | 赛 | 胜 | 平 | 负 | 得 | 失 | 净 | 积分 | 排名 | 胜率\n...\n总 | 9 | 6 | 1 | 2 | 16 | 14 | 2 | 19 | 4 | 67% \n主 | 5 | 4 | 0 | 1 | 10 | 7 | 3 | 12 | 3 | 80% \n客 | 4 | 2 | 1 | 1 | 6 | 7 | -1 | 7 | 5 | 50% \n近 | 6 | 4 | 1 | 1 | 12 | 9 | 3 | 13 | 67% \n\n费耶诺德\n...\n总 | 9 | 7 | 2 | 0 | 31 | 10 | 21 | 23 | 1 | 78% \n主 | 4 | 2 | 2 | 0 | 11 | 4 | 7 | 8 | 4 | 50% \n客 | 5 | 5 | 0 | 0 | 20 | 6 | 14 | 15 | 1 | 100% \n近 | 6 | 5 | 1 | 0 | 23 | 6 | 17 | 16 | 83% \n\n球队评分\n\n59皇家贝蒂斯\nVS\n费耶诺德41\n\n裁判统计\n\n裁判：西蒙尼索查\n\n球队 | 赛 | 胜 | 平 | 负 | 上盘率 | 场均黄牌 \n---|---|---|---|---|---|---\n皇家贝蒂斯 | 1 | 0 | 0 | 1 | 0% | 2 \n费耶诺德 | 0 | 0 | 0 | 0 | 0% | 0 \n\n联赛走势\n...\n全场 | 赢 | 走水 | 输 | 赢% | 大 | 大% | 小 | 小%\n...\n总 | 6 | 1 | 2 | 66.7% | 4 | 44.4% | 5 | 55.6% \n主 | 4 | 0 | 1 | 80% | 2 | 40% | 3 | 60% \n客 | 2 | 1 | 1 | 50% | 2 | 50% | 2 | 50%\n...\n总 | 6 | 0 | 3 | 66.7% | 7 | 77.8% | 2 | 22.2% \n主 | 2 | 0 | 2 | 50% | 3 | 75% | 1 | 25% \n客 | 4 | 0 | 1 | 80% | 4 | 80% | 1 | 20%\n...\n杯赛积分排名\n\n排名 | 球队 | 总 | 胜 | 平 | 负 | 得 | 失 | 净 | 积分 \n---|---|---|---|---|---|---|---|---|---\n1 | 巴黎圣日耳曼 | 2 | 2 | 0 | 0 | 10 | 3 | 7 | 6 \n2 | 阿斯顿维拉 | 2 | 2 | 0 | 0 | 9 | 2 | 7 | 6\n5 | 利物浦 | 2 | 2 | 0 | 0 | 8 | 4 | 4 | 6...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 5,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 4,
+        "zh": 3,
+        "home_mentions": 3,
+        "away_mentions": 3
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周三010",
+      "league": "欧冠",
+      "home": "拜仁",
+      "away": "阿森纳",
+      "home_en": "Bayern Munich",
+      "away_en": "Arsenal",
+      "queries": [
+        "\"Bayern Munich vs Arsenal\" preview prediction lang:en",
+        "拜仁 阿森纳 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "沃森：阿森纳的实用主义能在安联奏效吗",
+          "url": "https://pc.dongqiudi.com/articles/6521223.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.3573750991030877,
+          "summary": "# 沃森：阿森纳的实用主义能在安联奏效吗\n\nFootball365专栏｜评述员：伊恩-沃森（Ian Watson）\n...\n周三阿森纳做客安联竞技场挑战拜仁慕尼黑，这场是否值得熬夜，取决于哪一方能把自己的风格贯彻到底。\n\n拜仁本赛季已打入30球，欧洲五大联赛中只有巴萨比他们更多。欧冠赛场上，拜仁最近23场比赛场场破门，最近8场共产生44球，场均5.5球。如果拜仁是不可阻挡的力量，阿森纳就是不可移动的物体。\n\n从积分看，枪手的开局更丰硕：七场英超赢下六场，两场欧冠全胜，场均2.66分，而拜仁场均2.25分。但你更愿意看哪支球队踢球？\n\n阿森纳一直做得「刚刚好」，周日客场1比0战胜诺丁汉森林就是明证，这使他们成为自上赛季开始以来欧洲单球取胜场次最多的俱乐部。对阵森林的进球来自他们第一次射正，出现在下半场，他们最近八个进球全部在下半场，上半场的记录很一般。\n\n要在巴伐利亚取胜，阿森纳的防线必须挡住欧洲最犀利的进攻之一。拜仁缺少受伤的贾马尔-穆西亚拉和被停赛的迈克尔-奥利塞，多少会有所帮助——奥利塞上周对阵维京时吃到红牌，那张红牌几乎让文森特-孔帕尼的头都掉下来。华丽还是实用，善还是恶，中立球迷各有各的看法。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Bayern Munich vs Arsenal Prediction: UEFA Champions League Preview | Opta Analyst",
+          "url": "https://theanalyst.com/articles/bayern-munich-vs-arsenal-prediction-champions-league-preview-10-2026",
+          "site": "Opta Analyst",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.3223011437464915,
+          "summary": "# Bayern Munich vs Arsenal Prediction: UEFA Champions League Preview\n\nTwo of the pre-season UEFA Champions League favourites go head-to-head in Bavaria on Wednesday, and we look ahead to that clash with our data-powered Bayern Munich vs Arsenal prediction and preview.\n\n## Bayern Munich vs Arsenal: The Key Stats\n\n- The Opta supercomputer makes Bayern Munich favourites on home soil against Arsenal, assigning Vincent Kompany’s men a 46.4% win probability.\n- Arsenal have lost 53% of their games against Bayern (8/15), only having a worse record against Barcelona (67%, 6/9) among teams they have faced 5+ times.\n- The Gunners have won each of their last 14 league-phase matches in the UEFA Champions League, though, and they beat Bayern 3-1 last November.\n\nGoing into Matchday 3 of the league phase in this season’s UEFA Champions League, Arsenal and Bayern Munich are the Opta supercomputer’s top two favourites to become European champions.\n\nThe predictive model gives Arsenal a 20.7% chance of lifting the trophy for the first time, while Bayern have a 15.2% probability of clinching their seventh continental crown.\n\nAnd with the teams going head-to-head at the Allianz Arena on Wednesday, both will face an early test of their credentials.\n\nBayern got back to winning ways in convincing fashion in the Bundesliga on Saturday, as a Luis Díaz hat-trick helped them thump RB Leipzig 6-1. The Bavarian giants had a staggering 17 shots on target in that match, their most in any league game since tallying 20 against Borussia Mönchengladbach in August 2022.\n\nThat dominant victory must have been cathartic following a frustrating return from the international break for Vincent Kompany’s side, who had to come from behind twice to draw 2-2 with Augsburg in their previous Bundesliga game, before sharing six goals equally with Norwegian champions Viking on MD2 in the Champions League.\n\nMichael Olise‘s red card was costly in that game, not only because it allowed Viking to play the final 16 minutes with a numerical advantage, scoring a late equaliser, but also because the France superstar will now serve a one-match ban against Arsenal.\n\nOlise will leave big shoes to fill. Since the start of last season, he has created more chances than any other player in the Champions League (44), while also making the joint-most defensive line-breaking passes (43). Only Lamine Yamal (55) has completed more dribbles than the Frenchman (54).\n\nEither Arsenal academy graduate Serge Gnabry or promising youngster Lennart Karl will likely come in on the right flank, and the good news for the hosts is that they still have plenty of firepower in their ranks, even with Olise missing.\n\nThis will be Harry Kane‘s penultimate game before he discovers whether he has become the first Englishman to win the Ballon d’Or since Michael Owen in 2001, with the winner of football’s most prestigious individual award announced next week.\n\nAnd Kane, who marked his 100th Bundesliga appearance with his 102nd goal in the competition on Saturday, has an excellent record against Arsenal.\n\nThe former Tottenham hero has scored 15 goals in 22 career appearances against the Gunners, only netting more against Leicester City (20) and Everton (16).\n\nEngland’s captain will be going up against the Premier League‘s best defensive unit, with Arsenal remaining within three points of Manchester City domestically following Sunday’s hard-earned 1-0 win at Nottingham Forest.\n\nNoni Madueke came off the bench to settle that encounter with a deflected strike, and although there were a few nervy moments late on, Arsenal held on for their 32nd 1-0 win in the Premier League under Mikel Arteta – the joint-most of any team since he took charge in December 2019 (alongside Everton).\n\nThe Gunners are one of nine teams to have maximum points on the board in the Champions League, following last week’s 3-0 victory over Lille. Bukayo Saka played a starring role in that success, coming off the bench to provide a goal and assist, and he is primed to play a key part here.\n\nJust four of Saka’s 14 Champions League goals have come away from home, though two of those were against Real Madrid and Paris Saint-Germain. Only two players have ever scored away against all three of Bayern Munich, Real Madrid and PSG in the competition – Didier Drogba and Erling Haaland.\n\nGiven Bayern’s commitment to dominating possession, it remains to be seen just how aggressive Arsenal will be – they attracted criticism for their tentative approach in last season’s final versus PSG, recording the lowest possession...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "How to watch Bayern Munich vs Arsenal live: Stream, TV, team news, prediction",
+          "url": "https://www.nbcsports.com/soccer/news/how-to-watch-bayern-munich-vs-arsenal-live-stream-tv-team-news-prediction",
+          "site": "NBC Sports",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.3223011437464915,
+          "summary": "# How to watch Bayern Munich vs Arsenal live: Stream, TV, team news, prediction\n\nPublished October 20, 2026 04:50 AM\n...\nTwo of the favorites to win the UEFA Champions League meet in Bavaria on Wednesday, as Bayern Munich host Arsenal in a mouthwatering clash between the German and English champions.\n\nVincent Kompany’s Bayern were knocked out of the semifinals of this competition last season by eventual winners PSG, as a thrilling two legs was just edged by PSG. But Harry Kane, Michael Olise and Luiz Diaz look fired up to win it all this season and despite a shock 3-3 draw at minnows Viking last week, Bayern look likely to be right up there at the end of this competition.\n\nMikel Arteta’s Arsenal lost on penalty kicks to PSG in agonizing fashion in the final last season, but the reigning Premier League champions have started this campaign in a confident and ruthless fashion. Arsenal have won nine of their 10 games in all competitions and their squad depth and defensive solidity remains their x-factor. Martin Odegaard, Declan Rice and Bukayo Saka all look ready to take it up another level as they dream of Champions League glory.\n\n## How to watch Bayern Munich vs Arsenal live, stream link and start time\n\nKick off time: 3pm ET Wednesday (October 21)\nVenue: Allianz Arena — Munich\nTV Channel/Streaming: Paramount+\n\n## Bayern Munich team news\n\nBayern hammered RB Leipzig 6-1 at the weekend and are full of goals wherever you look. Obviously Harry Kane is their main man and he will be eager to score against Arsenal given his connection to Spurs. But Olise has continued his magical form from the World Cup and Luis Diaz is unstoppable on his day. Bayern do have to shore things up defensively a little, but they have a really deep squad and plenty of options in midfield and attack off the bench.\n\n## Arsenal team news\n\nThe Gunners are still dealing with the absence of William Saliba through injury but he’s getting closer to a return. Piero Hincapie, Christos Tzolis and Kepa Arrizabalaga remain out injured. Arteta will likely rotate his lineup heavily from the win at Nottingham Forest on Sunday, with Jurrien Timber, Myles Lewis-Skelly and Noni Madueke all likely to come in to start.\n\n## Bayern Munich vs Arsenal prediction\n\nThis is a really tough one to predict but it feels like Bayern need this win more, and may edge it as they’ll be able to get at Arsenal’s defense. Bayern Munich 2-1 Arsenal.",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Bayern Munich vs Arsenal Preview, prediction, injury news & lineups | Champions League 2026-27",
+          "url": "https://khelnow.com/football/bayern-munich-vs-arsenal-preview-champions-league-202610",
+          "site": "Khel Now",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.2882392882052685,
+          "summary": "# Bayern Munich vs Arsenal Preview, prediction, injury news & lineups | Champions League 2026-27\n...\nPublished at :October 19, 2026 at 5:15 PM\n\nModified at :October 19, 2026 at 5:16 PM\n\n(Courtesy : DFL/Bundesliga)\n\n## Arteta’s Arsenal won only once in six games against Kompany’s Bavarians\n\nCarrying the torch from the historic 1972 Olympiastadion into modern European dominance, Munich’s Allianz Arena gears up to host Matchweek 3 of the UEFA Champions League 2026-27, where Bayern Munich and Arsenal meet in what promises to be a thrilling clash.\n\nThe Bavarians are unbeaten in their last five games and come off a 6-1 win over RB Leipzig in their last match. Luis Diaz’s hat-trick and goals from Pavlovic, Olise and Kane saw Kompany’s side leapfrog Dortmund to occupy the top spot in the German top tier.\n\nTalking about their UCL form, they are currently placed eighth, and a win in the next game is crucial to keep their hopes of a top-eight finish alive. After a winning start against Bodo Glimt, Bayern had to settle for a high-scoring 3-3 draw against Viking in the last game.\n\nMoving to the reigning champions of India, we find out that the North London outfit won both their games so far in the UCL against Napoli and Lille. They faced relatively tougher opponents than their immediate opponents and Arteta’s side would be keen to make it three wins out of three in Germany.\n\nWith six wins in seven games, the Gunners are placed second in the Premier League and are coming off a 1-0 win over Nottingham Forest in the last game. They won four of their last five games, and their sole defeat came against Brighton, when they lost 3-0 away.\n\n### Kick-off:\n\n- Location: Munich, Germany\n- Stadium:\n...\n- Kick-off time: 12:30 am IST\n- Date: Thursday, October 22\n- Referee: TBD\n- VAR: In use\n\n### Form:\n\nBayern (in all competitions): W-D-D-W-W\n\nArsenal (in all competitions): W-W-W-L-W\n\n### Players to Watch\n\n#### Joshua Kimmich (Bayern)\n\nThe German midfield maestro from Baden-Württemberg is arguably one of the best central midfielders in modern-day football. He will be up against an elite Arsenal midfield, led by Declan Rice and Bruno Guimaraes.\n\nA living legend in Bavaria, Kimmich recently surpassed 500 competitive appearances for Bayern Munich. He is also one of the most tactically sound players in the team, and Kompany will rely on him to dominate those pocket-sized battles in the centre of the park.\n\n#### Noni Madueke (Arsenal)\n\nThe English winger honed his skills early on in Eindhoven before donning the jerseys of Chelsea and Arsenal. He found his name in the score sheet in the last game against Nottingham Forest and will be keen to extend his goal-scoring stint in Germany.\n\nMadueke will likely be up against Konrad Laimer on the wings, and it will be a key player battle to watch out for. Operating off the right wing, the former Chelsea man excels at slowing isolated full-backs before exploding past them.\n\n### Match Facts\n\n- Thomas Muller has been the highest goalscorer in this fixture.\n- Arsenal won 3-1 when these two sides last met.\n- Arsenal won only once in the last six games against Bayern\n\n### Bayern Munich vs Arsenal: Betting Tips and Odds\n\n- Bayern to win the game – 21/20 with bet365\n- Harry Kane to score – 21/20 with bet365\n- Bayern Munich 2-1 Arsenal – 8/1 with bet365\n\n### Injury and Team News\n\nFor the hosts, Manuel Neuer and Jamal Musiala are injured.\n\nFor Arsenal, William Saliba, Piero Hincapie and Christos Tzolis are injured.\n\n### Head-to-Head\n\nTotal games: 15\n\nBayern won: 08\n\nArsenal won: 04\n\nMatches drawn: 03\n\n### Predicted Lineups\n\n#### Bayern predicted lineup (4-2-3-1)\n\nJonas Urbig (GK); Konrad Laimer, Jonathan Tah, Kim Min-jae, Nathaniel Brown; Joshua Kimmich, Tom Bischof; Michael Olise, Ismael Saibari, Luis Díaz;\n...\n#### Arsenal predicted lineup (4-2-3-1)\n\nDavid Raya (GK); Jurriën Timber, Ezri Konsa, Gabriel Magalhães, Riccardo Calafiori...",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "high-scoring"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "默森：看不出枪手本周要如何击败拜仁，他们缺决定性...",
+          "url": "https://beta.dongqiudi.com/articles/6520622.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.2712597789055864,
+          "summary": "# 默森：看不出枪手本周要如何击败拜仁，他们缺决定性...\n\n默森：看不出枪手本周要如何击败拜仁，他们缺决定性的X因素 在此前结束的一场英超比赛中，阿森纳1-0战胜了诺丁汉森林。保罗-默森在天空体育专栏中，谈到了他对英超球队阿森纳近期表现的看法。 默森表示：“不敌布莱顿的那场失利给阿森纳敲响了警钟。夺冠之后，球队一度踢出了观赏性十足的足球，但那场败仗到来之后，他们又变回了一台讲求效率的机器。” “这场失利震慑到了阿森纳，球队回归老样子。这套打法就是死守不丢球，再伺机完成破门，对阵诺丁汉森林一战，他们正是这么做的。“ “我从未见过这样一场比赛：一支球队手握如此多控球权，却怎么看都没有破门的可能，场面已经糟糕到极点。拥有这么多球权，却毫无进攻威胁，实在令人难以置信。我以前看温格执教的球队，同样的控球量下，他们能轰出30脚射门。” “其他球队已经找到了对付阿森纳的办法：收缩防守，这并不难。阿森纳创造不出二三十次机会，边锋无法完成过人，没有人前插跑在球的前方，缺少持球支点，整体跑动也缺乏层次感。” “观看阿森纳对阵森林的比赛，我非常吃惊。我知道枪手在发挥不佳的情况下拿下胜利，这是一个积极信号。但与此同时，我本以为本赛季他们会卸下束缚，放开手脚去踢。布鲁诺-吉马良斯必须场场首发，他才是那个能送出关键传球的人。” “我实在看不出他们本周要怎么击败拜仁慕尼黑。如果我是拜仁，我会放开节奏，双方对攻，因为最终只会有一支球队取胜。阿森纳能在对攻战中比对手进更多球吗？这是一场分量极重的较量，这场比赛能检验球队在欧冠赛场所处的水准，因为你很难判断各个联赛的真实实力。” “我欣赏哈弗茨，他是一名优秀球员。但拜仁的中后卫们晚上睡觉的时候，会因为他而辗转难眠吗？他们会因为要对阵哈弗茨而忧心忡忡、夜不能寐吗？欧冠赛场需要决定性的X因素，而我在阿森纳阵中看不到这一点，我不认为哈弗茨或者哲凯赖什能成为改变比赛的那个人。” “对阵实力偏弱的对手时，阿森纳这套打法尚可。但面对欧洲顶级豪门，情况就完全不同。我依旧看好阿森纳拿下联赛冠军，因为我认为他们只需要一粒进球就能取胜。而曼城几乎每场比赛都要打进两球才能赢球，阿森纳只要一球就能拿下比赛。 “我既效力过豪门，也效力过普通球队，这两种环境下的足球完全不一样。埃泽就是典型例子，差别真的太大了。对阵森林的比赛他半场就被换下，如果他在水晶宫打出这样的表现，依旧会留在场上。在阿森纳，你必须拿出稳定发挥，必须贴合战术体系。不能只按照自己的习惯踢球，在豪门俱乐部，你不能随心所欲自由发挥。“ “在水晶宫，赛前布置就是‘把球交给埃泽，所有进攻围绕他展开，我们再以此推进’。但到了阿森纳，队内有多名核心：球交给布鲁诺，交给萨卡，交给厄德高，交给赖斯。“ “在阿森纳，埃泽拿到球之后，要在仅仅二三十次触球的机会里创造威胁，而不像在水晶宫那样，能拥有上百次触球机会。我见过埃泽在水晶宫时，在本方禁区边缘尝试穿裆过人而丢球，这在那里是可以接受的。我没有不尊重水晶宫的意思，只是效力豪门的比赛环境截然不同。在阿森纳，每周都要承受巨大压力。就算球队赢下森林，依旧会遭到我这类人的批评，这就是差别。“ “我还记得去年客场对阵阿斯顿维拉的比赛。埃泽在远端门柱走神，卡什破门得分，埃泽半场就被换下。之后两个月里，他只在联赛首发过一次。埃泽这名球员本身有实力，球风很漂亮，但我不知道他能否在阿森纳延续这样的表现，...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 1,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 2,
+        "home_mentions": 2,
+        "away_mentions": 2
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周三011",
+      "league": "欧冠",
+      "home": "里斯本",
+      "away": "LASK林茨",
+      "home_en": "里斯本",
+      "away_en": "LASK林茨",
+      "queries": [
+        "\"里斯本 vs LASK林茨\" preview prediction lang:en",
+        "里斯本 LASK林茨 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "葡萄牙体育迎战林茨，苏亚雷斯状态火热",
+          "url": "https://pc.dongqiudi.com/articles/6519886.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.7265756130218506,
+          "summary": "# 葡萄牙体育迎战林茨，苏亚雷斯状态火热\n\n北京时间10月22日03:00，欧冠联赛阶段第三轮，葡萄牙体育将在何塞-阿尔瓦拉德球场迎战首次参加欧冠正赛的林茨。葡萄牙体育前两轮全胜，积6分排名第六；林茨两战皆负，排名第33位。\n...\n林茨首轮客场惜败雅典AEK，上周3-6不敌利物浦，两场丢七球，防守问题突出。不过，林茨在周六的奥地利联赛中4-0战胜奥地利卢斯特瑙，取得八场正式比赛中的首场零封，结束了四场不胜，目前排名奥甲第三。\n\n伤停方面，葡萄牙体育的努诺-桑托斯继续因膝伤缺阵，萨拉萨尔因肌肉问题缺席，德巴斯特在错过上周客场对朗斯的比赛和周日训练后出战成疑。敦比亚预计继续坐镇中场，凯克-佩雷拉可能继续首发守门。\n\n路易斯-苏亚雷斯本赛季为葡萄牙体育首发的九场比赛均有进球，共打入10球，其中欧冠联赛阶段两球，是葡萄牙体育进攻端的关键人物。\n\n林茨方面，贝洛和摩西-乌索尔在10月11日对阵维也纳快速的比赛中受伤离场，已缺席最近两场比赛，本场出战存疑。卡莱季奇上次比赛进球并助攻阿德尼兰得分，可能连续第二场首发；克里斯托弗-朗替补出场梅开二度，正争取重返首发。\n\n两队此前三次交手均在欧联杯，林茨2胜1负占优，上次做客何塞-阿尔瓦拉德以4-1获胜。",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=2042116&gm=2633898",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.7032105922698977,
+          "summary": "排名: League Stage 第6名\n\n赛季总成绩: 2胜 0平 0负\n\n赛季主场成绩: 1胜 0平 0负\n\n周三011 欧冠>\n\n2026/2027 League Stage 第3轮 2026-10-22 03:00\n...\nLeague Stage 第33名\n...\n0胜 0平 2负\n\n赛季客场成绩: 0胜 0平 1负\n\n特征分析\n\n里斯本 (主)\n\n1胜/0平/2负\n\n1胜/0平/1负\n\n7胜/3平/0负\n\n8胜/2平/0负\n\n2.5个\n\n1.0个\n\n近3场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\nLASK林茨 (客)\n\n2胜/0平/1负\n\n1胜/0平/1负\n\n5胜/1平/4负\n\n5胜/1平/4负\n...\n1.7个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n近3场里斯本1胜 (33%) | 0平 (0%) | 2负 (67%)\n\n比赛日期 | 赛制 | \n主队\n\nVS\n\n客队\n | 总进球走势\n...\n2020-10-02 | 欧罗巴\n...\n1:4\n\n（半 1:1）\n...\n2019-12-13 | 欧罗巴\n...\n3:0\n\n（半 2:0）\n...\n2019-10-04 | 欧罗巴\n...\n2:1\n\n（半 0:1）\n...\n积分榜 欧冠2026/2027\n\n里斯本League Stage 第6名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 2 | 2/0/0 | 100% | 5/1 | 4 | 6 | 6 \n主 | 1 | 1/0/0 | 100% | 3/1 | 2 | 3 | 9 \n客 | 1 | 1/0/0 | 100% | 2/0 | 2 | 3 | 6 \n\nLASK林茨League Stage 第33名 查看更多>\n...\n总 | 2 | 0/0/2 | 0% | 3/7 | -4 | 0 | 33 \n主 | 1 | 0/0/1 | 0% | 3/6 | -3 | 0 | 34 \n客 | 1 | 0/0/1 | 0% | 0/1 | -1 | 0 | 22 \n\n比赛近况\n...\n里斯本近10场7胜 (70%) | 3平 (30%) | 0负 (0%)\n\n进25球，失10球，净进15球\n\nLASK林茨近10场5胜 (50%) | 1平 (10%) | 4负 (40%)\n\n进25球，失17球，净进8球\n\n射手信息 欧冠2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n | 进球\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n97-L. Suárez(前锋) | 2 (2/0) | 2 (40%) | 0 (0%) | 1.0/0 \n17-R. Zalazar(中场) | 1 (1/0) | 1 (20%) | 0 (0%) | 1.0/0 \n10-Geny(中场) | 2 (2/0) | 1 (20%) | 0 (0%) | 0.5/0\n...\n29-F·弗莱克(前锋) | 2 (0/2) | 2 (67%) | 0 (0%) | 1.0/0 \n10-R...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Sporting CP vs. LASK Linz - Live Score - October 21, 2026",
+          "url": "https://www.foxsports.com/soccer/champions-league-sporting-cp-vs-lask-linz-oct-21-2026-game-boxscore-1003374",
+          "site": "FOX Sports",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.519673466682434,
+          "summary": "### TEAM STATS\n\nSCP\n\n2.5 Goals per Game 1.5\n\n1.5 Expected Goals (xG) per Game 1.4\n\n0.5 Goals Against per Game 3.5\n\n9.0 Shots per Game 10.5\n\n48 Average Possession (%) 1\n\n7.0 Chances Created per Game 6.5\n\nLNZ\n...\n### ODDS\n...\nTEAM TO WIN\n\nA bet of $490 would win $590 total if Sporting CP wins and a bet of $100 would win $1,140 total if LASK Linz wins\n\n-490\n\nSCP\n\n+1040\n\nLNZ\n\nOVER/UNDER 3.5 GOALS\n\nThe combined final score of both teams is set at 3.5\n\n-126\n\nOVER 3.5\n\n-102\n\nUNDER 3.5\n\nLisbon, PRT\n\n60°\n\nWind 4 mph NNW\n\n68°  TUE\n\n69°  WED",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "2026-2027赛季欧冠杯 葡萄牙体育 VS LASK林茨足球分析-新球体育-球探体育",
+          "url": "https://m.titan007.com/Analy/Analysis/3073173.htm?pagefrom=b",
+          "site": "球探",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.4145163297653198,
+          "summary": "欧冠杯 联赛阶段 10-22 03:00\n\n葡萄牙体育\n...\nLASK林茨\n...\n赛前指数\n\n欧 | 1.276.69.7 | 1.27.712.5 \n---|---|---\n亚 | 0.881.5/21 | 0.8421.04 \n大 | 0.943.50.94 | 0.993.750.89 \n\n胜平负\n\n总进球\n...\n半全场\n...\n-2 | 2.224.12.3 | 2.14.12.45\n...\n全场 | 赛 | 胜 | 平 | 负 | 得 | 失 | 净 | 积分 | 排名 | 胜率\n...\n总 | 8 | 5 | 3 | 0 | 20 | 9 | 11 | 18 | 3 | 63% \n主 | 4 | 3 | 1 | 0 | 10 | 5 | 5 | 10 | 2 | 75% \n客 | 4 | 2 | 2 | 0 | 10 | 4 | 6 | 8 | 4 | 50% \n近 | 6 | 4 | 2 | 0 | 15 | 5 | 10 | 14 | 67%\n...\n总 | 9 | 6 | 1 | 2 | 23 | 9 | 14 | 19 | 3 | 67% \n主 | 4 | 3 | 0 | 1 | 10 | 3 | 7 | 9 | 5 | 75% \n客 | 5 | 3 | 1 | 1 | 13 | 6 | 7 | 10 | 1 | 60% \n近 | 6 | 3 | 1 | 2 | 14 | 8 | 6 | 10 | 50% \n\n球队评分\n\n58葡萄牙体育\nVS\nLASK林茨42\n\n裁判统计\n\n裁判：沃尔什\n\n球队 | 赛 | 胜 | 平 | 负 | 上盘率 | 场均黄牌 \n---|---|---|---|---|---|---\n葡萄牙体育 | 1 | 0 | 0 | 1 | 0% | 1 \nLASK林茨 | 1 | 0 | 0 | 1 | 0% | 3 \n\n联赛走势\n...\n全场 | 赢 | 走水 | 输 | 赢% | 大 | 大% | 小 | 小%\n...\n总 | 2 | 2 | 4 | 25% | 6 | 75% | 2 | 25% \n主 | 0 | 2 | 2 | 0% | 3 | 75% | 1 | 25% \n客 | 2 | 0 | 2 | 50% | 3 | 75% | 1 | 25%\n...\n总 | 6 | 0 | 3 | 66.7% | 5 | 55.6% | 2 | 22.2% \n主 | 3 | 0 | 1 | 75% | 2 | 50% | 1 | 25% \n客 | 3 | 0 | 2 | 60% | 3 | 60% | 1 | 20%\n...\n杯赛积分排名\n\n排名 | 球队 | 总 | 胜 | 平 | 负 | 得 | 失 | 净 | 积分 \n---|---|---|---|---|---|---|---|---|---\n1 | 巴黎圣日耳曼 | 2 | 2 | 0 | 0 | 10 | 3 | 7 | 6 \n2 | 阿斯顿维拉 | 2 | 2 | 0 | 0 | 9 | 2 | 7 | 6 \n3 | 巴塞罗那 | 2 | 2 | 0 | 0 | 9 | 2 | 7 | 6 \n4 | 斯图加特 | 2 | 2 | 0 | 0 | 6 | 1 | 5 | 6\n...\n- 近3场: 1 胜 0 平 2 负 胜率...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Sporting Lisbon vs LASK Linz - Champions League - October 21, 2026 - Match Guide, Data Analysis, Standings - Football - Sports Mole",
+          "url": "https://www.sportsmole.co.uk/football/champions-league/sporting-lisbon-vs-lask-linz_game_260472.html",
+          "site": "Sports Mole",
+          "date": null,
+          "authority": 2,
+          "score": 1.3743371963500977,
+          "summary": "Champions League Gameweek 3\n\nOct 21, 2026 8.00pm\n\n# Sporting Lisbon vs LASK Linz - Match Guide, Data Analysis, Standings\n\n## Form, Standings, Stats\n\n### Sporting Lisbon\n\n### LASK Linz\n...\nLast game\n\nSep 8, 2026 5.45pm\nAEK Athens 1 - 0 LASK\n\n## Data analysis\n\nOur analysis of all available data, including recent performances and player stats, suggests the most likely outcome of this match is a Sporting Lisbon win with a probability of 58.09%. A draw has a probability of 21.64% and a win for LASK Linz has a probability of 20.23%.\n\nThe most likely scoreline for a Sporting Lisbon win is 2-1 with a probability of 10.12%. The next most likely scorelines for that outcome are 1-0 (9.82%) and 2-0 (9.44%). The likeliest drawn scoreline is 1-1 (9.86%) , while for a LASK Linz win it is 1-2 (5.59%).\n\n### Result\n\nSporting Lisbon 58.09% ▲ (+1.03)\n\nDraw 21.64% ▼ (-0.13)\n\nLASK Linz 20.23% ▼ (-0.95)\n\n### Both Teams to Score:\n\n55.52% ▼ (-0.28)\n\n### Goals\n\nOver 1.5 79.55% ▼ (-0.52)\n\nUnder 1.5 20.45% ▲ (+0.52)\n\nOver 2.5 57.5% ▼ (-0.68)\n\nUnder 2.5 42.5% ▲ (+0.68)\n\nOver 3.5 34.67% ▼ (-0.11)\n\nUnder 3.5 65.33% ▲ (+0.10)\n\nOver 4.5 22% ▼ (-0.20)\n\nUnder 4.5 78% ▲ (+0.21)\n\n### First Half Winner\n\nSporting Lisbon 42.39% ▲ (+2.76)\n\nDraw 35.22% ▼ (-1.64)\n\nLASK Linz 22.39% ▼ (-1.13)\n\n### Team To Score First\n\nSporting Lisbon 62.12% ▲ (+0.18)\n\nNo Goal 5.51% ▲ (+0.17)\n\nLASK Linz 32.37% ▼ (-0.35)\n\n### Corners\n\nOver 8 55.67% ▼ (-1.20)\n\nEqual 8 11.05% ▲ (+0.21)\n\nUnder 8 33.28% ▲ (+1.00)\n\nOver 9 44.6% ▼ (-1.31)\n\nEqual 9 11.07% ▲ (+0.11)\n\nUnder 9 44.33% ▲ (+1.20)\n\nOver 10.5 34.36% ▼ (-1.33)\n\nUnder 10.5 65.64% ▲ (+1.33)\n\n### Sporting Lisbon Goals\n\nOver 1.5 56.21% ▲ (+0.40)\n\nUnder 1.5 43.79% ▼ (-0.40)\n\nOver 2.5 30% ▲ (+0.18)\n\nUnder 2.5 70% ▼ (-0.18)\n\nOver 3.5 12.92% ▼ (-0.26)\n\nUnder 3.5 87.08% ▲ (+0.27)\n\n### LASK Linz Goals\n\nOver 0.5 56.21% ▼ (-0.83)\n\nUnder 0.5 43.79% ▲ (+0.83)\n\nOver 1.5 25.18% ▼ (-0.79)\n\nUnder 1.5 74.82% ▲ (+0.79)\n\nOver 2.5 8.1% ▼ (-0.66)\n\nUnder 2.5 91.9% ▲ (+0.66)\n\nOver 3.5 2.53% ▼ (-0.04)\n\nUnder 3.5 9...",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5",
+            "both teams to score"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 1,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 3,
+        "zh": 3,
+        "home_mentions": 1,
+        "away_mentions": 2
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周三012",
+      "league": "欧冠",
+      "home": "布鲁日",
+      "away": "朗斯",
+      "home_en": "布鲁日",
+      "away_en": "朗斯",
+      "queries": [
+        "\"布鲁日 vs 朗斯\" preview prediction lang:en",
+        "布鲁日 朗斯 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "布鲁日仅缺奥多涅斯，朗斯两将伤情存疑",
+          "url": "https://pc.dongqiudi.com/articles/6519220.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.226604461669922,
+          "summary": "# 布鲁日仅缺奥多涅斯，朗斯两将伤情存疑\n\n欧冠联赛阶段第三轮，布鲁日将在主场扬-布雷德尔球场迎战朗斯，开球时间为北京时间10月22日03:00（当地时间21日21:00）。赛前伤停方面，布鲁日只缺奥多涅斯一人，他因伤无法出战；朗斯则因健康问题，未必会使用拜多和沙特-阿卜杜勒哈米德这对组合。\n\n布鲁日近期状态出色，近5场各项赛事全胜，打进16球。除了在国米主场4-3取胜外，他们还4-1击败RAAL拉卢维耶、3-0击败亨克、3-1击败安特卫普，并在比利时杯战胜体育洛克伦。主教练尼基-哈延执教的球队进攻运转高效，尤其体现在把机会转化为进球的能力上。\n\n特雷索尔迪在对国米一役上演帽子戏法，成为最亮眼的名字，展现了良好的选位和终结能力；卡洛斯-福布斯则带来速度以及从两侧创造机会的能力。不过，战胜国米也暴露了布鲁日防线的问题，他们让对手打进三球，此前还在主场2-3不敌阿斯顿维拉，频繁失球让球队难以完全掌控局面。\n\n朗斯近5场状态起伏，2-1击败里昂、3-2击败布拉格斯拉维亚、2-2战平勒芒，但1-2不敌摩纳哥、0-2不敌葡萄牙体育。输给葡萄牙体育一役表明，朗斯在对手组织严密防守、限制出球空间时会遇到困难。托万是朗斯进攻端值得注意的人物，凭借创造力和终结能力，他可以帮助客队利用布鲁日防线身后的空当。\n\n朗斯近几场也都有失球，因此在扬-布雷德尔球场抵御压力将是不小的挑战。原文认为，布鲁日拥有主场优势、锋线犀利、士气高涨以及在欧洲赛场的丰富经验，大概率3分将留在布鲁日。",
+          "side": "home",
+          "neg": true,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "專業分析 - 布魯日強鋒可添勝",
+          "url": "https://football.hkjc.com/zh-hk/preview-summary/details-page?path=MatchPreview/2026-10/19/FB7268&Expert=&MatchID=FB7268&Title=%E5%B8%83%E9%AD%AF%E6%97%A5%E5%BC%B7%E9%8B%92%E5%8F%AF%E6%B7%BB%E5%8B%9D&b_cid=SPFBSPA_PreviewArticle_article",
+          "site": "香港賽馬會",
+          "date": null,
+          "authority": 3,
+          "score": 1.765517234802246,
+          "summary": "## 布魯日強鋒可添勝\n\n推介: 主客和 – 主勝\n...\n半場主客和 – 主勝\n\n軍情\n\n布魯日年輕射手泰索迪今季表現進步神速，上仗歐聯遇強敵更連中三元，今屆歐聯2戰入4球，備受讚賞。球隊上仗出戰國內盃賽，泰索迪僅以後備披甲，只為留力今戰，門將恩尼森馬與中堅麥捷尼兩大主力，該仗更坐足全場冷板，保留體力在今場復出；其中麥捷尼該仗歐聯被打傷鼻骨已完成手術，今場應會帶上保護面罩出戰。\n\n朗斯上仗歐聯以「3-4-3」陣式出戰，中堅基利安安東尼奧表現低迷，門將列斯沙表現欠佳，都是輸波罪人。曾效力巴塞隆拿的中堅圖迪保本是合適中堅的替補人選，但卻剛在聯賽受傷；防線或要續以原陣出擊，依然不穩。名將前鋒泰奧雲寶刀未老，上仗聯賽交出2助攻，仍是球隊爭勝的關鍵人物。\n...\n受傷：祖爾奧當尼斯（後衛）\n\n停賽：／\n...\n受傷：圖迪保（後衛）、莊拿芬格拉迪（後衛）、艾拉達施馬（前鋒）\n...\n近況\n\n布魯日上仗歐聯作客以4比3勇挫勁旅國際米蘭，歐聯2戰1勝1負，期間攻入6球，強大鋒力是爭勝關鍵；各項賽事累計5連勝，氣勢大盛，今場再得地利，有力添勝。朗斯上仗歐聯主場淨吞士砵亭2蛋，是沉重打擊，歐聯2戰1勝1負，但2場都各失2球；防線不穩問題未能解決，拖累成績，今場凶多吉少，半場也難捱。\n\n往績\n\n‧雙方近年未有交手。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=2042117&gm=2633761",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.5951817035675049,
+          "summary": "排名: League Stage 第16名\n\n赛季总成绩: 1胜 0平 1负\n\n赛季主场成绩: 0胜 0平 1负\n\n周三012 欧冠>\n\n2026/2027 League Stage 第3轮 2026-10-22 03:00\n...\nLeague Stage 第19名\n...\n赛季客场成绩: 1胜 0平 0负\n\n特征分析\n\n布鲁日 (主)\n\n0胜/0平/0负\n...\n8胜/0平/2负\n\n7胜/1平/2负\n\n2.3个\n\n1.0个\n\n近0场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n朗斯 (客)\n...\n5胜/1平/4负\n\n4胜/3平/3负\n\n1.9个\n\n1.5个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n近0场布鲁日0胜 (0%) | 0平 (0%) | 0负 (0%)\n\n暂无数据\n\n积分榜 欧冠2026/2027\n\n布鲁日League Stage 第16名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 2 | 1/0/1 | 50% | 6/6 | 0 | 3 | 16 \n主 | 1 | 0/0/1 | 0% | 2/3 | -1 | 0 | 27 \n客 | 1 | 1/0/0 | 100% | 4/3 | 1 | 3 | 7 \n\n朗斯League Stage 第19名 查看更多>\n...\n总 | 2 | 1/0/1 | 50% | 3/4 | -1 | 3 | 19 \n主 | 1 | 0/0/1 | 0% | 0/2 | -2 | 0 | 32 \n客 | 1 | 1/0/0 | 100% | 3/2 | 1 | 3 | 10 \n\n比赛近况\n...\n布鲁日近10场8胜 (80%) | 0平 (0%) | 2负 (20%)\n\n进23球，失10球，净进13球\n\n朗斯近10场5胜 (50%) | 1平 (10%) | 4负 (40%)\n\n进19球，失15球，净进4球\n...\n比赛日期 | 赛制 |\n...\n| 轮次\n...\n2026-10-25 | 法甲 | Regular Season 第8轮 \n2026-10-31 | 法甲 | Regular Season 第9轮 \n2026-11-05 | 欧冠 | League Stage 第4轮 \n2026-11-09 | 法甲 | Regular Season 第10轮 \n\n射手信息 欧冠2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n7-N. Tresoldi(前锋) | 2 (2/0) | 4 (67%) | 0 (0%) | 2.0/0 \n17-R. Vermant(前锋) | 2 (0/2) | 1 (17%) | 0 (0%) | 0.5/0 \n10-H.韦特莱森(中场) | 2 (2/0) | 1 (17%) | 0 (0%) | 0.5/0\n...\n2-亚吉拉(后卫) | 2 (0/2) | 1 (33%) | 0 (0%) | 0.5/0 \n19-A.西玛(前锋) | 1 (1/0) | 1 (33%) | 0 (0%) | 1.0/0 \n10-...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Club Bruges face RC Lens in first European meeting as both target Champions League win",
+          "url": "https://africasoccer.com/club-bruges-face-rc-lens-in-first-european-meeting-as-both-target-champions-league-win/",
+          "site": "AfricaSoccer.com",
+          "date": "2026-10-18T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.5646584033966064,
+          "summary": "Club Bruges host RC Lens on Wednesday, 21 October 2026, in the third matchday of the Champions League league phase, with both sides seeking a second victory in the competition to strengthen their hopes of qualification.\n\nKick-off is at 19:00 GMT at the Jan Breydel Stadion in Bruges.\n...\n#### A new European fixture\n\nThis will be the first competitive meeting between Club Bruges and RC Lens. Neither side has faced the other before, giving both clubs the chance to make an immediate mark in their opening European contest.\n\nClub Bruges approach the game with confidence after claiming a notable 4-3 victory away to Inter Milan. Their attacking threat was clear in that result, but defensive weaknesses remain a concern and could give Lens opportunities at the Jan Breydel Stadion.\n\nLens were beaten 2-0 by Sporting CP in their previous Champions League match but responded in Ligue 1 with a 3-1 win against Troyes. The French side will also take encouragement from their strong record against Belgian clubs as they prepare for their first visit to face Club Bruges.\n\n#### Prediction and betting odds\n\nClub Bruges are marginal favourites, with a 47% probability of victory. Lens are given a 30% chance of winning, while the likelihood of a draw is put at 23%.\n\nDespite their home advantage, Club Bruges’ defensive vulnerability could allow Lens to stay competitive and claim a positive result away from home.\n\nAfricafoot’s prediction is a 2-0 win for Club Bruges.\n\nBookmaker 1xbet lists Club Bruges at odds of 2.02 to win, with the draw priced at 4.00 and a Lens victory at 3.30.",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "2 比 0"
+          ]
+        },
+        {
+          "kind": "preview",
+          "title": "布魯日對朗斯 預測及建議 | FootyStats - Loading",
+          "url": "https://footystats.org/zht/europe/club-brugge-kv-vs-racing-club-de-lens-h2h-stats/predictions#1",
+          "site": "FootyStats",
+          "date": null,
+          "authority": 3,
+          "score": 1.527171015739441,
+          "summary": "# 布魯日對朗斯預測及建議\n\n1.60\n\nWLWLW\n...\n1.70\n\nWLLWD\n朗斯\n因為這是一場杯賽，所以顯示最近10次的統計數據。\n...\n## 機率表\n\n布魯日 和 朗斯 各市場的發生機率。並與聯賽平均值進行比較，幫助您判斷其發生的可能性是高於還是低於平均水平。這對預測非常有幫助。\n\n市場\n\n歷史機率\n...\n數學優勢\n\n比平常更有可能發生?\n\n1\n\n(3Way Result)\n\n50%\n\n54%\n\n-4%\n...\n15%\n\n20%\n\n-5%\n...\n26%\n\n+24%\n\nYes\n\nOver 0.5\n\n(Over/Under)\n\n100%\n\n96%\n\n+4%\n\nYes\n\nOver 1.5\n...\n80%\n\n82%\n\n-2%\n\nNo\n\nOver 2.5\n...\n70%\n\n57%\n\n+13%\n\nYes\n\nOver 3.5\n...\n40%\n\n38%\n\n+2%\n\nYes\n\nOver 4.5\n...\n23%\n\n-8%\n\nNo\n\nUnder 0.5\n...\n0%\n\n96%\n\n-96%\n\nNo\n\nUnder 1.5\n...\n-62%\n\nNo\n\nUnder 2.5\n...\n30%\n\n58%\n\n-28%\n\nNo\n\nUnder 3.5\n...\n60%\n\n38%\n\n+22%\n\nYes\n\nUnder 4.5\n...\n85%\n\n23%\n\n+62%\n...\n(Over/Under 1st Half)\n\n73%\n\n69%\n...\n34%\n\n46%\n\n-12%\n...\n18%\n\n15%\n\n+3%\n...\n27%\n\n31%\n...\n66%\n...\n(Goals Over/Under 1st Half)\n...\n(Over/Under 2nd Half)\n\n78%\n\n81%\n...\n55%\n\n48%\n\n+7%\n...\n19%\n...\n45%\n\n52%\n...\n77%\n\n74%\n...\n(Both Teams To Score)\n\n60%\n\n56%\n...\n-16%\n\nNo\n\nOver 7.5\n\n(Corners Over Under)\n\n75%\n...\nOver 8.5\n...\n59%\n...\nOver 9.5\n...\n-1%\n\nNo\n\nOver 10.5\n...\nOver 11.5\n...\n25%\n\n31%\n\n-6%\n...\n+14%\n\nYes\n\nUnder 9.5\n...\nUnder 10.5\n...\n+29%\n...\n+39%\n\nYes\n\n## 布魯日 與 朗斯 的賠率比較",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5",
+            "both teams to score"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 0,
+        "draw": 0,
+        "goals": 1,
+        "none": 3,
+        "neg": 1
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 4,
+        "zh": 4,
+        "home_mentions": 2,
+        "away_mentions": 4
+      },
+      "scores": [
+        "2 比 0"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周三013",
+      "league": "解放者杯",
+      "home": "帕梅拉斯",
+      "away": "弗鲁米嫩",
+      "home_en": "帕梅拉斯",
+      "away_en": "Fluminense",
+      "queries": [
+        "\"帕梅拉斯 vs Fluminense\" preview prediction lang:en",
+        "帕梅拉斯 弗鲁米嫩 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "环球体育：帕尔梅拉斯主场9场不败，半决赛前景看好",
+          "url": "https://pc.dongqiudi.com/articles/6522136.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.318057092308058,
+          "summary": "# 环球体育：帕尔梅拉斯主场9场不败，半决赛前景看好\n\n在世界杯休赛期后，帕尔梅拉斯主场状态一度下滑，但如今已经找回主场控制力，在努班克球场连续9场不败。对于本周三对弗鲁米嫩塞的解放者杯半决赛，这无疑是个好消息，比赛时间为21:30。\n\n“绿衫军”自8月以来就没有在主场输球，战绩为7胜2平。帕尔梅拉斯目前在圣保罗已经连续6场不败。\n\n世界杯结束后，球队在主场一度表现起伏不定，4场比赛里拿到2平1负1胜，胜率只有58.3%，低于世界杯前的85%。\n\n不过从那以后，帕尔梅拉斯的主场状态明显回升，随后在努班克球场赢下了所有比赛。除了巴西甲对瓦斯科、圣保罗、巴伊亚和科林蒂安，球队还在解放者杯击败了基多大学，以及在巴西杯战胜了考阿-桑托斯。\n\n本赛季至今，帕尔梅拉斯的主场拿分率达到78.95%，这是努班克球场建成以来的第二好成绩。只有2022年球队的表现更好，拿分率达到82.86%。\n\n本赛季主场胜率同样排在第二位，73.68%的主场比赛以帕尔梅拉斯取胜告终。再次只有2022年的77.14%更高。\n\n2026年，帕尔梅拉斯主场场均失球仍然只有0.52个，排在队史第二低，仅次于2019年的0.46个；主场输球率也只有10.53%。\n\n这些主场数据也让帕尔梅拉斯球迷多了几分期待。尽管在巴西甲主场场次上，帕尔梅拉斯和弗拉门戈到赛季结束时同为4场，但帕尔梅拉斯会在第36轮主场迎战现任榜首。\n\n此外，帕尔梅拉斯本周还要在主场踢一场关键战。球队将在解放者杯半决赛次回合对阵弗鲁米嫩塞，首回合客场取胜后，帕尔梅拉斯手握1球优势。\n\n帕尔梅拉斯和弗鲁米嫩塞将于本周三21:30（巴西利亚时间）在努班克球场交手。周六，帕尔梅拉斯还将在巴雷里球场主场迎战布拉干蒂诺，进行巴西甲第32轮比赛。\n\n🏠 帕尔梅拉斯对布拉干蒂诺 - 10月24日，第32轮 ✈️ 桑托斯对帕尔梅拉斯 - 10月28日，第33轮 🏠 帕尔梅拉斯对贝伦赛艇 - 11月5日，第34轮 ✈️ 克鲁塞罗对帕尔梅拉斯 - 待定，第35轮 🏠 帕尔梅拉斯对弗拉门戈 - 待定，第36轮 ✈️ 沙佩科人对帕尔梅拉斯 - 待定，第37轮 🏠 帕尔梅拉斯对库里蒂巴 - 待定，第38轮",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "毛里西奥：帕尔梅拉斯要稳健拿下弗鲁米嫩塞",
+          "url": "http://pc.dongqiudi.com/articles/6519914.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.318057092308058,
+          "summary": "# 毛里西奥：帕尔梅拉斯要稳健拿下弗鲁米嫩塞\n\n解放者杯半决赛次回合，帕尔梅拉斯将在北京时间10月22日08:30主场迎战弗鲁米嫩塞（当地时间10月21日21:30）。首回合帕尔梅拉斯2比1取胜，次回合只需一场平局或任何形式的胜利即可晋级决赛；若弗鲁米嫩塞以一球优势获胜，比赛将进入点球大战，里约球队若以两球或更大优势取胜则直接晋级。\n\n帕尔梅拉斯球员毛里西奥在赛前展望了这场对决。他表示：“这是一场可能通往决赛的比赛，所以我们知道它对我们意义重大。整整一年我们都在想着这场比赛。从一开始，我们就一直渴望打进解放者杯决赛，现在我们有这个机会。我们希望能踢出一场稳健的比赛，带着晋级资格进入决赛。”\n\n谈到主场氛围，毛里西奥说：“球迷永远是我们主场作战时的额外一名球员。对阵巴伊亚、对阵科林蒂安，每一场比赛，看到全场球迷热情高涨、支持我们、给我们很大帮助，那画面非常美好。我们知道可以依靠他们，希望我们能踢出一场精彩的比赛并成功晋级。”\n\n帕尔梅拉斯在上周六巴西锦标赛第31轮客场2比0战胜巴拉那竞技，毛里西奥在拜沙达竞技场首开纪录。国际比赛日之后，阿贝尔-费雷拉执教的球队取得了四连胜，先后战胜巴伊亚、科林蒂安、巴拉那竞技，并在解放者杯半决赛首回合击败弗鲁米嫩塞。\n\n毛里西奥正经历职业生涯进球最多的一个赛季，已打入13球，其中12球代表帕尔梅拉斯、1球代表巴拉圭国家队。他自2024年中期加盟帕尔梅拉斯以来已出场122次、打进26球；今年他加入巴拉圭国籍，并随巴拉圭队参加了一届世界杯，还在那届赛事中为国家队取得进球。\n\n这是帕尔梅拉斯第13次参加解放者杯半决赛，也是最近七年中的第六次；该队是最近10届解放者杯中唯一每届都能晋级淘汰赛阶段的俱乐部。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场作战"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "马西尼：帕尔梅拉斯更整体，弗拉门戈离不开若日尼奥",
+          "url": "http://pc.dongqiudi.com/articles/6519934.html",
+          "site": "懂球帝",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.1998836916339615,
+          "summary": "# 马西尼：帕尔梅拉斯更整体，弗拉门戈离不开若日尼奥\n\n解放者杯半决赛次回合帕尔梅拉斯对阵弗鲁米嫩塞赛前，记者保罗-马西尼把帕尔梅拉斯与弗拉门戈作了比较，并指出两队踢法上的一个重要差异。他认为帕尔梅拉斯踢的是更整体的足球，而弗拉门戈对特定球员的依赖更大。\n\n马西尼特别提到中场若日尼奥是弗拉门戈运转的关键一环，称这名球员缺阵会让红黑军团的表现明显下滑。他说：“帕尔梅拉斯和弗拉门戈不同，是一支更整体的球队。没有若日尼奥，我们能看出弗拉门戈丢了70%的比赛。帕尔梅拉斯是一支更团结互助的球队。”报道指出，70%这一比例代表马西尼对这名中场重要性的评价，并非表现统计数据。\n\n在马西尼看来，帕尔梅拉斯能更好地在球员之间分配责任。阿贝尔-费雷拉的执教以使用不同阵型和多名球员参与攻防为特点，本赛季他使用过三中卫体系，并给边路球员更大自由，佩雷拉、马龙-弗雷塔斯、何塞-洛佩斯和毛里西奥等人在球队组织中承担不同职能。\n\n这番分析出现在赛季的关键阶段。帕尔梅拉斯在解放者杯半决赛首回合客场2比1击败弗鲁米嫩塞，北京时间10月22日08:30（当地时间周三）回到主场进行次回合，只要打平即可晋级决赛。\n\n报道同时提到，帕尔梅拉斯与弗拉门戈近几个赛季多次争夺冠军，两家俱乐部都在争夺巴西足球的主角地位。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "彩经前瞻：帕尔梅拉斯折损锋线核心，弗鲁米嫩塞主场力争先机 - 彩经前瞻：帕尔梅拉斯折损锋线核心，弗鲁米嫩塞主场力争先机",
+          "url": "https://m.163.com/dy/article/L97BLBI20549BAP0.html#1",
+          "site": "手机网易网",
+          "date": "2026-10-14T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.7092694450122428,
+          "summary": "# 彩经前瞻：帕尔梅拉斯折损锋线核心，弗鲁米嫩塞主场力争先机\n\n懂球帝\n\n·北京 ·懂球帝官方网易号\n\n北京时间10月15日上午8点30分，南美解放者杯半决赛首回合，弗鲁米嫩塞坐镇马拉卡纳球场迎战帕尔梅拉斯。\n\n巴甲30轮过后，弗鲁米嫩塞以14胜9平7负积51分排名第四，帕尔梅拉斯则以18胜9平3负积63分排名第二。双方将在一周后移师圣保罗进行次回合较量，因此首回合的比分对于晋级形势至关重要。\n\n中国体育彩票官方胜平负为主胜2.72、平局2.62、客胜2.63；让球胜平负弗鲁米嫩塞+1为主胜1.37、平局3.95、客胜6.90。基础数据极为接近，平局数值甚至略低于双方获胜方向，而主队受让一球后优势明显。考虑到弗鲁米嫩塞的主场竞争力，以及帕尔梅拉斯锋线核心缺阵，本场更倾向主队不败，首选平局。\n\n德比主动轮休主力，弗鲁米嫩塞全力冲击决赛\n\n弗鲁米嫩塞近期联赛表现有所起伏，但球队早已将解放者杯半决赛视为当前最重要的目标。\n\n上周末巴甲第30轮，弗鲁米嫩塞在里约德比中0-1不敌弗拉门戈，卡拉斯卡尔下半场打入全场唯一进球。不过，这场失利不能完全反映球队的真实实力。\n\n据巴西环球体育报道，主教练马尔康在德比中主动轮换大部分主力，仅安排五名常规首发登场，目的就是让核心球员以更充沛的体能迎接帕尔梅拉斯。\n\n事实上，弗鲁米嫩塞近一个月没有安排长途客场旅行，这也是教练组针对半决赛作出的准备。球队希望通过减少旅途消耗，保持阵容状态。\n\n从解放者杯晋级过程来看，弗鲁米嫩塞并非一路轻松。马尔康接手后，球队经历过战平、获胜和失利，但关键比赛中的应变能力有所改善。\n\n本场最大的优势依然是马拉卡纳球场。\n\n这里能够容纳大量球迷，主队也非常熟悉比赛环境。面对帕尔梅拉斯这种擅长控制节奏的球队，球迷的持续助威可以帮助弗鲁米嫩塞保持比赛强度。\n\n人员方面，主队的情况比此前有所改善。\n\n环球体育10月13日报道，左后卫雷内此前遭遇脚踝扭伤，国际比赛日期间仍有不适。虽然已经恢复参加训练，但尚未完全康复，因此吉列尔梅-阿拉纳更接近首发。\n\n中场方面，诺纳托在此前解放者杯比赛中执行停赛，如今已经恢复出场资格。他与埃尔库莱斯竞争首发，前者能够增加中场传球稳定性，后者则更擅长大范围跑动和前插。\n\n锋线上，萨瓦里诺近期状态不错，曾在面对科里蒂巴时单场攻入三球，有望与卡诺比奥、胡尔克组成攻击线。\n\n不过，塞尔纳同样具备竞争力。相比萨瓦里诺，他能够提供更多防守回追，马尔康需要根据比赛策略作出选择。\n\n伤员方面，约翰-肯尼迪因严重膝伤长期缺阵，热尔曼-卡诺、阿利松和马特乌斯-雷斯仍处于恢复阶段，暂时无法参加比赛。\n\n弗鲁米嫩塞的另一个重要优势是经验。蒂亚戈-席尔瓦能够在后场组织防线，加诺则承担中场串联任务，胡尔克可以通过身体对抗和个人射门能力制造威胁。\n\n如果球队能够利用前场跑动牵制帕尔梅拉斯三中卫，就有机会在主场率先取得进球。\n\n4-1横扫科林蒂安，帕尔梅拉斯痛失维托尔-罗克\n\n帕尔梅拉斯目前是巴甲冠军的重要竞争者，整体状态相当出色。\n\n上周末联赛，球队4-1大胜同城对手科林蒂安，为解放者杯半决赛积累了信心。\n\n其中，右边翼卫阿古斯丁-贾伊成为令人意外的关键人物。这...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主胜"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Palmeiras v Fluminense in the CONMEBOL Libertadores semi-final second leg: kick-off time, teams and how to watch the match | CONMEBOL Libertadores",
+          "url": "https://gol.conmebol.com/libertadores/en/news/palmeiras-v-fluminense-conmebol-libertadores-semi-final-second-leg-kick-time-teams-and-how",
+          "site": "RESUMEN | SPORTIVO CERRITO (URU) VS. SAMPAIO CORREA (BRA) [1-3] | CONMEBOL LIBERTADORESFP 2025",
+          "date": "2026-10-19T16:00:00+00:00",
+          "authority": 4,
+          "score": 1.6720572710037231,
+          "summary": "# Palmeiras v Fluminense in the CONMEBOL Libertadores semi-final second leg: kick-off time, teams and how to watch the match\n\n5 hours ago\n\n- Palmeiras and Fluminense will meet in São Paulo on Wednesday to determine the first finalist of the 2026 CONMEBOL Libertadores.\n- Palmeiras won the first leg 2-1. The Verdão will be looking to reach their second consecutive final in South America's most prestigious club competition after losing the 2025 showpiece to Flamengo.\n\nThe all-Brazilian clash will determine the first team to reach the final of the ‘Eternal Glory’, which will take place on 28 November at the Estadio Centenario in Montevideo. Managed by Abel Ferreira, Palmeiras will be seeking redemption after coming close to lifting the trophy in the previous edition. The Rio de Janeiro side, meanwhile, will be aiming to reach their third final, having lost to LDU Quito in 2008 before beating Boca Juniors to win the title in 2023.\n\n### Palmeiras vs. Fluminense\n\nPalmeiras struck first and will now decide the tie on home soil. In the first leg, José Manuel López opened the scoring in the 45th minute of the first half, before Marlon Freitas, a product of Fluminense's youth academy, doubled the lead in the 85th minute. Three minutes into stoppage time, Wesley Natã pulled one back with a header to keep the tie alive. The 'Verdão' became the first visiting team to defeat 'Flu' in a knockout-stage match in the competition and need only a draw at the Nubank Parque on Wednesday to advance. Fluminense must win by one goal to force a penalty shootout or by two to progress outright.\n\nAbel Ferreira's side have made their home ground a fortress in knockout matches. According to Opta, they have won or drawn 21 of their 23 CONMEBOL Libertadores knockout-stage fixtures at the Nubank Parque and have never lost there against Brazilian opposition. They also have an impressive record of protecting first-leg advantages, having progressed from 12 of the 13 ties in which they won the opening match away from home. José Manuel López, with four goals and four assists, leads the team in both categories in this edition, while Jhon Arias, with three goals, has been involved in more sequences ending in a shot than any other Palmeiras player, with 61. In the first leg, Palmeiras opted to sit back and strike quickly on the counterattack, while their defence excelled in the air, winning 67.7% of aerial duels. Carlos Miguel, who has played every minute of their campaign, preserved the advantage with crucial saves from Hulk in a one-on-one situation and an Agustín Canobbio header.\n\n### Palmeiras in the 2026 CONMEBOL Libertadores: results, squad and fixtures\n\nFluminense need a performance that defies the historical trend. They have won just two of their eight away matches against Brazilian opponents in the CONMEBOL Libertadores, although one came against Palmeiras themselves, a 2-0 victory in São Paulo in 1971, and the other was a 2-1 win over Internacional in the second leg of the 2023 Semi-finals, on their way to their only title. They have also progressed from four of their last five ties in which they played the second leg away from home. Marcão's side dominated possession in the first leg, recording 70.2% of the ball and completing 192 passes in the final third, the highest figure by any team in a Semi-final or Final since Opta began collecting data in 2013. However, they struggled to turn that control into clear opportunities, with only three of their 11 shots on target. Hulk and Thiago Silva bring experience to a squad that has already come through two tense knockout ties in this edition: against Independiente Rivadavia in the Round of 16 and Platense, whom they eliminated 3-2 on aggregate in the Quarter-finals.\n\n### Fluminense in the 2026 CONMEBOL Libertadores:\n...\nThe return leg will once again pit two contrasting styles against each other. Fluminense are the most possession-oriented of the four semi-finalists, with 184 sequences of ten or more passes, an average of 4.5 passes per sequence and a goalkeeper whose distributions travel an average of just 19.2 metres. Palmeiras, meanwhile, have registered more shots, with 191 attempts, 62 of them on target, and press higher up the pitch, recording the lowest PPDA among the four semi-finalists (9.9). They have also found a valuable attacking weapon in set pieces: six of their...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 2,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 4,
+        "zh": 4,
+        "home_mentions": 0,
+        "away_mentions": 4
+      },
+      "scores": [],
+      "fetched": 0
+    }
+  ]
+}

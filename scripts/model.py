@@ -377,10 +377,16 @@ def lam_m1(m, fe):
     hh, aa = m["home_home"], m["away_away"]
     w1 = min(hh[0], 5) / 5.0
     w2 = min(aa[0], 5) / 5.0
-    f_home = w1 * (hh[1] / hh[0]) + (1 - w1) * float(ga.get("homeGoalAvgCnt") or 0)
-    d_away = w2 * (aa[2] / aa[0]) + (1 - w2) * float(lg.get("awayLossGoalAvgCnt") or 0)
-    f_away = w2 * (aa[1] / aa[0]) + (1 - w2) * float(ga.get("awayGoalAvgCnt") or 0)
-    d_home = w1 * (hh[2] / hh[0]) + (1 - w1) * float(lg.get("homeLossGoalAvgCnt") or 0)
+    # 主/客分离可能为 0 场（客队本季还没打过客场等）→ 该侧整体退回近10场均值
+    if not hh[0]:
+        w1 = 0.0
+    if not aa[0]:
+        w2 = 0.0
+    per = lambda v, i: (v[i] / v[0]) if v[0] else 0.0  # noqa: E731
+    f_home = w1 * per(hh, 1) + (1 - w1) * float(ga.get("homeGoalAvgCnt") or 0)
+    d_away = w2 * per(aa, 2) + (1 - w2) * float(lg.get("awayLossGoalAvgCnt") or 0)
+    f_away = w2 * per(aa, 1) + (1 - w2) * float(ga.get("awayGoalAvgCnt") or 0)
+    d_home = w1 * per(hh, 2) + (1 - w1) * float(lg.get("homeLossGoalAvgCnt") or 0)
     return (f_home * 0.92 + d_away * 1.08) / 2, (f_away * 0.92 + d_home * 1.08) / 2, \
            (f_home, d_away, f_away, d_home, w1, w2)
 
