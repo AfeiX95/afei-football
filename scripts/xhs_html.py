@@ -221,45 +221,153 @@ body{background:#f8f0e9;color:#1a1310}
 # ⚠️ 底必须浅：正文 #141310 是通用规则给的，深底整块读不出来（同 swiss 那个坑）。
 # --------------------------------------------------------------------------- #
 MONO = '"Consolas","JetBrains Mono","Microsoft YaHei UI",monospace'
-CYBER_CSS = EDITORIAL_CSS.replace(".ed", ".cy").replace("#9b5a2e", "#0aa3c2") + """
-body{background:#eaf1f6;color:#0a1014}
-.cy{--accent:#0aa3c2;--heat:10,163,194;
-  background-image:linear-gradient(rgba(10,163,194,.05) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(10,163,194,.05) 1px,transparent 1px);
-  background-size:36px 36px;background-position:-1px -1px}
-.cy .top{font-family:@M@;color:#0aa3c2;letter-spacing:.28em}
-.cy .pager{font-family:@M@;color:#ff2d78;letter-spacing:.1em}
-.cy h1{margin-top:30px;letter-spacing:-.01em}
-.cy h1 .vsx{color:#ff2d78;font-weight:700}
-.cy .rule{height:3px;background:linear-gradient(90deg,#0aa3c2 0 46%,#ff2d78 46% 100%)}
-.cy .thick{height:3px;background:linear-gradient(90deg,#0aa3c2,#ff2d78);flex:none}
-.cy .chip{background:#0a1014;color:#7ff3ff;letter-spacing:.14em;font-family:@M@}
-.cy .time{color:#0a1014}
-.cy .cq{border-left:5px solid #0aa3c2;background:rgba(10,163,194,.06);padding:10px 0 10px 26px;
-  box-shadow:inset 0 0 0 1px rgba(10,163,194,.14)}
-.cy .cq .lab{font-family:@M@;color:#0aa3c2}
-.cy .cq p{color:#0a1014}
-.cy .focus{border-left:4px solid #ff2d78}
-.cy.data .brief{border-top:2px dashed rgba(10,163,194,.5)}
-.cy.data .brief .lab{font-family:@M@;color:#0aa3c2}
-.cy.data .quad .qcell{background:rgba(255,255,255,.74);border-left:2px solid #0aa3c2;
-  box-shadow:inset 0 0 0 1px rgba(10,163,194,.16)}
-.cy.data .quad .qlab{color:#ff2d78;font-family:@M@}
-.cy.data .wbar .s1{background:#0aa3c2}
-.cy.data .wbar .s3{background:#ff2d78}
-.cy.data .hcell.hmax{box-shadow:inset 0 0 0 3px #0aa3c2}
-.cy.data .wmark{background:repeating-linear-gradient(to bottom,#ff2d78 0 9px,transparent 9px 15px)}
-.cy.data .wmark:after{border-top-color:#ff2d78}
-.cy.data .foot{border-top-color:rgba(10,163,194,.35)}
-.cy.data .foot .tags{color:#0aa3c2}
-.cy.cover .kicker{background:#0a1014;color:#7ff3ff;font-family:@M@;letter-spacing:.16em}
-.cy.cover .date{color:#0aa3c2;font-family:@M@}
-.cy.cover .rule{height:6px;background:linear-gradient(90deg,#0aa3c2 0 46%,#ff2d78 46% 100%)}
-.cy.cover .it{border-bottom:1px dashed rgba(10,163,194,.3)}
-.cy.cover .it .n{color:#ff2d78;font-family:@M@}
-.cy.cover .it .vs{color:#0aa3c2;font-size:28px;letter-spacing:.1em}
-.cy.cover .tail{border-left-color:#0aa3c2}
-""".replace("@M@", MONO)
+_SKIN = {"cur": ""}
+_CLI_SKIN = {"v": ""}
+
+SKINS = {
+    # 浅底三套 + 深底两套 + 钢青一套：颜色/字体/装饰都换，版式另行轮换（A/B/C）
+    "C1": dict(name="网格青", dark=False, bg="#eaf1f6", ink="#0a1014", dim="rgba(10,16,20,.60)",
+               accent="#0aa3c2", accent2="#ff2d78", heat="10,163,194", cell="rgba(255,255,255,.74)",
+               grid="rgba(10,163,194,.05)", gridpx="36px", hotfg="#7ff3ff",
+               head="var(--mono)", track=".28em"),
+    "C2": dict(name="电蓝对撞", dark=False, bg="#f2f4f8", ink="#0b1220", dim="rgba(11,18,32,.60)",
+               accent="#1b6cf2", accent2="#ff3355", heat="27,108,242", cell="rgba(255,255,255,.86)",
+               grid="rgba(27,108,242,.06)", gridpx="24px", hotfg="#dbe8ff",
+               head="var(--sans)", track=".18em"),
+    "C3": dict(name="终端绿", dark=True, bg="#0b1311", ink="#dcf7ea", dim="rgba(220,247,234,.66)",
+               accent="#22e08a", accent2="#ffd166", heat="34,224,138", cell="rgba(255,255,255,.06)",
+               grid="rgba(34,224,138,.07)", gridpx="32px", hotfg="#06110c",
+               head="var(--mono)", track=".22em"),
+    "C4": dict(name="紫夜霓虹", dark=True, bg="#0e0b18", ink="#ede8ff", dim="rgba(237,232,255,.66)",
+               accent="#8b5cf6", accent2="#22d3ee", heat="139,92,246", cell="rgba(255,255,255,.06)",
+               grid="rgba(139,92,246,.08)", gridpx="40px", hotfg="#120a24",
+               head="var(--mono)", track=".2em"),
+    "C5": dict(name="琥珀纸", dark=False, bg="#f7f1e3", ink="#1a1408", dim="rgba(26,20,8,.60)",
+               accent="#d98500", accent2="#c2382f", heat="217,133,0", cell="rgba(255,255,255,.70)",
+               grid="rgba(217,133,0,.07)", gridpx="30px", hotfg="#fff5e2",
+               head="var(--sans)", track=".14em"),
+    "C6": dict(name="钢青等宽", dark=False, bg="#eceff3", ink="#101820", dim="rgba(16,24,32,.58)",
+               accent="#3d6b86", accent2="#b6345a", heat="61,107,134", cell="rgba(255,255,255,.80)",
+               grid="rgba(61,107,134,.06)", gridpx="44px", hotfg="#eef6fa",
+               head="var(--mono)", track=".3em"),
+}
+
+_CY_BASE = """
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),
+                   linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:var(--gridpx) var(--gridpx);background-position:-1px -1px}
+.cy{--accent:#0aa3c2;--heat:10,163,194;padding:84px 80px 70px;
+  font-family:var(--sans);color:var(--ink)}
+.cy.cover{padding-top:92px}
+.cy .top{display:flex;justify-content:space-between;align-items:baseline;
+  font-family:var(--mono);color:var(--accent);letter-spacing:.28em}
+.cy .top .time{letter-spacing:.12em}
+.cy .top .pager{letter-spacing:.1em;color:var(--accent2)}
+.cy .pager{font-family:var(--mono);color:var(--accent2);letter-spacing:.1em}
+.cy h1{margin-top:30px;letter-spacing:-.01em;font-family:var(--font-h)}
+.cy h1 .vsx{color:var(--accent2);font-weight:700;font-family:var(--mono)}
+.cy .rule{height:3px;background:linear-gradient(90deg,var(--accent) 0 46%,var(--accent2) 46% 100%)}
+.cy .thick{height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));flex:none}
+.cy .chip{background:var(--chipbg,#0a1014)!important;color:var(--hotfg)!important;
+  letter-spacing:.14em;font-family:var(--mono);padding:4px 10px}
+.cy .time{color:var(--ink);font-family:var(--mono)}
+.cy .cq{border-left:5px solid var(--accent);background:var(--cqbg,rgba(10,163,194,.06));
+  padding:10px 0 10px 26px;box-shadow:inset 0 0 0 1px var(--cqline,rgba(10,163,194,.14))}
+.cy .cq .lab{font-family:var(--mono);color:var(--accent)}
+.cy .cq p{color:var(--ink)}
+.cy .focus{border-left:4px solid var(--accent2)}
+.cy.data .brief{border-top:2px dashed var(--accent)}
+.cy.data .brief .lab{font-family:var(--mono);color:var(--accent)}
+.cy.data .quad .qcell{background:var(--cell);border-left:2px solid var(--accent);
+  box-shadow:inset 0 0 0 1px var(--cqline,rgba(10,163,194,.16))}
+.cy.data .quad .qlab{color:var(--accent2);font-family:var(--mono)}
+.cy.data .quad p{color:var(--ink)}
+.cy.data .wbar .s1{background:var(--accent)}
+.cy.data .wbar .s3{background:var(--accent2)}
+.cy.data .hcell.hmax{box-shadow:inset 0 0 0 3px var(--accent)}
+.cy.data .wmark{background:repeating-linear-gradient(to bottom,var(--accent2) 0 9px,transparent 9px 15px)}
+.cy.data .wmark:after{border-top-color:var(--accent2)}
+.cy.data .foot{border-top-color:var(--accent)}
+.cy.cover .kicker{background:var(--chipbg,#0a1014);color:var(--hotfg);font-family:var(--mono);letter-spacing:.16em}
+.cy.cover .date{color:var(--accent);font-family:var(--mono)}
+.cy.cover .rule{height:6px;background:linear-gradient(90deg,var(--accent) 0 46%,var(--accent2) 46% 100%)}
+.cy.cover .it{border-bottom:1px dashed var(--accent)}
+.cy.cover .it .n{color:var(--accent2);font-family:var(--mono)}
+.cy.cover .it .vs{color:var(--accent);font-size:28px;letter-spacing:.1em;font-family:var(--mono)}
+.cy.cover .tail{border-left-color:var(--accent)}
+"""
+
+
+def _skin_css() -> str:
+    out = [":root{--mono:%s;--sans:'Microsoft YaHei UI','Noto Sans SC','PingFang SC',sans-serif}"
+           % MONO.replace('"', "'")]
+    for k, d in SKINS.items():
+        cls = "sk-%s" % k
+        out.append(
+            "body.%s{--bg:%s;--ink:%s;--dim:%s;--accent:%s;--accent2:%s;--heat:%s;--cell:%s;"
+            "--grid:%s;--gridpx:%s;--hotfg:%s;--font-h:%s;--chipbg:%s;--heat-fg:%s;--heat-hi:%s}"
+            % (cls, d["bg"], d["ink"], d["dim"], d["accent"], d["accent2"], d["heat"],
+               d["cell"], d["grid"], d["gridpx"], d["hotfg"],
+               d["head"] if d["head"] != "var(--mono)" else "var(--mono)",
+               "#ffffff" if d["dark"] else "#0a1014",
+               d["ink"], "#ffffff" if d["dark"] else "#f7fdff"))
+        if d["dark"]:
+            # 深底：把扩展 CSS 里写死的深色字统一翻成浅色（否则正文看不见）
+            out.append("body.%s .card.data p,body.%s .card.data li,body.%s .card.data .frow .num,"
+                       "body.%s .card.data .frow .sub,body.%s .card.data .hfoot,body.%s .card.data .hnote,"
+                       "body.%s .card.data .hax,body.%s .card.data .hint,body.%s .card.data .head2,"
+                       "body.%s .card.data .lab,body.%s .card.data .right,body.%s .card.data .foot,"
+                       "body.%s .card.data .cvrow span,body.%s .card.data .cvrow i{color:var(--ink)!important}"
+                       % ((cls,) * 14))
+            out.append("body.%s .card.data .head2 .lab,body.%s .card.data .hint{color:var(--accent)!important}"
+                       % (cls, cls))
+            out.append("body.%s .card.data .hcell{border:1px solid rgba(255,255,255,.10)}" % cls)
+            out.append("body.%s .card.data .quad .qcell{background:var(--cell)!important;"
+                       "border-left-color:var(--accent)!important}" % cls)
+            out.append("body.%s .card.data .hcol,body.%s .card.data .hax,"
+                       "body.%s .card.data .hrowlab,body.%s .card.data .lg{color:var(--ink)!important}"
+                       % (cls, cls, cls, cls))
+        else:
+            out.append(".cy.%s{--accent:%s;--accent2:%s;--heat:%s}" % (cls.replace("sk-", "cy-"), d["accent"], d["accent2"], d["heat"]))
+    return "".join(out)
+
+
+_COVER_SKIN_CSS = """
+.cy.cover .kicker{background:var(--chipbg,#0a1014)!important;color:var(--hotfg)!important}
+.cy.cover .date{color:var(--accent)!important}
+.cy.cover .rule{background:linear-gradient(90deg,var(--accent) 0 46%,var(--accent2) 46% 100%)!important}
+.cy.cover .it .n{color:var(--accent2)!important}
+.cy.cover .it .vs{color:var(--accent)!important}
+.cy.cover h1,.cy.cover .it .h,.cy.cover .it .a,.cy.cover .tail{color:var(--ink)!important}
+.cy.cover .tail{border-left-color:var(--accent)!important}
+body .card.cover .foot .brand{color:var(--accent)!important}
+"""
+
+_BLOCK_CSS = """
+.valrow{margin-top:8px}
+.valrow .head2{margin-bottom:6px}
+.valrow .head2 .lab{font-family:var(--mono);color:var(--accent);letter-spacing:.14em;font-size:19px}
+.valrow .head2 .hint{font-size:17px;color:var(--dim)}
+.vbar{height:12px;background:rgba(128,128,128,.16);display:flex}
+.vbar i{display:block;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.vlab{display:flex;justify-content:space-between;align-items:baseline;margin-top:7px;font-size:19px}
+.vlab .h,.vlab .a{font-weight:800;color:var(--ink)}
+.vlab .r{font-family:var(--mono);font-size:18px;color:var(--dim);letter-spacing:.04em}
+.cc{margin-top:8px;padding:8px 16px 9px;border-left:5px solid var(--accent2);
+  background:var(--cell);box-shadow:inset 0 0 0 1px var(--cqline,rgba(10,163,194,.18))}
+.cc .cc-top{display:flex;align-items:baseline;gap:14px}
+.cc .lab{font-family:var(--mono);font-size:18px;letter-spacing:.16em;color:var(--accent2)}
+.cc .dir{font-size:30px;font-weight:900;color:var(--ink);letter-spacing:.02em}
+.cc .prob{font-family:var(--mono);font-size:26px;color:var(--accent)}
+.cc .cc-sc{margin-top:7px;font-size:19px;color:var(--dim);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.cc .cc-sc .one{display:inline-flex;align-items:baseline;gap:6px;margin-right:16px}
+.cc .cc-sc b{font-family:var(--mono);font-size:20px;color:var(--ink);font-weight:800}
+.cc .cc-sc i{font-style:normal;font-size:16px;color:var(--accent);font-family:var(--mono);margin-left:6px}
+.cc .cc-cond{margin-top:5px;font-size:17px;line-height:1.45;color:var(--dim)}
+"""
+
+CYBER_CSS = _CY_BASE.replace("@M@", MONO) + _skin_css() + _BLOCK_CSS + _COVER_SKIN_CSS
 
 STYLES = {"editorial": (EDITORIAL_CSS, "ed", "CardSerif"), "swiss": (SWISS_CSS, "sw", None),
           "rouge": (ROUGE_CSS, "rg", "CardSerif"), "cyber": (CYBER_CSS, "cy", None)}
@@ -519,6 +627,8 @@ DATA_CSS = """
    用户 2026-10-12 拍板「模型结果要进卡片」，2026-10-13 再定「只出一张卡」，
    所以模型块不再单开一张，改成左右两栏：左栏＝六维雷达＋胜率条，右栏＝比分概率热力图。 */
 .card.data .viz .c1{flex:0 0 516px}
+.card.data .viz.heatleft .c1{flex:1;min-width:0}
+.card.data .viz.heatleft .c2{flex:0 0 516px;border-left:0;padding-left:16px}
 .card.data .viz .c2{flex:1;min-width:0;padding-left:20px;border-left:1px solid rgba(10,10,11,.14)}
 .card.data .viz .c2 .head2{white-space:nowrap}
 .card.data .cvbox{margin-top:12px;padding-top:10px;border-top:1px dashed rgba(10,10,11,.24)}
@@ -579,28 +689,20 @@ DATA_CSS = """
 # 字体要大、内容不多但抓眼。三套风格共用这套结构，颜色走 var(--accent)。
 # --------------------------------------------------------------------------- #
 WM_CSS = """
-/* ---- 水印名片（2026-10-20 用户：名片字体放大、像水印，每张都有） ---- */
+/* ---- 页脚签名块（2026-10-20 用户：底部不挂话题标签，名片放大成签名） ---- */
 .card{position:relative;overflow:hidden}
+.card .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-top:auto}
+.card .foot .l{color:rgba(16,22,26,.55)}
+.card .foot .r{display:flex;align-items:center;justify-content:flex-end;gap:12px}
 .card .foot .brand{font-weight:800;letter-spacing:.06em;line-height:1}
 .card.data .foot .brand{font-size:32px}
 .card.cover .foot .brand{font-size:34px}
-.card .foot .r{display:flex;align-items:center;justify-content:flex-end;gap:12px}
 .card .foot .bmk{display:inline-block;width:26px;height:8px;background:currentColor;opacity:.55}
 .card.ed .foot .brand,.card.ed .foot .bmk{color:#14110d}
 .card.sw .foot .brand,.card.sw .foot .bmk{color:#0a0a0a}
 .card.rg .foot .brand,.card.rg .foot .bmk{color:#b8322a}
 .card.cy .foot .brand,.card.cy .foot .bmk{color:#0aa3c2}
-.card.ed .wm{color:rgba(155,90,46,.07)}
-.card.sw .wm{color:rgba(232,64,42,.07)}
-.card.rg .wm{color:rgba(184,50,42,.07)}
-.card > *:not(.wm){position:relative;z-index:1}
-.card .foot .brand{font-weight:800;letter-spacing:.02em}
-.card.data .foot .brand{font-size:28px;line-height:1.05}
-.card.cover .foot .brand{font-size:30px;line-height:1.05}
-.card.ed .foot .brand{color:#14110d}
-.card.sw .foot .brand{color:#0a0a0a}
-.card.rg .foot .brand{color:#b8322a}
-.card.cy .foot .brand{color:#0aa3c2}
+.card > *{position:relative;z-index:1}
 """
 
 
@@ -806,7 +908,8 @@ def radar_svg(radar: dict, cluster: str, size: int = 300, label_font: int = 23) 
         lx, ly = cx + (r + gap) * ca, cy + (r + gap) * sa + 8
         anchor = "middle" if abs(ca) < 0.3 else ("start" if ca > 0 else "end")
         labels += ('<text x="%.1f" y="%.1f" text-anchor="%s" font-size="%d" font-weight="700" '
-                   'fill="%s">%s</text>' % (lx, ly, anchor, label_font, c_lab, esc(d)))
+                   'fill="%s" style="fill:var(--ink,#0a1014)">%s</text>'
+                   % (lx, ly, anchor, label_font, c_lab, esc(d)))
         labels += ('<text x="%.1f" y="%.1f" text-anchor="%s" font-size="%d">'
                    '<tspan fill="%s" font-weight="700">%.0f</tspan>'
                    '<tspan fill="%s"> / </tspan>'
@@ -893,7 +996,7 @@ TEMPLATES = ("A", "B", "C")
 TPL_NAME = {"A": "战绩在前", "B": "简报提前", "C": "简报开篇"}
 TPL_HEAT = {"A": 34, "B": 36, "C": 32}       # 热力图单格边长
 TPL_BAR = {"A": 36, "B": 40, "C": 34}        # 胜率条高度
-TPL_RADAR = {"A": 228, "B": 220, "C": 236}
+TPL_RADAR = {"A": 232, "B": 228, "C": 240}
 TPL_STATE = Path(ROOT) / "state" / "xhs_templates.json"
 
 
@@ -1016,8 +1119,9 @@ def heat_html(card: dict, tpl: str = "A") -> str:
             al = 0.07 + 0.78 * (p / pmax)
             cls = "hcell hmax" if (i, j) == (ti, tj) else "hcell"
             txt = ("%.1f" % (p * 100)) if p >= 0.02 else ""
-            cells.append('<div class="%s" style="background:rgba(var(--heat,155,90,46),%.3f);color:%s">%s</div>'
-                         % (cls, al, "#fff" if al >= 0.55 else "#14110d", txt))
+            cells.append('<div class="%s" style="background:rgba(var(--heat,155,90,46),%.3f);'
+                         'color:%s">%s</div>'
+                         % (cls, al, "var(--heat-hi,#fff)" if al >= 0.55 else "var(--heat-fg,#14110d)", txt))
     top = md.get("top") or []
     foot = " · ".join("%s %.1f%%" % (t[0], float(t[1]) * 100) for t in top[:3])
     return ('<section class="heat" style="--cell:%dpx">'
@@ -1047,7 +1151,8 @@ def converge_html(card: dict) -> str:
     return '<div class="cvbox">%s</div>' % items if items else ""
 
 
-def vizrow_html(card: dict, cluster: str, tpl: str = "A", heat_left: bool = False) -> str:
+def vizrow_html(card: dict, cluster: str, tpl: str = "A", heat_left: bool = False,
+                tail_left: str = "") -> str:
     """模型行：左栏＝六维雷达＋胜率条，右栏＝比分概率热力图（B 模板左右互换）。
 
     没跑过 xhs_model.py（卡片里没有 model）时退回「雷达｜战意与要点」，不影响出图。
@@ -1062,9 +1167,46 @@ def vizrow_html(card: dict, cluster: str, tpl: str = "A", heat_left: bool = Fals
     cv = converge_html(card)
     # 三面读数紧贴热力图脚注（塞进 heat 的 </section> 里），避免被拉到底、中间留一段空白
     ht = ht.replace("</section>", cv + "</section>", 1) if cv else ht
-    l, r = (ht, rz + wd) if heat_left else (rz + wd, ht)
-    return ('<div class="row2 tail2 viz"><div class="c1">%s</div><div class="c2">%s</div></div>'
-            % (l, r))
+    l, r = (ht + tail_left, rz + wd) if heat_left else (rz + wd, ht)
+    cls = "row2 tail2 viz heatleft" if heat_left else "row2 tail2 viz"
+    return ('<div class="%s"><div class="c1">%s</div><div class="c2">%s</div></div>'
+            % (cls, l, r))
+
+
+def value_html(card: dict) -> str:
+    """身价对比条（懂球帝联赛身价表；缺源就整块不画，不写「待补」）。"""
+    v = card.get("value") or {}
+    h, a = float(v.get("home_m") or 0), float(v.get("away_m") or 0)
+    if not (h and a):
+        return ""
+    tot = h + a
+    w = max(8.0, min(92.0, 100.0 * h / tot))
+    return ('<section class="valrow"><div class="head2"><span class="lab">球队身价</span>'
+            '<span class="hint">懂球帝联赛身价表</span></div>'
+            '<div class="vbar"><i style="width:%.1f%%"></i></div>'
+            '<div class="vlab"><span class="h">%s %s</span><span class="r">%s · %s</span>'
+            '<span class="a">%s %s</span></div></section>'
+            % (w, esc(card.get("home", "")), esc(v.get("home_text", "")),
+               esc(v.get("rank_text", "")), esc(v.get("ratio", "")),
+               esc(card.get("away", "")), esc(v.get("away_text", ""))))
+
+
+def verdict_html(card: dict) -> str:
+    """结论块（2026-10-21 用户：信息卡要给综合结论 + 方向 + 比分 + 概率）。
+
+    口径：图上不出「推荐/看好/让球」，比分写成「2 比 1」不带连字符（判罚史坑#69）。
+    """
+    vd = card.get("verdict") or {}
+    if not vd.get("dir"):
+        return ""
+    sc = "".join('<span class="one"><b>%s</b><i>%s</i></span>'
+                 % (esc(x[0]), esc(x[1])) for x in (vd.get("scores") or []))
+    cond = vd.get("cond") or ""
+    return ('<section class="cc"><div class="cc-top"><span class="lab">综合结论</span>'
+            '<span class="dir">%s</span><span class="prob">%s</span></div>'
+            '<div class="cc-sc">高概率比分%s</div>%s</section>'
+            % (esc(vd["dir"]), esc(vd.get("prob", "")), sc,
+               ('<div class="cc-cond">打破条件：%s</div>' % esc(cond)) if cond else ""))
 
 
 def quad_row_html(card: dict, cluster: str) -> str:
@@ -1082,9 +1224,13 @@ def quad_row_html(card: dict, cluster: str) -> str:
             cells.append(("看点 %02d" % (i + 1), t))
     if card.get("will"):
         cells.append(("战意", card["will"]))
-    key = card.get("signal") or card.get("note")
-    if key:
-        cells.append(("数据要点", key))
+    inj = card.get("inj")
+    if inj:
+        cells.append(("伤停", inj))
+    else:
+        key = card.get("signal") or card.get("note")
+        if key:
+            cells.append(("数据要点", key))
     if not cells:
         return ""
     out = "".join('<div class="qcell"><div class="qlab">%s</div><p>%s</p></div>'
@@ -1137,7 +1283,7 @@ def all_card_html(card: dict, meta: dict, style: str, idx: int, total: int, vari
 
 
 def data_card_html(card: dict, meta: dict, style: str, idx: int, total: int, variant: int = 0,
-                   tpl: str = "A") -> str:
+                   tpl: str = "A", skin: str = "") -> str:
     """数据向单卡（2026-10-12 小红书判罚后的定版形态）。
 
     只放**官方赛果数据**：数据反差 / 近期战绩对比 / 六维雷达对比 / 数据看点 / 战意·数据要点。
@@ -1165,18 +1311,23 @@ def data_card_html(card: dict, meta: dict, style: str, idx: int, total: int, var
     bf = brief_html(card)
     # 2026-10-13 用户定：模型块（胜率条 + 比分概率热力图）并进同一张卡，不再单开一张；
     # 看点/战意/要点压成底部一行四格，否则整卡会顶到 1550px（超出 1440 画布）
-    viz = vizrow_html(card, cluster, tpl, heat_left=(tpl == "B"))
+    vd = verdict_html(card)
+    val = value_html(card)
     qd = quad_row_html(card, cluster)
-    blocks = {"cq": cq, "fm": fm, "bf": bf, "viz": viz, "qd": qd}
-    order = {"A": ("cq", "fm", "viz", "bf", "qd"),
-             "B": ("cq", "bf", "fm", "viz", "qd"),
-             "C": ("bf", "cq", "viz", "fm", "qd")}.get(
-        tpl, ("cq", "fm", "viz", "bf", "qd"))
-    if variant % 2:
+    viz = vizrow_html(card, cluster, tpl, heat_left=(tpl == "B"),
+                      tail_left=(vd if tpl == "B" else ""))
+    blocks = {"cq": cq, "fm": fm, "bf": bf, "viz": viz, "qd": qd, "val": val, "cc": vd}
+    order = {"A": ("val", "cq", "fm", "viz", "cc", "qd"),
+             "B": ("val", "cq", "fm", "viz", "qd"),
+             "C": ("val", "cc", "cq", "viz", "fm", "qd")}.get(
+        tpl, ("val", "cq", "fm", "viz", "cc", "qd"))
+    if variant % 2 and tpl != "B":
         order = order[:-2] + (order[-1], order[-2])
-    body = sep + "".join(blocks[k] for k in order)
+    body = sep + "".join(blocks[k] for k in order if blocks.get(k))
+    skin = skin or _CLI_SKIN.get("v") or _SKIN["cur"]
+    skin_cls = (" sk-%s" % skin) if skin in SKINS else ""
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<style>{BASE_CSS}{css}{ext_css(cluster)}{WM_CSS}</style></head><body>
+<style>{BASE_CSS}{css}{ext_css(cluster)}{WM_CSS}</style></head><body class="{skin_cls.strip()}">
 <div id="fit"><div class="card {cluster} all data tpl{tpl}">
   {top}
   {head}
@@ -1215,11 +1366,13 @@ def model_card_html(card: dict, meta: dict, style: str, idx: int, total: int, va
     order = {"A": ("cq", "wdl", "heat", "bf"),
              "B": ("bf", "cq", "wdl", "heat"),
              "C": ("cq", "heat", "wdl", "bf")}.get(tpl, ("cq", "wdl", "heat", "bf"))
-    if variant % 2:
+    if variant % 2 and tpl != "B":
         order = order[:-2] + (order[-1], order[-2])
-    body = sep + "".join(blocks[k] for k in order)
+    body = sep + "".join(blocks[k] for k in order if blocks.get(k))
+    skin = skin or _CLI_SKIN.get("v") or _SKIN["cur"]
+    skin_cls = (" sk-%s" % skin) if skin in SKINS else ""
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<style>{BASE_CSS}{css}{ext_css(cluster)}{WM_CSS}</style></head><body>
+<style>{BASE_CSS}{css}{ext_css(cluster)}{WM_CSS}</style></head><body class="{skin_cls.strip()}">
 <div id="fit"><div class="card {cluster} all data model tpl{tpl}">
   {top}
   {head}
@@ -1305,11 +1458,13 @@ def cover_html(meta: dict, items: list, total: int, style: str) -> str:
             mid = f'<span class="plain">{esc(t)}</span>'
         rows.append(f'<div class="it"><span class="n">{i+1:02d}</span>{mid}</div>')
     its = "".join(rows)
+    skv = meta.get("skin") or _CLI_SKIN.get("v") or _SKIN["cur"]
+    skincls = (" sk-%s" % skv) if skv in SKINS else ""
     tail = meta.get("cover_tail") or ("每场一张图：数据反差 · 近期战绩 · 六维雷达 · 后台模型胜率与比分概率 · "
                                       "数据看点 · 战意与要点 →")
     return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<style>{BASE_CSS}{css}{COVER_CSS}{WM_CSS}</style></head><body>
-<div id="fit"><div class="card {cluster} cover{' many' if len(items) >= 5 else ''}">
+<style>{BASE_CSS}{css}{COVER_CSS}{WM_CSS}</style></head><body class="{skincls.strip()}">
+<div id="fit"><div class="card {cluster}{skincls} cover{' many' if len(items) >= 5 else ''}">
   {top}
   <div class="date">{esc(date)}</div>
   <h1 class="serif">{esc(title)}</h1>
@@ -1460,6 +1615,14 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
     per = len(kinds)
     total = len(cards) * per + 1
     tpl, how = pick_template(data, out_dir)
+    sk = _CLI_SKIN.get("v") or data.get("skin") or ""
+    if sk:
+        _SKIN["cur"] = sk
+    if sk not in SKINS:
+        sk = "C1"
+    _SKIN["cur"] = sk
+    print("  皮肤：%s · %s（cards.json 写 \"skin\" 或 --skin 可换；共 %d 套）"
+          % (sk, SKINS[sk]["name"], len(SKINS)))
     print("  版式：%s · %s（%s；cards.json 写 \"template\" 可指定）" % (tpl, TPL_NAME[tpl], how))
     # 封面条目：默认用「主队 vs 客队」，2026-10-13 起封面要带主客队名（cover_items 仍可覆盖）
     citems = data.get("cover_items") or [
@@ -1585,12 +1748,14 @@ def main() -> None:
                          "all=全信息单卡（含立场/推荐比分，小红书会判违规，慎用）、"
                          "full=判断卡+战绩卡+深读卡、judge/form/read=只出对应卡")
     ap.add_argument("--html-out", default="", help="另存中间 HTML 到该目录（排版诊断用）")
+    ap.add_argument("--skin", default="", help="赛博皮肤 C1..C6（棋格青/电蓝对撞/终端绿/紫夜霓虹/琥珀纸/钢青等宽）")
     ap.add_argument("--engine", default="chrome", choices=["chrome", "playwright", "auto"],
                     help="渲染引擎：chrome=本机 Chrome 逐张截图（默认，零依赖）；"
                          "playwright=复用内置 chromium（快约 2 倍、版本固定）；auto=有 playwright 就用")
     ap.add_argument("--menu", action="store_true", help="交互菜单")
     a = ap.parse_args()
 
+    _CLI_SKIN["v"] = a.skin
     if a.menu or not a.input:
         cmd_menu()
         return
