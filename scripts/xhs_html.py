@@ -1066,6 +1066,58 @@ def pick_style(meta: dict, out_dir: Path, want: str = "auto") -> tuple:
     return nxt, "轮换"
 
 
+SKINS_ORDER = ("C1", "C3", "C5", "C2", "C4", "C6")
+SKIN_STATE = Path(ROOT) / "state" / "xhs_skins.json"
+
+
+def pick_skin(meta: dict, out_dir: Path, want: str = "") -> tuple:
+    """每期换一套赛博皮肤（2026-10-21 用户：做 5–10 套赛博模板供每期轮换）。
+
+    优先级：`--skin C1..C6` > `cards.json` 的 `skin` > 按批次目录轮换记账。
+    账本 `state/xhs_skins.json`（{批次目录名: 皮肤, "_last": 皮肤}），同一批重出不会跳皮肤。
+    轮换顺序按亮→暗交替：C1 网格青 → C3 终端绿 → C5 琥珀纸 → C2 电蓝 → C4 紫夜 → C6 钢青。
+    """
+    key = Path(out_dir).name or "_"
+
+    def _record(val: str) -> None:
+        """无论是指定还是轮换，都把「这个批次目录用了哪套」记下来，下一批才有得轮。"""
+        try:
+            st = json.loads(SKIN_STATE.read_text(encoding="utf-8"))
+            st = st if isinstance(st, dict) else {}
+        except Exception:
+            st = {}
+        st[key] = val
+        st["_last"] = val
+        SKIN_STATE.parent.mkdir(parents=True, exist_ok=True)
+        SKIN_STATE.write_text(json.dumps(st, ensure_ascii=False, indent=2) + chr(10), encoding="utf-8")
+
+    if want in SKINS:
+        _record(want)
+        return want, "指定"
+    s = str(meta.get("skin") or "").strip().upper()
+    if s in SKINS:
+        _record(s)
+        return s, "指定"
+    try:
+        st = json.loads(SKIN_STATE.read_text(encoding="utf-8"))
+        if not isinstance(st, dict):
+            st = {}
+    except Exception:
+        st = {}
+    if st.get(key) in SKINS:
+        return st[key], "沿用"
+    last = st.get("_last")
+    try:
+        nxt = SKINS_ORDER[(SKINS_ORDER.index(last) + 1) % len(SKINS_ORDER)]
+    except ValueError:
+        nxt = SKINS_ORDER[0]
+    st[key] = nxt
+    st["_last"] = nxt
+    SKIN_STATE.parent.mkdir(parents=True, exist_ok=True)
+    SKIN_STATE.write_text(json.dumps(st, ensure_ascii=False, indent=2) + chr(10), encoding="utf-8")
+    return nxt, "轮换"
+
+
 def wdl_html(card: dict, tpl: str = "A") -> str:
     """胜率条：左＝主队、右＝客队，中间一条粗点线（主胜/平的分界），三档都带百分比。"""
     md = card.get("model") or {}
@@ -1615,9 +1667,8 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
     per = len(kinds)
     total = len(cards) * per + 1
     tpl, how = pick_template(data, out_dir)
-    sk = _CLI_SKIN.get("v") or data.get("skin") or ""
-    if sk:
-        _SKIN["cur"] = sk
+    sk, sk_how = pick_skin(data, out_dir, _CLI_SKIN.get("v") or "")
+    _SKIN["cur"] = sk
     if sk not in SKINS:
         sk = "C1"
     _SKIN["cur"] = sk

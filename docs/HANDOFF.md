@@ -3902,3 +3902,9 @@ python -X utf8 scripts/prematch_intel.py --date 20261020 --media            # �
 **文档**：`📚知识库/写作指南/小红书图文卡片.md` 增「赛博皮肤 C1–C6」「新块：身价/伤停/结论」两节。
 
 **下一步**：①等用户挑皮肤（样张 `state/tmp/skins_contact.png`，C1 已出全批）；②澳客胜负指数/凯利/伤停隔日补抓；③`state/xhs_styles.json` 的轮换键要加 skin 维度（现在只记 style/template）。
+
+### 补：皮肤账本（用户选 C1）
+
+- `state/xhs_skins.json` 新建：`{"小红书_周三十场": "C1", "_last": "C1"}`；`scripts/xhs_html.py` 增 `SKINS_ORDER = ("C1","C3","C5","C2","C4","C6")` + `pick_skin(meta, out_dir, want)`，与 style/template 同构（`--skin` > cards.json > 按目录轮换），**指定皮肤也会记账**。
+- 本批 `xhs_styles.json` / `xhs_templates.json` 补记 `小红书_周三十场` = cyber / B（下一批自动轮 editorial + A）。
+- 三本账今后各管一维：风格（米白/瑞色/瑞士/赛博）、版式（A/B/C）、皮肤（C1–C6）。
