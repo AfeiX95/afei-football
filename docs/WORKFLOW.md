@@ -263,7 +263,8 @@ python -X utf8 scripts/prematch_intel.py --date 20261021 --leagues --media --oko
 
 **抓取口径（实测 2026-10-20）**
 - 域名必须是 **`www.okooo.com`**（`.cn` 全 404）；路径 `https://www.okooo.com/jingcai/shuju/<页>/`，`/dqjc/` 后缀等价。
-- **必须带 Referer**，否则 405；页面 **gb2312**；`urllib` 直连可用（`ds_search.fetch` 会丢列）。
+- **必须带 Referer**，否则 405；页面 **gb2312**。
+- ⚠️ 2026-10-20 深夜起本机 IP 已被澳客 WAF 拉黑（返回 16037 字节挑战页 / 滑动验证 / 405），**urllib 直连暂时不可用**，见下方「抓取现状」。
 - 七个页：`betfa` 必发盈亏 / `zhishu` 胜负指数 / `pankou` 盘口评测 / `peilv` 凯利方差 / `chayi` 差异分析 / `injured` 最新伤停 / `paixu` 指数排序。
 - **bifaw.com 弃用**：主页能抓但只有 2 场、无队名，`/bifa/` 404，站内搜零结果。
 
@@ -277,6 +278,33 @@ python -X utf8 scripts/prematch_intel.py --date 20261021 --leagues --media --oko
 2. **差异分析**：人气比 vs 模型概率的差，差大的一侧说明「钱多但概率不高」，是过热信号不是买入信号。
 3. **凯利方差**：差平方越小＝各家越一致；某向显著大于其它两向 = 各家对该结果分歧大，模型的单点读数要打折。
 4. **伤停**：这页是**官方名单**（号码/位置/是否缺阵/原因），比分侧为 `float_l`（主）/`float_r`（客）；比 `injury.json` 的空名单可信，优先用它写报告技术面。
+
+**抓取现状（2026-10-20 23:00–24:00 实测，重要）**
+
+| 通道 | 结果 |
+|:--|:--|
+| `urllib` 直连（`okooo_intel.py`） | ❌ 16037 字节阿里云 WAF 挑战页 / `SSL: SSLV3_ALERT_HANDSHAKE_FAILURE` / `/soccer/*` 405 |
+| Chrome `--headless=new --dump-dom` | ❌ `/jingcai/shuju/*` 405；`/soccer/match/<id>/formation/` 成功过一次（208,983 字节，含两队身价/年龄/身高） |
+| **Playwright（`channel="chrome"` + Referer）** | ❌ 200 但 `<title>滑动验证页面</title>`（68,174 字节）＝对本机弹滑块验证 |
+| **`ds_search.fetch`（服务端抓取，`intel_fetch.py` 走这条）** | ⭕ 时通时断：`betfa/dqjc` 能拿到 7618 字 Markdown（15 场，含 99 家与竞彩列）；`zhishu/peilv/injured/chayi/paixu`、`sfzs/trends/feature`、`league/<id>/injured` 一律 404 |
+
+新工具 `scripts/intel_fetch.py`（2026-10-20 起，**服务端抓取专用**）：
+
+```bash
+python -X utf8 scripts/intel_fetch.py --date 20261021                      # 默认抓 betfa
+python -X utf8 scripts/intel_fetch.py --date 20261021 --sources betfa,zhishu
+python -X utf8 scripts/intel_fetch.py --date 20261021 --match 1347463      # 阵容实力/首发/走势/特征
+python -X utf8 scripts/intel_fetch.py --date 20261021 --league 17          # 联赛伤停
+```
+产出 `state/intel/<date>/_fetch_<date>.{md,json}`：首段是**「源状态」表**（源 / 成功与否 / 失败原因），随后按场次列必发读数；本批缺的场次单列，**抓不到就写原因、不猜**。原始 Markdown 缓存在 `_raw/<源>.md`，15 分钟内不重复抓，失败自动回落旧缓存。
+两条解析要点：①服务端返回的 Markdown 会把 `|` `-` `.` `:` 全部反斜杠转义，**先 `clean_md()` 整体去反斜杠**再切列（否则一条都解析不出来）；②必发行 `≥9 列`＝有成交，`3 列`＝未开盘（只有 99 家赔率/概率）。
+
+`prematch_intel.py --okooo` 已切到 `intel_fetch.py`。
+
+**如果还要拿到胜负指数/凯利/伤停**（现在 404）：三条可选路
+1. **放慢节奏**：隔 30 分钟以上、一次只抓 1–2 页；实测同 IP 连抓十几页就被降级。
+2. **用浏览器登录态**：人工在 Chrome 里过掉滑块后，用 `--user-data-dir` 复用该 profile 抓 HTML（本机 Chrome 直接 `--dump-dom` 缺 Referer，需要 CDP 注入头）。
+3. **隔日补抓**：这些页面按「开赛 24h 内」覆盖，临场重抓成功率高。
 
 ## 铁律（写进任何文章前必查）
 - 竞彩数据只统计 90 分钟常规时间（加时/点球不计）

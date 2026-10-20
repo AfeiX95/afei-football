@@ -562,10 +562,10 @@ def main() -> None:
 
     if a.okooo:
         try:
-            subprocess.run([sys.executable, "-X", "utf8", str(SCRIPTS / "okooo_intel.py"),
+            subprocess.run([sys.executable, "-X", "utf8", str(SCRIPTS / "intel_fetch.py"),
                             "--date", date_tag], cwd=str(ROOT), capture_output=True,
                            text=True, timeout=900)
-            print(f"  已采澳客指数 → state/intel/{date_tag}/_okooo_{date_tag}.md")
+            print(f"  已采澳客/情报抓取 → state/intel/{date_tag}/_fetch_{date_tag}.md")
         except Exception as exc:  # noqa: BLE001
             print(f"  ⚠️ 澳客采集失败：{exc}")
 

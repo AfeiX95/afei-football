@@ -1,0 +1,36 @@
+{
+  "date": "20261021",
+  "generated": "2026-10-20 23:54",
+  "status": [
+    {
+      "name": "zhishu",
+      "url": "https://www.okooo.cn/jingcai/shuju/zhishu/dqjc/",
+      "ok": false,
+      "cached": false,
+      "note": "失败：HTTP 404：failed to fetch URL (request_id: e8de4058-cbf6-4cc1-8861-ca29842e9129)"
+    },
+    {
+      "name": "peilv",
+      "url": "https://www.okooo.cn/jingcai/shuju/peilv/dqjc/",
+      "ok": false,
+      "cached": false,
+      "note": "失败：HTTP 404：failed to fetch URL (request_id: ffeb8ba3-a292-4759-a1b2-6f155b0a3644)"
+    },
+    {
+      "name": "injured",
+      "url": "https://www.okooo.cn/jingcai/shuju/injured/dqjc/",
+      "ok": false,
+      "cached": false,
+      "note": "失败：HTTP 404：failed to fetch URL (request_id: 6203f495-a205-4e4e-be17-5d2dc9ebe2a2)"
+    },
+    {
+      "name": "chayi",
+      "url": "https://www.okooo.cn/jingcai/shuju/chayi/dqjc/",
+      "ok": false,
+      "cached": false,
+      "note": "失败：HTTP 404：failed to fetch URL (request_id: 866d48a8-105a-4118-8902-3d24c524370d)"
+    }
+  ],
+  "betfa": {},
+  "formation": {}
+}

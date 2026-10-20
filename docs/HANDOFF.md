@@ -3844,3 +3844,22 @@ python -X utf8 scripts/prematch_intel.py --date 20261020 --media            # �
 ### 四、下一步
 1. 周三信息卡 / 文章排期（拆几篇），再把底档（排名/身价/伤停）与澳客指数一起用在卡片「技术面」行；
 2. 小红书下批风格轮换 `editorial`、版式 `B`（`state/xhs_styles.json` / `xhs_templates.json` 已是这个指向）。
+
+## 2026-10-20 深夜（四）：情报抓取通道实测（WAF 拦 + intel_fetch.py）
+
+**做了什么**
+- 新建 `scripts/intel_fetch.py`：统一情报抓取入口（`ds_search.fetch` 服务端抓取 / 缓存 15 分钟 / 失败回落旧缓存 / 输出「源状态」表 + 按场次列必发读数，抓不到写原因不猜）。
+- `scripts/prematch_intel.py --okooo` 从 `okooo_intel.py` 切到 `intel_fetch.py`。
+- `docs/WORKFLOW.md` §1C 加「抓取现状」表 + 恢复办法三条；`docs/TOOLBOX.md` 同步。
+
+**实测结论（当晚 23:00–24:00）**
+- `urllib` 直连 → 16037 字节阿里云 WAF 挑战页 / SSL 握手失败 / `/soccer/*` 405。
+- Chrome `--dump-dom` → `/jingcai/shuju/*` 405；只有 `/soccer/match/1347463/formation/` 成功过一次（含两队身价/年龄/身高）。
+- Playwright（chrome channel + Referer）→ 200 但 `<title>滑动验证页面</title>`。
+- `ds_search.fetch` → `betfa/dqjc` 稳定拿到 7618 字 Markdown（15 场）；`zhishu/peilv/injured/chayi/paixu`、`sfzs/trends/feature`、`league/<id>/injured` 一律 404。
+
+**下一步（待用户选）**
+1. 放慢节奏（隔 30 分钟以上、一次 1–2 页）；2. 用浏览器登录态（过掉滑块后复用 profile）；3. 隔日/临场补抓。
+
+**未解**
+- 周三信息卡/文章排期 → 小红书（头条 4+4+5、小红书 7+6 待确认）。
