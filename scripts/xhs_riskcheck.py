@@ -81,6 +81,58 @@ def scan_caption(text: str, where: str = "文案正文") -> list:
     return hits
 
 
+# --------------------------------------------------------------------------- #
+# 形态门禁（2026-10-21 立）：账号被先判后下架、解封当天新稿又判——判的是**形态**不是词
+# 出处：小红书合规规范_20261021 §3.0 形态禁令 / §6.1.1 绝对不出现的元素 / §2.1.2 逐图归因
+# 一句话：**一篇只讲一场，讲发生过什么，不讲接下来会怎样。**
+# --------------------------------------------------------------------------- #
+FORM_DIR_WORDS = ("方向偏", "我看好", "看好", "拿分", "不败", "推荐", "稳胆", "必中", "值得跟")
+FORM_COVER_WORDS = ("比分概率", "综合结论", "概率", "预测", "推荐")
+FORM_MAX_MATCHES = 4
+
+
+def scan_form(data: dict, cards=None) -> list:
+    """形态级检查，返回 [(级别fatal|warn, 名称, 片段, 位置, 为什么)]。
+
+    fatal = 命中 2026-10-21 判词的核心形态（多场清单 / 封面自述预测 / 方向+概率+比分）；
+    warn  = 概率分布类元素（三项概率条、比分热力图），属「重」但不单独致命。
+    """
+    cards = cards if cards is not None else (data.get("matches") or [])
+    out = []
+    n = len(cards)
+    if n > FORM_MAX_MATCHES:
+        out.append(("fatal", "形态·多场汇总", "%d 场" % n, "matches",
+                    "多场清单 + 编号是购彩指南版式（判词第 7 条），单篇上限 4 场"))
+    for key in ("cover_kicker", "cover_tail", "cover_hint"):
+        v = str(data.get(key) or "")
+        for w in FORM_COVER_WORDS:
+            if w in v:
+                out.append(("fatal", "形态·封面自述", "%s:%s" % (key, w), key,
+                            "封面写「比分概率/综合结论」＝自己声明这是预测清单（10/21 自证项）"))
+    for c in cards:
+        tag = "%s %s vs %s" % (c.get("no") or "?", c.get("home") or "?", c.get("away") or "?")
+        vd = c.get("verdict") or {}
+        if vd:
+            out.append(("fatal", "形态·综合结论", "%s %s" % (vd.get("dir") or "", vd.get("prob") or ""),
+                        "%s.verdict" % tag,
+                        "方向 + 概率 + 比分三件齐＝预测卡核心（10/21 四条致命项之二）"))
+        if c.get("caption_dir"):
+            out.append(("fatal", "形态·正文方向", str(c["caption_dir"])[:20], "%s.caption_dir" % tag,
+                        "正文给方向＝判词第 8 条"))
+        if (c.get("model") or {}).get("wdl"):
+            out.append(("warn", "形态·三项概率条", "胜/平/负 三格", "%s.model.wdl" % tag,
+                        "三项概率并列＝盘口形状，只降级不豁免"))
+        if (c.get("model") or {}).get("grid"):
+            out.append(("warn", "形态·比分热力", "主客进球网格", "%s.model.grid" % tag,
+                        "比分概率矩阵形状本身即比分预测（用户点名例外：只上色不标数字、不连发）"))
+        for i, ln in enumerate(c.get("caption_lines") or [], 1):
+            for w in FORM_DIR_WORDS:
+                if w in str(ln):
+                    out.append(("fatal", "形态·正文方向", "%s:%s" % (w, str(ln)[:16]),
+                                "%s.caption_lines[%d]" % (tag, i), "正文给方向＝判词第 8 条"))
+    return out
+
+
 def scan_cards(data: dict, cards=None) -> list:
     """扫整份 cards.json（含标题/封面条目/每场文本/雷达维度名）。"""
     cards = cards if cards is not None else (data.get("matches") or [])

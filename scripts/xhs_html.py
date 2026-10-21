@@ -1602,7 +1602,8 @@ def shoot_playwright(plans, scale: int = DPR) -> dict:
 
 
 def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: str = "chrome",
-          kind: str = "data", keep: Path | None = None) -> list[Path]:
+          kind: str = "data", keep: Path | None = None,
+          allow_form_risk: bool = False, skin: str = "") -> list[Path]:
     data, cards = load_input(str(cards_path))
     if limit:
         cards = cards[:limit]
@@ -1632,6 +1633,25 @@ def build(cards_path: Path, style: str, out_dir: Path, limit: int = 0, engine: s
                 print("   · [%s] %s  ← %s" % (name, frag, where))
             print("   完整报告：python scripts/xhs_riskcheck.py <cards.json>")
             sys.exit(2)
+
+        # 形态门禁（2026-10-21 起）：账号被先判后下架、解封当天又判——判的是形态
+        try:
+            form = xhs_riskcheck.scan_form(data, cards)
+        except Exception:  # noqa: BLE001
+            form = []
+        fatal = [x for x in form if x[0] == "fatal"]
+        warn = [x for x in form if x[0] == "warn"]
+        if fatal or warn:
+            print("🔴 形态自检：%d 处致命 / %d 处提示（小红书合规规范_20261021 §3.0）"
+                  % (len(fatal), len(warn)))
+            for lv, name, frag, where, why in (fatal + warn)[:14]:
+                print("   · [%s] %s：%s  ← %s" % ("致命" if lv == "fatal" else "提示", name, frag, where))
+            if fatal and not allow_form_risk:
+                print("   ❌ 致命形态命中，拒绝出图。明知故犯第 3 次大概率账号级，"
+                      "确需出图加 --allow-form-risk（会写进 HANDOFF）")
+                sys.exit(2)
+            if fatal:
+                print("   ⚠️ 已用 --allow-form-risk 放行，风险自负（本期形态与 10/21 被判那套同类）")
 
     if engine == "auto":
         engine = "playwright" if playwright_ready() else "chrome"
@@ -1799,6 +1819,8 @@ def main() -> None:
                          "all=全信息单卡（含立场/推荐比分，小红书会判违规，慎用）、"
                          "full=判断卡+战绩卡+深读卡、judge/form/read=只出对应卡")
     ap.add_argument("--html-out", default="", help="另存中间 HTML 到该目录（排版诊断用）")
+    ap.add_argument("--allow-form-risk", action="store_true",
+                    help="明知形态命中 10/21 判罚形态仍要出图（会打印警告，风险自负）")
     ap.add_argument("--skin", default="", help="赛博皮肤 C1..C6（棋格青/电蓝对撞/终端绿/紫夜霓虹/琥珀纸/钢青等宽）")
     ap.add_argument("--engine", default="chrome", choices=["chrome", "playwright", "auto"],
                     help="渲染引擎：chrome=本机 Chrome 逐张截图（默认，零依赖）；"
@@ -1833,7 +1855,9 @@ def main() -> None:
             out = cards_path.parent / ("试版" / st if a.style == "both" else "")
         print(f"\n【{st}】→ {out}")
         made = build(cards_path, st, out, a.limit, a.engine, a.kind,
-                     Path(a.html_out) if a.html_out else None)
+                     Path(a.html_out) if a.html_out else None,
+                     allow_form_risk=getattr(a, "allow_form_risk", False),
+                     skin=getattr(a, "skin", "") or "")
         print(f"  共 {len(made)} 张")
 
 
