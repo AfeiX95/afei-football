@@ -15,6 +15,7 @@ import argparse
 import html
 import json
 import math
+import re
 import os
 import subprocess
 import tempfile
@@ -148,6 +149,12 @@ table.st td.a{font-weight:800;width:32%%}
 .pielg span{display:flex;align-items:center;gap:7px;white-space:nowrap}
 .pielg i{width:10px;height:10px;display:inline-block}
 .pielg b{font-family:Consolas,JetBrains Mono,monospace;font-size:16px;color:#22303c}
+/* 赛果构成双饼 */
+.fps{display:flex;gap:22px;align-items:flex-start}
+.fp{text-align:center}
+.fpt{font-size:14px;font-weight:800;color:#22303c;margin-bottom:2px}
+.fpl{font-size:12.5px;color:#5c6b78;margin-top:2px}
+.fpn{font-size:11.5px;color:#7b8794;margin-top:4px}
 /* 情报 */
 .intel{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
 .ic{background:#fff;border:1px solid rgba(10,90,120,.14);padding:6px 8px}
@@ -237,6 +244,48 @@ def wdl_pie(card: dict, size: int = 236) -> str:
         for c, n, v in zip(colors, names, w)) + "</div>")
     return ('<svg viewBox="0 0 %.0f %.0f" width="%.0f" height="%.0f">%s%s%s</svg>%s'
             % (size, size, size, size, "".join(arcs), hole, center, lg))
+
+
+def form_pies(card: dict, size: int = 168) -> str:
+    """近 10 场赛果构成（已发生场次占比，不预测、不涉市场口径）。
+
+    左：主队同主场 10 场；右：客队同客场 10 场。三段 = 胜/平/负场次。
+    """
+    f = card.get("form") or {}
+    pairs = [(card.get("home"), (f.get("home") or {}).get("ha")),
+             (card.get("away"), (f.get("away") or {}).get("ha"))]
+    colors = ["#0aa3c2", "#9aa8b4", "#e8402a"]
+    names = ["胜", "平", "负"]
+    blocks = []
+    for who, ha in pairs:
+        nums = [int(x) for x in re.findall(r"(\d+)\s*胜\s*(\d+)\s*平\s*(\d+)\s*负", str(ha or ""))[0]]             if re.findall(r"(\d+)\s*胜\s*(\d+)\s*平\s*(\d+)\s*负", str(ha or "")) else [0, 0, 0]
+        tot = sum(nums) or 1
+        share = [n / tot for n in nums]
+        cx = cy = size / 2.0
+        r = size / 2.0 - 8
+        ang, arcs = -90.0, []
+        for val, col in zip(share, colors):
+            sweep = 360.0 * val
+            a0, a1 = math.radians(ang), math.radians(ang + sweep)
+            x0, y0 = cx + r * math.cos(a0), cy + r * math.sin(a0)
+            x1, y1 = cx + r * math.cos(a1), cy + r * math.sin(a1)
+            if sweep > 0.4:
+                arcs.append('<path d="M%.2f %.2f L%.2f %.2f A%.2f %.2f 0 %d 1 %.2f %.2f Z" fill="%s" '
+                            'stroke="#f4f7fa" stroke-width="2"/>'
+                            % (cx, cy, x0, y0, r, r, 1 if sweep > 180 else 0, x1, y1, col))
+            ang += sweep
+        hole = '<circle cx="%.1f" cy="%.1f" r="%.1f" fill="#fff"/>' % (cx, cy, r * 0.56)
+        txt = ('<text x="%.1f" y="%.1f" text-anchor="middle" font-size="12" fill="#6a7885">%s 场</text>'
+               '<text x="%.1f" y="%.1f" text-anchor="middle" font-size="19" font-weight="800" '
+               'fill="#22303c" font-family="Consolas,JetBrains Mono,monospace">%d-%d-%d</text>'
+               % (cx, cy - 5, tot, cx, cy + 15, nums[0], nums[1], nums[2]))
+        blocks.append(
+            '<div class="fp"><div class="fpt">%s</div>'
+            '<svg viewBox="0 0 %d %d" width="%d" height="%d">%s%s%s</svg>'
+            '<div class="fpl">胜 %d · 平 %d · 负 %d</div></div>'
+            % (esc(who), size, size, size, size, "".join(arcs), hole, txt, nums[0], nums[1], nums[2]))
+    return ('<div class="fps">%s</div><div class="fpn">同主场 / 同客场近 10 场赛果构成，'
+            '已发生场次占比</div>' % "".join(blocks))
 
 
 def pois_bars(card: dict) -> str:
@@ -407,9 +456,9 @@ def card_html(card: dict, idx: int, total: int) -> str:
     <span><i style="background:#e8402a"></i>{away}</span></div></div>
 </div></section>
 
-<section class="sec"><div class="sh"><span class="n">胜平负分布 · 比分热度</span><span class="h">模型 2 万次抽样 · 比分只上色</span></div>
+<section class="sec"><div class="sh"><span class="n">赛果构成 · 比分热度</span><span class="h">近 10 场已发生 · 比分只上色</span></div>
 <div class="two c2b">
-  <div class="pie">{wdl_pie(card)}</div>
+  <div class="pie">{form_pies(card)}</div>
   <div class="heat">{mc_heat(card)}</div>
 </div></section>
 
