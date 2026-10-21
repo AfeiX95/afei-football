@@ -51,7 +51,8 @@ python scripts/sync.py --status   # 只看状态
 | 需要 | 路径 |
 |------|------|
 | 当前进度/待办/会话交接 | `python scripts/brief.py`（首选）→ `docs/HANDOFF.md` 最新一节 + `state/model-state.json` |
-| 写作管线（10步） | `docs/WORKFLOW.md` |
+| **工作流一页纸（采→算→报→写→验→复）** | `docs/WORKFLOW-ONE-PAGE.md`（每步命令 + 产物 + 失败速查） |
+| 写作管线（10步·详版） | `docs/WORKFLOW.md` |
 | 修正规则 C01-C42 摘要 | `docs/RULES.md` → 真源 `📚知识库/模型脚本/修正规则.md` |
 | 写作铁律 R1-R41 覆盖层 | 真源 `📚知识库/skills/afei-writing-standards/SKILL.md`（R38-R40 = 2026-10-11 并入公司侧口径；**R41 = 公开输出层纪律：公开稿去盘口语 + 内外部分层**）|
 | **技能清单/分节行号** | `📚知识库/skills/INDEX.md`（按需加载入口，先看这个再读 SKILL.md）|
