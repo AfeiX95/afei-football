@@ -158,6 +158,8 @@ table.st td.a{font-weight:800;width:32%%}
 /* 情报 */
 .intel{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
 .ic{background:#fff;border:1px solid rgba(10,90,120,.14);padding:6px 8px}
+.ic.wide{grid-column:1 / -1}
+.ic.wide .t i{background:#c2382f}
 .ic .t{font-size:14px;font-weight:800;display:flex;align-items:center;gap:6px;margin-bottom:3px}
 .ic .t i{width:6px;height:6px;display:inline-block}
 .ic.g .t{color:#0a7d5a}.ic.g .t i{background:#0a7d5a}
@@ -372,7 +374,8 @@ def cmp_rows(card: dict) -> str:
         ("失球", fh.get("ga"), fa.get("ga")),
         ("场均进", avg(fh.get("gf"), nh), avg(fa.get("gf"), na)),
         ("场均失", avg(fh.get("ga"), nh), avg(fa.get("ga"), na)),
-        ("净胜球", fh.get("net"), fa.get("net")),
+        ("净胜球", fh.get("net") if fh.get("net") is not None else (fh.get("gf", 0) - fh.get("ga", 0)),
+         fa.get("net") if fa.get("net") is not None else (fa.get("gf", 0) - fa.get("ga", 0))),
         ("不败率", "%d%%" % round(100 * (fh.get("unbeaten") or 0)),
          "%d%%" % round(100 * (fa.get("unbeaten") or 0))),
     ]
@@ -381,9 +384,20 @@ def cmp_rows(card: dict) -> str:
            '<span style="color:#b8331f">%s</span></div></div>' % (esc(card.get("home")), esc(card.get("away")))]
     for lab, a, b in rows:
         try:
+            neg = float(a) < 0 or float(b) < 0
+        except (TypeError, ValueError):
+            neg = False
+        try:
             x, y = float(str(a).replace("%", "")), float(str(b).replace("%", ""))
         except ValueError:
             x = y = 1.0
+        if neg:  # 负数（净胜球）不画比例条，只出数字，避免「负长度」误导
+            out.append(
+                '<div class="row"><div class="lab">%s</div><div class="rb">'
+                '<span class="v l">%s</span><span class="track"><i class="l" style="width:50%%"></i>'
+                '<i class="r" style="width:50%%"></i></span><span class="v r">%s</span></div></div>'
+                % (esc(lab), esc(a), esc(b)))
+            continue
         tot = (x + y) or 1
         wl = max(4.0, min(96.0, 100.0 * x / tot))
         out.append(
@@ -409,8 +423,13 @@ def intel_block(card: dict) -> str:
         return ('<div class="ic %s"><div class="t"><i></i>%s · %s</div><ul>%s</ul></div>'
                 % (kind, who, tag, lis))
 
+    common = it.get("common") or []
+    wide = ""
+    if common:
+        lis = "".join("<li>%s</li>" % esc(x) for x in common[:3])
+        wide = '<div class="ic wide"><div class="t"><i></i>身价 · 交锋 · 伤停</div><ul>%s</ul></div>' % lis
     return (cell(home, "g", it.get("home_good")) + cell(home, "b", it.get("home_bad")) +
-            cell(away, "g", it.get("away_good")) + cell(away, "b", it.get("away_bad")))
+            cell(away, "g", it.get("away_good")) + cell(away, "b", it.get("away_bad")) + wide)
 
 
 def card_html(card: dict, idx: int, total: int) -> str:
@@ -429,6 +448,14 @@ def card_html(card: dict, idx: int, total: int) -> str:
         return "".join('<i class="%s">%s</i>' % (cls.get(s, "d"), txt.get(s, "平")) for s in (seq or [])[:5])
 
     pt_html = ('<div class="pt"><em>看点</em>' + point + "</div>") if point else ""
+    # 报告里没有六维数据时，整块不画，对比条占满整行（不拿假数据凑图）
+    has_radar = bool((card.get("radar") or {}).get("dims"))
+    nr = "" if has_radar else " noradar"
+    radblock = ""
+    if has_radar:
+        radblock = ('<div class="rad">' + radial(card) +
+                    '<div class="lg2"><span><i style="background:#0aa3c2"></i>' + home + '</span>'
+                    '<span><i style="background:#e8402a"></i>' + away + '</span></div></div>')
     return f"""<!doctype html><html lang="zh"><head><meta charset="utf-8"><style>{CSS}</style></head>
 <body><div class="card">
 <div class="frame"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i></div>
@@ -441,7 +468,7 @@ def card_html(card: dict, idx: int, total: int) -> str:
 
 <section class="sec"><div class="sh"><span class="n">数据对照 · 六维</span>
 <span class="h">近 5 场 · {esc(f.get("h2h_short") or h2h or "同主客 10 场")}</span></div>
-<div class="two c2b stretch">
+<div class="two c2b stretch%s">
   <div>
     <div class="fr"><div class="l"><span class="nm">{home}</span><span class="badges">{badges(fh.get("seq"))}</span></div>
       <span class="r">{esc(fh.get("l5"))}</span></div>
@@ -451,9 +478,7 @@ def card_html(card: dict, idx: int, total: int) -> str:
     <div class="sub2">{esc(fa.get("ha"))}　场均 {esc(fa.get("pj"))} 进 / {esc(fa.get("sj"))} 失</div>
     <div class="cmp">{cmp_rows(card)}</div>
   </div>
-  <div class="rad">{radial(card)}
-    <div class="lg2"><span><i style="background:#0aa3c2"></i>{home}</span>
-    <span><i style="background:#e8402a"></i>{away}</span></div></div>
+  {radblock}
 </div></section>
 
 <section class="sec"><div class="sh"><span class="n">{esc(card.get("pie_title") or ("赛果构成" if card.get("pie_mode") == "form" else "数据分布"))} · 比分热度</span><span class="h">{esc(card.get("pie_note") or ("近 10 场已发生" if card.get("pie_mode") == "form" else "模型 2 万次抽样"))} · 比分只上色</span></div>
