@@ -1,0 +1,161 @@
+{
+ "date": "20261022",
+ "season": {
+  "split": "2026年至2027年",
+  "calendar": "2026年",
+  "y": 2026,
+  "en_split": "2026–27",
+  "en_cal": "2026"
+ },
+ "leagues": {},
+ "matches": {
+  "周四001": {
+   "no": "周四001",
+   "league": "欧罗巴",
+   "date": "2026-10-23",
+   "time": "00:45:00",
+   "home": "格风暴",
+   "away": "马赛",
+   "home_rank": null,
+   "home_why": "该联赛无积分表",
+   "away_rank": null,
+   "away_why": "该联赛无积分表",
+   "weather": null
+  },
+  "周四002": {
+   "no": "周四002",
+   "league": "欧罗巴",
+   "date": "2026-10-23",
+   "time": "00:45:00",
+   "home": "波兹南",
+   "away": "桑德兰",
+   "home_rank": null,
+   "home_why": "该联赛无积分表",
+   "away_rank": null,
+   "away_why": "该联赛无积分表",
+   "weather": null
+  },
+  "周四003": {
+   "no": "周四003",
+   "league": "欧罗巴",
+   "date": "2026-10-23",
+   "time": "00:45:00",
+   "home": "萨迪纳摩",
+   "away": "奈梅亨",
+   "home_rank": null,
+   "home_why": "该联赛无积分表",
+   "away_rank": null,
+   "away_why": "该联赛无积分表",
+   "weather": null
+  },
+  "周四004": {
+   "no": "周四004",
+   "league": "欧罗巴",
+   "date": "2026-10-23",
+   "time": "00:45:00",
+   "home": "尤文图斯",
+   "away": "雷恩",
+   "home_rank": null,
+   "home_why": "该联赛无积分表",
+   "away_rank": null,
+   "away_why": "该联赛无积分表",
+   "weather": null
+  },
+  "周四005": {
+   "no": "周四005",
+   "league": "欧罗巴",
+   "date": "2026-10-23",
+   "time": "00:45:00",
+   "home": "克里特",
+   "away": "勒沃库森",
+   "home_rank": null,
+   "home_why": "该联赛无积分表",
+   "away_rank": null,
+   "away_why": "该联赛无积分表",
+   "weather": null
+  },
+  "周四006": {
+   "no": "周四006",
+   "league": "欧罗巴",
+   "date": "2026-10-23",
+   "time": "03:00:00",
+   "home": "伯恩茅斯",
+   "away": "AC米兰",
+   "home_rank": null,
+   "home_why": "该联赛无积分表",
+   "away_rank": null,
+   "away_why": "该联赛无积分表",
+   "weather": null
+  },
+  "周四007": {
+   "no": "周四007",
+   "league": "欧罗巴",
+   "date": "2026-10-23",
+   "time": "03:00:00",
+   "home": "凯尔特人",
+   "away": "塞尔塔",
+   "home_rank": null,
+   "home_why": "该联赛无积分表",
+   "away_rank": null,
+   "away_why": "该联赛无积分表",
+   "weather": null
+  },
+  "周四008": {
+   "no": "周四008",
+   "league": "欧罗巴",
+   "date": "2026-10-23",
+   "time": "03:00:00",
+   "home": "贝西克塔",
+   "away": "水晶宫",
+   "home_rank": null,
+   "home_why": "该联赛无积分表",
+   "away_rank": null,
+   "away_why": "该联赛无积分表",
+   "weather": null
+  },
+  "周四009": {
+   "no": "周四009",
+   "league": "欧罗巴",
+   "date": "2026-10-23",
+   "time": "03:00:00",
+   "home": "霍芬海姆",
+   "away": "里昂",
+   "home_rank": null,
+   "home_why": "该联赛无积分表",
+   "away_rank": null,
+   "away_why": "该联赛无积分表",
+   "weather": null
+  },
+  "周四010": {
+   "no": "周四010",
+   "league": "欧罗巴",
+   "date": "2026-10-23",
+   "time": "03:00:00",
+   "home": "利勒斯特",
+   "away": "皇家社会",
+   "home_rank": null,
+   "home_why": "该联赛无积分表",
+   "away_rank": null,
+   "away_why": "该联赛无积分表",
+   "weather": null
+  },
+  "周四013": {
+   "no": "周四013",
+   "league": "解放者杯",
+   "date": "2026-10-23",
+   "time": "08:30:00",
+   "home": "弗拉门戈",
+   "away": "拉普大学",
+   "home_rank": null,
+   "home_why": "该联赛无积分表",
+   "away_rank": null,
+   "away_why": "该联赛无积分表",
+   "weather": null
+  }
+ },
+ "missing": [
+  "欧罗巴：未在 league_sources.json 里配置",
+  "解放者杯：未在 league_sources.json 里配置"
+ ],
+ "generated": "2026-10-21 19:14"
+}

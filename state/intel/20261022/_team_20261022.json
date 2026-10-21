@@ -1,0 +1,350 @@
+{
+  "date": "20261022",
+  "generated_at": "2026-10-21T19:17:49",
+  "items": [
+    {
+      "mid": "2042119",
+      "no": "周四001",
+      "league": "欧罗巴",
+      "home": "格风暴",
+      "away": "马赛",
+      "injury_news": [],
+      "home_prof": {
+        "team": "格风暴",
+        "dq_name": "格拉茨风暴",
+        "value_m": 75.9,
+        "value_text": "76M 欧",
+        "rank": 26,
+        "rank_text": "第 26 · 2 场 0胜1平1负 1 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "away_prof": {
+        "team": "马赛",
+        "dq_name": "马赛",
+        "value_m": 180.0,
+        "value_text": "1.80 亿欧",
+        "rank": 32,
+        "rank_text": "第 32 · 2 场 0胜0平2负 0 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "value_ratio": "2.37 倍"
+    },
+    {
+      "mid": "2042120",
+      "no": "周四002",
+      "league": "欧罗巴",
+      "home": "波兹南",
+      "away": "桑德兰",
+      "injury_news": [
+        "伤停方面，莱赫波兹南的阿里·戈利扎德（十字韧带撕裂）和阿拉亚尔·萨亚德（腹股沟伤势）无法出战；桑德兰的罗曼·芒德尔因伤缺阵"
+      ],
+      "home_prof": {
+        "team": "波兹南",
+        "dq_name": null,
+        "value_m": null,
+        "value_text": "—",
+        "rank": null,
+        "rank_text": "—",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "away_prof": {
+        "team": "桑德兰",
+        "dq_name": "桑德兰",
+        "value_m": 450.0,
+        "value_text": "4.50 亿欧",
+        "rank": 9,
+        "rank_text": "第 9 · 2 场 2胜0平0负 6 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "value_ratio": "—"
+    },
+    {
+      "mid": "2042121",
+      "no": "周四003",
+      "league": "欧罗巴",
+      "home": "萨迪纳摩",
+      "away": "奈梅亨",
+      "injury_news": [
+        "努伊汀克因脚踝伤势缺阵，桑德勒本月也受到伤病困扰，施罗伊德在三后卫体系中缺少资深后卫人选",
+        "萨格勒布迪纳摩没有确认的缺阵球员"
+      ],
+      "home_prof": {
+        "team": "萨迪纳摩",
+        "dq_name": "萨格勒布迪纳摩",
+        "value_m": 77.95,
+        "value_text": "78M 欧",
+        "rank": 14,
+        "rank_text": "第 14 · 2 场 1胜1平0负 4 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "away_prof": {
+        "team": "奈梅亨",
+        "dq_name": "奈梅亨",
+        "value_m": 58.23,
+        "value_text": "58M 欧",
+        "rank": 27,
+        "rank_text": "第 27 · 2 场 0胜1平1负 1 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "value_ratio": "1.34 倍"
+    },
+    {
+      "mid": "2042122",
+      "no": "周四004",
+      "league": "欧罗巴",
+      "home": "尤文图斯",
+      "away": "雷恩",
+      "injury_news": [
+        "边路可用人选大幅缩减：孔塞桑肩部重伤伤停；热格罗瓦不在欧足联报名名单，无法出战；博加是备选，尼科・冈萨雷斯与阿拉伊贝戈维奇竞争一个名额，整体边路储备，已经不如赛季初充裕"
+      ],
+      "home_prof": {
+        "team": "尤文图斯",
+        "dq_name": "尤文图斯",
+        "value_m": 610.0,
+        "value_text": "6.10 亿欧",
+        "rank": 1,
+        "rank_text": "第 1 · 2 场 2胜0平0负 6 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "away_prof": {
+        "team": "雷恩",
+        "dq_name": "雷恩",
+        "value_m": 250.0,
+        "value_text": "2.50 亿欧",
+        "rank": 13,
+        "rank_text": "第 13 · 2 场 1胜1平0负 4 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "value_ratio": "2.44 倍"
+    },
+    {
+      "mid": "2042123",
+      "no": "周四005",
+      "league": "欧罗巴",
+      "home": "克里特",
+      "away": "勒沃库森",
+      "injury_news": [
+        "勒沃库森方面，科法内因肌肉问题缺席，泰里耶（腿筋）、盖拉-杜埃（肌肉）和本-萨吉尔（肌肉）同样伤缺，卡尔布雷思（脚部）出战成疑",
+        "OFI克里特伤病方面，马里纳基斯（腹股沟）缺阵，列亚（腹股沟）和谢利斯（腿筋）受伤且无资格出战"
+      ],
+      "home_prof": {
+        "team": "克里特",
+        "dq_name": "OFI克里特",
+        "value_m": 21.78,
+        "value_text": "22M 欧",
+        "rank": 18,
+        "rank_text": "第 18 · 2 场 1胜0平1负 3 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "away_prof": {
+        "team": "勒沃库森",
+        "dq_name": "勒沃库森",
+        "value_m": 520.0,
+        "value_text": "5.20 亿欧",
+        "rank": 2,
+        "rank_text": "第 2 · 2 场 2胜0平0负 6 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "value_ratio": "23.88 倍"
+    },
+    {
+      "mid": "2042124",
+      "no": "周四006",
+      "league": "欧罗巴",
+      "home": "伯恩茅斯",
+      "away": "AC米兰",
+      "injury_news": [
+        "需要指出的是，阿莫林此役在英格兰将无法使用受伤的加比亚和停赛的菲利波-泰拉恰诺"
+      ],
+      "home_prof": {
+        "team": "伯恩茅斯",
+        "dq_name": "伯恩茅斯",
+        "value_m": 620.0,
+        "value_text": "6.20 亿欧",
+        "rank": 5,
+        "rank_text": "第 5 · 2 场 2胜0平0负 6 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "away_prof": {
+        "team": "AC米兰",
+        "dq_name": "AC米兰",
+        "value_m": 500.0,
+        "value_text": "5.00 亿欧",
+        "rank": 16,
+        "rank_text": "第 16 · 2 场 1胜0平1负 3 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "value_ratio": "1.24 倍"
+    },
+    {
+      "mid": "2042125",
+      "no": "周四007",
+      "league": "欧罗巴",
+      "home": "凯尔特人",
+      "away": "塞尔塔",
+      "injury_news": [
+        "奥斯蒙德此前经历过两段漫长的伤停期，本赛季出场时间不多"
+      ],
+      "home_prof": {
+        "team": "凯尔特人",
+        "dq_name": "凯尔特人",
+        "value_m": 120.0,
+        "value_text": "1.20 亿欧",
+        "rank": 34,
+        "rank_text": "第 34 · 2 场 0胜0平2负 0 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "away_prof": {
+        "team": "塞尔塔",
+        "dq_name": "塞尔塔",
+        "value_m": 180.0,
+        "value_text": "1.80 亿欧",
+        "rank": 29,
+        "rank_text": "第 29 · 2 场 0胜0平2负 0 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "value_ratio": "1.50 倍"
+    },
+    {
+      "mid": "2042126",
+      "no": "周四008",
+      "league": "欧罗巴",
+      "home": "贝西克塔",
+      "away": "水晶宫",
+      "injury_news": [
+        "贝西克塔斯伤停方面，边锋拉希察因腿筋伤势缺阵，已被排除出欧联杯名单；中场柯克曲受脚伤困扰，目标下个月复出",
+        "水晶宫方面，沙迪-里亚德（膝盖）长期缺阵，迪恩-亨德森（脚部）、奇尔韦尔（膝盖）和富安健洋（小腿）在错过输给布莱顿的比赛后，伤势都将接受评估"
+      ],
+      "home_prof": {
+        "team": "贝西克塔",
+        "dq_name": "贝西克塔斯",
+        "value_m": 270.0,
+        "value_text": "2.70 亿欧",
+        "rank": 4,
+        "rank_text": "第 4 · 2 场 2胜0平0负 6 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "away_prof": {
+        "team": "水晶宫",
+        "dq_name": "水晶宫",
+        "value_m": 600.0,
+        "value_text": "6.00 亿欧",
+        "rank": 15,
+        "rank_text": "第 15 · 2 场 1胜0平1负 3 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "value_ratio": "2.22 倍"
+    },
+    {
+      "mid": "2042127",
+      "no": "周四009",
+      "league": "欧罗巴",
+      "home": "霍芬海姆",
+      "away": "里昂",
+      "injury_news": [],
+      "home_prof": {
+        "team": "霍芬海姆",
+        "dq_name": "霍芬海姆",
+        "value_m": 280.0,
+        "value_text": "2.80 亿欧",
+        "rank": 30,
+        "rank_text": "第 30 · 2 场 0胜0平2负 0 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "away_prof": {
+        "team": "里昂",
+        "dq_name": "里昂",
+        "value_m": 260.0,
+        "value_text": "2.60 亿欧",
+        "rank": 8,
+        "rank_text": "第 8 · 2 场 2胜0平0负 6 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "value_ratio": "1.08 倍"
+    },
+    {
+      "mid": "2042128",
+      "no": "周四010",
+      "league": "欧罗巴",
+      "home": "利勒斯特",
+      "away": "皇家社会",
+      "injury_news": [
+        "皇家社会客战利勒斯特罗姆，埃雷拉等多人伤缺 # 皇家社会客战利勒斯特罗姆，埃雷拉等多人伤缺\n\n北京时间10月23日03:00，欧联联赛阶段第三轮，利勒斯特罗姆主场迎战皇家社会",
+        "利勒斯特罗姆方面，韦比约恩-霍夫和克里斯托弗-滕内森因伤缺阵，球队其他位置情况良好",
+        "皇家社会方面，扬赫尔-埃雷拉和奥德里奥索拉因伤缺席，阿兰布鲁和贝蒂亚预计也将缺阵"
+      ],
+      "home_prof": {
+        "team": "利勒斯特",
+        "dq_name": "利勒斯特罗姆",
+        "value_m": 14.98,
+        "value_text": "15M 欧",
+        "rank": 22,
+        "rank_text": "第 22 · 2 场 0胜1平1负 1 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "away_prof": {
+        "team": "皇家社会",
+        "dq_name": "皇家社会",
+        "value_m": 290.0,
+        "value_text": "2.90 亿欧",
+        "rank": 23,
+        "rank_text": "第 23 · 2 场 0胜1平1负 1 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "value_ratio": "19.36 倍"
+    },
+    {
+      "mid": "2042129",
+      "no": "周四013",
+      "league": "解放者杯",
+      "home": "弗拉门戈",
+      "away": "拉普大学",
+      "injury_news": [
+        "结合弗拉门戈近期状态与两队伤停情况，本场更倾向客队小胜，平局同样值得防范",
+        "## 中卫双双停赛，大学生依靠魔鬼主场争取先机\n\n拉普拉塔大学生近期表现并不理想",
+        "主力中卫莱安德罗-冈萨雷斯-皮雷斯与托马斯-帕拉西奥斯均因累计黄牌停赛，无法参加首回合"
+      ],
+      "home_prof": {
+        "team": "弗拉门戈",
+        "dq_name": "弗拉门戈",
+        "value_m": 210.0,
+        "value_text": "2.10 亿欧",
+        "rank": 1,
+        "rank_text": "第 1 · 31 场 20胜7平4负 67 分",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "away_prof": {
+        "team": "拉普大学",
+        "dq_name": null,
+        "value_m": null,
+        "value_text": "—",
+        "rank": null,
+        "rank_text": "—",
+        "inj_n": 0,
+        "inj_names": []
+      },
+      "value_ratio": "—"
+    }
+  ]
+}

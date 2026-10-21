@@ -44,6 +44,10 @@ ALIAS = {
     "帕梅拉斯": "帕尔梅拉斯", "弗鲁米嫩": "弗鲁米嫩塞", "维拉": "阿斯顿维拉",
     "加拉塔萨": "加拉塔萨雷", "LASK林茨": "林茨", "大宫松鼠": "RB大宫松鼠",
     "拜仁": "拜仁慕尼黑",
+    # 2026-10-22 周四（欧罗巴/解放者杯）补：竞彩缩写 → 懂球帝全名
+    "格风暴": "格拉茨风暴", "萨迪纳摩": "萨格勒布迪纳摩", "克里特": "OFI克里特",
+    "波兹南": "莱赫波兹南", "贝西克塔": "贝西克塔斯", "利勒斯特": "利勒斯特罗姆",
+    "拉普大学": "拉普拉塔大学生", "弗拉门戈": "弗拉门戈",
 }
 
 
@@ -200,6 +204,93 @@ def dq_standings(lg_name: str = "欧冠") -> dict:
     return jload(STATE / "cache" / f"_dq_stand_{lg_name}.json", {}) or {}
 
 
+STAND_CIDS = {"欧冠": 6, "欧罗巴": 14, "巴甲": 19}
+STAND_NAMES = {"欧冠": "欧冠", "欧罗巴": "欧罗巴"}
+
+
+def parse_stand(content: str) -> dict:
+    """把懂球帝「数据」页的积分榜解析成 {队名: 行}。
+
+    两种版面都见过：`| 1 | 尤文图斯 | 2 | ... |`（反斜杠转义）和整段换行平铺
+    （`1
+尤文图斯
+2
+2
+0
+0
+7\/1
++6
+6`）——先洗反斜杠，再按有无 `|` 分派。
+    """
+    text = (content or "").replace("\\", "")
+    out: dict = {}
+    if "|" in text:
+        for line in text.splitlines():
+            line = line.strip()
+            if "|" not in line:
+                continue
+            cells = [c.strip() for c in line.strip("|").split("|")]
+            cells = [c for c in cells if c not in ("", "-")]
+            if len(cells) < 8 or not cells[0].isdigit():
+                continue
+            row = _row_from_cells(cells)
+            if row:
+                out.setdefault(row[0], row[1])
+        if out:
+            return out
+    toks = [t.strip() for t in text.splitlines() if t.strip()]
+    try:
+        i = toks.index("积分") + 1
+    except ValueError:
+        return out
+    while i + 8 < len(toks):
+        if not toks[i].isdigit():
+            i += 1
+            continue
+        cells = [toks[i], toks[i + 1], toks[i + 2], toks[i + 3], toks[i + 4],
+                 toks[i + 5], toks[i + 6], toks[i + 8]]
+        row = _row_from_cells(cells)
+        if not row:
+            break
+        out.setdefault(row[0], row[1])
+        i += 9
+    return out
+
+
+def _row_from_cells(cells: list):
+    try:
+        pos = int(cells[0]); team = cells[1]
+        pld, w, d, l = (int(cells[2]), int(cells[3]), int(cells[4]), int(cells[5]))
+        gf, ga = (int(x) for x in cells[6].replace("／", "/").split("/"))
+        pts = int(cells[-1])
+    except (ValueError, IndexError):
+        return None
+    if not team:
+        return None
+    return team, {"pos": pos, "pld": pld, "w": w, "d": d, "l": l,
+                  "gf": gf, "ga": ga, "pts": pts}
+
+
+def ensure_standings(name: str = "欧罗巴", refresh: bool = False) -> dict:
+    """按需抓一张懂球帝积分榜并落 `_dq_stand_<name>.json`（缓存 6 小时）。"""
+    path = STATE / "cache" / f"_dq_stand_{name}.json"
+    if not refresh and path.exists():
+        blob = jload(path, {}) or {}
+        if blob and (dt.datetime.now().timestamp() - float(blob.get("_fetched") or 0)) < 6 * 3600:
+            return blob.get("items") or {}
+    cid = STAND_CIDS.get(name)
+    if not cid:
+        return {}
+    try:
+        content = ds_search.fetch(f"https://pc.dongqiudi.com/data?cid={cid}").get("content") or ""
+    except SystemExit:
+        return {}
+    items = parse_stand(content)
+    if items:
+        jsave(path, {"_fetched": dt.datetime.now().timestamp(), "cid": cid, "items": items})
+    return items
+
+
 def dq_rank(team: str, cache: dict) -> dict | None:
     """竞彩网榜没覆盖时（欧冠/日职多如此），退到懂球帝积分榜，按别名对齐。"""
     key = ALIAS.get(team, team)
@@ -267,7 +358,9 @@ def main() -> None:
     for cid in (509, 510):
         if not load_tables().get(str(cid), {}).get("_items"):
             fetch_table(cid)
-    dqst = dq_standings("欧冠")
+    dqst = dict(dq_standings("欧冠"))
+    for _nm in ("欧罗巴", "巴甲"):
+        dqst.update(ensure_standings(_nm))
     news = injury_news(a.date)
 
     items = []
