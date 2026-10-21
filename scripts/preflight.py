@@ -1,12 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""写文一键盘（Preflight）— 字数(R32) + 发布门禁，一条命令出结论。
+"""写文一键盘（Preflight）— 字数(R32) + 发布门禁 + 读者视角(R55)，一条命令出结论。
 
 用法：
     python scripts/preflight.py                       # 最新一篇文章
     python scripts/preflight.py <文章.md> [<文章2.md>]
     python scripts/preflight.py --detail <文章.md>     # 附门禁逐项
+    python scripts/preflight.py --skip-lens <文章.md>  # 只跑字数+门禁（不建议）
 退出码：0 = 全部通过；1 = 有未过项。
+
+2026-10-21 起把 R55（reader_lens.py）并入：公开稿出现概率差/去水/让球三格/回测/代号
+即判 FAIL，与第 2 项硬禁用词同级——不再靠「记得单独跑一次」。
 
 替代「手动跑 wordcount.py + cd 到模型脚本跑 check_article.py」两次往返。
 """
@@ -23,6 +27,11 @@ ROOT = Path(__file__).resolve().parent.parent
 WORDCOUNT = ROOT / "scripts" / "wordcount.py"
 GATE_DIR = ROOT / "📚知识库" / "模型脚本"
 GATE = GATE_DIR / "check_article.py"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+try:
+    from reader_lens import scan as lens_scan  # R55
+except Exception:  # noqa: BLE001
+    lens_scan = None
 ARTICLES = ROOT / "📝文章"
 
 
@@ -78,6 +87,7 @@ def main():
     ap = argparse.ArgumentParser(description="写文一键盘：字数 + 发布门禁")
     ap.add_argument("paths", nargs="*", help="md 文件路径；省略则取最新文章")
     ap.add_argument("--detail", action="store_true", help="附门禁逐项明细")
+    ap.add_argument("--skip-lens", action="store_true", help="跳过 R55 读者视角过滤（不建议）")
     args = ap.parse_args()
 
     paths = [Path(p) for p in args.paths] if args.paths else [latest_article()]
@@ -91,7 +101,7 @@ def main():
 
     W = 60
     print("=" * W)
-    print("  写文一键盘 preflight（字数 R32 + 发布门禁）")
+    print("  写文一键盘 preflight（字数 R32 + 发布门禁 + 读者视角 R55）")
     print("=" * W)
 
     failed = 0
@@ -106,7 +116,16 @@ def main():
         total, band, warn = parse_words(wout)
         gate_pass, items, ai = parse_gate(gout)
 
-        ok = bool(band) and gate_pass
+        lens_hits = []
+        lens_skipped = bool(args.skip_lens) or lens_scan is None
+        if not lens_skipped:
+            try:
+                lens_hits = lens_scan(Path(abs_path).read_text(encoding="utf-8"))
+            except Exception:  # noqa: BLE001
+                lens_hits = []
+        lens_ok = not lens_hits
+
+        ok = bool(band) and gate_pass and lens_ok
         if not ok:
             failed += 1
         print(f"[{n}/{len(paths)}] {'✅' if ok else '❌'} {path.name}")
@@ -116,6 +135,17 @@ def main():
         print(f"    门禁　{'PASS ✅' if gate_pass else 'FAIL ❌'}"
               f"（{sum(1 for m, _, _ in items if m == '✅')}/{len(items)} 项通过）"
               + (f"　AI {ai}" if ai else ""))
+        if lens_skipped:
+            why = "--skip-lens" if args.skip_lens else "reader_lens.py 未加载"
+            print(f"    视角　⚠️ 已跳过 R55（{why}）")
+        else:
+            print(f"    视角　{'PASS ✅' if lens_ok else 'FAIL ❌'}"
+                  f"（R55 内部语言 {len(lens_hits)} 处）")
+            bad_lens = lens_hits[:6] if not args.detail else lens_hits
+            for ln, name, snip in bad_lens:
+                print(f"          ❌ [{name}] 第 {ln} 行 … {snip} …")
+            if len(lens_hits) > len(bad_lens):
+                print(f"          … 另有 {len(lens_hits) - len(bad_lens)} 处（--detail 看全）")
         bad = [f"{m} {n_}" for m, n_, _ in items if m != "✅"]
         for b in bad:
             print(f"          {b}")

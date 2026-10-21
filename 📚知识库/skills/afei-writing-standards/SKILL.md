@@ -1183,8 +1183,11 @@ python -X utf8 scripts/league_intel.py --date YYYYMMDD --weekday 周一 --md
 - **工程载体**：`scripts/reader_lens.py`（九组正则扫内部语言）+ `scripts/pick_structure.py`（R53 选结构）。
   ```bash
   python -X utf8 scripts/reader_lens.py "<文章.md>"          # 看命中
-  python -X utf8 scripts/reader_lens.py "<文章.md>" --strict # 有命中退出码 1，接门禁用
+  python -X utf8 scripts/reader_lens.py "<文章.md>" --strict # 有命中退出码 1
+  python -X utf8 scripts/preflight.py "<文章.md>"            # 默认已含 R55（2026-10-21 起）
   ```
+  **R55 已并入 `preflight.py`**：输出多一行「视角」，有命中即判 FAIL、退出码 1，与第 2 项硬禁用词同级；
+  `--skip-lens` 只在明知故犯时用（会显式标注「已跳过 R55」），不做默认。
 - **接入位置（不许覆盖已有流程）**：`采集 → 模型 → 概率校验(R54) → 融合 → R53 选结构 → **R55 读者视角改写** → 合规门禁 → 发布`。R55 只做「分析结果 → 公开语言」，不改概率、不改事实、不改结论。
 - **发布前逐句自检**：这句话写给读者还是写给内部审核？删掉会不会影响理解比赛？有没有把分析过程当文章内容？有没有缺证据却很确定？读者能感到阿飞这个人在吗？有没有博彩导向或违规引流？
 - 最终标准：读者看到的**是一个有经验、有判断、有情绪的老球迷，不是一份披着文章外衣的模型运行日志**。
