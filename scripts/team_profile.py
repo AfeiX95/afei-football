@@ -47,7 +47,7 @@ ALIAS = {
     # 2026-10-22 周四（欧罗巴/解放者杯）补：竞彩缩写 → 懂球帝全名
     "格风暴": "格拉茨风暴", "萨迪纳摩": "萨格勒布迪纳摩", "克里特": "OFI克里特",
     "波兹南": "莱赫波兹南", "贝西克塔": "贝西克塔斯", "利勒斯特": "利勒斯特罗姆",
-    "拉普大学": "拉普拉塔大学生", "弗拉门戈": "弗拉门戈",
+    "拉普大学": "拉普拉塔大学生", "弗拉门戈": "弗拉门戈", "波兹南": "波兹南莱赫",
 }
 
 
@@ -204,7 +204,7 @@ def dq_standings(lg_name: str = "欧冠") -> dict:
     return jload(STATE / "cache" / f"_dq_stand_{lg_name}.json", {}) or {}
 
 
-STAND_CIDS = {"欧冠": 6, "欧罗巴": 14, "巴甲": 19}
+STAND_CIDS = {"欧冠": 6, "欧罗巴": 14, "巴甲": 19, "阿甲": 76}
 STAND_NAMES = {"欧冠": "欧冠", "欧罗巴": "欧罗巴"}
 
 
@@ -354,12 +354,12 @@ def main() -> None:
         raise SystemExit(f"没有 state/batch/_matches_{a.date}.json —— 先跑 model_autofill.py --date {a.date}")
     lg = jload(STATE / "intel" / a.date / f"_leagues_{a.date}.json", {}) or {}
     st = standings_index(lg)
-    # 日职/日乙与欧冠的身价表不在 1..40 里，按需补抓；排名退到懂球帝积分榜
-    for cid in (509, 510):
+    # 日职/日乙、欧罗巴、波兰超、阿甲的身价表不在 1..40 里，按需补抓；排名退到懂球帝积分榜
+    for cid in (509, 510, 14, 76, 106):
         if not load_tables().get(str(cid), {}).get("_items"):
             fetch_table(cid)
     dqst = dict(dq_standings("欧冠"))
-    for _nm in ("欧罗巴", "巴甲"):
+    for _nm in ("欧罗巴", "巴甲", "阿甲"):
         dqst.update(ensure_standings(_nm))
     news = injury_news(a.date)
 
