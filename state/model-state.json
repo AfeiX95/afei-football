@@ -148,6 +148,18 @@
   {
    "type": "流程",
    "text": "联赛排名与天气已脚本化（R48-A · 2026-10-19）：python -X utf8 scripts/league_intel.py --date YYYYMMDD --weekday 周一 --md，或 prematch_intel.py --leagues 一并跑。落 state/intel/<日期>/_leagues_<日期>.{json,md}。10/19 周一 8 场实测 8/8 覆盖。**必须按竞彩编号/周字取场次**（跨零点批次 matchDate 是次日）。仍缺：xG/xGA/npxG、PPDA、定位球 xG（fbref 403、xgstat 429 需换源）、裁判、战意。"
+  },
+  {
+   "type": "流程",
+   "text": "把 scan_form（小红书形态门禁）接进 gate.py 与 AGENTS.md §3，让头条/文案路径也拦；现只有 xhs_html.py 出图时拦（待用户批）"
+  },
+  {
+   "type": "流程",
+   "text": "writing_history.json 补录 10-21 之前的旧稿结构（现只有 10-22 两篇，R53 的「近 3 篇」形同虚设）"
+  },
+  {
+   "type": "数据缺口",
+   "text": "澳客胜负指数/凯利/伤停：本机被 WAF 限流，按用户定的「隔日/临场补抓」执行（intel_fetch.py 已就绪，betfa 通道能过）"
   }
  ],
  "pending_checks": [
@@ -157,7 +169,7 @@
   }
  ],
  "counters": {
-  "open_items": 25,
+  "open_items": 28,
   "pending_checks": 1,
   "task_log": 103,
   "candidate_rules": 26
