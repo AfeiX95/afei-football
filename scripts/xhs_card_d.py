@@ -129,6 +129,29 @@ table.st td.a{font-weight:800;width:32%%}
 .narr b{color:#e8402a;font-weight:800;margin-right:5px}
 .pt{margin-top:6px;font-size:16px;line-height:1.55;border-left:3px solid #0aa3c2;padding-left:9px}
 .pt em{font-style:normal;font-weight:800;color:#0aa3c2;margin-right:5px}
+
+/* 对比条（按胜率条的排法：两端数值 + 中间双色条） */
+.cmp{margin-top:6px}
+.cmp .row{margin-top:5px}
+.cmp .lab{font-size:13px;color:#6a7885;letter-spacing:.02em;text-align:center}
+.cmp .rb{display:flex;align-items:center;gap:7px;font-family:%(mono)s;font-size:15px;font-weight:800;color:#22303c}
+.cmp .rb .v{width:46px}
+.cmp .rb .v.r{text-align:right;color:#b8331f}
+.cmp .rb .v.l{color:#0a768f}
+.cmp .track{flex:1;height:9px;display:flex;background:rgba(10,90,120,.10)}
+.cmp .track i{display:block;height:9px}
+.cmp .track i.l{background:linear-gradient(90deg,#0aa3c2,#63d2e6)}
+.cmp .track i.r{background:linear-gradient(90deg,#ff85a9,#e8402a)}
+/* 情报 */
+.intel{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+.ic{background:#fff;border:1px solid rgba(10,90,120,.14);padding:7px 9px}
+.ic .t{font-size:14px;font-weight:800;display:flex;align-items:center;gap:6px;margin-bottom:3px}
+.ic .t i{width:6px;height:6px;display:inline-block}
+.ic.g .t{color:#0a7d5a}.ic.g .t i{background:#0a7d5a}
+.ic.b .t{color:#b8331f}.ic.b .t i{background:#b8331f}
+.ic ul{margin:0;padding-left:13px}
+.ic li{font-size:13px;line-height:1.45;color:#22303c;margin-bottom:2px}
+.ic li::marker{color:#9aa8b4}
 """ % {"w": W, "h": H, "mono": MONO}
 
 
@@ -247,23 +270,76 @@ def value_block(card: dict) -> str:
 </div>"""
 
 
+def cmp_rows(card: dict) -> str:
+    f = card.get("form") or {}
+    fh, fa = f.get("home") or {}, f.get("away") or {}
+    def avg(v, n):
+        try:
+            return "%.1f" % (float(v) / float(n))
+        except (TypeError, ZeroDivisionError, ValueError):
+            return "0.0"
+    nh, na = fh.get("n") or 5, fa.get("n") or 5
+    rows = [
+        ("进球", fh.get("gf"), fa.get("gf")),
+        ("失球", fh.get("ga"), fa.get("ga")),
+        ("场均进", avg(fh.get("gf"), nh), avg(fa.get("gf"), na)),
+        ("场均失", avg(fh.get("ga"), nh), avg(fa.get("ga"), na)),
+        ("净胜球", fh.get("net"), fa.get("net")),
+        ("不败率", "%d%%" % round(100 * (fh.get("unbeaten") or 0)),
+         "%d%%" % round(100 * (fa.get("unbeaten") or 0))),
+    ]
+    out = ['<div class="row"><div class="lab" style="display:flex;justify-content:space-between;'
+           'font-weight:800"><span style="color:#0a768f">%s</span>'
+           '<span style="color:#b8331f">%s</span></div></div>' % (esc(card.get("home")), esc(card.get("away")))]
+    for lab, a, b in rows:
+        try:
+            x, y = float(str(a).replace("%", "")), float(str(b).replace("%", ""))
+        except ValueError:
+            x = y = 1.0
+        tot = (x + y) or 1
+        wl = max(4.0, min(96.0, 100.0 * x / tot))
+        out.append(
+            '<div class="row"><div class="lab">%s</div><div class="rb">'
+            '<span class="v l">%s</span><span class="track">'
+            '<i class="l" style="width:%.1f%%"></i><i class="r" style="width:%.1f%%"></i></span>'
+            '<span class="v r">%s</span></div></div>'
+            % (esc(lab), esc(a), wl, 100 - wl, esc(b)))
+    return "".join(out)
+
+
+def intel_block(card: dict) -> str:
+    it = card.get("intel") or {}
+    if not it:
+        return ""
+    home, away = esc(card.get("home")), esc(card.get("away"))
+
+    def cell(who, kind, items):
+        if not items:
+            return ""
+        tag = "有利情报" if kind == "g" else "不利情报"
+        lis = "".join("<li>%s</li>" % esc(x) for x in items[:3])
+        return ('<div class="ic %s"><div class="t"><i></i>%s · %s</div><ul>%s</ul></div>'
+                % (kind, who, tag, lis))
+
+    return (cell(home, "g", it.get("home_good")) + cell(home, "b", it.get("home_bad")) +
+            cell(away, "g", it.get("away_good")) + cell(away, "b", it.get("away_bad")))
+
+
 def card_html(card: dict, idx: int, total: int) -> str:
     f = card.get("form") or {}
     fh, fa = f.get("home") or {}, f.get("away") or {}
     home, away = esc(card.get("home")), esc(card.get("away"))
     league = esc(card.get("league"))
     focus = card.get("focus") or []
-    narr = esc((card.get("narr") or " ".join(x for x in [card.get("contrast") or ""] + list(focus) if x))[:190])
+    narr = esc((card.get("narr") or " ".join(x for x in [card.get("contrast") or ""] + list(focus) if x))[:210])
     point = esc(card.get("point") or (focus[0] if focus else ""))
     h2h = esc(f.get("h2h") or "")
-    sub = f.get("window") or "近 5 场"
 
     def badges(seq):
         cls = {"W": "w", "D": "d", "L": "l"}
         txt = {"W": "胜", "D": "平", "L": "负"}
         return "".join('<i class="%s">%s</i>' % (cls.get(s, "d"), txt.get(s, "平")) for s in (seq or [])[:5])
 
-    net_h, net_a = fh.get("net") or 0, fa.get("net") or 0
     pt_html = ('<div class="pt"><em>看点</em>' + point + "</div>") if point else ""
     return f"""<!doctype html><html lang="zh"><head><meta charset="utf-8"><style>{CSS}</style></head>
 <body><div class="card">
@@ -275,8 +351,9 @@ def card_html(card: dict, idx: int, total: int) -> str:
 <section class="sec"><div class="sh"><span class="n">身价对标</span><span class="h">2026 年 10 月估值</span></div>
 {value_block(card)}</section>
 
-<section class="sec"><div class="sh"><span class="n">近期状态 · 历史交锋</span><span class="h">{esc(sub)} · 左旧 → 右新</span></div>
-<div class="two c2">
+<section class="sec"><div class="sh"><span class="n">数据对照 · 六维</span>
+<span class="h">近 5 场 · {esc(f.get("h2h_short") or h2h or "同主客 10 场")}</span></div>
+<div class="two c2b stretch">
   <div>
     <div class="fr"><div class="l"><span class="nm">{home}</span><span class="badges">{badges(fh.get("seq"))}</span></div>
       <span class="r">{esc(fh.get("l5"))}</span></div>
@@ -284,22 +361,8 @@ def card_html(card: dict, idx: int, total: int) -> str:
     <div class="fr"><div class="l"><span class="nm">{away}</span><span class="badges">{badges(fa.get("seq"))}</span></div>
       <span class="r">{esc(fa.get("l5"))}</span></div>
     <div class="sub2">{esc(fa.get("ha"))}　场均 {esc(fa.get("pj"))} 进 / {esc(fa.get("sj"))} 失</div>
+    <div class="cmp">{cmp_rows(card)}</div>
   </div>
-  <div class="h2h"><b>交锋</b>　{h2h or "两队近年无交锋记录"}<br>
-    <b>口径</b>　近十场同主客场 + 近五场全赛事</div>
-</div></section>
-
-<section class="sec"><div class="sh"><span class="n">攻防对照 · 六维</span><span class="h">近 5 场 · 公开赛事数据</span></div>
-<div class="two c2b stretch">
-  <table class="st fill">
-    <tr><th></th><th class="a">{home}</th><th class="a">{away}</th></tr>
-    <tr><td>进球</td><td class="a">{esc(fh.get("gf"))}</td><td class="a">{esc(fa.get("gf"))}</td></tr>
-    <tr><td>失球</td><td class="a">{esc(fh.get("ga"))}</td><td class="a">{esc(fa.get("ga"))}</td></tr>
-    <tr><td>场均进</td><td class="a">{esc(fh.get("pj"))}</td><td class="a">{esc(fa.get("pj"))}</td></tr>
-    <tr><td>场均失</td><td class="a">{esc(fh.get("sj"))}</td><td class="a">{esc(fa.get("sj"))}</td></tr>
-    <tr><td>净胜球</td><td class="a">{'+' if net_h > 0 else ''}{esc(net_h)}</td><td class="a">{'+' if net_a > 0 else ''}{esc(net_a)}</td></tr>
-    <tr><td>不败率</td><td class="a">{round(100 * (fh.get("unbeaten") or 0))}%</td><td class="a">{round(100 * (fa.get("unbeaten") or 0))}%</td></tr>
-  </table>
   <div class="rad">{radial(card)}
     <div class="lg2"><span><i style="background:#0aa3c2"></i>{home}</span>
     <span><i style="background:#e8402a"></i>{away}</span></div></div>
@@ -313,6 +376,9 @@ def card_html(card: dict, idx: int, total: int) -> str:
   </div>
   <div class="heat">{mc_heat(card)}</div>
 </div></section>
+
+<section class="sec"><div class="sh"><span class="n">情报整理</span><span class="h">公开报道 · 需核原文</span></div>
+<div class="intel">{intel_block(card)}</div></section>
 
 <section class="sec"><div class="sh"><span class="n">核心矛盾与看点</span><span class="h">已发生数据 + 观察点</span></div>
 <div class="two c1b" style="margin-top:6px">
