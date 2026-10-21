@@ -51,7 +51,7 @@ body{width:%(w)dpx;height:%(h)dpx;overflow:hidden}
 .top .bd{color:#0aa3c2;font-weight:800;letter-spacing:.04em}
 h1{margin:16px 0 0;font-size:76px;line-height:1.14;font-weight:900;text-align:center;letter-spacing:-.01em;position:relative;z-index:2}
 h1 .vs{margin:0 14px;font-size:30px;font-weight:400;color:#0aa3c2;vertical-align:middle}
-.sec{margin-top:13px;position:relative;z-index:2}
+.sec{margin-top:11px;position:relative;z-index:2}
 .sh{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid rgba(10,90,120,.2);padding-bottom:4px}
 .sh .n{font-size:21px;font-weight:800;letter-spacing:.05em;display:flex;align-items:center;gap:8px}
 .sh .n::before{content:"";width:9px;height:9px;background:#0aa3c2}
@@ -75,7 +75,7 @@ h1 .vs{margin:0 14px;font-size:30px;font-weight:400;color:#0aa3c2;vertical-align
 .vmeta{display:flex;justify-content:space-between;margin-top:5px;font-size:14px;color:#5c6b78;font-family:%(mono)s}
 .vmeta b{color:#e8402a;font-size:16px}
 /* 两列 */
-.two{display:grid;gap:22px;margin-top:7px;align-items:start}
+.two{display:grid;gap:20px;margin-top:5px;align-items:start}
 .two.stretch{align-items:stretch}
 table.st.fill{height:100%%}
 .c2{grid-template-columns:1fr 1fr}
@@ -125,7 +125,7 @@ table.st td.a{font-weight:800;width:32%%}
 .heat .ax{display:flex;justify-content:space-around;margin-top:3px;font-family:%(mono)s;font-size:12px;color:#7b8996;padding-left:22px}
 .heat .cap{margin-top:3px;font-size:13px;color:#7b8996}
 /* 叙事 */
-.narr{font-size:16px;line-height:1.62;color:#1a242e;text-align:justify}
+.narr{font-size:14.6px;line-height:1.5;color:#1a242e;text-align:justify}
 .narr b{color:#e8402a;font-weight:800;margin-right:5px}
 .pt{margin-top:6px;font-size:16px;line-height:1.55;border-left:3px solid #0aa3c2;padding-left:9px}
 .pt em{font-style:normal;font-weight:800;color:#0aa3c2;margin-right:5px}
@@ -142,15 +142,21 @@ table.st td.a{font-weight:800;width:32%%}
 .cmp .track i{display:block;height:9px}
 .cmp .track i.l{background:linear-gradient(90deg,#0aa3c2,#63d2e6)}
 .cmp .track i.r{background:linear-gradient(90deg,#ff85a9,#e8402a)}
+/* 胜平负饼图 */
+.pie{display:flex;align-items:center;justify-content:center;margin-top:2px}
+.pielg{display:flex;flex-direction:column;gap:6px;margin-left:16px;font-size:14px;color:#33434f}
+.pielg span{display:flex;align-items:center;gap:7px;white-space:nowrap}
+.pielg i{width:10px;height:10px;display:inline-block}
+.pielg b{font-family:Consolas,JetBrains Mono,monospace;font-size:16px;color:#22303c}
 /* 情报 */
-.intel{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
-.ic{background:#fff;border:1px solid rgba(10,90,120,.14);padding:7px 9px}
+.intel{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+.ic{background:#fff;border:1px solid rgba(10,90,120,.14);padding:6px 8px}
 .ic .t{font-size:14px;font-weight:800;display:flex;align-items:center;gap:6px;margin-bottom:3px}
 .ic .t i{width:6px;height:6px;display:inline-block}
 .ic.g .t{color:#0a7d5a}.ic.g .t i{background:#0a7d5a}
 .ic.b .t{color:#b8331f}.ic.b .t i{background:#b8331f}
 .ic ul{margin:0;padding-left:13px}
-.ic li{font-size:13px;line-height:1.45;color:#22303c;margin-bottom:2px}
+.ic li{font-size:12.5px;line-height:1.36;color:#22303c;margin-bottom:1px}
 .ic li::marker{color:#9aa8b4}
 """ % {"w": W, "h": H, "mono": MONO}
 
@@ -160,14 +166,14 @@ def esc(v) -> str:
 
 
 # ---------------------------------------------------------------- 组件
-def radial(card: dict, size: int = 300) -> str:
+def radial(card: dict, size: int = 330) -> str:
     r = card.get("radar") or {}
     dims = r.get("dims") or []
     hv, av = r.get("home") or [], r.get("away") or []
     if not dims or len(hv) != len(dims) or len(av) != len(dims):
         return ""
     cx = cy = size / 2.0
-    rad = size / 2.0 - 74
+    rad = size / 2.0 - 34
     n = len(dims)
 
     def pt(i, val):
@@ -186,18 +192,51 @@ def radial(card: dict, size: int = 300) -> str:
                                 for i in range(n)))
     labels = []
     for i, d in enumerate(dims):
-        x, y = pt(i, 122)
+        x, y = pt(i, 113)
         anchor = "middle"
         if x > cx + 8:
             anchor = "start"
         elif x < cx - 8:
             anchor = "end"
-        labels.append('<text x="%.1f" y="%.1f" font-size="16" font-weight="700" fill="#3f5566" '
+        labels.append('<text x="%.1f" y="%.1f" font-size="17" font-weight="700" fill="#3f5566" '
                       'text-anchor="%s">%s</text>' % (x, y, anchor, esc(d)))
     return ('<svg viewBox="0 0 %.0f %.0f" width="%.0f" height="%.0f" style="overflow:visible">%s'
             '<polygon points="%s" fill="rgba(10,163,194,.18)" stroke="#0aa3c2" stroke-width="2.4"/>'
             '<polygon points="%s" fill="rgba(232,64,42,.12)" stroke="#e8402a" stroke-width="2.4"/>'
             '%s</svg>' % (size, size, size, size, "".join(rings), poly(hv), poly(av), "".join(labels)))
+
+
+def wdl_pie(card: dict, size: int = 236) -> str:
+    """胜平负饼图（模型口径）。只画面积与标签，不出方向建议。"""
+    md = card.get("model") or {}
+    w = md.get("wdl") or [0.34, 0.33, 0.33]
+    tot = sum(w) or 1
+    w = [x / tot for x in w]
+    colors = ["#0aa3c2", "#9aa8b4", "#e8402a"]
+    names = ["主胜", "平", "客胜"]
+    r, cx, cy = size / 2.0 - 14, size / 2.0, size / 2.0
+    ang = -90.0
+    arcs = []
+    for val, col in zip(w, colors):
+        sweep = 360.0 * val
+        a0, a1 = math.radians(ang), math.radians(ang + sweep)
+        x0, y0 = cx + r * math.cos(a0), cy + r * math.sin(a0)
+        x1, y1 = cx + r * math.cos(a1), cy + r * math.sin(a1)
+        large = 1 if sweep > 180 else 0
+        arcs.append('<path d="M%.2f %.2f L%.2f %.2f A%.2f %.2f 0 %d 1 %.2f %.2f Z" fill="%s" '
+                    'stroke="#f4f7fa" stroke-width="2"/>'
+                    % (cx, cy, x0, y0, r, r, large, x1, y1, col))
+        ang += sweep
+    hole = ('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="#fff"/>' % (cx, cy, r * 0.58))
+    center = ('<text x="%.1f" y="%.1f" text-anchor="middle" font-size="13" fill="#6a7885">主胜</text>'
+              '<text x="%.1f" y="%.1f" text-anchor="middle" font-size="30" font-weight="800" '
+              'fill="#b8331f" font-family="%s">%.1f%%</text>'
+              % (cx, cy - 6, cx, cy + 22, "Consolas,JetBrains Mono,monospace", w[0] * 100))
+    lg = ('<div class="pielg">' + "".join(
+        '<span><i style="background:%s"></i>%s <b>%.1f%%</b></span>' % (c, n, v * 100)
+        for c, n, v in zip(colors, names, w)) + "</div>")
+    return ('<svg viewBox="0 0 %.0f %.0f" width="%.0f" height="%.0f">%s%s%s</svg>%s'
+            % (size, size, size, size, "".join(arcs), hole, center, lg))
 
 
 def pois_bars(card: dict) -> str:
@@ -368,12 +407,9 @@ def card_html(card: dict, idx: int, total: int) -> str:
     <span><i style="background:#e8402a"></i>{away}</span></div></div>
 </div></section>
 
-<section class="sec"><div class="sh"><span class="n">进球分布 · 比分热度</span><span class="h">泊松分布 · 蒙特卡洛 2 万次</span></div>
+<section class="sec"><div class="sh"><span class="n">胜平负分布 · 比分热度</span><span class="h">模型 2 万次抽样 · 比分只上色</span></div>
 <div class="two c2b">
-  <div class="pois">
-    <div class="pr" style="color:#0aa3c2;font-weight:800"><span></span><span>{home} / {away}</span><span style="text-align:right">主 / 客</span></div>
-    {pois_bars(card)}
-  </div>
+  <div class="pie">{wdl_pie(card)}</div>
   <div class="heat">{mc_heat(card)}</div>
 </div></section>
 
