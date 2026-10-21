@@ -456,9 +456,9 @@ def card_html(card: dict, idx: int, total: int) -> str:
     <span><i style="background:#e8402a"></i>{away}</span></div></div>
 </div></section>
 
-<section class="sec"><div class="sh"><span class="n">赛果构成 · 比分热度</span><span class="h">近 10 场已发生 · 比分只上色</span></div>
+<section class="sec"><div class="sh"><span class="n">{esc(card.get("pie_title") or ("赛果构成" if card.get("pie_mode") == "form" else "数据分布"))} · 比分热度</span><span class="h">{esc(card.get("pie_note") or ("近 10 场已发生" if card.get("pie_mode") == "form" else "模型 2 万次抽样"))} · 比分只上色</span></div>
 <div class="two c2b">
-  <div class="pie">{form_pies(card)}</div>
+  <div class="pie">{form_pies(card) if card.get("pie_mode") == "form" else wdl_pie(card)}</div>
   <div class="heat">{mc_heat(card)}</div>
 </div></section>
 
