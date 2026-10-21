@@ -376,9 +376,11 @@ def cmp_rows(card: dict) -> str:
         ("场均失", avg(fh.get("ga"), nh), avg(fa.get("ga"), na)),
         ("净胜球", fh.get("net") if fh.get("net") is not None else (fh.get("gf", 0) - fh.get("ga", 0)),
          fa.get("net") if fa.get("net") is not None else (fa.get("gf", 0) - fa.get("ga", 0))),
-        ("不败率", "%d%%" % round(100 * (fh.get("unbeaten") or 0)),
-         "%d%%" % round(100 * (fa.get("unbeaten") or 0))),
     ]
+    if fh.get("unbeaten") is not None or fa.get("unbeaten") is not None:
+        rows.append(("不败率",
+                     "%d%%" % round(100 * (fh.get("unbeaten") or 0)),
+                     "%d%%" % round(100 * (fa.get("unbeaten") or 0))))
     out = ['<div class="row"><div class="lab" style="display:flex;justify-content:space-between;'
            'font-weight:800"><span style="color:#0a768f">%s</span>'
            '<span style="color:#b8331f">%s</span></div></div>' % (esc(card.get("home")), esc(card.get("away")))]

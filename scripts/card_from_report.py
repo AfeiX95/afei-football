@@ -112,9 +112,9 @@ def parse_match(no: str, blk: str, row: dict) -> dict:
             card["form"] = {}
             for idx, key in enumerate(("home", "away")):
                 pj, sj = float(am.group(1 + idx * 2)), float(am.group(2 + idx * 2))
-                card["form"][key] = {"l5": "近 5 场", "seq": [], "gfl": [], "n": 5,
-                                     "gf": round(pj * 5), "ga": round(sj * 5),
-                                     "pj": pj, "sj": sj, "unbeaten": 0.0}
+                card["form"][key] = {"l5": "", "seq": [], "gfl": [],
+                                     "n": 5, "gf": round(pj * 5), "ga": round(sj * 5),
+                                     "pj": pj, "sj": sj, "unbeaten": None}
     if hm and card.get("form"):
         g = hm.groups()
         card["form"]["home"]["ha"] = "主场 %s胜%s平%s负" % g[0:3]
@@ -177,7 +177,8 @@ def parse_match(no: str, blk: str, row: dict) -> dict:
             if hm and am:
                 v["ratio"] = "%.2f 倍" % (max(hm, am) / min(hm, am))
     if v:
-        v["ratio"] = v.get("ratio") or (row.get("mult") or "")
+        # 报告零节已给倍数（按万/亿原值算）就照抄，别用卡面取整后的数字再算一遍
+        v["ratio"] = (row.get("mult") or "").strip() or v.get("ratio") or ""
         card["value"] = v
     return card
 
