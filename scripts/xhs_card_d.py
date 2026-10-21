@@ -182,7 +182,7 @@ def radial(card: dict, size: int = 330) -> str:
     if not dims or len(hv) != len(dims) or len(av) != len(dims):
         return ""
     cx = cy = size / 2.0
-    rad = size / 2.0 - 34
+    rad = size / 2.0 - 62
     n = len(dims)
 
     def pt(i, val):
@@ -201,13 +201,16 @@ def radial(card: dict, size: int = 330) -> str:
                                 for i in range(n)))
     labels = []
     for i, d in enumerate(dims):
-        x, y = pt(i, 113)
+        ang = -math.pi / 2 + i * 2 * math.pi / n
+        lr = rad + 26                      # 标签放在多边形外 26px，避免压线
+        x = cx + lr * math.cos(ang)
+        y = cy + lr * math.sin(ang) + 5
         anchor = "middle"
         if x > cx + 8:
             anchor = "start"
         elif x < cx - 8:
             anchor = "end"
-        labels.append('<text x="%.1f" y="%.1f" font-size="17" font-weight="700" fill="#3f5566" '
+        labels.append('<text x="%.1f" y="%.1f" font-size="15" font-weight="700" fill="#3f5566" '
                       'text-anchor="%s">%s</text>' % (x, y, anchor, esc(d)))
     return ('<svg viewBox="0 0 %.0f %.0f" width="%.0f" height="%.0f" style="overflow:visible">%s'
             '<polygon points="%s" fill="rgba(10,163,194,.18)" stroke="#0aa3c2" stroke-width="2.4"/>'
