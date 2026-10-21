@@ -77,6 +77,8 @@ python -X utf8 scripts/preflight.py "<文章.md>"     # 字数 R32 + 8 项门禁
 python -X utf8 scripts/check_dup.py YYYYMMDD          # 同批跨篇去重，必须 0 命中
 ```
 
+**结构轮换（R53）**：动笔前先 `python -X utf8 scripts/pick_structure.py --pick --stage pre --matches N`，按它给的结构写；过门禁后 `--record` 落账（最近 3 篇结构禁用）。
+
 ### 4.2 小红书卡（单场深挖，D 版）
 
 ```bash
@@ -143,3 +145,4 @@ python -X utf8 scripts/sync.py --push        # gitee + origin，一个连不上�
 1. **90 分钟口径**：加时、点球不计；公开稿里模型只叫「后台模型」
 2. **合规替写**：赔率→定价、盘口→门槛/设置、庄家→机构、泊松/MC→后台模型、EV→溢价；公开稿不给方向与比分结论（小红书形态禁令）
 3. **交付**：只出 md；小红书出 PNG 2160×2880；正文 ~1200 字；标题 ≤30 字（小红书 ≤20 字）
+

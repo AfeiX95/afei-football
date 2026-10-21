@@ -1,6 +1,6 @@
 {
   "date": "20261022",
-  "generated_at": "2026-10-21T19:17:49",
+  "generated_at": "2026-10-21T20:33:11",
   "items": [
     {
       "mid": "2042119",
@@ -42,11 +42,11 @@
       ],
       "home_prof": {
         "team": "波兹南",
-        "dq_name": null,
-        "value_m": null,
-        "value_text": "—",
-        "rank": null,
-        "rank_text": "—",
+        "dq_name": "波兹南莱赫",
+        "value_m": 57.5,
+        "value_text": "58M 欧",
+        "rank": 36,
+        "rank_text": "第 36 · 2 场 0胜0平2负 0 分",
         "inj_n": 0,
         "inj_names": []
       },
@@ -60,7 +60,7 @@
         "inj_n": 0,
         "inj_names": []
       },
-      "value_ratio": "—"
+      "value_ratio": "7.83 倍"
     },
     {
       "mid": "2042121",
@@ -336,15 +336,15 @@
       },
       "away_prof": {
         "team": "拉普大学",
-        "dq_name": null,
-        "value_m": null,
-        "value_text": "—",
-        "rank": null,
-        "rank_text": "—",
+        "dq_name": "拉普拉塔大学生",
+        "value_m": 54.78,
+        "value_text": "55M 欧",
+        "rank": 10,
+        "rank_text": "第 10 · 13 场 4胜2平7负 14 分",
         "inj_n": 0,
         "inj_names": []
       },
-      "value_ratio": "—"
+      "value_ratio": "3.83 倍"
     }
   ]
 }
