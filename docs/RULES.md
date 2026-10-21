@@ -104,6 +104,8 @@
 
 > 规则口径收敛（2026-10-11 用户定：家里 = 主机 / 权威版本）：以后只维护家里这一套；公司侧规则视为**已并入的素材**，不再单独演进。
 
+**R55 内外双层**（2026-10-21）：内部分析做满（A 层），公开稿只留矛盾/2–4 组数据/战术影响/个人判断/走势观察（B 层）；概率差、去水、让球三格映射、回测、代号、门禁一律不进公开稿；公开稿 900–1200 字（硬上限 1500）；载体 `scripts/reader_lens.py`。真源 `afei-writing-standards/SKILL.md`。
+
 ## 赛后校验流程（football-calibration-batch）
 真源：`📚知识库/skills/football-calibration-batch/SKILL.md`　｜　概率评分：`scripts/calib_score.py` + `📚知识库/赛后校验/prob_log.tsv`（Brier / LogLoss）
 1. 收赛果（先 grep 旧批次去重窗口）→ 2. 模型预测 vs 实际 → 3. 记录偏差（方向/打穿/大小球/比分/平局 + 概率快照 Brier/LogLoss）→ 4. 新增/加强规则 → 5. 更 state/model-state.json → 6. 候选规则累计达标后回写修正规则.md → 7. 更 docs/HANDOFF.md

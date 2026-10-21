@@ -80,6 +80,8 @@ python -X utf8 scripts/check_dup.py YYYYMMDD          # 同批跨篇去重，必
 **结构轮换（R53）**：动笔前先 `python -X utf8 scripts/pick_structure.py --pick --stage pre --matches N`，按它给的结构写；过门禁后 `--record` 落账（最近 3 篇结构禁用）。
 **概率同口径（R54）**：动笔前跑 `python -X utf8 scripts/prob_gate.py --date YYYYMMDD --model state/batch/_model_*.txt`；正文里概率相减前先写「同一个事件＝90 分钟主胜/平/客胜」，让球三格必须写全映射（+1 受让＝不败／正好输一球／输两球以上，−1 让球＝赢两球以上／正好赢一球／对手不败），换算差 >2.5pp 先改映射。
 
+**读者视角（R55，写公开稿前必跑）**：`python -X utf8 scripts/reader_lens.py "<文章.md>"`；命中概率差/去水/三格/回测/代号就重写那句话——内部算得细，对外讲得简单，公开稿 900–1200 字。
+
 ### 4.2 小红书卡（单场深挖，D 版）
 
 ```bash
