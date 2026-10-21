@@ -519,76 +519,72 @@ def shot(html_path: Path, png_path: Path) -> bool:
 
 
 COVER_CSS = """
-.cov{padding:0 0 22px 0;width:100%;flex:1;display:flex;flex-direction:column;text-align:left}
+.cov{padding:0 0 10px 0;width:100%;flex:1;display:flex;flex-direction:column;text-align:left}
 .top{width:100%}
-.cov .eyebrow{margin-top:18px;font-size:19px;letter-spacing:.28em;color:#0a768f;font-weight:800}
-.cov h1{margin:26px 0 0;text-align:left;font-size:92px;line-height:1.06;font-weight:900;color:#0b1b23;letter-spacing:-.01em}
-.cov h1 em{font-style:normal;color:#b8331f}
-.cov .sub{margin-top:18px;font-size:26px;color:#41586a;font-weight:600}
-.cov .rule{height:4px;margin:26px 0 0;background:linear-gradient(90deg,#0a768f,#0a768f 46%,#e8402a 46%,#e8402a)}
-.cov .pts{margin-top:32px;display:grid;gap:14px}
-.cov .fill{flex:1}
-.cov .pt2{background:#fff;border-left:5px solid #0a768f;padding:15px 20px}
-.cov .pt2 b{display:block;font-size:34px;font-family:var(--mono);color:#b8331f;font-weight:800;line-height:1.1}
-.cov .pt2 span{display:block;margin-top:6px;font-size:22px;color:#2a3c48;line-height:1.45}
+.cov .eyebrow{margin-top:14px;font-size:19px;letter-spacing:.26em;color:#0a768f;font-weight:800}
+.cov .date{display:flex;align-items:baseline;gap:18px;margin-top:20px}
+.cov .date b{font-family:var(--mono);font-size:182px;line-height:.94;font-weight:800;color:#0b1b23;letter-spacing:-.03em}
+.cov .date span{font-size:66px;font-weight:900;color:#0a768f;letter-spacing:.04em}
+.cov .k1{margin-top:2px;font-size:132px;line-height:1.02;font-weight:900;color:#b8331f;letter-spacing:.04em}
+.cov .k2{margin-top:10px;font-size:84px;line-height:1.05;font-weight:900;color:#0b1b23;letter-spacing:.02em}
+.cov .k2 i{display:inline-block;width:14px;height:52px;background:#0a768f;margin-right:18px;vertical-align:-6px}
+.cov .rule{height:5px;margin:20px 0 0;background:linear-gradient(90deg,#0a768f,#0a768f 46%,#e8402a 46%,#e8402a)}
+.cov .pts{margin-top:24px;display:grid;gap:21px}
+.cov .pt2{background:#fff;border-left:5px solid #0a768f;padding:14px 18px}
+.cov .pt2 b{display:inline-block;font-size:33px;font-family:var(--mono);color:#b8331f;font-weight:800;
+  line-height:1.1;margin-right:10px}
+.cov .pt2 span{display:inline;font-size:22px;color:#2a3c48;line-height:1.45}
 .cov .pt2:nth-child(even){border-left-color:#e8402a}
-.foot2{width:100%;margin-top:0;padding-top:20px;display:flex;justify-content:space-between;align-items:flex-end;
-  font-size:20px;color:#5b7280}
-.foot2 b{font-size:30px;color:#0a768f;letter-spacing:.04em}
+.cov .tags3{margin-top:0;font-size:104px;line-height:1.06;font-weight:900;color:rgba(11,27,35,.14);letter-spacing:.06em}
+.cov .tags3 i{font-style:normal;color:rgba(184,51,31,.22);margin:0 6px}
+.cov .en{margin-top:2px;margin-bottom:4px;font-family:var(--mono);font-size:17px;letter-spacing:.22em;color:rgba(11,27,35,.42)}
+.cov .fill{flex:1}
+.foot2{width:100%;padding-top:10px;display:flex;justify-content:space-between;align-items:flex-end;
+  font-size:18px;color:#5b7280}
 """
 
 
 def cover_html(data: dict) -> str:
-    """封面：只放主题与四个数据点，**不像清单那样逐场列队**（10/21 判词第①条）。"""
+    """封面：日期/星期 + 赛事前瞻 + 品牌用超大字号；数据点式，不逐场列清单（判词第①条）。"""
     ms = data.get("matches") or []
-    lens = [m for m in ms if (m.get("value") or {}).get("ratio")]
     ratios = []
-    for m in lens:
+    for m in ms:
         try:
-            ratios.append((float(str(m["value"]["ratio"]).replace("倍", "").strip()), m))
-        except ValueError:
-            pass
+            ratios.append((float(str((m.get("value") or {}).get("ratio", "")).replace("倍", "").strip()), m))
+        except (TypeError, ValueError):
+            continue
     ratios.sort(key=lambda x: -x[0])
     big = [x for x in ratios if x[0] >= 2.0]
     pts = []
     if ratios:
         r, m = ratios[0]
-        pts.append(("%.2f 倍" % r, "身价差距最大的一场：%s 与 %s，本批 %d 场里 %d 场差距在 2 倍以上"
+        pts.append(("%.2f 倍" % r, "身价差最大：%s 与 %s，本批 %d 场里 %d 场差 2 倍以上"
                     % (m["home"], m["away"], len(ms), len(big))))
     if len(ratios) > 1:
         r, m = ratios[-1]
-        pts.append(("%.2f 倍" % r, "最平的一场：%s 与 %s，积分榜差十几个身位，身价几乎一样"
+        pts.append(("%.2f 倍" % r, "最平：%s 与 %s，积分榜差十几个身位，身价几乎一样"
                     % (m["home"], m["away"])))
-    # 开球时段（按 kick 的时分归类，避免写死）
-    from collections import Counter
-    tm = Counter()
-    for m in ms:
-        k = str(m.get("kick") or "")
-        hhmm = k.split()[-1] if " " in k else ""
-        if ":" in hhmm:
-            tm[hhmm] += 1
-    if tm:
-        order = sorted(tm.items(), key=lambda x: x[0])
-        pts.append(("%d 段" % len(order), "开球时间摊得开：" +
-                    "、".join("%s %d 场" % (t, n) for t, n in order) +
-                    "——前五场凌晨就打，最后一场踢到早上"))
+    pts.append(("%d 段" % len({(m.get("kick") or "").split()[-1] for m in ms if m.get("kick")}),
+                "开球时间摊得开：" + "、".join(sorted({(m.get("kick") or "").split()[-1] for m in ms if m.get("kick")}))))
     pts.append(("%d 场" % len(ms), "一张卡一场：身价、近 5 场、六维、比分热度、情报整理、核心矛盾"))
-    pts.append(("0 处" if True else "", "方向与比分结论——卡上只说已经发生了什么"))
+    pts.append(("0 处", "方向与比分结论——卡上只说已经发生了什么"))
     body = "".join('<div class="pt2"><b>%s</b><span>%s</span></div>' % (esc(a), esc(b)) for a, b in pts)
     return f"""<!doctype html><html lang="zh"><head><meta charset="utf-8"><style>{CSS}{COVER_CSS}</style></head>
 <body><div class="card">
 <div class="frame"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i></div>
-<div class="top"><span class="lg">» 欧罗巴 · 解放者杯</span><span class="md">// DATA COVER</span>
-<span>10/22</span><span class="bd">@阿飞·赛博聊球</span></div>
+<div class="top"><span class="lg">» 欧罗巴 · 解放者杯</span><span class="md">// MATCH DATA · 11 CARDS</span>
+<span>10/23 开赛</span></div>
 <div class="cov">
-  <div class="eyebrow">MATCH DATA · 11 CARDS</div>
-  <h1>十一场，<br/>先看<em>账</em>，<br/>再看球</h1>
-  <div class="sub">身价 · 伤停 · 轮换 · 近 5 场</div>
+  <div class="date"><b>10.22</b><span>星期四</span></div>
+  <div class="k1">赛事前瞻</div>
+  <div class="k2"><i></i>阿飞·赛博聊球</div>
   <div class="rule"></div>
   <div class="pts">{body}</div>
   <div class="fill"></div>
+  <div class="tags3">身价<i>·</i>伤停<i>·</i>轮换</div>
+  <div class="en">VALUE · INJURY · ROTATION · LAST 5 MATCHES</div>
 </div>
-<div class="foot2"><span>数据来源：公开赛事数据 · 官方名单 · 联赛身价表</span><b>@阿飞·赛博聊球</b></div>
+<div class="foot2"><span>数据来源：公开赛事数据 · 官方名单 · 联赛身价表</span><span>十一场，先看账，再看球</span></div>
 </div></body></html>"""
 
 
