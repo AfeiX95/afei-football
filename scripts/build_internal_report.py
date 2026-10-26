@@ -257,10 +257,10 @@ def sect_model(num, v):
     if mc:
         lines.append(f"- 蒙特卡洛 10 万次（Poisson 抽样）：主 **{pct(mc['w'])} / 平 {pct(mc['d'])} / 客 {pct(mc['l'])}**"
                      f"；与解析解最大偏差 {v['mc_gap']:.2f} pp（抽样噪声量级）")
-        if mc.get("o") is not None:
-            lines.append(f"- 模拟口径复核：亚盘覆盖 {pct(mc['ah_w'])}、走水 {pct(mc['ah_p'])}、不覆盖 {pct(mc['ah_l'])}"
-                         f"｜大小 大 {pct(mc['o'])}、走水 {pct(mc['p'])}、小 {pct(mc['u'])}"
-                         f"｜主队零封 {pct(mc['zero'][0],0)}、客队零封 {pct(mc['zero'][1],0)}")
+        ou_s = (f"｜大小 大 {pct(mc['o'])}、走水 {pct(mc['p'])}、小 {pct(mc['u'])}"
+                if mc.get("o") is not None else "")
+        lines.append(f"- 模拟口径复核：亚盘覆盖 {pct(mc['ah_w'])}、走水 {pct(mc['ah_p'])}、不覆盖 {pct(mc['ah_l'])}"
+                     f"{ou_s}｜主队零封 {pct(mc['zero'][0],0)}、客队零封 {pct(mc['zero'][1],0)}")
         g = mc["goals"]
         lines.append("- 模拟进球分布：" + "、".join(f"{k}球 {pct(g[k],0)}" for k in ("0", "1", "2", "3", "4") if k in g)
                      + "、5+球 " + pct(sum(g[k] for k in g if int(k) >= 5), 0))
