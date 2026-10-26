@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import re
 import math
 import statistics
 import sys
@@ -107,7 +108,7 @@ def grid_pct(lh: float, la: float, size: int = 5) -> list:
     return [[round(pois(i, lh) * pois(j, la) * 100, 2) for j in range(size)] for i in range(size)]
 
 
-def build(cur: dict, mid: str, meta: dict | None = None) -> dict:
+def build(cur: dict, mid: str, meta: dict | None = None, day: str = "") -> dict:
     row = cur["data"][mid]
     meta = meta or {}
     short = (meta.get("no") or "")[-3:]
@@ -119,6 +120,7 @@ def build(cur: dict, mid: str, meta: dict | None = None) -> dict:
             "league": meta.get("league", ""), "kick": meta.get("kick", ""), "no": meta.get("no", ""),
             "point": meta.get("point", ""), "hs": hs, "as": as_,
             "radar_home": radar_values(hs), "radar_away": radar_values(as_),
+            "h2h": h2h_block(row, day, mid),
             "wdl": [round(x * 100, 1) for x in (mod.get("three_fused") or [0, 0, 0])],
             "lam": lam, "grid": grid_pct(lam[0], lam[1]),
             "model_version": mod.get("model_version", "?"), "snapshot": mod.get("data_snapshot", "?"),
@@ -126,6 +128,30 @@ def build(cur: dict, mid: str, meta: dict | None = None) -> dict:
 
 
 def validate(c: dict) -> list:
+    out = _validate(c)
+    h = c.get("h2h") or {}
+    n = h.get("n") or 0
+    w, d, l = h.get("w"), h.get("d"), h.get("l")
+    if not n or None in (w, d, l):
+        out.append({"id": "C9", "name": "交锋内部自洽", "ok": False, "detail": "未取得可用交锋样本"})
+    else:
+        ok_n = (w + d + l == n) and ((h.get("over") or 0) + (h.get("under") or 0) == n)
+        degraded = bool(h.get("degraded"))
+        detail = "近 %d 次 %d 胜 %d 平 %d 负（胜平负合 %d）" % (n, w, d or 0, l, w + (d or 0) + l)
+        if degraded:
+            detail += "；进失球 %s-%s 与胜负矛盾，已降级只报胜负" % (h.get("gf"), h.get("ga"))
+        out.append({"id": "C9", "name": "交锋内部自洽", "ok": ok_n, "detail": detail})
+        if h.get("check_n"):
+            same = h["check_n"] == n
+            out.append({"id": "C10", "name": "交锋窗口说明", "ok": bool(same or "窗口不同" in h2h_note(c)),
+                        "detail": ("两个窗口同长（%d 次）" % n) if same else
+                                  ("主行近 %d 次 / 对照近 %d 次，卡面已写窗口差异" % (n, h["check_n"]))})
+        else:
+            out.append({"id": "C10", "name": "交锋窗口说明", "ok": True, "detail": "单一窗口，无需对照"})
+    return out
+
+
+def _validate(c: dict) -> list:
     hs, as_ = c["hs"], c["as"]
     chk = []
 
@@ -258,6 +284,59 @@ def delta_note(c: dict) -> str:
 
 
 
+
+def h2h_block(row: dict, day: str, mid: str) -> dict:
+    """交锋：主行取 500 交锋汇总（近 N 次），核对行取 500「对赛成绩」窗口。"""
+    h = row.get("h2h") or {}
+    s = h.get("summary") or {}
+    n = int(s.get("n") or 0)
+    txt = s.get("text") or ""
+    m = re.search(r"(\d+)胜(\d+)平(\d+)负", txt)
+    w, d, l = (int(m.group(1)), int(m.group(2)), int(m.group(3))) if m else (None, None, None)
+    hp = ROOT / "state" / "intel" / day / ("_h2h_" + day + ".json")
+    side = json.loads(hp.read_text(encoding="utf-8")) if hp.exists() else {}
+    chk = (side.get(mid) or {}).get("duisai") or ""
+    cm = re.search(r"(\d+)胜(\d+)和?(\d+)负", chk)
+    out = {"n": n, "w": w, "d": d, "l": l, "gf": s.get("gf"), "ga": s.get("ga"),
+           "over": s.get("over"), "under": s.get("under"), "check_raw": chk,
+           "check_n": None, "check_wdl": None}
+    if cm:
+        out["check_wdl"] = (int(cm.group(1)), int(cm.group(2)), int(cm.group(3)))
+        out["check_n"] = sum(out["check_wdl"])
+    if n and w is not None:
+        gd = (out["gf"] or 0) - (out["ga"] or 0)
+        wd = w - l
+        out["degraded"] = ((gd > 0) != (wd > 0)) or (gd == 0 and wd != 0)
+    if n:
+        out["avg"] = (out["gf"] or 0) + (out["ga"] or 0)
+        out["avg"] = round(out["avg"] / n, 2)
+        out["under_rate"] = round(100 * (out["under"] or 0) / n, 0)
+        out["draw_rate"] = round(100 * (d or 0) / n, 0) if d is not None else None
+    return out
+
+
+def h2h_text(c: dict) -> str:
+    h = c["h2h"]
+    if not h.get("n") or h.get("w") is None:
+        return "未取得可靠交锋记录，本卡不展示该段。"
+    base = "%s %d 胜 %d 平 %d 负（近 %d 次）" % (c["home"], h["w"], h["d"] or 0, h["l"], h["n"])
+    if h.get("degraded"):
+        return base + " ｜ 该来源进失球与胜负对不上，场均与大小球不展示"
+    return base + " ｜ 场均 %.2f 球 ｜ 小球 %d/%d ｜ 平局 %d%%" % (
+        h["avg"], h["under"] or 0, h["n"], h["draw_rate"] or 0)
+
+
+def h2h_note(c: dict) -> str:
+    h = c["h2h"]
+    parts = []
+    if h.get("check_n") and h["check_n"] != h["n"]:
+        cw, cd, cl = h["check_wdl"]
+        parts.append("对照：同一来源「对赛成绩」按近 %d 次统计为 %s %d 胜 %d 平 %d 负，窗口不同结论会变。"
+                     % (h["check_n"], c["home"], cw, cd, cl))
+    parts.append("跨赛季、主客不同，交锋只是背景，不等于本场。样本 %d 次。来源：500 交锋汇总，%s 取得。"
+                 % (h.get("n") or 0, c["cutoff"]))
+    return "".join(parts)
+
 def form_strip(c: dict) -> str:
     out = []
     for name, s, color in ((c["home"], c["hs"], GREEN), (c["away"], c["as"], RED)):
@@ -351,7 +430,11 @@ font-family:'Microsoft YaHei','PingFang SC',sans-serif">
 <div style="margin-top:40px;display:flex;justify-content:center">%(radar)s</div>
 <div style="margin-top:4px;color:%(dim)s;font-size:19px;line-height:1.6">%(formula)s。
 数值越高该维度越强；天蓝=%(home)s，红=%(away)s。</div>
-<div style="margin-top:24px;background:#0C1219;border:1px solid #1B2430;border-radius:16px;padding:22px 24px">
+<div style="margin-top:22px;background:#0C1219;border:1px solid #1B2430;border-radius:16px;padding:20px 22px">
+<div style="color:%(dim)s;font-size:20px">%(to)s 历史交锋 ｜ 近 %(h2hn)s 次各项赛事</div>
+<div style="margin-top:10px;font-size:26px;line-height:1.5">%(h2h_main)s</div>
+<div style="margin-top:8px;font-size:21px;color:%(dim)s;line-height:1.6">%(h2h_sub)s</div></div>
+<div style="margin-top:20px;background:#0C1219;border:1px solid #1B2430;border-radius:16px;padding:22px 24px">
 <div style="color:%(dim)s;font-size:20px">%(to)s 对照观察</div>
 <div style="margin-top:8px;font-size:24px;line-height:1.65">%(delta)s</div>
 <div style="margin-top:8px;font-size:21px;color:%(dim)s;line-height:1.6">%(rmiss)s样本 %(hn)d 场，近期状态不等于本场必然表现。</div></div>
@@ -360,7 +443,8 @@ font-family:'Microsoft YaHei','PingFang SC',sans-serif">
              "home": esc(c["home"]), "away": esc(c["away"]), "rows": rows, "radar": radar_svg(c),
              "formula": esc(RADAR_FORMULA), "hn": hs.get("n", 0), "cutoff": esc(c["cutoff"]),
              "td": tag("数据"), "to": tag("观察"), "delta": esc(delta_note(c)),
-             "rmiss": (esc(radar_missing_note(c)) + "，") if radar_missing_note(c) else ""})
+             "rmiss": (esc(radar_missing_note(c)) + "，") if radar_missing_note(c) else "",
+             "h2h_main": esc(h2h_text(c)), "h2h_sub": esc(h2h_note(c)), "h2hn": c["h2h"]["n"]})
 
 
 def page3(c: dict) -> str:
@@ -373,7 +457,7 @@ font-family:'Microsoft YaHei','PingFang SC',sans-serif">
 <div style="margin-top:10px;font-size:19px;color:%(dim)s">横轴＝主队进球，纵轴＝客队进球；格内为该比分概率</div>
 <div style="margin-top:16px">%(heat)s</div>
 <div style="margin-top:8px;color:%(dim)s;font-size:19px">只列 0–4 球；未展示的 5 球及以上概率合计 %(rest).1f%%。</div>
-<div style="margin-top:24px;background:#0C1219;border:1px solid #1B2430;border-radius:16px;padding:24px">
+<div style="margin-top:20px;background:#0C1219;border:1px solid #1B2430;border-radius:16px;padding:24px">
 <div style="color:%(dim)s;font-size:20px">%(tm)s 三向合计 100%%</div>
 <div style="margin-top:8px;font-size:27px;line-height:1.6">主胜 %(h).1f%% · 平 %(d).1f%% · 客胜 %(a).1f%%</div>
 <div style="color:%(dim)s;font-size:21px;margin-top:6px">最厚三格：%(tops)s</div></div>
@@ -414,6 +498,7 @@ def main() -> None:
     ap.add_argument("--no-score-pct", action="store_true", help="比分格只上色不标数字（旧口径）")
     a = ap.parse_args()
 
+    day = a.day
     cur = load(a.day)
     out = ROOT / a.out
     out.mkdir(parents=True, exist_ok=True)
@@ -429,7 +514,7 @@ def main() -> None:
         meta = metas.get((r.get("home"), r.get("away")), {})
         if only and meta.get("no", "")[-3:] not in only:
             continue
-        c = build(cur, mid, meta)
+        c = build(cur, mid, meta, day=day)
         c["show_pct"] = not a.no_score_pct
         chk = validate(c)
         hard = [x for x in chk if not x["ok"] and x["id"] in ("C1", "C2", "C5", "C7", "C8")]
