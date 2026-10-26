@@ -1,0 +1,693 @@
+[
+ {
+  "article": "周二001+002+003_京都纽卡斯尔喷气机大田神户国安全北_两场的东家该拿三分_赛事前瞻.md",
+  "offset": 391,
+  "value": 81.0,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 80.776,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周二001+002+003_京都纽卡斯尔喷气机大田神户国安全北_两场的东家该拿三分_赛事前瞻.md",
+  "offset": 399,
+  "value": 66.0,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 65.89,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周二001+002+003_京都纽卡斯尔喷气机大田神户国安全北_两场的东家该拿三分_赛事前瞻.md",
+  "offset": 426,
+  "value": 68.0,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 67.781,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 67.65,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周二001+002+003_京都纽卡斯尔喷气机大田神户国安全北_两场的东家该拿三分_赛事前瞻.md",
+  "offset": 796,
+  "value": 51.0,
+  "match_id": "002",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 51.136,
+    "layer": "data"
+   },
+   {
+    "key": "fused.ou.全输",
+    "value": 50.968,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "周二001+002+003_京都纽卡斯尔喷气机大田神户国安全北_两场的东家该拿三分_赛事前瞻.md",
+  "offset": 805,
+  "value": 35.0,
+  "match_id": "002",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 35.42,
+    "layer": "market"
+   },
+   {
+    "key": "fused.home_win",
+    "value": 35.102,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.全赢",
+    "value": 35.102,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 35.13,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周二001+002+003_京都纽卡斯尔喷气机大田神户国安全北_两场的东家该拿三分_赛事前瞻.md",
+  "offset": 988,
+  "value": 12.4,
+  "match_id": "002",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "fused.score.1-1",
+    "value": 12.438,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.score.1-1",
+  "status": "ok"
+ },
+ {
+  "article": "周二001+002+003_京都纽卡斯尔喷气机大田神户国安全北_两场的东家该拿三分_赛事前瞻.md",
+  "offset": 1278,
+  "value": 78.0,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 78.096,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周二001+002+003_京都纽卡斯尔喷气机大田神户国安全北_两场的东家该拿三分_赛事前瞻.md",
+  "offset": 1287,
+  "value": 41.0,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 41.11,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周二001+002+003_京都纽卡斯尔喷气机大田神户国安全北_两场的东家该拿三分_赛事前瞻.md",
+  "offset": 1417,
+  "value": 47.0,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 46.672,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.全赢",
+    "value": 46.672,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 46.74,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周二001+002+003_京都纽卡斯尔喷气机大田神户国安全北_两场的东家该拿三分_赛事前瞻.md",
+  "offset": 1424,
+  "value": 47.0,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 46.672,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.全赢",
+    "value": 46.672,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 46.74,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周二001+002+003_京都纽卡斯尔喷气机大田神户国安全北_两场的东家该拿三分_赛事前瞻.md",
+  "offset": 1501,
+  "value": 12.2,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "fused.score.1-1",
+    "value": 12.159,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.score.1-1",
+  "status": "ok"
+ },
+ {
+  "article": "周二001+002+003_京都纽卡斯尔喷气机大田神户国安全北_两场的东家该拿三分_赛事前瞻.md",
+  "offset": 1553,
+  "value": 10.9,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "fused.score.1-0",
+    "value": 10.939,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.score.1-0",
+  "status": "ok"
+ },
+ {
+  "article": "周二001+002+003_京都纽卡斯尔喷气机大田神户国安全北_两场的东家该拿三分_赛事前瞻.md",
+  "offset": 1561,
+  "value": 9.2,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "fused.score.2-1",
+    "value": 9.241,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.ev_away",
+    "value": 9.208,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.score.2-1",
+  "status": "ok"
+ },
+ {
+  "article": "周二004+005+006+007+008+009+010_汉堡法兰克福萨索洛拉齐奥AIK埃尔夫斯堡多特不莱梅科隆联合罗马卡利亚里都灵科莫_敢站和不能碰的分开放_赛事前瞻.md",
+  "offset": 308,
+  "value": 61.0,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 60.986,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周二004+005+006+007+008+009+010_汉堡法兰克福萨索洛拉齐奥AIK埃尔夫斯堡多特不莱梅科隆联合罗马卡利亚里都灵科莫_敢站和不能碰的分开放_赛事前瞻.md",
+  "offset": 316,
+  "value": 44.0,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 44.07,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周二004+005+006+007+008+009+010_汉堡法兰克福萨索洛拉齐奥AIK埃尔夫斯堡多特不莱梅科隆联合罗马卡利亚里都灵科莫_敢站和不能碰的分开放_赛事前瞻.md",
+  "offset": 380,
+  "value": 9.5,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "fused.score.1-2",
+    "value": 9.72,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.score.0-1",
+    "value": 9.314,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.ev_away",
+    "value": 9.509,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.score.1-2",
+  "status": "ok"
+ },
+ {
+  "article": "周二004+005+006+007+008+009+010_汉堡法兰克福萨索洛拉齐奥AIK埃尔夫斯堡多特不莱梅科隆联合罗马卡利亚里都灵科莫_敢站和不能碰的分开放_赛事前瞻.md",
+  "offset": 565,
+  "value": 71.5,
+  "match_id": "009",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 72.012,
+    "layer": "data"
+   },
+   {
+    "key": "fused.home_win",
+    "value": 71.474,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 71.44,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "周二004+005+006+007+008+009+010_汉堡法兰克福萨索洛拉齐奥AIK埃尔夫斯堡多特不莱梅科隆联合罗马卡利亚里都灵科莫_敢站和不能碰的分开放_赛事前瞻.md",
+  "offset": 574,
+  "value": 70.7,
+  "match_id": "009",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 70.72,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周二004+005+006+007+008+009+010_汉堡法兰克福萨索洛拉齐奥AIK埃尔夫斯堡多特不莱梅科隆联合罗马卡利亚里都灵科莫_敢站和不能碰的分开放_赛事前瞻.md",
+  "offset": 620,
+  "value": 8.1,
+  "match_id": "009",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "fused.score.1-1",
+    "value": 8.607,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ou.ev_under",
+    "value": 8.061,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.score.1-1",
+  "status": "ok"
+ },
+ {
+  "article": "周二004+005+006+007+008+009+010_汉堡法兰克福萨索洛拉齐奥AIK埃尔夫斯堡多特不莱梅科隆联合罗马卡利亚里都灵科莫_敢站和不能碰的分开放_赛事前瞻.md",
+  "offset": 692,
+  "value": 1.6,
+  "match_id": "009",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "fused.ah.ev_away",
+    "value": 1.567,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.ah.ev_away",
+  "status": "ok"
+ },
+ {
+  "article": "周二004+005+006+007+008+009+010_汉堡法兰克福萨索洛拉齐奥AIK埃尔夫斯堡多特不莱梅科隆联合罗马卡利亚里都灵科莫_敢站和不能碰的分开放_赛事前瞻.md",
+  "offset": 874,
+  "value": 68.0,
+  "match_id": "007",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 67.99,
+    "layer": "market"
+   },
+   {
+    "key": "fused.home_win",
+    "value": 67.869,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 67.84,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.home_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "周二004+005+006+007+008+009+010_汉堡法兰克福萨索洛拉齐奥AIK埃尔夫斯堡多特不莱梅科隆联合罗马卡利亚里都灵科莫_敢站和不能碰的分开放_赛事前瞻.md",
+  "offset": 1282,
+  "value": 44.0,
+  "match_id": "006",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 43.98,
+    "layer": "data"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 43.603,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.全输",
+    "value": 43.603,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 43.7,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "周二004+005+006+007+008+009+010_汉堡法兰克福萨索洛拉齐奥AIK埃尔夫斯堡多特不莱梅科隆联合罗马卡利亚里都灵科莫_敢站和不能碰的分开放_赛事前瞻.md",
+  "offset": 1289,
+  "value": 42.0,
+  "match_id": "006",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 41.77,
+    "layer": "market"
+   },
+   {
+    "key": "fused.interval_hi",
+    "value": 41.97,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周二004+005+006+007+008+009+010_汉堡法兰克福萨索洛拉齐奥AIK埃尔夫斯堡多特不莱梅科隆联合罗马卡利亚里都灵科莫_敢站和不能碰的分开放_赛事前瞻.md",
+  "offset": 1440,
+  "value": 55.0,
+  "match_id": "010",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 55.54,
+    "layer": "data"
+   },
+   {
+    "key": "market.away_win",
+    "value": 54.76,
+    "layer": "market"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 54.784,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 54.86,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "周二004+005+006+007+008+009+010_汉堡法兰克福萨索洛拉齐奥AIK埃尔夫斯堡多特不莱梅科隆联合罗马卡利亚里都灵科莫_敢站和不能碰的分开放_赛事前瞻.md",
+  "offset": 1452,
+  "value": 55.0,
+  "match_id": "010",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 55.54,
+    "layer": "data"
+   },
+   {
+    "key": "market.away_win",
+    "value": 54.76,
+    "layer": "market"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 54.784,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 54.86,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "周二004+005+006+007+008+009+010_汉堡法兰克福萨索洛拉齐奥AIK埃尔夫斯堡多特不莱梅科隆联合罗马卡利亚里都灵科莫_敢站和不能碰的分开放_赛事前瞻.md",
+  "offset": 1514,
+  "value": 5.0,
+  "match_id": "010",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "fused.ou.ev_under",
+    "value": 4.997,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.ou.ev_under",
+  "status": "ok"
+ },
+ {
+  "article": "周二004+005+006+007+008+009+010_汉堡法兰克福萨索洛拉齐奥AIK埃尔夫斯堡多特不莱梅科隆联合罗马卡利亚里都灵科莫_敢站和不能碰的分开放_赛事前瞻.md",
+  "offset": 1658,
+  "value": 51.0,
+  "match_id": "008",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 51.19,
+    "layer": "market"
+   },
+   {
+    "key": "fused.home_win",
+    "value": 51.376,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.全赢",
+    "value": 51.376,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 51.19,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.home_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "周二004+005+006+007+008+009+010_汉堡法兰克福萨索洛拉齐奥AIK埃尔夫斯堡多特不莱梅科隆联合罗马卡利亚里都灵科莫_敢站和不能碰的分开放_赛事前瞻.md",
+  "offset": 1754,
+  "value": 4.9,
+  "match_id": "008",
+  "model_version": "v3.1",
+  "snapshot_id": "026764777701",
+  "candidates": [
+   {
+    "key": "fused.score.3-1",
+    "value": 5.283,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.ev_home",
+    "value": 4.698,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.ev_away",
+    "value": 4.551,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ou.ev_under",
+    "value": 4.861,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.score.3-1",
+  "status": "ok"
+ }
+]

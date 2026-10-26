@@ -181,7 +181,9 @@ def edge(lam_a, mkt3):
 
 
 def uncertainty(lam, n_eff, draws=4000, seed=20261027):
-    """λ 后验抽样得到的 P(主胜) 区间（5%/95%）"""
+    """【λ_A 单独·对照用】λ ~ Gamma(shape=(n+k)·λ̂, rate=n+k)，逐次抽样算 P(主胜)，取 5%/95%。
+    它把市场信息排除在外，不是完整预测不确定性，只用来和融合区间对照。
+    """
     rng = np.random.default_rng(seed)
     nh = max(2.0, float(n_eff[0]))
     na = max(2.0, float(n_eff[1]))
@@ -200,6 +202,41 @@ def uncertainty(lam, n_eff, draws=4000, seed=20261027):
     # 主胜 = sum_{i>j} P(i,j)
     joint = Mh[:, :, None] * Ma[:, None, :]  # (draws, 8, 8)
     mask = np.triu(np.ones((8, 8)), k=1).T  # i>j
+    p_home = (joint * mask).sum(axis=(1, 2))
+    return float(np.percentile(p_home, 5) * 100), float(np.percentile(p_home, 95) * 100)
+
+
+def uncertainty_fused(lam_a, lam_b, w, n_eff, draws=4000, seed=20261027):
+    """【出结论用】模型参数不确定性区间。
+
+    口径（用户 m01870 要求写清）：
+      · 只对 λ_A 抽后验 Gamma(shape=(n+k)·λ_A, rate=n+k)；
+      · λ_B（市场联合拟合）视为固定常数，不抽；
+      · 每一次抽样都按 λ_C = w·λ_A_draw + (1−w)·λ_B 重新融合，再算泊松三向；
+      · 取 P(主胜) 的 5% / 95% 分位。
+    它回答的是「模型参数估错会把胜率算成多少」，不是「90% 把握赛果落在这一段」；
+    赛果本身的不确定性由三向概率表达，不另设区间。
+    w = 0（无独立模型）返回 None：此时区间退化为市场点值，谈不确定性无意义。
+    """
+    if lam_a is None or lam_b is None or w <= 0:
+        return None
+    rng = np.random.default_rng(seed)
+    nh = max(2.0, float(n_eff[0]))
+    na = max(2.0, float(n_eff[1]))
+    lh = rng.gamma(shape=nh * float(lam_a[0]), scale=1.0 / nh, size=draws)
+    la = rng.gamma(shape=na * float(lam_a[1]), scale=1.0 / na, size=draws)
+    lc_h = w * lh + (1.0 - w) * float(lam_b[0])
+    lc_a = w * la + (1.0 - w) * float(lam_b[1])
+    m = np.arange(0, 8)
+    facts = np.array([float(math.factorial(k)) for k in m])
+
+    def pmf(lam_vec):
+        v = lam_vec[:, None]
+        return np.exp(-v) * v ** m / facts
+
+    Mh, Ma = pmf(lc_h), pmf(lc_a)
+    joint = Mh[:, :, None] * Ma[:, None, :]
+    mask = np.triu(np.ones((8, 8)), k=1).T
     p_home = (joint * mask).sum(axis=(1, 2))
     return float(np.percentile(p_home, 5) * 100), float(np.percentile(p_home, 95) * 100)
 
@@ -240,9 +277,17 @@ def build_single(day, num, grade="A"):
         "three_c": three_way(lc),
         "edge_ab": edge(la["lam"] if la else None, mkt3),
         "notes": la["notes"] if la else ["无非同主客样本，λ 只走市场反推"],
-        "interval_home_data": uncertainty(la["lam"] if la else lc, n_eff),
-        "interval_home_fused": uncertainty(lc, n_eff),
-        "interval_home": uncertainty(lc, n_eff),
+        "interval_home_data": uncertainty(la["lam"], n_eff) if la else None,
+        "interval_home": uncertainty_fused(la["lam"] if la else None, lb, w, n_eff),
+        "interval_meta": {
+            "kind": "model_parameter_market_fixed",
+            "label": "模型参数不确定性（市场 λ_B 视为固定）",
+            "draws": 4000,
+            "seed": 20261027,
+            "market_fixed": True,
+            "n_eff": [round(float(n_eff[0]), 3), round(float(n_eff[1]), 3)],
+            "refused_because": None if (la and lb and w > 0) else "无独立模型或无市场拟合，区间不适用",
+        },
         "top_scores": _top_scores(grid, 8),
         "sens": mp.sens_grid(lc[0], lc[1]),
     }
@@ -308,9 +353,8 @@ def build(day="20261027", grade_map=None):
             "three_fused": three_way(lc),
             "edge_A_vs_mkt": edge(la["lam"] if la else None, mkt3),
             "n_eff": la["n"] if la else (0, 0),
-            "interval_home_data": uncertainty(la["lam"] if la else lc, ne),
-            "interval_home_fused": uncertainty(lc, ne),
-            "interval_home": uncertainty(lc, ne),
+            "interval_home_data": uncertainty(la["lam"], ne) if la else None,
+            "interval_home": uncertainty_fused(la["lam"] if la else None, lb, w, ne),
             "notes": (la["notes"] if la else ["无非同主客样本，λ 只走市场反推"]),
         }
     return out
@@ -334,8 +378,10 @@ def main():
         e = r["edge_A_vs_mkt"]
         print(f"{num} [{r['grade']}] A {f(la)} | B {f(lb)} | C {f(lc)} (w={r['w_data']:.2f}) "
               f"| Edge {'—' if e is None else '/'.join(f'{x:+.1f}' for x in e)} "
-              f"| P(主) 融合区间 {r['interval_home'][0]:.0f}–{r['interval_home'][1]:.0f}%")
-        print(f"   数据区间 {r['interval_home_data'][0]:.0f}–{r['interval_home_data'][1]:.0f}% | 证据等级 {r['evidence_grade']}")
+              "| P(主) 参数区间 " + ("n/a" if not r["interval_home"] else
+              f"{r['interval_home'][0]:.0f}–{r['interval_home'][1]:.0f}%"))
+        _d = r["interval_home_data"]
+        print("   数据侧区间 " + ("n/a" if not _d else f"{_d[0]:.0f}–{_d[1]:.0f}%") + f" | 证据等级 {r['evidence_grade']}")
     print(f"→ {out_path}")
 
 

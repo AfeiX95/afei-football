@@ -10,8 +10,9 @@
     C2 出结论用的点估计必须落在它自己的 5%–95% 区间内（点估计与区间同源）
     C3 文档里每个「比分 + 概率」必须能在 _model_v3 的 top_scores 里找到出处
     C4 每场表头必须带「模型 vX.X」与「快照 <12位hex>」
-    C5 融合概率不得等于「A 与市场」的概率平均（防悄悄改成概率层加权）
-    C6 公开稿里每个百分数必须能在 _model_v3 / _model 的字段里找到出处（容差 1pp）
+    C5 融合实现正确性：λ_C == w·λ_A+(1−w)·λ_B，且三向概率能由 λ_C 重算还原
+       （诊断项：融合是否恰好等于概率平均——只 WARN，不算错）
+    C6 公开稿字段级溯源：每个百分数绑定 match_id/层/指标键/值，语境层不得与数值层冲突
     C7 公开稿必须带模型版本与数据快照标识
 退出码：0 全过；1 有 ERROR；2 只有 WARN 且 --strict。
 """
@@ -27,8 +28,14 @@ ROOT = Path(__file__).resolve().parents[1]
 
 DAY = sys.argv[1] if len(sys.argv) > 1 else "20261027"
 STRICT = "--strict" in sys.argv
-INTEL = ROOT / "state" / "intel" / DAY
-ART = ROOT / "📝文章" / DAY
+def _dirarg(flag):
+    if flag in sys.argv:
+        return Path(sys.argv[sys.argv.index(flag) + 1]).resolve()
+    return None
+
+
+INTEL = _dirarg("--intel") or ROOT / "state" / "intel" / DAY
+ART = _dirarg("--art") or ROOT / "📝文章" / DAY
 
 errors: list[str] = []
 warns: list[str] = []
@@ -79,70 +86,200 @@ for sec in sections:
             errors.append(f"[C3] {num} 比分 {score} 写 {val}%，_model_v3 里是 {ref[score]}%")
         if score not in ref:
             warns.append(f"[C3] {num} 比分 {score} 不在 λ_C 前八里（可能是作者倾向，请标注）")
-    lo, hi = r["interval_home"]
-    point = r["three_c"][0] * 100
-    if not (lo - 1.0 <= point <= hi + 1.0):
-        errors.append(f"[C2] {num} 点估计 {point:.1f}% 落在自己区间 {lo:.0f}–{hi:.0f}% 之外")
+    iv = r.get("interval_home")
+    tp = r.get("three_c") or r.get("three_fused")
+    point = tp[0] * 100 if tp else None
+    if iv and point is not None:
+        lo, hi = iv
+        if not (lo - 1.0 <= point <= hi + 1.0):
+            errors.append(f"[C2] {num} 点估计 {point:.1f}% 落在自己区间 {lo:.0f}–{hi:.0f}% 之外")
+        # 报告里的区间文字必须与模型一致（不许手写/无源）
+        for miv in re.finditer(r"参数区间 (\d+)–(\d+)%", sec):
+            a, b = float(miv.group(1)), float(miv.group(2))
+            if abs(a - round(lo)) > 0.5 or abs(b - round(hi)) > 0.5:
+                errors.append(f"[C2] {num} 报告写区间 {a:.0f}–{b:.0f}%，模型是 {lo:.0f}–{hi:.0f}%")
+    elif point is not None and not iv:
+        if re.search(r"参数区间 \d+–\d+%", sec):
+            errors.append(f"[C2] {num} 无参数区间（w=0），报告却写了区间")
+        warns.append(f"[C2] {num} 无参数区间（w=0 或未拟出 λ_A），只能给市场点值，请确认报告里已写明")
     if not re.search(r"模型 v\d+\.\d+", sec):
         errors.append(f"[C4] {num} 表头缺模型版本号")
     if not re.search(r"快照 [0-9a-f]{12}", sec):
         errors.append(f"[C4] {num} 表头缺数据快照标识")
-    ta, tb, tc = r["three_data"], (r.get("three_market") or r.get("three_b")), (r.get("three_fused") or r.get("three_c"))
-    if ta and tb and r["w_data"] > 0:
-        avg = (ta[0] + tb[0]) / 2 * 100
-        far_weight = abs(r["w_data"] - 0.5) > 0.15
-        far_prob = abs(ta[0] - tb[0]) > 0.10
-        if far_weight and far_prob and abs(tc[0] * 100 - avg) < 0.3:
-            errors.append(f"[C5] {num} 融合主胜 {tc[0]*100:.1f}% 等于概率平均 {avg:.1f}%"
-                          f"（权重 {r['w_data']:.2f}、A 与市场差 {abs(ta[0]-tb[0])*100:.0f}pp），疑似写成概率层加权")
+    # C5 融合实现：只验算式，不要求「融合 ≠ 概率平均」（用户 m01870）
+    wv = float(r.get("w_data") or 0.0)
+    la_ = r.get("lam_data") or r.get("lam_a")
+    lb_ = r.get("lam_market_joint") or r.get("lam_market") or r.get("lam_b")
+    lc_ = r.get("lam_fused") or r.get("lam_c")
+    tc = r.get("three_c") or r.get("three_fused")
+    if la_ and lb_ and lc_:
+        exp = (wv * la_[0] + (1 - wv) * lb_[0], wv * la_[1] + (1 - wv) * lb_[1])
+        if abs(lc_[0] - exp[0]) > 1e-9 or abs(lc_[1] - exp[1]) > 1e-9:
+            errors.append(f"[C5] {num} λ_C ≠ w·λ_A+(1−w)·λ_B：{lc_} vs ({exp[0]:.6f}, {exp[1]:.6f})")
+        try:
+            trip = mv3.three_way((lc_[0], lc_[1]))
+        except Exception as exc:  # noqa: BLE001
+            trip = None
+            errors.append(f"[C5] {num} 三向重算失败：{exc}")
+        if trip and tc and max(abs(x - y) for x, y in zip(trip, tc)) > 1e-6:
+            errors.append(f"[C5] {num} 三向概率无法由 λ_C 重算还原：表 {tc} vs 重算 {trip}")
+        # 诊断：融合恰等于概率平均时只提示（合法，不是错误）
+        ta0 = r.get("three_data") or []
+        tb0 = r.get("three_b") or r.get("three_market") or []
+        if ta0 and tb0 and tc and wv > 0 and abs(ta0[0] - tb0[0]) > 0.10 and abs(wv - 0.5) > 0.15:
+            avg = (ta0[0] + tb0[0]) / 2 * 100
+            if abs(tc[0] * 100 - avg) < 0.3:
+                warns.append(f"[C5] {num} 融合主胜恰等于概率平均 {avg:.1f}%（诊断项，属合法巧合）")
 
-# ---------- 公开稿 ----------
-# 允许出现的百分数集合：来自模型 json 的所有概率字段（四舍五入到 1pp 容差）
-allowed: list[float] = []
-for num, r in V3.items():
-    for key in ("three_data", "three_market", "three_fused"):
-        for x in (r.get(key) or []):
-            if not isinstance(x, (int, float)):
-                continue
-            allowed.append(x * 100)
-    for _k, p in r["top_scores"]:
-        allowed.append(p * 100)
-    for key in ("ah", "ou"):
-        blk = r.get(key) or {}
-        for x in (blk.get("ev") or ()):
-            if x is not None:
-                allowed.append(abs(x))
-        for x in (blk.get("dist") or ()):
-            allowed.append(x * 100)
-    allowed.extend(r["interval_home"])
-    allowed.extend(r["interval_home_data"])
-    mc = r.get("mc") or {}
-    for key in ("w", "d", "l", "ah_win", "ah_push", "ah_loss", "ou_over", "ou_push", "ou_under"):
-        if isinstance(mc.get(key), (int, float)):
-            allowed.append(float(mc[key]) * 100)
-    m0 = model.get(num) or {}
-    for key in ("market3", "market3_raw"):
-        for x in (m0.get(key) or []):
-            allowed.append(x * 100)
-
-allowed_sorted = sorted(x for x in allowed if isinstance(x, (int, float)))
+# ---------- 公开稿：字段级溯源（C6/C7，用户 m01870） ----------
+LAYERS = {
+    "market": ("机构", "定价", "市场", "盘口", "门槛", "盘面"),
+    "data": ("我们那本账", "自己那本账", "我们的账", "后台模型", "数据侧", "战绩", "我们给的"),
+    "fused": ("合成", "融合", "落在", "落回", "合起来", "最终"),
+}
+# 子句级线索：命中就不做层校验（比分概率与 EV 天然属 fused 层）
+SCORE_HINT = re.compile(r"\d\s*(?:比|-)\s*\d")
+EV_HINT = re.compile(r"空间|价可捡|溢")
+MC_KEYS = ("w", "d", "l", "ah_win", "ah_push", "ah_loss", "ou_over", "ou_push", "ou_under")
 
 
-def covered(p: float) -> bool:
-    return any(abs(a - p) <= 1.0 for a in allowed_sorted)
+def build_registry():
+    """可引用指标表：(场次, 指标键) -> (百分数, 所属层)"""
+    reg = {}
+    for num, r in V3.items():
+        for layer, keys in (("data", ("three_data",)), ("market", ("three_b", "three_market")),
+                            ("fused", ("three_c", "three_fused"))):
+            vals = next((r[k] for k in keys if r.get(k)), []) or []
+            for name, idx in (("home_win", 0), ("draw", 1), ("away_win", 2)):
+                if idx < len(vals) and isinstance(vals[idx], (int, float)):
+                    reg[(num, f"{layer}.{name}")] = (float(vals[idx]) * 100, layer)
+        for sc, pr in r["top_scores"]:
+            reg[(num, f"fused.score.{sc}")] = (float(pr) * 100, "fused")
+        for tag in ("ah", "ou"):
+            blk = r.get(tag) or {}
+            dist = blk.get("dist")
+            if isinstance(dist, dict):
+                for st, x in dist.items():
+                    if isinstance(x, (int, float)):
+                        reg[(num, f"fused.{tag}.{st}")] = (abs(float(x)) * 100, "fused")
+            ev = blk.get("ev") or ()
+            for side, x in zip(("home", "away") if tag == "ah" else ("over", "under"), ev):
+                if isinstance(x, (int, float)):
+                    reg[(num, f"fused.{tag}.ev_{side}")] = (abs(float(x)), "fused")
+        mc = r.get("mc") or {}
+        for k in MC_KEYS:
+            if isinstance(mc.get(k), (int, float)):
+                reg[(num, f"mc.{k}")] = (abs(float(mc[k])) * 100, "fused")
+        iv = r.get("interval_home")
+        if iv:
+            reg[(num, "fused.interval_lo")] = (float(iv[0]), "fused")
+            reg[(num, "fused.interval_hi")] = (float(iv[1]), "fused")
+    return reg
 
 
-pub = sorted(p for p in ART.glob("*.md") if "内部分析报告" not in p.name)
-for p in pub:
-    t = p.read_text(encoding="utf-8")
+DELIMS = "。！？；，、·\n"
+
+
+def clause_layers(text, pos):
+    """取该百分数所在子句，返回离它最近的层词所属层（等距则并列）。"""
+    lo = max(0, pos - 60)
+    hi = min(len(text), pos + 60)
+    left = max((text.rfind(d, lo, pos) for d in DELIMS), default=-1)
+    right = min([x for x in (text.find(d, pos, hi) for d in DELIMS) if x != -1] or [hi])
+    clause = text[left + 1:right]
+    base = left + 1
+    hits = []
+    for layer, words in LAYERS.items():
+        for w in words:
+            st = clause.find(w)
+            while st != -1:
+                hits.append((abs(base + st + len(w) / 2 - pos), layer))
+                st = clause.find(w, st + 1)
+    if not hits:
+        return []
+    hits.sort()
+    best = hits[0][0]
+    return sorted({ly for d, ly in hits if d - best < 6})
+
+
+reg = build_registry()
+pub = sorted(pp for pp in ART.glob("*.md") if "内部分析报告" not in pp.name)
+claims = []
+for pp in pub:
+    t = pp.read_text(encoding="utf-8")
     if not re.search(r"模型 v\d+\.\d+", t):
-        errors.append(f"[C7] {p.name} 缺模型版本号")
+        errors.append(f"[C7] {pp.name} 缺模型版本号")
     if not re.search(r"快照 [0-9a-f]{12}", t):
-        errors.append(f"[C7] {p.name} 缺数据快照标识")
+        errors.append(f"[C7] {pp.name} 缺数据快照标识")
+    # 场次锚点：公开稿用队名而不是编号 → 按队名最近出现处定位（用户 m01870 的字段级溯源）
+    marks = []
+    for n2, bk in books.items():
+        mm2 = str(bk.get("match") or "")
+        if " vs " not in mm2:
+            continue
+        for name in mm2.split(" vs ", 1):
+            name = name.strip()
+            start_league = name.split(" ")[0]
+            for hit in re.finditer(re.escape(start_league), t):
+                marks.append((hit.start(), n2))
+    marks.sort()
+    first_head = min([x.start() for x in re.finditer(r"^## ", t, re.M)] or [len(t)])
     for sm in re.finditer(r"(\d+(?:\.\d)?)%", t):
         val = float(sm.group(1))
-        if not covered(val):
-            errors.append(f"[C6] {p.name} 的 {val}% 在模型数据里找不到出处（±1pp）")
+        num = None
+        for pos, n in marks:
+            if pos < sm.start():
+                num = n
+        rec = {
+            "article": pp.name,
+            "offset": sm.start(),
+            "value": val,
+            "match_id": num,
+            "model_version": (V3.get(num) or {}).get("model_version"),
+            "snapshot_id": (V3.get(num) or {}).get("data_snapshot"),
+            "candidates": [],
+            "implied_layers": [],
+            "bound_key": None,
+            "status": "ok",
+        }
+        if not num or num not in V3:
+            rec["status"] = "no_match"
+            claims.append(rec)
+            if sm.start() < first_head:
+                rec["status"] = "preamble"
+                warns.append(f"[C6] {pp.name} 导语区的 {val}% 无场次锚点（若为汇总口径请人工确认）")
+            else:
+                errors.append(f"[C6] {pp.name} 的 {val}% 前面找不到任何队名锚点（无法溯源到具体场次）")
+            continue
+        cands = [(k, v, layer) for (n2, k), (v, layer) in reg.items() if n2 == num and abs(v - val) <= 0.55]
+        ctx = t[max(0, sm.start() - 18): sm.start() + 18]
+        implied = ["fused"] if SCORE_HINT.search(ctx) else clause_layers(t, sm.start())
+        rec["candidates"] = [{"key": k, "value": round(v, 3), "layer": layer} for k, v, layer in cands]
+        rec["implied_layers"] = implied
+        if not cands:
+            rec["status"] = "no_source"
+            errors.append(f"[C6] {num} 的 {val}% 在模型数据里没有 ±0.55pp 内的任何指标（无出处）")
+        else:
+            in_layer = [c for c in cands if c[2] in implied] if implied else cands
+            if implied and not in_layer:
+                rec["status"] = "layer_mismatch"
+                errors.append(
+                    f"[C6] {num} 的 {val}% 语境指向 {'/'.join(implied)} 层，但只有 "
+                    f"{'/'.join(sorted({c[2] for c in cands}))} 层有同值指标（数字真、层引错）")
+            else:
+                pick = (in_layer or cands)[0]
+                rec["bound_key"] = pick[0]
+                if len({c[2] for c in (in_layer or cands)}) > 1:
+                    rec["status"] = "ambiguous"
+                    warns.append(f"[C6] {num} 的 {val}% 同时能对上多层："
+                                 f"{sorted({c[2] for c in (in_layer or cands)})}（语境可再明确）")
+        claims.append(rec)
+
+out_claims = INTEL / f"_claims_{DAY}.json"
+try:
+    out_claims.write_text(json.dumps(claims, ensure_ascii=False, indent=1), encoding="utf-8", newline="")
+except Exception as exc:  # noqa: BLE001
+    warns.append(f"[C6] 溯源表写盘失败：{exc}")
 
 # ---------- 输出 ----------
 print(f"检查日：{DAY}　报告 {len(sections)} 场　公开稿 {len(pub)} 篇")

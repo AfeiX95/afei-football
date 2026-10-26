@@ -279,23 +279,30 @@ def sect_model(num, v):
         lines.append(f"- 三向：市场 {pct(tb[0])} / {pct(tb[1])} / {pct(tb[2])}（A 模型缺同主客样本，本场不参与）")
     lines.append(f"- 融合三向（出结论用，λ_C）：**{pct(tc[0])} / {pct(tc[1])} / {pct(tc[2])}**")
     if ta and tb:
-        lo_, hi_ = r["interval_home"]
-        lines.append(f"- 为什么融合值不是 A 与市场的中位数：**融合在 λ 层做，不在概率层做平均**——"
-                     f"A 模型 {pct(ta[0])}、市场 {pct(tb[0])}，两者按 λ 加权（数据侧 {r['w_data']:.2f}）后得到 "
-                     f"{pct(tc[0])}；若按概率各半平均会是 {pct((ta[0] + tb[0]) / 2)}，本报告不用这种算法。")
-    else:
-        lo_, hi_ = r["interval_home"]
-    lines.append(f"- λ 不确定性（**融合 λ_C**，点估计同源）：λ 后验 Gamma 抽样 4000 次重算，"
-                 f"主胜 **{lo_:.0f}%–{hi_:.0f}%**（宽度 {hi_ - lo_:.0f}pp，样本越薄越宽）"
-                 f"；数据侧 λ_A 单算的区间是 {r['interval_home_data'][0]:.0f}%–{r['interval_home_data'][1]:.0f}%，仅作对照")
-    ah = r["ah"]
-    if ah["line"] is not None:
+        _avg = pct((ta[0] + tb[0]) / 2)
+        lines.append(f"- 融合发生在 **λ 层**，不是概率层平均：A 模型 {pct(ta[0])}、市场 {pct(tb[0])}，"
+                     f"先把两边换成 λ 再按权重（数据侧 {r['w_data']:.2f}）加权，得到 λ_C 后重算三向 {pct(tc[0])}。"
+                     f"概率各半平均是 {_avg}，只作对照，不是本报告的算法。")
+    iv = r.get("interval_home")
+    if iv:
+        lo_, hi_ = iv
+        meta = r.get("interval_meta") or {}
+        lines.append(f"- **模型参数不确定性区间**（5%–95% 分位）：主胜 **{lo_:.0f}%–{hi_:.0f}%**（宽 {hi_ - lo_:.0f}pp）。"
+                     f"口径：只对 λ_A 抽 Gamma 后验（shape=(n+k)·λ̂、rate=n+k，n+k = "
+                     f"{(meta.get('n_eff') or [0, 0])[0]:.1f}/{(meta.get('n_eff') or [0, 0])[1]:.1f}），"
+                     f"**市场 λ_B 当固定常数不抽**，每次抽样都重新融合成 λ_C 再算泊松，共 {meta.get('draws', 4000)} 次。"
+                     f"它描述的是「参数估错会把胜率算到哪」，**不是**「90% 把握赛果落在这段里」——赛果的不确定性由三向概率自己表达。")
+        _d = r.get("interval_home_data")
+        if _d:
+            lines.append(f"- 对照：只抽 λ_A（不用市场）的区间是 {_d[0]:.0f}%–{_d[1]:.0f}%，样本越薄越宽；市场若也给区间则需另接盘口分布，本版未做。")
+    ah = r.get("ah") or {}
+    if ah.get("line") is not None:
         d = ah["dist"]
         lines.append(f"- 亚盘 {line_txt(ah['side'], ah['line'])}（五状态）：全赢 {pct(d[settle.FULL_WIN])}、赢半 {pct(d[settle.HALF_WIN])}、"
                      f"走水 {pct(d[settle.PUSH])}、输半 {pct(d[settle.HALF_LOSS])}、全输 {pct(d[settle.FULL_LOSS])}"
                      f"　→ EV 主 {ah['ev'][0]:+.1f}% / 客 {ah['ev'][1]:+.1f}%（香港盘水位 {ah['water'][0]:.3f}/{ah['water'][1]:.3f}）")
-    ou = r["ou"]
-    if ou["line"] is not None:
+    ou = r.get("ou") or {}
+    if ou.get("line") is not None:
         d = ou["dist"]
         lines.append(f"- 大小 {abs(ou['line']):.2f}（五状态）：全大 {pct(d[settle.FULL_WIN])}、大赢半 {pct(d[settle.HALF_WIN])}、"
                      f"走水 {pct(d[settle.PUSH])}、大输半 {pct(d[settle.HALF_LOSS])}、全小 {pct(d[settle.FULL_LOSS])}"
@@ -318,11 +325,13 @@ def sect_end(num, v):
     r = V3[num]
     tc = r["three_c"]
     sc = r["top_scores"]  # 只认 λ_C，避免与「二、模型」比分表打架
+    iv = r.get("interval_home")
+    iv_txt = (f"λ_C 参数区间 {iv[0]:.0f}–{iv[1]:.0f}%" if iv else "λ_C 参数区间不适用（无独立模型，只给市场点值）")
     lines = [
         f"- 方向：{ACTION_HINT[num]}",
         f"- 比分：{sc[0][0]}（λ_C {pct(sc[0][1])}）／次选 {sc[1][0]}（{pct(sc[1][1])}）",
-        f"- 概率口径（λ_C 融合，数据权重 {r['w_data']:.2f}）：主 {pct(tc[0],0)} / 平 {pct(tc[1],0)} / 客 {pct(tc[2],0)}；"
-        f"λ_C 融合区间 {r['interval_home'][0]:.0f}–{r['interval_home'][1]:.0f}%；足彩 **{ZQ[num]}**",
+        f"- 概率口径（λ_C 融合，数据权重 {r['w_data']:.2f}）：主 {pct(tc[0], 0)} / 平 {pct(tc[1], 0)} / 客 {pct(tc[2], 0)}；"
+        + iv_txt + f"；足彩 **{ZQ[num]}**",
         f"- 打破条件：{BREAK[num]}",
     ]
     return "\n".join(lines)
