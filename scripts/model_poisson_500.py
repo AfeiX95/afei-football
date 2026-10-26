@@ -126,6 +126,107 @@ def implied_total(entries, line_abs):
     return bl, p_over, over_w, under_w
 
 
+def mc_sim(lam_h, lam_a, line_ah, line_ou, n=100000, seed=20261027):
+    """蒙特卡洛 10 万次（Poisson 抽样）。按 match-model-pipeline Step 6 口径：
+    三向 / 亚盘（四分之一球拆两注、整数球走水） / 大小盘（含走水） / 比分与进球分布。
+    优先 numpy，无 numpy 时退回 Knuth 乘法法（与 skill/scripts/mc-simulation.py 同源）。"""
+    try:
+        import numpy as np
+    except Exception:
+        np = None
+    if np is not None:
+        rng = np.random.default_rng(seed)
+        h = rng.poisson(lam_h, n).astype(int)
+        a = rng.poisson(lam_a, n).astype(int)
+    else:
+        import random
+        rnd = random.Random(seed)
+
+        def psample(lam):
+            L = math.exp(-lam)
+            k, pr = 0, 1.0
+            while pr > L:
+                k += 1
+                pr *= rnd.random()
+            return k - 1
+
+        h = [psample(lam_h) for _ in range(n)]
+        a = [psample(lam_a) for _ in range(n)]
+    w = d = l = 0
+    ah_w = ah_p = ah_l = 0.0
+    ov = pu = un = 0.0
+    sc = {}
+    goals = {}
+    for i in range(n):
+        hg, ag = int(h[i]), int(a[i])
+        if hg > ag:
+            w += 1
+        elif hg == ag:
+            d += 1
+        else:
+            l += 1
+        if _is_quarter(line_ah):
+            for sub in (line_ah - 0.25, line_ah + 0.25):
+                df = hg - ag + sub
+                if df > 0:
+                    ah_w += 0.5
+                elif df == 0:
+                    ah_p += 0.5
+                else:
+                    ah_l += 0.5
+        else:
+            df = hg - ag + line_ah
+            if df > 0:
+                ah_w += 1
+            elif df == 0:
+                ah_p += 1
+            else:
+                ah_l += 1
+        t = hg + ag
+        if line_ou is not None:
+            if _is_quarter(line_ou):
+                for sub in (line_ou - 0.25, line_ou + 0.25):
+                    if t > sub:
+                        ov += 0.5
+                    elif t == sub:
+                        pu += 0.5
+                    else:
+                        un += 0.5
+            else:
+                if t > line_ou:
+                    ov += 1
+                elif t == line_ou:
+                    pu += 1
+                else:
+                    un += 1
+        key = f"{hg}-{ag}"
+        sc[key] = sc.get(key, 0) + 1
+        goals[min(t, 8)] = goals.get(min(t, 8), 0) + 1
+    top = sorted(sc.items(), key=lambda x: -x[1])[:8]
+    return {
+        "n": n,
+        "w": round(w / n, 4), "d": round(d / n, 4), "l": round(l / n, 4),
+        "ah_w": round(ah_w / n, 4), "ah_p": round(ah_p / n, 4), "ah_l": round(ah_l / n, 4),
+        "o": round(ov / n, 4) if line_ou is not None else None,
+        "p": round(pu / n, 4) if line_ou is not None else None,
+        "u": round(un / n, 4) if line_ou is not None else None,
+        "top": [[k, round(v / n, 4)] for k, v in top],
+        "goals": {k: round(v / n, 4) for k, v in sorted(goals.items())},
+        "zero": [round(sum(v for k, v in sc.items() if k.endswith("-0")) / n, 4),
+                 round(sum(v for k, v in sc.items() if k.startswith("0-")) / n, 4)],
+    }
+
+
+def sens_grid(lam_h, lam_a, step=0.2):
+    """敏感性：λ 主/客 各 ±step 的 3×3 网格，返回 (主胜最小, 最大, 摆动 pp)"""
+    hs = []
+    for dh in (-step, 0.0, step):
+        for da in (-step, 0.0, step):
+            m = grid_probs(max(0.2, lam_h + dh), max(0.2, lam_a + da))
+            hs.append(three_way(m)[0])
+    return round(min(hs), 4), round(max(hs), 4), round((max(hs) - min(hs)) * 100, 1)
+
+
 def fit_market(mkt3, total_hint=None):
     best = None
     lh = 0.30
@@ -218,6 +319,8 @@ def main():
         ou_close = ([e["close"]["line"] for e in b["ou"].values()] if b.get("ou") else [])
         scores = sorted([(f"{i}-{j}", m[i][j]) for i in range(6) for j in range(6)],
                         key=lambda x: -x[1])[:6]
+        mc = mc_sim(lam[0], lam[1], line_ah, line_ou)
+        s_min, s_max, s_swing = sens_grid(lam[0], lam[1])
         out[num] = {
             "match": b["match"], "kickoff": b["kickoff"], "id": b["id"], "books_ox": nbook,
             "lam_data": ld, "lam_mkt": list(lm), "lam_1x2": list(lm_1x2),
@@ -244,6 +347,9 @@ def main():
             "over35": round(sum(m[i][j] for i in range(8) for j in range(8) if i + j > 3.5), 4),
             "btts": round(sum(m[i][j] for i in range(1, 8) for j in range(1, 8)), 4),
             "top_scores": [[k, round(v, 4)] for k, v in scores],
+            "mc": mc,
+            "mc_gap": round(max(abs(mc["w"] - h), abs(mc["d"] - d), abs(mc["l"] - a)) * 100, 2),
+            "sens": [s_min, s_max, s_swing],
             "ev_ah_mkt": [round(x * 100, 1) for x in ev_ah_mkt],
             "ev_ou_mkt": [round(x * 100, 1) if x is not None else None for x in ev_ou_mkt],
             "imp_ah": [round(x, 4) for x in imp_ah],
