@@ -354,7 +354,7 @@ def mc_heat(card: dict) -> str:
     away = esc(card.get("away") or "客队")
     return ('<div class="axlab">↓ %s 进球（纵轴）</div><div class="grid">%s</div>'
             '<div class="ax">%s</div><div class="axlab r">%s 进球（横轴）→</div>'
-            '<div class="cap">比分频次 · 横轴主队、纵轴客队 · 颜色越深＝过去越常见 · 已标出最热三格</div>'
+            '<div class="cap">比分概率 · 横轴主队、纵轴客队 · 颜色越深＝越可能 · 已标出最热三格</div>'
             % (away, "".join(cells), ax, home))
 
 
@@ -706,10 +706,14 @@ def card_html(card: dict, idx: int, total: int) -> str:
                 '<span class="badges">' + badges(f.get("seq")) + '</span></div>'
                 '<span class="r">' + esc(f.get("l5")) + '</span></div>')
 
-    hdr_home, hdr_away = _hdr(home, fh), _hdr(away, fa)
+    hdr_home, hdr_away = "", ""   # 兼容：原卡片头块已废弃，留空占位
 
     inj_hint = ""
-    for line in ((card.get("intel") or {}).get("common") or []):
+    _src = locals().get("card")
+    if not isinstance(_src, dict):
+        _lst = locals().get("ms") or []
+        _src = _lst[0] if _lst and isinstance(_lst[0], dict) else {}
+    for line in ((_src.get("intel") or {}).get("common") or []):
         m = re.search(r"伤停[：:]?\s*(\d+)\s*人", str(line))
         if m:
             inj_hint = "%s 人" % m.group(1)
@@ -839,10 +843,14 @@ def cover_html(data: dict) -> str:
                 '<span class="badges">' + badges(f.get("seq")) + '</span></div>'
                 '<span class="r">' + esc(f.get("l5")) + '</span></div>')
 
-    hdr_home, hdr_away = _hdr(home, fh), _hdr(away, fa)
+    hdr_home, hdr_away = "", ""   # 兼容：原卡片头块已废弃，留空占位
 
     inj_hint = ""
-    for line in ((card.get("intel") or {}).get("common") or []):
+    _src = locals().get("card")
+    if not isinstance(_src, dict):
+        _lst = locals().get("ms") or []
+        _src = _lst[0] if _lst and isinstance(_lst[0], dict) else {}
+    for line in ((_src.get("intel") or {}).get("common") or []):
         m = re.search(r"伤停[：:]?\s*(\d+)\s*人", str(line))
         if m:
             inj_hint = "%s 人" % m.group(1)
@@ -948,10 +956,14 @@ def cover_dark_html(data: dict) -> str:
                 '<span class="badges">' + badges(f.get("seq")) + '</span></div>'
                 '<span class="r">' + esc(f.get("l5")) + '</span></div>')
 
-    hdr_home, hdr_away = _hdr(home, fh), _hdr(away, fa)
+    hdr_home, hdr_away = "", ""   # 兼容：原卡片头块已废弃，留空占位
 
     inj_hint = ""
-    for line in ((card.get("intel") or {}).get("common") or []):
+    _src = locals().get("card")
+    if not isinstance(_src, dict):
+        _lst = locals().get("ms") or []
+        _src = _lst[0] if _lst and isinstance(_lst[0], dict) else {}
+    for line in ((_src.get("intel") or {}).get("common") or []):
         m = re.search(r"伤停[：:]?\s*(\d+)\s*人", str(line))
         if m:
             inj_hint = "%s 人" % m.group(1)
@@ -1099,10 +1111,14 @@ def cover_v2_html(data: dict, wide: bool = False) -> str:
                 '<span class="badges">' + badges(f.get("seq")) + '</span></div>'
                 '<span class="r">' + esc(f.get("l5")) + '</span></div>')
 
-    hdr_home, hdr_away = _hdr(home, fh), _hdr(away, fa)
+    hdr_home, hdr_away = "", ""   # 兼容：原卡片头块已废弃，留空占位
 
     inj_hint = ""
-    for line in ((card.get("intel") or {}).get("common") or []):
+    _src = locals().get("card")
+    if not isinstance(_src, dict):
+        _lst = locals().get("ms") or []
+        _src = _lst[0] if _lst and isinstance(_lst[0], dict) else {}
+    for line in ((_src.get("intel") or {}).get("common") or []):
         m = re.search(r"伤停[：:]?\s*(\d+)\s*人", str(line))
         if m:
             inj_hint = "%s 人" % m.group(1)
@@ -1234,10 +1250,14 @@ def cover_v3_html(data: dict, wide: bool = False) -> str:
                 '<span class="badges">' + badges(f.get("seq")) + '</span></div>'
                 '<span class="r">' + esc(f.get("l5")) + '</span></div>')
 
-    hdr_home, hdr_away = _hdr(home, fh), _hdr(away, fa)
+    hdr_home, hdr_away = "", ""   # 兼容：原卡片头块已废弃，留空占位
 
     inj_hint = ""
-    for line in ((card.get("intel") or {}).get("common") or []):
+    _src = locals().get("card")
+    if not isinstance(_src, dict):
+        _lst = locals().get("ms") or []
+        _src = _lst[0] if _lst and isinstance(_lst[0], dict) else {}
+    for line in ((_src.get("intel") or {}).get("common") or []):
         m = re.search(r"伤停[：:]?\s*(\d+)\s*人", str(line))
         if m:
             inj_hint = "%s 人" % m.group(1)
