@@ -1134,7 +1134,7 @@ def cover_v2_html(data: dict, wide: bool = False) -> str:
   <div class="dt">{dt}</div>
   <div class="wd">星期{m_wd} <em>｜足球赛事前瞻</em></div>
   <div class="stat"><b>{n} 场赛事</b> · <b>{len(slots)} 个开球时段</b> · {esc(m_kd)}</div>
-  <div class="sub">公开数据 · 模型推演 · 风险校验</div>
+  <div class="sub">公开数据 · 近期表现 · 数据观察</div>
   <div class="bars"><i></i><i></i><i></i></div>
 </div>
 <div class="stage">{PITCH_SVG}</div>
@@ -1272,7 +1272,7 @@ def cover_v3_html(data: dict, wide: bool = False) -> str:
 <div class="date"><b>{dt}</b><span>星期{m_wd} ｜ {esc(m_kd)}</span></div>
 <div class="title"><em>{n} 场</em>足球<br>赛事前瞻</div>
 <div class="stat"><b>{n} 场赛事</b> · <b>{len(slots)} 个开球时段</b> · <b>{len(lgs)} 项联赛</b></div>
-<div class="slogan">公开数据 · 模型推演 · 风险校验</div>
+<div class="slogan">公开数据 · 近期表现 · 数据观察</div>
 <div class="kpiR">{kpi}</div>
 <div class="pitchwrap">{PITCH_SVG}</div>
 <div class="divider"><u>FOOTBALL</u><i></i><u>DATA</u><i></i><u>ANALYSIS</u></div>
