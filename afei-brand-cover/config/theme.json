@@ -1,0 +1,34 @@
+{
+  "brand": {
+    "name": "阿飞·赛博聊球",
+    "sub": "用数据拆解比赛",
+    "quote1": "数据不会说谎，",
+    "quote2": "但人会。",
+    "sign": "—— 阿飞",
+    "title1": "足球赛事",
+    "title2": "前瞻",
+    "tags": ["数据拆解", "赛况分析", "赛果预测", "风险提示"],
+    "features": [
+      ["每日更新", "精选多场赛事分析"],
+      ["专业视角", "多维数据建模"],
+      ["理性分析", "拒绝情绪化判断"]
+    ]
+  },
+  "colors": {
+    "bg": [5, 11, 18],
+    "green": [0, 240, 120],
+    "cyan": [34, 224, 224],
+    "white": [238, 245, 255],
+    "muted": [143, 163, 183],
+    "panel": [6, 18, 26],
+    "line": [0, 240, 120]
+  },
+  "fonts": {
+    "bold": "C:/Windows/Fonts/msyhbd.ttc",
+    "regular": "C:/Windows/Fonts/msyh.ttc",
+    "mono": "C:/Windows/Fonts/consola.ttf"
+  },
+  "portrait": {"w": 1536, "h": 2048, "title": 232, "brand": 78, "brand_sub": 38, "tags": 38, "feat": 40, "feat_sub": 26},
+  "landscape": {"w": 1920, "h": 1080, "title": 190, "brand": 64, "brand_sub": 32, "tags": 32, "feat": 32, "feat_sub": 22},
+  "glow": {"title": 26, "brand": 12, "ball": 40}
+}
