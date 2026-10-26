@@ -1,0 +1,6751 @@
+{
+ "generated": "2026-10-27T01:06:28+08:00",
+ "files": [
+  {
+   "file": "2026-07-05-06_八场赛后校验.md",
+   "rows": 0,
+   "agg": 2,
+   "ts": true
+  },
+  {
+   "file": "20260521_埃夫斯堡vs米亚尔比_赛前前瞻.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "20260521_町田泽维vs浦和红钻_赛前前瞻.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "20260707-0712_赛果SP汇总.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "20260712-0714_赛后校验.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": false
+  },
+  {
+   "file": "20260715-0717_赛后校验.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "20260717-18_20场_赛后校验.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "20260718-19_35场_赛后校验.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "20260718-20_30场_赛后校验.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "20260718_瑞超两场_赛后校验.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "20260720_10场校准报告.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "rows": 50,
+   "agg": 6,
+   "ts": true
+  },
+  {
+   "file": "20260817_市场vs模型_三方对比.md",
+   "rows": 5,
+   "agg": 10,
+   "ts": true
+  },
+  {
+   "file": "20260824_市场vs模型_三方对比.md",
+   "rows": 6,
+   "agg": 9,
+   "ts": true
+  },
+  {
+   "file": "20260919-20261008_积压档_赛后校验.md",
+   "rows": 1,
+   "agg": 5,
+   "ts": true
+  },
+  {
+   "file": "20261009-11_竞彩赛果47场_赛果raw.md",
+   "rows": 47,
+   "agg": 1,
+   "ts": true
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "rows": 17,
+   "agg": 6,
+   "ts": true
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "rows": 24,
+   "agg": 6,
+   "ts": true
+  },
+  {
+   "file": "20261018-20261020_赛后校验.md",
+   "rows": 32,
+   "agg": 6,
+   "ts": true
+  },
+  {
+   "file": "_赛果补拉_2026-09-19至10-08.md",
+   "rows": 104,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "batch12_calibration.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "batch12b_verification.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "batch13_calibration.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "batch14_calibration.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "batch15_calibration.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "batch16_calibration.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "batch17_calibration.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "batch18_calibration.md",
+   "rows": 0,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "batch20_calibration.md",
+   "rows": 0,
+   "agg": 2,
+   "ts": true
+  },
+  {
+   "file": "batch21_calibration.md",
+   "rows": 0,
+   "agg": 3,
+   "ts": true
+  },
+  {
+   "file": "batch22_calibration.md",
+   "rows": 0,
+   "agg": 8,
+   "ts": true
+  },
+  {
+   "file": "batch23_calibration.md",
+   "rows": 0,
+   "agg": 7,
+   "ts": true
+  },
+  {
+   "file": "batch24_calibration.md",
+   "rows": 0,
+   "agg": 15,
+   "ts": true
+  },
+  {
+   "file": "batch25_calibration.md",
+   "rows": 0,
+   "agg": 5,
+   "ts": true
+  },
+  {
+   "file": "batch26_calibration.md",
+   "rows": 11,
+   "agg": 8,
+   "ts": true
+  },
+  {
+   "file": "batch27_calibration.md",
+   "rows": 10,
+   "agg": 6,
+   "ts": true
+  },
+  {
+   "file": "batch28_calibration.md",
+   "rows": 9,
+   "agg": 5,
+   "ts": true
+  },
+  {
+   "file": "batch29_calibration.md",
+   "rows": 16,
+   "agg": 4,
+   "ts": true
+  },
+  {
+   "file": "batch30_calibration.md",
+   "rows": 20,
+   "agg": 4,
+   "ts": true
+  },
+  {
+   "file": "batch31_calibration.md",
+   "rows": 20,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "batch32_calibration.md",
+   "rows": 27,
+   "agg": 7,
+   "ts": true
+  },
+  {
+   "file": "batch33_calibration.md",
+   "rows": 56,
+   "agg": 14,
+   "ts": true
+  },
+  {
+   "file": "batch34_calibration.md",
+   "rows": 30,
+   "agg": 11,
+   "ts": true
+  },
+  {
+   "file": "batch35_calibration.md",
+   "rows": 55,
+   "agg": 12,
+   "ts": true
+  },
+  {
+   "file": "batch35_market_review.md",
+   "rows": 62,
+   "agg": 19,
+   "ts": false
+  },
+  {
+   "file": "batch36_calibration.md",
+   "rows": 29,
+   "agg": 28,
+   "ts": true
+  },
+  {
+   "file": "batch36_market_review.md",
+   "rows": 9,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "batch36b_calibration.md",
+   "rows": 6,
+   "agg": 2,
+   "ts": true
+  },
+  {
+   "file": "batch37_calibration.md",
+   "rows": 8,
+   "agg": 9,
+   "ts": true
+  },
+  {
+   "file": "batch38_calibration.md",
+   "rows": 4,
+   "agg": 8,
+   "ts": true
+  },
+  {
+   "file": "batch39_calibration.md",
+   "rows": 3,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "batch40_calibration.md",
+   "rows": 3,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "batch41_calibration.md",
+   "rows": 3,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "batch42_calibration.md",
+   "rows": 3,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "batch43_calibration.md",
+   "rows": 3,
+   "agg": 0,
+   "ts": true
+  },
+  {
+   "file": "batch46_calibration.md",
+   "rows": 20,
+   "agg": 1,
+   "ts": true
+  },
+  {
+   "file": "batch47_20261023_calibration.md",
+   "rows": 7,
+   "agg": 7,
+   "ts": true
+  },
+  {
+   "file": "batch48_20261024_calibration.md",
+   "rows": 0,
+   "agg": 2,
+   "ts": true
+  },
+  {
+   "file": "batch49_calibration.md",
+   "rows": 34,
+   "agg": 8,
+   "ts": true
+  },
+  {
+   "file": "全批次复盘_20261023.md",
+   "rows": 0,
+   "agg": 23,
+   "ts": true
+  }
+ ],
+ "rows": [
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周六008",
+   "league": "英冠",
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周六007",
+   "league": "德乙",
+   "score_90": [
+    4,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周六006",
+   "league": null,
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周六005",
+   "league": null,
+   "score_90": [
+    4,
+    2
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周六004",
+   "league": "日职",
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周六003",
+   "league": "日职",
+   "score_90": [
+    1,
+    4
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周六002",
+   "league": "日乙",
+   "score_90": [
+    0,
+    4
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周六001",
+   "league": "日职",
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五017",
+   "league": "葡超",
+   "score_90": [
+    3,
+    2
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五016",
+   "league": "英冠",
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五015",
+   "league": "法乙",
+   "score_90": [
+    3,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五014",
+   "league": "法乙",
+   "score_90": [
+    3,
+    3
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五013",
+   "league": "法乙",
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五012",
+   "league": null,
+   "score_90": [
+    3,
+    2
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五011",
+   "league": null,
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五010",
+   "league": "荷甲",
+   "score_90": [
+    1,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五009",
+   "league": null,
+   "score_90": [
+    4,
+    2
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五008",
+   "league": null,
+   "score_90": [
+    4,
+    2
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五007",
+   "league": "挪超",
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五006",
+   "league": "瑞超",
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五005",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五004",
+   "league": "德乙",
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五003",
+   "league": "德乙",
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五002",
+   "league": "芬超",
+   "score_90": [
+    1,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20260815_市场vs模型_三方对比.md",
+   "match_id": "周五001",
+   "league": "日职",
+   "score_90": [
+    1,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260817_市场vs模型_三方对比.md",
+   "match_id": "周六013",
+   "league": null,
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20260817_市场vs模型_三方对比.md",
+   "match_id": "周六012",
+   "league": null,
+   "score_90": [
+    1,
+    4
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260817_市场vs模型_三方对比.md",
+   "match_id": "周六011",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20260817_市场vs模型_三方对比.md",
+   "match_id": "周六010",
+   "league": null,
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20260817_市场vs模型_三方对比.md",
+   "match_id": "周六009",
+   "league": null,
+   "score_90": [
+    4,
+    3
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20260824_市场vs模型_三方对比.md",
+   "match_id": "周日014",
+   "league": null,
+   "score_90": [
+    2,
+    5
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 78.9,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "20260824_市场vs模型_三方对比.md",
+   "match_id": "周日013",
+   "league": null,
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 69.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "20260824_市场vs模型_三方对比.md",
+   "match_id": "周日012",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 58.2,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "20260824_市场vs模型_三方对比.md",
+   "match_id": "周日011",
+   "league": null,
+   "score_90": [
+    2,
+    4
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 47.9,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "20260824_市场vs模型_三方对比.md",
+   "match_id": "周日010",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 55.3,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "20260824_市场vs模型_三方对比.md",
+   "match_id": "周日009",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 65.1,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "20260919-20261008_积压档_赛后校验.md",
+   "match_id": "周二008",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "20261009-11_竞彩赛果47场_赛果raw.md",
+   "match_id": "202",
+   "league": "西甲",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "20261009-11_竞彩赛果47场_赛果raw.md",
+   "match_id": "202",
+   "league": "法甲",
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "20261009-11_竞彩赛果47场_赛果raw.md",
+   "match_id": "202",
+   "league": "荷甲",
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "20261009-11_竞彩赛果47场_赛果raw.md",
+   "match_id": "202",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "20261009-11_竞彩赛果47场_赛果raw.md",
+   "match_id": "202",
+   "league": "荷甲",
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "20261009-11_竞彩赛果47场_赛果raw.md",
+   "match_id": "202",
+   "league": "德甲",
+   "score_90": [
+    4,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "20261009-11_竞彩赛果47场_赛果raw.md",
+   "match_id": "202",
+   "league": "意甲",
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "20261009-11_竞彩赛果47场_赛果raw.md",
+   "match_id": "202",
+   "league": "德甲",
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "20261009-11_竞彩赛果47场_赛果raw.md",
+   "match_id": "202",
+   "league": "德甲",
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "20261009-11_竞彩赛果47场_赛果raw.md",
+   "match_id": "202",
+   "league": "挪超",
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "20261009-11_竞彩赛果47场_赛果raw.md",
+   "match_id": "周日001",
+   "league": null,
+   "score_90": [
+    13,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "20261009-11_竞彩赛果47场_赛果raw.md",
+   "match_id": "周日013",
+   "league": "意甲",
+   "score_90": [
+    21,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "match_id": "周五001",
+   "league": "澳超",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "match_id": "周五003",
+   "league": "瑞超",
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "match_id": "周五004",
+   "league": "荷甲",
+   "score_90": [
+    4,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "match_id": "周五007",
+   "league": "意甲",
+   "score_90": [
+    4,
+    2
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "match_id": "周五009",
+   "league": "英冠",
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "match_id": "周五010",
+   "league": "西甲",
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "match_id": "周五011",
+   "league": "巴甲",
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "match_id": "周六007",
+   "league": "英超",
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "match_id": "周六018",
+   "league": "英超",
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "match_id": "周六019",
+   "league": "英超",
+   "score_90": [
+    3,
+    2
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "match_id": "周六022",
+   "league": "法甲",
+   "score_90": [
+    1,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "match_id": "周六026",
+   "league": "西甲",
+   "score_90": [
+    2,
+    5
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "match_id": "周六029",
+   "league": "西甲",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "match_id": "周六003",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "match_id": "周六005",
+   "league": "日职",
+   "score_90": [
+    1,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261016-20261017_赛后校验.md",
+   "match_id": "周六006",
+   "league": "日乙",
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日001",
+   "league": "日职",
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日002",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日003",
+   "league": null,
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日004",
+   "league": "荷甲",
+   "score_90": [
+    4,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日005",
+   "league": "意甲",
+   "score_90": [
+    0,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日006",
+   "league": "西甲",
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日007",
+   "league": "瑞超",
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日008",
+   "league": "芬超",
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日009",
+   "league": "挪超",
+   "score_90": [
+    0,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日010",
+   "league": "英超",
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日011",
+   "league": "英超",
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日012",
+   "league": "意甲",
+   "score_90": [
+    1,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日013",
+   "league": "法甲",
+   "score_90": [
+    2,
+    5
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日014",
+   "league": "德甲",
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日015",
+   "league": "西甲",
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日016",
+   "league": "荷甲",
+   "score_90": [
+    2,
+    5
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日017",
+   "league": "法甲",
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日018",
+   "league": "英超",
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日019",
+   "league": "德甲",
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日020",
+   "league": "意甲",
+   "score_90": [
+    3,
+    2
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日021",
+   "league": "西甲",
+   "score_90": [
+    2,
+    5
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日022",
+   "league": "意甲",
+   "score_90": [
+    0,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日023",
+   "league": "法甲",
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261018_赛后校验.md",
+   "match_id": "周日025",
+   "league": "巴甲",
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261020_赛后校验.md",
+   "match_id": "周一001",
+   "league": "意甲",
+   "score_90": [
+    4,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261020_赛后校验.md",
+   "match_id": "周一002",
+   "league": "瑞超",
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261020_赛后校验.md",
+   "match_id": "周一003",
+   "league": "意甲",
+   "score_90": [
+    0,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261020_赛后校验.md",
+   "match_id": "周一004",
+   "league": "法乙",
+   "score_90": [
+    0,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261020_赛后校验.md",
+   "match_id": "周一005",
+   "league": "英超",
+   "score_90": [
+    3,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261020_赛后校验.md",
+   "match_id": "周一006",
+   "league": "西甲",
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261020_赛后校验.md",
+   "match_id": "周一007",
+   "league": "葡超",
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "20261018-20261020_赛后校验.md",
+   "match_id": "周一008",
+   "league": "巴甲",
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "_赛果补拉_2026-09-19至10-08.md",
+   "match_id": "202",
+   "league": "德甲",
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "_赛果补拉_2026-09-19至10-08.md",
+   "match_id": "202",
+   "league": "英超",
+   "score_90": [
+    3,
+    2
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "_赛果补拉_2026-09-19至10-08.md",
+   "match_id": "202",
+   "league": null,
+   "score_90": [
+    0,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch26_calibration.md",
+   "match_id": "周二003",
+   "league": null,
+   "score_90": [
+    2,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 77.0,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch26_calibration.md",
+   "match_id": "周二004",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 38.5,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch26_calibration.md",
+   "match_id": "周二005",
+   "league": null,
+   "score_90": [
+    4,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 48.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch26_calibration.md",
+   "match_id": "周二006",
+   "league": null,
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 64.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch26_calibration.md",
+   "match_id": "周二007",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 44.3,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch26_calibration.md",
+   "match_id": "周二008",
+   "league": null,
+   "score_90": [
+    1,
+    6
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 56.8,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch26_calibration.md",
+   "match_id": "周二009",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 37.8,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch26_calibration.md",
+   "match_id": "周三001",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 43.2,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch26_calibration.md",
+   "match_id": "周三002",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "客",
+   "model_prob": 48.4,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch27_calibration.md",
+   "match_id": "周三003",
+   "league": null,
+   "score_90": [
+    5,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch27_calibration.md",
+   "match_id": "周三004",
+   "league": null,
+   "score_90": [
+    3,
+    2
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch27_calibration.md",
+   "match_id": "周三005",
+   "league": "欧冠",
+   "score_90": [
+    4,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch27_calibration.md",
+   "match_id": "周三006",
+   "league": "欧冠",
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch27_calibration.md",
+   "match_id": "周三007",
+   "league": "欧冠",
+   "score_90": [
+    3,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch27_calibration.md",
+   "match_id": "周三008",
+   "league": "欧冠",
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch27_calibration.md",
+   "match_id": "周三009",
+   "league": null,
+   "score_90": [
+    0,
+    4
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch27_calibration.md",
+   "match_id": "周三010",
+   "league": "西甲",
+   "score_90": [
+    4,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch27_calibration.md",
+   "match_id": "周三011",
+   "league": null,
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch27_calibration.md",
+   "match_id": "周三012",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch28_calibration.md",
+   "match_id": "周四001",
+   "league": "欧罗巴",
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 43.6,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch28_calibration.md",
+   "match_id": "周四002",
+   "league": "欧罗巴",
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 46.6,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch28_calibration.md",
+   "match_id": "周四003",
+   "league": "欧罗巴",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 75.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch28_calibration.md",
+   "match_id": "周四004",
+   "league": "欧罗巴",
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 69.2,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch28_calibration.md",
+   "match_id": "周四005",
+   "league": "欧罗巴",
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "客",
+   "model_prob": 41.4,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch28_calibration.md",
+   "match_id": "周四006",
+   "league": "欧罗巴",
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 70.3,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch28_calibration.md",
+   "match_id": "周四007",
+   "league": "西甲",
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 49.7,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch28_calibration.md",
+   "match_id": "周四008",
+   "league": "西甲",
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 79.8,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch28_calibration.md",
+   "match_id": "周四009",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 48.9,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch29_calibration.md",
+   "match_id": "周五001",
+   "league": "德乙",
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 38.3,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch29_calibration.md",
+   "match_id": "周五002",
+   "league": "德乙",
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 58.7,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch29_calibration.md",
+   "match_id": "周五003",
+   "league": "西甲",
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 45.4,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch29_calibration.md",
+   "match_id": "周五004",
+   "league": null,
+   "score_90": [
+    1,
+    5
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 75.0,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch29_calibration.md",
+   "match_id": "周五005",
+   "league": "法乙",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 54.3,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch29_calibration.md",
+   "match_id": "周五006",
+   "league": "荷甲",
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 60.7,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch29_calibration.md",
+   "match_id": "周五007",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 45.2,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch29_calibration.md",
+   "match_id": "周五008",
+   "league": "德甲",
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 75.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch29_calibration.md",
+   "match_id": "周五009",
+   "league": "意甲",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 68.1,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch29_calibration.md",
+   "match_id": "周五010",
+   "league": "法甲",
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "客",
+   "model_prob": 57.2,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch29_calibration.md",
+   "match_id": "周五011",
+   "league": "英超",
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 59.8,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch29_calibration.md",
+   "match_id": "周五012",
+   "league": "英冠",
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 38.5,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch29_calibration.md",
+   "match_id": "周五013",
+   "league": "葡超",
+   "score_90": [
+    0,
+    4
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 73.2,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch29_calibration.md",
+   "match_id": "周五014",
+   "league": "西甲",
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "客",
+   "model_prob": 42.2,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch29_calibration.md",
+   "match_id": "周六001",
+   "league": "日乙",
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 56.0,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch29_calibration.md",
+   "match_id": "周六002",
+   "league": "日职",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 55.6,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "周日001",
+   "league": null,
+   "score_90": [
+    1,
+    6
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 59.1,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "周六011",
+   "league": null,
+   "score_90": [
+    3,
+    3
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 40.6,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "周六013",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 64.7,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "周六015",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 45.7,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "周六022",
+   "league": null,
+   "score_90": [
+    0,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 58.3,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "周六027",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 79.8,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "003",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "002",
+   "league": null,
+   "score_90": [
+    3,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "002",
+   "league": null,
+   "score_90": [
+    1,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "周六003",
+   "league": "日乙",
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 44.5,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "周六004",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 44.3,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "周六005",
+   "league": null,
+   "score_90": [
+    2,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 44.6,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "周六006",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 64.6,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "周六007",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 57.1,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "周六008",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 61.5,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "周六009",
+   "league": null,
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "客",
+   "model_prob": 61.1,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch30_calibration.md",
+   "match_id": "周六010",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 62.8,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日006",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日007",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 71.5,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日008",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 38.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日009",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 38.5,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日010",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 44.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日012",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 62.0,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日013",
+   "league": null,
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日014",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 70.3,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日015",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 45.9,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日016",
+   "league": null,
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 39.9,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日017",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 36.2,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日018",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 72.0,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日019",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 46.4,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日020",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 69.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日021",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 44.3,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日022",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 69.3,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日023",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 40.3,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日024",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 45.2,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch31_calibration.md",
+   "match_id": "周日025",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 45.6,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周一001",
+   "league": "芬超",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 42.1,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周一002",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 50.0,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周一004",
+   "league": null,
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 65.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周一005",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 56.4,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周一006",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 44.4,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周一007",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 49.8,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周一009",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 64.1,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周一011",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 54.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周二001",
+   "league": null,
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 65.6,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周二002",
+   "league": null,
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 53.4,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周二003",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 45.4,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周二004",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 47.1,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周二005",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 40.7,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周二006",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 41.4,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周二007",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 60.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周二008",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 36.1,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周二009",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "客",
+   "model_prob": 46.9,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周二010",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 55.3,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周三001",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 36.6,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周三002",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "客",
+   "model_prob": 45.2,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周三003",
+   "league": null,
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "客",
+   "model_prob": 49.5,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "001",
+   "league": null,
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "003",
+   "league": null,
+   "score_90": [
+    4,
+    2
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "005",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch32_calibration.md",
+   "match_id": "周一007",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周四002",
+   "league": null,
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 66.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周四004",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 76.3,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周四005",
+   "league": "欧冠",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 58.8,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周四006",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 60.6,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周四007",
+   "league": null,
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 40.0,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周五001",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 74.1,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周五002",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 79.4,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周五003",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 84.0,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周五004",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 85.5,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周五006",
+   "league": "荷甲",
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 58.1,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周五007",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 46.9,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周五009",
+   "league": "意甲",
+   "score_90": [
+    1,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 64.5,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周五010",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 72.5,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周五011",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 76.9,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周五012",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 82.6,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周五013",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周五014",
+   "league": "美职",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 44.4,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六029",
+   "league": "巴甲",
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 52.1,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六028",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 67.7,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六027",
+   "league": "法甲",
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 35.4,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六026",
+   "league": "意甲",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 58.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六025",
+   "league": "荷甲",
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 41.2,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六024",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "客",
+   "model_prob": 65.6,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六023",
+   "league": "葡超",
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 80.6,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六022",
+   "league": "西甲",
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 49.0,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六021",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六020",
+   "league": "英超",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 53.1,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六019",
+   "league": "挪超",
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 57.2,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六018",
+   "league": "意甲",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 59.5,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六017",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 65.1,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六016",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 40.5,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六015",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 45.0,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六014",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 59.0,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六013",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六012",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六011",
+   "league": "德甲",
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 73.2,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六009",
+   "league": "德甲",
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 51.5,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六006",
+   "league": "意甲",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 47.1,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六005",
+   "league": "英冠",
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 54.7,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六004",
+   "league": "英超",
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 50.8,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六003",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 51.8,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六002",
+   "league": "日乙",
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 56.5,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周六001",
+   "league": "日职",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 54.3,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周四003",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周四005",
+   "league": "欧冠",
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周日023",
+   "league": null,
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周日021",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周日023",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch33_calibration.md",
+   "match_id": "周日017",
+   "league": null,
+   "score_90": [
+    1,
+    4
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周日019",
+   "league": null,
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 41.8,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周日020",
+   "league": "西甲",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 38.8,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周日021",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 43.4,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周日022",
+   "league": null,
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 53.0,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周一001",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 47.1,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周一002",
+   "league": "西甲",
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 38.0,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周一003",
+   "league": "瑞超",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 54.0,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周一004",
+   "league": "瑞超",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 61.1,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周一005",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 80.6,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周一006",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 34.1,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周一008",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 46.9,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周二001",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 45.0,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周二002",
+   "league": "欧冠",
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 57.9,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周二003",
+   "league": "欧冠",
+   "score_90": [
+    1,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 37.5,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周二005",
+   "league": null,
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 46.6,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周二006",
+   "league": "英冠",
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 54.0,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周二007",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 56.0,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周二008",
+   "league": "欧冠",
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 63.3,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周二009",
+   "league": "欧冠",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 55.0,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周二010",
+   "league": "欧冠",
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 45.7,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周二011",
+   "league": "欧冠",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 60.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周二012",
+   "league": null,
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 59.0,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周一008",
+   "league": null,
+   "score_90": [
+    2,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch34_calibration.md",
+   "match_id": "周一006",
+   "league": null,
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六030",
+   "league": null,
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六028",
+   "league": "法甲",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 36.6,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六027",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 59.0,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六026",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 69.2,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六025",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 80.4,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六024",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 70.9,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六023",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 47.8,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六022",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 48.6,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六021",
+   "league": null,
+   "score_90": [
+    4,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 59.8,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六019",
+   "league": null,
+   "score_90": [
+    0,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 75.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六017",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 41.7,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六015",
+   "league": null,
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 46.8,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六013",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 40.5,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六012",
+   "league": null,
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 80.5,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六011",
+   "league": "德甲",
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 43.6,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六010",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 51.2,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六009",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 77.6,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六008",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 55.7,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六007",
+   "league": null,
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 58.3,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六005",
+   "league": "西甲",
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 38.7,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六004",
+   "league": "日职",
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 49.2,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六003",
+   "league": "日职",
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 58.6,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六002",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 42.8,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周四001",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 48.4,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周四002",
+   "league": null,
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 56.4,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周四005",
+   "league": null,
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周四006",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 63.2,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周四007",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 36.4,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周五001",
+   "league": null,
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "客",
+   "model_prob": 54.6,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周五002",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 64.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周五003",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 41.2,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周五005",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周五006",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 44.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周五007",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 41.2,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周五008",
+   "league": null,
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 38.5,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周五010",
+   "league": null,
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 64.2,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周五012",
+   "league": "巴甲",
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 40.8,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六030",
+   "league": null,
+   "score_90": [
+    4,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六009",
+   "league": null,
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六025",
+   "league": null,
+   "score_90": [
+    1,
+    4
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周四005",
+   "league": null,
+   "score_90": [
+    4,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周四003",
+   "league": null,
+   "score_90": [
+    5,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周六012",
+   "league": null,
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_calibration.md",
+   "match_id": "周五005",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六024",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六023",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六020",
+   "league": null,
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六018",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六010",
+   "league": null,
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周五012",
+   "league": null,
+   "score_90": [
+    3,
+    3
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周四002",
+   "league": "欧冠",
+   "score_90": [
+    4,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周四004",
+   "league": "欧冠",
+   "score_90": [
+    2,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周四006",
+   "league": "葡超",
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周四007",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周五001",
+   "league": "日职",
+   "score_90": [
+    2,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周五003",
+   "league": "德乙",
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周五004",
+   "league": "瑞超",
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周五006",
+   "league": null,
+   "score_90": [
+    0,
+    4
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周五007",
+   "league": "德甲",
+   "score_90": [
+    1,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周五008",
+   "league": "意甲",
+   "score_90": [
+    2,
+    4
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周五009",
+   "league": "法甲",
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周五010",
+   "league": "英冠",
+   "score_90": [
+    6,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周五011",
+   "league": "西甲",
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六002",
+   "league": null,
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六003",
+   "league": "日职",
+   "score_90": [
+    6,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六004",
+   "league": "日职",
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六005",
+   "league": "西甲",
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六007",
+   "league": "德甲",
+   "score_90": [
+    5,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六008",
+   "league": "德甲",
+   "score_90": [
+    1,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六011",
+   "league": "德甲",
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六014",
+   "league": "英超",
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六015",
+   "league": "英超",
+   "score_90": [
+    2,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六019",
+   "league": null,
+   "score_90": [
+    0,
+    6
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六021",
+   "league": "挪超",
+   "score_90": [
+    5,
+    3
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六026",
+   "league": "荷甲",
+   "score_90": [
+    1,
+    5
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六027",
+   "league": "意甲",
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch35_market_review.md",
+   "match_id": "周六029",
+   "league": "英超",
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周三006",
+   "league": null,
+   "score_90": [
+    4,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周四004",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周三009",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周四009",
+   "league": null,
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周四011",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周四003",
+   "league": "欧罗巴",
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周三017",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周三010",
+   "league": "欧罗巴",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周三007",
+   "league": "欧罗巴",
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周三004",
+   "league": "欧罗巴",
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周二014",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周日003",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周日005",
+   "league": "芬超",
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周日006",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周日007",
+   "league": null,
+   "score_90": [
+    3,
+    2
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周日009",
+   "league": null,
+   "score_90": [
+    5,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周日011",
+   "league": null,
+   "score_90": [
+    1,
+    5
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周日012",
+   "league": null,
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周日013",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周日016",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周日019",
+   "league": null,
+   "score_90": [
+    3,
+    2
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch36_calibration.md",
+   "match_id": "周日021",
+   "league": null,
+   "score_90": [
+    0,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch36b_calibration.md",
+   "match_id": "012",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch36b_calibration.md",
+   "match_id": "008",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch36b_calibration.md",
+   "match_id": "021",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch36b_calibration.md",
+   "match_id": "016",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch37_calibration.md",
+   "match_id": "006",
+   "league": null,
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch37_calibration.md",
+   "match_id": "002",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch37_calibration.md",
+   "match_id": "005",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch37_calibration.md",
+   "match_id": "007",
+   "league": null,
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch37_calibration.md",
+   "match_id": "008",
+   "league": null,
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch37_calibration.md",
+   "match_id": "001",
+   "league": null,
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch38_calibration.md",
+   "match_id": "周日001",
+   "league": null,
+   "score_90": [
+    4,
+    3
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch38_calibration.md",
+   "match_id": "周日002",
+   "league": "日乙",
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch38_calibration.md",
+   "match_id": "周日003",
+   "league": "日职",
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch38_calibration.md",
+   "match_id": "周日013",
+   "league": "意甲",
+   "score_90": [
+    22,
+    31
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch39_calibration.md",
+   "match_id": "周日013",
+   "league": "意甲",
+   "score_90": [
+    3,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch39_calibration.md",
+   "match_id": "周日014",
+   "league": "意甲",
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch39_calibration.md",
+   "match_id": "周日024",
+   "league": "意甲",
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch40_calibration.md",
+   "match_id": "周一004",
+   "league": "挪超",
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch40_calibration.md",
+   "match_id": "周一008",
+   "league": "西甲",
+   "score_90": [
+    3,
+    3
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch40_calibration.md",
+   "match_id": "周一009",
+   "league": "巴甲",
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch41_calibration.md",
+   "match_id": "周二004",
+   "league": "欧冠",
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch41_calibration.md",
+   "match_id": "周二010",
+   "league": "欧冠",
+   "score_90": [
+    1,
+    4
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch41_calibration.md",
+   "match_id": "周二011",
+   "league": "欧冠",
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch42_calibration.md",
+   "match_id": "周三002",
+   "league": "亚冠",
+   "score_90": [
+    2,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch42_calibration.md",
+   "match_id": "周三004",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch43_calibration.md",
+   "match_id": "周三006",
+   "league": null,
+   "score_90": [
+    3,
+    6
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch43_calibration.md",
+   "match_id": "周三008",
+   "league": null,
+   "score_90": [
+    3,
+    4
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch43_calibration.md",
+   "match_id": "周三011",
+   "league": null,
+   "score_90": [
+    2,
+    4
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周二001",
+   "league": null,
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周二002",
+   "league": null,
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周二004",
+   "league": null,
+   "score_90": [
+    4,
+    3
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周二006",
+   "league": null,
+   "score_90": [
+    4,
+    2
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周二007",
+   "league": null,
+   "score_90": [
+    4,
+    3
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周二009",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周三001",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周三003",
+   "league": null,
+   "score_90": [
+    0,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周三004",
+   "league": null,
+   "score_90": [
+    4,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周三005",
+   "league": null,
+   "score_90": [
+    2,
+    4
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周三006",
+   "league": null,
+   "score_90": [
+    3,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周三007",
+   "league": null,
+   "score_90": [
+    4,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周三008",
+   "league": null,
+   "score_90": [
+    3,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "客",
+   "model_prob": 42.0,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周三010",
+   "league": null,
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周三011",
+   "league": null,
+   "score_90": [
+    2,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周三012",
+   "league": null,
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch46_calibration.md",
+   "match_id": "周三013",
+   "league": null,
+   "score_90": [
+    0,
+    1
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch47_20261023_calibration.md",
+   "match_id": "周四002",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": true,
+   "level": "L2"
+  },
+  {
+   "file": "batch47_20261023_calibration.md",
+   "match_id": "周四008",
+   "league": null,
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch47_20261023_calibration.md",
+   "match_id": "周四005",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": null,
+   "level": "L3"
+  },
+  {
+   "file": "batch47_20261023_calibration.md",
+   "match_id": "周四010",
+   "league": null,
+   "score_90": [
+    0,
+    6
+   ],
+   "outcome": "客",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch47_20261023_calibration.md",
+   "match_id": "周四009",
+   "league": null,
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch47_20261023_calibration.md",
+   "match_id": "周四013",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": null,
+   "model_prob": null,
+   "hit": false,
+   "level": "L2"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "001",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 43.0,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "002",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "客",
+   "model_prob": 53.8,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "003",
+   "league": null,
+   "score_90": [
+    6,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 54.0,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "004",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 46.2,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "005",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "客",
+   "model_prob": 44.8,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "006",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 51.5,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "007",
+   "league": null,
+   "score_90": [
+    4,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 62.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "008",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 38.3,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "009",
+   "league": null,
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 65.7,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "010",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 52.8,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "011",
+   "league": null,
+   "score_90": [
+    3,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 51.4,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "012",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 55.5,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "013",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 51.7,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "014",
+   "league": null,
+   "score_90": [
+    0,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 49.3,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "015",
+   "league": null,
+   "score_90": [
+    1,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 55.8,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "016",
+   "league": null,
+   "score_90": [
+    4,
+    4
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 44.5,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "017",
+   "league": null,
+   "score_90": [
+    1,
+    1
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 62.9,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "018",
+   "league": null,
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "客",
+   "model_prob": 65.3,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "019",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 45.1,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "020",
+   "league": null,
+   "score_90": [
+    3,
+    0
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 52.8,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "021",
+   "league": null,
+   "score_90": [
+    0,
+    0
+   ],
+   "outcome": "平",
+   "model_pick": "客",
+   "model_prob": 47.4,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "022",
+   "league": null,
+   "score_90": [
+    1,
+    3
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 49.9,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "023",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 57.7,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "024",
+   "league": null,
+   "score_90": [
+    2,
+    1
+   ],
+   "outcome": "主",
+   "model_pick": "主",
+   "model_prob": 57.3,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "025",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 39.9,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "026",
+   "league": null,
+   "score_90": [
+    0,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "客",
+   "model_prob": 61.1,
+   "hit": true,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "027",
+   "league": null,
+   "score_90": [
+    1,
+    2
+   ],
+   "outcome": "客",
+   "model_pick": "主",
+   "model_prob": 58.2,
+   "hit": false,
+   "level": "L1"
+  },
+  {
+   "file": "batch49_calibration.md",
+   "match_id": "029",
+   "league": null,
+   "score_90": [
+    2,
+    2
+   ],
+   "outcome": "平",
+   "model_pick": "主",
+   "model_prob": 51.9,
+   "hit": false,
+   "level": "L1"
+  }
+ ]
+}
