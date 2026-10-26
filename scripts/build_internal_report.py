@@ -38,6 +38,8 @@ _ap = INTEL / f"_audit_{DAY}.json"
 if _ap.exists():
     AUDIT = json.loads(_ap.read_text(encoding="utf-8"))
 V3 = {_n: mv3.build_single(DAY, _n, AUDIT.get(_n, {}).get("grade", "A")) for _n in books}
+VER = next(iter(V3.values())).get("model_version", "v3")
+SNAP = next(iter(V3.values())).get("data_snapshot", "unknown")
 
 TITLE = {
     "001": ("亚冠精英", "京都 vs 纽喷：主胜方向清，让球别碰"),
@@ -257,9 +259,14 @@ def sect_model(num, v):
     def f2(x):
         return "—" if x is None else f"{x[0]:.2f} / {x[1]:.2f}"
     lines = []
-    lines.append(f"- 数据等级 **{r['grade']}**（同主客样本：主 {r['n_eff'][0]} 场 / 客 {r['n_eff'][1]} 场）")
+    lines.append(f"- 数据完整性等级 **{r['grade']}**（同主客样本：主 {r['n_eff'][0]} 场 / 客 {r['n_eff'][1]} 场）；"
+                 f"预测证据等级 **{r['evidence_grade']}**")
+    _oo, _tt, _jj = r.get('lam_odds_only'), r.get('lam_totals_only'), r.get('lam_market_joint')
+    if _oo or _jj:
+        lines.append(f"- 市场侧三套口径分开列（避免同名不同算法）：欧赔单腿 {f2(_oo)}；"
+                     f"大小单腿 {f2(_tt)}；联合拟合 **{f2(_jj)}**（下面 B 用它）")
     lines.append(f"- **A 独立模型 λ** {f2(la)}（经验贝叶斯：同主客速率 × 对手防守指数^0.5，向全季池化值收缩，k={r['k']:.0f}）")
-    lines.append(f"- **B 市场 λ** {f2(lb)}（Poisson 网格同时拟合欧赔去水三向 + 大小水位隐含总进球）")
+    lines.append(f"- **B 市场 λ（联合拟合）** {f2(lb)}（Poisson 网格同时拟合欧赔去水三向 + 大小水位隐含总进球）")
     lines.append(f"- **C 融合 λ** {f2(lc)}，λ总 {sum(lc):.2f}（权重：数据 {r['w_data']:.2f} / 市场 {1 - r['w_data']:.2f}）")
     for nt in r["notes"]:
         lines.append(f"- 口径提示：{nt}")
@@ -270,9 +277,17 @@ def sect_model(num, v):
                      f"　→　**Edge(A−市场) {e[0]:+.1f} / {e[1]:+.1f} / {e[2]:+.1f} pp**")
     else:
         lines.append(f"- 三向：市场 {pct(tb[0])} / {pct(tb[1])} / {pct(tb[2])}（A 模型缺同主客样本，本场不参与）")
-    lines.append(f"- 融合三向（出结论用）：**{pct(tc[0])} / {pct(tc[1])} / {pct(tc[2])}**")
-    lo, hi = r["interval_home"]
-    lines.append(f"- λ 不确定性：λ 后验 Gamma 抽样 4000 次重算，主胜概率区间 **{lo:.0f}%–{hi:.0f}%**（宽度 {hi - lo:.0f}pp；样本越薄越宽）")
+    lines.append(f"- 融合三向（出结论用，λ_C）：**{pct(tc[0])} / {pct(tc[1])} / {pct(tc[2])}**")
+    if ta and tb:
+        lo_, hi_ = r["interval_home"]
+        lines.append(f"- 为什么融合值不是 A 与市场的中位数：**融合在 λ 层做，不在概率层做平均**——"
+                     f"A 模型 {pct(ta[0])}、市场 {pct(tb[0])}，两者按 λ 加权（数据侧 {r['w_data']:.2f}）后得到 "
+                     f"{pct(tc[0])}；若按概率各半平均会是 {pct((ta[0] + tb[0]) / 2)}，本报告不用这种算法。")
+    else:
+        lo_, hi_ = r["interval_home"]
+    lines.append(f"- λ 不确定性（**融合 λ_C**，点估计同源）：λ 后验 Gamma 抽样 4000 次重算，"
+                 f"主胜 **{lo_:.0f}%–{hi_:.0f}%**（宽度 {hi_ - lo_:.0f}pp，样本越薄越宽）"
+                 f"；数据侧 λ_A 单算的区间是 {r['interval_home_data'][0]:.0f}%–{r['interval_home_data'][1]:.0f}%，仅作对照")
     ah = r["ah"]
     if ah["line"] is not None:
         d = ah["dist"]
@@ -302,11 +317,12 @@ def sect_model(num, v):
 def sect_end(num, v):
     r = V3[num]
     tc = r["three_c"]
+    sc = r["top_scores"]  # 只认 λ_C，避免与「二、模型」比分表打架
     lines = [
         f"- 方向：{ACTION_HINT[num]}",
-        f"- 比分：{v['top_scores'][0][0]}（模型 {pct(v['top_scores'][0][1])}）／次选 {v['top_scores'][1][0]}（{pct(v['top_scores'][1][1])}）",
+        f"- 比分：{sc[0][0]}（λ_C {pct(sc[0][1])}）／次选 {sc[1][0]}（{pct(sc[1][1])}）",
         f"- 概率口径（λ_C 融合，数据权重 {r['w_data']:.2f}）：主 {pct(tc[0],0)} / 平 {pct(tc[1],0)} / 客 {pct(tc[2],0)}；"
-        f"λ 不确定性下主胜区间 {r['interval_home'][0]:.0f}–{r['interval_home'][1]:.0f}%；足彩 **{ZQ[num]}**",
+        f"λ_C 融合区间 {r['interval_home'][0]:.0f}–{r['interval_home'][1]:.0f}%；足彩 **{ZQ[num]}**",
         f"- 打破条件：{BREAK[num]}",
     ]
     return "\n".join(lines)
@@ -320,7 +336,8 @@ for num in sorted(books):
     lg, ttl = TITLE[num]
     head = (f"### {num} {lg}｜{b['match'].split(' ', 1)[-1]}｜{b['kickoff']}｜"
             f"亚盘 {line_txt(v['ah_side'], v['ah_line'])}\n\n"
-            f"阿飞·内部研判　2026-10-26　分类：{lg}　90 分钟口径　数据等级 {V3[num]['grade']}\n")
+            f"阿飞·内部研判　2026-10-26　分类：{lg}　90 分钟口径　"
+            f"数据完整性 {V3[num]['grade']}／预测证据 {V3[num]['evidence_grade']}　模型 {VER}　快照 {SNAP}\n")
     body = f"""
 **一、盘口**
 
@@ -353,6 +370,7 @@ for num in sorted(books):
 HEAD = f"""# 2026-10-27 周二 10 场 · 内部分析报告
 
 - 生成：2026-10-26 深夜（赛前）。口径：**竞彩只算 90 分钟**；德国杯三场 90 分钟平局要进加时，竞彩不计。
+- 版本：**后台模型 {VER}**；数据快照 **{SNAP}**（`_books_/ _data_` 的 sha256 前 12 位，换数即变）。
 - 盘口源：`odds.500.com/fenxi/{{yazhi,ouzhi,daxiao}}-<id>.shtml`（亚指/欧指/大小三表，初盘+即时）；基本面源 `shuju-<id>.shtml`。
 - 公司可用性：亚指只有 易胜博/威廉/伟德/Interwetten（皇冠、Bet365 不在 500 亚指表）；欧指 6 家齐；大小只有 易胜博/威廉/伟德/Interwetten。**澳彩三表均无**，空白格即缺源。
 - 模板说明：本报告 = 足彩盘口表 + 原有六段结构的合并版。去重后每场固定六块：①盘口（三套+位移+跨盘自洽）②模型（λ双法 + 泊松解析 + 蒙特卡洛10万次 + 敏感性）③底层数据 ④外部预测 ⑤技术面 ⑥综合分析（方向/比分/概率/打破/动作+足彩）。
@@ -360,9 +378,12 @@ HEAD = f"""# 2026-10-27 周二 10 场 · 内部分析报告
   - **A 独立模型**：λ_A = 经验贝叶斯收缩（同主客速率 × 对手防守指数^0.5，向全季池化值收缩，k=4；等级 B/C 时 k=6），权重按样本再打折。
   - **B 市场隐含**：Poisson 网格同时拟合欧赔去水三向 + 大小水位隐含总进球。
   - **C 融合**：λ_C = w·λ_A + (1−w)·λ_B，w = 等级权重（A 0.65 / B 0.50 / C 0.35）× min(1, 同主客最小样本/5)。
+  - **融合只在 λ 层做，不在概率层加权平均**：所以「A 模型 78% / 市场 41% / 融合 47%」是正常的，47% 不是两数中位数。
+  - **两种等级不混用**：数据完整性等级（同主客样本量、重复行、日期）与预测证据等级（融合时数据侧权重 ≥0.50 较强 / 0.25–0.50 中等 / <0.25 偏弱 / 0 只有市场）分开标。
   - **Edge 一律 A vs B**（独立信号对市场）；拿融合值比市场是循环论证，已废弃。
   - 结算：亚盘/大小全部走 **五状态**（全赢/赢半/走水/输半/全输），由 `scripts/settle.py` 折算，整数球、半球、四分之一球分别处理，水位按香港盘。
-  - 不确定性：λ 后验 Gamma((n+k)·λ̂, n+k) 抽 4000 次，给主胜概率 5%–95% 区间。
+  - 不确定性：λ 后验 Gamma((n+k)·λ̂, n+k) 抽 4000 次，给主胜概率 5%–95% 区间；**点估计与区间必须同源**（都用 λ_C），λ_A 的区间只作对照。
+  - 一致性硬约束（由 `scripts/check_report_consistency.py` 自动验）：同场同比分只能有一个概率；点估计必须落在自己的区间内；本文每个百分数必须能在 `_model_v3_<day>.json` 里找到出处。
   - 数据审计：每场近 5 场均进/失由 `scripts/audit_data.py` 从逐场比分重算，附等级 A/B/DATA_INVALID（旧版曾把场地字段读成 side 导致 GF/GA 全反，已修）。
 - 纪律：模型与市场分歧 ≥10pp 的场次，按「先假定我方数据有缺口」处理——本次落地为「融合权重按样本打折」，不直接采信模型，也不无脑信市场。
 - 本文是内部稿：含盘口、去水、机构口径，**公开稿按 R41 去盘口语**，两篇前瞻另出。
@@ -372,16 +393,17 @@ HEAD = f"""# 2026-10-27 周二 10 场 · 内部分析报告
 DEC = """
 ## 决策层汇总
 
-| 场 | 数据等级 | 站位 | 市场动作 | 融合概率（主/平/客） | 足彩 |
-|---|---|---|---|---|
+| 场 | 数据完整性 | 预测证据 | 站位 | 市场动作 | 融合概率（主/平/客） | 足彩 |
+|---|---|---|---|---|---|
 """
 rows = []
 for num in sorted(books):
     r = V3[num]
     tc = r["three_c"]
     act = ACTION_HINT[num].split("；")
-    rows.append(f"| {num} {books[num]['match'].split(' ', 1)[-1].replace(' vs ', '–')} | {r['grade']} | {act[0]} | "
-                f"{'；'.join(act[1:]) or '—'} | {tc[0]*100:.0f}/{tc[1]*100:.0f}/{tc[2]*100:.0f} | {ZQ[num]} |")
+    rows.append(f"| {num} {books[num]['match'].split(' ', 1)[-1].replace(' vs ', '–')} | {r['grade']} | "
+                f"{r['evidence_grade']} | {act[0]} | {'；'.join(act[1:]) or '—'} | "
+                f"{tc[0]*100:.0f}/{tc[1]*100:.0f}/{tc[2]*100:.0f} | {ZQ[num]} |")
 DEC += "\n".join(rows) + "\n\n"
 
 # —— 数据驱动的盘点（全部取 V3 的五状态 EV，阈值 +3%） ——

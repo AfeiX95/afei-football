@@ -43,6 +43,30 @@ import model_poisson_500 as mp  # noqa: E402
 CLIP = (0.20, 3.20)
 K_BY_GRADE = {"A": 4.0, "B": 6.0, "C": 6.0, "DATA_INVALID": 6.0}
 W_BY_GRADE = {"A": 0.65, "B": 0.50, "C": 0.35, "DATA_INVALID": 0.0}
+MODEL_VERSION = "v3.1"
+
+
+def snapshot_id(day):
+    """数据快照标识 = 当日 _books/_data 两份原始 json 的 sha256 前 12 位（可追溯、可比对）"""
+    import hashlib
+    d = ROOT / "state" / "intel" / day
+    h = hashlib.sha256()
+    for name in (f"_books_{day}.json", f"_data_{day}.json"):
+        fp = d / name
+        if fp.exists():
+            h.update(fp.read_bytes())
+    return h.hexdigest()[:12]
+
+
+def evidence_grade(w_data, grade):
+    """预测证据等级（与「数据完整性等级」分开）：由融合时数据侧的权重决定"""
+    if grade == "DATA_INVALID" or not w_data:
+        return "市场单腿（无独立证据）"
+    if w_data >= 0.50:
+        return "较强（数据侧权重 ≥0.50）"
+    if w_data >= 0.25:
+        return "中等（数据侧权重 0.25–0.50）"
+    return "偏弱（数据侧权重 <0.25）"
 
 
 def _rate(block, key):
@@ -98,9 +122,37 @@ def data_lam(row, grade="A"):
 
 
 def market_lam(mkt3, total_hint=None):
+    """市场联合拟合（三向 + 总进球一起进目标函数）"""
     if not mkt3:
         return None
     return mp.fit_market(mkt3, total_hint)
+
+
+def scale_to_total(lam, total):
+    """把一条 λ 按比例缩放到给定总进球（大小盘单独拟合用）"""
+    if not lam or not total:
+        return None
+    s = float(lam[0]) + float(lam[1])
+    if s <= 0:
+        return None
+    f = float(total) / s
+    return (round(float(lam[0]) * f, 2), round(float(lam[1]) * f, 2))
+
+
+def lam_pack(mkt3, total_hint=None):
+    """四套 λ 显式命名，杜绝「不同方法同名」：
+    odds_only   只拟合欧赔三向（不看大小盘）
+    totals_only 只吃大小盘总进球（形状沿用 odds_only 比例）
+    market_joint 三向 + 总进球联合拟合（用于融合与 Edge）
+    """
+    if not mkt3:
+        return {"odds_only": None, "totals_only": None, "market_joint": None}
+    lo = mp.fit_market(mkt3, None)
+    return {
+        "odds_only": lo,
+        "totals_only": scale_to_total(lo, total_hint),
+        "market_joint": mp.fit_market(mkt3, total_hint),
+    }
 
 
 def fuse(lam_a, lam_b, grade="A", n_eff=None):
@@ -163,16 +215,24 @@ def build_single(day, num, grade="A"):
     v = model[num]
     mkt3 = v["market3"]
     la = data_lam(row, grade)
-    lb = market_lam(mkt3, v.get("ou_implied_total"))
+    pack = lam_pack(mkt3, v.get("ou_implied_total"))
+    lb = pack["market_joint"]
     lc, w = fuse(la["lam"] if la else None, lb, grade, la["n"] if la else None)
     grid = mp.grid_probs(lc[0], lc[1])
     n_eff = (la["n"][0] + la["k"], la["n"][1] + la["k"]) if la else (3, 3)
     out = {
+        "model_version": MODEL_VERSION,
+        "data_snapshot": snapshot_id(day),
         "grade": grade,
+        "data_grade": grade,
         "lam_data": la["lam"] if la else None,
+        "lam_odds_only": pack["odds_only"],
+        "lam_totals_only": pack["totals_only"],
+        "lam_market_joint": lb,
         "lam_market": lb,
         "lam_fused": lc,
         "w_data": w,
+        "evidence_grade": evidence_grade(w, grade),
         "k": la["k"] if la else 0.0,
         "n_eff": la["n"] if la else (0, 0),
         "three_data": three_way(la["lam"]) if la else None,
@@ -180,7 +240,9 @@ def build_single(day, num, grade="A"):
         "three_c": three_way(lc),
         "edge_ab": edge(la["lam"] if la else None, mkt3),
         "notes": la["notes"] if la else ["无非同主客样本，λ 只走市场反推"],
-        "interval_home": uncertainty(la["lam"] if la else lc, n_eff),
+        "interval_home_data": uncertainty(la["lam"] if la else lc, n_eff),
+        "interval_home_fused": uncertainty(lc, n_eff),
+        "interval_home": uncertainty(lc, n_eff),
         "top_scores": _top_scores(grid, 8),
         "sens": mp.sens_grid(lc[0], lc[1]),
     }
@@ -223,22 +285,32 @@ def build(day="20261027", grade_map=None):
         grade = grade_map.get(num, "A")
         mkt3 = v.get("market3")
         la = data_lam(row, grade)
-        lb = market_lam(mkt3, v.get("ou_implied_total"))
+        pack = lam_pack(mkt3, v.get("ou_implied_total"))
+        lb = pack["market_joint"]
         lc, w = fuse(la["lam"] if la else None, lb, grade,
                      la["n"] if la else None)
+        ne = (la["n"][0] + la["k"], la["n"][1] + la["k"]) if la else (3, 3)
         out[num] = {
+            "model_version": MODEL_VERSION,
+            "data_snapshot": snapshot_id(day),
             "grade": grade,
+            "data_grade": grade,
             "lam_data": la["lam"] if la else None,
+            "lam_odds_only": pack["odds_only"],
+            "lam_totals_only": pack["totals_only"],
+            "lam_market_joint": lb,
             "lam_market": lb,
             "lam_fused": lc,
             "w_data": w,
+            "evidence_grade": evidence_grade(w, grade),
             "three_data": three_way(la["lam"]) if la else None,
             "three_market": mkt3,
             "three_fused": three_way(lc),
             "edge_A_vs_mkt": edge(la["lam"] if la else None, mkt3),
             "n_eff": la["n"] if la else (0, 0),
-            "interval_home": uncertainty(la["lam"] if la else lc,
-                                         (la["n"][0] + la["k"], la["n"][1] + la["k"]) if la else (3, 3)),
+            "interval_home_data": uncertainty(la["lam"] if la else lc, ne),
+            "interval_home_fused": uncertainty(lc, ne),
+            "interval_home": uncertainty(lc, ne),
             "notes": (la["notes"] if la else ["无非同主客样本，λ 只走市场反推"]),
         }
     return out
@@ -262,7 +334,8 @@ def main():
         e = r["edge_A_vs_mkt"]
         print(f"{num} [{r['grade']}] A {f(la)} | B {f(lb)} | C {f(lc)} (w={r['w_data']:.2f}) "
               f"| Edge {'—' if e is None else '/'.join(f'{x:+.1f}' for x in e)} "
-              f"| P(主) 区间 {r['interval_home'][0]:.0f}–{r['interval_home'][1]:.0f}%")
+              f"| P(主) 融合区间 {r['interval_home'][0]:.0f}–{r['interval_home'][1]:.0f}%")
+        print(f"   数据区间 {r['interval_home_data'][0]:.0f}–{r['interval_home_data'][1]:.0f}% | 证据等级 {r['evidence_grade']}")
     print(f"→ {out_path}")
 
 
