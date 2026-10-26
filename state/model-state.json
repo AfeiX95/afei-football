@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated": "2026-10-26T22:05:00+08:00",
+  "updated": "2026-10-26T22:40:00+08:00",
   "model_version": "2.10.0",
   "calibration": {
     "last_batch": 49,
@@ -203,6 +203,10 @@
     {
       "type": "publish",
       "text": "周一 4 场：头条稿 + 小红书 4 卡未发布（建议小红书 20:00–22:00、头条次日早上）；发布后回填 writing_history.json（含 10-25 两篇 Batch#49 主张层：公开站边 3/4，幅度限定语易被证伪 → 幅度句只写边界 C43）"
+    },
+    {
+      "type": "流程",
+      "text": "周二档 20261027（10 场，10-26 夜登记，详见 state/intel/20261027/_schedule_20261027.md）：截至登记时全部待开售、webapi 拿不到赔率。明日 11:00 后确认开售 → prematch_intel.py --date 20261027 --leagues → 内部报告 → 按 R49 拆两篇（亚冠3场篇 20:00 前完稿 + 欧战/意甲 7 场篇）→ 小红书 ≤4 场/篇。⚠️ 京都/大田两场 18:00 开球在本号发布窗口之前，早场稿必须上午出。"
     }
   ],
   "pending_checks": [
@@ -212,7 +216,7 @@
     }
   ],
   "counters": {
-    "open_items": 31,
+    "open_items": 32,
     "pending_checks": 1,
     "task_log": 103,
     "candidate_rules": 27
