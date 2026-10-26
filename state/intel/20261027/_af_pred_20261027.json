@@ -1,0 +1,585 @@
+{
+ "rows": [
+  {
+   "num": "周二001",
+   "fid": 1629951,
+   "date": "2026-10-27T10:00:00+00:00",
+   "league": "World/AFC Champions League Elite",
+   "home": "Kyoto Sanga",
+   "away": "Newcastle Jets",
+   "pred_winner": "Kyoto Sanga",
+   "pred_comment": null,
+   "pred_advice": "Winner : Kyoto Sanga",
+   "pred_percent": {
+    "home": "45%",
+    "draw": "45%",
+    "away": "10%"
+   },
+   "pred_under_over": null,
+   "pred_win_or_draw": false,
+   "pred_goals_raw": {
+    "home": "-3.5",
+    "away": "-1.5"
+   },
+   "home_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "away_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "h2h_n": 0,
+   "h2h_top": "[]"
+  },
+  {
+   "num": "周二002",
+   "fid": 1629949,
+   "date": "2026-10-27T10:00:00+00:00",
+   "league": "World/AFC Champions League Elite",
+   "home": "Daejeon Citizen",
+   "away": "Vissel Kobe",
+   "pred_winner": "Vissel Kobe",
+   "pred_comment": "Win or draw",
+   "pred_advice": "Combo Double chance : draw or Vissel Kobe and -3.5 goals",
+   "pred_percent": {
+    "home": "10%",
+    "draw": "45%",
+    "away": "45%"
+   },
+   "pred_under_over": "-3.5",
+   "pred_win_or_draw": true,
+   "pred_goals_raw": {
+    "home": "-1.5",
+    "away": "-2.5"
+   },
+   "home_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "away_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "h2h_n": 0,
+   "h2h_top": "[]"
+  },
+  {
+   "num": "周二003",
+   "fid": 1629953,
+   "date": "2026-10-27T12:15:00+00:00",
+   "league": "World/AFC Champions League Elite",
+   "home": "Beijing Guoan",
+   "away": "Jeonbuk Motors",
+   "pred_winner": "Beijing Guoan",
+   "pred_comment": null,
+   "pred_advice": "Winner : Beijing Guoan",
+   "pred_percent": {
+    "home": "45%",
+    "draw": "45%",
+    "away": "10%"
+   },
+   "pred_under_over": null,
+   "pred_win_or_draw": false,
+   "pred_goals_raw": {
+    "home": "-3.5",
+    "away": "-1.5"
+   },
+   "home_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "away_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "h2h_n": 2,
+   "h2h_top": "[{\"fixture\": {\"id\": 253698, \"referee\": \"Amaar Aljenabi, United Arab Emirates\", \"timezone\": \"UTC\", \"date\": \"2019-05-07T12:00:00+00:00\", \"timestamp\": 1557230400, \"periods\": {\"first\": 1557230400, \"second\": 1557234000}, \"venue\": {\"id\": null, \"name\": \"Beijing Workers' Stadium\", \"city\": \"Beijing\"}, \"statu"
+  },
+  {
+   "num": "周二004",
+   "fid": 1638566,
+   "date": "2026-10-27T17:00:00+00:00",
+   "league": "Germany/DFB Pokal",
+   "home": "Hamburger SV",
+   "away": "Eintracht Frankfurt",
+   "pred_winner": "Eintracht Frankfurt",
+   "pred_comment": null,
+   "pred_advice": "Combo Winner : Eintracht Frankfurt and +9.5 goals",
+   "pred_percent": {
+    "home": "10%",
+    "draw": "45%",
+    "away": "45%"
+   },
+   "pred_under_over": "+9.5",
+   "pred_win_or_draw": false,
+   "pred_goals_raw": {
+    "home": "-3.5",
+    "away": "-11.5"
+   },
+   "home_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "away_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "h2h_n": 10,
+   "h2h_top": "[{\"fixture\": {\"id\": 1388590, \"referee\": \"Deniz Aytekin, Germany\", \"timezone\": \"UTC\", \"date\": \"2026-05-02T13:30:00+00:00\", \"timestamp\": 1777728600, \"periods\": {\"first\": 1777728600, \"second\": 1777732200}, \"venue\": {\"id\": null, \"name\": \"Deutsche Bank Park\", \"city\": \"Frankfurt\"}, \"status\": {\"long\": \"Mat"
+  },
+  {
+   "num": "周二005",
+   "fid": 1550174,
+   "date": "2026-10-27T17:30:00+00:00",
+   "league": "Italy/Serie A",
+   "home": "Sassuolo",
+   "away": "Lazio",
+   "pred_winner": "Lazio",
+   "pred_comment": null,
+   "pred_advice": "Winner : Lazio",
+   "pred_percent": {
+    "home": "0%",
+    "draw": "50%",
+    "away": "50%"
+   },
+   "pred_under_over": null,
+   "pred_win_or_draw": false,
+   "pred_goals_raw": {
+    "home": "-1.5",
+    "away": "-3.5"
+   },
+   "home_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "away_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "h2h_n": 10,
+   "h2h_top": "[{\"fixture\": {\"id\": 1378140, \"referee\": \"A. Arena\", \"timezone\": \"UTC\", \"date\": \"2026-03-09T19:45:00+00:00\", \"timestamp\": 1773085500, \"periods\": {\"first\": 1773085500, \"second\": 1773089100}, \"venue\": {\"id\": null, \"name\": \"Stadio Olimpico\", \"city\": \"Rome\"}, \"status\": {\"long\": \"Match Finished\", \"short\":"
+  },
+  {
+   "num": "周二006",
+   "fid": 1494313,
+   "date": "2026-10-27T18:00:00+00:00",
+   "league": "Sweden/Allsvenskan",
+   "home": "AIK Stockholm",
+   "away": "IF Elfsborg",
+   "pred_winner": "IF Elfsborg",
+   "pred_comment": "Win or draw",
+   "pred_advice": "Double chance : draw or IF Elfsborg",
+   "pred_percent": {
+    "home": "10%",
+    "draw": "45%",
+    "away": "45%"
+   },
+   "pred_under_over": null,
+   "pred_win_or_draw": true,
+   "pred_goals_raw": {
+    "home": "-2.5",
+    "away": "-3.5"
+   },
+   "home_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "away_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "h2h_n": 10,
+   "h2h_top": "[{\"fixture\": {\"id\": 1494155, \"referee\": \"Oscar Johnson, Sweden\", \"timezone\": \"UTC\", \"date\": \"2026-05-03T14:30:00+00:00\", \"timestamp\": 1777818600, \"periods\": {\"first\": 1777818600, \"second\": 1777822200}, \"venue\": {\"id\": 1507, \"name\": \"Borås Arena\", \"city\": \"Boras\"}, \"status\": {\"long\": \"Match Finished\""
+  },
+  {
+   "num": "周二007",
+   "fid": 1638561,
+   "date": "2026-10-27T19:45:00+00:00",
+   "league": "Germany/DFB Pokal",
+   "home": "Borussia Dortmund",
+   "away": "Werder Bremen",
+   "pred_winner": "Borussia Dortmund",
+   "pred_comment": null,
+   "pred_advice": "Combo Winner : Borussia Dortmund and +4.5 goals",
+   "pred_percent": {
+    "home": "45%",
+    "draw": "45%",
+    "away": "10%"
+   },
+   "pred_under_over": "+4.5",
+   "pred_win_or_draw": false,
+   "pred_goals_raw": {
+    "home": "-5.5",
+    "away": "-3.5"
+   },
+   "home_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "away_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "h2h_n": 10,
+   "h2h_top": "[{\"fixture\": {\"id\": 1575176, \"referee\": \"Christian Dingert, Germany\", \"timezone\": \"UTC\", \"date\": \"2026-10-09T18:30:00+00:00\", \"timestamp\": 1791570600, \"periods\": {\"first\": null, \"second\": null}, \"venue\": {\"id\": 19381, \"name\": \"Signal Iduna Park\", \"city\": \"Dortmund\"}, \"status\": {\"long\": \"Match Finish"
+  },
+  {
+   "num": "周二008",
+   "fid": 1638563,
+   "date": "2026-10-27T19:45:00+00:00",
+   "league": "Germany/DFB Pokal",
+   "home": "1. FC Köln",
+   "away": "Union Berlin",
+   "pred_winner": "Union Berlin",
+   "pred_comment": null,
+   "pred_advice": "Combo Winner : Union Berlin and +1.5 goals",
+   "pred_percent": {
+    "home": "10%",
+    "draw": "45%",
+    "away": "45%"
+   },
+   "pred_under_over": "+1.5",
+   "pred_win_or_draw": false,
+   "pred_goals_raw": {
+    "home": "-2.5",
+    "away": "-4.5"
+   },
+   "home_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "away_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "h2h_n": 10,
+   "h2h_top": "[{\"fixture\": {\"id\": 1388594, \"referee\": \"Daniel Schlager, Germany\", \"timezone\": \"UTC\", \"date\": \"2026-05-02T13:30:00+00:00\", \"timestamp\": 1777728600, \"periods\": {\"first\": 1777728600, \"second\": 1777732200}, \"venue\": {\"id\": 748, \"name\": \"Stadion An der Alten Försterei\", \"city\": \"Berlin\"}, \"status\": {\"l"
+  },
+  {
+   "num": "周二009",
+   "fid": 1550168,
+   "date": "2026-10-27T19:45:00+00:00",
+   "league": "Italy/Serie A",
+   "home": "AS Roma",
+   "away": "Cagliari",
+   "pred_winner": "AS Roma",
+   "pred_comment": "Win or draw",
+   "pred_advice": "Double chance : AS Roma or draw",
+   "pred_percent": {
+    "home": "45%",
+    "draw": "45%",
+    "away": "10%"
+   },
+   "pred_under_over": null,
+   "pred_win_or_draw": true,
+   "pred_goals_raw": {
+    "home": "-2.5",
+    "away": "-1.5"
+   },
+   "home_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "away_stats": {
+    "rank": null,
+    "played": null,
+    "w": null,
+    "d": null,
+    "l": null,
+    "gf": null,
+    "ga": null,
+    "league_form": null,
+    "hcd": {},
+    "wins_draws_loses_by": {
+     "wins_fixtures_home": null,
+     "wins_fixtures_away": null,
+     "draws_fixtures_home": null,
+     "draws_fixtures_away": null,
+     "loses_fixtures_home": null,
+     "loses_fixtures_away": null
+    }
+   },
+   "h2h_n": 10,
+   "h2h_top": "[{\"fixture\": {\"id\": 1378101, \"referee\": \"M. Marcenaro\", \"timezone\": \"UTC\", \"date\": \"2026-02-09T19:45:00+00:00\", \"timestamp\": 1770666300, \"periods\": {\"first\": 1770666300, \"second\": 1770669900}, \"venue\": {\"id\": null, \"name\": \"Stadio Olimpico\", \"city\": \"Rome\"}, \"status\": {\"long\": \"Match Finished\", \"sho"
+  },
+  {
+   "num": "周二010",
+   "fid": 1550175,
+   "date": "2026-10-27T19:45:00+00:00",
+   "league": "Italy/Serie A",
+   "home": "Torino",
+   "away": "Como",
+   "pred_winner": "Como",
+   "pred_comment": "Win or draw",
+   "pred_advice": "Double chance : draw or Como",
+   "pred_percent": {
+    "home": "10%",
+    "draw": "45%",
+    "away": "45%"
+   },
+   "pred_under_over": null,
+   "pred_goals_raw": null,
+   "home_stats": null,
+   "away_stats": null,
+   "h2h_n": 10,
+   "h2h_top": "(单独抓取成功，stats免费层无)"
+  }
+ ],
+ "missing": []
+}
