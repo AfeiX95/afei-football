@@ -1,0 +1,103 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><style>:root{--bw:1080px;--bh:1440px}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#050B12}
+body{width:var(--bw,1080px);height:var(--bh,1440px);overflow:hidden;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif}
+.v3{position:relative;width:var(--bw,1080px);height:var(--bh,1440px);overflow:hidden;
+    background:
+      radial-gradient(900px 460px at 18% 4%,rgba(0,240,120,.14),transparent 60%),
+      radial-gradient(700px 500px at 88% 22%,rgba(0,140,255,.10),transparent 62%),
+      repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 54px),
+      repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 54px),
+      #050B12}
+.v3 .frame{position:absolute;inset:18px;border:1px solid rgba(0,240,120,.14)}
+.v3 .top{position:absolute;left:62px;right:62px;top:44px;display:flex;justify-content:space-between;
+         font-size:19px;letter-spacing:.14em;color:#8FA2B8;font-weight:700}
+.v3 .top b{color:#00F078}
+.v3 .date{position:absolute;left:62px;top:100px}
+.v3 .date b{display:block;font-size:126px;line-height:.88;font-weight:900;color:#F2F7FF;letter-spacing:-.03em}
+.v3 .date b i{color:#00F078;font-style:normal}
+.v3 .date span{display:block;margin-top:12px;font-size:25px;font-weight:800;color:#9FB2C8;letter-spacing:.05em}
+.v3 .title{position:absolute;left:62px;top:300px;font-size:84px;line-height:1.1;font-weight:900;color:#F2F7FF;letter-spacing:-.01em}
+.v3 .title em{font-style:normal;color:#00F078}
+.v3 .stat{position:absolute;left:62px;top:512px;font-size:25px;font-weight:700;color:#A9BACE;letter-spacing:.04em}
+.v3 .stat b{color:#F2F7FF}
+.v3 .slogan{position:absolute;left:62px;top:558px;font-size:22px;font-weight:800;color:#5EAF8C;letter-spacing:.14em}
+.v3 .kpiR{position:absolute;right:62px;top:104px;width:306px;display:grid;gap:14px}
+.v3 .kcard{position:relative;border:1px solid rgba(0,240,120,.26);border-radius:14px;background:rgba(8,16,24,.78);
+           padding:16px 18px;display:flex;align-items:center;gap:12px}
+.v3 .kcard b{font-size:52px;font-weight:900;color:#00F078;line-height:1}
+.v3 .kcard b i{font-size:22px;font-style:normal;color:#9FB2C8;font-weight:700;margin-left:4px}
+.v3 .kcard span{display:block;font-size:20px;color:#C9D6E6;font-weight:700;letter-spacing:.04em;margin-top:4px}
+.v3 .kcard .ico{position:absolute;right:14px;top:12px;width:42px;height:42px;opacity:.9}
+.v3 .pitchwrap{position:absolute;left:0;right:0;top:600px;height:560px}
+.v3 .pitchwrap svg{position:absolute;left:50%;top:0;transform:translateX(-50%);width:920px}
+.v3 .divider{position:absolute;left:62px;right:62px;bottom:238px;display:flex;align-items:center;gap:16px;
+             font-size:18px;letter-spacing:.2em;color:#5C6E84;font-weight:700}
+.v3 .divider i{flex:1;height:1px;background:rgba(0,240,120,.3)}
+.v3 .divider u{text-decoration:none;color:#00F078;letter-spacing:.1em}
+.v3 .brand{position:absolute;left:62px;bottom:96px;display:flex;align-items:center;gap:16px}
+.v3 .brand em{display:block;width:8px;height:56px;background:#00F078;border-radius:2px}
+.v3 .brand b{display:block;font-size:50px;font-weight:900;color:#F2F7FF;letter-spacing:.02em}
+.v3 .brand b i{color:#8FA2B8;font-style:normal}
+.v3 .brand span{display:block;margin-top:6px;font-size:19px;color:#9FB2C8;font-weight:700;letter-spacing:.1em}
+.v3.wide .top{top:38px;left:72px;right:72px}
+.v3.wide .date{left:72px;top:88px}
+.v3.wide .date b{font-size:116px}
+.v3.wide .title{left:72px;top:266px;font-size:74px}
+.v3.wide .stat{left:72px;top:452px}
+.v3.wide .slogan{left:72px;top:494px}
+.v3.wide .kpiR{right:auto;left:72px;top:548px;width:840px;display:flex;gap:14px}
+.v3.wide .kcard{flex:1;padding:14px 16px}
+.v3.wide .kcard b{font-size:46px}
+.v3.wide .kcard .ico{width:34px;height:34px;right:12px;top:10px}
+.v3.wide .pitchwrap{left:auto;right:16px;top:150px;width:900px;height:620px}
+.v3.wide .pitchwrap svg{width:880px}
+.v3.wide .divider{display:none}
+.v3.wide .brand{left:72px;bottom:96px}
+.v3.wide .foot{left:72px;right:72px;bottom:26px}
+.v3 .foot{position:absolute;left:62px;right:62px;bottom:36px;display:flex;justify-content:space-between;gap:24px;
+          font-size:16px;letter-spacing:.03em;color:#46566A;font-weight:600}
+</style></head>
+<body><div class="v3">
+<div class="frame"></div>
+<div class="top"><span><b>12</b> MATCHES // DATA CARD</span><span>阿飞 · 赛博聊球</span></div>
+<div class="date"><b>10<i>.</i>23</b><span>星期五 ｜ 10/23 17:00 起 跨夜</span></div>
+<div class="title"><em>12 场</em>足球<br>赛事前瞻</div>
+<div class="stat"><b>12 场赛事</b> · <b>8 个开球时段</b> · <b>12 项联赛</b></div>
+<div class="slogan">公开数据 · 模型推演 · 风险校验</div>
+<div class="kpiR"><div class="kcard"><div><b>12<i>场</i></b><span>赛事拆解</span></div><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="#00F078" stroke-width="2.2"><circle cx="24" cy="24" r="17"/><polygon points="24,12 33,18 30,29 18,29 15,18" stroke-linejoin="round"/></svg></div></div><div class="kcard"><div><b>8<i>段</i></b><span>开球时段</span></div><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="#00F078" stroke-width="2.2"><circle cx="24" cy="24" r="17"/><path d="M24 14v10l7 5"/></svg></div></div><div class="kcard"><div><b>12<i>项</i></b><span>联赛覆盖</span></div><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="#00F078" stroke-width="2.2"><path d="M24 10 40 18 24 26 8 18z"/><path d="M8 26 24 34 40 26"/><path d="M8 32 24 40 40 32"/></svg></div></div></div>
+<div class="pitchwrap">
+<svg class="pitch" viewBox="0 0 960 620" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="gr" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#003D2B" stop-opacity=".30"/>
+      <stop offset="1" stop-color="#003D2B" stop-opacity=".58"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <polygon points="250,10 710,10 930,600 30,600" fill="url(#gr)"/>
+  <g fill="none" stroke="#00F078" stroke-width="2.1" opacity=".62" filter="url(#glow)">
+    <polygon points="250,10 710,10 930,600 30,600"/>
+    <line x1="140" y1="305" x2="820" y2="305"/>
+    <ellipse cx="480" cy="305" rx="116" ry="62"/>
+    <polygon points="150,470 810,470 930,600 30,600"/>
+    <polygon points="198,150 762,150 710,10 250,10"/>
+    <polygon points="300,556 660,556 690,600 270,600"/>
+    <polygon points="360,60 600,60 570,10 390,10"/>
+    <line x1="140" y1="305" x2="140" y2="470"/>
+    <line x1="820" y1="305" x2="820" y2="470"/>
+  </g>
+  <g fill="none" stroke="#9CFFCF" stroke-width="1.5" opacity=".45" filter="url(#glow)">
+    <circle cx="480" cy="244" r="46"/>
+    <polygon points="480,212 510,234 499,270 461,270 450,234"/>
+    <circle cx="480" cy="244" r="15"/>
+  </g>
+</svg>
+</div>
+<div class="divider"><u>FOOTBALL</u><i></i><u>DATA</u><i></i><u>ANALYSIS</u></div>
+<div class="brand"><em></em><div><b>阿飞 <i>·</i> 赛博聊球</b><span>用数据拆解比赛</span></div></div>
+<div class="foot"><span>澳超 · 德乙 · 瑞超 · 荷甲 · 荷乙 · 德甲 · 意甲 · 法甲 · 英超 · 英冠 · 西甲 · 葡超</span><span>十二场，先看账，再看球</span></div>
+</div></body></html>

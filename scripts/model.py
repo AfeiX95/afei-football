@@ -576,10 +576,12 @@ def main():
     # 2026-10-18 起：MATCHES 的键可以是竞彩编号（周日004），按编号换成 matchId
     ids = a.ids if not a.all else list(MATCHES)
     for x in ids:
-        if x in MATCHES:
-            run(x, slate)          # 键是竞彩编号时直接跑
+        if x in by_no:
+            run(by_no[x], slate)   # 优先用当期 slate 的编号→matchId 映射
+        elif x in MATCHES:
+            run(x, slate)          # 兜底：MATCHES 里手写的历史场次
         else:
-            run(by_no.get(x, x), slate)
+            run(x, slate)
 
 
 if __name__ == "__main__":

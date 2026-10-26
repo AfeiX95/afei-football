@@ -122,7 +122,7 @@ table.st td.a{font-weight:800;width:32%%}
 /* 热力 */
 .heat .grid{display:grid;grid-template-columns:22px repeat(5,1fr);gap:3px}
 .heat .rb{display:flex;align-items:center;justify-content:center;font-family:%(mono)s;font-size:13px;color:#7b8996}
-.heat .cell{height:31px;border-radius:2px}
+.heat .cell{height:37px;border-radius:2px}
 .heat .ax{display:flex;justify-content:space-around;margin-top:3px;font-family:%(mono)s;font-size:12px;color:#7b8996;padding-left:22px}
 .heat .cap{margin-top:3px;font-size:13px;color:#7b8996}
 /* 叙事 */
@@ -137,6 +137,8 @@ table.st td.a{font-weight:800;width:32%%}
 .cmp .lab{font-size:13px;color:#6a7885;letter-spacing:.02em;text-align:center}
 .cmp .rb{display:flex;align-items:center;gap:7px;font-family:%(mono)s;font-size:15px;font-weight:800;color:#22303c}
 .cmp .rb .v{width:46px}
+.cmp .rb .v.w{color:#7c8d9c;font-weight:600}
+.cmp .rb .v.b{font-weight:900}
 .cmp .rb .v.r{text-align:right;color:#b8331f}
 .cmp .rb .v.l{color:#0a768f}
 .cmp .track{flex:1;height:9px;display:flex;background:rgba(10,90,120,.10)}
@@ -165,6 +167,12 @@ table.st td.a{font-weight:800;width:32%%}
 .ic.g .t{color:#0a7d5a}.ic.g .t i{background:#0a7d5a}
 .ic.b .t{color:#b8331f}.ic.b .t i{background:#b8331f}
 .ic ul{margin:0;padding-left:13px}
+.ic2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ic2 .t{font-size:19px;font-weight:900;color:#E9F4FF;margin-bottom:6px}
+.ic2 ul{margin:0;padding-left:18px}
+.ic2 li{font-size:19px;line-height:1.55;margin-bottom:5px;color:#C6D4E4}
+.ic2 li.g::marker{color:#00F078}
+.ic2 li.b::marker{color:#FF6B8A}
 .ic li{font-size:12.5px;line-height:1.36;color:#22303c;margin-bottom:1px}
 .ic li::marker{color:#9aa8b4}
 """ % {"w": W, "h": H, "mono": MONO}
@@ -195,7 +203,7 @@ def radial(card: dict, size: int = 330) -> str:
 
     rings = []
     for k in (0.25, 0.5, 0.75, 1.0):
-        rings.append('<polygon points="%s" fill="none" stroke="rgba(10,90,120,.16)" stroke-width="1"/>'
+        rings.append('<polygon points="%s" fill="none" stroke="rgba(150,205,230,.34)" stroke-width="1.1"/>'
                      % " ".join("%.1f,%.1f" % (cx + rad * k * math.cos(-math.pi / 2 + i * 2 * math.pi / n),
                                                cy + rad * k * math.sin(-math.pi / 2 + i * 2 * math.pi / n))
                                 for i in range(n)))
@@ -210,12 +218,20 @@ def radial(card: dict, size: int = 330) -> str:
             anchor = "start"
         elif x < cx - 8:
             anchor = "end"
-        labels.append('<text x="%.1f" y="%.1f" font-size="15" font-weight="700" fill="#3f5566" '
+        labels.append('<text x="%.1f" y="%.1f" font-size="15" font-weight="700" fill="#CFE0EC" '
                       'text-anchor="%s">%s</text>' % (x, y, anchor, esc(d)))
-    return ('<svg viewBox="0 0 %.0f %.0f" width="%.0f" height="%.0f" style="overflow:visible">%s'
-            '<polygon points="%s" fill="rgba(10,163,194,.18)" stroke="#0aa3c2" stroke-width="2.4"/>'
-            '<polygon points="%s" fill="rgba(232,64,42,.12)" stroke="#e8402a" stroke-width="2.4"/>'
-            '%s</svg>' % (size, size, size, size, "".join(rings), poly(hv), poly(av), "".join(labels)))
+    axes = "".join(
+        '<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="rgba(150,205,230,.20)" stroke-width="1"/>'
+        % (cx, cy, cx + rad * math.cos(-math.pi / 2 + i * 2 * math.pi / n),
+           cy + rad * math.sin(-math.pi / 2 + i * 2 * math.pi / n))
+        for i in range(n))
+    svg = ("<svg viewBox=\"0 0 %.0f %.0f\" width=\"%.0f\" height=\"%.0f\" style=\"overflow:visible\">"
+           % (size, size, size, size))
+    svg += "".join(rings) + axes
+    svg += '<polygon points="%s" fill="rgba(0,240,120,.22)" stroke="#00F078" stroke-width="2.8"/>' % poly(hv)
+    svg += '<polygon points="%s" fill="rgba(255,107,129,.24)" stroke="#FF6B81" stroke-width="2.8"/>' % poly(av)
+    svg += "".join(labels) + "</svg>"
+    return svg
 
 
 def wdl_pie(card: dict, size: int = 236) -> str:
@@ -289,7 +305,7 @@ def form_pies(card: dict, size: int = 168) -> str:
             '<svg viewBox="0 0 %d %d" width="%d" height="%d">%s%s%s</svg>'
             '<div class="fpl">胜 %d · 平 %d · 负 %d</div></div>'
             % (esc(who), size, size, size, size, "".join(arcs), hole, txt, nums[0], nums[1], nums[2]))
-    return ('<div class="fps">%s</div><div class="fpn">同主场 / 同客场近 10 场赛果构成，'
+    return ('<div class="fps">%s</div><div class="fpn">同主场 / 同客场近 10 场交锋状态，'
             '已发生场次占比</div>' % "".join(blocks))
 
 
@@ -319,16 +335,27 @@ def mc_heat(card: dict) -> str:
     if not g:
         return ""
     mx = max(max(row) for row in g) or 1
+    # grid[h][a]：h=主队进球，a=客队进球
+    flat = [(float(g[h][a]), h, a) for h in range(min(5, len(g)))
+            for a in range(min(5, len(g[h])))]
+    top = {f"{h}-{a}" for _, h, a in sorted(flat, reverse=True)[:3]}
     cells = []
-    for i, row in enumerate(g[:5]):
-        cells.append('<div class="rb">%d</div>' % i)
-        for v in row[:5]:
+    for a in range(5):                      # 纵轴：客队进球
+        cells.append('<div class="rb">%d</div>' % a)
+        for h in range(5):                  # 横轴：主队进球
+            v = g[h][a] if h < len(g) and a < len(g[h]) else 0
             al = 0.05 + 0.88 * (float(v) / mx)
-            cells.append('<div class="cell" style="background:rgba(232,64,42,%.2f)"></div>' % al)
+            mark = f"{h}-{a}" in top
+            txt = ('<b style="position:relative;z-index:2;color:#FFFFFF;font-weight:900;'
+                   'font-size:16px;display:block;text-align:center;line-height:1;text-shadow:0 1px 2px rgba(0,0,0,.55)">%d-%d</b>' % (h, a)) if mark else ""
+            cells.append('<div class="cell" style="background:rgba(232,64,42,%.2f)">%s</div>' % (al, txt))
     ax = "".join("<span>%d</span>" % i for i in range(5))
-    return ('<div class="grid">%s</div><div class="ax">%s</div>'
-            '<div class="cap">横轴主队进球（4 记 4 球以上）· 纵轴客队进球 · 颜色越深概率越高</div>'
-            % ("".join(cells), ax))
+    home = esc(card.get("home") or "主队")
+    away = esc(card.get("away") or "客队")
+    return ('<div class="axlab">↓ %s 进球（纵轴）</div><div class="grid">%s</div>'
+            '<div class="ax">%s</div><div class="axlab r">%s 进球（横轴）→</div>'
+            '<div class="cap">比分频次 · 横轴主队、纵轴客队 · 颜色越深＝过去越常见 · 已标出最热三格</div>'
+            % (away, "".join(cells), ax, home))
 
 
 def value_block(card: dict) -> str:
@@ -354,9 +381,9 @@ def value_block(card: dict) -> str:
     return f"""<div class="val">
 <div class="head">
   <div class="side"><div class="tn">{esc(card.get("home"))}<em>{esc(card.get("league"))}</em></div>{money(v.get("home_text"))}
-    <div class="rk">名次 {esc(rh)}</div></div>
+    {'<div class="rk">名次 %s</div>' % esc(rh) if v.get("rank_text") else ""}</div>
   <div class="side r"><div class="tn">{esc(card.get("away"))}<em>{esc(card.get("league"))}</em></div>{money(v.get("away_text"))}
-    <div class="rk">名次 {esc(ra)}</div></div>
+    {('<div class="rk">名次 %s</div>' % esc(ra)) if v.get("rank_text") else ""}</div>
 </div>
 <div class="bar"><i class="l" style="width:{wl:.1f}%"></i><i class="r" style="width:{100 - wl:.1f}%"></i></div>
 <div class="vmeta"><span>主队占比 {wl:.0f}%</span><span>全队总值差 <b>{esc(v.get("ratio"))}</b></span></div>
@@ -366,51 +393,60 @@ def value_block(card: dict) -> str:
 def cmp_rows(card: dict) -> str:
     f = card.get("form") or {}
     fh, fa = f.get("home") or {}, f.get("away") or {}
-    def avg(v, n):
+
+    def num(v):
         try:
-            return "%.1f" % (float(v) / float(n))
-        except (TypeError, ZeroDivisionError, ValueError):
-            return "0.0"
-    nh, na = fh.get("n") or 5, fa.get("n") or 5
+            return float(v)
+        except (TypeError, ValueError):
+            return 0.0
+
+    pj_h, sj_h = num(fh.get("pj")), num(fh.get("sj"))
+    pj_a, sj_a = num(fa.get("pj")), num(fa.get("sj"))
+    seqh = (fh.get("seq") or "").upper()
+    seqa = (fa.get("seq") or "").upper()
+    win_h = 100.0 * seqh.count("W") / len(seqh) if seqh else None
+    win_a = 100.0 * seqa.count("W") / len(seqa) if seqa else None
+    zh, za = num(fh.get("zero")), num(fa.get("zero"))
+
     rows = [
-        ("进球", fh.get("gf"), fa.get("gf")),
-        ("失球", fh.get("ga"), fa.get("ga")),
-        ("场均进", avg(fh.get("gf"), nh), avg(fa.get("gf"), na)),
-        ("场均失", avg(fh.get("ga"), nh), avg(fa.get("ga"), na)),
-        ("净胜球", fh.get("net") if fh.get("net") is not None else (fh.get("gf", 0) - fh.get("ga", 0)),
-         fa.get("net") if fa.get("net") is not None else (fa.get("gf", 0) - fa.get("ga", 0))),
+        ("场均进球", "%.2f" % pj_h, "%.2f" % pj_a, None),
+        ("场均失球", "%.2f" % sj_h, "%.2f" % sj_a, None),
+        ("场均净胜", "%+.2f" % (pj_h - sj_h), "%+.2f" % (pj_a - sj_a), "zero"),
+        ("零封率", "%d%%" % round(zh), "%d%%" % round(za), None),
+        *([("近五场胜率", "%d%%" % round(win_h), "%d%%" % round(win_a), None)]
+          if (win_h is not None or win_a is not None) else []),
+        ("场均总进球", "%.2f" % (pj_h + sj_h), "%.2f" % (pj_a + sj_a), None),
     ]
-    if fh.get("unbeaten") is not None or fa.get("unbeaten") is not None:
-        rows.append(("不败率",
-                     "%d%%" % round(100 * (fh.get("unbeaten") or 0)),
-                     "%d%%" % round(100 * (fa.get("unbeaten") or 0))))
     out = ['<div class="row"><div class="lab" style="display:flex;justify-content:space-between;'
            'font-weight:800"><span style="color:#0a768f">%s</span>'
            '<span style="color:#b8331f">%s</span></div></div>' % (esc(card.get("home")), esc(card.get("away")))]
-    for lab, a, b in rows:
-        try:
-            neg = float(a) < 0 or float(b) < 0
-        except (TypeError, ValueError):
-            neg = False
-        try:
-            x, y = float(str(a).replace("%", "")), float(str(b).replace("%", ""))
-        except ValueError:
-            x = y = 1.0
-        if neg:  # 负数（净胜球）不画比例条，只出数字，避免「负长度」误导
+    for lab, a, b, mode in rows:
+        if mode == "zero":
+            xa = abs(num(a.replace("+", "")))
+            xb = abs(num(b.replace("+", "")))
+            mx = max(xa, xb, 0.01)
+            wa, wb = 48 * xa / mx, 48 * xb / mx
             out.append(
                 '<div class="row"><div class="lab">%s</div><div class="rb">'
-                '<span class="v l">%s</span><span class="track"><i class="l" style="width:50%%"></i>'
-                '<i class="r" style="width:50%%"></i></span><span class="v r">%s</span></div></div>'
-                % (esc(lab), esc(a), esc(b)))
+                '<span class="v l">%s</span><span class="track z">'
+                '<i class="ln"></i><i class="l" style="width:%.1f%%"></i>'
+                '<i class="r" style="width:%.1f%%"></i></span><span class="v r">%s</span></div></div>'
+                % (esc(lab), esc(a), wa, wb, esc(b)))
             continue
+        x = num(a.replace("%", "").replace("+", ""))
+        y = num(b.replace("%", "").replace("+", ""))
         tot = (x + y) or 1
         wl = max(4.0, min(96.0, 100.0 * x / tot))
+        # 谁更优：场均失球越小越好，其余越大越好
+        lower_better = ("失球" in lab)
+        hb = (x < y) if lower_better else (x > y)
+        la_cls, lb_cls = ("b", "w") if hb else ("w", "b")
         out.append(
             '<div class="row"><div class="lab">%s</div><div class="rb">'
-            '<span class="v l">%s</span><span class="track">'
-            '<i class="l" style="width:%.1f%%"></i><i class="r" style="width:%.1f%%"></i></span>'
-            '<span class="v r">%s</span></div></div>'
-            % (esc(lab), esc(a), wl, 100 - wl, esc(b)))
+            '<span class="v l %s">%s</span><span class="track">'
+            '<i class="l" style="width:%.1f%%"></i><i class="r" style="width:%.1f%%"></i>'
+            '</span><span class="v r %s">%s</span></div></div>'
+            % (esc(lab), la_cls, esc(a), wl, 100 - wl, lb_cls, esc(b)))
     return "".join(out)
 
 
@@ -432,9 +468,104 @@ def intel_block(card: dict) -> str:
     wide = ""
     if common:
         lis = "".join("<li>%s</li>" % esc(x) for x in common[:3])
-        wide = '<div class="ic wide"><div class="t"><i></i>身价 · 交锋 · 伤停</div><ul>%s</ul></div>' % lis
+        blk = card.get("intel2") or {}
+        if blk:
+            def col(side_key, title):
+                d_ = blk.get(side_key) or {}
+                good = "".join('<li class="g">%s</li>' % esc(x) for x in (d_.get("good") or [])[:2])
+                bad = "".join('<li class="b">%s</li>' % esc(x) for x in (d_.get("bad") or [])[:1])
+                return ('<div class="ic"><div class="t"><i></i>%s</div><ul class="ig">%s</ul>'
+                        '<ul class="ib">%s</ul></div>' % (esc(title), good, bad))
+            wide = '<div class="ic2">%s%s</div>' % (col("home", card.get("home") or "主队"), col("away", card.get("away") or "客队"))
+        else:
+            wide = '<div class="ic wide"><div class="t"><i></i>近 5 场 · 交锋 · 伤停</div><ul>%s</ul></div>' % lis
     return (cell(home, "g", it.get("home_good")) + cell(home, "b", it.get("home_bad")) +
             cell(away, "g", it.get("away_good")) + cell(away, "b", it.get("away_bad")) + wide)
+
+
+# ---------------------------------------------------------------- 皮肤（每天轮换）
+SKINS = {
+    "neon": {"name": "荧光绿", "bg": "#060A12", "bg2": "#0A1018", "panel": "#0D1723",
+             "text": "#E9F4FF", "muted": "#8FA3B8", "accent": "#00F078", "accent_soft": "#39FFA8",
+             "accent2": "#00D8FF", "red": "#FF4D6A", "red_soft": "#FF8DA1", "pink": "#FF3FA4"},
+    "cyan": {"name": "青蓝", "bg": "#050B14", "bg2": "#08111C", "panel": "#0B1524",
+             "text": "#E6F3FF", "muted": "#87A0B8", "accent": "#22D3FF", "accent_soft": "#7BE7FF",
+             "accent2": "#7C5CFF", "red": "#FF5A7A", "red_soft": "#FF95AC", "pink": "#C77DFF"},
+    "violet": {"name": "紫粉", "bg": "#0A0714", "bg2": "#0F0A1D", "panel": "#150F26",
+               "text": "#F0EBFF", "muted": "#9C8FB8", "accent": "#B26BFF", "accent_soft": "#D3A6FF",
+               "accent2": "#FF4FD8", "red": "#FF5C7A", "red_soft": "#FF9AB0", "pink": "#FF7AC8"},
+    "amber": {"name": "琥珀", "bg": "#0B0803", "bg2": "#120D05", "panel": "#1A1308",
+              "text": "#FFF6E6", "muted": "#B49B76", "accent": "#FFB020", "accent_soft": "#FFD06B",
+              "accent2": "#FF6A00", "red": "#FF5A4A", "red_soft": "#FF9B8F", "pink": "#FF8A5C"},
+    "ice": {"name": "冰蓝", "bg": "#050A10", "bg2": "#081018", "panel": "#0B1620",
+            "text": "#EAF6FF", "muted": "#7E96AA", "accent": "#5CE1E6", "accent_soft": "#A6F0F3",
+            "accent2": "#3D7BFF", "red": "#FF5F7E", "red_soft": "#FF9DB2", "pink": "#7FD8FF"},
+}
+SKIN_ORDER = ["neon", "cyan", "violet", "amber", "ice"]
+
+
+def skin_for(date_str: str | None, want: str | None = None) -> dict:
+    if want and want in SKINS:
+        return dict(SKINS[want], key=want)
+    import datetime as _dt
+    d = date_str or _dt.date.today().strftime("%Y%m%d")
+    digits = "".join(ch for ch in str(d) if ch.isdigit())
+    seed = int(digits) if digits else 0
+    key = SKIN_ORDER[seed % len(SKIN_ORDER)]
+    return dict(SKINS[key], key=key)
+
+
+LIGHT_MAP = {
+    "#eef2f6": "bg", "#f3f8fb": "bg2", "#fff": "panel", "#ffffff": "panel",
+    "#0d1117": "text", "#1a242e": "text", "#22303c": "text",
+    "#5c6b78": "muted", "#7b8996": "muted", "#6a7885": "muted", "#8a99a6": "muted",
+    "#9aa8b4": "muted", "#4a5a68": "muted", "#3f5566": "muted",
+    "#0aa3c2": "accent", "#41c8e0": "accent", "#66d6ea": "accent_soft", "#0a768f": "accent2",
+    "#e8402a": "red", "#b8331f": "red", "#c2382f": "red", "#7a2f22": "red_soft",
+    "#ff86ab": "pink", "#ff7ba3": "pink", "#ff85a9": "pink", "#0a7d5a": "accent2",
+    "#2a3c48": "text", "#33434f": "muted", "#7b8794": "muted", "#63d2e6": "accent_soft",
+}
+
+
+COMPACT_CSS = """
+<style>
+.card{padding:32px 44px 22px}
+h1{font-size:64px;margin-top:10px}
+.sec{margin-top:8px}
+.val{margin-top:6px;padding:7px 13px 6px}
+.val .side .money{font-size:34px}
+.sh{padding-bottom:3px}
+.narr{line-height:1.42}
+
+.axlab{font-size:15px;font-weight:800;color:#8FA3B8;letter-spacing:.04em;margin:2px 0}
+.axlab.r{text-align:right}
+.track.z{position:relative}
+.track.z .ln{position:absolute;left:50%;top:-3px;bottom:-3px;width:2px;background:#F0F5FF;box-shadow:0 0 4px rgba(240,245,255,.8)}
+.track.z .l{position:absolute;right:50%;top:0;bottom:0;background:linear-gradient(90deg,#00F07800,#00F078)}
+.track.z .r{position:absolute;left:50%;top:0;bottom:0;background:linear-gradient(90deg,#FF6B81,#FF6B8100)}
+.cell{display:flex;align-items:center;justify-content:center}
+</style>
+"""
+
+
+def _apply_skin(html: str, skin: dict) -> str:
+    def hexrep(m):
+        key = LIGHT_MAP.get(m.group(0).lower())
+        return skin[key] if key else m.group(0)
+    out = re.sub(r"#[0-9a-fA-F]{3,8}", hexrep, html)
+    acc = skin["accent"].lstrip("#")
+    rgb = "%d,%d,%d" % (int(acc[0:2], 16), int(acc[2:4], 16), int(acc[4:6], 16))
+    out = re.sub(r"rgba\(10,\s*90,\s*120,", "rgba(%s," % rgb, out)
+    out = re.sub(r"rgba\(10,\s*90,\s*120\s*,", "rgba(%s," % rgb, out)
+    return out.replace("</body>", COMPACT_CSS + "</body>")
+
+
+def _scale_font_css(html: str, k: float) -> str:
+    """只放大 CSS 里的 font-size，不改几何尺寸。"""
+    if abs(k - 1.0) < 1e-6:
+        return html
+    return re.sub(r"font-size:(\d+(?:\.\d+)?)px",
+                  lambda m: "font-size:%.1fpx" % (float(m.group(1)) * k), html)
 
 
 def card_html(card: dict, idx: int, total: int) -> str:
@@ -445,7 +576,12 @@ def card_html(card: dict, idx: int, total: int) -> str:
     focus = card.get("focus") or []
     narr = esc((card.get("narr") or " ".join(x for x in [card.get("contrast") or ""] + list(focus) if x))[:210])
     point = esc(card.get("point") or (focus[0] if focus else ""))
-    h2h = esc(f.get("h2h") or "")
+    _h2h = f.get("h2h")
+    if isinstance(_h2h, dict):
+        h2h_line = f.get("h2h_short") or ("交锋 %s 场 · 场均 %s 球" % (_h2h.get("n") or "—", _h2h.get("avg_goals") or "—"))
+    else:
+        h2h_line = _h2h or f.get("h2h_short") or ""
+    h2h = esc(h2h_line)
 
     def badges(seq):
         cls = {"W": "w", "D": "d", "L": "l"}
@@ -459,40 +595,151 @@ def card_html(card: dict, idx: int, total: int) -> str:
     radblock = ""
     if has_radar:
         radblock = ('<div class="rad">' + radial(card) +
-                    '<div class="lg2"><span><i style="background:#0aa3c2"></i>' + home + '</span>'
-                    '<span><i style="background:#e8402a"></i>' + away + '</span></div></div>')
+                    '<div class="lg2"><span><i style="background:#00F078"></i>' + home + '</span>'
+                    '<span><i style="background:#FF6B81"></i>' + away + '</span></div></div>')
+    quick = ""
+    fm = card.get("form") or {}
+    cells = []
+    for who, tag in (("home", "主队近况"), ("away", "客队近况")):
+        f = fm.get(who) or {}
+        if f:
+            l5 = (f.get("l5") or "").strip()
+            tail = "场均进 %s 失 %s" % (f.get("pj") or "—", f.get("sj") or "—")
+            cells.append((tag, ("%s ／ %s" % (l5, tail)) if l5 else tail))
+    h2h = fm.get("h2h")
+    if isinstance(h2h, dict) and h2h:
+        cells.append(("交锋", "%s 场 主队 %s胜%s平%s负" % (h2h.get("n") or "—", h2h.get("w") or 0,
+                                                     h2h.get("d") or 0, h2h.get("l") or 0)))
+    elif isinstance(h2h, str) and h2h.strip():
+        cells.append(("交锋", h2h))
+    quick_cells = ""
+    if cells:
+        quick_cells = ('<div class="sh" style="margin-bottom:6px"><span class="n" style="font-size:19px">本场速记</span>'
+                       '<span class="h">只列已发生的数字</span></div><div style="display:grid;'
+                       'grid-template-columns:1fr 1fr;gap:12px">')
+        for tag, val in cells:
+            quick_cells += ('<div style="background:#fff;border-left:5px solid #0a768f;padding:12px 14px">'
+                            '<b style="display:block;font-size:17px;color:#0a768f;letter-spacing:.06em">%s</b>'
+                            '<span style="display:block;margin-top:6px;font-size:21px;color:#2a3c48;line-height:1.35">%s</span>'
+                            '</div>' % (esc(tag), esc(val)))
+        quick_cells += "</div>"
+
+    pie_inner = form_pies(card) if card.get("pie_mode") == "form" else (wdl_pie(card) if card.get("pie_mode") not in (None, "none") else "")
+    heat_html = '<div class="heat">' + mc_heat(card) + '</div>' if card.get("heat", True) else ""
+    scores = card.get("h2h_scores") or []
+    score_html = ""
+    detail = card.get("h2h_detail") or {}
+    if detail:
+        rec = esc(detail.get("record") or "")
+        note = esc(detail.get("note") or "")
+        chips = "".join('<span style="display:inline-block;padding:5px 11px;margin:0 8px 8px 0;'
+                        'border:1px solid rgba(0,240,120,.45);border-radius:6px;font-weight:800;'
+                        'font-family:ui-monospace,Consolas,monospace;font-size:19px">%s</span>' % esc(x)
+                        for x in (detail.get("scores") or []))
+        score_html = ('<div class="sh"><span class="n">历史交锋</span><span class="h">%s</span></div>' % rec +
+                      ('<div style="margin-top:6px">%s</div>' % chips if chips else '') +
+                      ('<div class="narr" style="margin-top:4px">%s</div>' % note if note else ''))
+    elif scores:
+        chips = "".join('<span style="display:inline-block;padding:5px 11px;margin:0 8px 8px 0;'
+                        'border:1px solid rgba(0,240,120,.45);border-radius:6px;font-weight:800;'
+                        'font-family:ui-monospace,Consolas,monospace;font-size:%dpx">%s</span>'
+                        % (int(20 * (card.get("_fs") or 1.15)), esc(x)) for x in scores)
+        score_html = ('<div class="sh"><span class="n">历史交锋比分</span><span class="h">近 %d 次</span></div>'
+                      '<div style="margin-top:6px">%s</div>' % (len(scores), chips))
+    if not detail and not scores:
+        score_html = ('<div class="sh"><span class="n">读数口径</span><span class="h">只说明数据怎么来的</span></div>'
+                      '<div class="narr" style="margin-top:6px">'
+                      '・场均进/失取近 5 场同主客；・交锋取最近 5 次同主客；'
+                      '・比分格为历史频次，只上色不标数字；・全部 90 分钟口径，加时与点球不计。</div>')
+    if pie_inner:
+        pie_inner = '<div class="pie">' + pie_inner + '</div>'
+    h2h_left = ""
+    if detail:
+        _chips = "".join('<span style="display:inline-block;padding:4px 9px;margin:0 6px 6px 0;'
+                         'border:1px solid rgba(0,240,120,.45);border-radius:6px;font-weight:800;'
+                         'font-family:ui-monospace,Consolas,monospace;font-size:19px">%s</span>' % esc(x)
+                         for x in (detail.get("scores") or []))
+        st = card.get("h2h_stats") or {}
+        kpi = ""
+        if st:
+            kpi = ('<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px">'
+                   + "".join('<div style="background:rgba(0,240,120,.08);border:1px solid rgba(0,240,120,.28);'
+                             'border-radius:8px;padding:8px 10px;text-align:center">'
+                             '<div style="font-family:ui-monospace,Consolas,monospace;font-size:22px;'
+                             'font-weight:900;color:#00F078">%s</div>'
+                             '<div style="font-size:14px;color:#9FB2C8;margin-top:2px">%s</div></div>' % (v, k)
+                             for k, v in (("交锋场次", st.get("n") or "—"), ("平局率", "%s%%" % (st.get("draw") if st.get("draw") not in (None, "") else "—")),
+                                          ("小球率", "%s%%" % (st.get("low") if st.get("low") not in (None, "") else "—"))))
+                   + '</div>')
+        _pois = pois_bars(card)
+        pois_html = ""
+        if _pois:
+            pois_html = ('<div class="sh" style="margin-top:12px"><span class="n">单队进球分布</span>'
+                         '<span class="h">绿＝主队 / 红＝客队 0~4 球占比</span></div>'
+                         '<div class="pois" style="margin-top:4px">' + _pois + '</div>')
+        h2h_left = ('<div class="sh"><span class="n">历史交锋</span><span class="h">%s</span></div>' %
+                    esc(detail.get("record") or "") +
+                    ('<div style="margin-top:4px">%s</div>' % _chips if _chips else '') +
+                    kpi + pois_html)
+        score_html = ""
+    left_col = pie_inner or h2h_left or quick_cells
+    if left_col or heat_html.strip():
+        title = (card.get("pie_title") or "").strip()
+        head = ""
+        if title:
+            head = ('<div class="sh"><span class="n">' + esc(title) + '</span><span class="h">' +
+                    esc(card.get("pie_note") or "") + (' · 只上色不标数字' if heat_html.strip() else '') +
+                    '</span></div>')
+        pie_sec = ('<section class="sec">' + head +
+                   '<div class="two c2b"><div>' + left_col + '</div>' + heat_html + '</div>' + score_html + '</section>')
+    else:
+        pie_sec = ""
+    extra_css = "" if value_block(card) else ("<style>.card .sec{margin-top:16px}.heat .cell{height:54px}.ic2{grid-column:1 / -1}"
+                                              ".ic2{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%}</style>")
+    vb = value_block(card)
+    val_sec = ('<section class="sec"><div class="sh"><span class="n">身价对标</span>'
+               '<span class="h">2026 年 10 月估值</span></div>' + vb + "</section>") if vb else ""
+    def _hdr(name, f):
+        if not (f.get("seq") or f.get("l5")):
+            return ""
+        return ('<div class="fr"><div class="l"><span class="nm">' + name + '</span>'
+                '<span class="badges">' + badges(f.get("seq")) + '</span></div>'
+                '<span class="r">' + esc(f.get("l5")) + '</span></div>')
+
+    hdr_home, hdr_away = _hdr(home, fh), _hdr(away, fa)
+
+    inj_hint = ""
+    for line in ((card.get("intel") or {}).get("common") or []):
+        m = re.search(r"伤停[：:]?\s*(\d+)\s*人", str(line))
+        if m:
+            inj_hint = "%s 人" % m.group(1)
+            break
+    if not inj_hint:
+        inj_hint = "未公布"
+
     return f"""<!doctype html><html lang="zh"><head><meta charset="utf-8"><style>{CSS}</style></head>
-<body><div class="card">
+<body>{extra_css}<div class="card">
 <div class="frame"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i></div>
 <div class="top"><span class="lg">» {league}</span><span class="md">// MATCH DATA CARD</span>
 <span>{esc(card.get("kick"))}</span><span class="bd">@阿飞·赛博聊球</span></div>
 <h1>{home}<span class="vs">vs</span>{away}</h1>
 
-<section class="sec"><div class="sh"><span class="n">身价对标</span><span class="h">2026 年 10 月估值</span></div>
-{value_block(card)}</section>
+{val_sec}
 
 <section class="sec"><div class="sh"><span class="n">数据对照 · 六维</span>
-<span class="h">近 5 场 · {esc(f.get("h2h_short") or h2h or "同主客 10 场")}</span></div>
-<div class="two c2b stretch%s">
+<span class="h">近 5 场 · {esc(h2h_line)}</span></div>
+<div class="two c2b stretch{nr}">
   <div>
-    <div class="fr"><div class="l"><span class="nm">{home}</span><span class="badges">{badges(fh.get("seq"))}</span></div>
-      <span class="r">{esc(fh.get("l5"))}</span></div>
-    <div class="sub2">{esc(fh.get("ha"))}　场均 {esc(fh.get("pj"))} 进 / {esc(fh.get("sj"))} 失</div>
-    <div class="fr"><div class="l"><span class="nm">{away}</span><span class="badges">{badges(fa.get("seq"))}</span></div>
-      <span class="r">{esc(fa.get("l5"))}</span></div>
-    <div class="sub2">{esc(fa.get("ha"))}　场均 {esc(fa.get("pj"))} 进 / {esc(fa.get("sj"))} 失</div>
+    {hdr_home}
+    {hdr_away}
     <div class="cmp">{cmp_rows(card)}</div>
   </div>
   {radblock}
 </div></section>
 
-<section class="sec"><div class="sh"><span class="n">{esc(card.get("pie_title") or ("赛果构成" if card.get("pie_mode") == "form" else "数据分布"))} · 比分热度</span><span class="h">{esc(card.get("pie_note") or ("近 10 场已发生" if card.get("pie_mode") == "form" else "模型 2 万次抽样"))} · 比分只上色</span></div>
-<div class="two c2b">
-  <div class="pie">{form_pies(card) if card.get("pie_mode") == "form" else wdl_pie(card)}</div>
-  <div class="heat">{mc_heat(card)}</div>
-</div></section>
+{pie_sec}
 
-<section class="sec"><div class="sh"><span class="n">情报整理</span><span class="h">公开报道 · 需核原文</span></div>
+<section class="sec"><div class="sh"><span class="n">情报整理</span><span class="h">近期 · 交锋 · 伤停 {inj_hint}</span></div>
 <div class="intel">{intel_block(card)}</div></section>
 
 <section class="sec"><div class="sh"><span class="n">核心矛盾与看点</span><span class="h">已发生数据 + 观察点</span></div>
@@ -500,16 +747,19 @@ def card_html(card: dict, idx: int, total: int) -> str:
   <div class="narr"><b>核心矛盾</b>{narr}</div>
   <div>{pt_html or '<div class="narr">—</div>'}</div>
 </div></section>
+
+<div class="foot2" style="margin-top:auto"><span>公开赛事数据整理 · 个人观察</span>
+<span>仅供交流参考，不构成任何购买建议，请理性看待比赛</span></div>
 </div></body></html>"""
 
 
-def shot(html_path: Path, png_path: Path) -> bool:
+def shot(html_path: Path, png_path: Path, size=None, scale=2) -> bool:
     png_path = png_path.resolve()
     png_path.parent.mkdir(parents=True, exist_ok=True)
     chrome = os.environ.get("CHROME") or r"C:\Program Files\Google\Chrome\Application\chrome.exe"
     cmd = [chrome, "--headless=new", "--disable-gpu", "--hide-scrollbars", "--no-sandbox",
-           "--virtual-time-budget=1200", "--force-device-scale-factor=2",
-           "--window-size=%d,%d" % (W, H), "--screenshot=%s" % png_path,
+           "--virtual-time-budget=1200", "--force-device-scale-factor=%d" % scale,
+           "--window-size=%d,%d" % (size or (W, H)), "--screenshot=%s" % png_path,
            html_path.resolve().as_uri()]
     try:
         subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=120)
@@ -519,72 +769,495 @@ def shot(html_path: Path, png_path: Path) -> bool:
 
 
 COVER_CSS = """
-.cov{padding:0 0 10px 0;width:100%;flex:1;display:flex;flex-direction:column;text-align:left}
+.cov{padding:0 0 10px 0;width:100%;flex:1;display:flex;flex-direction:column;text-align:left;justify-content:space-between}
 .top{width:100%}
 .cov .eyebrow{margin-top:14px;font-size:19px;letter-spacing:.26em;color:#0a768f;font-weight:800}
 .cov .date{display:flex;align-items:baseline;gap:18px;margin-top:20px}
 .cov .date b{font-family:var(--mono);font-size:182px;line-height:.94;font-weight:800;color:#0b1b23;letter-spacing:-.03em}
 .cov .date span{font-size:66px;font-weight:900;color:#0a768f;letter-spacing:.04em}
-.cov .k1{margin-top:2px;font-size:132px;line-height:1.02;font-weight:900;color:#b8331f;letter-spacing:.04em}
+.cov .k1{margin-top:6px;font-size:200px;line-height:1;font-weight:900;color:#b8331f;letter-spacing:.12em}
 .cov .k2{margin-top:10px;font-size:84px;line-height:1.05;font-weight:900;color:#0b1b23;letter-spacing:.02em}
 .cov .k2 i{display:inline-block;width:14px;height:52px;background:#0a768f;margin-right:18px;vertical-align:-6px}
 .cov .rule{height:5px;margin:20px 0 0;background:linear-gradient(90deg,#0a768f,#0a768f 46%,#e8402a 46%,#e8402a)}
-.cov .pts{margin-top:24px;display:grid;gap:21px}
+.cov .pts{margin-top:26px;display:grid;gap:30px}
 .cov .pt2{background:#fff;border-left:5px solid #0a768f;padding:14px 18px}
 .cov .pt2 b{display:inline-block;font-size:33px;font-family:var(--mono);color:#b8331f;font-weight:800;
   line-height:1.1;margin-right:10px}
 .cov .pt2 span{display:inline;font-size:22px;color:#2a3c48;line-height:1.45}
 .cov .pt2:nth-child(even){border-left-color:#e8402a}
-.cov .tags3{margin-top:0;font-size:104px;line-height:1.06;font-weight:900;color:rgba(11,27,35,.14);letter-spacing:.06em}
+.cov .lgline{margin-top:16px;font-size:26px;line-height:1.35;letter-spacing:.06em;color:#0a768f;font-weight:800}
+.cov .chips{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cov .chip{border-top:4px solid #c02a2a;background:rgba(255,255,255,.82);padding:18px 16px 16px}
+.cov .chip b{display:block;font-size:46px;line-height:1.05;font-weight:900;color:#0b1b23}
+.cov .chip span{display:block;margin-top:6px;font-size:22px;letter-spacing:.05em;color:#0a768f;font-weight:700}
+.cov .lgline2{margin-top:14px;font-size:23px;letter-spacing:.04em;color:#5a7180;font-weight:700}
+.cov .tags3{margin-top:0;font-size:62px;line-height:1.2;font-weight:900;color:rgba(11,27,35,.13);letter-spacing:.02em;white-space:nowrap}
 .cov .tags3 i{font-style:normal;color:rgba(184,51,31,.22);margin:0 6px}
 .cov .en{margin-top:2px;margin-bottom:4px;font-family:var(--mono);font-size:17px;letter-spacing:.22em;color:rgba(11,27,35,.42)}
-.cov .fill{flex:1}
+.cov .fill{display:none}
 .foot2{width:100%;padding-top:10px;display:flex;justify-content:space-between;align-items:flex-end;
   font-size:18px;color:#5b7280}
 """
 
 
 def cover_html(data: dict) -> str:
-    """封面：日期/星期 + 赛事前瞻 + 品牌用超大字号；数据点式，不逐场列清单（判词第①条）。"""
+    """封面固定模板（2026-10-22 定）：只留品牌 + 日期 + 前瞻 + 三个固定槽位。
+
+    固定不变的：顶栏（足球·赛程 / DATA CARD / @阿飞·赛博聊球）、日期块、主标题「前瞻」、
+    品牌行「阿飞·赛博聊球」、三格 KPI（场数 / 时段数 / 0 处主观结论）、幽灵字与页脚。
+    每日只换：日期、星期、联赛清单、KPI 数字（槽位位置与字号永不变，避免版式漂移）。
+    """
     ms = data.get("matches") or []
-    ratios = []
-    for m in ms:
-        try:
-            ratios.append((float(str((m.get("value") or {}).get("ratio", "")).replace("倍", "").strip()), m))
-        except (TypeError, ValueError):
-            continue
-    ratios.sort(key=lambda x: -x[0])
-    big = [x for x in ratios if x[0] >= 2.0]
-    pts = []
-    if ratios:
-        r, m = ratios[0]
-        pts.append(("%.2f 倍" % r, "身价差最大：%s 与 %s，本批 %d 场里 %d 场差 2 倍以上"
-                    % (m["home"], m["away"], len(ms), len(big))))
-    if len(ratios) > 1:
-        r, m = ratios[-1]
-        pts.append(("%.2f 倍" % r, "最平：%s 与 %s，积分榜差十几个身位，身价几乎一样"
-                    % (m["home"], m["away"])))
-    pts.append(("%d 段" % len({(m.get("kick") or "").split()[-1] for m in ms if m.get("kick")}),
-                "开球时间摊得开：" + "、".join(sorted({(m.get("kick") or "").split()[-1] for m in ms if m.get("kick")}))))
-    pts.append(("%d 场" % len(ms), "一张卡一场：身价、近 5 场、六维、比分热度、情报整理、核心矛盾"))
-    pts.append(("0 处", "方向与比分结论——卡上只说已经发生了什么"))
-    body = "".join('<div class="pt2"><b>%s</b><span>%s</span></div>' % (esc(a), esc(b)) for a, b in pts)
+    meta = data.get("meta") or {}
+    m_date = meta.get("date") or "10.22"
+    m_wd = meta.get("weekday") or "星期四"
+    m_lg = meta.get("leagues") or "足球 · 赛程"
+    m_kd = meta.get("kick_day") or "%s 开赛" % m_date.replace(".", "/")
+    m_tail = meta.get("tail") or "%d 场，先看账，再看球" % len(ms)
+    m_tags = meta.get("tags") or ["交锋状态", "伤停情报", "账面反差"]
+    m_en = meta.get("en") or "SCHEDULE · GOALS · INJURY · LAST 10 MATCHES"
+    slots = list(meta.get("kick_slots") or [])
+    if not slots:
+        seen = []
+        for m in ms:
+            t = (m.get("kick") or "").split()
+            t = t[-1] if t else ""
+            if t and t not in seen:
+                seen.append(t)
+        slots = sorted(seen)
+    n_slot = len(slots)
+    chips = [("%d 场" % len(ms), "一张卡一场"),
+             ("%d 段" % n_slot, "开球时段"),
+             ("0 处", "方向与结论")]
+    chip_html = "".join(
+        '<div class="chip"><b>%s</b><span>%s</span></div>' % (esc(a), esc(b)) for a, b in chips)
+    tags3 = "<i>·</i>".join(esc(t) for t in m_tags)
+    def _hdr(name, f):
+        if not (f.get("seq") or f.get("l5")):
+            return ""
+        return ('<div class="fr"><div class="l"><span class="nm">' + name + '</span>'
+                '<span class="badges">' + badges(f.get("seq")) + '</span></div>'
+                '<span class="r">' + esc(f.get("l5")) + '</span></div>')
+
+    hdr_home, hdr_away = _hdr(home, fh), _hdr(away, fa)
+
+    inj_hint = ""
+    for line in ((card.get("intel") or {}).get("common") or []):
+        m = re.search(r"伤停[：:]?\s*(\d+)\s*人", str(line))
+        if m:
+            inj_hint = "%s 人" % m.group(1)
+            break
+    if not inj_hint:
+        inj_hint = "未公布"
+
     return f"""<!doctype html><html lang="zh"><head><meta charset="utf-8"><style>{CSS}{COVER_CSS}</style></head>
-<body><div class="card">
+<body>{extra_css}<div class="card">
 <div class="frame"><i class="tl"></i><i class="tr"></i><i class="bl"></i><i class="br"></i></div>
-<div class="top"><span class="lg">» 欧罗巴 · 解放者杯</span><span class="md">// MATCH DATA · 11 CARDS</span>
-<span>10/23 开赛</span></div>
+<div class="top"><span class="lg">» 足球 · 赛程</span><span class="md">// DATA CARD · {len(ms)}</span>
+<span>@{esc(m_date and '阿飞·赛博聊球')}</span></div>
 <div class="cov">
-  <div class="date"><b>10.22</b><span>星期四</span></div>
-  <div class="k1">赛事前瞻</div>
+  <div class="date"><b>{esc(m_date)}</b><span>{esc(m_wd)}</span></div>
+  <div class="k1">前瞻</div>
   <div class="k2"><i></i>阿飞·赛博聊球</div>
   <div class="rule"></div>
-  <div class="pts">{body}</div>
+  <div class="chips">{chip_html}</div>
+  <div class="lgline">{esc(m_lg)}</div>
+  <div class="lgline2">{esc(m_kd)}</div>
   <div class="fill"></div>
-  <div class="tags3">身价<i>·</i>伤停<i>·</i>轮换</div>
-  <div class="en">VALUE · INJURY · ROTATION · LAST 5 MATCHES</div>
+  <div class="tags3">{tags3}</div>
+  <div class="en">{esc(m_en)}</div>
 </div>
-<div class="foot2"><span>数据来源：公开赛事数据 · 官方名单 · 联赛身价表</span><span>十一场，先看账，再看球</span></div>
+<div class="foot2"><span>数据来源：公开赛事数据 · 官方赛程 · 联赛积分与主客场进失球</span><span>{esc(m_tail)}</span></div>
+</div></body></html>"""
+
+
+# ============ 深色赛博封面（2026-10-22 定稿 · 用户提案版） ============
+DARK_CSS = """
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#0B0F19}
+body{width:var(--bw,1080px);height:var(--bh,1440px);overflow:hidden;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif}
+.dk{position:relative;width:1080px;height:1440px;padding:56px 64px 48px;display:flex;flex-direction:column;
+    background:
+      linear-gradient(180deg,rgba(0,255,102,.05),transparent 38%),
+      repeating-linear-gradient(0deg,rgba(255,255,255,.045) 0 1px,transparent 1px 48px),
+      repeating-linear-gradient(90deg,rgba(255,255,255,.045) 0 1px,transparent 1px 48px),
+      #0B0F19}
+.dk .frame{position:absolute;inset:22px;border:1px solid rgba(0,255,102,.18);pointer-events:none}
+.dk .top{display:flex;justify-content:space-between;align-items:center;font-size:20px;letter-spacing:.16em;
+         color:#8A99AD;font-weight:700;text-transform:uppercase}
+.dk .top b{color:#00FF66;font-weight:800}
+.dk .hero{margin-top:86px}
+.dk .hero .dt{font-size:196px;line-height:.94;font-weight:900;letter-spacing:-.03em;color:#F2F7FF;
+              text-shadow:0 0 42px rgba(0,255,102,.28)}
+.dk .hero .dt i{color:#00FF66;font-style:normal}
+.dk .hero .wd{margin-top:14px;font-size:44px;font-weight:800;color:#F2F7FF;letter-spacing:.04em}
+.dk .hero .wd span{color:#00FF66}
+.dk .hero .sub{margin-top:12px;font-size:22px;letter-spacing:.14em;color:#8A99AD;font-weight:600}
+.dk .bars{display:flex;gap:10px;margin-top:26px}
+.dk .bars i{display:block;height:5px;flex:1;background:#00FF66}
+.dk .bars i:nth-child(2){background:rgba(0,255,102,.42)}
+.dk .bars i:nth-child(3){background:rgba(0,255,102,.18)}
+.dk .caps{margin-top:44px;border:1px solid rgba(0,255,102,.28);border-radius:16px;background:rgba(12,20,32,.86);
+          padding:26px 28px;display:grid;gap:18px}
+.dk .caps .row{display:flex;align-items:baseline;gap:14px}
+.dk .caps .row em{font-style:normal;color:#00FF66;font-size:24px;font-weight:800;letter-spacing:.04em}
+.dk .caps .row b{font-size:34px;font-weight:800;color:#EAF2FF;letter-spacing:.02em}
+.dk .caps .row span{margin-left:auto;font-size:22px;color:#8A99AD;font-weight:600;letter-spacing:.06em}
+.dk .lgrow{margin-top:34px;font-size:23px;line-height:1.5;color:#B9C6D8;font-weight:700;letter-spacing:.06em}
+.dk .lgrow i{color:#00FF66;font-style:normal;padding:0 8px}
+.dk .grow{flex:1}
+.dk .ipbar{display:flex;align-items:center;gap:18px}
+.dk .ipbar em{display:block;width:8px;height:58px;background:#00FF66;border-radius:2px}
+.dk .ipbar b{font-size:52px;font-weight:900;color:#F2F7FF;letter-spacing:.02em}
+.dk .ipbar b i{color:#8A99AD;font-style:normal;font-weight:800}
+.dk .foot{display:flex;justify-content:space-between;margin-top:18px;font-size:19px;letter-spacing:.08em;color:#5E6E82;font-weight:600}
+"""
+
+
+def cover_dark_html(data: dict) -> str:
+    """深色赛博封面：顶部参数栏 / 日期大标题 / 数据胶囊 / 底部 IP，四块固定。"""
+    ms = data.get("matches") or []
+    meta = data.get("meta") or {}
+    m_date = meta.get("date") or "10.22"
+    m_wd = meta.get("weekday") or "星期四"
+    m_lg = meta.get("leagues") or "足球 · 赛程"
+    m_kd = meta.get("kick_day") or "%s 开赛" % m_date.replace(".", "/")
+    m_tail = meta.get("tail") or "%d 场，先看账，再看球" % len(ms)
+    slots = list(meta.get("kick_slots") or [])
+    if not slots:
+        seen = []
+        for m in ms:
+            t = (m.get("kick") or "").split()
+            t = t[-1] if t else ""
+            if t and t not in seen:
+                seen.append(t)
+        slots = sorted(seen)
+    lgs = [x.strip() for x in m_lg.replace("·", ",").replace("、", ",").split(",") if x.strip()]
+    lg_html = "<i>·</i>".join(esc(x) for x in lgs)
+    rows = [("%d" % len(ms), "场硬核拆解", "全景"),
+            ("%d" % len(slots), "段开球时段", m_kd),
+            ("0", "处主观臆测与结论", "只列已发生")]
+    cap = "".join('<div class="row"><em>%s</em><b>%s</b><span>%s</span></div>' % (esc(a), esc(b), esc(c))
+                  for a, b, c in rows)
+    d1, _, d2 = m_date.partition(".")
+    dt = '10<i>.</i>23' if not d2 else '%s<i>.</i>%s' % (d1, d2)
+    def _hdr(name, f):
+        if not (f.get("seq") or f.get("l5")):
+            return ""
+        return ('<div class="fr"><div class="l"><span class="nm">' + name + '</span>'
+                '<span class="badges">' + badges(f.get("seq")) + '</span></div>'
+                '<span class="r">' + esc(f.get("l5")) + '</span></div>')
+
+    hdr_home, hdr_away = _hdr(home, fh), _hdr(away, fa)
+
+    inj_hint = ""
+    for line in ((card.get("intel") or {}).get("common") or []):
+        m = re.search(r"伤停[：:]?\s*(\d+)\s*人", str(line))
+        if m:
+            inj_hint = "%s 人" % m.group(1)
+            break
+    if not inj_hint:
+        inj_hint = "未公布"
+
+    return f"""<!doctype html><html lang="zh"><head><meta charset="utf-8"><style>{DARK_CSS}</style></head>
+<body><div class="dk">
+<div class="frame"></div>
+<div class="top"><span><b>{len(ms)}</b> MATCHES // DATA CARD</span><span>阿飞 · 赛博聊球</span></div>
+<div class="hero">
+  <div class="dt">{dt}</div>
+  <div class="wd">星期{esc(m_wd.replace("星期", ""))} <span>赛事前瞻</span></div>
+  <div class="sub">数据拆解 · 公开口径 · 不猜结局</div>
+  <div class="bars"><i></i><i></i><i></i></div>
+</div>
+<div class="caps">{cap}</div>
+<div class="lgrow">{lg_html}</div>
+<div class="grow"></div>
+<div class="ipbar"><em></em><b>阿飞 <i>·</i> 赛博聊球</b></div>
+<div class="foot"><span>公开赛事数据 · 官方赛程 · 积分与主客场进失球</span><span>{esc(m_tail)}</span></div>
+</div></body></html>"""
+
+
+# ============ 封面 v2.0：赛博数据终端 × 绿茵球场（2026-10-22 定稿） ============
+PITCH_SVG = """
+<svg class="pitch" viewBox="0 0 960 620" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="gr" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#003D2B" stop-opacity=".30"/>
+      <stop offset="1" stop-color="#003D2B" stop-opacity=".58"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <polygon points="250,10 710,10 930,600 30,600" fill="url(#gr)"/>
+  <g fill="none" stroke="#00F078" stroke-width="2.1" opacity=".62" filter="url(#glow)">
+    <polygon points="250,10 710,10 930,600 30,600"/>
+    <line x1="140" y1="305" x2="820" y2="305"/>
+    <ellipse cx="480" cy="305" rx="116" ry="62"/>
+    <polygon points="150,470 810,470 930,600 30,600"/>
+    <polygon points="198,150 762,150 710,10 250,10"/>
+    <polygon points="300,556 660,556 690,600 270,600"/>
+    <polygon points="360,60 600,60 570,10 390,10"/>
+    <line x1="140" y1="305" x2="140" y2="470"/>
+    <line x1="820" y1="305" x2="820" y2="470"/>
+  </g>
+  <g fill="none" stroke="#9CFFCF" stroke-width="1.5" opacity=".45" filter="url(#glow)">
+    <circle cx="480" cy="244" r="46"/>
+    <polygon points="480,212 510,234 499,270 461,270 450,234"/>
+    <circle cx="480" cy="244" r="15"/>
+  </g>
+</svg>
+"""
+
+V2_CSS = """
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#080D16}
+body{width:var(--bw,1080px);height:var(--bh,1440px);overflow:hidden;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif}
+.v2{position:relative;width:var(--bw,1080px);height:var(--bh,1440px);padding:50px 62px 42px;display:flex;flex-direction:column;
+    background:
+      radial-gradient(1200px 520px at 50% -8%,rgba(0,240,120,.13),transparent 62%),
+      repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 1px,transparent 1px 54px),
+      repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 54px),
+      #080D16}
+.v2 .frame{position:absolute;inset:20px;border:1px solid rgba(0,240,120,.16);pointer-events:none}
+.v2 .top{display:flex;justify-content:space-between;align-items:center;font-size:19px;letter-spacing:.14em;color:#91A2BA;font-weight:700}
+.v2 .top b{color:#00F078}
+.v2 .hero{margin-top:34px}
+.v2 .dt{font-size:158px;line-height:.92;font-weight:900;letter-spacing:-.03em;color:#F0F5FF}
+.v2 .dt i{color:#00F078;font-style:normal}
+.v2 .wd{margin-top:10px;font-size:40px;font-weight:900;color:#F0F5FF;letter-spacing:.03em}
+.v2 .wd em{font-style:normal;color:#00F078}
+.v2 .stat{margin-top:10px;font-size:24px;font-weight:700;color:#91A2BA;letter-spacing:.06em}
+.v2 .stat b{color:#F0F5FF}
+.v2 .sub{margin-top:8px;font-size:21px;font-weight:700;color:#5E9F84;letter-spacing:.12em}
+.v2 .bars{display:flex;gap:9px;margin-top:18px}
+.v2 .bars i{flex:1;height:4px;background:#00F078}
+.v2 .bars i:nth-child(2){background:rgba(0,240,120,.42)}
+.v2 .bars i:nth-child(3){background:rgba(0,240,120,.16)}
+.v2 .stage{position:relative;margin-top:16px;flex:1;min-height:0}
+.v2 .stage .pitch{position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);width:100%;max-height:100%}
+.v2 .kpi{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:18px;
+         border:1px solid rgba(0,240,120,.2);border-radius:12px;background:rgba(10,18,28,.72)}
+.v2 .kpi div{padding:16px 20px;border-right:1px solid rgba(0,240,120,.14)}
+.v2 .kpi div:last-child{border-right:0}
+.v2 .kpi b{display:block;font-size:40px;font-weight:900;color:#00F078;line-height:1}
+.v2 .kpi b i{font-size:22px;font-style:normal;color:#91A2BA;font-weight:700;margin-left:6px}
+.v2 .kpi span{display:block;margin-top:7px;font-size:20px;color:#C6D4E6;font-weight:700;letter-spacing:.04em}
+.v2 .lg{margin-top:16px;font-size:21px;line-height:1.45;color:#7E90A8;font-weight:700;letter-spacing:.05em}
+.v2 .ipbar{display:flex;align-items:center;gap:16px;margin-top:16px}
+.v2 .ipbar em{display:block;width:7px;height:50px;background:#00F078;border-radius:2px}
+.v2 .ipbar b{font-size:46px;font-weight:900;color:#F0F5FF;letter-spacing:.02em}
+.v2 .ipbar b i{color:#91A2BA;font-style:normal}
+.v2 .ipbar span{margin-left:auto;font-size:20px;color:#91A2BA;font-weight:700;letter-spacing:.08em}
+.v2.wide{width:1920px;height:1080px;padding:44px 72px 40px}
+.v2.wide .hero{margin-top:26px}
+.v2.wide .dt{font-size:150px}
+.v2.wide .stage{position:absolute;right:60px;top:118px;width:920px;height:690px;margin:0}
+.v2.wide .stage .pitch{left:0;top:0;transform:none;width:920px}
+.v2.wide .bars{width:600px}
+.v2.wide .kpi{position:absolute;left:72px;bottom:214px;width:840px}
+.v2.wide .lg{position:absolute;left:72px;bottom:160px;width:900px;font-size:18px;white-space:nowrap}
+.v2.wide .ipbar{position:absolute;left:72px;bottom:74px;width:900px}
+.v2.wide .foot{position:absolute;left:72px;right:72px;bottom:18px;margin-top:0}
+.v2 .foot{display:flex;justify-content:space-between;margin-top:14px;font-size:18px;letter-spacing:.07em;color:#4E5E72;font-weight:600}
+"""
+
+
+def cover_v2_html(data: dict, wide: bool = False) -> str:
+    """封面 v2.0：赛博数据终端 × 俯视绿茵球场。全部字段由 cards.json 驱动。"""
+    ms = data.get("matches") or []
+    meta = data.get("meta") or {}
+    m_date = meta.get("date") or "10.22"
+    m_wd = (meta.get("weekday") or "星期四").replace("星期", "")
+    m_kd = meta.get("kick_day") or "%s 开赛" % m_date.replace(".", "/")
+    m_tail = meta.get("tail") or "%d 场，先看账，再看球" % len(ms)
+    n = len(ms)
+    lgs = []
+    for m in ms:
+        lg = (m.get("league") or "").strip()
+        if lg and lg not in lgs:
+            lgs.append(lg)
+    slots = []
+    for m in ms:
+        t = (m.get("kick") or "").split()
+        t = t[-1] if t else ""
+        if t and t not in slots:
+            slots.append(t)
+    d1, _, d2 = m_date.partition(".")
+    dt = "%s<i>.</i>%s" % (d1, d2) if d2 else m_date
+    bw, bh = (1920, 1080) if wide else (1080, 1440)
+    cells = [(str(n), "场", "赛事拆解"), (str(len(slots)), "段", "开球时段"), (str(len(lgs)), "项", "联赛覆盖")]
+    kpi = "".join('<div><b>%s<i>%s</i></b><span>%s</span></div>' % c for c in cells)
+    lg_html = " <i>·</i> ".join(esc(x) for x in lgs)
+    lg_top = esc(" · ".join(lgs[:3])) + (" 等 %d 项联赛" % len(lgs) if len(lgs) > 3 else "")
+    cls = "v2 wide" if wide else "v2"
+    def _hdr(name, f):
+        if not (f.get("seq") or f.get("l5")):
+            return ""
+        return ('<div class="fr"><div class="l"><span class="nm">' + name + '</span>'
+                '<span class="badges">' + badges(f.get("seq")) + '</span></div>'
+                '<span class="r">' + esc(f.get("l5")) + '</span></div>')
+
+    hdr_home, hdr_away = _hdr(home, fh), _hdr(away, fa)
+
+    inj_hint = ""
+    for line in ((card.get("intel") or {}).get("common") or []):
+        m = re.search(r"伤停[：:]?\s*(\d+)\s*人", str(line))
+        if m:
+            inj_hint = "%s 人" % m.group(1)
+            break
+    if not inj_hint:
+        inj_hint = "未公布"
+
+    return f"""<!doctype html><html lang="zh"><head><meta charset="utf-8"><style>:root{{--bw:{bw}px;--bh:{bh}px}}{V2_CSS}</style></head>
+<body><div class="{cls}">
+<div class="frame"></div>
+<div class="top"><span><b>{n}</b> MATCHES // DATA CARD</span><span>@阿飞·赛博聊球</span></div>
+<div class="hero">
+  <div class="dt">{dt}</div>
+  <div class="wd">星期{m_wd} <em>｜足球赛事前瞻</em></div>
+  <div class="stat"><b>{n} 场赛事</b> · <b>{len(slots)} 个开球时段</b> · {esc(m_kd)}</div>
+  <div class="sub">公开数据 · 模型推演 · 风险校验</div>
+  <div class="bars"><i></i><i></i><i></i></div>
+</div>
+<div class="stage">{PITCH_SVG}</div>
+<div class="kpi">{kpi}</div>
+<div class="lg">{lg_html}</div>
+<div class="ipbar"><em></em><b>阿飞 <i>·</i> 赛博聊球</b><span>用数据拆解比赛</span></div>
+<div class="foot"><span>公开赛事数据 · 官方赛程 · 积分与主客场进失球</span><span>{esc(m_tail)}</span></div>
+</div></body></html>"""
+
+
+# ============ 封面 v3.0：场数进主标题 + 右侧竖排数据卡（2026-10-23 定） ============
+ICON_BALL = '<svg viewBox="0 0 48 48" fill="none" stroke="#00F078" stroke-width="2.2"><circle cx="24" cy="24" r="17"/><polygon points="24,12 33,18 30,29 18,29 15,18" stroke-linejoin="round"/></svg>'
+ICON_CLOCK = '<svg viewBox="0 0 48 48" fill="none" stroke="#00F078" stroke-width="2.2"><circle cx="24" cy="24" r="17"/><path d="M24 14v10l7 5"/></svg>'
+ICON_LAYER = '<svg viewBox="0 0 48 48" fill="none" stroke="#00F078" stroke-width="2.2"><path d="M24 10 40 18 24 26 8 18z"/><path d="M8 26 24 34 40 26"/><path d="M8 32 24 40 40 32"/></svg>'
+
+V3_CSS = """
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#050B12}
+body{width:var(--bw,1080px);height:var(--bh,1440px);overflow:hidden;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif}
+.v3{position:relative;width:var(--bw,1080px);height:var(--bh,1440px);overflow:hidden;
+    background:
+      radial-gradient(900px 460px at 18% 4%,rgba(0,240,120,.14),transparent 60%),
+      radial-gradient(700px 500px at 88% 22%,rgba(0,140,255,.10),transparent 62%),
+      repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 54px),
+      repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 54px),
+      #050B12}
+.v3 .frame{position:absolute;inset:18px;border:1px solid rgba(0,240,120,.14)}
+.v3 .top{position:absolute;left:62px;right:62px;top:44px;display:flex;justify-content:space-between;
+         font-size:19px;letter-spacing:.14em;color:#8FA2B8;font-weight:700}
+.v3 .top b{color:#00F078}
+.v3 .date{position:absolute;left:62px;top:100px}
+.v3 .date b{display:block;font-size:126px;line-height:.88;font-weight:900;color:#F2F7FF;letter-spacing:-.03em}
+.v3 .date b i{color:#00F078;font-style:normal}
+.v3 .date span{display:block;margin-top:12px;font-size:25px;font-weight:800;color:#9FB2C8;letter-spacing:.05em}
+.v3 .title{position:absolute;left:62px;top:300px;font-size:84px;line-height:1.1;font-weight:900;color:#F2F7FF;letter-spacing:-.01em}
+.v3 .title em{font-style:normal;color:#00F078}
+.v3 .stat{position:absolute;left:62px;top:512px;font-size:25px;font-weight:700;color:#A9BACE;letter-spacing:.04em}
+.v3 .stat b{color:#F2F7FF}
+.v3 .slogan{position:absolute;left:62px;top:558px;font-size:22px;font-weight:800;color:#5EAF8C;letter-spacing:.14em}
+.v3 .kpiR{position:absolute;right:62px;top:104px;width:306px;display:grid;gap:14px}
+.v3 .kcard{position:relative;border:1px solid rgba(0,240,120,.26);border-radius:14px;background:rgba(8,16,24,.78);
+           padding:16px 18px;display:flex;align-items:center;gap:12px}
+.v3 .kcard b{font-size:52px;font-weight:900;color:#00F078;line-height:1}
+.v3 .kcard b i{font-size:22px;font-style:normal;color:#9FB2C8;font-weight:700;margin-left:4px}
+.v3 .kcard span{display:block;font-size:20px;color:#C9D6E6;font-weight:700;letter-spacing:.04em;margin-top:4px}
+.v3 .kcard .ico{position:absolute;right:14px;top:12px;width:42px;height:42px;opacity:.9}
+.v3 .pitchwrap{position:absolute;left:0;right:0;top:600px;height:560px}
+.v3 .pitchwrap svg{position:absolute;left:50%;top:0;transform:translateX(-50%);width:920px}
+.v3 .divider{position:absolute;left:62px;right:62px;bottom:238px;display:flex;align-items:center;gap:16px;
+             font-size:18px;letter-spacing:.2em;color:#5C6E84;font-weight:700}
+.v3 .divider i{flex:1;height:1px;background:rgba(0,240,120,.3)}
+.v3 .divider u{text-decoration:none;color:#00F078;letter-spacing:.1em}
+.v3 .brand{position:absolute;left:62px;bottom:96px;display:flex;align-items:center;gap:16px}
+.v3 .brand em{display:block;width:8px;height:56px;background:#00F078;border-radius:2px}
+.v3 .brand b{display:block;font-size:50px;font-weight:900;color:#F2F7FF;letter-spacing:.02em}
+.v3 .brand b i{color:#8FA2B8;font-style:normal}
+.v3 .brand span{display:block;margin-top:6px;font-size:19px;color:#9FB2C8;font-weight:700;letter-spacing:.1em}
+.v3.wide .top{top:38px;left:72px;right:72px}
+.v3.wide .date{left:72px;top:88px}
+.v3.wide .date b{font-size:116px}
+.v3.wide .title{left:72px;top:266px;font-size:74px}
+.v3.wide .stat{left:72px;top:452px}
+.v3.wide .slogan{left:72px;top:494px}
+.v3.wide .kpiR{right:auto;left:72px;top:548px;width:840px;display:flex;gap:14px}
+.v3.wide .kcard{flex:1;padding:14px 16px}
+.v3.wide .kcard b{font-size:46px}
+.v3.wide .kcard .ico{width:34px;height:34px;right:12px;top:10px}
+.v3.wide .pitchwrap{left:auto;right:16px;top:150px;width:900px;height:620px}
+.v3.wide .pitchwrap svg{width:880px}
+.v3.wide .divider{display:none}
+.v3.wide .brand{left:72px;bottom:96px}
+.v3.wide .foot{left:72px;right:72px;bottom:26px}
+.v3 .foot{position:absolute;left:62px;right:62px;bottom:36px;display:flex;justify-content:space-between;gap:24px;
+          font-size:16px;letter-spacing:.03em;color:#46566A;font-weight:600}
+"""
+
+
+def cover_v3_html(data: dict, wide: bool = False) -> str:
+    """封面 v3.0：日期 + 「N 场足球赛事前瞻」主标题 + 右侧三张竖排数据卡 + 球场 + 品牌。"""
+    ms = data.get("matches") or []
+    meta = data.get("meta") or {}
+    m_date = meta.get("date") or "10.22"
+    m_wd = (meta.get("weekday") or "星期四").replace("星期", "")
+    m_kd = meta.get("kick_day") or "%s 开赛" % m_date.replace(".", "/")
+    m_tail = meta.get("tail") or "%d 场，先看账，再看球" % len(ms)
+    n = len(ms)
+    lgs = []
+    for m in ms:
+        lg = (m.get("league") or "").strip()
+        if lg and lg not in lgs:
+            lgs.append(lg)
+    slots = []
+    for m in ms:
+        t = (m.get("kick") or "").split()
+        t = t[-1] if t else ""
+        if t and t not in slots:
+            slots.append(t)
+    d1, _, d2 = m_date.partition(".")
+    dt = "%s<i>.</i>%s" % (d1, d2) if d2 else m_date
+    bw, bh = (1920, 1080) if wide else (1080, 1440)
+    cls = "v3 wide" if wide else "v3"
+    cards = [(str(n), "场", "赛事拆解", ICON_BALL),
+             (str(len(slots)), "段", "开球时段", ICON_CLOCK),
+             (str(len(lgs)), "项", "联赛覆盖", ICON_LAYER)]
+    kpi = "".join(
+        '<div class="kcard"><div><b>%s<i>%s</i></b><span>%s</span></div><div class="ico">%s</div></div>' % c
+        for c in cards)
+    lg_line = " · ".join(lgs)
+    def _hdr(name, f):
+        if not (f.get("seq") or f.get("l5")):
+            return ""
+        return ('<div class="fr"><div class="l"><span class="nm">' + name + '</span>'
+                '<span class="badges">' + badges(f.get("seq")) + '</span></div>'
+                '<span class="r">' + esc(f.get("l5")) + '</span></div>')
+
+    hdr_home, hdr_away = _hdr(home, fh), _hdr(away, fa)
+
+    inj_hint = ""
+    for line in ((card.get("intel") or {}).get("common") or []):
+        m = re.search(r"伤停[：:]?\s*(\d+)\s*人", str(line))
+        if m:
+            inj_hint = "%s 人" % m.group(1)
+            break
+    if not inj_hint:
+        inj_hint = "未公布"
+
+    return f"""<!doctype html><html lang="zh"><head><meta charset="utf-8"><style>:root{{--bw:{bw}px;--bh:{bh}px}}{V3_CSS}</style></head>
+<body><div class="{cls}">
+<div class="frame"></div>
+<div class="top"><span><b>{n}</b> MATCHES // DATA CARD</span><span>阿飞 · 赛博聊球</span></div>
+<div class="date"><b>{dt}</b><span>星期{m_wd} ｜ {esc(m_kd)}</span></div>
+<div class="title"><em>{n} 场</em>足球<br>赛事前瞻</div>
+<div class="stat"><b>{n} 场赛事</b> · <b>{len(slots)} 个开球时段</b> · <b>{len(lgs)} 项联赛</b></div>
+<div class="slogan">公开数据 · 模型推演 · 风险校验</div>
+<div class="kpiR">{kpi}</div>
+<div class="pitchwrap">{PITCH_SVG}</div>
+<div class="divider"><u>FOOTBALL</u><i></i><u>DATA</u><i></i><u>ANALYSIS</u></div>
+<div class="brand"><em></em><div><b>阿飞 <i>·</i> 赛博聊球</b><span>用数据拆解比赛</span></div></div>
+<div class="foot"><span>{esc(lg_line)}</span><span>{esc(m_tail)}</span></div>
 </div></body></html>"""
 
 
@@ -594,6 +1267,7 @@ def main() -> None:
     ap.add_argument("--out", required=True)
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--cover", action="store_true", help="额外输出 00_封面.png")
+    ap.add_argument("--cover-style", choices=["v3", "v2", "v2-wide", "dark", "light"], default="v3", help="封面风格")
     a = ap.parse_args()
     data = json.loads(Path(a.input).read_text(encoding="utf-8"))
     ms = data.get("matches") or []
@@ -601,17 +1275,54 @@ def main() -> None:
         ms = ms[:a.limit]
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
-    tmp = Path(tempfile.mkdtemp(prefix="d_", dir=os.environ.get("XHS_HTML_TMP") or out))
+    _tmp_env = os.environ.get("XHS_HTML_TMP")
+    if _tmp_env and Path(_tmp_env).is_dir():
+        tmp = Path(_tmp_env)  # 沙箱下 mkdtemp 新建目录会被 ACL 拒写，用预建目录
+    else:
+        tmp = Path(tempfile.mkdtemp(prefix="d_", dir=_tmp_env or out))
     if a.cover:
         ch = tmp / "00.html"
-        ch.write_text(cover_html(data), encoding="utf-8")
+        if a.cover_style == "v3":
+            html = cover_v3_html(data)
+        elif a.cover_style == "v2":
+            html = cover_v2_html(data)
+        elif a.cover_style == "v2-wide":
+            html = cover_v2_html(data, wide=True)
+        elif a.cover_style == "dark":
+            html = cover_dark_html(data)
+        else:
+            html = cover_html(data)
+        ch.write_text(html, encoding="utf-8")
         cpng = out / "00_封面.png"
         ok = shot(ch, cpng)
         print(("  ✅ " if ok else "  ❌ ") + cpng.name +
               ("  %dKB" % (cpng.stat().st_size // 1024) if ok else ""))
+        if a.cover_style in ("v2", "v3"):
+            # 16:9 横版（头条信息流裁切备用）
+            wh = tmp / "00_wide.html"
+            wh.write_text(cover_v3_html(data, wide=True) if a.cover_style == "v3" else cover_v2_html(data, wide=True), encoding="utf-8")
+            wpng = out / "00_封面_16x9.png"
+            wok = shot(wh, wpng, size=(1920, 1080))
+            print(("  ✅ " if wok else "  ❌ ") + wpng.name +
+                  ("  %dKB" % (wpng.stat().st_size // 1024) if wok else ""))
+            # 缩略图预览（验证信息流可读性）：用 Pillow 等比缩，避免固定 body 宽度被裁
+            ppng = out / "00_封面_预览.png"
+            pok = False
+            try:
+                from PIL import Image
+                im = Image.open(cpng)
+                im.thumbnail((360, 480), Image.LANCZOS)
+                im.save(ppng)
+                pok = True
+            except Exception:  # noqa: BLE001
+                pok = shot(ch, ppng, size=(360, 480), scale=1)
+            print(("  ✅ " if pok else "  ❌ ") + ppng.name +
+                  ("  %dKB" % (ppng.stat().st_size // 1024) if pok else ""))
     for i, c in enumerate(ms, 1):
         h = tmp / ("%02d.html" % i)
-        h.write_text(card_html(c, i, len(ms)), encoding="utf-8")
+        _skin = skin_for((data.get("meta") or {}).get("date"), os.environ.get("CARD_SKIN") or None)
+        _html = _scale_font_css(card_html(c, i, len(ms)), float(os.environ.get("CARD_FS", "1") or 1))
+        h.write_text(_apply_skin(_html, _skin), encoding="utf-8")
         png = out / ("%02d_%s_%s.png" % (i, c.get("no", ""), c.get("home", "") + "vs" + c.get("away", "")))
         ok = shot(h, png)
         print(("  ✅ " if ok else "  ❌ ") + png.name +

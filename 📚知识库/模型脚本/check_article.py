@@ -151,8 +151,19 @@ def check(path):
     from ai_detect import analyze
     ai = analyze(body)
     ai_pass = ai["score"] < 30
-    items.append(("7. AI 评分 <30", ai_pass,
-                  f"{ai['score']}（{ai['verdict']}）"))
+    m = ai.get("metrics", {})
+    # R56（2026-10-22）：语气词密度与句长突变是人味的两大主因，先作提示项不判 FAIL；
+    # 目标 particle ≥0.8/百字、adj_len_var ≥0.35。连续三批样本达标后改硬门禁。
+    part = m.get("particle_per100") or 0.0
+    adjv = m.get("adj_len_var") or 0.0
+    r56 = []
+    if part < 0.8:
+        r56.append(f"语气词 {part}/百字偏少（目标≥0.8）")
+    if adjv < 0.35:
+        r56.append(f"句长突变 {adjv} 偏平（目标≥0.35）")
+    d7 = f"{ai['score']}（{ai['verdict']}）"
+    d7 += "；R56 " + ("提示：" + "，".join(r56) if r56 else "达标")
+    items.append(("7. AI 评分 <30", ai_pass, d7))
 
     # 8. 占位符/乱码（图N占位符、控制字符、乱码星号）
     ph = re.findall(r"图\s*[0-9一二三四五六七八九十]\s*[ ：]\s*[^。\n]{1,12}", text)  # "图1 场均进失球对比"类；"图一乐"不算

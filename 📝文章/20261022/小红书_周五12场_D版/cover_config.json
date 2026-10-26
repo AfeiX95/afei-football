@@ -1,0 +1,58 @@
+{
+  "canvas": {
+    "portrait": [
+      1080,
+      1440
+    ],
+    "wide": [
+      1920,
+      1080
+    ],
+    "scale": 2
+  },
+  "date": "10.23",
+  "weekday": "星期五",
+  "matches": 12,
+  "slots": [
+    "00:30",
+    "01:00",
+    "02:00",
+    "02:30",
+    "02:45",
+    "03:00",
+    "03:45",
+    "17:00"
+  ],
+  "leagues": [
+    "澳超",
+    "德乙",
+    "瑞超",
+    "荷甲",
+    "荷乙",
+    "德甲",
+    "意甲",
+    "法甲",
+    "英超",
+    "英冠",
+    "西甲",
+    "葡超"
+  ],
+  "kick_day": "10/23 17:00 起 跨夜",
+  "tail": "十二场，先看账，再看球",
+  "theme": {
+    "bg": "#080D16",
+    "accent": "#00F078",
+    "text": "#F0F5FF",
+    "muted": "#91A2BA"
+  },
+  "blocks": [
+    "topbar",
+    "hero(date|title|stats)",
+    "pitch",
+    "kpi(3)",
+    "leagues",
+    "ip(brand)",
+    "foot"
+  ],
+  "renderer": "scripts/xhs_card_d.py::cover_v2_html"
+}

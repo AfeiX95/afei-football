@@ -151,9 +151,14 @@ def scan_cards(data: dict, cards=None) -> list:
     for c in cards:
         tag = "%s %s vs %s" % (c.get("no") or "?", c.get("home") or "?", c.get("away") or "?")
         for key in ("stance", "stance_label", "contrast", "contradiction", "will",
-                    "signal", "note", "brief"):
+                    "signal", "note", "brief", "narr", "point", "h2h_short"):
             if c.get(key):
                 hits += scan_text(c[key], "%s.%s" % (tag, key))
+        for side in ("home", "away"):
+            d = ((c.get("intel2") or {}).get(side) or {})
+            for k in ("good", "bad"):
+                for item in (d.get(k) or []):
+                    hits += scan_text(item, "%s.intel2.%s.%s" % (tag, side, k))
         for i, t in enumerate(c.get("focus") or [], 1):
             hits += scan_text(t, "%s.focus[%d]" % (tag, i))
         for i, t in enumerate(c.get("score") or [], 1):

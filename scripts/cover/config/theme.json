@@ -1,0 +1,35 @@
+{
+  "colors": {
+    "background": "#071019",
+    "panel": "#091725",
+    "green": "#00F078",
+    "green_dark": "#005A40",
+    "cyan": "#00D8D8",
+    "white": "#F0F5FF",
+    "muted": "#91A2BA",
+    "home": "#183B63",
+    "away": "#632334",
+    "border": "#006D51"
+  },
+  "font": "\"Noto Sans SC\",\"Microsoft YaHei\",\"PingFang SC\",sans-serif",
+  "brand": {
+    "name": "阿飞 · 赛博聊球",
+    "subtitle": "用数据拆解比赛"
+  },
+  "canvas": {
+    "3:4": [
+      1080,
+      1440
+    ],
+    "16:9": [
+      1920,
+      1080
+    ],
+    "scale": 2
+  },
+  "rules": {
+    "no_official_crest": true,
+    "text_rendered_by_code": true,
+    "no_fake_numbers": true
+  }
+}

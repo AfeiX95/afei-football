@@ -1,0 +1,101 @@
+{
+  "logos": {
+    "布里斯班": {
+      "title": "Brisbane Roar FC",
+      "file": "assets\\logos\\布里斯班.png"
+    },
+    "珀斯": {
+      "title": "Perth Glory FC",
+      "file": "assets\\logos\\珀斯.png"
+    },
+    "波鸿": {
+      "title": "VfL Bochum",
+      "file": "assets\\logos\\波鸿.png"
+    },
+    "沃夫斯堡": {
+      "title": "VfL Wolfsburg",
+      "file": "assets\\logos\\沃夫斯堡.png"
+    },
+    "埃夫斯堡": {
+      "title": "IF Elfsborg",
+      "file": "assets\\logos\\埃夫斯堡.png"
+    },
+    "马尔默": {
+      "title": "Malmö FF",
+      "file": "assets\\logos\\马尔默.png"
+    },
+    "前进之鹰": {
+      "title": "Go Ahead Eagles",
+      "file": "assets\\logos\\前进之鹰.png"
+    },
+    "特尔斯达": {
+      "title": "SC Telstar",
+      "file": "assets\\logos\\特尔斯达.png"
+    },
+    "布雷达": {
+      "title": "NAC Breda",
+      "file": "assets\\logos\\布雷达.png"
+    },
+    "赫拉克勒": {
+      "title": "Heracles Almelo",
+      "file": "assets\\logos\\赫拉克勒.png"
+    },
+    "斯图加特": {
+      "title": "VfB Stuttgart",
+      "file": "assets\\logos\\斯图加特.png"
+    },
+    "门兴": {
+      "title": "Borussia Mönchengladbach",
+      "file": "assets\\logos\\门兴.png"
+    },
+    "都灵": {
+      "title": "Torino FC",
+      "file": "assets\\logos\\都灵.png"
+    },
+    "蒙扎": {
+      "title": "AC Monza",
+      "file": "assets\\logos\\蒙扎.png"
+    },
+    "布雷斯特": {
+      "title": "Stade Brestois 29",
+      "file": "assets\\logos\\布雷斯特.png"
+    },
+    "尼斯": {
+      "title": "OGC Nice",
+      "file": "assets\\logos\\尼斯.png"
+    },
+    "伊普斯": {
+      "title": "Ipswich Town F.C.",
+      "file": "assets\\logos\\伊普斯.png"
+    },
+    "诺丁汉": {
+      "title": "Nottingham Forest F.C.",
+      "file": "assets\\logos\\诺丁汉.png"
+    },
+    "博尔顿": {
+      "title": "Bolton Wanderers F.C.",
+      "file": "assets\\logos\\博尔顿.png"
+    },
+    "米堡": {
+      "title": "Middlesbrough F.C.",
+      "file": "assets\\logos\\米堡.png"
+    },
+    "阿拉维斯": {
+      "title": "Deportivo Alavés",
+      "file": "assets\\logos\\阿拉维斯.png"
+    },
+    "马拉加": {
+      "title": "Málaga CF",
+      "file": "assets\\logos\\马拉加.png"
+    },
+    "吉马良斯": {
+      "title": "Vitória S.C.",
+      "file": "assets\\logos\\吉马良斯.png"
+    },
+    "马里迪莫": {
+      "title": "C.S. Marítimo",
+      "file": "assets\\logos\\马里迪莫.png"
+    }
+  },
+  "missing": {}
+}
