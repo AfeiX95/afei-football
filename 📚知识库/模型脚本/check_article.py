@@ -166,6 +166,20 @@ def check(path):
         r56.append(f"语气词 {part}/百字偏多（自然区 0.1–0.5，过多像刻意口语化）")
     if adjv < 0.35:
         r56.append(f"句长突变 {adjv} 偏平（目标≥0.35）")
+    import re as _re
+    _flat = []
+    for _para in body.splitlines():
+        _s = _para.strip()
+        if not _s or _s.startswith("#") or len(_s) < 60:
+            continue
+        _L = [len(x) for x in _re.split(r"[。！？]", _s) if x.strip()]
+        if len(_L) >= 3:
+            _avg = sum(_L) / len(_L)
+            _sd = (sum((v - _avg) ** 2 for v in _L) / len(_L)) ** 0.5
+            if _sd < 8:
+                _flat.append(_s[:14].replace("**", "") + f"…(sd {_sd:.1f})")
+    if _flat:
+        r56.append("句长偏平段落 " + str(len(_flat)) + " 个：" + "；".join(_flat[:3]))
     d7 = f"{ai['score']}（{ai['verdict']}）"
     d7 += "；R56 " + ("提示：" + "，".join(r56) if r56 else "达标")
     items.append(("7. AI 评分 <30", ai_pass, d7))
