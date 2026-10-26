@@ -4114,3 +4114,30 @@ python -X utf8 scripts/prematch_intel.py --date 20261020 --media            # �
 - **公开稿微调**（未重写）：001+002+003 篇标题改为《账偏国安，这钱我没敢下重》，78-41-47 段改成「按样本分配话语权」的说法并点明 47% 不是中点；比分改成「表里最高 1-1 12.2%，我押 1-0/2-1（10.9%/9.2%），差距摆出来」；两篇各补一行模型版本 + 快照落款。门禁：1436 字 / 8 项全过 / AI 20.9；1494 字 / 8 项全过 / AI 28.0。
 - 产物：`state/intel/20261027/_audit_bundle_{001,003}.md`。
 - **仍未做**（评审清单）：①赔率多次快照与异动检验 ②可追溯断言层（把「结论→证据」串成结构化链）③报告自检三件（表格列数、概率和=100±0.3、EV 重算）④历史报告灌库回测（用 20 批标定 k 与等级阈值）。
+
+## 2026-10-27 夜 · Predictions Ledger + 回测管线 + 历史方向审计（v3.2）
+
+**做了什么**
+- 新建 `scripts/ledger.py`：赛前预测不可变账本。`append`（同 match_id 二次写入直接拒绝，退出码 2）/ `add-result`（结果单独追加）/ `verify`（逐条重算 SHA-256）/ `status`。存储 `state/ledger/predictions|results/<YYYYMMDD>.jsonl`，每条带 `record_sha256`、`prediction_timestamp`（取模型 json mtime，非落账时刻）、`post_kickoff`、`retrospective` 标记。
+- 新建 `scripts/backtest.py`：A/M/F 同口径回测（Multiclass Brier / LogLoss / 十档可靠性 + ECE / 成对损失差 + bootstrap 95% CI（seed 20261027）/ 分联赛与数据等级 / P3 权重 w 网格（时间序切 train-test）/ P3 弃权分档）。
+- 新建 `scripts/history_audit.py`：扫 60 份 `📚知识库/赛后校验/*.md`，按表头跳过半场/让球/大小列，同场次+同比分去重。
+- 新建 `docs/LEDGER.md`（数据字典 + 存储 + 命令 + 口径 + 当前状态）。
+- 新建 `scripts/tests/test_ledger_backtest.py`（13 项：不可变、哈希篡改检出、retrospective 标记、结果幂等、Brier/LogLoss 已知值、CI 可复现、可靠性桶守恒、同集合公平、w 网格端点、弃权覆盖、历史解析两种格式）→ **全仓 100 项测试通过**。
+- 播种账本：`state/ledger/predictions/20261027.jsonl` 10 场（v3.1，post_kickoff=0，retrospective=0）。
+
+**P1 审计结论（重要，防误判）**
+- 60 份文档抽出逐场行 747 条，去重后 **458 条**（接近历史口径 474，差 16 场为未见文档/比分变动）。
+- 分级：L1 213（有首选概率+赛果）/ L2 140（只有✅❌+赛果）/ L3 103。
+- **历史里没有任何一场带赛前三向概率与赛前时间戳** → 只能做方向命中率交叉核对，**不能进概率回测**；方向命中 195/353 = 55.2%（注意口径混杂，不等于市场对照）。
+- 产出 `📚知识库/赛后校验/历史方向审计_20261027.md` 与 `state/ledger/history_audit.json`。
+
+**明确没做（按用户要求冻结）**
+- 未改融合权重（v3.1 的 0.13/0.39/0.52/0.65 原样冻结），未把「10pp 阈值」换成新区间半宽规则，未因 A−M 分歧大就自动加权。
+- 回测当前样本 0 场：`state/ledger/backtest_20261027.md` 只证明管线可跑，**不含任何 alpha 结论**。
+
+**下一步**
+1. 开球前对每批跑 `ledger.py append --day <日期>`（失败即门禁未过）；赛果出后 `add-result`。
+2. `stance` 字段仍缺（`flags: stance_missing`）：需按报告「决策看板」人工回填，禁止自动推断。
+3. 累计 ≥30 场再跑 `backtest.py`；「分歧可信度」（A 参数抽样中 P(A>M) 的比例）计划随 schema v2 一起落盘（v1 记录已冻结，不回填）。
+
+**提交**：`dc4b0f0`（+ 之前 `b49dfd0` v3.2 区间口径与字段溯源），已推 gitee + origin。
