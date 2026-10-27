@@ -11,8 +11,9 @@ python -X utf8 scripts/brief.py
 - **项目总规则** → 读取 `I:\阿飞说球\AGENTS.md`（写作铁律/会话记忆/工作流/数据核验清单，三端共用）
 - **一页纸工作流** → `docs/WORKFLOW-ONE-PAGE.md`；**详版管线** → `docs/WORKFLOW.md`
 - **技能索引** → `📚知识库/skills/INDEX.md`（共 29 个技能，按行号区间按需读取，禁止全量读 >400 行技能）
-- **写作偏好覆盖层** → `📚知识库/skills/afei-writing-standards/SKILL.md`（**R1–R58**）
+- **写作偏好覆盖层** → `📚知识库/skills/afei-writing-standards/SKILL.md`（**R1–R59**）
 - **头条官方合规规范** → `📚知识库/写作指南/头条社区规范.md`（2026-10-28 官方 8 份规则核实）
+- **小红书一图流海报规范（R59）** → `scripts/xhs_card_d.py`（`3/4/5/6场`赛博黑金全维模板）+ `scripts/xhs_riskcheck.py` + `📚知识库/公司工程/平台风控与自查.md`
 - **模型修正规则** → `📚知识库/模型脚本/修正规则.md`（**C01–C48 v1.8.1**）
 - **会话交接** → `docs/HANDOFF.md` 最新一节（按 `brief.py` 给出的行号读取）
 - **机器可读进度/待办** → `state/model-state.json`
@@ -31,9 +32,13 @@ python -X utf8 scripts/model_v3.py --date YYYYMMDD --weekday 周N
 python -X utf8 scripts/build_internal_report.py --date YYYYMMDD --weekday 周N
 python -X utf8 scripts/check_report_consistency.py "📝文章/YYYYMMDD/YYYYMMDD_周N<k>场_内部分析报告.md"
 
-# 3. 公开稿门禁与去重（B 层：只出 .md）
+# 3. 头条公开稿门禁与去重（B 层：只出 .md）
 python -X utf8 scripts/preflight.py "📝文章/YYYYMMDD/<文章>.md"
 python -X utf8 scripts/check_dup.py YYYYMMDD
+
+# 4. 小红书赛博黑金一图流海报（3/4/5/6场模板）与文案风控门禁（R59）
+python -X utf8 scripts/xhs_card_d.py --input "📝文章/YYYYMMDD/_cards_<批次>.json" --out "📝文章/YYYYMMDD/小红书_<批次>" --only-cover --cover-style poster
+python -X utf8 scripts/xhs_riskcheck.py --cards "📝文章/YYYYMMDD/_cards_<批次>.json" --text "📝文章/YYYYMMDD/小红书_<批次>/文案.md"
 ```
 
 ## 关键约束（详见 `AGENTS.md`）

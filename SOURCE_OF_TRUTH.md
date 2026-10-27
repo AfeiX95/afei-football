@@ -8,8 +8,8 @@
 |:---|:---------|:-----|
 | 项目总路由（多端共用） | `I:\阿飞说球\AGENTS.md` | 路由总入口、三铁律、Token 纪律 |
 | 工作流一页纸 / 详版 | `I:\阿飞说球\docs\WORKFLOW-ONE-PAGE.md` / `docs\WORKFLOW.md` | v3.1（采→验→算→报→写→检→复） |
-| 规则薄索引 | `I:\阿飞说球\docs\RULES.md` | C01–C48 & R1–R58 速查 |
-| 写作偏好与合规铁律真源 | `I:\阿飞说球\📚知识库\skills\afei-writing-standards\SKILL.md` | **R1–R58** |
+| 规则薄索引 | `I:\阿飞说球\docs\RULES.md` | C01–C48 & R1–R59 速查 |
+| 写作偏好与合规铁律真源 | `I:\阿飞说球\📚知识库\skills\afei-writing-standards\SKILL.md` | **R1–R59** |
 | 头条官方平台规范真源 | `I:\阿飞说球\📚知识库\写作指南\头条社区规范.md` | **2026-10-28 官方 8 份规则核实版** |
 | 模型修正规则真源 | `I:\阿飞说球\📚知识库\模型脚本\修正规则.md` | **C01–C48（v1.8.1）** |
 | 生产模型引擎 | `I:\阿飞说球\scripts\model_v3.py` + `database\config\model-parameters.json` | **v3.1.0** |
