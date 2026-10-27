@@ -77,15 +77,96 @@ def _rate(block, key):
     return (b.get("gf", 0) / p, b.get("ga", 0) / p), p
 
 
+
+
+def _overall_rate(row, side):
+    """近期全部场次（不分主客）的（场均进球, 场均失球, 场次）。"""
+    blk = row.get("recent_home" if side == "home" else "recent_away") or {}
+    ms = blk.get("matches") or []
+    gf = ga = n = 0
+    for m in ms:
+        sc = (m.get("score") or "").strip()
+        if "-" not in sc:
+            continue
+        try:
+            hg, ag = [int(x) for x in sc.split("-")[:2]]
+        except ValueError:
+            continue
+        home_side = (m.get("venue") or "").upper() == "H"
+        gf += hg if home_side else ag
+        ga += ag if home_side else hg
+        n += 1
+    if not n:
+        return None
+    return gf / n, ga / n, n
+
+def _recent_rate(row, side):
+    """从 recent_home/recent_away 里按场地取近 5 场的 (场均进球, 场次)。"""
+    blk = row.get("recent_home" if side == "home" else "recent_away") or {}
+    ms = blk.get("matches") or []
+    want = "H" if side == "home" else "A"
+    gf = n = 0
+    for m in ms:
+        if (m.get("venue") or "").upper() != want:
+            continue
+        sc = (m.get("score") or "").strip()
+        if "-" not in sc:
+            continue
+        try:
+            hg, ag = [int(x) for x in sc.split("-")[:2]]
+        except ValueError:
+            continue
+        gf += hg if want == "H" else ag
+        n += 1
+    if n < 2:                      # 同主客样本不足两场：退回近期全部场次（粗率）
+        gf = n = 0
+        for m in ms:
+            sc = (m.get("score") or "").strip()
+            if "-" not in sc:
+                continue
+            try:
+                hg, ag = [int(x) for x in sc.split("-")[:2]]
+            except ValueError:
+                continue
+            gf += hg if (m.get("venue") or "").upper() == "H" else ag
+            n += 1
+    if not n:
+        return None
+    return gf / n, n
+
+
 def data_lam(row, grade="A"):
     """返回 dict(lam=(h,a), n=(nh,na), prior=(ph,pa), idx=(ih,ia), notes=[...])"""
-    sh, sa = row["season_home"], row["season_away"]
+    sh, sa = (row.get("season_home") or {}), (row.get("season_away") or {})
     t1, t2 = sh.get("total"), sa.get("total")
     h1, _ = _rate(sh, "home")   # 主队主场 (进/失 per match)
     a2, _ = _rate(sa, "away")   # 客队客场 (进/失 per match)
     notes = []
-    if not (t1 and t2 and h1 and a2):
-        return None
+    small = (t1 or {}).get("p", 0) < 4 or (t2 or {}).get("p", 0) < 4
+    if not (t1 and t2 and h1 and a2) or small:
+        # 退化路径：杯赛/洲际赛的 500 页没有赛季主客分项，用近 5 场同主客原始速率（k=0，不收缩）
+        rh, ra = _recent_rate(row, "home"), _recent_rate(row, "away")
+        oh, oa = _overall_rate(row, "home"), _overall_rate(row, "away")
+
+        def _mix(split, overall):
+            if split and split[0] > 0.2:
+                return split[0]
+            if overall:
+                return overall[0]
+            if split:
+                return split[0]
+            return None
+
+        lh, la = _mix(rh, oh), _mix(ra, oa)
+        if lh is None or la is None:
+            return None
+        nh = rh[1] if rh else 0
+        na = ra[1] if ra else 0
+        g = min(grade, "C") if grade != "A" else "C"       # 退化路径等级封顶 C
+        return {"lam": [round(lh, 3), round(la, 3)], "n": (min(nh or 3, 3), min(na or 3, 3)),
+                "prior": [round(lh, 3), round(la, 3)], "idx": (1.0, 1.0), "k": 0.0,
+                "grade_forced": g,
+                "notes": ["杯赛/洲际赛赛季样本不足 4 场，λ_A 用近期场次速率（同主客优先，不足两场或接近 0 时退回近期全部场次），k=0 不收缩；等级封顶 C，融合时以市场为主"]}
     k = K_BY_GRADE.get(grade, 4.0)
     p_h_total = t1.get("p") or 0
     p_a_total = t2.get("p") or 0
@@ -252,9 +333,10 @@ def build_single(day, num, grade="A"):
     v = model[num]
     mkt3 = v["market3"]
     la = data_lam(row, grade)
+    model_grade = (la.get("grade_forced") if la else None) or grade
     pack = lam_pack(mkt3, v.get("ou_implied_total"))
     lb = pack["market_joint"]
-    lc, w = fuse(la["lam"] if la else None, lb, grade, la["n"] if la else None)
+    lc, w = fuse(la["lam"] if la else None, lb, model_grade, la["n"] if la else None)
     grid = mp.grid_probs(lc[0], lc[1])
     n_eff = (la["n"][0] + la["k"], la["n"][1] + la["k"]) if la else (3, 3)
     out = {
@@ -262,6 +344,7 @@ def build_single(day, num, grade="A"):
         "data_snapshot": snapshot_id(day),
         "grade": grade,
         "data_grade": grade,
+        "model_grade": model_grade,
         "lam_data": la["lam"] if la else None,
         "lam_odds_only": pack["odds_only"],
         "lam_totals_only": pack["totals_only"],
@@ -325,11 +408,17 @@ def build(day="20261027", grade_map=None):
     grade_map = grade_map or {}
     out = {}
     for num, b in sorted(books.items()):
-        row = data[b["id"]]
+        if num not in model:          # 只算本业务日的场次（books 可能混入同日其他编号）
+            continue
+        row = data.get(b["id"])
+        if row is None:               # 500 数据页缺失：λ_A 退化为市场反推
+            row = {}
         v = model.get(num) or {}
         grade = grade_map.get(num, "A")
         mkt3 = v.get("market3")
         la = data_lam(row, grade)
+        if la and la.get("grade_forced"):
+            grade = la["grade_forced"]          # 退化路径等级封顶，避免小样本拿到 A 级权重
         pack = lam_pack(mkt3, v.get("ou_implied_total"))
         lb = pack["market_joint"]
         lc, w = fuse(la["lam"] if la else None, lb, grade,

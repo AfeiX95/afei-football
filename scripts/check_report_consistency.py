@@ -13,7 +13,9 @@
     C5 融合实现正确性：λ_C == w·λ_A+(1−w)·λ_B，且三向概率能由 λ_C 重算还原
        （诊断项：融合是否恰好等于概率平均——只 WARN，不算错）
     C6 公开稿字段级溯源：每个百分数绑定 match_id/层/指标键/值，语境层不得与数值层冲突
-    C7 公开稿必须带模型版本与数据快照标识
+    C7 版本与快照可追溯：内部报告必须带「模型 vX.X」与「快照 <12位hex>」；
+       公开稿按 R41/R55 不得暴露内部口径，改为校验「公开数据来源声明 + 快照经
+       _claims_<day>.json 绑定」（即通过 C6 的字段级溯源间接可查）
 退出码：0 全过；1 有 ERROR；2 只有 WARN 且 --strict。
 """
 from __future__ import annotations
@@ -36,6 +38,7 @@ def _dirarg(flag):
 
 INTEL = _dirarg("--intel") or ROOT / "state" / "intel" / DAY
 ART = _dirarg("--art") or ROOT / "📝文章" / DAY
+CLAIMS = INTEL / f"_claims_{DAY}.json"
 
 errors: list[str] = []
 warns: list[str] = []
@@ -56,7 +59,8 @@ audit = load(f"_audit_{DAY}.json")
 V3 = {n: mv3.build_single(DAY, n, audit.get(n, {}).get("grade", "A")) for n in books}
 
 # ---------- 报告 ----------
-rp = ART / f"{DAY}_周二10场_内部分析报告.md"
+_cands = sorted(ART.glob(f"{DAY}_*内部分析报告.md")) if ART.exists() else []
+rp = _cands[0] if _cands else ART / f"{DAY}_内部分析报告.md"
 if not rp.exists():
     errors.append(f"报告缺失：{rp}")
     text = ""
@@ -205,12 +209,29 @@ def clause_layers(text, pos):
 reg = build_registry()
 pub = sorted(pp for pp in ART.glob("*.md") if "内部分析报告" not in pp.name)
 claims = []
+if not rp.exists():
+    pass
+elif not re.search(r"模型 v\d+\.\d+", text):
+    errors.append(f"[C7] {rp.name} 缺模型版本号")
+elif not re.search(r"快照 [0-9a-f]{12}", text):
+    errors.append(f"[C7] {rp.name} 缺数据快照标识")
+
 for pp in pub:
     t = pp.read_text(encoding="utf-8")
-    if not re.search(r"模型 v\d+\.\d+", t):
-        errors.append(f"[C7] {pp.name} 缺模型版本号")
-    if not re.search(r"快照 [0-9a-f]{12}", t):
-        errors.append(f"[C7] {pp.name} 缺数据快照标识")
+    # 公开稿：R41/R55 禁内部口径 → 只要求公开来源声明；快照通过 _claims 绑定
+    if not re.search(r"(公开赛事数据|官方赛程|公开数据)", t):
+        errors.append(f"[C7] {pp.name} 缺公开数据来源声明")
+    if not pp.name.endswith(".md"):
+        continue
+    if not CLAIMS.exists():
+        errors.append(f"[C7] {pp.name} 无 _claims_{DAY}.json，公开稿百分数不可追溯")
+    else:
+        cj = json.loads(CLAIMS.read_text(encoding="utf-8"))
+        rows = cj if isinstance(cj, list) else (cj.get("claims") or cj.get("items") or [])
+        files = {c.get("file") or c.get("article") for c in rows if isinstance(c, dict)}
+        files.discard(None)
+        if files and not any(pp.name == f or (f and f.endswith(pp.name)) for f in files):
+            warns.append(f"[C7] {pp.name} 未出现在 _claims_{DAY}.json 的溯源清单里")
     # 场次锚点：公开稿用队名而不是编号 → 按队名最近出现处定位（用户 m01870 的字段级溯源）
     marks = []
     for n2, bk in books.items():
