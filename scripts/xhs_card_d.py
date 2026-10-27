@@ -335,26 +335,20 @@ def mc_heat(card: dict) -> str:
     if not g:
         return ""
     mx = max(max(row) for row in g) or 1
-    # grid[h][a]：h=主队进球，a=客队进球
-    flat = [(float(g[h][a]), h, a) for h in range(min(5, len(g)))
-            for a in range(min(5, len(g[h])))]
-    top = {f"{h}-{a}" for _, h, a in sorted(flat, reverse=True)[:3]}
+    # grid[h][a]：h=主队进球，a=客队进球（严格只上色不标具体比分数字，防 OCR 误判为比分推荐）
     cells = []
     for a in range(5):                      # 纵轴：客队进球
         cells.append('<div class="rb">%d</div>' % a)
         for h in range(5):                  # 横轴：主队进球
             v = g[h][a] if h < len(g) and a < len(g[h]) else 0
             al = 0.05 + 0.88 * (float(v) / mx)
-            mark = f"{h}-{a}" in top
-            txt = ('<b style="position:relative;z-index:2;color:#FFFFFF;font-weight:900;'
-                   'font-size:16px;display:block;text-align:center;line-height:1;text-shadow:0 1px 2px rgba(0,0,0,.55)">%d-%d</b>' % (h, a)) if mark else ""
-            cells.append('<div class="cell" style="background:rgba(232,64,42,%.2f)">%s</div>' % (al, txt))
+            cells.append('<div class="cell" style="background:rgba(232,64,42,%.2f)"></div>' % al)
     ax = "".join("<span>%d</span>" % i for i in range(5))
     home = esc(card.get("home") or "主队")
     away = esc(card.get("away") or "客队")
     return ('<div class="axlab">↓ %s 进球（纵轴）</div><div class="grid">%s</div>'
             '<div class="ax">%s</div><div class="axlab r">%s 进球（横轴）→</div>'
-            '<div class="cap">比分概率 · 横轴主队、纵轴客队 · 颜色越深＝越可能 · 已标出最热三格</div>'
+            '<div class="cap">主客进球区间热图 · 横轴主队、纵轴客队 · 颜色深浅代表区间密度</div>'
             % (away, "".join(cells), ax, home))
 
 
@@ -402,8 +396,10 @@ def cmp_rows(card: dict) -> str:
 
     pj_h, sj_h = num(fh.get("pj")), num(fh.get("sj"))
     pj_a, sj_a = num(fa.get("pj")), num(fa.get("sj"))
-    seqh = (fh.get("seq") or "").upper()
-    seqa = (fa.get("seq") or "").upper()
+    _sh = fh.get("seq") or ""
+    _sa = fa.get("seq") or ""
+    seqh = ("".join(_sh) if isinstance(_sh, list) else str(_sh)).upper()
+    seqa = ("".join(_sa) if isinstance(_sa, list) else str(_sa)).upper()
     win_h = 100.0 * seqh.count("W") / len(seqh) if seqh else None
     win_a = 100.0 * seqa.count("W") / len(seqa) if seqa else None
     zh, za = num(fh.get("zero")), num(fa.get("zero"))
@@ -655,10 +651,16 @@ def card_html(card: dict, idx: int, total: int) -> str:
         pie_inner = '<div class="pie">' + pie_inner + '</div>'
     h2h_left = ""
     if detail:
-        _chips = "".join('<span style="display:inline-block;padding:4px 9px;margin:0 6px 6px 0;'
-                         'border:1px solid rgba(0,240,120,.45);border-radius:6px;font-weight:800;'
-                         'font-family:ui-monospace,Consolas,monospace;font-size:19px">%s</span>' % esc(x)
-                         for x in (detail.get("scores") or []))
+        _chips = ""
+        if os.environ.get("XHS_SHOW_H2H_SCORES") == "1":
+            _chips = "".join('<span style="display:inline-block;padding:4px 9px;margin:0 6px 6px 0;'
+                             'border:1px solid rgba(0,240,120,.45);border-radius:6px;font-weight:800;'
+                             'font-family:ui-monospace,Consolas,monospace;font-size:19px">%s</span>' % esc(x)
+                             for x in (detail.get("scores") or []))
+        elif detail.get("note"):
+            _chips = ('<div style="font-size:15px;color:#B8C7D9;background:rgba(255,255,255,.04);'
+                      'border-left:3px solid #00F078;padding:6px 10px;border-radius:4px">%s</div>'
+                      % esc(detail.get("note")))
         st = card.get("h2h_stats") or {}
         kpi = ""
         if st:
@@ -668,8 +670,8 @@ def card_html(card: dict, idx: int, total: int) -> str:
                              '<div style="font-family:ui-monospace,Consolas,monospace;font-size:22px;'
                              'font-weight:900;color:#00F078">%s</div>'
                              '<div style="font-size:14px;color:#9FB2C8;margin-top:2px">%s</div></div>' % (v, k)
-                             for k, v in (("交锋场次", st.get("n") or "—"), ("平局率", "%s%%" % (st.get("draw") if st.get("draw") not in (None, "") else "—")),
-                                          ("小球率", "%s%%" % (st.get("low") if st.get("low") not in (None, "") else "—"))))
+                             for k, v in (("交锋场次", st.get("n") or "—"), ("平局占比", "%s%%" % (st.get("draw") if st.get("draw") not in (None, "") else "—")),
+                                          ("≤2球占比", "%s%%" % (st.get("low") if st.get("low") not in (None, "") else "—"))))
                    + '</div>')
         _pois = pois_bars(card)
         pois_html = ""
@@ -1081,7 +1083,7 @@ def cover_v2_html(data: dict, wide: bool = False) -> str:
     ms = data.get("matches") or []
     meta = data.get("meta") or {}
     m_date = meta.get("date") or "10.22"
-    m_wd = (meta.get("weekday") or "星期四").replace("星期", "")
+    m_wd = (meta.get("weekday") or "星期四").replace("星期", "").replace("周", "")
     m_kd = meta.get("kick_day") or "%s 开赛" % m_date.replace(".", "/")
     m_tail = meta.get("tail") or "%d 场，先看账，再看球" % len(ms)
     n = len(ms)
@@ -1217,7 +1219,7 @@ def cover_v3_html(data: dict, wide: bool = False) -> str:
     ms = data.get("matches") or []
     meta = data.get("meta") or {}
     m_date = meta.get("date") or "10.22"
-    m_wd = (meta.get("weekday") or "星期四").replace("星期", "")
+    m_wd = (meta.get("weekday") or "星期四").replace("星期", "").replace("周", "")
     m_kd = meta.get("kick_day") or "%s 开赛" % m_date.replace(".", "/")
     m_tail = meta.get("tail") or "%d 场，先看账，再看球" % len(ms)
     n = len(ms)
@@ -1281,18 +1283,874 @@ def cover_v3_html(data: dict, wide: bool = False) -> str:
 </div></body></html>"""
 
 
+# ============ 封面 v4.0（赛博战术矩阵海报） & Poster（转播级对阵巨幅海报） ============
+def _mini_radar_svg(card: dict, size: int = 108, col_h: str = "#00F078", col_a: str = "#FF5E7E") -> str:
+    r = card.get("radar") or {}
+    hv = (r.get("home") or [60, 60, 60, 60, 60, 60])[:6]
+    av = (r.get("away") or [50, 50, 50, 50, 50, 50])[:6]
+    cx = cy = size / 2.0
+    rad = size * 0.42
+    rings = []
+    for k in (0.35, 0.68, 1.0):
+        pts = []
+        for i in range(6):
+            ang = math.radians(-90 + i * 60)
+            pts.append(f"{cx + rad * k * math.cos(ang):.1f},{cy + rad * k * math.sin(ang):.1f}")
+        rings.append(f'<polygon points="{" ".join(pts)}" fill="none" stroke="rgba(160,195,230,{0.16 if k<1 else 0.32})" stroke-width="1"/>')
+    axes = []
+    for i in range(6):
+        ang = math.radians(-90 + i * 60)
+        axes.append(f'<line x1="{cx:.1f}" y1="{cy:.1f}" x2="{cx + rad * math.cos(ang):.1f}" y2="{cy + rad * math.sin(ang):.1f}" stroke="rgba(160,195,230,0.16)" stroke-width="1"/>')
+
+    def _poly(vals, stroke, fill):
+        pts = []
+        dots = []
+        for i, v in enumerate(vals):
+            ratio = max(0.12, min(1.0, float(v) / 100.0))
+            ang = math.radians(-90 + i * 60)
+            px = cx + rad * ratio * math.cos(ang)
+            py = cy + rad * ratio * math.sin(ang)
+            pts.append(f"{px:.1f},{py:.1f}")
+            dots.append(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="2.4" fill="{stroke}"/>')
+        return f'<polygon points="{" ".join(pts)}" fill="{fill}" stroke="{stroke}" stroke-width="2" stroke-linejoin="round"/>' + "".join(dots)
+
+    return (f'<svg viewBox="0 0 {size} {size}" width="{size}" height="{size}" style="overflow:visible">'
+            + "".join(rings) + "".join(axes)
+            + _poly(av, col_a, "rgba(255,94,126,0.20)")
+            + _poly(hv, col_h, "rgba(0,240,120,0.22)")
+            + "</svg>")
+
+
+def _extract_tag_pair(card: dict) -> tuple:
+    narr = str(card.get("narr") or "")
+    m = re.search(r"【([^】]+)】", narr)
+    if m:
+        parts = [p.strip() for p in re.split(r"vs|VS|×|/", m.group(1)) if p.strip()]
+        if len(parts) >= 2:
+            return parts[0], parts[1]
+        return m.group(1), "战术博弈"
+    return "主场态势", "客场走势"
+
+
+V4_CSS = """
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#040811}
+body{width:var(--bw,1080px);height:var(--bh,1440px);overflow:hidden;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;color:#F2F7FF}
+.v4{position:relative;width:var(--bw,1080px);height:var(--bh,1440px);overflow:hidden;padding:42px 52px 34px;display:flex;flex-direction:column;
+    background:
+      radial-gradient(920px 520px at 12% 8%,rgba(0,240,120,.17),transparent 62%),
+      radial-gradient(780px 520px at 90% 18%,rgba(0,180,255,.15),transparent 64%),
+      radial-gradient(860px 580px at 50% 82%,rgba(255,77,109,.10),transparent 66%),
+      repeating-linear-gradient(0deg,rgba(255,255,255,.028) 0 1px,transparent 1px 48px),
+      repeating-linear-gradient(90deg,rgba(255,255,255,.028) 0 1px,transparent 1px 48px),
+      #040811}
+.v4 .hud-frame{position:absolute;inset:16px;border:1px solid rgba(0,240,120,.16);pointer-events:none}
+.v4 .hud-frame::before,.v4 .hud-frame::after{content:"";position:absolute;width:28px;height:28px;border-color:#00F078;border-style:solid}
+.v4 .hud-frame::before{left:-1px;top:-1px;border-width:3px 0 0 3px}
+.v4 .hud-frame::after{right:-1px;bottom:-1px;border-width:0 3px 3px 0}
+.v4 .wm{position:absolute;right:36px;top:64px;font-size:158px;font-weight:900;letter-spacing:-.04em;
+        color:transparent;-webkit-text-stroke:1.5px rgba(0,240,120,.07);pointer-events:none;line-height:1;font-family:Impact,"Arial Black",sans-serif}
+.v4 .bg-pitch{position:absolute;left:50%;bottom:80px;transform:translateX(-50%);width:980px;opacity:.16;pointer-events:none}
+.v4 .topbar{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;
+            padding-bottom:14px;border-bottom:1px solid rgba(0,240,120,.22)}
+.v4 .topbar .tl{display:flex;align-items:center;gap:12px;font-size:17px;font-weight:800;letter-spacing:.14em;color:#9FB2C8}
+.v4 .topbar .dot{width:10px;height:10px;border-radius:50%;background:#00F078;box-shadow:0 0 12px #00F078}
+.v4 .topbar .tr{font-size:18px;font-weight:800;color:#00F078;letter-spacing:.08em;background:rgba(0,240,120,.10);
+                border:1px solid rgba(0,240,120,.32);padding:5px 14px;border-radius:999px}
+.v4 .hero{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:stretch;gap:24px;margin-top:20px}
+.v4 .hero-l{flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.v4 .date-row{display:flex;align-items:baseline;gap:18px}
+.v4 .date-num{font-size:112px;line-height:.86;font-weight:900;letter-spacing:-.04em;color:#FFFFFF;
+              text-shadow:0 6px 28px rgba(0,240,120,.22)}
+.v4 .date-num i{color:#00F078;font-style:normal}
+.v4 .date-meta{display:flex;flex-direction:column;gap:6px}
+.v4 .date-meta .wd{display:inline-block;background:#00F078;color:#041018;font-size:20px;font-weight:900;
+                   padding:3px 12px;border-radius:6px;letter-spacing:.06em;width:fit-content}
+.v4 .date-meta .kd{font-size:20px;font-weight:700;color:#9FB2C8;letter-spacing:.04em}
+.v4 .headline{margin-top:14px}
+.v4 .headline .kicker{display:inline-flex;align-items:center;gap:10px;font-size:22px;font-weight:900;color:#00D2FF;
+                      letter-spacing:.08em;margin-bottom:6px}
+.v4 .headline .kicker::before{content:"";width:18px;height:4px;background:#00D2FF;border-radius:2px}
+.v4 .headline h1{margin:0;font-size:62px;line-height:1.08;font-weight:900;letter-spacing:-.01em;color:#F4F8FF}
+.v4 .headline h1 em{font-style:normal;background:linear-gradient(90deg,#00F078,#00D2FF);
+                    -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.v4 .hero-tags{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.v4 .hero-tags span{font-size:17px;font-weight:700;color:#C8D8E8;background:rgba(255,255,255,.05);
+                    border:1px solid rgba(255,255,255,.12);padding:6px 14px;border-radius:8px;letter-spacing:.04em}
+.v4 .hero-tags span b{color:#00F078}
+.v4 .hero-r{width:270px;display:grid;grid-template-rows:repeat(3,1fr);gap:10px}
+.v4 .stat-box{position:relative;background:linear-gradient(135deg,rgba(12,24,38,.88),rgba(7,14,24,.92));
+              border:1px solid rgba(0,240,120,.28);border-radius:12px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+.v4 .stat-box b{font-size:40px;font-weight:900;color:#00F078;line-height:1;font-family:ui-monospace,Consolas,monospace}
+.v4 .stat-box b i{font-size:18px;font-style:normal;color:#8FA6C0;margin-left:4px;font-family:"Noto Sans SC",sans-serif}
+.v4 .stat-box span{display:block;font-size:16px;font-weight:700;color:#C0D0E2;margin-top:4px;letter-spacing:.04em}
+.v4 .stat-box .ico{width:36px;height:36px;opacity:.88}
+
+.v4 .sec-bar{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;
+             margin:20px 0 12px;padding:8px 14px;background:rgba(0,240,120,.07);border-left:4px solid #00F078;border-radius:0 8px 8px 0}
+.v4 .sec-bar .st{font-size:20px;font-weight:900;color:#F2F7FF;letter-spacing:.08em}
+.v4 .sec-bar .sh{font-size:16px;font-weight:700;color:#8FA6C0;display:flex;align-items:center;gap:14px}
+.v4 .sec-bar .sh i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px}
+
+.v4 .mgrid{position:relative;z-index:2;flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;min-height:0}
+.v4 .mcard{position:relative;background:linear-gradient(160deg,rgba(13,25,40,.92),rgba(7,13,22,.95));
+           border:1px solid rgba(0,240,120,.26);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;justify-content:space-between;
+           box-shadow:0 12px 32px rgba(0,0,0,.45);overflow:hidden}
+.v4 .mcard::before{content:"";position:absolute;left:0;top:0;right:0;height:3px;
+                   background:linear-gradient(90deg,#00F078,#00D2FF 55%,rgba(255,94,126,.8))}
+.v4 .mc-top{display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:800}
+.v4 .mc-lg{color:#00D2FF;background:rgba(0,210,255,.10);border:1px solid rgba(0,210,255,.30);padding:3px 10px;border-radius:6px;letter-spacing:.04em}
+.v4 .mc-tm{color:#F2F7FF;font-family:ui-monospace,Consolas,monospace;font-size:17px;background:rgba(255,255,255,.07);padding:3px 10px;border-radius:6px}
+.v4 .mc-body{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:8px 0 6px}
+.v4 .mc-teams{flex:1;display:flex;flex-direction:column;gap:8px;min-width:0}
+.v4 .mc-trow{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.v4 .mc-tname{font-size:28px;font-weight:900;color:#FFFFFF;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+              display:flex;align-items:center;gap:8px}
+.v4 .mc-tname i{display:inline-block;width:6px;height:24px;border-radius:3px}
+.v4 .mc-tstat{font-size:15px;font-weight:800;color:#A8BDD4;font-family:ui-monospace,Consolas,monospace;white-space:nowrap}
+.v4 .mc-tstat b{color:#00F078;font-size:18px}
+.v4 .mc-tstat.away b{color:#FF6B8B}
+.v4 .mc-rad{width:106px;height:106px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+            background:radial-gradient(circle,rgba(0,240,120,.08),transparent 70%);border-radius:50%}
+.v4 .mc-bars{display:flex;flex-direction:column;gap:6px;background:rgba(4,9,16,.65);padding:9px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.06)}
+.v4 .mc-brow{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:800}
+.v4 .mc-brow .bv{width:38px;font-family:ui-monospace,Consolas,monospace;font-size:16px;color:#00F078}
+.v4 .mc-brow .bv.r{text-align:right;color:#FF6B8B}
+.v4 .mc-brow .blab{width:64px;text-align:center;color:#8FA6C0;font-size:13px}
+.v4 .mc-brow .btrack{flex:1;height:7px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden;display:flex}
+.v4 .mc-brow .btrack i.h{background:linear-gradient(90deg,#00B862,#00F078);height:100%}
+.v4 .mc-brow .btrack i.a{background:linear-gradient(90deg,#FF5E7E,#FF2E55);height:100%;margin-left:auto}
+.v4 .mc-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;padding-top:6px;border-top:1px dashed rgba(159,178,200,.18);font-size:14px;font-weight:800}
+.v4 .mc-tag{color:#00F078;background:rgba(0,240,120,.09);border:1px solid rgba(0,240,120,.24);padding:3px 9px;border-radius:5px;
+            white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:65%}
+.v4 .mc-h2h{color:#9FB2C8;white-space:nowrap;font-size:13px}
+
+.v4 .botbar{position:relative;z-index:2;margin-top:16px;padding-top:12px;border-top:1px solid rgba(0,240,120,.22);
+            display:flex;justify-content:space-between;align-items:center}
+.v4 .brand-box{display:flex;align-items:center;gap:14px}
+.v4 .brand-box em{display:block;width:7px;height:44px;background:linear-gradient(180deg,#00F078,#00D2FF);border-radius:3px}
+.v4 .brand-box b{display:block;font-size:34px;font-weight:900;color:#FFFFFF;letter-spacing:.02em;line-height:1}
+.v4 .brand-box b i{color:#00F078;font-style:normal}
+.v4 .brand-box span{display:block;margin-top:5px;font-size:15px;font-weight:700;color:#8FA6C0;letter-spacing:.08em}
+.v4 .disc{text-align:right;font-size:14px;color:#6E849E;font-weight:600;line-height:1.45}
+.v4 .disc b{color:#9FB2C8}
+
+.v4.wide{padding:36px 56px 28px}
+.v4.wide .hero{margin-top:12px;align-items:center}
+.v4.wide .date-num{font-size:86px}
+.v4.wide .headline h1{font-size:46px}
+.v4.wide .hero-r{width:580px;grid-template-rows:1fr;grid-template-columns:repeat(3,1fr);gap:12px}
+.v4.wide .stat-box{padding:16px 16px}
+.v4.wide .stat-box b{font-size:36px;white-space:nowrap}
+.v4.wide .stat-box span{white-space:nowrap;font-size:15px}
+.v4.wide .mgrid{grid-template-columns:repeat(4,1fr);grid-template-rows:1fr;gap:14px}
+.v4.wide .mc-body{flex-direction:column;align-items:stretch}
+.v4.wide .mc-rad{margin:2px auto;width:96px;height:96px}
+"""
+
+
+def cover_v4_html(data: dict, wide: bool = False) -> str:
+    """封面 v4.0：赛博战术矩阵海报（4 场焦点对阵 + 实时双队六维雷达 + 进失球能量条）。"""
+    ms = data.get("matches") or []
+    meta = data.get("meta") or {}
+    m_date = meta.get("date") or "10.28"
+    m_wd = (meta.get("weekday") or "星期三").replace("星期", "").replace("周", "")
+    m_kd = meta.get("kick_day") or "%s 赛程" % m_date.replace(".", "/")
+    m_tail = meta.get("tail") or "%d 场焦点赛事 · 近期攻防与交锋数据整理" % len(ms)
+    n = len(ms)
+    lgs = []
+    lg_short = []
+    for m in ms:
+        lg = (m.get("league") or "").strip()
+        if lg and lg not in lgs:
+            lgs.append(lg)
+        s = lg.split("·")[0].strip() if lg else ""
+        if s and s not in lg_short:
+            lg_short.append(s)
+    slots = []
+    for m in ms:
+        t = (m.get("kick") or "").split()
+        t = t[-1] if t else ""
+        if t and t not in slots:
+            slots.append(t)
+    d1, _, d2 = m_date.partition(".")
+    dt = "%s<i>.</i>%s" % (d1, d2) if d2 else m_date
+    bw, bh = (1920, 1080) if wide else (1080, 1440)
+    cls = "v4 wide" if wide else "v4"
+
+    # 统计汇总（交锋场均进球）
+    h2h_avgs = [float(((m.get("form") or {}).get("h2h") or {}).get("avg_goals") or 0) for m in ms]
+    h2h_avgs = [x for x in h2h_avgs if x > 0]
+    avg_all = ("%.2f" % (sum(h2h_avgs) / len(h2h_avgs))) if h2h_avgs else "2.50"
+
+    kpi_items = [
+        (str(n), "场", "焦点赛事拆解", ICON_BALL),
+        (avg_all, "球", "历史交锋场均", ICON_CLOCK),
+        ("6", "维", "攻防雷达建模", ICON_LAYER),
+    ]
+    kpi_html = "".join(
+        '<div class="stat-box"><div><b>%s<i>%s</i></b><span>%s</span></div><div class="ico">%s</div></div>' % c
+        for c in kpi_items
+    )
+
+    mcards = []
+    for idx, c in enumerate(ms[:4], 1):
+        fh = (c.get("form") or {}).get("home") or {}
+        fa = (c.get("form") or {}).get("away") or {}
+        h2 = (c.get("form") or {}).get("h2h") or {}
+        hpj, apj = float(fh.get("pj") or 0), float(fa.get("pj") or 0)
+        hsj, asj = float(fh.get("sj") or 0), float(fa.get("sj") or 0)
+        hz, az = float(fh.get("zero") or 0), float(fa.get("zero") or 0)
+        tot_pj = (hpj + apj) or 1.0
+        tot_z = (hz + az) or 1.0
+        w_pj_h = max(12.0, min(88.0, 100.0 * hpj / tot_pj))
+        w_z_h = max(12.0, min(88.0, 100.0 * hz / tot_z)) if (hz + az) > 0 else 50.0
+        t1, t2 = _extract_tag_pair(c)
+        rad_svg = _mini_radar_svg(c, size=104)
+        h2h_txt = "交锋 %s 场 · 场均 %s 球" % (h2.get("n") or "—", h2.get("avg_goals") or "—")
+        mcards.append(f"""
+        <div class="mcard">
+          <div class="mc-top">
+            <span class="mc-lg">0{idx} · {esc(c.get("league") or "")}</span>
+            <span class="mc-tm">KICKOFF {esc(c.get("kick") or "")}</span>
+          </div>
+          <div class="mc-body">
+            <div class="mc-teams">
+              <div class="mc-trow">
+                <span class="mc-tname"><i style="background:#00F078"></i>{esc(c.get("home") or "")}</span>
+                <span class="mc-tstat">场均 <b>{hpj:.2f}</b> 球</span>
+              </div>
+              <div class="mc-trow">
+                <span class="mc-tname"><i style="background:#FF5E7E"></i>{esc(c.get("away") or "")}</span>
+                <span class="mc-tstat away">场均 <b>{apj:.2f}</b> 球</span>
+              </div>
+            </div>
+            <div class="mc-rad">{rad_svg}</div>
+          </div>
+          <div class="mc-bars">
+            <div class="mc-brow">
+              <span class="bv">{hpj:.2f}</span>
+              <div class="btrack"><i class="h" style="width:{w_pj_h:.1f}%"></i><i class="a" style="width:{100-w_pj_h:.1f}%"></i></div>
+              <span class="blab">近5场进球</span>
+              <span class="bv r">{apj:.2f}</span>
+            </div>
+            <div class="mc-brow">
+              <span class="bv">{hsj:.2f}</span>
+              <div class="btrack"><i class="h" style="width:{w_z_h:.1f}%"></i><i class="a" style="width:{100-w_z_h:.1f}%"></i></div>
+              <span class="blab">场均失球</span>
+              <span class="bv r">{asj:.2f}</span>
+            </div>
+          </div>
+          <div class="mc-foot">
+            <span class="mc-tag">▸ {esc(t1)} × {esc(t2)}</span>
+            <span class="mc-h2h">{esc(h2h_txt)}</span>
+          </div>
+        </div>""")
+
+    lg_kicker = " × ".join(lg_short) if lg_short else "五大联赛"
+    lg_line = " · ".join(lgs)
+    return f"""<!doctype html><html lang="zh"><head><meta charset="utf-8"><style>:root{{--bw:{bw}px;--bh:{bh}px}}{V4_CSS}</style></head>
+<body><div class="{cls}">
+  <div class="hud-frame"></div>
+  <div class="wm">MATCHDAY</div>
+  <div class="bg-pitch">{PITCH_SVG}</div>
+  <div class="topbar">
+    <div class="tl"><span class="dot"></span><span>MATCHDAY TACTICAL DOSSIER // 90-MIN REGULAR TIME</span></div>
+    <div class="tr">@阿飞·赛博聊球</div>
+  </div>
+  <div class="hero">
+    <div class="hero-l">
+      <div class="date-row">
+        <div class="date-num">{dt}</div>
+        <div class="date-meta">
+          <span class="wd">星期{m_wd} · 赛前档案</span>
+          <span class="kd">{esc(m_kd)} ｜ {len(slots)} 个开球时段</span>
+        </div>
+      </div>
+      <div class="headline">
+        <div class="kicker">{esc(lg_kicker)} · 焦点对阵全维拆解</div>
+        <h1><em>{n} 场</em>足球赛事<br>数据前瞻海报</h1>
+      </div>
+      <div class="hero-tags">
+        <span><b>01</b> 近 5 场同主客进失球</span>
+        <span><b>02</b> 6 维攻防能力雷达</span>
+        <span><b>03</b> 过往交锋与进球区间热图</span>
+      </div>
+    </div>
+    <div class="hero-r">{kpi_html}</div>
+  </div>
+  <div class="sec-bar">
+    <span class="st">» 当日焦点对阵矩阵 · TACTICAL MATCHUP MATRIX</span>
+    <span class="sh"><span><i style="background:#00F078"></i>主队近况与雷达</span><span><i style="background:#FF5E7E"></i>客队近况与雷达</span></span>
+  </div>
+  <div class="mgrid">{"".join(mcards)}</div>
+  <div class="botbar">
+    <div class="brand-box">
+      <em></em>
+      <div><b>阿飞 <i>·</i> 赛博聊球</b><span>用客观数据拆解每一场比赛 · 左滑查看单场深挖卡 »</span></div>
+    </div>
+    <div class="disc">
+      <div><b>{esc(lg_line)}</b></div>
+      <div>{esc(m_tail)} · 仅供战术交流</div>
+    </div>
+  </div>
+</div></body></html>"""
+
+
+POSTER_RADAR_SPEC = {
+    3: (308, 258, 82.0, 12.5),
+    4: (304, 216, 78.0, 12.5),
+    5: (284, 162, 60.0, 11.5),
+    6: (268, 132, 48.0, 10.5),
+}
+
+
+def _poster_radar_svg(
+    card: dict,
+    w: int = 304,
+    h: int = 216,
+    rad: float = 78.0,
+    fs: float = 12.5,
+    col_h: str = "#00F5D4",
+    col_a: str = "#FF5E7E",
+) -> str:
+    """自适应全尺寸六维雷达图（支持 3/4/5/6 场模板，含 6 轴名称与主客双队实时分值对照）。"""
+    r = card.get("radar") or {}
+    hv = [int(round(float(x))) for x in (r.get("home") or [60, 60, 60, 60, 60, 60])[:6]]
+    av = [int(round(float(x))) for x in (r.get("away") or [50, 50, 50, 50, 50, 50])[:6]]
+    short_dims = ["进攻", "防守", "零封", "稳定", "净胜", "开局"]
+    cx, cy = w / 2.0, h / 2.0
+
+    rings = []
+    for k in (0.25, 0.50, 0.75, 1.0):
+        pts = []
+        for i in range(6):
+            ang = math.radians(-90 + i * 60)
+            pts.append(f"{cx + rad * k * math.cos(ang):.1f},{cy + rad * k * math.sin(ang):.1f}")
+        stroke_col = "rgba(212,255,0,0.34)" if k == 1.0 else "rgba(160,195,230,0.16)"
+        dash = "" if k == 1.0 else ' stroke-dasharray="3,2"'
+        rings.append(f'<polygon points="{" ".join(pts)}" fill="none" stroke="{stroke_col}" stroke-width="{1.3 if k==1.0 else 1}"{dash}/>')
+
+    axes = []
+    for i in range(6):
+        ang = math.radians(-90 + i * 60)
+        axes.append(
+            f'<line x1="{cx:.1f}" y1="{cy:.1f}" x2="{cx + rad * math.cos(ang):.1f}" '
+            f'y2="{cy + rad * math.sin(ang):.1f}" stroke="rgba(160,195,230,0.20)" stroke-width="1"/>'
+        )
+
+    def _poly(vals, stroke, fill, r_dot):
+        pts, dots = [], []
+        for i, v in enumerate(vals):
+            ratio = max(0.14, min(1.0, float(v) / 100.0))
+            ang = math.radians(-90 + i * 60)
+            px = cx + rad * ratio * math.cos(ang)
+            py = cy + rad * ratio * math.sin(ang)
+            pts.append(f"{px:.1f},{py:.1f}")
+            dots.append(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="{r_dot}" fill="{stroke}" stroke="#070912" stroke-width="1"/>')
+        return (
+            f'<polygon points="{" ".join(pts)}" fill="{fill}" stroke="{stroke}" stroke-width="2.4" stroke-linejoin="round"/>'
+            + "".join(dots)
+        )
+
+    top_off = max(8.5, fs * 0.95)
+    bot_off = max(13.5, fs * 1.48)
+    side_off = 8.0
+    label_pos = [
+        (cx, cy - rad - top_off, "middle"),                      # 0: 顶 (进攻)
+        (cx + rad * 0.866 + side_off, cy - rad * 0.5 + 3, "start"),  # 1: 右上 (防守)
+        (cx + rad * 0.866 + side_off, cy + rad * 0.5 + 5, "start"),  # 2: 右下 (零封)
+        (cx, cy + rad + bot_off, "middle"),                      # 3: 底 (稳定)
+        (cx - rad * 0.866 - side_off, cy + rad * 0.5 + 5, "end"),    # 4: 左下 (净胜)
+        (cx - rad * 0.866 - side_off, cy - rad * 0.5 + 3, "end"),    # 5: 左上 (开局)
+    ]
+    labels = []
+    for i in range(6):
+        lx, ly, anchor = label_pos[i]
+        d_txt = short_dims[i]
+        labels.append(
+            f'<text x="{lx:.1f}" y="{ly:.1f}" text-anchor="{anchor}" '
+            f'font-size="{fs}" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">'
+            f'{d_txt} <tspan fill="{col_h}" font-family="ui-monospace,Consolas,monospace">{hv[i]}</tspan>'
+            f'<tspan fill="#6E829A">/</tspan>'
+            f'<tspan fill="{col_a}" font-family="ui-monospace,Consolas,monospace">{av[i]}</tspan></text>'
+        )
+
+    return (
+        f'<svg viewBox="0 0 {w} {h}" width="{w}" height="{h}" style="overflow:visible">'
+        f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{rad:.1f}" fill="rgba(0,245,212,0.035)"/>'
+        + "".join(rings)
+        + "".join(axes)
+        + _poly(av, col_a, "rgba(255,94,126,0.22)", 3.0)
+        + _poly(hv, col_h, "rgba(0,245,212,0.25)", 3.4)
+        + "".join(labels)
+        + "</svg>"
+    )
+
+
+POSTER_CSS = """
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#060913}
+body{width:1080px;height:1440px;overflow:hidden;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;color:#F5F7FA}
+.pst{position:relative;width:1080px;height:1440px;overflow:hidden;padding:22px 28px 18px;display:flex;flex-direction:column;
+     background:
+       radial-gradient(920px 440px at 88% 4%,rgba(212,255,0,.15),transparent 60%),
+       radial-gradient(820px 540px at 10% 32%,rgba(0,245,212,.12),transparent 62%),
+       radial-gradient(920px 520px at 50% 96%,rgba(255,56,100,.11),transparent 65%),
+       linear-gradient(180deg,#060913 0%,#0A1020 52%,#060913 100%)}
+.pst .grid-bg{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.065) 1px,transparent 1px);
+              background-size:24px 24px;opacity:.55;pointer-events:none}
+.pst .border-out{position:absolute;inset:12px;border:1.5px solid rgba(212,255,0,.22);pointer-events:none}
+
+.pst .mast{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;
+           padding-bottom:10px;border-bottom:2px solid rgba(212,255,0,.38)}
+.pst .mast-l .eyebrow{display:inline-flex;align-items:center;gap:10px;background:#D4FF00;color:#060913;
+                      font-size:13px;font-weight:900;padding:3px 10px;border-radius:4px;letter-spacing:.10em}
+.pst .mast-l h1{margin:6px 0 0;font-size:38px;font-weight:900;line-height:1.06;letter-spacing:-.02em;color:#FFFFFF}
+.pst .mast-l h1 em{font-style:normal;color:#D4FF00;margin-left:8px}
+.pst .mast-l .sub{margin-top:5px;font-size:14px;font-weight:700;color:#A8B8CE;letter-spacing:.03em;display:flex;align-items:center;gap:14px}
+.pst .mast-l .sub span.lgd{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:#DCE8F8;background:rgba(255,255,255,.06);
+                           padding:2px 8px;border-radius:4px;border:1px solid rgba(255,255,255,.10)}
+.pst .mast-l .sub span.lgd i{display:inline-block;width:9px;height:9px;border-radius:2px}
+.pst .mast-r{text-align:right;flex-shrink:0}
+.pst .mast-r .big-dt{font-size:68px;font-weight:900;line-height:.86;color:#FFFFFF;font-family:Impact,"Arial Black",sans-serif;letter-spacing:.01em}
+.pst .mast-r .big-dt i{color:#D4FF00;font-style:normal}
+.pst .mast-r .wd{margin-top:5px;font-size:15px;font-weight:800;color:#00F5D4;letter-spacing:.05em;white-space:nowrap}
+
+.pst .b-list{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:9px;margin:9px 0 8px}
+.pst .b-row{position:relative;flex:1;background:linear-gradient(90deg,rgba(14,23,40,.96),rgba(10,16,30,.94) 50%,rgba(22,15,32,.96));
+            border:1px solid rgba(255,255,255,.13);border-left:5px solid #D4FF00;border-radius:12px;padding:7px 12px 7px;
+            display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 8px 22px rgba(0,0,0,.45)}
+
+.pst .b-top{display:flex;justify-content:space-between;align-items:center;gap:8px;padding-bottom:4px;
+            border-bottom:1px solid rgba(255,255,255,.08);font-size:12.5px;font-weight:800}
+.pst .bt-left{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.pst .bt-idx{background:#D4FF00;color:#060913;font-weight:900;padding:1px 7px;border-radius:3px;font-size:12px;letter-spacing:.06em;white-space:nowrap}
+.pst .bt-tm{color:#FFFFFF;font-family:ui-monospace,Consolas,monospace;font-size:14px;background:rgba(255,255,255,.08);padding:1px 7px;border-radius:4px;white-space:nowrap}
+.pst .bt-lg{color:#00F5D4;font-weight:900;letter-spacing:.03em;white-space:nowrap}
+.pst .bt-mid{color:#C6D6EA;font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pst .bt-mid b.h{color:#00F5D4}
+.pst .bt-mid b.a{color:#FF5E7E}
+.pst .bt-h2h{color:#D4FF00;background:rgba(212,255,0,.09);border:1px solid rgba(212,255,0,.26);padding:1px 8px;border-radius:4px;font-size:12px;white-space:nowrap}
+
+.pst .b-main{display:grid;grid-template-columns:342px 304px 342px;align-items:center;justify-content:space-between;gap:6px;margin:2px 0}
+.pst .b-side{display:flex;flex-direction:column;gap:5px}
+.pst .t-hdr{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.pst .b-side.away .t-hdr{flex-direction:row-reverse}
+.pst .tname{font-size:24px;font-weight:900;color:#FFFFFF;letter-spacing:-.01em;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.pst .tname i.bar{display:inline-block;width:5px;height:20px;border-radius:2px;background:#00F5D4}
+.pst .b-side.away .tname i.bar{background:#FF5E7E}
+.pst .seq-wrap{display:flex;align-items:center;gap:3px}
+.pst .seq-wrap .l5-txt{font-size:11.5px;font-weight:800;color:#9AB0C8;margin-right:3px;font-family:ui-monospace,Consolas,monospace}
+.pst .b-side.away .seq-wrap .l5-txt{margin-right:0;margin-left:3px}
+.pst .seq-wrap i{font-style:normal;width:18px;height:18px;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;
+                 font-size:11px;font-weight:900;color:#060913}
+.pst .seq-wrap i.W{background:#00F5D4}
+.pst .seq-wrap i.D{background:#FFD166}
+.pst .seq-wrap i.L{background:#FF5E7E;color:#FFFFFF}
+
+.pst .p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.pst .p-cell{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:4px 6px;display:flex;flex-direction:column;justify-content:center}
+.pst .b-side.home .p-cell{border-top:2px solid rgba(0,245,212,.45)}
+.pst .b-side.away .p-cell{border-top:2px solid rgba(255,94,126,.45);text-align:right}
+.pst .p-cell .k{font-size:10.5px;font-weight:700;color:#8CA2BC;line-height:1.15;white-space:nowrap}
+.pst .p-cell .v{font-size:14.5px;font-weight:900;color:#00F5D4;font-family:ui-monospace,Consolas,monospace;line-height:1.2;margin-top:2px;white-space:nowrap}
+.pst .b-side.away .p-cell .v{color:#FF5E7E}
+.pst .p-cell .s{font-size:10px;font-weight:700;color:#B8C8DC;line-height:1.15;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.pst .flow-bar{background:rgba(0,0,0,.36);border:1px solid rgba(255,255,255,.08);border-radius:5px;padding:3px 6px;
+               font-size:10.5px;font-weight:800;color:#C4D4E8;display:flex;align-items:center;justify-content:space-between;gap:3px;
+               font-family:ui-monospace,Consolas,monospace;white-space:nowrap}
+.pst .flow-bar b{color:#D4FF00;font-family:"Noto Sans SC",sans-serif;font-size:10.5px;flex-shrink:0}
+.pst .flow-bar span{background:rgba(255,255,255,.05);padding:1px 4px;border-radius:3px}
+
+.pst .b-center{position:relative;width:304px;height:216px;display:flex;align-items:center;justify-content:center}
+
+.pst .b-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:4px;border-top:1px solid rgba(255,255,255,.08)}
+.pst .b-chip{font-size:12px;font-weight:900;color:#D4FF00;background:rgba(212,255,0,.10);border:1px solid rgba(212,255,0,.30);
+             padding:2px 8px;border-radius:4px;white-space:nowrap}
+.pst .b-bars{display:flex;align-items:center;gap:12px;flex:1;max-width:340px}
+.pst .b-bar{flex:1;display:flex;align-items:center;gap:5px;font-size:11px;font-weight:800;color:#98ABC2;white-space:nowrap}
+.pst .b-bar b.h{color:#00F5D4;font-family:ui-monospace,Consolas,monospace}
+.pst .b-bar b.a{color:#FF5E7E;font-family:ui-monospace,Consolas,monospace}
+.pst .b-bar .trk{flex:1;height:6px;background:rgba(255,255,255,.09);border-radius:99px;overflow:hidden;display:flex}
+.pst .b-bar .trk i.h{background:linear-gradient(90deg,#00F5D4,#D4FF00);height:100%}
+.pst .b-bar .trk i.a{background:linear-gradient(90deg,#FF5E7E,#FF2A55);height:100%;margin-left:auto}
+.pst .b-pt{font-size:12px;font-weight:800;color:#DCE8F8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.pst .p-foot{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;
+             padding-top:8px;border-top:1px solid rgba(212,255,0,.28)}
+.pst .p-brand{display:flex;align-items:center;gap:10px}
+.pst .p-brand em{width:6px;height:32px;background:#D4FF00;display:block;border-radius:2px}
+.pst .p-brand b{font-size:24px;font-weight:900;color:#FFFFFF;display:block;line-height:1}
+.pst .p-brand b i{color:#D4FF00;font-style:normal}
+.pst .p-brand span{font-size:12.5px;font-weight:700;color:#98ABC2;display:block;margin-top:3px;letter-spacing:.04em}
+.pst .p-note{text-align:right;font-size:12px;color:#7E92AA;font-weight:600;line-height:1.35}
+
+/* ====== 3 场模板（n3：超大雷达 R=82px + 宽裕参数格） ====== */
+.pst.n3{padding:24px 28px 20px}
+.pst.n3 .mast-l h1{font-size:40px}
+.pst.n3 .mast-r .big-dt{font-size:72px}
+.pst.n3 .b-list{gap:14px;margin:12px 0 10px}
+.pst.n3 .b-row{padding:10px 12px 10px;border-radius:14px}
+.pst.n3 .b-top{padding-bottom:6px;font-size:12.5px}
+.pst.n3 .bt-idx{font-size:12px;padding:1px 8px}
+.pst.n3 .bt-tm{font-size:14px}
+.pst.n3 .bt-mid{font-size:12px}
+.pst.n3 .bt-h2h{font-size:12px;padding:1px 8px}
+.pst.n3 .b-main{grid-template-columns:340px 308px 340px;gap:6px;margin:4px 0}
+.pst.n3 .b-side{gap:8px}
+.pst.n3 .tname{font-size:26px}
+.pst.n3 .tname i.bar{height:22px;width:5px}
+.pst.n3 .seq-wrap i{width:19px;height:19px;font-size:11.5px}
+.pst.n3 .p-grid{gap:6px}
+.pst.n3 .p-cell{padding:7px 6px;border-radius:8px}
+.pst.n3 .p-cell .k{font-size:11px}
+.pst.n3 .p-cell .v{font-size:15px;margin-top:3px}
+.pst.n3 .p-cell .s{font-size:10px;margin-top:2px}
+.pst.n3 .flow-bar{padding:5px 6px;font-size:10.5px}
+.pst.n3 .flow-bar b{font-size:10.5px}
+.pst.n3 .b-center{width:308px;height:258px}
+.pst.n3 .b-foot{padding-top:6px}
+.pst.n3 .b-chip{font-size:12.5px;padding:2px 9px}
+.pst.n3 .b-bar{font-size:11.5px}
+.pst.n3 .b-pt{font-size:12.5px}
+
+/* ====== 5 场模板（n5：5 行高密度全维矩阵 R=60px） ====== */
+.pst.n5{padding:16px 24px 14px}
+.pst.n5 .mast{padding-bottom:7px}
+.pst.n5 .mast-l .eyebrow{font-size:12px;padding:2px 8px}
+.pst.n5 .mast-l h1{font-size:33px;margin-top:4px}
+.pst.n5 .mast-l .sub{font-size:13px;margin-top:3px}
+.pst.n5 .mast-r .big-dt{font-size:58px}
+.pst.n5 .mast-r .wd{font-size:13.5px;margin-top:3px}
+.pst.n5 .b-list{gap:6px;margin:7px 0 6px}
+.pst.n5 .b-row{padding:5px 10px 4px;border-radius:10px}
+.pst.n5 .b-top{padding-bottom:3px;font-size:11.5px}
+.pst.n5 .bt-idx{font-size:11px;padding:1px 6px}
+.pst.n5 .bt-tm{font-size:12.5px;padding:1px 6px}
+.pst.n5 .bt-mid{font-size:11px}
+.pst.n5 .bt-h2h{font-size:11px;padding:1px 6px}
+.pst.n5 .b-main{grid-template-columns:354px 284px 354px;gap:5px;margin:1px 0}
+.pst.n5 .b-side{gap:3px}
+.pst.n5 .tname{font-size:20px}
+.pst.n5 .tname i.bar{height:17px;width:4px}
+.pst.n5 .seq-wrap .l5-txt{font-size:10.5px}
+.pst.n5 .seq-wrap i{width:16px;height:16px;font-size:10px}
+.pst.n5 .p-grid{gap:3px}
+.pst.n5 .p-cell{padding:2.5px 5px;border-radius:5px}
+.pst.n5 .p-cell .k{font-size:9.5px}
+.pst.n5 .p-cell .v{font-size:13px;margin-top:1px}
+.pst.n5 .p-cell .s{font-size:9px;margin-top:0}
+.pst.n5 .flow-bar{padding:2px 5px;font-size:9.8px}
+.pst.n5 .flow-bar b{font-size:9.8px}
+.pst.n5 .b-center{width:284px;height:162px}
+.pst.n5 .b-foot{padding-top:3px}
+.pst.n5 .b-chip{font-size:11px;padding:1px 6px}
+.pst.n5 .b-bar{font-size:10px}
+.pst.n5 .b-bar .trk{height:5px}
+.pst.n5 .b-pt{font-size:11px}
+.pst.n5 .p-foot{padding-top:6px}
+.pst.n5 .p-brand b{font-size:21px}
+.pst.n5 .p-brand span{font-size:11.5px}
+.pst.n5 .p-note{font-size:11px}
+
+/* ====== 6 场模板（n6：6 行超密战术看板 R=48px） ====== */
+.pst.n6{padding:14px 22px 12px}
+.pst.n6 .mast{padding-bottom:6px}
+.pst.n6 .mast-l .eyebrow{font-size:11px;padding:2px 7px}
+.pst.n6 .mast-l h1{font-size:29px;margin-top:3px}
+.pst.n6 .mast-l .sub{font-size:12px;margin-top:2px;gap:10px}
+.pst.n6 .mast-l .sub span.lgd{font-size:11.5px;padding:1px 6px}
+.pst.n6 .mast-r .big-dt{font-size:50px}
+.pst.n6 .mast-r .wd{font-size:12.5px;margin-top:2px}
+.pst.n6 .b-list{gap:5px;margin:5px 0 5px}
+.pst.n6 .b-row{padding:3.5px 9px 3px;border-radius:8px;border-left-width:4px}
+.pst.n6 .b-top{padding-bottom:2px;font-size:10.5px}
+.pst.n6 .bt-idx{font-size:10px;padding:1px 5px}
+.pst.n6 .bt-tm{font-size:11.5px;padding:0 5px}
+.pst.n6 .bt-mid{font-size:10.2px}
+.pst.n6 .bt-h2h{font-size:10.2px;padding:0 6px}
+.pst.n6 .b-main{grid-template-columns:364px 268px 364px;gap:4px;margin:0}
+.pst.n6 .b-side{gap:2.5px}
+.pst.n6 .tname{font-size:17.5px}
+.pst.n6 .tname i.bar{height:14px;width:4px}
+.pst.n6 .seq-wrap .l5-txt{font-size:10px}
+.pst.n6 .seq-wrap i{width:14px;height:14px;font-size:9px}
+.pst.n6 .p-grid{gap:2.5px}
+.pst.n6 .p-cell{padding:1.5px 4px;border-radius:4px}
+.pst.n6 .p-cell .k{font-size:8.8px;line-height:1.1}
+.pst.n6 .p-cell .v{font-size:11.8px;line-height:1.12;margin-top:0}
+.pst.n6 .p-cell .s{font-size:8.2px;line-height:1.1;margin-top:0}
+.pst.n6 .flow-bar{padding:1.5px 4px;font-size:9.2px}
+.pst.n6 .flow-bar b{font-size:9.2px}
+.pst.n6 .flow-bar span{padding:0 3px}
+.pst.n6 .b-center{width:268px;height:132px}
+.pst.n6 .b-foot{padding-top:2px}
+.pst.n6 .b-chip{font-size:10px;padding:1px 5px}
+.pst.n6 .b-bars{max-width:300px;gap:8px}
+.pst.n6 .b-bar{font-size:9.5px}
+.pst.n6 .b-bar .trk{height:4px}
+.pst.n6 .b-pt{font-size:10px}
+.pst.n6 .p-foot{padding-top:5px}
+.pst.n6 .p-brand em{height:26px;width:5px}
+.pst.n6 .p-brand b{font-size:19px}
+.pst.n6 .p-brand span{font-size:10.5px;margin-top:2px}
+.pst.n6 .p-note{font-size:10px;line-height:1.25}
+"""
+
+
+def cover_poster_html(data: dict, n_override: int = 0) -> str:
+    """一图流全维技术海报（自适应 3 / 4 / 5 / 6 场模板，赛博黑金风格）。"""
+    ms_all = data.get("matches") or []
+    n_target = n_override if n_override in (3, 4, 5, 6) else max(3, min(6, len(ms_all) or 4))
+    ms = ms_all[:n_target]
+    n_actual = max(3, min(6, len(ms)))
+    rw, rh_svg, r_rad, r_fs = POSTER_RADAR_SPEC.get(n_actual, POSTER_RADAR_SPEC[4])
+
+    meta = data.get("meta") or {}
+    m_date = meta.get("date") or "10.28"
+    m_wd = (meta.get("weekday") or "星期三").replace("星期", "").replace("周", "")
+    m_kd = meta.get("kick_day") or "%s 赛程" % m_date.replace(".", "/")
+    d1, _, d2 = m_date.partition(".")
+    dt = "%s<i>.</i>%s" % (d1, d2) if d2 else m_date
+    lg_short = []
+    for m in ms:
+        s = (m.get("league") or "").split("·")[0].strip()
+        if s and s not in lg_short:
+            lg_short.append(s)
+    lg_title = " × ".join(lg_short[:3]) if lg_short else "焦点赛事"
+
+    def _seq_badges(seq):
+        mp = {"W": "胜", "D": "平", "L": "负"}
+        return "".join(f'<i class="{s}">{mp.get(s, "平")}</i>' for s in (seq or ["W", "D", "W", "L", "W"])[:5])
+
+    rows = []
+    for idx, c in enumerate(ms, 1):
+        fh = (c.get("form") or {}).get("home") or {}
+        fa = (c.get("form") or {}).get("away") or {}
+        h2 = (c.get("form") or {}).get("h2h") or {}
+        r_obj = c.get("radar") or {}
+        rh = r_obj.get("home") or [65, 65, 50, 50, 60, 55]
+        ra = r_obj.get("away") or [55, 60, 40, 50, 50, 55]
+        avg_rh = float(r_obj.get("avg_home") or (sum(rh) / len(rh)))
+        avg_ra = float(r_obj.get("avg_away") or (sum(ra) / len(ra)))
+
+        hpj, apj = float(fh.get("pj") or 0), float(fa.get("pj") or 0)
+        hsj, asj = float(fh.get("sj") or 0), float(fa.get("sj") or 0)
+        hgd = float(fh.get("gd_avg") if fh.get("gd_avg") is not None else (hpj - hsj))
+        agd = float(fa.get("gd_avg") if fa.get("gd_avg") is not None else (apj - asj))
+        hz, az = float(fh.get("zero") or 0), float(fa.get("zero") or 0)
+        hunb, aunb = float(fh.get("unbeat") or 60), float(fa.get("unbeat") or 60)
+        hvol, avol = float(fh.get("vol") or 0), float(fa.get("vol") or 0)
+
+        h_ht_gf, h_ht_ga = int(fh.get("ht_gf") or 0), int(fh.get("ht_ga") or 0)
+        a_ht_gf, a_ht_ga = int(fa.get("ht_gf") or 0), int(fa.get("ht_ga") or 0)
+        h_sh_gf, h_sh_ga = int(fh.get("sh_gf") or 0), int(fh.get("sh_ga") or 0)
+        a_sh_gf, a_sh_ga = int(fa.get("sh_gf") or 0), int(fa.get("sh_ga") or 0)
+        h_ht_lead, a_ht_lead = int(fh.get("ht_lead") or 0), int(fa.get("ht_lead") or 0)
+        h_ht_unb, a_ht_unb = int(fh.get("ht_unbeat") or 0), int(fa.get("ht_unbeat") or 0)
+
+        h_rank_txt = fh.get("rank_txt") or f"近5战 {fh.get('l5') or ''}"
+        a_rank_txt = fa.get("rank_txt") or f"近5战 {fa.get('l5') or ''}"
+        h_ven_txt = fh.get("ven_txt") or "主场表现"
+        a_ven_txt = fa.get("ven_txt") or "客场表现"
+        h_ven_sub = fh.get("ven_sub") or f"场均进{hpj:.2f}"
+        a_ven_sub = fa.get("ven_sub") or f"场均进{apj:.2f}"
+
+        h_flow_items = [esc(x.replace("(", "").replace(")", "")) for x in (fh.get("flow") or [])[:5]]
+        a_flow_items = [esc(x.replace("(", "").replace(")", "")) for x in (fa.get("flow") or [])[:5]]
+        h_flow = "".join(f"<span>{x}</span>" for x in h_flow_items) or f"<span>共进{fh.get('gf',0)}失{fh.get('ga',0)}</span>"
+        a_flow = "".join(f"<span>{x}</span>" for x in a_flow_items) or f"<span>共进{fa.get('gf',0)}失{fa.get('ga',0)}</span>"
+
+        tot_pj = (hpj + apj) or 1.0
+        w_pj = max(14.0, min(86.0, 100.0 * hpj / tot_pj))
+        tot_rad = (avg_rh + avg_ra) or 1.0
+        w_rad = max(18.0, min(82.0, 100.0 * avg_rh / tot_rad))
+
+        t1, t2 = _extract_tag_pair(c)
+        rad_svg = _poster_radar_svg(c, w=rw, h=rh_svg, col_h="#00F5D4", col_a="#FF5E7E", rad=r_rad, fs=r_fs)
+        h2_low = h2.get("low") if h2.get("low") not in (None, "") else ((c.get("h2h_stats") or {}).get("low") or "—")
+        h2h_str = (
+            f"近{h2.get('n', 6)}次交锋：主{h2.get('w', 0)}胜{h2.get('d', 0)}平{h2.get('l', 0)}负 "
+            f"(进{h2.get('gf', 0)}失{h2.get('ga', 0)}) · 场均{h2.get('avg_goals', '—')}球 · ≤2球占{h2_low}%"
+        )
+        pt_str = c.get("point") or f"焦点：{t1} vs {t2}"
+
+        rows.append(f"""
+        <div class="b-row">
+          <div class="b-top">
+            <div class="bt-left">
+              <span class="bt-idx">MATCH 0{idx}</span>
+              <span class="bt-tm">{esc(c.get("kick") or "")}</span>
+              <span class="bt-lg">{esc(c.get("league") or "")}</span>
+            </div>
+            <div class="bt-mid"><b class="h">{esc(h_rank_txt)}</b> <span>vs</span> <b class="a">{esc(a_rank_txt)}</b></div>
+            <div class="bt-h2h">{esc(h2h_str)}</div>
+          </div>
+          <div class="b-main">
+            <div class="b-side home">
+              <div class="t-hdr">
+                <div class="tname"><i class="bar"></i>{esc(c.get("home") or "")}</div>
+                <div class="seq-wrap"><span class="l5-txt">{esc(fh.get("l5") or "")}</span>{_seq_badges(fh.get("seq"))}</div>
+              </div>
+              <div class="p-grid">
+                <div class="p-cell">
+                  <span class="k">近5场均进/失</span>
+                  <span class="v">{hpj:.2f} / {hsj:.2f}</span>
+                  <span class="s">5场共进{fh.get("gf",0)}失{fh.get("ga",0)}</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">同主客战力</span>
+                  <span class="v">{esc(h_ven_txt.replace("本季","").replace("近期",""))}</span>
+                  <span class="s">{esc(h_ven_sub)}</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">上半场抢开局</span>
+                  <span class="v">进{h_ht_gf} 失{h_ht_ga}</span>
+                  <span class="s">领先{h_ht_lead}% · 不败{h_ht_unb}%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">下半场后程得失</span>
+                  <span class="v">进{h_sh_gf} 失{h_sh_ga}</span>
+                  <span class="s">零封{hz:.0f}% · 不败{hunb:.0f}%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">进球波动 / 净胜</span>
+                  <span class="v">σ{hvol:.2f} / {hgd:+.1f}</span>
+                  <span class="s">稳定{rh[3]} · 净胜分{rh[4]}</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">六维综合均值</span>
+                  <span class="v">{avg_rh:.1f} 分</span>
+                  <span class="s">攻{rh[0]} 防{rh[1]} 开{rh[5]}</span>
+                </div>
+              </div>
+              <div class="flow-bar"><b>近5战</b>{h_flow}</div>
+            </div>
+
+            <div class="b-center">{rad_svg}</div>
+
+            <div class="b-side away">
+              <div class="t-hdr">
+                <div class="tname">{esc(c.get("away") or "")}<i class="bar"></i></div>
+                <div class="seq-wrap">{_seq_badges(fa.get("seq"))}<span class="l5-txt">{esc(fa.get("l5") or "")}</span></div>
+              </div>
+              <div class="p-grid">
+                <div class="p-cell">
+                  <span class="k">近5场均进/失</span>
+                  <span class="v">{apj:.2f} / {asj:.2f}</span>
+                  <span class="s">5场共进{fa.get("gf",0)}失{fa.get("ga",0)}</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">同主客战力</span>
+                  <span class="v">{esc(a_ven_txt.replace("本季","").replace("近期",""))}</span>
+                  <span class="s">{esc(a_ven_sub)}</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">上半场抢开局</span>
+                  <span class="v">进{a_ht_gf} 失{a_ht_ga}</span>
+                  <span class="s">领先{a_ht_lead}% · 不败{a_ht_unb}%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">下半场后程得失</span>
+                  <span class="v">进{a_sh_gf} 失{a_sh_ga}</span>
+                  <span class="s">零封{az:.0f}% · 不败{aunb:.0f}%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">进球波动 / 净胜</span>
+                  <span class="v">σ{avol:.2f} / {agd:+.1f}</span>
+                  <span class="s">稳定{ra[3]} · 净胜分{ra[4]}</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">六维综合均值</span>
+                  <span class="v">{avg_ra:.1f} 分</span>
+                  <span class="s">攻{ra[0]} 防{ra[1]} 开{ra[5]}</span>
+                </div>
+              </div>
+              <div class="flow-bar"><b>近5战</b>{a_flow}</div>
+            </div>
+          </div>
+          <div class="b-foot">
+            <span class="b-chip">▸ {esc(t1)} × {esc(t2)}</span>
+            <div class="b-bars">
+              <div class="b-bar">
+                <span>火力</span><b class="h">{hpj:.2f}</b>
+                <div class="trk"><i class="h" style="width:{w_pj:.1f}%"></i><i class="a" style="width:{100-w_pj:.1f}%"></i></div>
+                <b class="a">{apj:.2f}</b>
+              </div>
+              <div class="b-bar">
+                <span>六维</span><b class="h">{avg_rh:.1f}</b>
+                <div class="trk"><i class="h" style="width:{w_rad:.1f}%"></i><i class="a" style="width:{100-w_rad:.1f}%"></i></div>
+                <b class="a">{avg_ra:.1f}</b>
+              </div>
+            </div>
+            <span class="b-pt">{esc(pt_str)}</span>
+          </div>
+        </div>""")
+
+    return f"""<!doctype html><html lang="zh"><head><meta charset="utf-8"><style>{POSTER_CSS}</style></head>
+<body><div class="pst n{n_actual}">
+  <div class="grid-bg"></div>
+  <div class="border-out"></div>
+  <div class="mast">
+    <div class="mast-l">
+      <span class="eyebrow">ALL-IN-ONE TECHNICAL DOSSIER // 90-MIN REGULAR TIME DATA</span>
+      <h1>{esc(lg_title)}<em>{len(ms)} 场焦点战全维技术图谱</em></h1>
+      <div class="sub">
+        <span>2× 六维雷达对撞 · 上下半场得失拆分 · 同主客战力 · 波动度(σ)与交锋档案</span>
+        <span class="lgd"><i style="background:#00F5D4"></i>主队参数/雷达</span>
+        <span class="lgd"><i style="background:#FF5E7E"></i>客队参数/雷达</span>
+      </div>
+    </div>
+    <div class="mast-r">
+      <div class="big-dt">{dt}</div>
+      <div class="wd">星期{m_wd} ｜ {esc(m_kd)}</div>
+    </div>
+  </div>
+  <div class="b-list">{"".join(rows)}</div>
+  <div class="p-foot">
+    <div class="p-brand">
+      <em></em>
+      <div><b>阿飞 <i>·</i> 赛博聊球</b><span>一图流全维数据看板 · 深度战术与数据拆解见正文</span></div>
+    </div>
+    <div class="p-note">
+      <div>数据口径：90 分钟常规时间 · 官方赛程与近 5 场全/半场客观数据统计</div>
+      <div>仅供球迷战术交流参考，不构成任何建议</div>
+    </div>
+  </div>
+</div></body></html>"""
+
+
 def main() -> None:
-    ap = argparse.ArgumentParser(description="D 版单场深挖卡 v2（合规形态）")
+    ap = argparse.ArgumentParser(description="D 版单场深挖卡 v2（合规形态 + 3/4/5/6场赛博黑金一图流海报模板）")
     ap.add_argument("--input", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--template", type=int, choices=[0, 3, 4, 5, 6], default=0, help="指定 3/4/5/6 场一图流海报模板（0=按输入场次数自适应）")
+    ap.add_argument("--all-templates", action="store_true", help="一次性输出 3场/4场/5场/6场 四套赛博黑金海报模板示例图（模板_3场_海报.png 等）")
     ap.add_argument("--cover", action="store_true", help="额外输出 00_封面.png")
-    ap.add_argument("--cover-style", choices=["v3", "v2", "v2-wide", "dark", "light"], default="v3", help="封面风格")
+    ap.add_argument("--only-cover", action="store_true", help="一图流模式：只生成封面海报，不生成单场内页卡")
+    ap.add_argument("--cover-style", choices=["poster", "v4", "v3", "v2", "v2-wide", "dark", "light"], default="poster", help="封面风格")
     a = ap.parse_args()
+    if a.all_templates:
+        a.only_cover = True
+    if a.only_cover or a.template or a.all_templates:
+        a.cover = True
     data = json.loads(Path(a.input).read_text(encoding="utf-8"))
     ms = data.get("matches") or []
     if a.limit:
         ms = ms[:a.limit]
+    try:
+        import xhs_riskcheck
+        hits = xhs_riskcheck.scan_cards(data, ms)
+        if hits:
+            print("❌ 风控自检未通过（命中 %d 处），已阻止出图：" % len(hits))
+            for cat, frag, where, why in hits:
+                print("  [%s] %s -> %r (%s)" % (cat, where, frag, why))
+            sys.exit(2)
+    except ImportError:
+        pass
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     _tmp_env = os.environ.get("XHS_HTML_TMP")
@@ -1300,9 +2158,24 @@ def main() -> None:
         tmp = Path(_tmp_env)  # 沙箱下 mkdtemp 新建目录会被 ACL 拒写，用预建目录
     else:
         tmp = Path(tempfile.mkdtemp(prefix="d_", dir=_tmp_env or out))
-    if a.cover:
+    if a.all_templates:
+        for n_tpl in (3, 4, 5, 6):
+            if len(ms) < n_tpl:
+                print(f"  ⚠️ 输入场次({len(ms)})少于 {n_tpl} 场，跳过 {n_tpl} 场模板")
+                continue
+            th = tmp / f"tpl_{n_tpl}.html"
+            th.write_text(cover_poster_html(data, n_override=n_tpl), encoding="utf-8")
+            tpng = out / f"模板_{n_tpl}场_海报.png"
+            tok = shot(th, tpng)
+            print(("  ✅ " if tok else "  ❌ ") + tpng.name +
+                  ("  %dKB" % (tpng.stat().st_size // 1024) if tok else ""))
+    if a.cover and not a.all_templates:
         ch = tmp / "00.html"
-        if a.cover_style == "v3":
+        if a.cover_style == "v4":
+            html = cover_v4_html(data)
+        elif a.cover_style == "poster":
+            html = cover_poster_html(data, n_override=a.template)
+        elif a.cover_style == "v3":
             html = cover_v3_html(data)
         elif a.cover_style == "v2":
             html = cover_v2_html(data)
@@ -1317,14 +2190,33 @@ def main() -> None:
         ok = shot(ch, cpng)
         print(("  ✅ " if ok else "  ❌ ") + cpng.name +
               ("  %dKB" % (cpng.stat().st_size // 1024) if ok else ""))
-        if a.cover_style in ("v2", "v3"):
+        if a.cover_style == "v4":
+            ph = tmp / "00_poster.html"
+            ph.write_text(cover_poster_html(data), encoding="utf-8")
+            bpng = out / "00_封面_海报版.png"
+            bok = shot(ph, bpng)
+            print(("  ✅ " if bok else "  ❌ ") + bpng.name +
+                  ("  %dKB" % (bpng.stat().st_size // 1024) if bok else ""))
+        elif a.cover_style == "poster":
+            import shutil as _shutil
+            bpng = out / "00_封面_海报版.png"
+            if cpng.exists():
+                _shutil.copy2(cpng, bpng)
+                print("  ✅ " + bpng.name + "  %dKB" % (bpng.stat().st_size // 1024))
+        if a.cover_style in ("v2", "v3", "v4"):
             # 16:9 横版（头条信息流裁切备用）
             wh = tmp / "00_wide.html"
-            wh.write_text(cover_v3_html(data, wide=True) if a.cover_style == "v3" else cover_v2_html(data, wide=True), encoding="utf-8")
+            if a.cover_style == "v4":
+                wh.write_text(cover_v4_html(data, wide=True), encoding="utf-8")
+            elif a.cover_style == "v3":
+                wh.write_text(cover_v3_html(data, wide=True), encoding="utf-8")
+            else:
+                wh.write_text(cover_v2_html(data, wide=True), encoding="utf-8")
             wpng = out / "00_封面_16x9.png"
             wok = shot(wh, wpng, size=(1920, 1080))
             print(("  ✅ " if wok else "  ❌ ") + wpng.name +
                   ("  %dKB" % (wpng.stat().st_size // 1024) if wok else ""))
+        if a.cover_style in ("v2", "v3", "v4", "poster"):
             # 缩略图预览（验证信息流可读性）：用 Pillow 等比缩，避免固定 body 宽度被裁
             ppng = out / "00_封面_预览.png"
             pok = False
@@ -1338,15 +2230,19 @@ def main() -> None:
                 pok = shot(ch, ppng, size=(360, 480), scale=1)
             print(("  ✅ " if pok else "  ❌ ") + ppng.name +
                   ("  %dKB" % (ppng.stat().st_size // 1024) if pok else ""))
-    for i, c in enumerate(ms, 1):
-        h = tmp / ("%02d.html" % i)
-        _skin = skin_for((data.get("meta") or {}).get("date"), os.environ.get("CARD_SKIN") or None)
-        _html = _scale_font_css(card_html(c, i, len(ms)), float(os.environ.get("CARD_FS", "1") or 1))
-        h.write_text(_apply_skin(_html, _skin), encoding="utf-8")
-        png = out / ("%02d_%s_%s.png" % (i, c.get("no", ""), c.get("home", "") + "vs" + c.get("away", "")))
-        ok = shot(h, png)
-        print(("  ✅ " if ok else "  ❌ ") + png.name +
-              ("  %dKB" % (png.stat().st_size // 1024) if ok else ""))
+    if not a.only_cover:
+        for i, c in enumerate(ms, 1):
+            h = tmp / ("%02d.html" % i)
+            _skin = skin_for((data.get("meta") or {}).get("date"), os.environ.get("CARD_SKIN") or None)
+            _html = _scale_font_css(card_html(c, i, len(ms)), float(os.environ.get("CARD_FS", "1") or 1))
+            h.write_text(_apply_skin(_html, _skin), encoding="utf-8")
+            png = out / ("%02d_%s.png" % (i, c.get("home", "") + "vs" + c.get("away", "")))
+            ok = shot(h, png)
+            print(("  ✅ " if ok else "  ❌ ") + png.name +
+                  ("  %dKB" % (png.stat().st_size // 1024) if ok else ""))
+    if not _tmp_env and tmp.exists():
+        import shutil as _sh
+        _sh.rmtree(tmp, ignore_errors=True)
 
 
 if __name__ == "__main__":

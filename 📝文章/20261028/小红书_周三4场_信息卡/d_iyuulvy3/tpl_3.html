@@ -1,0 +1,570 @@
+<!doctype html><html lang="zh"><head><meta charset="utf-8"><style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#060913}
+body{width:1080px;height:1440px;overflow:hidden;font-family:"Noto Sans SC","Microsoft YaHei",sans-serif;color:#F5F7FA}
+.pst{position:relative;width:1080px;height:1440px;overflow:hidden;padding:22px 28px 18px;display:flex;flex-direction:column;
+     background:
+       radial-gradient(920px 440px at 88% 4%,rgba(212,255,0,.15),transparent 60%),
+       radial-gradient(820px 540px at 10% 32%,rgba(0,245,212,.12),transparent 62%),
+       radial-gradient(920px 520px at 50% 96%,rgba(255,56,100,.11),transparent 65%),
+       linear-gradient(180deg,#060913 0%,#0A1020 52%,#060913 100%)}
+.pst .grid-bg{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.065) 1px,transparent 1px);
+              background-size:24px 24px;opacity:.55;pointer-events:none}
+.pst .border-out{position:absolute;inset:12px;border:1.5px solid rgba(212,255,0,.22);pointer-events:none}
+
+.pst .mast{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;
+           padding-bottom:10px;border-bottom:2px solid rgba(212,255,0,.38)}
+.pst .mast-l .eyebrow{display:inline-flex;align-items:center;gap:10px;background:#D4FF00;color:#060913;
+                      font-size:13px;font-weight:900;padding:3px 10px;border-radius:4px;letter-spacing:.10em}
+.pst .mast-l h1{margin:6px 0 0;font-size:38px;font-weight:900;line-height:1.06;letter-spacing:-.02em;color:#FFFFFF}
+.pst .mast-l h1 em{font-style:normal;color:#D4FF00;margin-left:8px}
+.pst .mast-l .sub{margin-top:5px;font-size:14px;font-weight:700;color:#A8B8CE;letter-spacing:.03em;display:flex;align-items:center;gap:14px}
+.pst .mast-l .sub span.lgd{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:#DCE8F8;background:rgba(255,255,255,.06);
+                           padding:2px 8px;border-radius:4px;border:1px solid rgba(255,255,255,.10)}
+.pst .mast-l .sub span.lgd i{display:inline-block;width:9px;height:9px;border-radius:2px}
+.pst .mast-r{text-align:right;flex-shrink:0}
+.pst .mast-r .big-dt{font-size:68px;font-weight:900;line-height:.86;color:#FFFFFF;font-family:Impact,"Arial Black",sans-serif;letter-spacing:.01em}
+.pst .mast-r .big-dt i{color:#D4FF00;font-style:normal}
+.pst .mast-r .wd{margin-top:5px;font-size:15px;font-weight:800;color:#00F5D4;letter-spacing:.05em;white-space:nowrap}
+
+.pst .b-list{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:9px;margin:9px 0 8px}
+.pst .b-row{position:relative;flex:1;background:linear-gradient(90deg,rgba(14,23,40,.96),rgba(10,16,30,.94) 50%,rgba(22,15,32,.96));
+            border:1px solid rgba(255,255,255,.13);border-left:5px solid #D4FF00;border-radius:12px;padding:7px 12px 7px;
+            display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 8px 22px rgba(0,0,0,.45)}
+
+.pst .b-top{display:flex;justify-content:space-between;align-items:center;gap:8px;padding-bottom:4px;
+            border-bottom:1px solid rgba(255,255,255,.08);font-size:12.5px;font-weight:800}
+.pst .bt-left{display:flex;align-items:center;gap:8px}
+.pst .bt-idx{background:#D4FF00;color:#060913;font-weight:900;padding:1px 7px;border-radius:3px;font-size:12px;letter-spacing:.06em}
+.pst .bt-tm{color:#FFFFFF;font-family:ui-monospace,Consolas,monospace;font-size:14px;background:rgba(255,255,255,.08);padding:1px 7px;border-radius:4px}
+.pst .bt-lg{color:#00F5D4;font-weight:900;letter-spacing:.03em}
+.pst .bt-mid{color:#C6D6EA;font-size:12px;font-weight:700}
+.pst .bt-mid b.h{color:#00F5D4}
+.pst .bt-mid b.a{color:#FF5E7E}
+.pst .bt-h2h{color:#D4FF00;background:rgba(212,255,0,.09);border:1px solid rgba(212,255,0,.26);padding:1px 8px;border-radius:4px;font-size:12px;white-space:nowrap}
+
+.pst .b-main{display:grid;grid-template-columns:342px 304px 342px;align-items:center;justify-content:space-between;gap:6px;margin:2px 0}
+.pst .b-side{display:flex;flex-direction:column;gap:5px}
+.pst .t-hdr{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.pst .b-side.away .t-hdr{flex-direction:row-reverse}
+.pst .tname{font-size:24px;font-weight:900;color:#FFFFFF;letter-spacing:-.01em;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.pst .tname i.bar{display:inline-block;width:5px;height:20px;border-radius:2px;background:#00F5D4}
+.pst .b-side.away .tname i.bar{background:#FF5E7E}
+.pst .seq-wrap{display:flex;align-items:center;gap:3px}
+.pst .seq-wrap .l5-txt{font-size:11.5px;font-weight:800;color:#9AB0C8;margin-right:3px;font-family:ui-monospace,Consolas,monospace}
+.pst .b-side.away .seq-wrap .l5-txt{margin-right:0;margin-left:3px}
+.pst .seq-wrap i{font-style:normal;width:18px;height:18px;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;
+                 font-size:11px;font-weight:900;color:#060913}
+.pst .seq-wrap i.W{background:#00F5D4}
+.pst .seq-wrap i.D{background:#FFD166}
+.pst .seq-wrap i.L{background:#FF5E7E;color:#FFFFFF}
+
+.pst .p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.pst .p-cell{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:4px 6px;display:flex;flex-direction:column;justify-content:center}
+.pst .b-side.home .p-cell{border-top:2px solid rgba(0,245,212,.45)}
+.pst .b-side.away .p-cell{border-top:2px solid rgba(255,94,126,.45);text-align:right}
+.pst .p-cell .k{font-size:10.5px;font-weight:700;color:#8CA2BC;line-height:1.15;white-space:nowrap}
+.pst .p-cell .v{font-size:14.5px;font-weight:900;color:#00F5D4;font-family:ui-monospace,Consolas,monospace;line-height:1.2;margin-top:2px;white-space:nowrap}
+.pst .b-side.away .p-cell .v{color:#FF5E7E}
+.pst .p-cell .s{font-size:10px;font-weight:700;color:#B8C8DC;line-height:1.15;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.pst .flow-bar{background:rgba(0,0,0,.36);border:1px solid rgba(255,255,255,.08);border-radius:5px;padding:3px 6px;
+               font-size:10.5px;font-weight:800;color:#C4D4E8;display:flex;align-items:center;justify-content:space-between;gap:3px;
+               font-family:ui-monospace,Consolas,monospace;white-space:nowrap}
+.pst .flow-bar b{color:#D4FF00;font-family:"Noto Sans SC",sans-serif;font-size:10.5px;flex-shrink:0}
+.pst .flow-bar span{background:rgba(255,255,255,.05);padding:1px 4px;border-radius:3px}
+
+.pst .b-center{position:relative;width:304px;height:216px;display:flex;align-items:center;justify-content:center}
+
+.pst .b-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:4px;border-top:1px solid rgba(255,255,255,.08)}
+.pst .b-chip{font-size:12px;font-weight:900;color:#D4FF00;background:rgba(212,255,0,.10);border:1px solid rgba(212,255,0,.30);
+             padding:2px 8px;border-radius:4px;white-space:nowrap}
+.pst .b-bars{display:flex;align-items:center;gap:12px;flex:1;max-width:340px}
+.pst .b-bar{flex:1;display:flex;align-items:center;gap:5px;font-size:11px;font-weight:800;color:#98ABC2;white-space:nowrap}
+.pst .b-bar b.h{color:#00F5D4;font-family:ui-monospace,Consolas,monospace}
+.pst .b-bar b.a{color:#FF5E7E;font-family:ui-monospace,Consolas,monospace}
+.pst .b-bar .trk{flex:1;height:6px;background:rgba(255,255,255,.09);border-radius:99px;overflow:hidden;display:flex}
+.pst .b-bar .trk i.h{background:linear-gradient(90deg,#00F5D4,#D4FF00);height:100%}
+.pst .b-bar .trk i.a{background:linear-gradient(90deg,#FF5E7E,#FF2A55);height:100%;margin-left:auto}
+.pst .b-pt{font-size:12px;font-weight:800;color:#DCE8F8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.pst .p-foot{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;
+             padding-top:8px;border-top:1px solid rgba(212,255,0,.28)}
+.pst .p-brand{display:flex;align-items:center;gap:10px}
+.pst .p-brand em{width:6px;height:32px;background:#D4FF00;display:block;border-radius:2px}
+.pst .p-brand b{font-size:24px;font-weight:900;color:#FFFFFF;display:block;line-height:1}
+.pst .p-brand b i{color:#D4FF00;font-style:normal}
+.pst .p-brand span{font-size:12.5px;font-weight:700;color:#98ABC2;display:block;margin-top:3px;letter-spacing:.04em}
+.pst .p-note{text-align:right;font-size:12px;color:#7E92AA;font-weight:600;line-height:1.35}
+
+/* ====== 3 场模板（n3：超大雷达 R=92px + 宽裕参数格） ====== */
+.pst.n3{padding:24px 28px 20px}
+.pst.n3 .mast-l h1{font-size:40px}
+.pst.n3 .mast-r .big-dt{font-size:72px}
+.pst.n3 .b-list{gap:14px;margin:12px 0 10px}
+.pst.n3 .b-row{padding:11px 16px 10px;border-radius:14px}
+.pst.n3 .b-top{padding-bottom:6px;font-size:13.5px}
+.pst.n3 .bt-idx{font-size:13px;padding:2px 9px}
+.pst.n3 .bt-tm{font-size:15px}
+.pst.n3 .bt-mid{font-size:13px}
+.pst.n3 .bt-h2h{font-size:13px;padding:2px 10px}
+.pst.n3 .b-main{grid-template-columns:326px 328px 326px;gap:8px;margin:4px 0}
+.pst.n3 .b-side{gap:8px}
+.pst.n3 .tname{font-size:28px}
+.pst.n3 .tname i.bar{height:24px;width:6px}
+.pst.n3 .seq-wrap i{width:20px;height:20px;font-size:12px}
+.pst.n3 .p-grid{gap:6px}
+.pst.n3 .p-cell{padding:7px 8px;border-radius:8px}
+.pst.n3 .p-cell .k{font-size:11.5px}
+.pst.n3 .p-cell .v{font-size:16.5px;margin-top:3px}
+.pst.n3 .p-cell .s{font-size:11px;margin-top:2px}
+.pst.n3 .flow-bar{padding:5px 8px;font-size:11px}
+.pst.n3 .flow-bar b{font-size:11px}
+.pst.n3 .b-center{width:328px;height:266px}
+.pst.n3 .b-foot{padding-top:6px}
+.pst.n3 .b-chip{font-size:13px;padding:3px 10px}
+.pst.n3 .b-bar{font-size:12px}
+.pst.n3 .b-pt{font-size:13px}
+
+/* ====== 5 场模板（n5：5 行高密度全维矩阵 R=60px） ====== */
+.pst.n5{padding:16px 24px 14px}
+.pst.n5 .mast{padding-bottom:7px}
+.pst.n5 .mast-l .eyebrow{font-size:12px;padding:2px 8px}
+.pst.n5 .mast-l h1{font-size:33px;margin-top:4px}
+.pst.n5 .mast-l .sub{font-size:13px;margin-top:3px}
+.pst.n5 .mast-r .big-dt{font-size:58px}
+.pst.n5 .mast-r .wd{font-size:13.5px;margin-top:3px}
+.pst.n5 .b-list{gap:6px;margin:7px 0 6px}
+.pst.n5 .b-row{padding:5px 10px 4px;border-radius:10px}
+.pst.n5 .b-top{padding-bottom:3px;font-size:11.5px}
+.pst.n5 .bt-idx{font-size:11px;padding:1px 6px}
+.pst.n5 .bt-tm{font-size:12.5px;padding:1px 6px}
+.pst.n5 .bt-mid{font-size:11px}
+.pst.n5 .bt-h2h{font-size:11px;padding:1px 6px}
+.pst.n5 .b-main{grid-template-columns:354px 284px 354px;gap:5px;margin:1px 0}
+.pst.n5 .b-side{gap:3px}
+.pst.n5 .tname{font-size:20px}
+.pst.n5 .tname i.bar{height:17px;width:4px}
+.pst.n5 .seq-wrap .l5-txt{font-size:10.5px}
+.pst.n5 .seq-wrap i{width:16px;height:16px;font-size:10px}
+.pst.n5 .p-grid{gap:3px}
+.pst.n5 .p-cell{padding:2.5px 5px;border-radius:5px}
+.pst.n5 .p-cell .k{font-size:9.5px}
+.pst.n5 .p-cell .v{font-size:13px;margin-top:1px}
+.pst.n5 .p-cell .s{font-size:9px;margin-top:0}
+.pst.n5 .flow-bar{padding:2px 5px;font-size:9.8px}
+.pst.n5 .flow-bar b{font-size:9.8px}
+.pst.n5 .b-center{width:284px;height:162px}
+.pst.n5 .b-foot{padding-top:3px}
+.pst.n5 .b-chip{font-size:11px;padding:1px 6px}
+.pst.n5 .b-bar{font-size:10px}
+.pst.n5 .b-bar .trk{height:5px}
+.pst.n5 .b-pt{font-size:11px}
+.pst.n5 .p-foot{padding-top:6px}
+.pst.n5 .p-brand b{font-size:21px}
+.pst.n5 .p-brand span{font-size:11.5px}
+.pst.n5 .p-note{font-size:11px}
+
+/* ====== 6 场模板（n6：6 行超密战术看板 R=48px） ====== */
+.pst.n6{padding:14px 22px 12px}
+.pst.n6 .mast{padding-bottom:6px}
+.pst.n6 .mast-l .eyebrow{font-size:11px;padding:2px 7px}
+.pst.n6 .mast-l h1{font-size:29px;margin-top:3px}
+.pst.n6 .mast-l .sub{font-size:12px;margin-top:2px;gap:10px}
+.pst.n6 .mast-l .sub span.lgd{font-size:11.5px;padding:1px 6px}
+.pst.n6 .mast-r .big-dt{font-size:50px}
+.pst.n6 .mast-r .wd{font-size:12.5px;margin-top:2px}
+.pst.n6 .b-list{gap:5px;margin:5px 0 5px}
+.pst.n6 .b-row{padding:3.5px 9px 3px;border-radius:8px;border-left-width:4px}
+.pst.n6 .b-top{padding-bottom:2px;font-size:10.5px}
+.pst.n6 .bt-idx{font-size:10px;padding:1px 5px}
+.pst.n6 .bt-tm{font-size:11.5px;padding:0 5px}
+.pst.n6 .bt-mid{font-size:10.2px}
+.pst.n6 .bt-h2h{font-size:10.2px;padding:0 6px}
+.pst.n6 .b-main{grid-template-columns:364px 268px 364px;gap:4px;margin:0}
+.pst.n6 .b-side{gap:2.5px}
+.pst.n6 .tname{font-size:17.5px}
+.pst.n6 .tname i.bar{height:14px;width:4px}
+.pst.n6 .seq-wrap .l5-txt{font-size:10px}
+.pst.n6 .seq-wrap i{width:14px;height:14px;font-size:9px}
+.pst.n6 .p-grid{gap:2.5px}
+.pst.n6 .p-cell{padding:1.5px 4px;border-radius:4px}
+.pst.n6 .p-cell .k{font-size:8.8px;line-height:1.1}
+.pst.n6 .p-cell .v{font-size:11.8px;line-height:1.12;margin-top:0}
+.pst.n6 .p-cell .s{font-size:8.2px;line-height:1.1;margin-top:0}
+.pst.n6 .flow-bar{padding:1.5px 4px;font-size:9.2px}
+.pst.n6 .flow-bar b{font-size:9.2px}
+.pst.n6 .flow-bar span{padding:0 3px}
+.pst.n6 .b-center{width:268px;height:132px}
+.pst.n6 .b-foot{padding-top:2px}
+.pst.n6 .b-chip{font-size:10px;padding:1px 5px}
+.pst.n6 .b-bars{max-width:300px;gap:8px}
+.pst.n6 .b-bar{font-size:9.5px}
+.pst.n6 .b-bar .trk{height:4px}
+.pst.n6 .b-pt{font-size:10px}
+.pst.n6 .p-foot{padding-top:5px}
+.pst.n6 .p-brand em{height:26px;width:5px}
+.pst.n6 .p-brand b{font-size:19px}
+.pst.n6 .p-brand span{font-size:10.5px;margin-top:2px}
+.pst.n6 .p-note{font-size:10px;line-height:1.25}
+</style></head>
+<body><div class="pst n3">
+  <div class="grid-bg"></div>
+  <div class="border-out"></div>
+  <div class="mast">
+    <div class="mast-l">
+      <span class="eyebrow">ALL-IN-ONE TECHNICAL DOSSIER // 90-MIN REGULAR TIME DATA</span>
+      <h1>意甲 × 英联赛杯<em>3 场焦点战全维技术图谱</em></h1>
+      <div class="sub">
+        <span>2× 六维雷达对撞 · 上下半场得失拆分 · 同主客战力 · 波动度(σ)与交锋档案</span>
+        <span class="lgd"><i style="background:#00F5D4"></i>主队参数/雷达</span>
+        <span class="lgd"><i style="background:#FF5E7E"></i>客队参数/雷达</span>
+      </div>
+    </div>
+    <div class="mast-r">
+      <div class="big-dt">10<i>.</i>28</div>
+      <div class="wd">星期三 ｜ 10/28–10/29 赛程</div>
+    </div>
+  </div>
+  <div class="b-list">
+        <div class="b-row">
+          <div class="b-top">
+            <div class="bt-left">
+              <span class="bt-idx">MATCH 01</span>
+              <span class="bt-tm">01:30</span>
+              <span class="bt-lg">意甲 · 第9轮</span>
+            </div>
+            <div class="bt-mid"><b class="h">意甲第4 · 5胜3平0负 · 18分</b> <span>vs</span> <b class="a">意甲第13 · 2胜2平4负 · 8分</b></div>
+            <div class="bt-h2h">近6次交锋：主3胜1平2负 (进10失6) · 场均2.67球 · ≤2球占33%</div>
+          </div>
+          <div class="b-main">
+            <div class="b-side home">
+              <div class="t-hdr">
+                <div class="tname"><i class="bar"></i>AC米兰</div>
+                <div class="seq-wrap"><span class="l5-txt">3胜1平1负</span><i class="W">胜</i><i class="L">负</i><i class="W">胜</i><i class="W">胜</i><i class="D">平</i></div>
+              </div>
+              <div class="p-grid">
+                <div class="p-cell">
+                  <span class="k">近5场均进/失</span>
+                  <span class="v">2.00 / 1.20</span>
+                  <span class="s">5场共进10失6</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">同主客战力</span>
+                  <span class="v">主场 3胜0平0负</span>
+                  <span class="s">进8失2 · 勝率100%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">上半场抢开局</span>
+                  <span class="v">进5 失2</span>
+                  <span class="s">领先60% · 不败80%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">下半场后程得失</span>
+                  <span class="v">进5 失4</span>
+                  <span class="s">零封40% · 不败80%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">进球波动 / 净胜</span>
+                  <span class="v">σ1.41 / +0.8</span>
+                  <span class="s">稳定46 · 净胜分68</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">六维综合均值</span>
+                  <span class="v">63.2 分</span>
+                  <span class="s">攻78 防65 开71</span>
+                </div>
+              </div>
+              <div class="flow-bar"><b>近5战</b><span>进2失0胜</span><span>进0失3负</span><span>进3失2胜</span><span>进4失0胜</span><span>进1失1平</span></div>
+            </div>
+
+            <div class="b-center"><svg viewBox="0 0 328 266" width="328" height="266" style="overflow:visible"><circle cx="164.0" cy="133.0" r="92.0" fill="rgba(0,245,212,0.035)"/><polygon points="164.0,110.0 183.9,121.5 183.9,144.5 164.0,156.0 144.1,144.5 144.1,121.5" fill="none" stroke="rgba(160,195,230,0.16)" stroke-width="1" stroke-dasharray="3,2"/><polygon points="164.0,87.0 203.8,110.0 203.8,156.0 164.0,179.0 124.2,156.0 124.2,110.0" fill="none" stroke="rgba(160,195,230,0.16)" stroke-width="1" stroke-dasharray="3,2"/><polygon points="164.0,64.0 223.8,98.5 223.8,167.5 164.0,202.0 104.2,167.5 104.2,98.5" fill="none" stroke="rgba(160,195,230,0.16)" stroke-width="1" stroke-dasharray="3,2"/><polygon points="164.0,41.0 243.7,87.0 243.7,179.0 164.0,225.0 84.3,179.0 84.3,87.0" fill="none" stroke="rgba(212,255,0,0.34)" stroke-width="1.3"/><line x1="164.0" y1="133.0" x2="164.0" y2="41.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><line x1="164.0" y1="133.0" x2="243.7" y2="87.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><line x1="164.0" y1="133.0" x2="243.7" y2="179.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><line x1="164.0" y1="133.0" x2="164.0" y2="225.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><line x1="164.0" y1="133.0" x2="84.3" y2="179.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><line x1="164.0" y1="133.0" x2="84.3" y2="87.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><polygon points="164.0,83.3 215.8,103.1 194.3,150.5 164.0,196.5 124.2,156.0 117.8,106.3" fill="rgba(255,94,126,0.22)" stroke="#FF5E7E" stroke-width="2.4" stroke-linejoin="round"/><circle cx="164.0" cy="83.3" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><circle cx="215.8" cy="103.1" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><circle cx="194.3" cy="150.5" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><circle cx="164.0" cy="196.5" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><circle cx="124.2" cy="156.0" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><circle cx="117.8" cy="106.3" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><polygon points="164.0,61.2 215.8,103.1 204.6,156.5 164.0,175.3 109.8,164.3 107.4,100.3" fill="rgba(0,245,212,0.25)" stroke="#00F5D4" stroke-width="2.4" stroke-linejoin="round"/><circle cx="164.0" cy="61.2" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><circle cx="215.8" cy="103.1" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><circle cx="204.6" cy="156.5" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><circle cx="164.0" cy="175.3" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><circle cx="109.8" cy="164.3" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><circle cx="107.4" cy="100.3" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><text x="164.0" y="28.2" text-anchor="middle" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">进攻 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">78</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">54</tspan></text><text x="251.7" y="90.0" text-anchor="start" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">防守 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">65</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">65</tspan></text><text x="251.7" y="184.0" text-anchor="start" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">零封 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">51</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">38</tspan></text><text x="164.0" y="245.0" text-anchor="middle" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">稳定 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">46</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">69</tspan></text><text x="76.3" y="184.0" text-anchor="end" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">净胜 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">68</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">50</tspan></text><text x="76.3" y="90.0" text-anchor="end" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">开局 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">71</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">58</tspan></text></svg></div>
+
+            <div class="b-side away">
+              <div class="t-hdr">
+                <div class="tname">博洛尼亚<i class="bar"></i></div>
+                <div class="seq-wrap"><i class="W">胜</i><i class="L">负</i><i class="W">胜</i><i class="D">平</i><i class="L">负</i><span class="l5-txt">2胜1平2负</span></div>
+              </div>
+              <div class="p-grid">
+                <div class="p-cell">
+                  <span class="k">近5场均进/失</span>
+                  <span class="v">1.20 / 1.20</span>
+                  <span class="s">5场共进6失6</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">同主客战力</span>
+                  <span class="v">客场 2胜0平2负</span>
+                  <span class="s">进4失3 · 勝率50%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">上半场抢开局</span>
+                  <span class="v">进3 失1</span>
+                  <span class="s">领先40% · 不败100%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">下半场后程得失</span>
+                  <span class="v">进3 失5</span>
+                  <span class="s">零封20% · 不败60%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">进球波动 / 净胜</span>
+                  <span class="v">σ0.75 / +0.0</span>
+                  <span class="s">稳定69 · 净胜分50</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">六维综合均值</span>
+                  <span class="v">55.7 分</span>
+                  <span class="s">攻54 防65 开58</span>
+                </div>
+              </div>
+              <div class="flow-bar"><b>近5战</b><span>进2失0胜</span><span>进1失3负</span><span>进2失1胜</span><span>进1失1平</span><span>进0失1负</span></div>
+            </div>
+          </div>
+          <div class="b-foot">
+            <span class="b-chip">▸ 主场防线稳健 × 客场下半场承压</span>
+            <div class="b-bars">
+              <div class="b-bar">
+                <span>火力</span><b class="h">2.00</b>
+                <div class="trk"><i class="h" style="width:62.5%"></i><i class="a" style="width:37.5%"></i></div>
+                <b class="a">1.20</b>
+              </div>
+              <div class="b-bar">
+                <span>六维</span><b class="h">63.2</b>
+                <div class="trk"><i class="h" style="width:53.2%"></i><i class="a" style="width:46.8%"></i></div>
+                <b class="a">55.7</b>
+              </div>
+            </div>
+            <span class="b-pt">焦点：米兰前45分钟抢攻(半场进5失2) vs 博洛尼亚下半场防线(下半场失5球)</span>
+          </div>
+        </div>
+        <div class="b-row">
+          <div class="b-top">
+            <div class="bt-left">
+              <span class="bt-idx">MATCH 02</span>
+              <span class="bt-tm">03:45</span>
+              <span class="bt-lg">英联赛杯 · 第四轮</span>
+            </div>
+            <div class="bt-mid"><b class="h">近5战 4胜0平1负 · 进12失5</b> <span>vs</span> <b class="a">近5战 4胜1平0负 · 进14失4</b></div>
+            <div class="bt-h2h">近6次交锋：主0胜3平3负 (进5失12) · 场均2.83球 · ≤2球占50%</div>
+          </div>
+          <div class="b-main">
+            <div class="b-side home">
+              <div class="t-hdr">
+                <div class="tname"><i class="bar"></i>伯恩茅斯</div>
+                <div class="seq-wrap"><span class="l5-txt">4胜0平1负</span><i class="W">胜</i><i class="W">胜</i><i class="W">胜</i><i class="W">胜</i><i class="L">负</i></div>
+              </div>
+              <div class="p-grid">
+                <div class="p-cell">
+                  <span class="k">近5场均进/失</span>
+                  <span class="v">2.40 / 1.00</span>
+                  <span class="s">5场共进12失5</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">同主客战力</span>
+                  <span class="v">主场 3胜0平0负</span>
+                  <span class="s">近3个主场进8失0</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">上半场抢开局</span>
+                  <span class="v">进6 失2</span>
+                  <span class="s">领先80% · 不败80%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">下半场后程得失</span>
+                  <span class="v">进6 失3</span>
+                  <span class="s">零封80% · 不败80%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">进球波动 / 净胜</span>
+                  <span class="v">σ0.80 / +1.4</span>
+                  <span class="s">稳定67 · 净胜分81</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">六维综合均值</span>
+                  <span class="v">78.2 分</span>
+                  <span class="s">攻90 防70 开84</span>
+                </div>
+              </div>
+              <div class="flow-bar"><b>近5战</b><span>进3失0胜</span><span>进3失0胜</span><span>进2失0胜</span><span>进3失0胜</span><span>进1失5负</span></div>
+            </div>
+
+            <div class="b-center"><svg viewBox="0 0 328 266" width="328" height="266" style="overflow:visible"><circle cx="164.0" cy="133.0" r="92.0" fill="rgba(0,245,212,0.035)"/><polygon points="164.0,110.0 183.9,121.5 183.9,144.5 164.0,156.0 144.1,144.5 144.1,121.5" fill="none" stroke="rgba(160,195,230,0.16)" stroke-width="1" stroke-dasharray="3,2"/><polygon points="164.0,87.0 203.8,110.0 203.8,156.0 164.0,179.0 124.2,156.0 124.2,110.0" fill="none" stroke="rgba(160,195,230,0.16)" stroke-width="1" stroke-dasharray="3,2"/><polygon points="164.0,64.0 223.8,98.5 223.8,167.5 164.0,202.0 104.2,167.5 104.2,98.5" fill="none" stroke="rgba(160,195,230,0.16)" stroke-width="1" stroke-dasharray="3,2"/><polygon points="164.0,41.0 243.7,87.0 243.7,179.0 164.0,225.0 84.3,179.0 84.3,87.0" fill="none" stroke="rgba(212,255,0,0.34)" stroke-width="1.3"/><line x1="164.0" y1="133.0" x2="164.0" y2="41.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><line x1="164.0" y1="133.0" x2="243.7" y2="87.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><line x1="164.0" y1="133.0" x2="243.7" y2="179.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><line x1="164.0" y1="133.0" x2="164.0" y2="225.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><line x1="164.0" y1="133.0" x2="84.3" y2="179.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><line x1="164.0" y1="133.0" x2="84.3" y2="87.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><polygon points="164.0,44.7 223.8,98.5 204.6,156.5 164.0,165.2 89.1,176.2 87.5,88.8" fill="rgba(255,94,126,0.22)" stroke="#FF5E7E" stroke-width="2.4" stroke-linejoin="round"/><circle cx="164.0" cy="44.7" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><circle cx="223.8" cy="98.5" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><circle cx="204.6" cy="156.5" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><circle cx="164.0" cy="165.2" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><circle cx="89.1" cy="176.2" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><circle cx="87.5" cy="88.8" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><polygon points="164.0,50.2 219.8,100.8 225.3,168.4 164.0,194.6 99.5,170.3 97.1,94.4" fill="rgba(0,245,212,0.25)" stroke="#00F5D4" stroke-width="2.4" stroke-linejoin="round"/><circle cx="164.0" cy="50.2" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><circle cx="219.8" cy="100.8" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><circle cx="225.3" cy="168.4" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><circle cx="164.0" cy="194.6" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><circle cx="99.5" cy="170.3" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><circle cx="97.1" cy="94.4" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><text x="164.0" y="28.2" text-anchor="middle" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">进攻 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">90</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">96</tspan></text><text x="251.7" y="90.0" text-anchor="start" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">防守 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">70</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">75</tspan></text><text x="251.7" y="184.0" text-anchor="start" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">零封 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">77</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">51</tspan></text><text x="164.0" y="245.0" text-anchor="middle" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">稳定 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">67</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">35</tspan></text><text x="76.3" y="184.0" text-anchor="end" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">净胜 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">81</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">94</tspan></text><text x="76.3" y="90.0" text-anchor="end" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">开局 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">84</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">96</tspan></text></svg></div>
+
+            <div class="b-side away">
+              <div class="t-hdr">
+                <div class="tname">阿斯顿维拉<i class="bar"></i></div>
+                <div class="seq-wrap"><i class="W">胜</i><i class="W">胜</i><i class="W">胜</i><i class="W">胜</i><i class="D">平</i><span class="l5-txt">4胜1平0负</span></div>
+              </div>
+              <div class="p-grid">
+                <div class="p-cell">
+                  <span class="k">近5场均进/失</span>
+                  <span class="v">2.80 / 0.80</span>
+                  <span class="s">5场共进14失4</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">同主客战力</span>
+                  <span class="v">客场 1胜0平0负</span>
+                  <span class="s">近1个客场进1失0</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">上半场抢开局</span>
+                  <span class="v">进8 失1</span>
+                  <span class="s">领先80% · 不败100%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">下半场后程得失</span>
+                  <span class="v">进6 失3</span>
+                  <span class="s">零封40% · 不败100%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">进球波动 / 净胜</span>
+                  <span class="v">σ1.72 / +2.0</span>
+                  <span class="s">稳定35 · 净胜分94</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">六维综合均值</span>
+                  <span class="v">74.5 分</span>
+                  <span class="s">攻96 防75 开96</span>
+                </div>
+              </div>
+              <div class="flow-bar"><b>近5战</b><span>进2失1胜</span><span>进3失1胜</span><span>进1失0胜</span><span>进6失0胜</span><span>进2失2平</span></div>
+            </div>
+          </div>
+          <div class="b-foot">
+            <span class="b-chip">▸ 主场三战零封 × 客场半场抢攻</span>
+            <div class="b-bars">
+              <div class="b-bar">
+                <span>火力</span><b class="h">2.40</b>
+                <div class="trk"><i class="h" style="width:46.2%"></i><i class="a" style="width:53.8%"></i></div>
+                <b class="a">2.80</b>
+              </div>
+              <div class="b-bar">
+                <span>六维</span><b class="h">78.2</b>
+                <div class="trk"><i class="h" style="width:51.2%"></i><i class="a" style="width:48.8%"></i></div>
+                <b class="a">74.5</b>
+              </div>
+            </div>
+            <span class="b-pt">焦点：两队近5场半场领先率均达80%(合计半场进14失3)，开局对攻谁先退守</span>
+          </div>
+        </div>
+        <div class="b-row">
+          <div class="b-top">
+            <div class="bt-left">
+              <span class="bt-idx">MATCH 03</span>
+              <span class="bt-tm">03:45</span>
+              <span class="bt-lg">意甲 · 第9轮</span>
+            </div>
+            <div class="bt-mid"><b class="h">意甲第16 · 2胜1平5负 · 7分</b> <span>vs</span> <b class="a">意甲第7 · 4胜2平2负 · 14分</b></div>
+            <div class="bt-h2h">近6次交锋：主0胜2平4负 (进1失8) · 场均1.5球 · ≤2球占83%</div>
+          </div>
+          <div class="b-main">
+            <div class="b-side home">
+              <div class="t-hdr">
+                <div class="tname"><i class="bar"></i>热那亚</div>
+                <div class="seq-wrap"><span class="l5-txt">3胜0平2负</span><i class="W">胜</i><i class="L">负</i><i class="W">胜</i><i class="L">负</i><i class="W">胜</i></div>
+              </div>
+              <div class="p-grid">
+                <div class="p-cell">
+                  <span class="k">近5场均进/失</span>
+                  <span class="v">1.00 / 1.00</span>
+                  <span class="s">5场共进5失5</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">同主客战力</span>
+                  <span class="v">主场 2胜1平2负</span>
+                  <span class="s">进5失8 · 勝率40%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">上半场抢开局</span>
+                  <span class="v">进3 失1</span>
+                  <span class="s">领先40% · 不败80%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">下半场后程得失</span>
+                  <span class="v">进2 失4</span>
+                  <span class="s">零封40% · 不败60%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">进球波动 / 净胜</span>
+                  <span class="v">σ0.63 / +0.0</span>
+                  <span class="s">稳定73 · 净胜分50</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">六维综合均值</span>
+                  <span class="v">58.3 分</span>
+                  <span class="s">攻48 防70 开58</span>
+                </div>
+              </div>
+              <div class="flow-bar"><b>近5战</b><span>进1失0胜</span><span>进0失2负</span><span>进2失1胜</span><span>进1失2负</span><span>进1失0胜</span></div>
+            </div>
+
+            <div class="b-center"><svg viewBox="0 0 328 266" width="328" height="266" style="overflow:visible"><circle cx="164.0" cy="133.0" r="92.0" fill="rgba(0,245,212,0.035)"/><polygon points="164.0,110.0 183.9,121.5 183.9,144.5 164.0,156.0 144.1,144.5 144.1,121.5" fill="none" stroke="rgba(160,195,230,0.16)" stroke-width="1" stroke-dasharray="3,2"/><polygon points="164.0,87.0 203.8,110.0 203.8,156.0 164.0,179.0 124.2,156.0 124.2,110.0" fill="none" stroke="rgba(160,195,230,0.16)" stroke-width="1" stroke-dasharray="3,2"/><polygon points="164.0,64.0 223.8,98.5 223.8,167.5 164.0,202.0 104.2,167.5 104.2,98.5" fill="none" stroke="rgba(160,195,230,0.16)" stroke-width="1" stroke-dasharray="3,2"/><polygon points="164.0,41.0 243.7,87.0 243.7,179.0 164.0,225.0 84.3,179.0 84.3,87.0" fill="none" stroke="rgba(212,255,0,0.34)" stroke-width="1.3"/><line x1="164.0" y1="133.0" x2="164.0" y2="41.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><line x1="164.0" y1="133.0" x2="243.7" y2="87.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><line x1="164.0" y1="133.0" x2="243.7" y2="179.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><line x1="164.0" y1="133.0" x2="164.0" y2="225.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><line x1="164.0" y1="133.0" x2="84.3" y2="179.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><line x1="164.0" y1="133.0" x2="84.3" y2="87.0" stroke="rgba(160,195,230,0.20)" stroke-width="1"/><polygon points="164.0,77.8 211.8,105.4 194.3,150.5 164.0,194.6 124.2,156.0 139.3,118.7" fill="rgba(255,94,126,0.22)" stroke="#FF5E7E" stroke-width="2.4" stroke-linejoin="round"/><circle cx="164.0" cy="77.8" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><circle cx="211.8" cy="105.4" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><circle cx="194.3" cy="150.5" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><circle cx="164.0" cy="194.6" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><circle cx="124.2" cy="156.0" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><circle cx="139.3" cy="118.7" r="3.0" fill="#FF5E7E" stroke="#070912" stroke-width="1"/><polygon points="164.0,88.8 219.8,100.8 204.6,156.5 164.0,200.2 124.2,156.0 117.8,106.3" fill="rgba(0,245,212,0.25)" stroke="#00F5D4" stroke-width="2.4" stroke-linejoin="round"/><circle cx="164.0" cy="88.8" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><circle cx="219.8" cy="100.8" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><circle cx="204.6" cy="156.5" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><circle cx="164.0" cy="200.2" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><circle cx="124.2" cy="156.0" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><circle cx="117.8" cy="106.3" r="3.4" fill="#00F5D4" stroke="#070912" stroke-width="1"/><text x="164.0" y="28.2" text-anchor="middle" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">进攻 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">48</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">60</tspan></text><text x="251.7" y="90.0" text-anchor="start" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">防守 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">70</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">60</tspan></text><text x="251.7" y="184.0" text-anchor="start" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">零封 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">51</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">38</tspan></text><text x="164.0" y="245.0" text-anchor="middle" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">稳定 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">73</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">67</tspan></text><text x="76.3" y="184.0" text-anchor="end" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">净胜 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">50</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">50</tspan></text><text x="76.3" y="90.0" text-anchor="end" font-size="13.5" font-weight="900" font-family="Noto Sans SC,Microsoft YaHei,sans-serif" fill="#DCE8F8">开局 <tspan fill="#00F5D4" font-family="ui-monospace,Consolas,monospace">58</tspan><tspan fill="#6E829A">/</tspan><tspan fill="#FF5E7E" font-family="ui-monospace,Consolas,monospace">31</tspan></text></svg></div>
+
+            <div class="b-side away">
+              <div class="t-hdr">
+                <div class="tname">尤文图斯<i class="bar"></i></div>
+                <div class="seq-wrap"><i class="W">胜</i><i class="D">平</i><i class="L">负</i><i class="W">胜</i><i class="D">平</i><span class="l5-txt">2胜2平1负</span></div>
+              </div>
+              <div class="p-grid">
+                <div class="p-cell">
+                  <span class="k">近5场均进/失</span>
+                  <span class="v">1.40 / 1.40</span>
+                  <span class="s">5场共进7失7</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">同主客战力</span>
+                  <span class="v">客场 2胜1平1负</span>
+                  <span class="s">进6失4 · 勝率50%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">上半场抢开局</span>
+                  <span class="v">进3 失5</span>
+                  <span class="s">领先20% · 不败20%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">下半场后程得失</span>
+                  <span class="v">进4 失2</span>
+                  <span class="s">零封20% · 不败80%</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">进球波动 / 净胜</span>
+                  <span class="v">σ0.80 / +0.0</span>
+                  <span class="s">稳定67 · 净胜分50</span>
+                </div>
+                <div class="p-cell">
+                  <span class="k">六维综合均值</span>
+                  <span class="v">51.0 分</span>
+                  <span class="s">攻60 防60 开31</span>
+                </div>
+              </div>
+              <div class="flow-bar"><b>近5战</b><span>进2失0胜</span><span>进2失2平</span><span>进0失3负</span><span>进2失1胜</span><span>进1失1平</span></div>
+            </div>
+          </div>
+          <div class="b-foot">
+            <span class="b-chip">▸ 主场半场密防 × 客场后程发力</span>
+            <div class="b-bars">
+              <div class="b-bar">
+                <span>火力</span><b class="h">1.00</b>
+                <div class="trk"><i class="h" style="width:41.7%"></i><i class="a" style="width:58.3%"></i></div>
+                <b class="a">1.40</b>
+              </div>
+              <div class="b-bar">
+                <span>六维</span><b class="h">58.3</b>
+                <div class="trk"><i class="h" style="width:53.3%"></i><i class="a" style="width:46.7%"></i></div>
+                <b class="a">51.0</b>
+              </div>
+            </div>
+            <span class="b-pt">焦点：近6次交锋5场总进球≤2球(场均1.5球)，热那亚半场密防 vs 尤文下半场发力</span>
+          </div>
+        </div></div>
+  <div class="p-foot">
+    <div class="p-brand">
+      <em></em>
+      <div><b>阿飞 <i>·</i> 赛博聊球</b><span>一图流全维数据看板 · 深度战术与数据拆解见正文</span></div>
+    </div>
+    <div class="p-note">
+      <div>数据口径：90 分钟常规时间 · 官方赛程与近 5 场全/半场客观数据统计</div>
+      <div>仅供球迷战术交流参考，不构成任何建议</div>
+    </div>
+  </div>
+</div></body></html>

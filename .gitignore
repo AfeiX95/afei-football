@@ -5,23 +5,24 @@ __pycache__/
 venv/
 .uv-cache/
 _incoming/
+*.lock
+.dsh-ops-update*.lock
 
 # ── state 分层（2026-10-17，结构见 docs/STRUCTURE.md）───────────────────
 # state 根只留契约文件：model-state.json / task-log.json / xhs_styles.json /
-# xhs_templates.json / api-keys*.json / odds.sqlite。其余一律进子目录并整体忽略。
+# xhs_templates.json / writing_history.json / api-keys*.json / odds.sqlite。
 # 注意：.gitignore 不支持行尾注释，注释必须单独成行（坑#82）
 state/matches/
 state/cache/
 state/batch/
 state/tmp/
-# state/records/ 不忽略：外部预测记录 state/records/_ext_<日期>.json 体量小、要留档
+# state/records/、state/model/、state/ledger/ 不忽略：体量小、需随仓库留档校验
 
 # 本地盘口库（scripts/odds_snapshot.py 攒的盘口位移历史，属本机采集资产，见 📚知识库/数据源/本地盘口库.md）
 state/odds.sqlite
 state/odds.sqlite-journal
 
 # 小红书出图后的派生产物（scripts/cards_post.py 的 WebP 发布版、scripts/cards_pdf.py 的合订 PDF）：
-# 都能用 `卡片发布版.cmd` 几秒重生，不入库，免得每批多背 6 MB
 📝文章/*/小红书*/发布版/
 📝文章/*/小红书*/卡片合集.pdf
 📝文章/*/小红书_预览/

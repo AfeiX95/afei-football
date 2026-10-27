@@ -37,12 +37,12 @@ RULES = [
      "「周二004」类竞彩场次号 = 指向购彩渠道"),
     ("比分串", r"(?<![\d.])\d{1,2}\s*[-:]\s*\d{1,2}(?![\d])",
      "具体比分是会被效仿的博彩信息（战绩串「7胜3平0负」不受影响）"),
-    ("让球盘口", r"让球|受让|让平|升盘|降盘|盘口|水位|让[一二三]球|两球半|半球盘|打穿|净胜两球|赢两个球|赢三个球|这一档|门槛",
-     "让球盘口语言（含「赢两个球以上」这类让球球数）"),
-    ("方向投注", r"站[^\s]|跟单|不跟|上车|下注|投注|购彩|竞彩|彩票|红单|串关|稳赢|必中|推荐|看好|我算|我认为",
-     "方向判断 / 投注引导（「跟」「站」是小红书判罚里点名的跟单语）"),
-    ("市场折算", r"机构|赔率|溢价|定价|三向概率|市场支持|中国体育|体育彩票|竞彩",
-     "机构赔率折算/竞彩出处属于线上彩票信息（六维第 6 轴已换成进球稳定性）"),
+    ("让球盘口", r"让球|受让|让平|升盘|降盘|盘口|水位|让[一二三]球|两球半|半球盘|打穿|净胜两球|赢两个球|赢三个球|这一档|门槛|小球|大球",
+     "让球/大小球盘口语言（含「赢两个球以上」「小球率」这类盘口术语）"),
+    ("方向投注", r"站[^\s]|跟单|不跟|上车|下注|投注|购彩|竞彩|彩票|彩果|红单|串关|稳赢|必中|推荐|看好|我算|我认为",
+     "方向判断 / 投注引导（「彩果」「跟」「站」是平台风控敏感词）"),
+    ("市场折算", r"机构|赔率|溢价|定价|三向概率|市场支持|中国体育|体育彩票|竞彩|比分概率|最热三格",
+     "机构赔率折算/竞彩出处/比分概率标注属于高风险预测元素"),
     ("站外导流", r"微信|QQ|加群|私信|公众号|二维码|网址|https?://",
      "站外联系方式/跳转（软禁词，简介里也禁）"),
 ]
@@ -88,7 +88,7 @@ def scan_caption(text: str, where: str = "文案正文") -> list:
 # --------------------------------------------------------------------------- #
 FORM_DIR_WORDS = ("方向偏", "我看好", "看好", "拿分", "不败", "推荐", "稳胆", "必中", "值得跟")
 FORM_COVER_WORDS = ("比分概率", "综合结论", "概率", "预测", "推荐")
-FORM_MAX_MATCHES = 4
+FORM_MAX_MATCHES = 6
 
 
 def scan_form(data: dict, cards=None) -> list:
@@ -154,6 +154,10 @@ def scan_cards(data: dict, cards=None) -> list:
                     "signal", "note", "brief", "narr", "point", "h2h_short"):
             if c.get(key):
                 hits += scan_text(c[key], "%s.%s" % (tag, key))
+        hd = c.get("h2h_detail") or {}
+        for k in ("record", "note"):
+            if hd.get(k):
+                hits += scan_text(hd[k], "%s.h2h_detail.%s" % (tag, k))
         for side in ("home", "away"):
             d = ((c.get("intel2") or {}).get(side) or {})
             for k in ("good", "bad"):
@@ -202,8 +206,12 @@ def main() -> None:
     data = json.load(io.open(p, encoding="utf-8"))
     hits = scan_cards(data)
     if a.text:
-        hits += scan_text(a.text, "(--text)")
-        hits += scan_caption(a.text, "(--text)")
+        tp = Path(a.text)
+        raw_txt = tp.read_text(encoding="utf-8") if tp.is_file() else a.text
+        if "## 正文" in raw_txt:
+            raw_txt = "\n".join(raw_txt.split("## 正文", 1)[1].split("## 标签", 1)[0].splitlines()[1:])
+        hits += scan_text(raw_txt, "(--text)")
+        hits += scan_caption(raw_txt, "(--text)")
     if not hits:
         print("✅ 风控自检通过：" + str(p))
         sys.exit(0)

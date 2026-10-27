@@ -1,49 +1,44 @@
-# CLAUDE.md — 阿飞说球 项目配置（Claude Code 兼容层）
+# CLAUDE.md — 阿飞说球 项目配置（Claude Code 兼容层 · v3.1）
 
-> 本项目为「阿飞-赛博聊球」足球赛事分析与内容创作项目。
+> 本项目为头条号「阿飞·赛博聊球」足球赛事分析与内容创作项目（单平台运营 + 小红书数据卡）。
 > **Claude Code 兼容层：平台无关规则以 `AGENTS.md` 为准，本文件仅做薄层桥接。**
 
-## 加载规则
+## 开工第一步
 
-- **项目总规则** → 读取 `I:\阿飞说球\AGENTS.md`（写作铁律/会话记忆/工作流/数据核验清单，三端共用，修改只改它）
-- **技能真源** → `I:\阿飞说球\📚知识库\skills\<技能名>\SKILL.md`（27 个技能，真源唯一，修改只改它）
-- **写作偏好覆盖层** → `I:\阿飞说球\📚知识库\skills\afei-writing-standards\SKILL.md`（R1-R27 规则）
-- **模型修正规则** → `I:\阿飞说球\📚知识库\模型脚本\修正规则.md`（C01-C27）
-- **会话交接** → `docs/HANDOFF.md` 最新一节（已迁移自工作记忆.md，更轻量）
+```bash
+python -X utf8 scripts/brief.py
+```
+- **项目总规则** → 读取 `I:\阿飞说球\AGENTS.md`（写作铁律/会话记忆/工作流/数据核验清单，三端共用）
+- **一页纸工作流** → `docs/WORKFLOW-ONE-PAGE.md`；**详版管线** → `docs/WORKFLOW.md`
+- **技能索引** → `📚知识库/skills/INDEX.md`（共 29 个技能，按行号区间按需读取，禁止全量读 >400 行技能）
+- **写作偏好覆盖层** → `📚知识库/skills/afei-writing-standards/SKILL.md`（**R1–R58**）
+- **头条官方合规规范** → `📚知识库/写作指南/头条社区规范.md`（2026-10-28 官方 8 份规则核实）
+- **模型修正规则** → `📚知识库/模型脚本/修正规则.md`（**C01–C48 v1.8.1**）
+- **会话交接** → `docs/HANDOFF.md` 最新一节（按 `brief.py` 给出的行号读取）
 - **机器可读进度/待办** → `state/model-state.json`
-- **写作管线速查** → `docs/WORKFLOW.md`；**规则索引** → `docs/RULES.md`
 
-## 技能入口（27个，按优先级）
+## 标准生产管线（v3.1）
 
-| 技能 | 用途 | 真源 |
-|:-----|:-----|:-----|
-| match-model-pipeline | 后台模型全流程 | 📚知识库/skills/match-model-pipeline/SKILL.md |
-| football-match-preview-pipeline | 赛事前瞻全流程管线 v3.0 | 📚知识库/skills/football-match-preview-pipeline/SKILL.md |
-| afei-writing-standards | 写作偏好覆盖层 R1-R27 | 📚知识库/skills/afei-writing-standards/SKILL.md |
-| football-match-preview-article | 文章写作完整工作流 | 📚知识库/skills/football-match-preview-article/SKILL.md |
-| humanizer-zh | 降AI写作（中文） | 📚知识库/skills/humanizer-zh/SKILL.md |
-| football-calibration-batch | 赛后校验经验库 | 📚知识库/skills/football-calibration-batch/SKILL.md |
+```bash
+# 1. 采集与质检
+python -X utf8 scripts/prematch_intel.py --date YYYYMMDD --leagues --media
+python -X utf8 scripts/books_500.py --date YYYYMMDD --weekday 周N
+python -X utf8 scripts/market_from_intel.py --date YYYYMMDD
+python -X utf8 scripts/audit_data.py --date YYYYMMDD
 
-（其余 21 个技能同样位于 `📚知识库/skills/`，命名即路径）
+# 2. 模型与内部报告（A 层）
+python -X utf8 scripts/model_v3.py --date YYYYMMDD --weekday 周N
+python -X utf8 scripts/build_internal_report.py --date YYYYMMDD --weekday 周N
+python -X utf8 scripts/check_report_consistency.py "📝文章/YYYYMMDD/YYYYMMDD_周N<k>场_内部分析报告.md"
 
-## 标准调用顺序
-
-```
-match-model-pipeline → 产出模型数据
-→ football-match-preview-pipeline → 写文章（10步流程）
-→ afei-writing-standards → 应用 R1-R27 偏好
-→ humanizer-zh → 降AI
-→ 合规体检（禁用词/锚点/降权词脚本）
-→ docx 生成（R19 白底图）→ 归档 git
+# 3. 公开稿门禁与去重（B 层：只出 .md）
+python -X utf8 scripts/preflight.py "📝文章/YYYYMMDD/<文章>.md"
+python -X utf8 scripts/check_dup.py YYYYMMDD
 ```
 
-## 关键约束（详见 AGENTS.md）
+## 关键约束（详见 `AGENTS.md`）
 
-- 竞彩数据只统计90分钟常规时间赛果
-- 标题≤30字；禁用词：赔率→定价、盘口→设置/门槛、庄家→机构、泊松/MC→后台模型、EV→溢价
-- 写作铁律：无时间锚点、结论前置、每场必含战意+信号+外媒+推荐比分
-- 会话开场先读工作记忆「会话交接快照」；任务收尾同步工作记忆 + git 提交
-
-## 本文件性质
-
-本文件为 **Claude Code 薄兼容层**：只做入口指向，长期逻辑维护在 `AGENTS.md` 和 `📚知识库/skills/` 真源。修改规则请改真源，勿改本文件。
+- 竞彩数据只统计 90 分钟常规时间赛果
+- 公开稿只出 `.md`（800–1500 字），内部报告（A 层）与公开稿（B 层）严格分离（R41 / R55 / R56）
+- 公开稿以「阿飞」第一人称行文，禁露 `后台模型 / 泊松 / 蒙特卡洛 / 样本量 / 融合权重` 等内部术语，禁写 `⚔️/💰` 标签行，每场必含具体数据 + 明确立场 + `推荐比分`
+- 头条后台微调或未通过稿件一律在原文点「修改」，严禁删除重发（R58 防消重）

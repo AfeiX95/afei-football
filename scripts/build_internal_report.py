@@ -516,10 +516,8 @@ for num in sorted(books):
     (coh_ok if worst <= 5 else coh_bad).append(f"{num} 主{a:+.1f}/客{b:+.1f}")
 DEC += (f"- 三盘自洽（只用欧赔拟合的 λ 给亚盘定价，|EV|≤5% 视为一致）：一致的 {'、'.join(coh_ok) or '无'}；"
         f"偏离明显的 {'、'.join(coh_bad) or '无'}——偏离即该盘自带溢价\n")
-DEC += ("- 立场分布（R49）：顺定价 4 场（004/005/007/008）／跟方向不跟幅度 4 场（001/006/009/010）／"
-        "折中 1 场（003）／不站 1 场（002）\n")
-DEC += ("- 深盘一律不碰让球上盘：001 一/球半、007 一/球半、009 球半三处上盘 EV 全负；"
-        "本批唯一像样的让球价是 005 客侧 +9.5%。\n")
+not_stand = [n for n in sorted(books) if "不站" in ACTION_HINT.get(n, "")]
+DEC += f"- 立场汇总（R49）：全批共 {len(books)} 场，其中不站方向 {len(not_stand)} 场（{'/'.join(not_stand) or '无'}），其余场次按上表「站位」与「市场动作」分层执行。\n"
 text = HEAD + "\n" + "\n\n".join(blocks) + "\n" + DEC
 OUT.write_text(text, encoding="utf-8")
 print("→", OUT, len(text), "chars")
