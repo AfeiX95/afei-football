@@ -388,3 +388,19 @@ python -X utf8 scripts/xhs_riskcheck.py --cards <卡片.json> --text <文案.md>
 1. **C50（单边优势场小球正 EV 陷阱 · 代码自动拦截）**：当 $\max(P_{\text{主}}, P_{\text{客}}) \ge 50\%$ 且 $|\text{OU line}| \ge 2.75$ 且 $\text{EV}_{\text{小}} \ge +3.0\%$ 时，自动标记 `c50_triggered=True` 并从决策层汇总拦截小球买入（根治 `008 科隆 5:0 / 009 罗马 4:2 / 010 科莫 1:3` 因弱队近期低产误推小球的偏差）。
 2. **C51（杯赛 A 模型高看受让方且受让高 EV 时不顺市场 · 代码自动预警）**：当 `model_grade == 'C'` 且受让方 $P_A \ge 55\%$、$\text{Edge}_A \ge +30\text{pp}$、受让侧亚盘 $\text{EV} \ge +10\%$ 时，自动标记 `c51_triggered=True`，禁止顺市场追强队，改为站受让方(+1)或留白（复盘自 `周三003 横滨水手(+1) 4:3 广岛三箭`）。
 
+
+## 2026-10-29（四）凌晨 · 周四 7 场内部分析报告完工（A 层 / v3.1 / C50+C51 落地）
+
+1. **7 场官方赛程与全量底档拉齐**：
+   - 成功打通竞彩官方排期接口 getMatchListV1.qry?clientCode=3001，拉齐周四 7 场官方底档（mid=2042318–2042324，写入 state/matches/<id>/ 的 head/result/feature/history/injury/player 全套 JSON）。
+   - 解决 500 ID 与底档匹配，构建完整底档：state/intel/20261029/ 下 _data_20261029.json、_books_20261029.json、_model_20261029.json。
+   - 审计数据全通过：python -X utf8 scripts/audit_data.py 20261029 实现 **7 场全部 A 级（DATA_INVALID 0 场，错误 0，警告 0）**。
+2. **跑通 v3.1 独立模型与泊松/蒙特卡洛引擎**：
+   - 生成 state/intel/20261029/_model_v3_20261029.json，独立模型 A、市场模型 B 与融合模型 C（λ 层融合）全量计算完成。
+   - 7 场参数不确定性区间、亚盘与大小五状态结算全部落盘。
+3. **内部分析报告交付与硬一致性核验通过**：
+   - 报告路径：📝文章/20261029/20261029_周四7场_内部分析报告.md（26,987 字符，标准六块结构 + 技术面判断 + 决策层汇总 + C50/C51 机制生效）。
+   - 运行 python -X utf8 scripts/check_report_consistency.py 20261029 --strict 验收：**全部通过：C1–C7 无异常，ERROR 0 / WARN 0**！
+4. **下一步**：
+   - 根据内部报告，适时输出公开稿（B 层，老球迷阿飞口吻，不露内部词，去盘口行话，800–1500 字，按 R41/R55/R56 执行）。
+   - 小红书按合规要求暂不推荐彩预测，如需信息卡则仅出纯客观历史数据看板。
