@@ -3,7 +3,7 @@
 > 生成：`python scripts/skill_index.py`（SKILL.md 增删或改标题后重跑）。
 > **用法**：先在本文件定位技能与目标小节行号，再
 > `read 📚知识库/skills/<技能>/SKILL.md offset=<行号> limit=<小节长度>`，避免整篇加载。
-> 行数 > 400 的技能**禁止全量读**（`afei-writing-standards` 1256 行 ≈17K tokens，`match-model-pipeline` 1243 行 ≈17K tokens，`humanizer` 647 行 ≈9K tokens，`football-match-preview-article` 729 行 ≈10K tokens，`lieflat-less-ai-tone` 464 行 ≈6K tokens，`football-lottery-assistant` 478 行 ≈6K tokens，`humanizer-zh` 473 行 ≈6K tokens，`football-14dim-full-analysis` 580 行 ≈8K tokens）。
+> 行数 > 400 的技能**禁止全量读**（`afei-writing-standards` 1249 行 ≈17K tokens，`match-model-pipeline` 1243 行 ≈17K tokens，`humanizer` 647 行 ≈9K tokens，`football-match-preview-article` 729 行 ≈10K tokens，`lieflat-less-ai-tone` 464 行 ≈6K tokens，`football-lottery-assistant` 478 行 ≈6K tokens，`humanizer-zh` 473 行 ≈6K tokens，`football-14dim-full-analysis` 580 行 ≈8K tokens）。
 
 ## 常用组合（按任务，只加载需要的）
 
@@ -19,7 +19,7 @@
 
 | 技能 | 行数 | 版本 | 加载策略 | 用途 |
 |---|---:|---|---|---|
-| `afei-writing-standards` | 1256 | 1.11.0 | 先查本索引定位，只读目标小节 | 阿飞说球写作偏好覆盖层 — 不断累积的用户格式/风格/维度修正。加载在football-match-preview-article之上，覆盖其默… |
+| `afei-writing-standards` | 1249 | 1.11.0 | 先查本索引定位，只读目标小节 | 阿飞说球写作偏好覆盖层 — 不断累积的用户格式/风格/维度修正。加载在football-match-preview-article之上，覆盖其默… |
 | `match-model-pipeline` | 1243 | 3.0.0 | 先查本索引定位，只读目标小节 | 在撰写赛事前瞻文章前，先运行全维度后台模型。包含官方数据优先原则、H2H数据读取陷阱、国内联赛专项分析、竞彩90分钟口径铁律、双方法lambda… |
 | `humanizer` | 647 | 2.5.1 | 先查本索引定位，只读目标小节 | Humanize text: strip AI-isms and add real voice. |
 | `football-match-preview-article` | 729 | 2.8.0 | 先查本索引定位，只读目标小节 | 写足球赛事前瞻文章的完整工作流（阿飞说球风格）。v2.2新增：数据来源标注行、伤病语言缓冲措辞、违规词"赔率"在标题中也可能被判定违规。v2.1… |
@@ -61,7 +61,7 @@
 > 三级小节（`###`）不在此逐一索引（长技能里有 479 条，全收会让本文件翻倍）。
 > 要定位时直接 `grep "^### " 📚知识库/skills/<技能>/SKILL.md`，零成本拿行号。
 
-### `afei-writing-standards`（1256 行，先查本索引定位，只读目标小节）
+### `afei-writing-standards`（1249 行，先查本索引定位，只读目标小节）
 - L16｜用途
 - L19｜修正记录
 - L296｜更新规则

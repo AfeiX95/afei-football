@@ -217,21 +217,21 @@ NARR = {
     "013": "意甲周中快节奏轮换战，主队依托肋部配合与边路套上施压，客队依靠低位防守后的快速纵向推进寻找空档。",
     "014": (
         "热那亚近 5 场 3 胜 2 负、进 5 球失 5 球，上半场仅失 1 球但下半场丢 4 球；"
-        "尤文图斯本季客场 4 战 2 胜 1 平 1 负进 6 失 4，近 5 场上半场进 3 失 5 偏慢热、下半场进 4 失 2 后程发力，过往 6 次交锋 5 场总进球≤2球。"
+        "尤文图斯本季客场 4 战 2 胜 1 平 1 负进 6 失 4，近 5 场上半场进 3 失 5 偏慢热、下半场进 4 失 2 后程发力，过往 6 次交锋热那亚仅入 1 球。"
     ),
     "015": (
         "英联杯强强对话。利物浦近 5 场 4 胜 1 负轰入 14 球同时也丢了 10 球，其中下半场进 7 球失 7 球大开大合；"
-        "切尔西近 5 场 2 胜 1 平 2 负进 9 球失 8 球，下半场同样进 6 球失 6 球，中后场转换阶段的身后空档决定走向。"
+        "切尔西近 5 场 2 胜 1 平 2 负进 9 球失 8 球，下半场同样进 6 球失 6 球，两队近期失球均高度集中在下半场。"
     ),
 }
 
 POINT = {
-    "006": "焦点：米兰前45分钟抢攻(半场进5失2) vs 博洛尼亚下半场防线(下半场失5球)",
-    "011": "焦点：两队近5场半场领先率均达80%(合计半场进14失3)，开局对攻谁先退守",
-    "012": "焦点：主队上半场高位逼抢强度 vs 客队中后场出球与二点球保护",
-    "013": "焦点：一周双赛体能节点下，双方下半场60分钟后的攻防转换效率",
-    "014": "焦点：近6次交锋5场总进球≤2球(场均1.5球)，热那亚半场密防 vs 尤文下半场发力",
-    "015": "焦点：利物浦下半场进7失7 × 切尔西下半场进6失6，后程转换空档是胜负手",
+    "006": "数据反差：米兰近5场上半场进5失2 vs 博洛尼亚近5场下半场失5球",
+    "011": "数据反差：两队近5场半场领先率均达80%(合计上半场进14失3)",
+    "012": "数据反差：主队上半场进3失2 vs 客队近5场上半场进1失8",
+    "013": "数据反差：两队近5场六维综合均值同为55.8分，下半场合计失12球",
+    "014": "数据反差：近6次交锋热那亚仅进1球(尤文进8球)，热那亚半场失1球 vs 下半场失4球",
+    "015": "数据反差：利物浦近5场下半场进7失7 × 切尔西近5场下半场进6失6",
 }
 
 
@@ -239,24 +239,20 @@ def build_card(no):
     mid = B_RAW[no]["id"]
     kick = B_RAW[no]["kickoff"].split()[-1]
     b = D[mid]
-    m = M[no]
-    lh, la = m["lam_fused"]
     fh = recent(b.get("recent_home") or {}, is_home_team=True)
     fa = recent(b.get("recent_away") or {}, is_home_team=False)
     sh_info = season_info(b, is_home_team=True, rec=fh)
     sa_info = season_info(b, is_home_team=False, rec=fa)
     h2 = h2h(b)
-    g = grid5(lh, la)
     rh = radar(fh)
     ra = radar(fa)
-    t_pair = TAGS.get(no, ("主场节奏压制", "客场防反寻机"))
+    t_pair = TAGS.get(no, ("主场近况", "客场近况"))
     card = {
         "no": no,
         "league": LEAGUES.get(no, B_RAW[no]["match"].split()[0]),
         "kick": kick,
         "home": b["home"],
         "away": b["away"],
-        "model": {"lam": [round(lh, 2), round(la, 2)], "grid": g},
         "form": {
             "home": {**fh, **sh_info, "ha": f"零封 {fh['zero']:.0f}%"},
             "away": {**fa, **sa_info, "ha": f"零封 {fa['zero']:.0f}%"},
@@ -269,12 +265,11 @@ def build_card(no):
                 "ga": h2["ga"],
                 "avg_goals": h2["avg"],
                 "draw": h2["draw"],
-                "low": h2["low"],
                 "text": h2["text"],
-                "note": f"≤2球占比 {h2['low']}% · 平局 {h2['draw']}%",
+                "note": f"近{h2['n']}次交锋 主{h2['w']}胜{h2['d']}平{h2['l']}负",
             },
-            "h2h_short": f"交锋 {h2['n']} 场 ({h2['w']}胜{h2['d']}平{h2['l']}负 · 进{h2['gf']}失{h2['ga']}) · 场均 {h2['avg']} 球 · ≤2球 {h2['low']}%",
-            "h2h_stats": {"n": h2["n"], "draw": h2["draw"], "low": h2["low"]},
+            "h2h_short": f"交锋 {h2['n']} 场 ({h2['w']}胜{h2['d']}平{h2['l']}负 · 进{h2['gf']}失{h2['ga']})",
+            "h2h_stats": {"n": h2["n"], "draw": h2["draw"]},
         },
         "radar": {
             "dims": ["进攻", "防守", "零封能力", "进球稳定", "净胜状态", "抢开局"],
@@ -284,12 +279,12 @@ def build_card(no):
             "avg_away": round(sum(ra) / len(ra), 1),
         },
         "pie_mode": "none",
-        "heat": True,
+        "heat": False,
         "intel": {
             "common": [
                 f"场均进失：主 {fh['pj']:.2f} 进 / {fh['sj']:.2f} 失 · 客 {fa['pj']:.2f} 进 / {fa['sj']:.2f} 失",
                 f"半场得失：主 上半场进{fh['ht_gf']}失{fh['ht_ga']} · 客 上半场进{fa['ht_gf']}失{fa['ht_ga']}",
-                f"交锋 {h2['n']} 场 · 主 {h2['w']}胜{h2['d']}平{h2['l']}负 · 场均 {h2['avg']} 球",
+                f"交锋 {h2['n']} 场 · 主 {h2['w']}胜{h2['d']}平{h2['l']}负",
             ]
         },
         "intel2": {
@@ -302,15 +297,15 @@ def build_card(no):
                 "bad": [f"近 {fa['n']} 场共失 {fa['ga']} 球，防线承压"] if fa["sj"] > 1.3 else [],
             },
         },
-        "h2h_short": f"交锋 {h2['n']} 场 · 场均 {h2['avg']} 球 · 平局 {h2['draw']}%",
-        "h2h_stats": {"n": h2["n"], "draw": h2["draw"], "low": h2["low"]},
+        "h2h_short": f"交锋 {h2['n']} 场 · 主 {h2['w']}胜{h2['d']}平{h2['l']}负",
+        "h2h_stats": {"n": h2["n"], "draw": h2["draw"]},
         "h2h_detail": {
-            "record": f"近 {h2['n']} 次交锋 · 场均 {h2['avg']} 球",
+            "record": f"近 {h2['n']} 次交锋 · 主 {h2['w']}胜{h2['d']}平{h2['l']}负",
             "scores": [],
-            "note": f"过往交锋 ≤2球场次占 {h2['low']}%，平局占 {h2['draw']}%（常规时间口径）。",
+            "note": f"过往 {h2['n']} 次交锋主队进 {h2['gf']} 球、客队进 {h2['ga']} 球。",
         },
         "narr": f"【{t_pair[0]} vs {t_pair[1]}】" + NARR.get(no, ""),
-        "point": POINT.get(no, f"焦点：{t_pair[0]} vs {t_pair[1]}"),
+        "point": POINT.get(no, f"数据反差：{t_pair[0]} vs {t_pair[1]}"),
     }
     print(no, b["home"], "vs", b["away"], "radar_avg", card["radar"]["avg_home"], card["radar"]["avg_away"])
     return card
@@ -322,21 +317,9 @@ out = {
         "date": "10.28",
         "weekday": "星期三",
         "kick_day": "10/28–10/29 赛程",
-        "tail": "4 场焦点赛事 · 六维雷达与全维技术参数一图流",
+        "tail": "4 场近期战绩与上下半场得失统计",
     },
     "matches": cards,
 }
 (ROOT / f"📝文章/{DAY}/_cards_wed.json").write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
-
-cards6 = [build_card(no) for no in PICK6 if no in B_RAW and no in M]
-out6 = {
-    "meta": {
-        "date": "10.28",
-        "weekday": "星期三",
-        "kick_day": "10/28–10/29 赛程",
-        "tail": f"{len(cards6)} 场焦点赛事 · 六维雷达与全维技术参数一图流",
-    },
-    "matches": cards6,
-}
-(ROOT / f"📝文章/{DAY}/_cards_wed_6.json").write_text(json.dumps(out6, ensure_ascii=False, indent=2), encoding="utf-8")
-print("✅ _cards_wed.json (4场) 与 _cards_wed_6.json (6场模板源) 写入完成")
+print("✅ _cards_wed.json (4场纯历史数据版) 写入完成")

@@ -56,8 +56,8 @@ python -X utf8 scripts/sync.py --status   # 只看状态
 | **工作流一页纸（采→验→算→报→写→检→复）** | `docs/WORKFLOW-ONE-PAGE.md`（每步命令 + 产物 + 失败速查） |
 | 写作与分析管线详版（v3.1） | `docs/WORKFLOW.md` |
 | 修正规则 C01-C48 摘要 | `docs/RULES.md` → 真源 `📚知识库/模型脚本/修正规则.md`（v1.8.1） |
-| 写作铁律 R1-R59 覆盖层 | 真源 `📚知识库/skills/afei-writing-standards/SKILL.md`（**R41 = 去盘口语 + 内外分层；R55 = 读者视角去模型内部词；R56 = 去模板标签与自然语气；R58 = 头条官方信用分与禁删重发；R59 = 小红书赛博黑金一图流 3/4/5/6 场模板 + 纯战术倾向文案**）|
-| **小红书一图流海报与风控门禁** | `scripts/xhs_card_d.py`（`--only-cover --cover-style poster` / `--template {3,4,5,6}`）+ `scripts/xhs_riskcheck.py` + `📚知识库/公司工程/平台风控与自查.md` |
+| 写作铁律 R1-R59 覆盖层 | 真源 `📚知识库/skills/afei-writing-standards/SKILL.md`（**R41 = 去盘口语 + 内外分层；R55 = 读者视角去模型内部词；R56 = 去模板标签与自然语气；R58 = 头条官方信用分与禁删重发；R59 = 小红书纯历史数据看板 ≤4场、禁方向/区间/竞彩口径**）|
+| **小红书合规规范与风控门禁** | `📚知识库/写作指南/小红书合规规范_20261021.md` + `scripts/xhs_card_d.py` + `scripts/xhs_riskcheck.py` + `📚知识库/公司工程/平台风控与自查.md` |
 | **头条官方社区规范与信用分细则** | `📚知识库/写作指南/头条社区规范.md`（2026-10-28 核实：70/20/10/5 四档扣分、首次违规答题秒恢复、消重禁删重发、标题标点白名单）|
 | **技能清单/分节行号** | `📚知识库/skills/INDEX.md`（按需加载入口，先看这个再读 SKILL.md）|
 | 历史待办/闭环记录（冷） | `state/task-log.json` |

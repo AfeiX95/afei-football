@@ -1973,8 +1973,8 @@ def cover_poster_html(data: dict, n_override: int = 0) -> str:
         h2_low = h2.get("low") if h2.get("low") not in (None, "") else ((c.get("h2h_stats") or {}).get("low") or "—")
         h2h_str = (
             f"近{h2.get('n', 6)}次交锋：主{h2.get('w', 0)}胜{h2.get('d', 0)}平{h2.get('l', 0)}负 "
-            f"(进{h2.get('gf', 0)}失{h2.get('ga', 0)}) · 场均{h2.get('avg_goals', '—')}球 · ≤2球占{h2_low}%"
-        )
+            f"(进{h2.get('gf', 0)}失{h2.get('ga', 0)})"
+        )  # 2026-10-28：删去「场均X球 · ≤2球占X%」（小球率换皮，OCR 可读）
         pt_str = c.get("point") or f"焦点：{t1} vs {t2}"
 
         rows.append(f"""
@@ -2095,10 +2095,10 @@ def cover_poster_html(data: dict, n_override: int = 0) -> str:
   <div class="border-out"></div>
   <div class="mast">
     <div class="mast-l">
-      <span class="eyebrow">ALL-IN-ONE TECHNICAL DOSSIER // 90-MIN REGULAR TIME DATA</span>
-      <h1>{esc(lg_title)}<em>{len(ms)} 场焦点战全维技术图谱</em></h1>
+      <span class="eyebrow">TEAM FORM DOSSIER // RECENT MATCH DATA</span>
+      <h1>{esc(lg_title)}<em>球队近况与半场得失图谱</em></h1>
       <div class="sub">
-        <span>2× 六维雷达对撞 · 上下半场得失拆分 · 同主客战力 · 波动度(σ)与交锋档案</span>
+        <span>六维雷达对比 · 上下半场得失拆分 · 同主客战绩 · 波动度(σ)与过往交手</span>
         <span class="lgd"><i style="background:#00F5D4"></i>主队参数/雷达</span>
         <span class="lgd"><i style="background:#FF5E7E"></i>客队参数/雷达</span>
       </div>
@@ -2112,11 +2112,11 @@ def cover_poster_html(data: dict, n_override: int = 0) -> str:
   <div class="p-foot">
     <div class="p-brand">
       <em></em>
-      <div><b>阿飞 <i>·</i> 赛博聊球</b><span>一图流全维数据看板 · 深度战术与数据拆解见正文</span></div>
+      <div><b>阿飞 <i>·</i> 赛博聊球</b><span>近期战绩 · 上下半场得失 · 同主客表现 · 六维对比</span></div>
     </div>
     <div class="p-note">
-      <div>数据口径：90 分钟常规时间 · 官方赛程与近 5 场全/半场客观数据统计</div>
-      <div>仅供球迷战术交流参考，不构成任何建议</div>
+      <div>数据来源：公开赛事数据 · 近 5 场全场与半场比分统计</div>
+      <div>@阿飞·赛博聊球 #足球数据 #球队近况</div>
     </div>
   </div>
 </div></body></html>"""
@@ -2144,6 +2144,14 @@ def main() -> None:
     try:
         import xhs_riskcheck
         hits = xhs_riskcheck.scan_cards(data, ms)
+        # 2026-10-28：形态门禁接入出图入口（>4 场 / 封面自述预测 / 方向字段 即拒绝）
+        n_out = a.template or len(ms)
+        fatal = [f for f in xhs_riskcheck.scan_form(data, ms[:n_out]) if f[0] == "fatal"]
+        if a.all_templates and len(ms) > xhs_riskcheck.FORM_MAX_MATCHES:
+            fatal.append(("fatal", "形态·多场汇总", "%d 场模板" % len(ms), "--all-templates",
+                          "5/6 场模板已停用（10-28 当日被判），单篇上限 4 场"))
+        for _lv, name, frag, where, why in fatal:
+            hits.append((name, frag, where, why))
         if hits:
             print("❌ 风控自检未通过（命中 %d 处），已阻止出图：" % len(hits))
             for cat, frag, where, why in hits:

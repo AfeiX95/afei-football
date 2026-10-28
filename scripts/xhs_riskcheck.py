@@ -52,7 +52,7 @@ def scan_text(text: str, where: str = "") -> list:
     """返回 [(类别, 命中片段, 位置, 说明)]。"""
     t = DATE_RE.sub("（日期）", str(text or ""))
     hits = []
-    for name, pat, why in RULES:
+    for name, pat, why in RULES + SOURCE_RULES:
         for m in re.finditer(pat, t):
             frag = m.group(0)
             if len(frag) > 20:
@@ -68,6 +68,22 @@ CAPTION_RULES = [
      "正文出现比分猜测＝会被效仿的具体结果（图上的概率图表不判，正文文字判）"),
     ("正文·概率数字", r"\d\s*%|胜率|概率|几成把握",
      "正文出现概率/胜率数字，同属「会被效仿的具体结果」判点"),
+    # 2026-10-28 第 7 次违规（发布 24 分钟初审即判）：正文「战术倾向：主场控制型占优，2—3球」
+    # 「客队不败优先、保留平局」——换了说法的方向 + 总进球区间，词表抓不到，按形态拦。
+    ("正文·方向倾向", r"倾向|推演|占优|不败优先|保留平局|防平|保留[^，。]{0,4}进球|零封有风险|压制力更强|难零封",
+     "方向/结果判断（规范 10-21 §3.2/§11：「看好主队控场」式推演不采纳），一律不写"),
+    ("正文·进球区间", r"\d\s*[—–~～至到]\s*\d\s*球",
+     "「2—3球」＝总进球区间预测，等同大小球判断"),
+]
+
+# 2026-10-28：图面/文案里指向竞彩口径或「建议类内容」的字样（OCR 可读）
+SOURCE_RULES = [
+    ("口径·竞彩指向", r"90\s*分钟|常规时间|REGULAR\s*TIME|90-MIN",
+     "「90 分钟常规时间」是竞彩结算口径，图面/正文都不写"),
+    ("口径·低进球占比", r"≤\s*\d\s*球|<=\s*\d\s*球",
+     "「≤2球占比」＝「小球率」换皮"),
+    ("口径·撇清建议", r"不构成任何建议|不构成建议|不涉及任何博彩|不涉及任何不良导向|理性观赛",
+     "主动撇清「建议/博彩」＝自认这是建议类内容（10-28 文末护盾未起作用）"),
 ]
 
 
@@ -75,7 +91,7 @@ def scan_caption(text: str, where: str = "文案正文") -> list:
     """只对「要粘贴到平台的正文」跑：禁比分猜测与概率数字。"""
     t = DATE_RE.sub("（日期）", str(text or ""))
     hits = []
-    for name, pat, why in CAPTION_RULES:
+    for name, pat, why in CAPTION_RULES + SOURCE_RULES:
         for m in re.finditer(pat, t):
             hits.append((name, m.group(0)[:20], where, why))
     return hits
@@ -88,7 +104,7 @@ def scan_caption(text: str, where: str = "文案正文") -> list:
 # --------------------------------------------------------------------------- #
 FORM_DIR_WORDS = ("方向偏", "我看好", "看好", "拿分", "不败", "推荐", "稳胆", "必中", "值得跟")
 FORM_COVER_WORDS = ("比分概率", "综合结论", "概率", "预测", "推荐")
-FORM_MAX_MATCHES = 6
+FORM_MAX_MATCHES = 4  # 2026-10-28 复原：10-21/10-24 规范定的上限，曾被误放宽到 6，当日即判
 
 
 def scan_form(data: dict, cards=None) -> list:
