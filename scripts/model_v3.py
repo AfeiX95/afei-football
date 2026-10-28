@@ -384,9 +384,23 @@ def build_single(day, num, grade="A"):
     ouline = v.get("ou_line")
     if ouline is not None:
         ev = settle.ev_ou(grid, abs(ouline), v["ou_water"][0], v["ou_water"][1])
-        out["ou"] = {"line": ouline, "dist": ev[2], "ev": (ev[0] * 100, ev[1] * 100), "water": tuple(v["ou_water"])}
+        ev_over, ev_under = ev[0] * 100, ev[1] * 100
+        c50_trig = bool(max(out["three_c"][0], out["three_c"][2]) >= 0.50 and abs(ouline) >= 2.75 and ev_under >= 3.0)
+        if c50_trig:
+            out["notes"].append("触发 C50（单边胜率 ≥50% 且大小线 ≥2.75）：弱队低产算出的小球正 EV 在强队刷穿或领先松懈对攻下易失真（Batch#50 0/3），小球溢价不作买入依据")
+        out["ou"] = {"line": ouline, "dist": ev[2], "ev": (ev_over, ev_under), "water": tuple(v["ou_water"]), "c50_triggered": c50_trig}
     else:
-        out["ou"] = {"line": None, "dist": None, "ev": (None, None), "water": (0, 0)}
+        out["ou"] = {"line": None, "dist": None, "ev": (None, None), "water": (0, 0), "c50_triggered": False}
+    # C51: 杯赛/小样本场 A 模型高看受让方且受让侧 EV >= +10%
+    c51_trig = False
+    if model_grade == "C" and out["three_data"] and out["edge_ab"] and ahline is not None and ahline != 0:
+        ud_idx = 0 if ahline > 0 else 2
+        ah_ud_idx = 0 if ahline > 0 else 1
+        if (out["three_data"][ud_idx] >= 0.55 and out["edge_ab"][ud_idx] >= 30.0
+                and (out["ah"]["ev"][ah_ud_idx] or 0) >= 10.0):
+            c51_trig = True
+            out["notes"].append("触发 C51（杯赛 A 模型受让方 ≥55%/Edge ≥+30pp 且受让亚盘 EV ≥+10%）：独立数据强烈指向下盘爆冷/对攻弹性（Batch#50 周三003 横滨 4:3），禁顺市场追强队，应站受让方(+1)或留白")
+    out["c51_triggered"] = c51_trig
     mc = mp.mc_sim(lc[0], lc[1], ahline, abs(ouline) if ouline is not None else None)
     out["mc"] = mc
     tw = three_way(lc)

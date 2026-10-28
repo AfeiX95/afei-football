@@ -372,9 +372,10 @@ def sect_model(num, v):
     ou = r.get("ou") or {}
     if ou.get("line") is not None:
         d = ou["dist"]
+        c50_tag = "（⚠️触发 C50 单边场小球陷阱，小球不作买入依据）" if ou.get("c50_triggered") else ""
         lines.append(f"- 大小 {abs(ou['line']):.2f}（五状态）：全大 {pct(d[settle.FULL_WIN])}、大赢半 {pct(d[settle.HALF_WIN])}、"
                      f"走水 {pct(d[settle.PUSH])}、大输半 {pct(d[settle.HALF_LOSS])}、全小 {pct(d[settle.FULL_LOSS])}"
-                     f"　→ EV 大 {ou['ev'][0]:+.1f}% / 小 {ou['ev'][1]:+.1f}%")
+                     f"　→ EV 大 {ou['ev'][0]:+.1f}% / 小 {ou['ev'][1]:+.1f}%{c50_tag}")
     sc = "；".join(f"{k} {pct(p)}" for k, p in r["top_scores"][:6])
     lines.append(f"- 比分前六（λ_C）：{sc}")
     mc = r["mc"]
@@ -499,7 +500,10 @@ for num in sorted(books):
     if r["ou"]["ev"][0] is not None:
         for side, ev in (("大", r["ou"]["ev"][0]), ("小", r["ou"]["ev"][1])):
             if ev is not None and ev >= 3:
-                buy_ou.append(f"{num} {side}球 {ev:+.1f}%")
+                if side == "小" and r["ou"].get("c50_triggered"):
+                    buy_ou.append(f"{num} 小球 {ev:+.1f}%（C50拦截·不买）")
+                else:
+                    buy_ou.append(f"{num} {side}球 {ev:+.1f}%")
 DEC += f"- 亚盘溢价（五状态 EV，≥+3% 才算买入）：{'、'.join(buy_ah) if buy_ah else '无——本批让球盘整体被抽干'}\n"
 DEC += f"- 大小盘溢价（≥+3%）：{'、'.join(buy_ou) if buy_ou else '无'}\n"
 DEC += "- 亚盘两侧都没到买入线的场次（读作「这两个方向都不给价，别硬找」）："
