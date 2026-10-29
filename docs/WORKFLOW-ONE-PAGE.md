@@ -62,7 +62,9 @@ python -X utf8 scripts/check_report_consistency.py 20261028
 ```bash
 python -X utf8 scripts/preflight.py "📝文章/YYYYMMDD/<文章>.md"   # 字数(800-1500) + 8项合规 + R55视角 + 句长sd提示
 python -X utf8 scripts/check_dup.py YYYYMMDD                      # 同批多篇逐行去重，必须 0 命中
+python -X utf8 scripts/check_pub_safety.py YYYYMMDD               # A/B 分层安全闸：A 层内部稿拦截 + 内部口径/红词/表格残留扫描
 ```
+- **只发哪一份**：同目录只有文件名带「**赛事前瞻**」的 `.md` 能上平台；`*_内部分析报告.md`、`*_全盘分析报告.md`、`*_cards_*.json`、`state/` 全部留在本地。
 
 ### 3.2 小红书（R59 · 2026-10-28 晚修订：凌晨版已撤销）
 > 🔴 先读 `📚知识库/写作指南/小红书合规规范_20261021.md` 一页纸。凌晨版「多场一图流 + 战术倾向文案」10-28 11:33 发、11:57 即判涉赌（第 7 次违规）。
