@@ -20,6 +20,8 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+import _x500  # noqa: E402  500 反爬会话（票据 state/tmp/500session.json，30 天有效）
 CACHE = ROOT / "state" / "tmp" / "500cache"
 UA = {
     "User-Agent": (
@@ -37,13 +39,13 @@ def fetch(mid: str) -> str:
     url = f"https://odds.500.com/fenxi/shuju-{mid}.shtml"
     for attempt in range(4):
         try:
-            body = urllib.request.urlopen(
-                urllib.request.Request(url, headers=UA), timeout=40
-            ).read()
-            fp.write_bytes(body)
+            # 反爬统一交给 _x500（票据 state/tmp/500session.json，30 天有效）
+            body = _x500.fetch(url, enc="gb18030")
+            fp.write_text(body, encoding="gb18030", errors="ignore")
             time.sleep(1.5)
-            return body.decode("gb18030", errors="ignore")
-        except Exception:  # noqa: BLE001
+            return body
+        except Exception as exc:  # noqa: BLE001
+            print(f"  !! {mid} {exc}")
             time.sleep(4 * (attempt + 1))
     return ""
 
@@ -101,12 +103,11 @@ def parse_season(txt: str) -> list[dict]:
 RES_MAP = {"胜": "W", "平": "D", "负": "L"}
 
 
-def _name_hit(team: str, name: str) -> bool:
-    """队名容错：一方是另一方子串即算命中（500 有时带/不带前缀如 AIK索尔纳 vs 索尔纳）"""
-    if not team or not name:
-        return False
-    a, b = team.replace(" ", ""), name.replace(" ", "")
-    return a == b or a in b or b in a
+import _names  # noqa: E402  队名归一与别名词典（database/config/team_aliases.json）
+
+
+_name_hit = _names.name_hit
+
 
 
 def parse_h2h(txt: str) -> dict:
@@ -130,6 +131,18 @@ def parse_h2h(txt: str) -> dict:
     return {"summary": head, "rows": rows}
 
 
+def _split_lead_digits(run: str) -> tuple[str, int]:
+    """把「队名自带数字 + 比分」拆开：962→('96',2)、212→('21',2)、1→('',1)"""
+    if run.isdigit() and int(run) <= 12:
+        return "", int(run)
+    n = len(run)
+    for k in range(min(n - 1, 3), 0, -1):
+        tail = run[k:]
+        if tail.isdigit() and int(tail) <= 12:
+            return run[:k], int(tail)
+    return "", int(run[-1] or 0)
+
+
 def parse_recent(txt: str, team: str, n: int = 5) -> dict:
     """近 n 场（按日期倒序，含比分与赛果），从「近期战绩」段落里取含该队的、已完赛的行"""
     start = txt.find("近期战绩")
@@ -140,13 +153,17 @@ def parse_recent(txt: str, team: str, n: int = 5) -> dict:
     )
     picked = []
     for m in pat.finditer(seg):
-        date, pre, hs, aw, post, line, half, res, pan, ou = (
+        date, pre, lead, aw_raw, post, line, half, res, pan, ou = (
             m.group(i).strip() for i in range(1, 11)
         )
-        home, away = pre.strip(), post.strip()
+        # 队名自带数字（汉诺威96 / 阿贾克斯U21）会被并进比分，按「名字后缀优先」拆回
+        name_digits, hs = _split_lead_digits(lead)
+        home, away = f"{pre}{name_digits}".strip(), post.strip()
+        aw = int(aw_raw) if aw_raw.isdigit() else -1
+        if hs > 15 or aw < 0 or aw > 15:
+            continue
         if not _name_hit(team, home) and not _name_hit(team, away):
             continue
-        hs, aw = int(hs), int(aw)
         is_home = _name_hit(team, home)
         gf, ga = (hs, aw) if is_home else (aw, hs)
         out = "W" if gf > ga else ("D" if gf == ga else "L")
@@ -180,10 +197,16 @@ def parse_recent(txt: str, team: str, n: int = 5) -> dict:
 
 def parse_fixture(txt: str) -> dict:
     """页面顶部对阵：'意甲 26/27第9轮 萨索洛VS拉齐奥'"""
-    m = re.search(r"(\d{2}/\d{2}[^\s]{0,8}第\d+轮) \| \| \|?\s*\n?\s*([^\|\n]{2,20})VS([^\|\n]{2,20}) \|", txt)
-    if not m:
-        return {}
-    return {"round": m.group(1), "home": m.group(2).strip(), "away": m.group(3).strip()}
+    out: dict = {}
+    m = re.search(r"([^\s\|()]{2,20})VS([^\s\|()]{2,20})\((\d{4})/(\d{4})([^)]*)\)", txt)
+    if m:
+        out["home"], out["away"] = m.group(1).strip(), m.group(2).strip()
+        out["season"] = f"{m.group(3)}/{m.group(4)}"
+        out["league"] = m.group(5).strip()
+    r = re.search(r"(\d{2}/\d{2}[^\s\|]{0,10}第\d+轮)", txt)
+    if r:
+        out["round"] = r.group(1)
+    return out
 
 
 def analyse(mid: str) -> dict:

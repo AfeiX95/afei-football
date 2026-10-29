@@ -1,0 +1,389 @@
+[
+ {
+  "article": "周五001_布里斯班狮吼奥克兰FC_门槛被撤之后_赛事前瞻.md",
+  "offset": 158,
+  "value": 35.5,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 35.5,
+    "layer": "market"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 35.382,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 35.43,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周五001_布里斯班狮吼奥克兰FC_门槛被撤之后_赛事前瞻.md",
+  "offset": 167,
+  "value": 27.9,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "market.draw",
+    "value": 27.9,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.draw",
+  "status": "ok"
+ },
+ {
+  "article": "周五001_布里斯班狮吼奥克兰FC_门槛被撤之后_赛事前瞻.md",
+  "offset": 176,
+  "value": 36.6,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 36.6,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周五001_布里斯班狮吼奥克兰FC_门槛被撤之后_赛事前瞻.md",
+  "offset": 714,
+  "value": 60.6,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 60.57,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周五001_布里斯班狮吼奥克兰FC_门槛被撤之后_赛事前瞻.md",
+  "offset": 802,
+  "value": 39.7,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 39.731,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 39.55,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周五001_布里斯班狮吼奥克兰FC_门槛被撤之后_赛事前瞻.md",
+  "offset": 824,
+  "value": 36.6,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 36.6,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周五004+009+010+011_法甲西甲葡超四场_顺方向与反门槛_赛事前瞻.md",
+  "offset": 367,
+  "value": 76.3,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 76.3,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周五004+009+010+011_法甲西甲葡超四场_顺方向与反门槛_赛事前瞻.md",
+  "offset": 379,
+  "value": 72.4,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 72.388,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [
+   "data"
+  ],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周五004+009+010+011_法甲西甲葡超四场_顺方向与反门槛_赛事前瞻.md",
+  "offset": 389,
+  "value": 74.7,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 74.652,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 74.91,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周五004+009+010+011_法甲西甲葡超四场_顺方向与反门槛_赛事前瞻.md",
+  "offset": 567,
+  "value": 68.6,
+  "match_id": "009",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 68.6,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周五004+009+010+011_法甲西甲葡超四场_顺方向与反门槛_赛事前瞻.md",
+  "offset": 581,
+  "value": 42.5,
+  "match_id": "009",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 42.528,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [
+   "data"
+  ],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周五004+009+010+011_法甲西甲葡超四场_顺方向与反门槛_赛事前瞻.md",
+  "offset": 601,
+  "value": 55.8,
+  "match_id": "009",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 55.845,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 55.94,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周五004+009+010+011_法甲西甲葡超四场_顺方向与反门槛_赛事前瞻.md",
+  "offset": 897,
+  "value": 38.2,
+  "match_id": "010",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 38.2,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周五004+009+010+011_法甲西甲葡超四场_顺方向与反门槛_赛事前瞻.md",
+  "offset": 911,
+  "value": 45.6,
+  "match_id": "010",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 45.6,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [
+   "data"
+  ],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周五004+009+010+011_法甲西甲葡超四场_顺方向与反门槛_赛事前瞻.md",
+  "offset": 921,
+  "value": 42.9,
+  "match_id": "010",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 42.938,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 43.08,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周五004+009+010+011_法甲西甲葡超四场_顺方向与反门槛_赛事前瞻.md",
+  "offset": 1338,
+  "value": 77.0,
+  "match_id": "011",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 77.0,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周五004+009+010+011_法甲西甲葡超四场_顺方向与反门槛_赛事前瞻.md",
+  "offset": 1352,
+  "value": 81.5,
+  "match_id": "011",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 81.506,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周五004+009+010+011_法甲西甲葡超四场_顺方向与反门槛_赛事前瞻.md",
+  "offset": 1362,
+  "value": 79.5,
+  "match_id": "011",
+  "model_version": "v3.1",
+  "snapshot_id": "6a4510791bfc",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 79.531,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 79.63,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ }
+]

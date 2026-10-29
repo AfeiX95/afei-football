@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated": "2026-10-29T00:18:00+08:00",
+  "updated": "2026-10-30",
   "model_version": "3.1.0",
   "calibration": {
     "last_batch": 50,
@@ -149,11 +149,25 @@
       "words": 1398,
       "gate": "8/8",
       "ai": 19.7
+    },
+    {
+      "date": "2026-10-30",
+      "path": "📝文章/20261030/周五001_布里斯班狮吼奥克兰FC_门槛被撤之后_赛事前瞻.md",
+      "words": 891,
+      "gate": "8/8",
+      "ai": 15.5
+    },
+    {
+      "date": "2026-10-30",
+      "path": "📝文章/20261030/周五004+009+010+011_法甲西甲葡超四场_顺方向与反门槛_赛事前瞻.md",
+      "words": 1298,
+      "gate": "8/8",
+      "ai": 24.4
     }
   ],
   "counters": {
     "open_items": 13,
-    "pending_checks": 2,
+    "pending_checks": 4,
     "task_log": 125,
     "candidate_rules": 24
   },

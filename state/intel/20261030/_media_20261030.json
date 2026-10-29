@@ -1,0 +1,1267 @@
+{
+  "date": "20261030",
+  "fetched_at": "2026-10-30T00:19:17",
+  "calls": 24,
+  "items": [
+    {
+      "no": "周五001",
+      "league": "澳超",
+      "home": "布里斯班",
+      "away": "奥克兰FC",
+      "home_en": "布里斯班",
+      "away_en": "奥克兰FC",
+      "queries": [
+        "\"布里斯班 vs 奥克兰FC\" preview prediction lang:en",
+        "布里斯班 奥克兰FC 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "How Auckland's 'main man' holds the key to disrupting Roar engine room",
+          "url": "https://aleagues.com.au/news/news-total-aleague-auckland-brisbane-analysis/",
+          "site": "A-Leagues",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 4,
+          "score": 2.223441657388981,
+          "summary": "# How Auckland’s ‘main man’ holds the key to disrupting Roar engine room\n\nReigning champions Auckland FC head into Friday night’s clash at Brisbane Roar off the back of a chastening 5-2 loss to the Wanderers in Matchweek 2.\n\nPedro Moreira’s side took the lead at CommBank Stadium before conceding four second-half goals, handing them their first loss of the season and Moreira his first stumbling block since taking charge.\n\nThe result, and indeed performance, was a marked difference from Auckland’s impressive 3-1 win over Melbourne City in Matchweek 1.\n\nConversely, Brisbane Roar head into Friday night’s clash having impressed during their 2-1 win over Perth Glory, with South Korean veteran Nam Tae-hee starring for the Roar on his debut.\n\nSo what will the key matchups be heading into the Matchweek 3 showdown in Brisbane and who needs to step up?\n\nA-Leagues Champion and former Golden Boot winner Daniel McBreen examined the tactical battle on episode 2 of Total A-Leagues.\n\n“I think we’re all pleasantly surprised by Brisbane and their new signing, Nam,” McBreen said.\n\n“He was quality from the first couple of minutes. I was on the couch in the studio, and we all looked at each other and went, “Yeah, okay, he’s going to be a good player this year” and he topped it off by continuing to play that way for the rest of the game, or 60 minutes of the game and scoring an absolute worldie.\n\n“Now it’s going to be interesting to see how they go.\n\n“It’s one thing to do that against Perth, no disrespect to Perth, but you know when we’re looking at the grand scheme of the A-League clubs, Auckland are champions coming off the back of a defeat that they’re going to be licking their wounds as well.\n\n“We’ve got to look at Lachie Bayliss and say, game one, he was the man, scored a couple of goals, [but] didn’t really produce last week.\n\n“How is that matchup going to go? Who is going to take that game by the scruff of the neck?\n\n“From the looks of it, the midfield in Brisbane this year could be their engine room that actually controls it.\n\n“Last year we saw them go a lot longer and [be] a lot more combative. Now they’ve got that player in midfield, how is that going to happen against Auckland?\n\n“Will they be able to do the same, or will Auckland find their way because they lost their way last week?”",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "奥克兰FC客战布里斯班狮吼，莫雷拉盼防线回稳",
+          "url": "http://pc.dongqiudi.com/articles/6569612.html",
+          "site": "懂球帝",
+          "date": "2026-10-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.0096490383148193,
+          "summary": "# 奥克兰FC客战布里斯班狮吼，莫雷拉盼防线回稳\n\n北京时间10月30日17:00，澳超第三轮，布里斯班狮吼将在桑科普体育场迎战奥克兰FC（新西兰时间10月30日22:00开球）。布里斯班狮吼因比赛改期错过首轮，上周末迎来赛季首战，凭借贾斯廷-维迪奇和南泰熙上半场的进球2-1击败珀斯光荣，这是他们近十个赛季第二次赢下揭幕战。\n\n奥克兰FC上周末2-5不敌西悉尼流浪者，此前首战他们曾战胜墨尔本城，维塞利奇接德弗里斯传中凌空破门，以18岁之龄成为奥克兰最年轻进球者。对西悉尼一役，奥克兰在半场前两分钟被扳平，下半场开场不久又连丢两球，个人失误让比赛失去悬念。\n\n奥克兰主帅佩德罗-莫雷拉最担心的是防守，上轮丢五球后，他希望后防线拿出更有纪律性的表现。原文指出，如果奥克兰能收紧防守并把握进攻机会，完全有理由带着三分离开布里斯班。\n\n交锋纪录方面，奥克兰FC在澳超正式比赛中对布里斯班狮吼保持不败，四次交手赢下三场，另一场打平；此前两次做客布里斯班均以2-0取胜。布里斯班则希望借助主场优势改写这一纪录。\n\n南泰熙在对珀斯光荣的比赛中用一记凌空抽射打开进球账户，原文提醒奥克兰需要限制他的持球时间。文章强调，周五晚上的焦点不在个别球员，而在奥克兰全队如何从上轮失利中反弹。\n\n原文写道：“冠军球队的评判标准是他们在事情出错时如何反应，奥克兰需要证明上周末只是一次意外，而非未来的征兆。”",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "奥克兰FC客战狮吼，旧将称莫雷拉无需惊慌",
+          "url": "http://pc.dongqiudi.com/articles/6569651.html",
+          "site": "懂球帝",
+          "date": "2026-10-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.994465708732605,
+          "summary": "# 奥克兰FC客战狮吼，旧将称莫雷拉无需惊慌\n\n澳超第3轮，奥克兰FC将客场前往Suncorp体育场对阵布里斯班狮吼，比赛将于北京时间10月30日17:00开球。狮吼在新赛季首场比赛中主场2-1击败珀斯光荣，取得开门红。\n\n奥克兰FC上一轮客场对阵西部悉尼流浪者遭遇五球惨败。维塞利奇上半场为奥克兰FC首开纪录，博雷洛在半场结束前扳平，下半场流浪者连续进球，前奥克兰边锋吉利翁攻破老东家球门，米拉诺维奇再入一球，奥克兰FC凭借博雷洛的乌龙球一度追近，但德皮齐奥和瓦拉加晚段进球锁定胜局。\n\n前澳超前锋巴尔巴鲁塞斯在A-Leagues: On the Whistle节目中表示：“我不认为奥克兰踢得差。我认为他们在攻防转换中表现糟糕。”他认为流浪者五个进球中有四个是在夺回球权后经过一两次传递打进的，奥克兰FC无法应对，但“我不认为奥克兰有太多值得担心的理由”。\n\n奥克兰FC在第1轮曾以3-1击败墨尔本城，第2轮的惨败与此形成反差。第3轮客场对阵布里斯班狮吼，将是莫雷拉球队的又一次考验。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Extended Preview: Bring on the defending champs!",
+          "url": "https://brisbaneroar.com.au/news/extended-preview-bring-on-the-defending-champs/",
+          "site": "Brisbane Roar",
+          "date": "2026-10-26T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9130342045072424,
+          "summary": "# Extended Preview: Bring on the defending champs!\n\nFreelance football journalist, Mike Tuckerman returns to preview our clash with defending champions, Auckland FC this Friday night at Suncorp Stadium.\n\nIf you’re only as good as your last game, then Brisbane Roar fans are pretty much looking at the best team in the A-League Men’s competition.\n\nThe men in orange may have ridden their luck in the second half of last Friday’s 2-1 win over Perth Glory, but there were enough signs in the first half to suggest this new-look team will be tough to beat.\n\nIn fact, there were so many positives it’s hard to know where to start. But let’s do so with Justin Vidic, who was deservedly named player of the match on the back of one of his most effective performances in orange.\n\nFriday, October 30Fri, Oct 305:00 PMSuncorp StadiumMatchweek 3\n\nBrisbane Roar FCBRI\n\nVS\n\nAuckland FCAKL\n\nIt wasn’t just that Vidic opened the scoring, peeling away from his marker to tap home Tate Russell’s intelligent cut-back just before the half-hour mark.\n\nJust as impressive was his relentless pressing on the night, which forced Glory to sit deep and spend much of the first half of the back foot.\n\nOn another night, Vidic would have scored more than his solitary goal. But he was helped in no small part by Virgiliu Postolachi, whose near-post run dragged former Lions FC defender Cher Deng with him and opened the space for Vidic to tap home the opener.\n\nIt was a vindication of coach Michael Valkanis’ decision to play two up top and a signal of attacking intent for the season ahead.\n\nPostolachi had plenty of good moments in a 65-minute A-League Men’s debut, before German import Marko Ilic came on and turned on the afterburners as he tormented the Glory defence.\n\nIlic’s eye-catching runs down the left-hand side suggest the former TSV Havelse flyer will offer plenty in attack this season and should ensure the side maintains plenty of momentum in the second half of games.\n\nAnd if we’re singling out impressive attacking performers, how good was Nam Tae-hee?\n\nThe former South Korean international was always going to show plenty of class, but few could have predicted just how well he’d control the tempo of the game in midfield.\n\nNam looked a cut above in that first half against Perth, and he capped an assured display with an early contender for goal of the season when he deftly flicked up a Glory clearance before expertly dispatching it with an expertly taken volley from outside the box.\n\nIf Nam stays fit, he’ll be one of the signings of the season.\n\nBut there were plenty of others who looked the goods on the night – including, it’s worth pointing out, Joel King.\n\nYes, the former Sydney FC defender would no doubt love to have his attempted back pass to debutant goalkeeper George Plusnin over again.\n\nBut aside from that one mistake, both King and his right-sided counterpart Russell provided plenty of drive going forward and looked calm in defence.\n\nPlusnin himself was rarely tested in assured performance from the 18-year-old, and while Stefan Colakovski could have equalised midway through the second half, the fact that he sliced his one-on-one effort horribly wide suggests that even luck may be on Brisbane Roar’s side this season.\n\nOne win doesn’t make a season, of course, but we saw enough in the season opener to suggest the Roar will cause plenty of headaches for opposition sides.\n\nYet the visit of defending champions Auckland is another step up in quality, even if their English import Sam Cosgrove will miss Friday night’s showdown through suspension.\n\nThe Kiwis still have plenty of talent – including former Newcastle Jets flyer Lachie Bayliss and All Whites international Logan Rogerson – and they’ll be out for redemption following their 5-2 mauling at the hands of Western Sydney Wanderers in Parramatta last week.\n\nIt all sets up another fascinating clash under the lights at Suncorp Stadium.\n\nAuckland won’t be easy. But on the basis of what we saw last Friday night, there’s no reason to doubt Brisbane Roar won’t take the game to the defending champions.\n...\nAbout Mike Tuckerman: Mike is a freelance football journalist and long-time Brisbane Roar watcher. He has written for the ABC, The Guardian, Australian Football Weekly, Football Australia and theroar.com.au.",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "ALM MW3 Preview: Brisbane Roar vs Auckland FC",
+          "url": "https://brisbaneroar.com.au/news/alm-mw3-preview-brisbane-roar-vs-auckland-fc/",
+          "site": "Brisbane Roar",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.810726984551814,
+          "summary": "# ALM MW3 Preview: Brisbane Roar vs Auckland FC\n\nBrisbane Roar return to Suncorp Stadium on Friday night to host the reigning A-League champions, Auckland FC, looking to make it two wins from two to start the 26/27 A-League Men season.\n\nMichael Valkanis’ side opened their campaign with a 2-1 win over Perth Glory last Friday. Justin Vidic struck before half-time and Nam Tae-hee doubled the lead with a volley from outside the box. Nine players made their A-League Men debuts on the night, including 18-year-old goalkeeper George Plusnin.\n\nAuckland arrive in Brisbane after a mixed start to their title defence. Under new head coach Pedro Moreira, they opened with a 3-1 home win over Melbourne City, with new signing Lachlan Bayliss scoring twice. Last week they were beaten 5-2 by Western Sydney Wanderers in Parramatta. Auckland will also head to Brisbane without striker Sam Cosgrove who has been suspended for Friday’s match.\n\nAuckland are captained by Japanese international Hiroki Sakai, who will come up against Roar midfielder and South Korean international Nam Tae-hee.\n\nFriday, October 30Fri, Oct 305:00 PMSuncorp StadiumMatchweek 3\n\nBrisbane Roar FCBRI\n...\nTeam News\n\nValkanis has named a 20-man squad, with academy graduates Niall Thom and Jordan Lauton promoted into the group.\n\nDimitri Valkanis remains unavailable with a leg injury.\n\nBrisbane Roar A-League Men Squad:\n\n1.Dean BOUZANIS (GK), 2.Jacob NASSO, 5.Tom ALDRED (C), 6.Noah MAIERONI, 8.Tyrese FRANCOIS, 9.Virgiliu POSTOLACHI, 10.Tae-hee NAM, 11.Marko ILIC, 13.Tate RUSSELL, 14.Emin DURAKOVIC, 15.Hosine BILITY, 16.Joel KING, 17.Justin VIDIC, 19.Sabit NGOR, 22.Nathan AMANATIDIS, 39.Niall THOM, 40.George PLUSNIN (GK), 41.Emmett SHAW, 44.Jordan LAUTON, 77.Milorad STAJIC\n\nIns: 39.Niall THOM (promoted), 44.Jordan LAUTON (promoted)\nOuts: Nil\nUnavailable: 3.Dimitri VALKANIS (Leg)\n...\nHead coach Michael Valkanis:\n\nMidfielder Nam Tae-hee:\n\nHead-to-Head\n\nThe Roar are still chasing their first win over Auckland FC. The sides have met four times since Auckland entered the competition in 2024, with Auckland winning three and one match drawn. The most recent meeting was a 2-0 win for Auckland at Suncorp Stadium in January.\n\nMatch Details\n\nA-League Men, Matchweek 3\n...\nFriday 30 October, 7pm AEST kick-off\nSuncorp Stadium, Milton",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "home win"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 2,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 2,
+        "home_mentions": 2,
+        "away_mentions": 2
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周五002",
+      "league": "德乙",
+      "home": "科特布斯",
+      "away": "波鸿",
+      "home_en": "科特布斯",
+      "away_en": "波鸿",
+      "queries": [
+        "\"科特布斯 vs 波鸿\" preview prediction lang:en",
+        "科特布斯 波鸿 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "科特布斯成强队克星，波鸿客场迎考验",
+          "url": "http://pc.dongqiudi.com/articles/6574771.html",
+          "site": "懂球帝",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.148479461669922,
+          "summary": "# 科特布斯成强队克星，波鸿客场迎考验\n\n北京时间10月31日01:30，德乙第10轮，科特布斯将在主场迎战波鸿。赛前，TAG24撰文指出，这支升班马已经成为德乙强队的“克星”：客场1:1战平海登海姆，已是科特布斯本赛季第五次从强队身上抢分。\n\n科特布斯本赛季首轮就3:1击败赛前被看好的汉诺威96，此后与沃尔夫斯堡战成4:4，并在落后情况下连追三球；对阵圣保利1:1，距离胜利比这支德甲降级队更近；面对此前保持不败的纽伦堡也1:1战平，将对手逼到失利边缘。客场对志在升级的海登海姆，科特布斯拿到1分，门将洛特卡再次贡献神勇表现。\n\n客场对阵海登海姆一役，科特布斯不得不缺少比当古和博格曼两名领袖球员，但客队防守顽强，坚守到终场。科帕多为球队取得领先，年轻的埃尔莱因等中场球员也带来活力。文章还提到，科特布斯阵容的德乙出场数为172场，对手海登海姆则高达785场，经验差距明显。\n\n海登海姆主帅弗兰克-施密特赛后表示：“如果我今天有34次射门却赢不了，那就谈不上乐趣。”科特布斯主帅沃利茨此前则谈到经验劣势：“基本上我们对每个对手都处于下风。你能看到他们踢了多少场比赛。我们离开了十二年，曾默默无闻。”\n\n积分榜上，科特布斯9轮积10分排名第11，波鸿9轮积8分排名第14。科特布斯仍在等待下一场胜利，而波鸿将客场挑战这支屡屡让强队头疼的升班马。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/index.html?showType=2&mid=2042356",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.7810938358306885,
+          "summary": "排名: Regular Season 第11名\n\n赛季总成绩: 2胜 4平 3负\n\n赛季主场成绩: 1胜 2平 1负\n\n周五002 德乙>\n\n2026/2027 Regular Season 第10轮 2026-10-31 01:30\n\n排名: Regular Season 第14名\n\n赛季总成绩: 2胜 2平 5负\n\n赛季客场成绩: 2胜 0平 2负\n\n特征分析\n\n科特布斯 (主)\n\n2胜/2平/4负\n\n1胜/1平/2负\n\n1胜/5平/4负\n\n2胜/3平/5负\n\n1.6个\n\n2.1个\n\n近8场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n波鸿 (客)\n\n4胜/2平/2负\n\n2胜/1平/1负\n...\n5胜/2平/3负\n\n1.3个\n\n1.1个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n近8场科特布斯2胜 (25%) | 2平 (25%) | 4负 (50%)\n\n积分榜 德乙2026/2027\n\n科特布斯Regular Season 第11名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 9 | 2/4/3 | 22% | 17/18 | -1 | 10 | 11 \n主 | 4 | 1/2/1 | 25% | 8/7 | 1 | 5 | 15 \n客 | 5 | 1/2/2 | 20% | 9/11 | -2 | 5 | 7 \n\n波鸿Regular Season 第14名 查看更多>\n...\n总 | 9 | 2/2/5 | 22% | 6/10 | -4 | 8 | 14 \n主 | 5 | 0/2/3 | 0% | 2/5 | -3 | 2 | 18 \n客 | 4 | 2/0/2 | 50% | 4/5 | -1 | 6 | 5 \n\n比赛近况\n...\n科特布斯近10场1胜 (10%) | 5平 (50%) | 4负 (40%)\n\n进16球，失21球，净进-5球\n\n波鸿近10场4胜 (40%) | 2平 (20%) | 4负 (40%)\n\n进13球，失11球，净进2球\n...\n比赛日期 | 赛制 |\n...\n| 轮次\n...\n2026-11-08 | 德乙 | Regular Season 第11轮 \n2026-11-22 | 德乙 | Regular Season 第12轮 \n2026-11-28 | 德乙 | Regular Season 第13轮 \n2026-12-05 | 德乙 | Regular Season 第14轮 \n\n射手信息 德乙2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n31-J. Butler(前锋) | 8 (5/3) | 5 (29%) | 1 (8%) | 0.6/0.1 \n10-T. Cigerci(中场) | 9 (8/1) | 4 (24%) | 2 (17%) | 0.4/0.2 \n9-L. Copado(前锋) | 9 (8/1) | 2 (12%) | 1 (8%) | 0.2/0.1\n...\n23-三好康见(中场) | 9 (9/0) | 2 (33%) | 1 (20%) |...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "科特布斯主场迎波鸿，两队德乙中下游相遇",
+          "url": "http://pc.dongqiudi.com/articles/6574734.html",
+          "site": "懂球帝",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.7499405145645142,
+          "summary": "# 科特布斯主场迎波鸿，两队德乙中下游相遇\n\n德乙第10轮，科特布斯将在主场迎战波鸿，开球时间为北京时间10月31日01:30（当地时间10月30日18:30）。目前科特布斯在德乙积分榜上排名第9，波鸿位列第13。\n\n科特布斯在第9轮1:1战平海登海姆，拿到1分。最近5场联赛，科特布斯的战绩为1胜3平1负，其中主场0胜、客场1胜。这5场依次是：10月24日1:1海登海姆、10月16日1:1纽伦堡、10月10日1:3达姆施塔特98、9月20日1:1圣保利、9月13日3:0卡尔斯鲁厄。\n\n本赛季至今，科特布斯最大比分的主场胜利是3:1击败汉诺威96，客场最佳表现是3:0战胜卡尔斯鲁厄，进球最多的比赛则是与沃尔夫斯堡战成4:4。此外，球队本赛季有1场比赛零封对手。\n\n积分榜上，科特布斯9轮2胜4平3负、净胜球-1，积10分排名第9；波鸿9轮2胜2平5负、净胜球-4，积8分排名第13。\n\n打完波鸿之后，科特布斯接下来的赛程是：11月6日客场对阵不伦瑞克，11月22日主场迎战柏林赫塔，11月29日客场挑战马格德堡，12月5日主场对阵奥斯纳布吕克。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "3 比 1"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "科特布斯伤兵满营客战波鸿，沃利茨称每分必争",
+          "url": "http://pc.dongqiudi.com/articles/6574732.html",
+          "site": "懂球帝",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.7499405145645142,
+          "summary": "# 科特布斯伤兵满营客战波鸿，沃利茨称每分必争\n\n科特布斯将在北京时间10月31日01:30客场对阵波鸿。赛前，这支升班马仍受伤病困扰——上轮联赛他们就因多名球员生病缺阵，只能以残阵出战。\n\n上轮客场对海登海姆，科特布斯第40分钟由齐杰奇送出传球，跟进的科帕多推射破门取得领先。易边后不久，海登海姆的乌瓦利德-姆哈姆迪远射，坎普尔卡不慎将球折射入网，比分变为1:1。\n\n此后海登海姆持续施压，将科特布斯压制在本方半场并创造出大量机会。门将洛特卡多次精彩扑救，加上门框帮忙和主队把握机会不佳，科特布斯最终守住1:1。\n\n主帅沃利茨赛后表示：“我为每一分而战，好让我们无论如何能留在这个联赛。但这场平局从我们的角度看确实非常幸运。”",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": [
+            "1 比 1"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "科特布斯对波鸿1848足球俱乐部 交手统计数据 | FootyStats - Loading",
+          "url": "https://footystats.org/cn/germany/vfl-bochum-1848-vs-fc-energie-cottbus-h2h-stats#1",
+          "site": "FootyStats",
+          "date": null,
+          "authority": 3,
+          "score": 1.5646584033966064,
+          "summary": "# 科特布斯对波鸿1848足球俱乐部数据、分析及正面交锋\n\n1.30\n...\n1.80\n...\n因为这是一个季前赛程，所以显示最近10次的统计数据。\n...\n## 正面交手统计数据 / 以前的结果 - 科特布斯对波鸿1848足球俱乐部\n\n14\n赛事\n\n21%\n\n36%\n\n43%\n\n3 赢\n\n5 平局(36%)\n\n6 赢\n\n科特布斯 vs 波鸿1848足球俱乐部的交锋纪录显示14, 科特布斯 3 次获胜且 波鸿1848足球俱乐部 6 次获胜。 科特布斯 和 波鸿1848足球俱乐部之间有5次交锋在以和局告终。\n\n64%高于1.5\n\n9 / 14 赛事\n\n43%高于2.5\n\n6 / 14 赛事\n\n21%高于3.5\n\n3 / 14 赛事\n\n57%两队都得分\n\n8 / 14 赛事\n\n21%没有失球\n...\n29%没有失球\n...\n## 所有预测- 科特布斯对波鸿1848足球俱乐部\n\n55%高于2.5\n\n联盟平均 : 68%\n\n80%高于1.5\n...\n60%两队都得分\n...\n3每场赛事进球数\n\n联盟平均 : 3.47\n\n高于1.5进球，上半场/下半场 ＆ 更多\n\n高于 8.5, 9.5进球 & 更多\n\n*本赛季科特布斯和波鸿1848足球俱乐部之间的平均统计数据\n\n状态表\n...\n场均得分\n\n总体\n\n- 输\n...\n- 平\n- 赢\n\n1.30\n\n主场\n...\n1.20\n\n客场\n...\n1.40\n...\n赢%\n\n40%\n...\n4.00\n\n4.40\n\n3.60\n...\n1.90\n\n2.00\n...\n2.10\n\n2.40\n...\n没有失球\n\n20%\n...\n第一队入球\n...\nxG\n\n1.76\n\n1.80\n\n1.73\n\n预计失球数\n\n1.76\n\n1.92\n\n1.64\n\n这些统计数据是什么?\n...\n0.50\n...\n2.67\n...\n50%\n\n0%\n\n83%\n...\n1.50\n\n2.33\n...\n1.67\n...\n0.80\n\n1.00\n\n0.67\n...\n67%\n...\n33%\n...\n1.39\n\n1.43\n\n1.36\n...\n1.19\n\n1.52\n\n## 进球数 谁得分更多？\n\n科特布斯 是+58% 更好 方面进球\n\n1.9 每场赛事进球数\n\n科特布斯 (主场)\n\n1.2 每场赛事进球数\n\n波鸿1848足球俱乐部 (客场)\n\n全场\n\n上半场/下半场\n\n每场平均得分 | Energie Cottbus | Bochum \n---|---|---\n高于0.5 | 80% | 80% \n高于1.5 | 60% | 40% \n高于2.5 | 40% | 0% \n高于3.5 | 10% | 0% \n未能得分 | 20% | 20% \n\n上半场/下半场 得分 | Energie Cottbus | Bochum \n---|---|---\n上半场得分 | 70% | 60% \n下半场得分 | 70% | 40% \n上下半场均得分 | 60% | 20% \n上半场平均得分 | 0.7 | 0.8 \n下半场平均得分 | 1.20 | 0.40 \n\n* 统计数据包含科特布斯 和 波鸿1848足球俱乐部已打过的主客场比赛。\n\n## 失球数 谁会失球？\n\n波鸿1848足球俱乐部 是+62% 更好 方面失球\n\n2.1 每场球赛失球\n...\n0.8 每场球赛失球\n...\n* 失球数据包括 科特布斯 和 波鸿184...",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 2,
+        "goals": 0,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 5,
+        "home_mentions": 5,
+        "away_mentions": 5
+      },
+      "scores": [
+        "3 比 1",
+        "1 比 1"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周五003",
+      "league": "法甲",
+      "home": "尼斯",
+      "away": "雷恩",
+      "home_en": "Nice",
+      "away_en": "雷恩",
+      "queries": [
+        "\"Nice vs 雷恩\" preview prediction lang:en",
+        "尼斯 雷恩 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "尼斯VS雷恩，客队优势明显，但想轻松拿下并不容易！",
+          "url": "https://beta.dongqiudi.com/articles/6573667.html",
+          "site": "懂球帝",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.117229461669922,
+          "summary": "# 尼斯VS雷恩，客队优势明显，但想轻松拿下并不容易！\n...\n这场法甲对决，我个人还是更倾向于雷恩客场带走三分，不过比赛过程恐怕不会太轻松。\n\n先看双方基本面。\n\n尼斯目前排名联赛第10，前8轮取得3胜2平3负，打进8球丢10球，整体表现中规中矩。球队近期状态有所回升，近3轮拿到2场胜利，进攻端也连续取得进球。坐镇主场，尼斯并非没有抵抗能力。\n\n雷恩目前排名联赛第2，前8轮取得5胜1平2负，打进18球，进攻火力明显强于尼斯。最近3轮联赛更是打进10球，前场状态相当不错。不过，雷恩的防守也有问题，8轮丢掉14球，说明这支球队虽然能进球，但也容易给对手机会。\n\n再看交锋和阵容。\n\n双方最近4次交手各赢2场，整体比较接近。不过，今年3月雷恩曾在客场4:0击败尼斯，心理层面多少有些优势。\n\n阵容方面，尼斯后防线存在一定伤停隐患，边路防守尤其需要注意。面对雷恩这种进攻节奏快、前场冲击力强的球队，一旦防守站位出现问题，很容易被抓住机会。\n\n当然，雷恩也不是没有隐患。球队客场作战，加上近期赛程比较密集，防守稳定性又不足，想要零封尼斯并不容易。\n\n最后说说我的判断。\n\n这场比赛的关键在于雷恩的进攻效率。尼斯主场有一定得分能力，但从整体进攻质量和近期状态来看，我认为雷恩还是更值得高看一线。\n\n不过，雷恩场均失球接近2个，直接看客队大胜并不稳妥。相比之下，我更倾向于双方都有进球，雷恩凭借更强的进攻能力小胜对手。\n\n以上仅为个人赛前分析，比赛结果仍存在不确定性。",
+          "side": "away",
+          "neg": false,
+          "hits": [
+            "客场作战"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=2042357&gm=2529126",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.8578146696090696,
+          "summary": "排名: Regular Season 第10名\n\n赛季总成绩: 3胜 2平 3负\n\n赛季主场成绩: 2胜 2平 0负\n\n周五003 法甲>\n\n2026/2027 Regular Season 第9轮 2026-10-31 02:00\n\n排名: Regular Season 第2名\n\n赛季总成绩: 5胜 1平 2负\n\n赛季客场成绩: 1胜 0平 2负\n\n特征分析\n\n尼斯 (主)\n\n5胜/1平/4负\n\n5胜/3平/2负\n\n3胜/4平/3负\n\n4胜/5平/1负\n\n0.8个\n\n1.0个\n\n近10场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n雷恩 (客)\n\n4胜/1平/5负\n\n2胜/3平/5负\n\n5胜/2平/3负\n\n1胜/3平/6负\n\n1.7个\n\n1.4个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n近10场尼斯5胜 (50%) | 1平 (10%) | 4负 (40%)\n\n积分榜 法甲2026/2027\n\n尼斯Regular Season 第10名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 8 | 3/2/3 | 38% | 8/10 | -2 | 11 | 10 \n主 | 4 | 2/2/0 | 50% | 5/3 | 2 | 8 | 7 \n客 | 4 | 1/0/3 | 25% | 3/7 | -4 | 3 | 14 \n\n雷恩Regular Season 第2名 查看更多>\n...\n总 | 8 | 5/1/2 | 63% | 18/14 | 4 | 16 | 2 \n主 | 5 | 4/1/0 | 80% | 13/5 | 8 | 13 | 1 \n客 | 3 | 1/0/2 | 33% | 5/9 | -4 | 3 | 13 \n\n比赛近况\n...\n尼斯近10场3胜 (30%) | 4平 (40%) | 3负 (30%)\n\n进8球，失10球，净进-2球\n\n雷恩近10场5胜 (50%) | 2平 (20%) | 3负 (30%)\n\n进17球，失14球，净进3球\n...\n比赛日期 | 赛制 |\n...\n| 轮次\n...\n2026-11-09 | 法甲 | Regular Season 第10轮 \n2026-11-22 | 法甲 | Regular Season 第11轮 \n2026-11-29 | 法甲 | Regular Season 第12轮 \n2026-12-07 | 法甲 | Regular Season 第13轮 \n\n射手信息 法甲2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n11-S. Wahi(前锋) | 7 (6/1) | 3 (50%) | 1 (17%) | 0.4/0.1 \n10-迪奥普(中场) | 8 (3/5) | 1 (17%) | 2 (33%) | 0.1/0.3 \n9-M.阿莫拉(前锋) | 6 (5/1) | 1 (17%) | 1 (17%) | 0.2/0.2\n...\n9-E. Lepaul(前锋) | 7 (6/1) | 7 (41%) | 0 (0%) |...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Nice vs Rennes predictions and preview | APWin",
+          "url": "https://www.apwin.com/predictions/nice-vs-rennes-prediction-ligue-1-30-10-2026/",
+          "site": "APWin",
+          "date": "2026-10-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.842631220817566,
+          "summary": "# Nice vs Rennes prediction\n\nFrance - Ligue 1\n\nv.s\n\n30 Oct 2026 11:00\n\nBTTS - Yes\n\nMarket: BTTS - Yes · @ 1.37\n...\n61%\n\nLast updated: 27-10-2026\n\n## Nice Form and Insights\n\nNice hosts Rennes at the Allianz Riviera (Stade de Nice) for this Ligue 1 fixture. The match will kick off at 18:00 (UK Time) on 30/10/2026.\n\nTheir performance in the Ligue 1 so far:\n\n- 3 Wins\n- 2 Draws\n- 3 Losses\n\nOffensive and defensive statistics:\n\n- 8 goals scored\n- 1 average goals per match\n- 10 goals conceded\n- 1.25 average goals conceded per match\n\n## The Red-and-Blacks Form and Insights\n\nRennes has played 8 matches in the Ligue 1 so far this season.\n\nHere’s how the team comes into their match with Nice:\n\n- 5 Wins\n- 1 Draws\n- 2 Losses\n\nGoals scored and conceded:\n\n- 18 goals scored\n- 2.25 average goals per match\n- 14 goals conceded\n- 1.75 average goals conceded per match\n\n## Head-to-Head Statistics\n\nWe have seen the match between Nice and Rennes on the match calendar 36 times across all competitions in the last couple of years.\n\n- Olympique Gymnaste Club Nice win - 16\n- Rennes win - 10\n- Draw - 10\n...\nPoints & Results\n\n- PPG1.382\n- 38%Wins63%\n- 25%First to Score75%\n\nGoals Scored & Conceded\n\n- Scored/game12.25\n- Conceded/game1.251.75\n- xG1.341.80\n- xGA1.391.74\n...\n- 63%Both Score63%\n- 13%Clean Sheet25%\n- 38%Failed to Score13%\n...\nThe last match was played on 08/03/2026 in the Ligue 1, and Rennes won the match. The match ended in 0–4.\n\nIn the table below, you can find the head-to-head results of the last few meetings.\n\n## Players to Watch\n\nAPWin’s team of experts has compiled a list of insights to help you place informed bets on player props and goal-scoring markets.\n\n### The Eaglets Top Players\n\n- Sofiane Diop has scored 8 goals so far this season.\n- Jonathan Clauss has given 6 assists this season.\n\n### The Red-and-Blacks Top Players\n\n- Breel Embolo has scored 9 goals so far this season.\n- Moussa Al Tamari has given 6 assists this season.\n\n## Betting Insights for Cards and Corners\n\nIf you prefer betting on over/under markets for corners and cards, you can use the section below to find the statistics for this Nice vs Rennes match.\n\n### Nice Cards and Corners\n\n- 2.25 average cards per match\n- 1.75 average cards when playing at home\n- 8.88 average corners per match\n- 8.5 average corners when playing at home\n\n### Rennes Cards and Corners\n...\n- 2.33 average cards when playing away\n- 11.38 average corners per match\n- 12 average corners when playing away\n\n## Match Details\n...\n- Kick-off time: 18:00\n- Competition: Ligue 1\n- Game week: 9\n...\n## How APWin Makes Its Predictions\n\nOur football predictions are written using a structured analysis of factors that impact match outcomes. We combine long-term performance with the latest team news and real-time market signals to write our predictions.\n\nHere's what we take into account:\n\n- Historical match data\n- Home and away performance trends\n- Recent form, squad news, and team dynamics\n- Betting market odds and line movement analysis\n...\n## Likely Scores\n\n# | Score | Probability | %\n...\n1 | 1 - 1 | 12.85% \n2 | 1 - 2 | 8.74% \n3 | 2 - 1 | 7.97% \n4 | 0 - 1 | 7.39% \n5 | 0 - 0 | 6.89% \n6 | 1 - 0 | 6.64% \n7...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "尼斯vs雷恩比赛优劣势分析_独家情报-雷速体育",
+          "url": "https://www.leisu.com/guide/swot-3948318",
+          "site": "雷速体育",
+          "date": null,
+          "authority": 3,
+          "score": 1.81985604763031,
+          "summary": "- 情报对比\n- 走势分析\n\n尼斯 联赛排名3\n\n雷恩 联赛排名12\n\n71% 不败\n\n赛果概率\n\n10 胜 6 平 4 负 历史交锋 4 胜 6 平 10 负\n\n50% 20%\n\n7 胜 5 平 3 负 近期战绩 5 胜 6 平 4 负\n\n46.67% 33.33%\n\n29% 胜\n\n过去3年相似走势共出现98次，其中 | 主胜 49% | 平局 29% | 客胜 22% | 查看数据分析\n...\n有利情报\n\n不利情报\n\n中立情报\n...\n平均让球\n\n48% 52%\n\n0.92 0.25 0.98\n\n平均胜负\n\n44% 29%\n\n2.15 3.4 3.25\n\n平均进球数\n\n55% 45%\n\n1.05 2.5 0.85\n\n以上各种走势数据截止时间：04月10日 03时47分，本文由雷速体育独家原创，内容仅供参考。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主胜"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "潘塔洛尼：尼斯没有固定首发，雷恩是块硬骨头",
+          "url": "https://beta.dongqiudi.com/articles/6574782.html",
+          "site": "懂球帝",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.7499405145645142,
+          "summary": "# 潘塔洛尼：尼斯没有固定首发，雷恩是块硬骨头\n\n尼斯主帅潘塔洛尼在主场迎战雷恩的赛前发布会上谈到了球队的用人思路。他表示，目前在他心中并没有固定的首发阵容，只要球员拿出有说服力的表现，竞争就会自然形成，位置并非一成不变。他提到，替补登场或坐在替补席上却发挥出色的球员，会让首发出场的球员产生危机感，从而必须做得更多才能保住首发位置，他认为这对球队整体是好事。\n\n谈到对手雷恩，潘塔洛尼称等待尼斯的又是一块硬骨头，雷恩是一支非常、非常有强度的球队，会给对手施加巨大压力。他强调球员在压力之下必须保持技术上的精准和清醒，才能把球传出来并给雷恩制造麻烦。他还指出雷恩在各个环节都很完整，最近两场比赛改变了体系，从四后卫改成了五后卫，尼斯已经针对两种体系都做了准备，以免球员在场上感到意外。\n\n对于球队近况，潘塔洛尼表示必须享受已经取得的成绩，对球队的表现和结果感到满意，但他认为球队要系统地自我反思，回到健康的基础上，不要把自己看得比实际更强。他强调球队必须继续在欠缺的方面努力、加倍付出，因为接下来又将面对一个非常难对付的对手。\n\n本场比赛将于北京时间10月31日02:00开球，原文所提当地开球时间为周五19时。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 1,
+        "draw": 0,
+        "goals": 0,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 4,
+        "home_mentions": 4,
+        "away_mentions": 4
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周五004",
+      "league": "法甲",
+      "home": "勒阿弗尔",
+      "away": "巴黎圣曼",
+      "home_en": "勒阿弗尔",
+      "away_en": "Paris Saint-Germain",
+      "queries": [
+        "\"勒阿弗尔 vs Paris Saint-Germain\" preview prediction lang:en",
+        "勒阿弗尔 巴黎圣曼 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Le Havre vs PSG predictions and preview | APWin",
+          "url": "https://www.apwin.com/predictions/le-havre-vs-psg-prediction-ligue-1-30-10-2026/",
+          "site": "APWin",
+          "date": "2026-10-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.994465708732605,
+          "summary": "# Le Havre vs PSG prediction\n\nFrance - Ligue 1\n\nv.s\n\n30 Oct 2026 11:00\n\nBTTS - Yes\n\nMarket: BTTS - Yes · @ 1.60\n...\n69%\n\nLast updated: 26-10-2026\n\n## Le Havre Form and Insights\n\nLe Havre hosts PSG at the Stade Océane for this Ligue 1 fixture. The match will kick off at 18:00 (UK Time) on 30/10/2026.\n\nTheir performance in the Ligue 1 so far:\n\n- 0 Wins\n- 2 Draws\n- 6 Losses\n\nOffensive and defensive statistics:\n\n- 8 goals scored\n- 1 average goals per match\n- 15 goals conceded\n- 1.88 average goals conceded per match\n\n## The Parisians Form and Insights\n\nPSG has played 8 matches in the Ligue 1 so far this season.\n\nHere’s how the team comes into their match with Le Havre:\n\n- 5 Wins\n...\n- 1 Losses\n\nGoals scored and conceded:\n\n- 16 goals scored\n- 2 average goals per match\n- 9 goals conceded\n- 1.13 average goals conceded per match\n\n## Head-to-Head Statistics\n\nWe have seen the match between Le Havre and PSG on the match calendar 7 times across all competitions in the last couple of years.\n\n- Le Havre Athletic Club win - 0\n- PSG win - 6\n- Draw - 1\n...\nPoints & Results\n\n- PPG0.252.13\n- 0%Wins63%\n- 13%First to Score63%\n\nGoals Scored & Conceded\n\n- Scored/game12\n- Conceded/game1.881.13\n- xG1.742.38\n- xGA1.441.16\n...\n- 63%Both Score75%\n- 13%Clean Sheet25%\n- 38%Failed to Score0%\n...\nThe last match was played on 28/02/2026 in the Ligue 1, and PSG won the match. The match ended in 0–1.\n\nIn the table below, you can find the head-to-head results of the last few meetings.\n\n## Players to Watch\n\nAPWin’s team of experts has compiled a list of insights to help you place informed bets on player props and goal-scoring markets.\n\n### The Sky and Navy Top Players\n\n- Issa Soumaré has scored 8 goals so far this season.\n- Issa Soumaré has given 5 assists this season.\n\n### The Parisians Top Players\n\n- Bradley Barcola has scored 11 goals so far this season.\n- Achraf Hakimi has given 8 assists this season.\n\n## Betting Insights for Cards and Corners\n\nIf you prefer betting on over/under markets for corners and cards, you can use the section below to find the statistics for this Le Havre vs PSG match.\n\n### Le Havre Cards and Corners\n\n- 2.25 average cards per match\n- 2 average cards when playing at home\n- 10.13 average corners per match\n- 10.5 average corners when playing at home\n\n### PSG Cards and Corners\n\n- 1.13 average cards per match\n- 1.2 average cards when playing away\n- 8.01 average corners per match\n- 7.8 average corners when playing away\n\n## Match Details\n...\n- Kick-off time: 18:00\n- Competition: Ligue 1\n- Game week: 9\n- Stadium: Stade Océane\n\n## How APWin Makes Its Predictions\n\nOur football predictions are written using a structured analysis of factors that impact match outcomes. We combine long-term performance with the latest team news and real-time market signals to write our predictions.\n\nHere's what we take into account:\n\n- Historical match data\n- Home and away performance trends\n- Recent form, squad news, and team dynamics\n- Betting market odds and line movement analysis\n...\n## Likely Scores\n\n# | Score | Probability | %\n...\n1 | 1 - 1 | 11.71% \n2 | 1 - 2 | 9.55% \n3 | 0 - 2 | 7.55% \n4 | 0 - 1 | 7.35% \n5 | 2 - 1 | 6.74% \n6 | 2 - 2 | 6.05% \n7 | 0 - 0...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "勒阿弗尔主场迎巴黎圣日耳曼，加仑与萨福诺夫预计首发",
+          "url": "https://pc.dongqiudi.com/articles/6574913.html",
+          "site": "懂球帝",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9640988111495972,
+          "summary": "# 勒阿弗尔主场迎巴黎圣日耳曼，加仑与萨福诺夫预计首发\n\n北京时间10月31日02:00（当地时间10月31日星期六），法甲勒阿弗尔将在主场海洋球场迎战巴黎圣日耳曼。赛前预计双方门将分别是勒阿弗尔的加仑和巴黎圣日耳曼的萨福诺夫。\n\n勒阿弗尔本赛季联赛战绩为0胜2平6负，打入8球、失15球，净胜球为-7，场均积分0.25分。球队每90分钟失球1.88个，对手已对其完成41次射正，本赛季有1场零封，零封率12.5%。此外，勒阿弗尔已吃到14张黄牌和2张红牌，预期进球18.8、预期失球20.1，累计完成26次扑救，扑救率63.4%。\n\n巴黎圣日耳曼本赛季战绩为4胜2平1负，已打入14球、失9球，净胜球为5，场均积分2.0分，预期进球21.6。球队每90分钟失球1.29个，本赛季有1场零封，零封率14.3%，另有7张黄牌，累计10次助攻和19次扑救，扑救率69.0%，被射正29次。\n\n门将对位上，加仑职业生涯出场22205分钟，完成562次扑救，每90分钟失球1.43个，共失353球，扑救率65.3%；他在247次首发中面对861次射门，职业生涯战绩为85胜61负101平，累计68场零封，零封率27.6%。萨福诺夫职业生涯共失235球，在208次首发中完成626次扑救，累计66场零封，面对846次射门，出场18730分钟，扑救率74.0%，零封率31.7%，每90分钟失球1.13个，战绩为103胜54负51平。\n\n勒阿弗尔方面，恩迪亚耶是能为球队创造机会的球员之一，他职业生涯已贡献9次助攻、累计31分，在10821分钟出场时间内打入11球，125场比赛首发，每90分钟进球0.09个。巴黎圣日耳曼方面，费兰-托雷斯场均每90分钟进球0.45个，职业生涯已首发203场，出场18794分钟打入94球，累计227分并送出39次助攻。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Le Havre vs Paris Saint-Germain Ligue 1 preview: Les Parisiens out to consolidate top spot | Goal.com",
+          "url": "https://www.goal.com/en/news/le-havre-paris-saint-germain-ligue-1-preview/bltd1891eba4a4c2157",
+          "site": "Goal.com",
+          "date": "2026-10-26T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9489153623580933,
+          "summary": "# Le Havre vs Paris Saint-Germain Ligue 1 preview: Les Parisiens out to consolidate top spot\n\nFresh off a clinical 2–0 triumph over Lyon that followed European heroics against Barcelona, Luis Enrique’s champions travel to Stade Océane out to test a spirited Le Havre side looking to rebound from a wild 4–3 battle at the Vélodrome.\n\n### Le Havre vs Paris Saint-Germain: Match details\n\n### Les Ciel et Marine host champions in Friday night Ligue 1 clash\n...\nParis Saint-Germain travel to the Stade Oceane to face Le Havre in a Ligue 1 fixture that pits the defending champions against a side fighting at the wrong end of the table.\n\nPSG arrive on the back of five consecutive wins across all competitions, including a 4-2 Champions League victory over Barcelona that confirmed their status as genuine contenders on every front. Luis Enrique's side have scored freely throughout that run, conceding just six goals across those five outings.\n\nThe week has not been without pain. Khvicha Kvaratskhelia ruptured his anterior cruciate ligament during the Barcelona match and faces surgery in Doha, ending his season entirely. Marquinhos is also struggling with a thigh problem, though Enrique has made clear he has no intention of rushing into the transfer market to cover the absences.\n...\nLe Havre sit bottom of Ligue 1 and are without a league win this season. Didier Digard's side lost 4-3 to Marseille in their most recent outing, a result that continued a difficult run and left them adrift at the foot of the table. They head into this fixture carrying four injury absentees, with their squad depth stretched thin.\n\nFor PSG, this trip to Le Havre represents a chance to build further momentum in the title race. A win would consolidate their position among the leading pack and keep pressure on the sides above them.\n\n### Latest results\n\nLe Havre AC: Fought back in a breathless 4–3 defeat away to Olympique de Marseille on Sunday, 25 October. A brace from Josh Maja (77' pen, 89') and a strike from Lamine N'Diaye (86') nearly overturned a four-goal deficit.\n\nParis Saint-Germain: Shut out Olympique Lyonnais 2–0 at the Parc des Princes on Monday, 26 October, courtesy of late strikes from Senny Mayulu (72') and Mika Godts (84').\n\n### Key matchup: Josh Maja vs Willian Pacho\n\nIn-form impact striker: Josh Maja turned the tide at the Vélodrome after coming off the bench, scoring a penalty and adding a sharp second within twelve minutes. His penalty-box instincts and clinical finishing will demand strict marking from Paris' backline.\n...\nDefensive cornerstone: Ecuadorian centre-back Willian Pacho anchored PSG’s clean sheet against Lyon, winning multiple tackles and completing 83 accurate passes. Pacho will be tasked with tracking Maja's runs and neutralising Le Havre's aerial counter-attacks.\n\n## Team news & squads\n\n## Le Havre vs Paris Saint-Germain Probable lineups\n\n### Manager\n\n- D. Digard\n\nDidier Digard is without Stephan Zagadou, Lionel Mpasi-Nzau, Timothee Pembele, and Elias Jelert through injury. No suspensions have been confirmed for the home side, and no probable lineup has been named ahead of kick-off.\n\nLuis Enrique has no fresh injury concerns listed beyond those already confirmed at squad level. No suspensions apply to the PSG squad for this fixture. Further team news updates will be added closer to kick-off if available.\n\n### Form\n\nLEH - Form\n\n- Goal Scored (Conceded)\n- 12/12\n- Games over 2.5 goals\n- 4/5\n- Both teams scored\n- 4/5\n\nPSG - Form\n...\n- 16/6\n...\nLe Havre have won just one of their last five competitive matches, with that result coming in a friendly against Boulogne. In Ligue 1, they have lost all four of their recent league outings, including a 3-1 defeat to Auxerre and a 4-3 loss to Marseille in their most recent fixture. They scored 11 goals across those five matches but conceded 14, a defensive record that reflects the pressure Digard's side are under.\n\nPSG have won all five of their last five matches across all competitions. Their most recent result was the 4-2 home win over Barcelona in the Champions League, and they also beat Manchester City 4-2 away during the same period. In Ligue 1, they have not dropped a point across their last three outings. PSG scored 14 goals and conceded six across those five fixtures.\n\n### Head-to-Head Record\n\nThe most recent meeting between these clubs came in February 2026, when PSG...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "home win"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "登贝莱马尔基尼奥斯伤缺，巴黎客战勒阿弗尔",
+          "url": "https://pc.dongqiudi.com/articles/6574932.html",
+          "site": "懂球帝",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9109567403793335,
+          "summary": "# 登贝莱马尔基尼奥斯伤缺，巴黎客战勒阿弗尔\n\n北京时间10月31日02:00（当地时间周五），法甲第九轮开战，勒阿弗尔在海洋球场迎战巴黎圣日耳曼。勒阿弗尔目前仅积2分垫底，是联赛唯一未尝胜绩的球队；巴黎圣日耳曼则在上轮2-0战胜里昂后登顶。\n\n勒阿弗尔方面，彭贝莱因内收肌疼痛可能缺阵，耶勒特腿部酸痛，马姆比姆比和姆帕西-恩扎乌因跟腱断裂缺阵，斯特凡-扎加杜十字韧带撕裂，濑古步梦停赛。上轮客场3-4不敌马赛的比赛中，乔希-马亚梅开二度，拉明-恩迪亚耶也有进球。\n\n巴黎圣日耳曼方面，登贝莱和马尔基尼奥斯因腿筋问题缺席，努诺-门德斯和亚历山德罗-隆戈尼因腿伤出战成疑，克瓦拉茨赫利亚十字韧带撕裂缺阵。上轮战胜里昂的比赛中，马尤卢和霍茨最后阶段进球，后者打入加盟后首球。\n\n恩里克有望创造历史：目前他与洛朗-布兰科以126胜并列巴黎队史各项赛事胜场最多，本场取胜即可独享纪录。巴黎近期各项赛事八连胜，包括欧冠战胜曼城和巴塞罗那，本赛季法甲客场保持不败。\n\n勒阿弗尔本赛季主场仅拿1分，四个主场只进2球，最近四场联赛共丢11球。巴黎本周将寻求对勒阿弗尔的法甲五连胜，本世纪对阵勒阿弗尔正式比赛未尝败绩。\n\n预计首发——勒阿弗尔：加仑；吉布里尔-乌齐亚德、萨索、姆万加、艾哈迈德-图巴、恩佐-科菲；拉明-恩迪亚耶、伊博诺格、理查德森；乔希-马亚、萨马塔。巴黎圣日耳曼：萨福诺夫；阿什拉夫、卢卡斯-贝拉尔多、威廉-帕乔、卢卡斯-埃尔南德斯；扎伊尔-埃梅里、维蒂尼亚、若昂-内维斯；杜埃、费兰-托雷斯、阿克利乌什。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/index.html?showType=2&mid=2042358",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.757728934288025,
+          "summary": "排名: Regular Season 第18名\n\n赛季总成绩: 0胜 2平 6负\n\n赛季主场成绩: 0胜 1平 3负\n\n周五004 法甲>\n\n2026/2027 Regular Season 第9轮 2026-10-31 02:00\n...\nRegular Season 第1名\n...\n5胜 2平 1负\n\n赛季客场成绩: 3胜 2平 0负\n\n特征分析\n\n勒阿弗尔 (主)\n\n0胜/1平/7负\n\n0胜/0平/4负\n\n2胜/2平/6负\n\n2胜/3平/5负\n\n1.5个\n\n1.6个\n\n近8场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n巴黎圣曼 (客)\n\n7胜/1平/0负\n\n4胜/0平/0负\n\n8胜/1平/1负\n\n5胜/2平/3负\n\n2.8个\n\n1.2个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n积分榜 法甲2026/2027\n\n勒阿弗尔Regular Season 第18名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 8 | 0/2/6 | 0% | 8/15 | -7 | 2 | 18 \n主 | 4 | 0/1/3 | 0% | 2/6 | -4 | 1 | 17 \n客 | 4 | 0/1/3 | 0% | 6/9 | -3 | 1 | 18 \n\n巴黎圣曼Regular Season 第1名 查看更多>\n...\n总 | 8 | 5/2/1 | 63% | 16/9 | 7 | 17 | 1 \n主 | 3 | 2/0/1 | 67% | 6/3 | 3 | 6 | 11 \n客 | 5 | 3/2/0 | 60% | 10/6 | 4 | 11 | 1 \n\n比赛近况\n...\n勒阿弗尔近10场2胜 (20%) | 2平 (20%) | 6负 (60%)\n\n进15球，失16球，净进-1球\n\n巴黎圣曼近10场8胜 (80%) | 1平 (10%) | 1负 (10%)\n\n进28球，失12球，净进16球\n...\n射手信息 法甲2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n | 进球\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n9-马亚(前锋) | 8 (5/3) | 3 (38%) | 0 (0%) | 0.4/0 \n38-R. Fofana(前锋) | 6 (2/4) | 2 (25%) | 0 (0%) | 0.3/0 \n25-萨马塔(前锋) | 8 (8/0) | 2 (25%) | 0 (0%) | 0.3/0\n...\n9-托雷斯(前锋) | 8 (5/3) | 4 (25%) | 1 (8%) | 0.5/0.1 \n5-马基尼奥斯(后卫) | 5 (5/0) | 3 (19%) | 0 (0%) | 0.6/0 \n22-M. Godts(前锋) | 7 (1/6) | 1 (6%) | 2 (17%) | 0.1/0.3 \n\n伤停一览\n...\n暂无数据\n...\n注：赛事数据统计进行至全场90分钟（含伤停补时阶段）结果。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 3,
+        "home_mentions": 3,
+        "away_mentions": 1
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周五005",
+      "league": "挪超",
+      "home": "博德闪耀",
+      "away": "维京",
+      "home_en": "Bodo/Glimt",
+      "away_en": "维京",
+      "queries": [
+        "\"Bodo/Glimt vs 维京\" preview prediction lang:en",
+        "博德闪耀 维京 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "TV2评论员质疑博德闪耀锋线配置，维京领跑金牌战",
+          "url": "http://pc.dongqiudi.com/articles/6574266.html",
+          "site": "懂球帝",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.070382833480835,
+          "summary": "# TV2评论员质疑博德闪耀锋线配置，维京领跑金牌战\n\n北京时间10月31日02:00，挪超将迎来一场可能决定本赛季冠军归属的关键战，博德闪耀坐镇阿斯普米拉主场迎战维京。两队目前相差三分，维京处于领跑位置。\n\nTV2评论员罗宾-格罗夫在赛前表示，一分对维京来说将非常棒，如果维京拿到三分，联赛就结束了。\n\n格罗夫对博德闪耀夏窗的转会操作提出质疑。卡斯帕-霍今夏被出售后，博德闪耀没有引进新的前锋，而是全力押注赫尔默森保持健康。格罗夫说：“让我非常惊讶的是，他们在今夏卡斯帕-霍被出售时没有引进一名前锋。”他认为博德闪耀多年来在球员引进方面表现出色，但今夏的操作是一次失误，最终可能受到惩罚。\n\n格罗夫同时指出，维京选择用前博德闪耀前锋博海姆加强进攻，这最终可能成为完全决定性的因素。\n\n在Snakk Sport!节目中，Sverre Krogh Sundby称这场比赛是他心目中有史以来最重要的精英联赛比赛。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Bodoe/Glimt v Viking | 1 November 2026 | Goal.com",
+          "url": "https://www.goal.com/en/match/bodoe-glimt-vs-viking/M6ZGBYHzsz4-DsAut2llu",
+          "site": "Goal.com",
+          "date": null,
+          "authority": 3,
+          "score": 1.757728934288025,
+          "summary": "# Bodoe/Glimt vs VikingMatch preview,\n\n## BOD-Form\n\n- Goal Scored (Conceded)\n- 18/5\n- Games over 2.5 goals\n- 5/5\n- Both teams scored\n- 4/5\n\n## VIK-Form\n...\n- 15/5\n...\n- 3/5\n\n## Head to head\n\nBOD\n\nLast 5 matches\n...\nWins\n\n1\n\nDraw\n...\n8\n...\n12\n...\n## Injuries and Suspensions\n\n- No sidelined players\n...\n### Pick your winner\n\nEliteserien - Eliteserien\n\n## Match details\n\nAspmyra Stadion\n\nFull tables\n...\nPos | Team | P | W | D | L | F | A | +/- | PTS | Form\n...\n1 | Viking | 10 | 9 | 0 | 1 | 29 | 10 | 19 | 27 | \n- W\n...\n3 | Bodoe/Glimt | 11 | 7 | 2 | 2 | 28 | 11 | 17 | 23 |",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "维京vs博德闪耀比赛优劣势分析_独家情报-雷速体育",
+          "url": "https://www.leisu.com/guide/swot-4260999",
+          "site": "雷速体育",
+          "date": null,
+          "authority": 3,
+          "score": 1.7343639135360718,
+          "summary": "- 情报对比\n- 走势分析\n\n维京 联赛排名1\n\n博德闪耀 联赛排名5\n\n60% 不败\n\n赛果概率\n\n7 胜 2 平 11 负 历史交锋 11 胜 2 平 7 负\n\n35% 55%\n\n11 胜 2 平 2 负 近期战绩 8 胜 1 平 6 负\n\n73.33% 53.33%\n\n40% 胜\n\n过去3年相似走势共出现2次，其中 | 主胜 0% | 平局 0% | 客胜 100% | 查看数据分析\n...\n有利情报\n\n- 维京主场强势，本赛季8个联赛主场取得6胜2平，保持不败，且胜率达75%。\n- 维京防守出色，近10场正赛仅丢7球，场均丢球0.7球，其中多达6场取得零封。\n- 维京此前签下莫尔德后卫海根，上轮联赛海根替补登场出战半场，完成其维京生涯首秀，本赛季此前他为莫尔德出战10场联赛全部首发，是莫尔德后防的绝对主力，他的加盟对维京防守能力是一大提升。\n- 挪超球队维京官方宣布，正式签下克里斯蒂安松中场阿尔特，双方签约至2029年。25岁的阿尔特司职中场，职业生涯起步于兰黑姆，24年2月以35万欧元的转会费加盟克里斯蒂安松。本赛季的挪超联赛，阿尔特代表维京出战15场比赛，打入3球送出2次助攻，场均还有1.2次成功过人。他的加盟对球队中场是较大补强。\n\n不利情报\n\n- 维京上轮联赛客场1-3不敌布兰，遭遇正赛2连败，状态有所下滑。\n- 维京进攻有所下滑，近5场正赛进4球，场均进球0.8球，其中1场交出白卷。\n- 维京20岁天才中场奥斯特受伤，目前仍未伤愈，奥斯特本赛季作为球队主力左边前卫出战15场联赛全部首发，打进3球还送出3次助攻，表现相当出色，他的受伤对球队攻防两端都有不小的影响。\n- 维京三名主力球员包括边卫比约尔·霍尔和中卫罗塞特目前均存在伤情，二人本赛季各出场7场和8场，是球队后防的主力球员，维京防守能力还是有一定削弱。\n\n中立情报\n...\n- 博德闪耀上场联赛客场1-0战胜腓特烈斯塔，近3场联赛取得2胜1平，未尝败绩。\n- 博德闪耀官宣签下瓦勒伦加20岁前锋里斯纳斯。上轮对阵腓特烈斯塔德比赛，里斯纳斯迎来他代表博德闪耀的首秀。他也谈到加盟感受：“我一直想，有一天我也想成为他们的一员。我相信我可以成为一名聪明的球员，同时我也会为俱乐部付出一切，尽我所能。”20岁的里斯纳斯14岁时便加入了瓦勒伦加青训，本赛季挪超联赛中出场11次，贡献2球2助攻。\n- 博德闪耀客场表现不俗，近3个联赛客场取得2胜1平，未尝败绩。\n- 博德闪耀进攻出色，近9场联赛连续进球，总计打进19球，场均进球达2.1球，\n- 博德闪耀防守提升，近6场联赛仅丢3球，场均丢球0.5球，其中多达4场取得零封。\n- 博德闪耀此前签下锡尔克堡丹麦中场克林格，球员在上场联赛首发登场，完成其博德闪耀生涯首秀，克林格出道于欧登赛青年队，2020你那加盟锡尔克堡，一直是锡尔克堡的绝对主力。他的加盟对博德闪耀中场实力有一定提升。\n- 博德闪耀当家射手卡斯帕·霍格本赛季表现更上一层楼，目前为球队出战13场联赛11次首发，已经打进9球还送...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主胜"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/index.html?showType=2&mid=2042359",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.7109988927841189,
+          "summary": "排名: Regular Season 第2名\n\n赛季总成绩: 18胜 2平 4负\n\n赛季主场成绩: 10胜 0平 2负\n...\n2026 Regular Season 第25轮 2026-10-31 02:00\n\n排名: Regular Season 第1名\n\n赛季总成绩: 19胜 2平 3负\n\n赛季客场成绩: 7胜 2平 3负\n\n特征分析\n\n博德闪耀 (主)\n\n5胜/1平/4负\n\n7胜/1平/2负\n\n6胜/0平/4负\n\n8胜/1平/1负\n\n2.1个\n\n1.8个\n\n近10场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n维京 (客)\n\n4胜/1平/5负\n\n2胜/1平/7负\n\n6胜/2平/2负\n\n4胜/3平/3负\n\n2.8个\n\n1.4个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n积分榜 挪超2026\n\n博德闪耀Regular Season 第2名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 24 | 18/2/4 | 75% | 58/21 | 37 | 56 | 2 \n主 | 12 | 10/0/2 | 83% | 34/8 | 26 | 30 | 2 \n客 | 12 | 8/2/2 | 67% | 24/13 | 11 | 26 | 1 \n\n维京Regular Season 第1名 查看更多>\n...\n总 | 24 | 19/2/3 | 79% | 62/23 | 39 | 59 | 1 \n主 | 12 | 12/0/0 | 100% | 44/13 | 31 | 36 | 1 \n客 | 12 | 7/2/3 | 58% | 18/10 | 8 | 23 | 2 \n\n比赛近况\n...\n博德闪耀近10场6胜 (60%) | 0平 (0%) | 4负 (40%)\n\n进21球，失18球，净进3球\n\n维京近10场6胜 (60%) | 2平 (20%) | 2负 (20%)\n\n进28球，失14球，净进14球\n...\n比赛日期 | 赛制 |\n...\n2026-11-05 | 欧冠 | League Stage 第4轮 \n2026-11-09 | 挪超 | Regular Season 第26轮 \n2026-11-21 | 挪超 | Regular Season 第27轮 \n2026-11-26 | 欧冠 | League Stage 第5轮 \n\n射手信息 挪超2026\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n21-A. Helmersen(前锋) | 21 (8/13) | 12 (22%) | 1 (3%) | 0.6/0 \n9-K. Høgh(前锋) | 12 (12/0) | 7 (13%) | 4 (11%) | 0.6/0.3 \n11-O.布隆伯格(中场) | 24 (23/1) | 6 (11%) | 7 (20%) | 0.3/0.3\n...\n20-P. Christiansen(前锋) | 23 (23/0) | 15 (23%) | 7 (13%) | 0.7/0.3 \n2...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Bodoe/Glimt v Viking | Goal.com Singapore",
+          "url": "https://www.goal.com/en-sg/match/bodoe-glimt-vs-viking/M6ZGBYHzsz4-DsAut2llu",
+          "site": "Goal.com",
+          "date": null,
+          "authority": 3,
+          "score": 1.6182396411895752,
+          "summary": "# Bodoe/Glimt vs VikingMatch preview,\n\n## VIK-Form\n\n- Goal Scored (Conceded)\n- 19/4\n- Games over 2.5 goals\n- 4/5\n- Both teams scored\n- 2/5\n\n## Head to head\n\nBOD\n\nLast 5 matches\n...\nWins\n\n1\n\nDraw\n...\n8\n...\n12\n...\n- 3/5\n...\n## Injuries and Suspensions\n\n- No sidelined players\n...\n### Pick your winner\n\nEliteserien - Game Week 25\n\n## Match details\n\nAspmyra Stadion\n\nFull tables\n...\nPos | Team | P | W | D | L | F | A | +/- | PTS | Form\n...\n1 | Viking | 22 | 17 | 2 | 3 | 56 | 20 | 36 | 53 | \n- W\n...\n2 | Bodoe/Glimt | 22 | 17 | 2 | 3 | 56 | 20 | 36 | 53 |",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 0,
+        "draw": 0,
+        "goals": 2,
+        "none": 2,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 3,
+        "home_mentions": 3,
+        "away_mentions": 3
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周五006",
+      "league": "荷乙",
+      "home": "福伦丹",
+      "away": "格拉夫",
+      "home_en": "福伦丹",
+      "away_en": "格拉夫",
+      "queries": [
+        "\"福伦丹 vs 格拉夫\" preview prediction lang:en",
+        "福伦丹 格拉夫 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=2042360&gm=2528450",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.8805898427963257,
+          "summary": "排名: Regular Season 第7名\n\n赛季总成绩: 6胜 1平 5负\n\n赛季主场成绩: 6胜 0平 0负\n\n周五006 荷乙>\n\n2026/2027 Regular Season 第13轮 2026-10-31 03:00\n\n排名: Regular Season 第16名\n\n赛季总成绩: 3胜 3平 6负\n\n赛季客场成绩: 1胜 2平 3负\n\n特征分析\n\n福伦丹 (主)\n\n5胜/1平/4负\n\n3胜/3平/4负\n...\n6胜/0平/4负\n\n2.7个\n\n2.1个\n\n近10场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n格拉夫 (客)\n\n4胜/1平/5负\n\n4胜/3平/3负\n\n3胜/2平/5负\n\n2胜/2平/6负\n\n1.1个\n\n1.9个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n积分榜 荷乙2026/2027\n\n福伦丹Regular Season 第7名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 12 | 6/1/5 | 50% | 29/20 | 9 | 19 | 7 \n主 | 6 | 6/0/0 | 100% | 22/5 | 17 | 18 | 1 \n客 | 6 | 0/1/5 | 0% | 7/15 | -8 | 1 | 18 \n\n格拉夫Regular Season 第16名 查看更多>\n...\n总 | 12 | 3/3/6 | 25% | 15/26 | -11 | 12 | 16 \n主 | 6 | 2/1/3 | 33% | 8/13 | -5 | 7 | 17 \n客 | 6 | 1/2/3 | 17% | 7/13 | -6 | 5 | 13 \n\n比赛近况\n...\n福伦丹近10场5胜 (50%) | 1平 (10%) | 4负 (40%)\n\n进27球，失21球，净进6球\n\n格拉夫近10场3胜 (30%) | 2平 (20%) | 5负 (50%)\n\n进11球，失19球，净进-8球\n...\n射手信息 荷乙2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n | 进球\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n9-威尔曼(前锋) | 12 (12/0) | 13 (45%) | 2 (10%) | 1.1/0.2 \n10-R. Niemeijer(前锋) | 12 (12/0) | 5 (17%) | 2 (10%) | 0.4/0.2 \n67-F. Ihler(前锋) | 8 (0/8) | 3 (10%) | 1 (5%) | 0.4/0.1\n...\n9-J. Kania(前锋) | 11 (8/3) | 5 (36%) | 0 (0%) | 0.5/0 \n7-B. van Zijl(前锋) | 12 (7/5) | 3 (21%) | 0 (0%) | 0.3/0 \n8-D. Warmerdam(中场) | 12 (12/0) | 3 (21%) | 0 (0%) | 0.3/0 \n\n伤停一览\n...\n暂无数据\n...\n注：赛事数据统计进行至全场9...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "福伦丹 VS 格拉夫夏普 - 比赛分析、数据统计 - 47.93% | 4.36% | 47.71% | 49.07% | 2.93% | 48.00% | 36.94% | 25.23% | 37.84%",
+          "url": "https://www.7m.hk/football/analysis/zh-cn/5074989#2",
+          "site": "7M比分網",
+          "date": "2026-10-21T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.4145163297653198,
+          "summary": "47.93% | 4.36% | 47.71% | 49.07% | 2.93% | 48.00% | 36.94% | 25.23% | 37.84% \n主 | 153 | 17 | 143 | 43 | 1 | 45 | 16 | 12 | 21 \n48.88% | 5.43% | 45.69% | 48.31% | 1.12% | 50.56% | 32.65% | 24.49% | 42.86% \n中 | 3 | 0 | 3 | 1 | 2 | 20 | 2 | 3 | 1 \n50.00% | 0.00% | 50.00% | 4.35% | 8.70% | 86.96% | 33.33% | 50.00% | 16.67% \n客 | 64 | 3 | 73 | 140 | 8 | 115 | 23 | 13 | 20 \n45.71% | 2.14% | 52.14% | 53.23% | 3.04% | 43.73% | 41.07% | 23.21% | 35.71% \n\n- 格拉夫夏普 - 以往赛绩参考\n- 总场数\n- 客场\n...\n赛事 | 时间 | 球队 | 赛果 | 球队 | 全场让步 | 全场大小 | 全场单双 | 半场 | 半场让步 | 半场大小 \n荷乙 | 26-10-20 | 阿贾克斯青年队 | 2-1 | 格拉夫夏普 | 输 (让平/半) | 小 (四球) | 单 | 1-1 | 走 (让平手) | 大 (球半) \n荷乙 | 26-10-10 | 格拉夫夏普 | 2-1 | 乌德勒支青年队 | 走 (让一球) | 小 (三半) | 单 | 0-1 | 输 (让半球) | 小 (球半) \n荷乙 | 26-10-04 | FC埃因霍温 | 2-2 | 格拉夫夏普 | 输 (让半球) | 大 (三半) | 双 | 1-0 | 输 (让平/半) | 小 (球半) \n荷乙 | 26-09-27 | 格拉夫夏普 | 1-0 | 登博思 | 赢 (让平/半) | 小 (四球) | 单 | 1-0 | 赢 (受平手) | 小 (球半/二) \n荷乙 | 26-09-20 |  格拉夫夏普 | 1-2 | 布雷达 | 输 (受半/一) | 小 (三/半) | 单 | 1-2 | 输 (受平/半) | 大 (球半) \n荷乙 | 26-09-12 |  埃门 | 1-2 | 格拉夫夏普 | 赢 (受半/一) | 小 (三半) | 单 | 1-1 | 赢 (受平/半) | 大 (球半) \n荷乙 | 26-09-05 | 赫拉克勒斯 | 5-0 | 格拉夫夏普 | 输 (受一/半) | 大 (三半/四) | 单 | 2-0 | 输 (受半球) | 大 (球半) \n荷乙 | 26-08-29 | 格拉夫夏普 | 1-4 | 阿尔梅勒城 | 输 (受平手) | 大 (三半) | 单 | 1-1 | 走 (受平手) | 大 (球半) \n荷乙 | 26-08-23 | 芬洛 | 2-1 | 格拉夫夏普 | 输 (让...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "福伦丹 vs 格拉夫夏普 赛事推介",
+          "url": "https://news.7m.com.cn/prediction/data/5074989.shtml",
+          "site": "7M足球新闻",
+          "date": null,
+          "authority": 2,
+          "score": 1.4064805507659912,
+          "summary": "福伦丹\n\n[负][胜][和][胜][负][胜]\n\nVS\n\n格拉夫夏普\n...\n2026-10-31 03:00 | 往绩分析 | 现场赛事情况\n\n澳门推介： 福伦丹 (★★★★★)\n\n华伦丹过去4次与迪加史卓普交手全胜，对赛处于明显优势中，华伦丹今铺3分手到擒来。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "沃倫丹對格拉夫斯查普 預測及建議 | FootyStats - Loading",
+          "url": "https://footystats.org/zht/netherlands/bv-de-graafschap-vs-fc-volendam-h2h-stats/predictions?early_season=enable#1",
+          "site": "FootyStats",
+          "date": null,
+          "authority": 3,
+          "score": 1.320075511932373,
+          "summary": "# 沃倫丹對格拉夫斯查普預測及建議\n\n3.00\n...\n1.00\n...\n## 機率表\n\n沃倫丹 和 格拉夫斯查普 各市場的發生機率。並與聯賽平均值進行比較，幫助您判斷其發生的可能性是高於還是低於平均水平。這對預測非常有幫助。\n\n市場\n\n歷史機率\n...\n數學優勢\n\n比平常更有可能發生?\n\n1\n\n(3Way Result)\n\n100%\n\n50%\n\n+50%\n\nYes\n...\n13%\n\n17%\n\n-4%\n...\n25%\n\n33%\n\n-8%\n\nNo\n\nOver 0.5\n\n(Over/Under)\n\n100%\n\n98%\n\n+2%\n\nYes\n\nOver 1.5\n...\n88%\n\n+12%\n\nYes\n\nOver 2.5\n...\n71%\n\n72%\n\n-1%\n\nNo\n\nOver 3.5\n...\n29%\n\n52%\n\n-23%\n\nNo\n\nOver 4.5\n...\nUnder 0.5\n...\n0%\n\n98%\n\n-98%\n\nNo\n\nUnder 1.5\n...\n87%\n\n-87%\n\nNo\n\nUnder 2.5\n...\n-43%\n\nNo\n\nUnder 3.5\n...\n+19%\n\nYes\n\nUnder 4.5\n...\n+38%\n...\n(Over/Under 1st Half)\n\n84%\n\n80%\n\n+4%\n...\n67%\n\n50%\n\n+17%\n...\n22%\n\n+7%\n...\n16%\n\n20%\n...\n-17%\n...\n78%\n...\n(Goals Over/Under 1st Half)\n...\n(Over/Under 2nd Half)\n\n75%\n\n89%\n\n-14%\n...\n63%\n...\n36%\n...\n11%\n...\n37%\n...\n64%\n...\n(Both Teams To Score)\n\n54%\n\n75%\n\n-21%\n...\n46%\n\n75%\n\n-29%\n\nNo\n\nOver 7.5\n\n(Corners Over Under)\n...\nOver 8.5\n...\n73%\n\n+15%\n\nYes\n\nOver 9.5\n...\nOver 10.5\n...\n+27%\n\nYes\n\nOver 11.5\n...\nUnder 9.5\n...\n+9%\n\nYes\n\nUnder 10.5\n...\n+55%\n\nYes\n\n## 沃倫丹 與 格拉夫斯查普 的賠率比較",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5",
+            "both teams to score"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "沃伦丹对格拉夫斯查普 预测及建议 | FootyStats - Loading",
+          "url": "https://footystats.org/cn/netherlands/bv-de-graafschap-vs-fc-volendam-h2h-stats/predictions#1",
+          "site": "FootyStats",
+          "date": null,
+          "authority": 3,
+          "score": 1.2116761207580566,
+          "summary": "# 沃伦丹对格拉夫斯查普预测及建议\n\n0.90\n...\n1.50\n\nDWLLD\n...\n因为这是一个季前赛程，所以显示最近10次的统计数据。\n...\n## 机率表\n\n沃伦丹 和 格拉夫斯查普 各市场的发生机率。并与联赛平均值进行比较，帮助您判断其发生的可能性是高于还是低于平均水平。这对预测非常有帮助。\n\n市场\n\n历史机率\n...\n数学优势\n\n比平常更有可能发生?\n\n1\n\n(3Way Result)\n\n20%\n\n0%\n\n+20%\n\nYes\n...\n30%\n\n0%\n\n+30%\n...\n40%\n\n0%\n\n+40%\n\nYes\n\nOver 0.5\n\n(Over/Under)\n\n95%\n\n0%\n\n+95%\n\nYes\n\nOver 1.5\n...\n90%\n\n0%\n\n+90%\n\nYes\n\nOver 2.5\n...\n65%\n\n0%\n\n+65%\n\nYes\n\nOver 3.5\n...\n35%\n\n0%\n\n+35%\n\nYes\n\nOver 4.5\n...\n10%\n\n0%\n\n+10%\n\nYes\n\nUnder 0.5\n...\n5%\n\n100%\n\n-95%\n\nNo\n\nUnder 1.5\n...\n-90%\n\nNo\n\nUnder 2.5\n...\n-65%\n\nNo\n\nUnder 3.5\n...\n-35%\n\nNo\n\nUnder 4.5\n...\n-10%\n...\n(Over/Under 1st Half)\n\n79%\n\n0%\n\n+79%\n...\n44%\n\n0%\n\n+44%\n...\n11%\n\n0%\n\n+11%\n...\n21%\n\n100%\n\n-79%\n...\n56%\n\n100%\n\n-44%\n...\n89%\n\n100%\n\n-11%\n...\n(Goals Over/Under 1st Half)\n...\n(Over/Under 2nd Half)\n\n78%\n...\n41%\n\n0%\n\n+41%\n...\n22%\n\n100%\n\n-78%\n...\n59%\n\n100%\n\n-41%\n...\n80%\n\n100%\n\n-20%\n...\n(Both Teams To Score)\n...\nOver 7.5\n\n(Corners Over Under)\n\n74%\n\n0%\n\n+74%\n\nYes\n\nOver 8.5\n...\n63%\n\n0%\n\n+63%\n\nYes\n\nOver 9.5\n...\n57%\n\n0%\n\n+57%\n\nYes\n\nOver 10.5\n...\n36%\n\n0%\n\n+36%\n\nYes\n\nOver 11.5\n...\n31%\n\n0%\n\n+31%\n...\n26%\n\n100%\n\n-74%\n...\n37%\n\n100%\n\n-63%\n\nNo\n\nUnder 9.5\n...\n43%\n\n100%\n\n-57%\n\nNo\n\nUnder 10.5\n...\n64%\n\n100%\n\n-36%\n...\n69%\n\n100%\n\n-31%\n\nNo\n\n## 沃伦丹 与 格拉夫斯查普 的赔率比较",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5",
+            "both teams to score"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 2,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 3,
+        "zh": 5,
+        "home_mentions": 2,
+        "away_mentions": 5
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周五007",
+      "league": "德甲",
+      "home": "埃沃斯堡",
+      "away": "美因茨",
+      "home_en": "埃沃斯堡",
+      "away_en": "美因茨",
+      "queries": [
+        "\"埃沃斯堡 vs 美因茨\" preview prediction lang:en",
+        "埃沃斯堡 美因茨 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Elversberg vs Mainz 05 predictions and preview | APWin",
+          "url": "https://www.apwin.com/predictions/elversberg-vs-mainz-05-prediction-bundesliga-30-10-2026/",
+          "site": "APWin",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.994465708732605,
+          "summary": "# Elversberg vs Mainz 05 prediction\n\nGermany - Bundesliga\n\nv.s\n\n30 Oct 2026 12:30\n\nBTTS - Yes\n\nMarket: BTTS - Yes · @ 1.42\n...\n82%\n\nLast updated: 26-10-2026\n\n## Elversberg Form and Insights\n\nElversberg hosts Mainz 05 at the URSAPHARM-Arena an der Kaiserlinde for this Bundesliga fixture. The match will kick off at 19:30 (UK Time) on 30/10/2026.\n\nTheir performance in the Bundesliga so far:\n\n- Wins: 3\n- Draws: 1\n- Losses: 3\n\nOffensive and defensive statistics:\n\n- Goals scored: 12\n- Average goals per match: 1.71\n- Goals conceded: 15\n- Average goals conceded per match: 2.14\n\n## Mainz 05 Form and Insights\n\nMainz 05 has played 7 matches in the Bundesliga so far this season. Here's how the team comes into their match with Elversberg:\n...\nGoals scored and conceded:\n...\n## Head-to-Head Statistics\n\nElversberg and Mainz 05 have met 2 times across all competitions.\n\n- Elversberg wins: 0\n- Mainz 05 wins: 1\n...\nLLWLD\n...\nAway\n\nLLWLW\n\nPoints & Results\n\n- PPG1.431.43\n- 43%Wins43%\n- 29%First to Score29%\n\nGoals Scored & Conceded\n\n- Scored/game1.712.29\n- Conceded/game2.141.86\n- xG1.191.98\n- xGA2.171.42\n\nTrends\n\n- 57%Both Score57%\n- 14%Clean Sheet43%\n- 43%Failed to Score14%\n\n## Players to Watch\n\nThe players most likely to decide the goal-scoring and player-prop markets in this match:\n\n### Elversberg Top Players\n\n- Lukas Petkov has scored 13 goals so far this season.\n- Tom Zimmerschied has given 9 assists this season.\n\n### Mainz 05 Top Players\n\n- Nadiem Amiri has scored 11 goals so far this season.\n- Sheraldo Becker has given 4 assists this season.\n\n## Betting Insights for Cards and Corners\n\nIf you prefer betting on over/under markets for corners and cards, you can use the section below to find the statistics for this Elversberg vs Mainz 05 match.\n\n### Elversberg Cards and Corners\n\n- Average cards per match: 2\n- Average cards when playing at home: 3\n- Average corners per match: 11.43\n- Average corners when playing at home: 11.67\n\n### Mainz 05 Cards and Corners\n\n- Average cards per match: 2.43\n- Average cards when playing away: 3.33\n...\n- Average corners when playing away: 8\n\n## Match Details\n...\n- Kick-off time: 19:30\n- Competition: Bundesliga\n- Game week: 8\n...\n## How APWin Makes Its Predictions\n\nOur football predictions are written using a structured analysis of factors that impact match outcomes. We combine long-term performance with the latest team news and real-time market signals to write our predictions.\n\nHere's what we take into account:\n\n- Historical match data\n- Home and away performance trends\n- Recent form, squad news, and team dynamics\n- Betting market odds and line movement analysis\n...\n## Likely Scores\n\n# | Score | Probability | %\n...\n1 | 1 - 1 | 10.79% \n2 | 1 - 2 | 9.41% \n3 | 0 - 2 | 6.87% \n4 | 2 - 1 | 6.71% \n5 | 2 - 2 | 6.44% \n6 | 0 - 1 | 6.18% \n7 | 1 - 3 | 6.02% \n8 | 0 - 0 | 4.71% \n9 | 0 - 3 | 4.40% \n10 | 1 - 0 | 4.13% \n11 | 2 - 3 | 4.12% \n12 | 2 -...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Elversberg vs Mainz - live score, predicted lineups and H2H stats",
+          "url": "https://www.fotmob.com/matches/elversberg-vs-mainz-05/2pxonq",
+          "site": "FotMob",
+          "date": "2026-10-29T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9033650159835815,
+          "summary": "# Elversberg vs Mainz 05 — Sat, October 31, 3:30 AM\n\n## About the match\n\nElversberg faces Mainz 05 at URSAPHARM-Arena an der Kaiserlinde on Fri, Oct 30, 2026, 19:30 UTC. This match is part of the Bundesliga.\n...\nThe current predicted lineups are:\n\nElversberg (4-2-3-1): Nicolas Kristof - Luca Sirch, Lukas Pinckert, Maximilian Rohr, Lasse Günther - Felix Keidel, Łukasz Poręba - Lukas Petkov, Francis Onyeka, Maurice Krattenmacher - David Mokwa.\nMainz 05 (3-5-2): Robin Zentner - Danny da Costa, Stefan Posch, Kacper Potulski - Anthony Caci, Nadiem Amiri, Kaishu Sano, Jae-Sung Lee, Phillipp Mwene - Sheraldo Becker, Phillip Tietz.\n\nUnavailable players for Elversberg: Noah Darvich (injury), Jan Gyamerah (injury), Tom Zimmerschied (injury). Unavailable players for Mainz 05: Otto Ruoppi (injury), Dominik Kohr (injury), Silas Katompa Mvumpa (injury).\n\nTeam form & Head-to-head history: Compare recent results and see how Elversberg and Mainz 05 have performed against each other. The current head to head record for the teams are Elversberg 0 win(s), Mainz 05 1 win(s), and 1 draw(s).\n...\n## Who will win?\n\nURSAPHARM-Arena an der KaiserlindeSpiesen-Elversberg, Germany\n\nCapacity11,150\n\nSurfaceGrass\n\nWeather forecast\n\n8°C\n\n## Referee\n\nYellow cards\n\n3.2/ match\n\nBelow average\n\nFouls\n\n20.6/ match\n...\n## Insights\n\nElversberg won two of their three Bundesliga home games, scoring eight goals\n\nEvery Elversberg Bundesliga home game this season has seen both teams score and over 2.5 goals\n\nElversberg failed to score in three of their last five Bundesliga matches\n\nMainz scored 19 goals in their last five away matches\n\nMainz scored 11 goals in their last five Bundesliga matches but conceded 13\n\nMainz have conceded four penalties this season, the most in the Bundesliga\n\nMainz lost their last two matches, conceding five goals\n\n### Top scorers\n...\n6.87FotMob rating7.51\n\n3Goals5\n\n1.89Expected goals (xG)4.53\n\n1Assists0\n\n7Matches played7\n...\nElversberg-vs-Mainz 05_Fri, Oct 30, 2026, 19:30 UTC\n\nElversbergvsMainz 05\n\nSaturday, 31 October 2026 - 03:30 | URSAPHARM-Arena an der Kaiserlinde, Spiesen-Elversberg | Capacity: 11,150 | Ref: Sascha Stegemann\n\nWeather: Clear, 8°C\n\n### Lineups(Predicted)\n\n#### Elversberg (4-2-3-1)\n\n20 | Nicolas Kristof | - \n---|---|---\n26 | Luca Sirch | - \n19 | Lukas Pinckert | - \n31 | Maximilian Rohr | - \n21 | Lasse Günther | - \n43 | Felix Keidel | - \n8 | Łukasz Poręba | - \n25 | Lukas Petkov | - \n40 | Francis Onyeka | - \n7 | Maurice Krattenmacher | - \n42 | David Mokwa | - \n\nCoach: Vincent Wagner\n\n#### Mainz 05 (3-5-2)\n\n27 | Robin Zentner | - \n---|---|---\n21 | Danny da Costa | - \n4 | Stefan Posch | - \n48 | Kacper Potulski | - \n19 | Anthony Caci | - \n10 | Nadiem Amiri | - \n6 | Kaishu Sano | - \n7 | Jae-Sung Lee | - \n2 | Phillipp Mwene | - \n23 | Sheraldo Becker | - \n9 | Phillip Tietz | -\n...\n### Unavailable Players\n...\nNoah Darvich(injury)\n\nJan Gyamerah(injury)\n\nTom Zimmerschied(injury)\n...\nOtto Ruoppi(injury)\n\nDominik Kohr(injury)\n\nSilas Katompa M...",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=2042361&gm=2553969",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.7810938358306885,
+          "summary": "排名: Regular Season 第8名\n\n赛季总成绩: 3胜 1平 3负\n\n赛季主场成绩: 2胜 0平 1负\n\n周五007 德甲>\n\n2026/2027 Regular Season 第8轮 2026-10-31 03:30\n\n排名: Regular Season 第7名\n...\n赛季客场成绩: 3胜 0平 0负\n\n特征分析\n\n埃沃斯堡 (主)\n\n0胜/1平/1负\n...\n4胜/1平/5负\n\n7胜/0平/3负\n\n1.6个\n\n2.1个\n\n近2场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n美因茨 (客)\n\n1胜/1平/0负\n\n1胜/1平/0负\n\n5胜/1平/4负\n\n8胜/1平/1负\n\n2.8个\n\n1.5个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n近2场埃沃斯堡0胜 (0%) | 1平 (50%) | 1负 (50%)\n\n比赛日期 | 赛制 | \n主队\n\nVS\n\n客队\n | 总进球走势\n...\n2023-08-13 | 德国杯\n...\n0:1\n\n（半 0:0）\n...\n2021-08-08 | 德国杯\n...\n1:1\n...\n积分榜 德甲2026/2027\n\n埃沃斯堡Regular Season 第8名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 7 | 3/1/3 | 43% | 12/15 | -3 | 10 | 8 \n主 | 3 | 2/0/1 | 67% | 8/7 | 1 | 6 | 10 \n客 | 4 | 1/1/2 | 25% | 4/8 | -4 | 4 | 8 \n\n美因茨Regular Season 第7名 查看更多>\n...\n总 | 7 | 3/1/3 | 43% | 16/13 | 3 | 10 | 7 \n主 | 4 | 0/1/3 | 0% | 6/10 | -4 | 1 | 17 \n客 | 3 | 3/0/0 | 100% | 10/3 | 7 | 9 | 1 \n\n比赛近况\n...\n埃沃斯堡近10场4胜 (40%) | 1平 (10%) | 5负 (50%)\n\n进16球，失21球，净进-5球\n\n美因茨近10场5胜 (50%) | 1平 (10%) | 4负 (40%)\n\n进28球，失15球，净进13球\n...\n射手信息 德甲2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n7-M. Krattenmacher(中场) | 7 (2/5) | 3 (25%) | 1 (13%) | 0.4/0.1 \n25-L.佩特科夫(前锋) | 7 (7/0) | 2 (17%) | 2 (25%) | 0.3/0.3 \n42-D. Mokwa(前锋) | 7 (6/1) | 2 (17%) | 0 (0%) | 0.3/0\n...\n9-P. Tietz(前锋) | 7 (7/0) | 5 (31%) | 0 (0%) | 0.7/0 \n19-A. Caci(后卫) | 7 (7/0) | 3 (19%) | 3 (23...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "埃尔沃斯贝格主场迎美因茨，两队同积10分",
+          "url": "https://pc.dongqiudi.com/articles/6574953.html",
+          "site": "懂球帝",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.7810938358306885,
+          "summary": "# 埃尔沃斯贝格主场迎美因茨，两队同积10分\n\n北京时间10月31日03:30，德甲联赛埃尔沃斯贝格将在主场迎战美因茨。两队目前同积10分，从积分榜形势看实力相当。\n\n埃尔沃斯贝格上一个比赛日负于RB莱比锡，遭遇本赛季第三场失利；美因茨同样在上一轮不敌云达不来梅，也吞下赛季第三败。\n\n埃尔沃斯贝格本赛季已吃到15张黄牌，对阵这支球队向来是硬仗。最近五场比赛，这支主队仅取得一场胜利。\n\n埃尔沃斯贝格的后防线需要警惕美因茨的进攻：后者场均能两次以上攻破对手球门。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Preview: Elversberg vs Mainz 05 - prediction, team news, lineups - Sports Mole",
+          "url": "https://www.sportsmole.co.uk/football/elversberg/preview/elversberg-vs-mainz-prediction-team-news-lineups_607863.html",
+          "site": "Sports Mole",
+          "date": "2026-10-27T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6182396411895752,
+          "summary": "Bundesliga Gameweek 8\n\nOct 30, 2026 7.30pm\n\n# Preview: Elversberg vs Mainz 05 - prediction, team news, lineups\n\nNewly-promoted Elversberg will hope to get their Bundesliga season back on track by beating visitors Mainz 05 on Friday at Waldstadion an der Kaiserlinde.\n\nThe hosts may have lost against RB Leipzig on October 24, but they are still in eighth place with 10 points after seven matchweeks, tied on points with seventh-placed Mainz.\n\n## Match preview\n\nElversberg's 4-0 loss against Leipzig was the result of a second-half collapse, with their opponents scoring all of their goals after the interval.\n\nTheir loss does not detract from the fact the hosts have enjoyed a strong opening to their first ever Bundesliga season, and a four-point gap to the bottom three at this stage is a strong start.\n\nHowever, boss Vincent Wagner will understandably be concerned that his side have lost four of their last six games in all competitions, drawing once and winning once in that time.\n\nSchwarz und Weiss have also failed to find the back of the net in four of their past five matches, while they averaged two goals conceded in each of those games.\n\nElversberg may have lost 2-0 against Darmstadt in the DFB-Pokal's second round at Waldstadion an der Kaiserlinde on Tuesday, but they have triumphed in two of their three top-flight clashes at the stadium.\n\nMainz also suffered a DFB-Pokal defeat, losing 2-0 against VfL Bochum on Tuesday, and that was their third loss in four fixtures.\n\nTheir latest Bundesliga result saw Werder Bremen emerge as 3-2 winners against them on Saturday, though the victors benefitted from two penalties.\n\nFriday will be just the third ever meeting between the two clubs, with both encounters taking place in the DFB-Pokal, and Mainz will hope to maintain their 100% record against their hosts.\n\nThough the visitors were beaten by Bochum away from home, head coach Urs Fischer had overseen victories in each of his side's first four outings on the road in 2026-27.\n\nIn their three away Bundesliga wins, Mainz scored 10 goals, kept two clean sheets and conceded on just three occasions.\n\nElversberg Bundesliga form:\n\n- W\n- L\n- D\n...\nElversberg form (all competitions):\n...\nMainz 05 Bundesliga form:\n...\nMainz 05 form (all competitions):\n...\n## Team News\n\nElversberg have three confirmed absentees, with right-back Jan Gyamerah (hamstring), defneder Luis Seifert (ankle) and winger Tom Zimmerschied (ankle) all ruled out.\n\nLuca Sirch can be pencilled into the lineup on the right of a back four, Lukas Pinckert and Maximilian Rohr are set to play as centre-backs and Lukas Petkov and Maurice Krattenmacher may be used as wide attackers.\n\nMainz also have injury concerns given central defender Dominik Kohr (ankle) and striker Silas Katompa Mvumpa (broken leg) are both not scheduled to return until January.\n\nForwards Phillip Tietz and Sheraldo Becker have often been paired together in attack, and they are certain to start together on Friday.\n\nIn defence, the most likely candidates to start in a three-man backline are Danny da Costa, Stefan Posch and Kacper Potulski.\n\nElversberg possible starting lineup:\n\nKristof; Sirch, Pinckert, Rohr, Gunther; Keidel, Poreba; Petkov, Onyeka, Krattenmacher; Mokwa\n\nMainz 05 possible starting lineup:\n\nZentner; Da Costa, Posch, Potulski; Caci, Amiri, Sano, Lee, Mwene; Tietz, Becker\n\n## We say: Elversberg 1-2 Mainz 05\n\nNeither side have been particularly strong lately, though Mainz's record on the road has been excellent this season.\n\nElversberg's attack should be able to threaten the visitors' defence, but the hosts' poor form at the back may ultimately cost them on Friday.",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": [
+            "1 比 2"
+          ]
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 1,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 4,
+        "zh": 2,
+        "home_mentions": 1,
+        "away_mentions": 2
+      },
+      "scores": [
+        "1 比 2"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周五008",
+      "league": "英冠",
+      "home": "谢菲联",
+      "away": "雷克斯",
+      "home_en": "谢菲联",
+      "away_en": "雷克斯",
+      "queries": [
+        "\"谢菲联 vs 雷克斯\" preview prediction lang:en",
+        "谢菲联 雷克斯 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "菲利普斯：谢菲尔德联主场对雷克瑟姆不容看衰",
+          "url": "http://pc.dongqiudi.com/articles/6574994.html",
+          "site": "懂球帝",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.040015935897827,
+          "summary": "# 菲利普斯：谢菲尔德联主场对雷克瑟姆不容看衰\n\n北京时间10月31日04:00，谢菲尔德联将在英冠主场布拉莫巷迎战雷克瑟姆。前英超前锋凯文-菲利普斯赛前表示，怀尔德执教的谢菲尔德联“你永远不能看衰”，他本人也选择了谢菲尔德联取胜。\n\n菲利普斯认为，谢菲尔德联目前正处在“一个完美的位置”。他说：“他们本赛季的成绩有起有伏，但他们仍然在附加赛席位附近徘徊。而且目前的情况下，克里斯想要的引援或许还没有到位。”他还表示，这又是一个在主场拿分的机会，怀尔德对自己目前的处境会相对满意。\n\n谈到怀尔德，菲利普斯强调了后者的执教经验：“他经验丰富；就升级而言，他是那个联赛中最有经验的主教练之一，而且他对这家俱乐部了如指掌。”\n\n菲利普斯也提到，在球迷们经历了一个令人沮丧的转会窗口后，谢菲尔德联所处的境地并不轻松。现年53岁的他球员时代曾在1998年英甲附加赛次回合于光明球场为桑德兰打入制胜球，帮助球队以总比分3-2晋级决赛。\n\n本场比赛将有多名旧将重返布拉莫巷。奥哈雷在转会截止日以约700万英镑的转会费离开谢菲尔德联加盟雷克瑟姆，目前尚未为新东家打入首球。基弗-穆尔则在2025年夏天完成转会，他曾随谢菲尔德联出战2025年在温布利对阵桑德兰的附加赛决赛，代表球队出场30次打入6球。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "3 比 2"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "英冠前瞻：谢菲尔德联主场迎战雷克瑟姆",
+          "url": "http://pc.dongqiudi.com/articles/6574995.html",
+          "site": "懂球帝",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.994465708732605,
+          "summary": "# 英冠前瞻：谢菲尔德联主场迎战雷克瑟姆\n\n北京时间10月31日04:00，谢菲尔德联将在英冠联赛主场迎战雷克瑟姆，两队都希望在这场比赛中找回更好的状态。谢菲尔德联目前排名英冠第12位，雷克瑟姆位列第17，落后对手两分。\n\n谢菲尔德联自9月至10月国际比赛日归来后，在四场英冠比赛中取得两胜一平一负。上一场主场对阵德比郡，班福德打入扳平进球，帮助球队1-1战平对手。那场比赛谢菲尔德联共有19次射门，其中9次射正，控球率达到60%。\n\n雷克瑟姆上周末0-2不敌布莱克本流浪者，这是他们本赛季第六场失利，前12场联赛仅赢下三场。菲尔-帕金森正面临外界质疑，能否带领这家好莱坞老板旗下的俱乐部更进一步成为话题。雷克瑟姆近四个客场未尝胜绩。\n\n从数据看，谢菲尔德联本赛季创造机会和预期进球（14.5）均排名第18位，但已有四次零封，防守较为稳固。雷克瑟姆的定位球是主要得分手段之一，已通过定位球打入五球，不过谢菲尔德联本赛季仅因定位球丢过一球；雷克瑟姆运动战仅创造18次重大机会。\n\n两队历史交锋中，谢菲尔德联取胜6场，雷克瑟姆取胜5场，另有4场平局。\n\n赛前分析人士给出的预测为谢菲尔德联1-0或2-1取胜。有分析认为：“谢菲尔德联应该对在这里取得结果有信心。”另有分析指出，谢菲尔德联近四场只输一场，已接近附加赛区，而雷克瑟姆客场表现挣扎，因此看好主队在南约克郡拿下三分。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "看好主队"
+          ],
+          "scores": [
+            "1 比 0"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/index.html?showType=2&mid=2042362",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.842631220817566,
+          "summary": "排名: Regular Season 第12名\n\n赛季总成绩: 4胜 4平 4负\n\n赛季主场成绩: 2胜 2平 2负\n\n周五008 英冠>\n\n2026/2027 Regular Season 第13轮 2026-10-31 04:00\n...\nRegular Season 第17名\n...\n3胜 5平 4负\n\n赛季客场成绩: 1胜 3平 2负\n\n特征分析\n\n谢菲联 (主)\n\n2胜/1平/2负\n\n2胜/0平/1负\n\n4胜/1平/5负\n\n4胜/2平/4负\n\n1.4个\n...\n近5场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n雷克斯 (客)\n...\n1胜/0平/2负\n\n3胜/3平/4负\n\n2胜/3平/5负\n\n1.3个\n\n1.6个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n近5场谢菲联2胜 (40%) | 1平 (20%) | 2负 (40%)\n\n积分榜 英冠2026/2027\n\n谢菲联Regular Season 第12名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 12 | 4/4/4 | 33% | 16/15 | 1 | 16 | 12 \n主 | 6 | 2/2/2 | 33% | 8/7 | 1 | 8 | 17 \n客 | 6 | 2/2/2 | 33% | 8/8 | 0 | 8 | 12 \n\n雷克斯Regular Season 第17名 查看更多>\n...\n总 | 12 | 3/5/4 | 25% | 15/18 | -3 | 14 | 17 \n主 | 6 | 2/2/2 | 33% | 10/8 | 2 | 8 | 16 \n客 | 6 | 1/3/2 | 17% | 5/10 | -5 | 6 | 18 \n\n比赛近况\n...\n谢菲联近10场4胜 (40%) | 1平 (10%) | 5负 (50%)\n\n进14球，失14球，净进0球\n\n雷克斯近10场3胜 (30%) | 3平 (30%) | 4负 (40%)\n\n进13球，失16球，净进-3球\n...\n比赛日期 | 赛制 |\n...\n| 轮次\n...\n2026-11-05 | 英冠 | Regular Season 第14轮 \n2026-11-07 | 英冠 | Regular Season 第15轮 \n2026-11-21 | 英冠 | Regular Season 第16轮 \n2026-11-25 | 英冠 | Regular Season 第17轮 \n\n射手信息 英冠2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n(本队占比)\n | 场均\n进球/助攻\n...\n45-班福特(前锋) | 11 (10/1) | 5 (31%) | 1 (8%) | 0.5/0.1 \n9-T. Cannon(前锋) | 11 (7/4) | 3 (19%) | 0 (0%) | 0.3/0 \n5-J. Tanganga(后卫) | 12 (12/0) | 2 (13%) | 0 (0%) | 0.2/0\n...\n19-摩尔(前锋) | 12 (10/2) | 5 (36%) | 1 (9%) | 0.4/0...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Why we're backing Sheffield United to beat Wrexham, who are winless in four away games",
+          "url": "https://the72.co.uk/2026/10/28/sheffield-united-vs-wrexham-predictions/?utm_source=rss&utm_medium=rss&utm_campaign=sheffield-united-vs-wrexham-predictions",
+          "site": "The72",
+          "date": "2026-10-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.7343639135360718,
+          "summary": "Home Predictions ‘Should be confident’: Sheffield United vs Wrexham predictions\n...\nThe72’s expert writers offer their Sheffield United vs Wrexham predictions for the Championship clash on Friday.\n\nChampionship, Transfers Correspondent · 28 October 2026, 15:18\n\n## Sheffield United host Wrexham on Friday night as both sides look to find improved form in the Championship.\n\nSheffield United come into Friday’s clash with Wrexham sat 12th in the Championship table. It is a respectable position for SUFC given how a battle between the former and present owners impacted summer business, but Chris Wilder will be determined to find more consistency.\n\nThe Blades have won twice, drawn once and lost once in the four Championship games since returning after the September-October international break. Last time out, an equaliser from Patrick Bamford saw United draw 1-1 at home against Derby County.\n\nAs for Wrexham, they sit in 17th and two points behind their upcoming opponents. The Red Dragons are struggling to live up to expectations, as they had hoped to kick on from last year’s 7th-place finish and compete for the Championship play-offs again this term.\n\nA 2-0 loss to Blackburn Rovers marked their sixth defeat of the campaign last weekend. Phil Parkinson is facing questions over whether he can take the ambitious Hollywood-owned club any further.\n\n## Sheffield United vs Wrexham predictions\n\n### James Ray\n...\n“Sheffield United have enjoyed a steady season to date, with four wins, four draws and four defeats leaving them right in the middle of the table. Chris Wilder is hungry to emulate his past success but a fairly limited squad seems set to prevent the Blades from competing with top Championship sides like Middlesbrough, West Ham and Southampton.\n\n“Nevertheless, SUFC should be confident of getting a result here. There’s room for improvement in chance creation as they rank 18th in that metric, and in the same position for xG with 14.5. But, four clean sheets show they’re solid at the back, and Wrexham’s own struggles going forward have me leaning towards a home win here.\n\n#### Sheffield United vs Wrexham head-to-head record\n\n“Set pieces have been one of the Red Dragons’ best routes to goal with five scored from those plays, but the Blades have conceded just once from such situations this term. It suggests they’re well-equipped to deal with their biggest threats, and with only 18 big chances created (Fotmob), I don’t think the visitors offer enough from open play to get the goals they need to win.\n\n“I’m backing the hosts to secure all three points here. That would make it three wins in the last five for Wilder’s side.”\n\n#### Prediction: Sheffield United 1-0 Wrexham\n\n### Harry Mail\n\n“Sheffield United will be kicking themselves that they didn’t beat Derby County last time out. SUFC had 19 shots against the Rams, nine of which were on target, and 60% possession in the end.\n\n“The Blades have been inconsistent this season but are showing signs of clicking now. They have only lost one of their last four games and are on the brink of the play-offs.\n\n“I’m still not convinced that Phil Parkinson is the man to lead Wrexham forward and he is under pressure. They have only won three of their first 12 league outings and are positioned down in a disappointing 17th place in the table.\n\n“The Welsh side have struggled on the road recently and are winless in their last four away matches. For that reason, I think they’ll lose in South Yorkshire.”\n...\nSheffield United 2-1 Wrexham\n\nSheffield United vs Wrexham kicks off at 20:00 this Friday and will be broadcast live on Sky Sports’ Main Event, Football and Ultra HDR channels.",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "home win"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Sheffield United vs Wrexham: The numbers behind a fixture that’s produced 27 goals in five games",
+          "url": "https://uk.sports.yahoo.com/news/sheffield-united-vs-wrexham-numbers-125500038.html",
+          "site": "Yahoo",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.648983597755432,
+          "summary": "# Sheffield United vs Wrexham: The numbers behind a fixture that’s produced 27 goals in five games\n...\nSheffield United and Wrexham have shared 27 goals in their last five meetings, and both sides scored in every one. Friday's Championship game at Bramall Lane (8pm, Sky Sports) puts that record on the line, with only two points between 12th and 17th.\n\nUsing Sofascore's Championship season data and Flashscore's Sheffield United vs Wrexham team news, these are the numbers that frame the game.\n...\n### Sheffield United vs Wrexham: The key numbers\n\nWrexham won both league meetings last season, 5-3 at the Racecourse on Boxing Day and 2-1 at Bramall Lane in March. Four of the last five meetings have produced four goals or more.\n\nChris Wilder's side sit 12th on 16 points (W4 D4 L4). Phil Parkinson's Wrexham are 17th on 14 (W3 D5 L4), six points clear of the bottom three.\n\nThe number that should worry Wilder most is his side's home record. They've won two of six at Bramall Lane and sit 17th in the Championship home table, below their 13th place in the away table. For a club with a 32,000-capacity ground, that isn't good enough.\n...\nWrexham's away record is worse: one win in six, five goals scored and 10 conceded, 18th in the away table.\n\n### How Sheffield United and Wrexham match up\n\n##### Sheffield United are happy without the ball\n\nThe Blades average just 43% possession, yet they've created 20 big chances and had 46 shots on target, more than Wrexham on both counts. They're at their best when they let the opposition have the ball and break quickly, and Wrexham, who average 50%, are likely to have plenty of it.\n...\n##### Wrexham's set-piece threat is real\n\nWrexham have won 66 corners to Sheffield United's 43, and they've scored four headed goals to the Blades' two. With a 6ft 5in centre-forward in Kieffer Moore, every dead ball near the box is a chance, and Sheffield United will need to defend them well.\n\n##### Cleworth's absence is the biggest number of all\n\nMax Cleworth is Wrexham's highest-rated player this season (7.33) and he's out with a muscle injury. Nathan Broadhead, Liberato Cacace, Josh Windass and Sebastian Revan are also missing, and George Thomason is a doubt. Losing your best defender before a trip to a side that creates big chances is a serious blow.\n...\nplayer analytics\n\nMoore is the outlier. He has scored five goals from 2.21 xG, more than twice what his chances suggest, which tells you how clinical he's been. Bamford's five from 4.56 xG is steadier and more repeatable.\n\nSydie Peck is the Blades' creator, with 18 key passes and four big chances made. If he gets time on the ball, Sheffield United's forwards will get chances. For Wrexham, Danny Imray (three assists) and Ben Whiteman (two assists, 7.15 average rating) supply most of the service to Moore.\n...\n### The Verdict\n\nOn this season's numbers, Sheffield United are the stronger side, with a better goal difference (+1 against -3), more shots on target and twice as many clean sheets. Wrexham have the better recent history and the best finisher on the pitch.\n\nMy view: This is the Blades' chance to fix their home form against a depleted Wrexham defence, but they can't afford to switch off at set pieces.",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 2,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 3,
+        "home_mentions": 1,
+        "away_mentions": 1
+      },
+      "scores": [
+        "3 比 2",
+        "1 比 0"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周五009",
+      "league": "西甲",
+      "home": "比利亚雷",
+      "away": "西班牙人",
+      "home_en": "Villarreal",
+      "away_en": "西班牙人",
+      "queries": [
+        "\"Villarreal vs 西班牙人\" preview prediction lang:en",
+        "比利亚雷 西班牙人 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/index.html?showType=2&mid=2042363",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.827447772026062,
+          "summary": "排名: Regular Season 第10名\n\n赛季总成绩: 3胜 3平 4负\n\n赛季主场成绩: 1胜 1平 2负\n\n周五009 西甲>\n\n2026/2027 Regular Season 第11轮 2026-10-31 04:00\n...\nRegular Season 第18名\n...\n2胜 2平 6负\n\n赛季客场成绩: 1胜 1平 3负\n\n特征分析\n\n比利亚雷 (主)\n\n7胜/2平/1负\n\n5胜/3平/2负\n\n5胜/1平/4负\n\n6胜/1平/3负\n\n2.2个\n\n1.4个\n\n近10场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n西班牙人 (客)\n\n1胜/2平/7负\n\n2胜/3平/5负\n\n1胜/3平/6负\n\n2胜/4平/4负\n\n1.1个\n\n1.6个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n积分榜 西甲2026/2027\n\n比利亚雷Regular Season 第10名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 10 | 3/3/4 | 30% | 15/14 | 1 | 12 | 10 \n主 | 4 | 1/1/2 | 25% | 6/6 | 0 | 4 | 16 \n客 | 6 | 2/2/2 | 33% | 9/8 | 1 | 8 | 6 \n\n西班牙人Regular Season 第18名 查看更多>\n...\n总 | 10 | 2/2/6 | 20% | 12/14 | -2 | 8 | 18 \n主 | 5 | 1/1/3 | 20% | 6/7 | -1 | 4 | 17 \n客 | 5 | 1/1/3 | 20% | 6/7 | -1 | 4 | 11 \n\n比赛近况\n...\n比利亚雷近10场5胜 (50%) | 1平 (10%) | 4负 (40%)\n\n进22球，失14球，净进8球\n\n西班牙人近10场1胜 (10%) | 3平 (30%) | 6负 (60%)\n\n进11球，失16球，净进-5球\n...\n射手信息 西甲2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n9-米考塔泽(前锋) | 10 (4/6) | 3 (21%) | 1 (9%) | 0.3/0.1 \n18-帕普·盖伊(中场) | 10 (8/2) | 3 (21%) | 0 (0%) | 0.3/0 \n10-阿尔伯托 莫莱罗(中场) | 10 (7/3) | 2 (14%) | 4 (36%) | 0.2/0.4\n...\n9-Roberto Fernández(前锋) | 10 (10/0) | 6 (55%) | 0 (0%) | 0.6/0 \n18-Marcos Fernández(前锋) | 9 (1/8) | 1 (9%) | 1 (11%) | 0.1/0.1 \n15-Bryan Zaragoza(前锋) | 7 (4/3) | 1 (9%) | 0 (0%) | 0.1/0 \n\n伤停一览\n...\n暂无数据\n...\n注：赛事数据统计进行至全场90分钟（含伤停补时阶段）结果。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "比利亚雷亚尔,維拉利爾,西班牙,资讯,新闻,图片",
+          "url": "https://v2.news.7m.com.cn/teams/63/8.shtml",
+          "site": "7M体育",
+          "date": null,
+          "authority": 2,
+          "score": 1.6566694974899292,
+          "summary": "- 西甲赛事前瞻：比利亚雷亚尔vs西班牙人2026-02-09\n北京时间2026年2月10日深夜04点，西甲第23轮最后一场赛事继续进行，比利亚雷亚尔将在主场迎战西班牙人。比利亚雷亚尔此役坐镇主场，背负着终结低迷、稳固联赛排名的双重使命，战意极为迫切。球队目前以13胜3平5负积39分位列西甲第4位，身处欧冠资格竞争的关键区间，虽整体排名稳健，但近期状态遭遇滑铁卢，近10场正赛仅取得2胜1平7负，近5场正式比赛更 ……\n...\n比利亚雷亚尔官方消息，福伊特在本轮对阵皇家马德里的比赛中左脚跟腱断裂。消息称经过球队医疗团队检查确认，福伊特遭遇左脚跟腱断裂，并将接受手术治疗。球队也祝愿他早日康复。福伊特是一名28岁阿根廷后卫，本赛季在西甲有13次出场。 ……\n\n- 黄潜后卫福伊特跟腱受伤 可能将会赛季报销2026-01-25\n阿斯报消息，在不敌皇马的西甲比赛中，比利亚雷亚尔后卫福伊特突然倒地，疑似无人接触的情况下受伤。当时福伊特抓住了小腿后侧靠近脚踝的位置，这一幕让陶瓷球场的观众陷入了沉默。赛后初步诊断为跟腱受伤，也引发了人们的担忧。福伊特最终在两名医疗团队成员的搀扶下离开了球场，他的阿根廷国家队队友马斯坦托诺用一个吻向他深情告别，似乎预示伤势可能相当严重。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Villarreal 4-1 Espanyol - LaLiga 2025/2026 Statistical Preview - Predicted Lineups",
+          "url": "https://www.whoscored.com/matches/1914161/preview/spain-laliga-2025-2026-villarreal-espanyol#1",
+          "site": "WhoScored.com",
+          "date": null,
+          "authority": 3,
+          "score": 1.6412975788116455,
+          "summary": "## Predicted Lineups\n\n## Probable Lineups Statistical Comparison\n\n(42) 28 Goals 15 (26)\n\n(29) 16 Assists 13 (18)\n\n(6.6) 6.8 Average Ratings 6.6 (6.5)\n\n26.5 Average Age 27.6\n\n184.4 Average Height (cm) 182.5\n\n(0.8) 1 Shots pg 1 (0.8)\n\n(49%) 53% Aerial Duel Success 46% (46%)\n\n(0.6) 0.6 Dribbles pg 0.5 (0.3)\n\n(1.3) 1.2 Tackles pg 1 (1.1)\n\n* Values in brackets (x) are overall player statistics in LaLiga.\n\n## Team News\n\nVillarreal\n\nEspanyol\n\n- In terms of injuries, Logan Costa, Pau Cabanes, Juan Foyth and Willy Kambwala are all unavailable for Villarreal.\n- Alfonso Gonzalez, Thomas Partey, and Ayoze Perez could also miss out as they are doubts, while Alfonso Pedraza is suspended.\n\n- Javi Puado should be the only injury concern for Espanyol, as he's been ruled out for the season due to a knee problem.\n- Carlos Romero and Ramon Terrats, who are both on loan from Villarreal, are unable to face their parent club.\n\n### Head to Head Stats\n\nR | Team | W | D | L | Pts \n---|---|---|---|---|---\n4  | Villarreal  | 14 | 3 | 5 | 45 \n6  | Espanyol  | 10 | 4 | 9 | 34 \n\n## Prediction\n\n- Villarreal have won four of their previous six games at home in La Liga, but they have lost two of their last three. Those defeats did come against Real Madrid and Barcelona, who sit second and first respectively.\n- Espanyol have failed to win in their last five games in La Liga, but they've looked stronger away from home. They've lost just once in their last five games on the road, winning three of those.\n- When the two sides met earlier in the campaign, Villarreal secured a 2-0 victory away from home. Villarreal have won the last five meetings, with Espanyol's last victory coming in 2020.\n\n© WhoScored.com\n\n## User Predictions\n\n### Man of the Match\n...\nFailed!\n\n### Correct Score\n\n- Home 2-1 50%\n- Home 3-0 50%\n\n### Three-way\n...\n- 100%\n\n- 0%",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Espanyol v Villarreal | Goal.com Australia",
+          "url": "https://www.goal.com/en-au/match/espanyol-vs-villarreal/VNasha6LrtdIiOu1yyRBH",
+          "site": "Goal.com",
+          "date": null,
+          "authority": 3,
+          "score": 1.50467848777771,
+          "summary": "# Espanyol vs VillarrealMatch preview,\n\n## ESP-Form\n\n- Goal Scored (Conceded)\n- 5/7\n- Games over 2.5 goals\n- 2/5\n- Both teams scored\n- 3/5\n\n## VIL-Form\n...\n- 9/7\n...\n## Head to head\n\nESP\n\nLast 5 matches\n...\nWins\n\n0\n\nDraws\n...\n13\n...\n## Injuries and Suspensions\n\n- No sidelined players\n...\nLaLiga - Game Week 21\n\n## Match details\n\nRCDE Stadium\n\nFull tables\n...\nPos | Team | P | W | D | L | F | A | +/- | PTS | Form\n...\n12 | Villarreal | 9 | 2 | 3 | 4 | 13 | 13 | 0 | 9 |\n...\n15 | Espanyol | 9 | 2 | 2 | 5 | 11 | 12 | -1 | 8 |",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "巴萨vs比利亚雷资讯 - 西甲第26轮 19天3时25分8秒 APP预约",
+          "url": "https://www.qiumiwu.com/game/news-104387827477#1",
+          "site": "球迷屋",
+          "date": null,
+          "authority": 2,
+          "score": 1.4064805507659912,
+          "summary": "西甲006：比利亚雷亚尔VS西班牙人比分预测，升班马遭遇得分荒客场信心不足  今天给大家推荐一场西甲联赛的精彩对决，排名西甲第4名的劲旅比利亚雷亚尔坐镇主场迎战排名联赛第6名的黑马西班牙人。比利亚雷亚尔状态下滑各项赛事五轮不胜；西班牙人表现糟糕遭遇三连败同样五轮不胜。我们来看看这场西甲比利亚雷亚尔VS西班牙人比分预测。\n\n杰克说球 2小时前\n 西甲联赛：比利亚雷亚尔VS西班牙人比分推荐 比利亚雷遭遇五连不胜，西班牙人近期表现下滑  随着赛程的不断深入，西甲联赛即将迎来第23轮对决，比利亚雷亚尔在主场对战西班牙人，两队的比赛将在2月10日凌晨4点00分准时进行，比利亚雷亚尔在本赛季的状态并不稳定，近期连续五场比赛未能取胜，而西班牙人则是在近期的表现下滑，同样是遭遇五连不胜，球队士气降低，此役两队究竟谁能赢下比赛止住颓势，接下来请看本场比赛比利亚雷亚尔VS西班牙人比分推荐。 \nTheckhs 5小时前\n 【西甲联赛第23轮】比利亚雷亚尔vs西班牙人伤病名单最新(2026年02月10日)  【西甲联赛第23轮】比利亚雷亚尔主场迎战西班牙人，将于北京时间2月10日04点00分进行。比利亚雷亚尔有8人伤病，西班牙人有3人伤病，具体比利亚雷亚尔vs西班牙人最新伤病名单如下：比利亚雷亚尔vs西班... \n守护神 8小时前\n 西甲比赛前瞻：比利亚雷亚尔vs西班牙人预测分析(2026年02月10日)  【西甲】比利亚雷亚尔vs西班牙人，将于北京时间2月10日04点00分进行。赛前排行数据：比利亚雷亚尔当前战绩为13胜3平5负，积分42，排在联赛第4名；西班牙人当前战绩为10胜4平8负，积分34，排在... \n后卫绝杀王 8小时前\n...\n西甲021：奥萨苏纳VS比利亚雷亚尔比分预测，黄潜状态低迷遭遇连败  今天给大家推荐一场西甲联赛的焦点之战，排名联赛第9名的奥萨苏纳坐镇主场迎战排名联赛第4名的比利亚雷亚尔。奥萨苏纳本赛季发挥不俗打进联赛前十有机会冲击欧战名额；比利亚雷亚尔状态低迷遭遇各项赛事四连败。现在我们一起来看看这场西甲奥萨苏纳VS比利亚雷亚尔比分预测。\n...\n【西甲联赛第22轮】奥萨苏纳vs比利亚雷亚尔伤病名单最新(2026年01月31日)  【西甲联赛第22轮】奥萨苏纳主场迎战比利亚雷亚尔，将于北京时间1月31日23点15分进行。奥萨苏纳有2人伤病，比利亚雷亚尔有6人伤病，具体奥萨苏纳vs比利亚雷亚尔最新伤病名单如下：奥萨苏纳vs比利亚雷...\n...\n西甲比赛前瞻：奥萨苏纳vs比利亚雷亚尔预测分析(2026年01月31日)  【西甲】奥萨苏纳vs比利亚雷亚尔，将于北京时间1月31日23点15分进行。赛前排行数据：奥萨苏纳当前战绩为7胜4平10负，积分25，排在联赛第9名；比利亚雷亚尔当前战绩为13胜2平5负，积分41，排在...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 1,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 3,
+        "zh": 3,
+        "home_mentions": 3,
+        "away_mentions": 3
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周五010",
+      "league": "法甲",
+      "home": "里尔",
+      "away": "朗斯",
+      "home_en": "Lille",
+      "away_en": "朗斯",
+      "queries": [
+        "\"Lille vs 朗斯\" preview prediction lang:en",
+        "里尔 朗斯 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/index.html?showType=2&mid=2042364",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.8122471570968628,
+          "summary": "排名: Regular Season 第3名\n\n赛季总成绩: 4胜 3平 1负\n\n赛季主场成绩: 2胜 2平 0负\n\n周五010 法甲>\n\n2026/2027 Regular Season 第9轮 2026-10-31 04:05\n\n排名: Regular Season 第7名\n\n赛季总成绩: 4胜 1平 3负\n\n赛季客场成绩: 1胜 1平 2负\n\n特征分析\n\n里尔 (主)\n\n5胜/3平/2负\n\n8胜/0平/1负\n\n3胜/3平/4负\n\n3胜/4平/3负\n\n1.3个\n\n1.6个\n\n近10场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n朗斯 (客)\n\n2胜/3平/5负\n\n1胜/0平/8负\n\n5胜/1平/4负\n\n4胜/3平/3负\n\n1.5个\n...\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n近10场里尔5胜 (50%) | 3平 (30%) | 2负 (20%)\n\n积分榜 法甲2026/2027\n\n里尔Regular Season 第3名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 8 | 4/3/1 | 50% | 11/6 | 5 | 15 | 3 \n主 | 4 | 2/2/0 | 50% | 6/3 | 3 | 8 | 6 \n客 | 4 | 2/1/1 | 50% | 5/3 | 2 | 7 | 2 \n\n朗斯Regular Season 第7名 查看更多>\n...\n总 | 8 | 4/1/3 | 50% | 16/12 | 4 | 13 | 7 \n主 | 4 | 3/0/1 | 75% | 9/5 | 4 | 9 | 4 \n客 | 4 | 1/1/2 | 25% | 7/7 | 0 | 4 | 8 \n\n比赛近况\n...\n里尔近10场3胜 (30%) | 3平 (30%) | 4负 (40%)\n\n进13球，失16球，净进-3球\n\n朗斯近10场5胜 (50%) | 1平 (10%) | 4负 (40%)\n\n进15球，失15球，净进0球\n...\n比赛日期 | 赛制 |\n...\n| 轮次\n...\n2026-11-04 | 欧冠 | League Stage 第4轮 \n2026-11-08 | 法甲 | Regular Season 第10轮 \n2026-11-22 | 法甲 | Regular Season 第11轮 \n2026-11-26 | 欧冠 | League Stage 第5轮\n...\n2026-11-05 | 欧冠 | League Stage 第4轮 \n2026-11-09 | 法甲 | Regular Season 第10轮 \n2026-11-22 | 法甲 | Regular Season 第11轮 \n2026-11-25 | 欧冠 | League Stage 第5轮 \n\n射手信息 法甲2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n9-吉鲁(前锋) | 7 (5/2) | 2 (18%) | 2 (25%) | 0.3/0.3 \n7-D.巴夸(前锋) | 6 (3/3) | 2 (18%) | 1 (13%) | 0.3/0.2 \n18...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "里爾平穩和味濃",
+          "url": "http://v2.news.7m.com.cn/news/20261029/744230.shtml",
+          "site": "7M体育",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.7187873125076294,
+          "summary": "里爾平穩和味濃\n\nwww.7m.com.cn 2026年10月29日 来源：都市日报\n\n推介: 主客和 – 和\n\n推介: 半場主客和 – 和\n\n軍情\n\n里爾上仗聯賽變陣「4-3-3」陣式，由於前鋒上田綺世受傷，老將中鋒基奧特該仗全場坐冷板，並將中場哈干哈拉特臣移前掛帥，效果平平。球隊靠右翼伊登麥巴比先拔頭籌，可惜中堅坦基尼安素領紅牌被逐，形勢逆轉致失分而回。\n\n朗斯上仗聯賽採用「3-4-2-1」陣式，前鋒奧辛尼艾度亞迪因傷缺陣，改由法蘭祖伊雲洛域擔正掛帥，但表現一般；反而後備頂上的翼鋒杜根夏薩特非常搶鏡，先妙傳另一翼鋒泰奧雲扳平，末段更個人攻入絕殺球，成為反勝英雄。\n\n里爾\n\n受傷：上田綺世（前鋒）\n\n停賽：坦基尼安素（後衛）\n...\n受傷：奧辛尼艾度亞迪（前鋒）\n...\n近況\n\n里爾近2仗聯賽和，包括上仗聯賽被摩納哥逼和1比1，表現平穩有餘，但進攻欠銳成失分關鍵；計近4場聯賽主場2勝2和，今場以守為攻不會輸蝕。朗斯計法甲走出季初谷底，近3仗聯賽全勝，包括上仗聯賽以2比1反勝巴黎FC；攻力復整是戰績回升的主因；但作客表現一向反覆。今場雙方各擅勝場，半和、全和兼投。\n\n往績\n\n雙方近5次聯賽交手，里爾4勝1負；上次勝3比0，上次交手角球6個。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "百度体育直播 里尔vs朗斯 明天 04:05_百度体育",
+          "url": "https://tiyu.baidu.com/live/detail/5rOV5Zu955Sy57qn6IGU6LWbIzIwMjYtMTEtMDEj6YeM5bCUdnPmnJfmlq8%3D",
+          "site": "百度体育",
+          "date": null,
+          "authority": 3,
+          "score": 1.679845690727234,
+          "summary": "121人参与 截止时间 明天 04:05\n...\n历史战绩 (近6场)\n...\n同主客\n\n以下数据均为主队(里尔)视角\n\n胜率 67%\n\n赢盘率 83%\n\n大球率 50%\n\n时间/赛事\n\n2026-04-05\n\n法甲\n\n2025-09-21\n...\n2025-03-31\n...\n2024-10-27\n...\n2024-03-30\n...\n2023-10-08\n...\n主队/比分/客队\n\n让球\n\n进球数\n\n里尔 3 - 0 朗斯\n...\n2.5\n...\n朗斯 3 - 0 里尔\n\n0.25\n\n输盘\n...\n里尔 1 - 0 朗斯\n\n0.5\n...\n小球\n\n朗斯 0 - 2 里尔\n...\n里尔 2 - 1 朗斯\n...\n朗斯 1 - 1 里尔\n...\n2.75\n...\n里尔近期战绩 (近6场)\n...\n胜率 33%\n\n赢盘率 17%\n\n大球率 17%\n...\n2026-10-25\n...\n2026-10-22\n\n欧冠\n\n2026-10-18\n...\n2026-10-14\n...\n2026-10-10\n...\n2026-10-02\n\n球会友谊\n...\n摩纳哥 1 - 1 里尔\n...\n里尔 2 - 4 加拉塔萨雷\n...\n里尔 1 - 1 布雷斯特\n\n1.0\n...\n3.0\n...\n阿森纳 3 - 0 里尔\n\n1.75\n...\n走盘\n\n里尔 1 - 0 勒阿弗尔\n\n1.25\n...\n里尔 2 - 1 瓦勒海姆聚尔特\n\n朗斯近期战绩 (近6场)\n...\n朗斯 2 - 1 巴黎FC\n...\n布鲁日 3 - 0 朗斯\n...\n特鲁瓦 1 - 3 朗斯\n\n-0.75\n...\n朗斯 0 - 2 葡萄牙体育\n...\n朗斯 2 - 1 里昂\n...\n朗斯 2 - 0 标准列日\n\n赛前预测\n\n42%\n\n里尔 本场胜率\n\n32%\n\n朗斯 本场胜率\n\n过去3年，相似赔率共出现492299次\n\n主场胜利平局客场胜利\n\n42% 28%平局 30%\n\n有利情报 不利情报\n\n1. 里尔本赛季联赛8场失6球，是联赛失球数第2少的球队。\n\n2. 里尔近5年面对朗斯主场胜率达到80%。\n\n1. 朗斯近10场正赛主场7胜0平3负，表现出色。\n\n2. 朗斯本赛季联赛8场进16球，是联赛进球数第1多的球队。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Lille vs Lens predictions and preview | APWin",
+          "url": "https://www.apwin.com/predictions/lille-vs-lens-prediction-ligue-1-30-10-2026/",
+          "site": "APWin",
+          "date": "2026-10-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.6566694974899292,
+          "summary": "# Lille vs Lens prediction\n\nFrance - Ligue 1\n\nv.s\n\n30 Oct 2026 15:05\n\nBTTS - Yes\n\nMarket: BTTS - Yes · @ 1.60\n...\n78%\n\nLast updated: 26-10-2026\n\n## Lille Form and Insights\n\nLille hosts Lens at the Stade Pierre-Mauroy (Grand Stade) for this Ligue 1 fixture. The match will kick off at 20:05 (UK Time) on 30/10/2026.\n\nTheir performance in the Ligue 1 so far:\n\n- 4 Wins\n- 3 Draws\n- 1 Losses\n\nOffensive and defensive statistics:\n\n- 11 goals scored\n- 1.38 average goals per match\n- 6 goals conceded\n- 0.75 average goals conceded per match\n\n## The Blood and Gold Form and Insights\n\nLens has played 8 matches in the Ligue 1 so far this season.\n\nHere’s how the team comes into their match with Lille:\n...\n- 1 Draws\n- 3 Losses\n\nGoals scored and conceded:\n\n- 16 goals scored\n- 2 average goals per match\n- 12 goals conceded\n- 1.5 average goals conceded per match\n\n## Head-to-Head Statistics\n\nWe have seen the match between Lille and Lens on the match calendar 19 times across all competitions in the last couple of years.\n\n- Lille Olympique Sporting Club win - 11\n- Lens win - 3\n- Draw - 5\n...\nWLWLW\n\nPoints & Results\n\n- PPG1.881.63\n- 50%Wins50%\n- 75%First to Score50%\n\nGoals Scored & Conceded\n\n- Scored/game1.382\n- Conceded/game0.751.50\n- xG1.351.59\n- xGA1.701.26\n...\n- 50%Both Score88%\n- 50%Clean Sheet0%\n- 0%Failed to Score13%\n...\nThe last match was played on 04/04/2026 in the Ligue 1, and Lille won the match. The match ended in 3–0.\n\nIn the table below, you can find the head-to-head results of the last few meetings.\n\n## Players to Watch\n\nAPWin’s team of experts has compiled a list of insights to help you place informed bets on player props and goal-scoring markets.\n\n### The Dogues Top Players\n\n- Hákon Arnar Haraldsson has scored 8 goals so far this season.\n- Félix Correia has given 5 assists this season.\n\n### The Blood and Gold Top Players\n\n- Wesley Saïd has scored 12 goals so far this season.\n- Adrien Thomasson has given 10 assists this season.\n\n## Betting Insights for Cards and Corners\n\nIf you prefer betting on over/under markets for corners and cards, you can use the section below to find the statistics for this Lille vs Lens match.\n\n### Lille Cards and Corners\n\n- 1.88 average cards per match\n- 1.5 average cards when playing at home\n- 8 average corners per match\n- 7 average corners when playing at home\n\n### Lens Cards and Corners\n\n- 2.38 average cards per match\n- 2 average cards when playing away\n- 9.75 average corners per match\n- 10.25 average corners when playing away\n\n## Match Details\n...\n- Kick-off time: 20:05\n- Competition: Ligue 1\n- Game week: 9\n...\n## How APWin Makes Its Predictions\n\nOur football predictions are written using a structured analysis of factors that impact match outcomes. We combine long-term performance with the latest team news and real-time market signals to write our predictions.\n\nHere's what we take into account:\n\n- Historical match data\n- Home and away performance trends\n- Recent form, squad news, and team dynamics\n- Betting market odds and line movement analysis\n...\n## Likely Scores\n\n# | Score | Probability | %\n...\n1 | 1 - 1 | 13.29% \n2 | 2 - 1 | 8.37% \n3 | 1 - 2 | 8.25% \n4 | 1 - 0 | 7.64% \n5 | 0 - 0 | 7.59% \n6 | 0 - 1 | 7.51% \n7 | 2 -...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "2026到2027赛季 法甲第9轮 里尔 VS 朗斯 赛事直播中心_新浪竞技风暴_新浪网 - 专家解析",
+          "url": "http://match.sports.sina.com.cn/livecast/g/live.php?id=290827#1",
+          "site": "新浪",
+          "date": null,
+          "authority": 3,
+          "score": 1.4747653007507324,
+          "summary": "#### 里尔\n\n#### 朗斯\n...\n首发预测（双方阵容预测信息由近期比赛得出，可通过点击头像来切换球员并分享你的预测结果） （默认预测信息由近期比赛得出，可在下方选择两队阵型、点击球员头像切换球员，作出我的首发预测，并分享到微博）\n\n### 数据PK\n\n#### 前锋\n\n##### 9号 吉鲁\n\nOlivier Giroud\n\n##### 18号 上田绮世\n\nAyase Ueda\n\n##### 18号 巴克瓦\n\nDilane Bakwa\n\n##### 19号 莫莱斯\n\nTiago Morais\n\n##### 28号 佩林\n\nGaëtan Perrin\n\n##### 29号 伊加马内\n\nHamza Igamane\n\n##### 35号 迪欧恩\n\nSoriba Diaoune\n\n#### 中场\n\n##### 6号 本塔莱布\n\nNabil Bentaleb\n\n##### 8号 E.姆巴佩\n\nEthan Mbappe\n\n##### 10号 哈拉尔德松\n\nHákon Arnar Haraldsson\n\n##### 11号 萨赫拉维\n\nOsame Sahraoui\n\n##### 14号 凯尔高\n\nMaurits Kjaergaard\n\n##### 17号 穆考\n\nNgal'ayel Mukau\n\n##### 21号 安德烈\n\nBenjamin André\n\n#### 后卫\n\n##### 2号 斯尔达诺维奇\n\nLoun Srdanovic\n\n##### 3号 恩戈伊\n\nNathan Ngoy\n\n##### 4号 阿莱克斯桑德罗\n\nAlexsandro\n\n##### 15号 佩罗\n\nRomain Perraud\n\n##### 19号 厄纳尔\n\nBasar Onal\n\n##### 22号 桑托斯\n\nTiago Santos\n\n##### 23号 夸西\n\nNianzou Tanguy Kouassi\n\n##### 24号 维尔东克\n\nCalvin Verdonk\n\n##### 26号 科西耶\n\nIsaac Cossier\n\n##### 38号 戈菲\n\nMaxima Goffi\n\n#### 门将\n\n##### 1号 厄泽尔\n\nBerke Özer\n\n##### 12号 吉尔\n\nOrlando Gil\n\n##### 40号 萨茹斯\n\nThomas Sajous\n...\n##### 7号 索托卡\n\nFlorian Sotoca\n\n##### 10号 托万\n\nFlorian Thauvin\n\n##### 11号 爱德华\n\nOdsonne Édouard\n\n##### 19号 西玛\n\nAbdallah Sima\n\n##### 22号 斯科拉斯\n\nMichał Skóraś\n\n##### 28号 卡迪尔\n\nJunior Kadile\n\n##### 29号 伊万诺维奇\n\nFranjo Ivanovic\n...\n##### 5号 布拉托维奇\n\nAndrija Bulatović\n\n##### 8号 蒂特拉维\n\nYassine Titraoui\n\n##### 9号 阿扎尔\n\nThorgan Hazard\n\n##### 21号 海达拉\n\nAmadou Haidara\n\n##### 27号 屈桑斯\n\nMichaël Cuisance\n...\n##### 2号 阿吉拉尔\n\nRuben Aguilar\n\n##### 3号 纳夫罗茨基\n\nMaik Nawrocki\n\n##### 4号 切利克\n\nNidal Čelik\n\n##### 6号 拜杜\n\nSamson Baidoo\n\n##### 13号 查韦斯\n\nJhoanner Chávez\n\n##### 14号 尤杜\n\nMatthieu Udol\n\n##### 20号 托迪博\n\nJean-Clair Todibo\n\n##### 23号 阿卜杜勒哈米德\n\nSaud Abdulhamid\n\n##### 24号 格拉蒂特\n\nJonathan Gradit\n\n##### 25号 加尼乌\n\nIsmaëlo Ganiou\n\n##### 31号 萨尼扬\n\nSouleymane Sagnan\n\n##### 32号 安东尼奥\n\nKyllian Antonio\n...\n##### 16号 乔吉林\n\nMathieu Gorgelin\n\n##### 40号 里塞\n\nRobin Risser\n\n##### 60号 乔德伦\n\nIlan Jourdren\n\n###### 7号 索托卡\n...\n#### 尝试过人\n...\n#### 争高空球\n...\n#### 犯规\n...\n失误导致丢球\n\n失误导致被射门\n...\n失败铲球断球\n\n成功解围阻挡射门\n\n失败解围阻挡传中",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 1,
+        "goals": 0,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 4,
+        "zh": 4,
+        "home_mentions": 3,
+        "away_mentions": 4
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周五011",
+      "league": "葡超",
+      "home": "卡萨皮亚",
+      "away": "里斯本",
+      "home_en": "卡萨皮亚",
+      "away_en": "里斯本",
+      "queries": [
+        "\"卡萨皮亚 vs 里斯本\" preview prediction lang:en",
+        "卡萨皮亚 里斯本 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=2042365&gm=2556603",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.7187873125076294,
+          "summary": "排名: Regular Season 第17名\n\n赛季总成绩: 2胜 1平 6负\n\n赛季主场成绩: 0胜 0平 4负\n\n周五011 葡超>\n\n2026/2027 Regular Season 第10轮 2026-10-31 04:15\n...\nRegular Season 第3名\n...\n5胜 3平 1负\n\n赛季客场成绩: 2胜 2平 0负\n\n特征分析\n\n卡萨皮亚 (主)\n\n0胜/0平/9负\n\n0胜/0平/5负\n\n3胜/1平/6负\n\n1胜/3平/6负\n\n0.6个\n\n1.7个\n\n近9场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n里斯本 (客)\n\n9胜/0平/0负\n\n5胜/0平/0负\n\n6胜/2平/2负\n\n5胜/5平/0负\n\n2.2个\n\n1.1个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n积分榜 葡超2026/2027\n\n卡萨皮亚Regular Season 第17名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 9 | 2/1/6 | 22% | 5/17 | -12 | 7 | 17 \n主 | 4 | 0/0/4 | 0% | 1/13 | -12 | 0 | 18 \n客 | 5 | 2/1/2 | 40% | 4/4 | 0 | 7 | 10 \n\n里斯本Regular Season 第3名 查看更多>\n...\n总 | 9 | 5/3/1 | 56% | 21/11 | 10 | 18 | 3 \n主 | 5 | 3/1/1 | 60% | 11/7 | 4 | 10 | 3 \n客 | 4 | 2/2/0 | 50% | 10/4 | 6 | 8 | 5 \n\n比赛近况\n...\n卡萨皮亚近10场3胜 (30%) | 1平 (10%) | 6负 (60%)\n\n进6球，失17球，净进-11球\n\n里斯本近10场6胜 (60%) | 2平 (20%) | 2负 (20%)\n\n进22球，失11球，净进11球\n...\n射手信息 葡超2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n9-Henrique Araújo(前锋) | 9 (6/3) | 1 (20%) | 1 (25%) | 0.1/0.1 \n80-L. Ofori(中场) | 9 (9/0) | 1 (20%) | 1 (25%) | 0.1/0.1 \n77-B. Pauwels(前锋) | 6 (4/2) | 1 (20%) | 0 (0%) | 0.2/0\n...\n97-L. Suárez(前锋) | 9 (6/3) | 8 (42%) | 1 (7%) | 0.9/0.1 \n58-Flávio Gonçalves(前锋) | 8 (7/1) | 3 (16%) | 1 (7%) | 0.4/0.1 \n7-F. Ioannidis(前锋) | 8 (3/5) | 2 (11%) | 2 (13%) | 0.3/0.3 \n\n伤停一览\n...\n暂无数据\n...\n注：赛事数据统计进行至全场90分钟（含伤停...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "彩经前瞻：阿马多拉之星重返主场，卡萨皮亚进攻低迷恐难翻身",
+          "url": "http://pc.dongqiudi.com/articles/6545335.html",
+          "site": "dongqiudi.com",
+          "date": "2026-10-23T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.6336115598678589,
+          "summary": "# 彩经前瞻：阿马多拉之星重返主场，卡萨皮亚进攻低迷恐难翻身\n\n北京时间10月24日晚22点30分，葡超联赛第9轮迎来一场里斯本地区德比，阿马多拉之星坐镇若泽-戈麦斯球场迎战卡萨皮亚。\n\n主队前8轮取得2胜4平2负，积10分排名第10位；客队1胜1平6负，积4分排名第17位，深陷降级区。\n\n双方近期状态均不理想。\n...\n卡萨皮亚则在上轮主场0比1负于圣克拉拉，前8轮仅打进3球，成为联赛进攻表现最差的球队。两队上周都在葡萄牙杯取得胜利，希望借此重返联赛胜利轨道。\n\n中国体育彩票胜平负赔率为主胜1.67、平局3.42、客胜4.20；让球胜平负阿马多拉之星-1为主胜3.20、平局3.32、客胜1.94。常规赔率明显支持主队，但让一球客胜赔率最低，说明主队想要净胜两球仍有难度。\n\n结合葡萄牙《球报》、零零足球网及葡萄牙广播电台的最新报道，本场更看好阿马多拉之星主场取胜，不过卡萨皮亚近期客场表现并不差，需要防范一球小胜甚至平局。\n...\n经过草皮翻修，球队终于能够回到熟悉的主场迎战卡萨皮亚。\n...\n## 卡萨皮亚联赛六次失利，客场表现却暗藏机会\n\n卡萨皮亚本赛季由菲利佩-科埃略执教。球队前8轮仅取得1胜1平6负，积4分排名倒数第二，打进3球、失17球，攻防两端均存在明显问题。\n\n其中，进攻效率过低尤其值得关注。卡萨皮亚前8轮场均进球不足0.4个，亨里克-阿劳若等前场球员尚未建立稳定的得分节奏。\n\n上轮主场面对圣克拉拉，卡萨皮亚0比1告负，继续在积分榜下游徘徊。不过，这场比赛受到球员被罚下的影响，不能完全代表球队正常人数下的竞争力。\n\n葡萄牙《球报》报道，科埃略在赛前新闻发布会上表示，希望球队拿出比上一轮更好的表现。虽然目前积分偏少，但他对球队日常训练和阵容内部竞争仍然保持信心。\n\n值得注意的是，卡萨皮亚的客场表现明显好于主场。球队最近两个联赛客场先后逼平吉马良斯、2比1击败埃斯托里尔，已经连续三个联赛客场不败。\n\n进攻端，亨里克-阿劳若能够担任禁区支点，保韦尔斯与若昂-雷戈具备边路推进能力。若卡萨皮亚能够减少中场失误，仍有机会利用主队防线身后的空间制造威胁。\n\n人员方面，门将安德烈-戈麦斯因内收肌伤势缺席，阿卜杜-达费则因停赛无法出场。后卫大卫-索萨也在部分赛前名单中被列为停赛球员，后防人选存在较大的临场调整可能。\n\n卡萨皮亚上周葡萄牙杯1比0击败阿尔彭多拉达，虽然对手级别较低，但胜利有助于球队恢复信心。科埃略也通过杯赛考察了替补球员，本场不排除调整进攻配置。\n\n## 双方预计首发\n\n结合葡萄牙零零足球网10月23日的赛前预测、两队近期联赛阵容及最新伤停，双方预计继续采用四后卫体系。需要特别指出，部分预测名单仍将大卫-索萨列入首发，但他在上轮联赛吃到红牌，因此不宜直接照搬该名单。\n...\n门将：伊万-曼迪奇\n\n后卫：安德烈-杰拉尔德斯、卡利、费利佩-席尔瓦、佩德罗-罗萨斯\n\n后腰：劳伦斯-奥福里、塞尔维-克卢阿\n\n前场：穆罕默德-萨拉赫、若昂-雷戈、本杰明-保韦尔斯\n\n前锋：亨里克-阿劳若\n...\n卡萨皮亚方面，费利佩-席尔瓦是根据近期...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主胜"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Preview: Sporting Lisbon vs. Casa Pia - Back",
+          "url": "http://lite.apex-football.com/en-GH/news/31169d40241004en_gh#1",
+          "site": "Apex Football",
+          "date": null,
+          "authority": 3,
+          "score": 1.4747653007507324,
+          "summary": "Preview: Sporting Lisbon vs. Casa Pia - prediction, team news, lineups\n\nSporting Lisbon's unbeaten run in the Primeira Liga will be put to the test when they face an in-form Casa Pia side at Estadio Jose Alvalade on Saturday.\n\nRuben Amorim's team have reeled off seven consecutive victories ahead of this weekend's gameweek eight match-up against a side that have accrued eight points from their last 12.\n\n## Match preview\n\nSporting's eight-match winning streak in all competitions ended with a 1-1 Champions League draw with PSV on Tuesday, and they seek a return to winning ways on their return to league competition.\n\nAmorim's troops have defeated every opponent played in the Liga going into Saturday when they are favourites to notch an eighth straight top-flight success.\n\nThe defending league champions are expected to make light work of visiting Casa Pia, given an impressive winning run that has seen them outscore every Liga club whilst keeping clean sheets at the other end.\n\nLeoes head into this weekend on the back of five shutouts in a row and will back themselves to record a sixth on the trot at Casapianos' expense.\n\nFurther strengthening the home side's optimism is their record in previous matches since the away side gained promotion, with four wins secured on the trot and a fifth anticipated this weekend.\n\nAlthough it was nearly nine months back, the away side must dread another visit to a side that hit them for eight in January to record a heavy defeat on Os Gansos.\n\nCasa Pia headed into that fixture after consecutive road victories but could not resist Amorim's men, who had three players score twice in that harrowing 8-0 defeat.\n\nEven though Joao Pereira was not in situ at the turn of the year, the head coach takes his players to the Jose Alvalade keen to avoid a similar outcome against the division's leading scorers.\n\nThe confidence is high following four points from the last available six in away games and eight points in the preceding four games, but facing Sporting is a different kettle of fish for any side in the division.\n\nWhile they head into Saturday aiming to extend their undefeated four-match sequence, Casa Pia will do well to avoid another heavy loss to the title favourites.\n\nSporting Lisbon Primeira Liga form:\n\nSporting Lisbon form (all competitions):\n...\n- D\n\nCasa Pia Primeira Liga form:\n\n- L\n...\n## Team News\n\nOusmane Diomande was substituted against PSV on Tuesday and the defender joins a growing list of Sporting absentees that includes Jeremiah St. Juste and Vladan Kovacevic, while the Lions will assess Matheus Reis, Marcus Edwards and Pedro Goncalves.\n\nHaving fired blanks in consecutive games in all competitions, Viktor Gyokeres aims to rediscover the goalscoring touch as he seeks his 11th Liga goal in gameweek eight.\n\nJose Fonte's participation is uncertain for Casa Pia, although Duplexe Tchamba, Claudio Mendes and Kiki are not expected to feature in gameweek eight.\n\nWith only Cassiano finding the net more than once for the visitors this term, Pereira hopes his forward comes up trumps against one of the division's best sides.\n\nSporting Lisbon possible starting lineup:\nIsrael; Debast, Quaresma, Inacio; Quenda, Braganca, Hjulmand, Catamo; Trincao, Harder;\n...\nCasa Pia possible starting lineup:\nSequeira; Zolotic, Goulart, Kluivert; Geraldes, Kraev, Brito, Lelo; Moreira, Cassiano, Blanco\n\n## We say: Sporting Lisbon 2-0 Casa Pia\n\nDespite some injury concerns for Sporting, they are expected to continue their impressive form and secure another league victory against Casa Pia.\n\nAmorim's team have not dropped points in the Liga since late April, and their home advantage makes them strong favourites to claim an 11th consecutive triumph.",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "10-30足球比赛：大巴黎、博德闪耀、尼斯、里尔、黄潜和里斯本！",
+          "url": "https://www.sohu.com/a/1094265531_100235179?scm=10001.7746_13-119000.0.0-0-0-0-0.0&spm=smpc.channel_354.block3_32_P7Ovbu_1_fd.48.1793289827046W9BTjKy_7746",
+          "site": "Sohu",
+          "date": "2026-10-29T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.289576292037964,
+          "summary": "2026-10-30 00:00\n...\n葡超：卡萨皮亚 VS 里斯本竞技 让平让负\n\n比分预测：1-3 1-4 0-4",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "1 比 3"
+          ]
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 4,
+        "auth3": 3,
+        "zh": 3,
+        "home_mentions": 3,
+        "away_mentions": 3
+      },
+      "scores": [
+        "1 比 3"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周五012",
+      "league": "巴甲",
+      "home": "科林蒂安",
+      "away": "米拉索尔",
+      "home_en": "Corinthians",
+      "away_en": "米拉索尔",
+      "queries": [
+        "\"Corinthians vs 米拉索尔\" preview prediction lang:en",
+        "科林蒂安 米拉索尔 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "环球体育：米拉索尔客战科林蒂安盼破客场不胜魔咒",
+          "url": "http://pc.dongqiudi.com/articles/6570098.html",
+          "site": "懂球帝",
+          "date": "2026-10-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.335023834293694,
+          "summary": "# 环球体育：米拉索尔客战科林蒂安盼破客场不胜魔咒\n\n米拉索尔本周五将在Neo Química竞技场对阵科林蒂安，目标是远离巴西甲级联赛降级区，并打破一项历史魔咒：米拉索尔从未在客场击败过科林蒂安。\n\n双方共交手9次，科林蒂安7胜2平，黑白军团打进16球，米拉索尔只进了3球。\n\n米拉索尔这支来自圣保罗州内陆的球队拿到的唯一积分，正是在双方最初两次交手时获得的，两场比赛都在帕卡恩布球场进行：2008年0-0战平，2010年圣保罗州锦标赛又以1-1收场。\n\n此后，科林蒂安在主场又赢下双方随后的7次交锋。科林蒂安在Neo Química竞技场保持全胜，6场6胜，米拉索尔只在2022年的那场2-1中打进1球。\n\n双方最近一次交手是在2025年10月的巴甲第27轮，科林蒂安3-0获胜。\n\n尽管在圣保罗州的交锋记录不利，米拉索尔此役在积分榜上的位置更好。米拉索尔排在第15位，积37分，比身处降级区的科林蒂安多4分，后者目前有33分。\n\n科林蒂安本赛季主场表现也可能给身披黄绿战袍的米拉索尔带来机会。巴甲本赛季16个主场里，科林蒂安只拿到5胜，积19分，而他们在客场还拿到14分。\n\n不过，米拉索尔客场同样困难重重。米拉索尔的客场战绩仅排第15位，15场只赢2场，45分中拿到10分，胜率22.2%。\n\n因此，这场直接对话将两支被积分榜下游压力包围的球队摆到了一起。科林蒂安希望逃离降级区，米拉索尔则想继续拉开与降级区的差距，并首次在客场击败这个对手。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "环球体育：科林蒂安、米拉索尔保级对话",
+          "url": "http://pc.dongqiudi.com/articles/6568292.html",
+          "site": "懂球帝",
+          "date": "2026-10-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.335023834293694,
+          "summary": "# 环球体育：科林蒂安、米拉索尔保级对话\n\n这是明年保住巴甲席位的直接对话。科林蒂安身处降级区，积33分；米拉索尔则只多4分和1场胜利。按主客场合计，科林蒂安在最近14场各项赛事中只赢了1场（1胜，3平，10负，拿分率14%）。巴甲主场方面，他们已经6场不胜（0胜，2平，4负，拿分率11%）。\n\n米拉索尔最近6个巴甲客场的表现，比科林蒂安的主场更好（1胜，2平，3负，拿分率28%）。按主客场合计，米拉索尔在最近14场各项赛事中拿到38%的分数（3胜，7平，4负）。科林蒂安是下半程表现最差的球队（1胜，3平，9负，拿分率15%），米拉索尔则表现中规中矩，拿分率是科林蒂安的三倍（4胜，6平，3负，46%）。\n\n*各项赛果出现概率由经济学家布鲁诺-伊马伊祖米根据“大师猫”团队自2013年以来收集的微观数据，并结合统计模型计算得出。该团队由记者阿图尔-桑德斯、达维-巴罗斯、费利佩-塔瓦雷斯、吉列尔梅-马尼奥代、古斯塔沃-菲盖雷多、若泽-维克托-梅里尼奥、莱安德罗-席尔瓦、洛拉妮-维埃拉（实习生）、罗贝托-马莱松、罗德里戈-布雷维斯和瓦尔米尔-斯托尔蒂，以及数据科学家布鲁诺-贝尼西奥、维托尔-帕塔拉诺和程序员古斯塔沃-马塞多组成。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "科林蒂安主场迎米拉索尔，力争逃离降级区",
+          "url": "http://pc.dongqiudi.com/articles/6574329.html",
+          "site": "懂球帝",
+          "date": "2026-10-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.215985477529666,
+          "summary": "# 科林蒂安主场迎米拉索尔，力争逃离降级区\n\n北京时间10月31日07:00，巴甲联赛科林蒂安将在Neo Química竞技场迎战米拉索尔。两队都承受着积分榜下游的压力：科林蒂安以33分位列降级区第二，米拉索尔以37分排在第15位，比科林蒂安多四分。\n\n历史交锋对米拉索尔极为不利。两队此前共交手九次，科林蒂安七胜两平，打进16球，米拉索尔仅进三球。米拉索尔唯一拿到的积分来自两队最初两次交锋，均在帕卡恩布球场，2008年0比0、2010年1比1，都是圣保罗州锦标赛。此后科林蒂安作为主队赢下全部七场对决。\n\n在Neo Química竞技场，科林蒂安六战六胜，米拉索尔只打进一球，即2022年1比2那场。两队最近一次交锋是在2025年10月，巴甲第27轮，科林蒂安3比0获胜。\n\n科林蒂安本赛季主场表现并不强势。巴甲16场主场比赛，科林蒂安仅取得五场胜利，拿到19分，客场则拿到14分。米拉索尔客场同样困难，客场战绩排名第15，15场两胜，45分中拿到10分，成功率22.2%。\n\n这场比赛对双方都是直接的关键战。科林蒂安试图离开降级区，米拉索尔则希望扩大与降级区的差距，并争取队史首次在客场战胜科林蒂安。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/index.html?showType=2&mid=2042366",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.8578146696090696,
+          "summary": "排名: Regular Season 第18名\n\n赛季总成绩: 8胜 9平 15负\n\n赛季主场成绩: 5胜 4平 7负\n...\nRegular Season 第15名\n...\n9胜 10平 13负\n\n赛季客场成绩: 2胜 4平 9负\n\n特征分析\n\n科林蒂安 (主)\n\n7胜/1平/2负\n\n6胜/0平/0负\n\n0胜/2平/8负\n\n3胜/2平/5负\n\n0.9个\n\n2.0个\n\n近10场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n米拉索尔 (客)\n\n2胜/1平/7负\n\n0胜/0平/6负\n\n3胜/5平/2负\n\n1胜/4平/5负\n\n1.2个\n\n1.0个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n近10场科林蒂安7胜 (70%) | 1平 (10%) | 2负 (20%)\n\n积分榜 巴甲2026\n\n科林蒂安Regular Season 第18名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 32 | 8/9/15 | 25% | 34/42 | -8 | 33 | 18 \n主 | 16 | 5/4/7 | 31% | 16/17 | -1 | 19 | 18 \n客 | 16 | 3/5/8 | 19% | 18/25 | -7 | 14 | 13 \n\n米拉索尔Regular Season 第15名 查看更多>\n...\n总 | 32 | 9/10/13 | 28% | 37/45 | -8 | 37 | 15 \n主 | 17 | 7/6/4 | 41% | 24/22 | 2 | 27 | 11 \n客 | 15 | 2/4/9 | 13% | 13/23 | -10 | 10 | 15 \n\n比赛近况\n...\n科林蒂安近10场0胜 (0%) | 2平 (20%) | 8负 (80%)\n\n进9球，失20球，净进-11球\n\n米拉索尔近10场3胜 (30%) | 5平 (50%) | 2负 (20%)\n\n进12球，失10球，净进2球\n...\n射手信息 巴甲2026\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n49-André(中场) | 22 (16/6) | 4 (11%) | 2 (8%) | 0.2/0.1 \n9-Yuri Alberto(前锋) | 21 (20/1) | 4 (11%) | 2 (8%) | 0.2/0.1 \n21-Matheus Bidu(后卫) | 26 (24/2) | 4 (11%) | 1 (4%) | 0.2/0\n...\n33-卡洛斯·爱德华多(中场) | 24 (16/8) | 7 (20%) | 0 (0%) | 0.3/0 \n32-伊戈尔 马克斯(后卫) | 29 (27/2) | 4 (11%) | 5 (21%) | 0.1/0.2 \n95-埃德森(前锋) | 22 (13/9) | 3 (9%) | 1 (4%) | 0.1/0 \n\n伤停一览\n...\n暂无数据\n...\n注：赛事数据统计进行至全场90分钟（...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Corinthians vs. Mirassol FC SP - Live Score - October 30, 2026",
+          "url": "https://www.foxsports.com/soccer/brazil-serie-a-corinthians-vs-mirassol-fc-sp-oct-30-2026-game-boxscore-648386",
+          "site": "FOX Sports",
+          "date": "2026-10-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.679845690727234,
+          "summary": "Oct 31 at 7:00 AM\n\nLooking to avoid season series sweep, Corinthians welcomes Mirassol\n\nNeo Quimica Arena, Sao Paulo, BRA\n...\n### TEAM STATS\n\nCRN\n\n1.1 Goals per Game 1.2\n\n1.0 Expected Goals (xG) per Game 1.1\n\n1.3 Goals Against per Game 1.4\n\n12.5 Shots per Game 12.1\n\n60 Average Possession (%) 56\n\n8.2 Chances Created per Game 7.9\n\nMIR\n\n### ODDS\n...\nTEAM TO WIN\n\nA bet of $140 would win $240 total if Corinthians wins and a bet of $100 would win $473 total if Mirassol FC SP wins\n\n-140\n\nCRN\n\n+373\n\nMIR\n\nOVER/UNDER 2.5 GOALS\n\nThe combined final score of both teams is set at 2.5\n\n-106\n\nOVER 2.5\n\n-126\n\nUNDER 2.5",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 1,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 4,
+        "home_mentions": 4,
+        "away_mentions": 4
+      },
+      "scores": [],
+      "fetched": 0
+    }
+  ]
+}

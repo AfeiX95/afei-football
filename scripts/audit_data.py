@@ -23,6 +23,8 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+import _names  # noqa: E402  队名归一与别名词典（database/config/team_aliases.json）
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 
@@ -47,14 +49,7 @@ def norm_name(s):
 
 
 def same_team(a, b):
-    na, nb = norm_name(a), norm_name(b)
-    if not na or not nb:
-        return False
-    if na == nb:
-        return True
-    if len(na) >= 2 and len(nb) >= 2 and (na in nb or nb in na):
-        return True
-    return False
+    return _names.name_hit(a, b)
 
 
 def team_rows(matches, team):

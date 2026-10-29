@@ -14,6 +14,8 @@ import urllib.request
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import _x500  # noqa: E402  500 反爬会话（票据 state/tmp/500session.json，30 天有效）
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / "state" / "tmp" / "500cache"
 CACHE.mkdir(parents=True, exist_ok=True)
@@ -21,14 +23,15 @@ UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
 
 
 def get(url: str, enc: str = "gb18030") -> str:
-    return urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=40).read().decode(enc, "ignore")
+    return _x500.fetch(url, enc=enc)
 
 
 def build_ids(day: str) -> dict:
     """用 500 首页的 tr(编号/id/gy) 与当日 _intel 的队名做最佳匹配，得到 {场次三位: (id, "联赛 主 vs 客", "MM-DD HH:MM")}"""
     import difflib
 
-    html = get("https://live.500.com/index.php")
+    # 用带日期的赛程页：index.php 只回当前在售的十余场，跨零点/次日盘直接取不到
+    html = get("https://live.500.com/?e=%s-%s-%s" % (day[:4], day[4:6], day[6:]))
     rows = re.findall(r'<tr id="a(\d+)"[^>]*gy="([^"]*)"[^>]*>([\s\S]*?)</tr>', html)
     intel = json.loads((ROOT / "state" / "intel" / day / ("_intel_%s.json" % day)).read_text(encoding="utf-8"))
     want = [(m.get("no", "")[-3:], m.get("home") or "", m.get("away") or "",
@@ -94,8 +97,8 @@ def run(IDS, OUT):
         url = "https://odds.500.com/fenxi/%s-%s.shtml" % (kind, mid)
         for attempt in range(4):
             try:
-                body = urllib.request.urlopen(urllib.request.Request(url, headers=UA),
-                                              timeout=40).read().decode("gb18030", "ignore")
+                # 反爬统一交给 _x500（票据 state/tmp/500session.json，30 天有效）
+                body = _x500.fetch(url, enc="gb18030")
                 fp.write_text(body, encoding="gb18030", errors="ignore")
                 time.sleep(1.5)
                 return body
