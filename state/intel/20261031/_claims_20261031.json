@@ -1,0 +1,1148 @@
+[
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 276,
+  "value": 50.5,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 50.5,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 290,
+  "value": 70.6,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 70.616,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [
+   "data"
+  ],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 371,
+  "value": 58.7,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 58.731,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 58.76,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 657,
+  "value": 49.0,
+  "match_id": "002",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 49.0,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 669,
+  "value": 45.8,
+  "match_id": "002",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 45.821,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [
+   "data"
+  ],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 679,
+  "value": 47.4,
+  "match_id": "002",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 47.38,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 47.46,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 1045,
+  "value": 45.7,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 45.7,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 1057,
+  "value": 54.0,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 53.956,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [
+   "data"
+  ],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 1067,
+  "value": 51.6,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 51.644,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 51.71,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 1429,
+  "value": 36.2,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 36.16,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 1435,
+  "value": 26.5,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.draw",
+    "value": 26.47,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.draw",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 1441,
+  "value": 37.4,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 37.36,
+    "layer": "market"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 37.639,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 37.64,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.away_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 1459,
+  "value": 38.8,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 38.798,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 38.83,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 1465,
+  "value": 23.6,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "fused.draw",
+    "value": 23.562,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 23.53,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 1471,
+  "value": 37.6,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 37.36,
+    "layer": "market"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 37.639,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 37.64,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.away_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 1644,
+  "value": 35.0,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 34.992,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 34.98,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 1650,
+  "value": 23.6,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "fused.draw",
+    "value": 23.567,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 23.78,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 1656,
+  "value": 41.4,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 41.441,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 41.24,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 1668,
+  "value": 34.4,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 34.43,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 1674,
+  "value": 25.8,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.draw",
+    "value": 25.83,
+    "layer": "market"
+   },
+   {
+    "key": "fused.ah.ev_home",
+    "value": 25.681,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.draw",
+  "status": "ambiguous"
+ },
+ {
+  "article": "周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+  "offset": 1680,
+  "value": 39.7,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 39.74,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六010+011+012+013+014_德甲五场_定价与账本反着走的两场_赛事前瞻.md",
+  "offset": 288,
+  "value": 53.5,
+  "match_id": "010",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 53.5,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六010+011+012+013+014_德甲五场_定价与账本反着走的两场_赛事前瞻.md",
+  "offset": 299,
+  "value": 62.1,
+  "match_id": "010",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 62.097,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六010+011+012+013+014_德甲五场_定价与账本反着走的两场_赛事前瞻.md",
+  "offset": 597,
+  "value": 53.5,
+  "match_id": "011",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 53.5,
+    "layer": "market"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 52.954,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 53.07,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六010+011+012+013+014_德甲五场_定价与账本反着走的两场_赛事前瞻.md",
+  "offset": 608,
+  "value": 49.4,
+  "match_id": "011",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 49.449,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六010+011+012+013+014_德甲五场_定价与账本反着走的两场_赛事前瞻.md",
+  "offset": 820,
+  "value": 30.7,
+  "match_id": "012",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 30.67,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六010+011+012+013+014_德甲五场_定价与账本反着走的两场_赛事前瞻.md",
+  "offset": 829,
+  "value": 35.9,
+  "match_id": "012",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 35.868,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六010+011+012+013+014_德甲五场_定价与账本反着走的两场_赛事前瞻.md",
+  "offset": 1065,
+  "value": 50.4,
+  "match_id": "013",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 50.4,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六010+011+012+013+014_德甲五场_定价与账本反着走的两场_赛事前瞻.md",
+  "offset": 1076,
+  "value": 36.5,
+  "match_id": "013",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 36.518,
+    "layer": "data"
+   },
+   {
+    "key": "fused.interval_lo",
+    "value": 36.543,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "周六010+011+012+013+014_德甲五场_定价与账本反着走的两场_赛事前瞻.md",
+  "offset": 1092,
+  "value": 31.8,
+  "match_id": "013",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 31.776,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 31.77,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六010+011+012+013+014_德甲五场_定价与账本反着走的两场_赛事前瞻.md",
+  "offset": 1308,
+  "value": 35.0,
+  "match_id": "014",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 34.97,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六010+011+012+013+014_德甲五场_定价与账本反着走的两场_赛事前瞻.md",
+  "offset": 1317,
+  "value": 48.9,
+  "match_id": "014",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 48.936,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六010+011+012+013+014_德甲五场_定价与账本反着走的两场_赛事前瞻.md",
+  "offset": 1327,
+  "value": 41.2,
+  "match_id": "014",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 41.248,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 41.37,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六010+011+012+013+014_德甲五场_定价与账本反着走的两场_赛事前瞻.md",
+  "offset": 1445,
+  "value": 48.9,
+  "match_id": "014",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 48.936,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 17,
+  "value": 44.0,
+  "match_id": "016",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 44.1,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 287,
+  "value": 28.8,
+  "match_id": "015",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 28.77,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 296,
+  "value": 43.1,
+  "match_id": "015",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 43.06,
+    "layer": "market"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 42.589,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 42.62,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.away_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 306,
+  "value": 31.5,
+  "match_id": "015",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 31.502,
+    "layer": "data"
+   },
+   {
+    "key": "fused.home_win",
+    "value": 30.954,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 314,
+  "value": 41.1,
+  "match_id": "015",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 41.062,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 480,
+  "value": 44.0,
+  "match_id": "016",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 44.1,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 593,
+  "value": 44.1,
+  "match_id": "016",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 44.1,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 607,
+  "value": 30.7,
+  "match_id": "016",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 30.66,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [
+   "data"
+  ],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 949,
+  "value": 35.5,
+  "match_id": "017",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 35.5,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 958,
+  "value": 36.6,
+  "match_id": "017",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 36.6,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 973,
+  "value": 45.0,
+  "match_id": "017",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 45.041,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 981,
+  "value": 30.7,
+  "match_id": "017",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 30.65,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 1265,
+  "value": 48.2,
+  "match_id": "018",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 48.2,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 1274,
+  "value": 51.7,
+  "match_id": "018",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 51.651,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 1284,
+  "value": 50.4,
+  "match_id": "018",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 50.43,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 50.61,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 1577,
+  "value": 58.6,
+  "match_id": "022",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 58.6,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 1586,
+  "value": 57.4,
+  "match_id": "022",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 57.362,
+    "layer": "data"
+   },
+   {
+    "key": "fused.home_win",
+    "value": 57.802,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 57.77,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 1595,
+  "value": 18.9,
+  "match_id": "022",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 18.561,
+    "layer": "data"
+   },
+   {
+    "key": "market.away_win",
+    "value": 18.9,
+    "layer": "market"
+   },
+   {
+    "key": "fused.ah.ev_home",
+    "value": 18.838,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+  "offset": 1603,
+  "value": 18.6,
+  "match_id": "022",
+  "model_version": "v3.1",
+  "snapshot_id": "4d0ce90f60ca",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 18.561,
+    "layer": "data"
+   },
+   {
+    "key": "market.away_win",
+    "value": 18.9,
+    "layer": "market"
+   },
+   {
+    "key": "fused.ah.ev_home",
+    "value": 18.838,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ambiguous"
+ }
+]

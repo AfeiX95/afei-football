@@ -144,10 +144,32 @@
       "text": "state/ledger 只到 20261028；1029/1030 两日预测未 append，补写须带 --retrospective 并在 model-state 标注"
     }
   ],
-  "pending_checks": [],
+  "pending_checks": [
+    {
+      "path": "📝文章/20261031/周六001+002+003+004+005_日职K1澳超五场_站不住的比站得住的多_赛事前瞻.md",
+      "date": "2026-10-31",
+      "words": 1499,
+      "gate": "8/8",
+      "ai": 26.1
+    },
+    {
+      "path": "📝文章/20261031/周六010+011+012+013+014_德甲五场_定价与账本反着走的两场_赛事前瞻.md",
+      "date": "2026-10-31",
+      "words": 1279,
+      "gate": "8/8",
+      "ai": 26.8
+    },
+    {
+      "path": "📝文章/20261031/周六015+016+017+018+022_英超五场_近况热账本冷_赛事前瞻.md",
+      "date": "2026-10-31",
+      "words": 1488,
+      "gate": "8/8",
+      "ai": 29.7
+    }
+  ],
   "counters": {
     "open_items": 15,
-    "pending_checks": 0,
+    "pending_checks": 3,
     "task_log": 125,
     "candidate_rules": 25
   },

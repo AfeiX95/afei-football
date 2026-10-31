@@ -56,7 +56,13 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import model_v3 as mv3  # noqa: E402
 
 audit = load(f"_audit_{DAY}.json")
-V3 = {n: mv3.build_single(DAY, n, audit.get(n, {}).get("grade", "A")) for n in books}
+def _v3(n):
+    try:
+        return mv3.build_single(DAY, n, audit.get(n, {}).get("grade", "A"))
+    except KeyError:
+        return None  # 无市场三向（如未开盘）的场次没有模型行
+
+V3 = {n: _v3(n) for n in books}
 
 # ---------- 报告 ----------
 _cands = sorted(ART.glob(f"{DAY}_*内部分析报告.md")) if ART.exists() else []
@@ -151,6 +157,8 @@ def build_registry():
     """可引用指标表：(场次, 指标键) -> (百分数, 所属层)"""
     reg = {}
     for num, r in V3.items():
+        if not r:
+            continue
         for layer, keys in (("data", ("three_data",)), ("market", ("three_b", "three_market")),
                             ("fused", ("three_c", "three_fused"))):
             vals = next((r[k] for k in keys if r.get(k)), []) or []
@@ -240,9 +248,21 @@ for pp in pub:
             continue
         for name in mm2.split(" vs ", 1):
             name = name.strip()
-            start_league = name.split(" ")[0]
-            for hit in re.finditer(re.escape(start_league), t):
-                marks.append((hit.start(), n2))
+            # 优先用队名做锚点：books 的 match 形如「联赛 队名」，取去掉联赛前缀的那一段；
+            # 再补一个去掉尾部拉丁字母的短名（麦克阿瑟FC → 麦克阿瑟、大宫松鼠RB → 大宫松鼠）。
+            parts = name.split(" ")
+            cands = [parts[-1]] if len(parts) > 1 else [name]
+            for c in list(cands):
+                short = re.sub(r"[A-Za-z0-9]+$", "", c).strip()
+                if short and short != c and len(short) >= 2:
+                    cands.append(short)
+            if not any(len(c) >= 2 for c in cands):
+                cands = [parts[0]]
+            for c in dict.fromkeys(cands):
+                if len(c) < 2:
+                    continue
+                for hit in re.finditer(re.escape(c), t):
+                    marks.append((hit.start(), n2))
     marks.sort()
     first_head = min([x.start() for x in re.finditer(r"^## ", t, re.M)] or [len(t)])
     for sm in re.finditer(r"(\d+(?:\.\d)?)%", t):
