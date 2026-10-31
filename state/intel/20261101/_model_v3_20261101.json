@@ -1,7 +1,7 @@
 {
  "001": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "A",
   "data_grade": "A",
   "lam_data": [
@@ -68,7 +68,7 @@
  },
  "002": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "C",
   "data_grade": "C",
   "lam_data": null,
@@ -118,7 +118,7 @@
  },
  "003": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "A",
   "data_grade": "A",
   "lam_data": [
@@ -183,7 +183,7 @@
  },
  "004": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "C",
   "data_grade": "C",
   "lam_data": null,
@@ -233,12 +233,12 @@
  },
  "005": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
-  "grade": "B",
-  "data_grade": "B",
+  "data_snapshot": "6c0f0ea7b732",
+  "grade": "C",
+  "data_grade": "C",
   "lam_data": [
    1.5,
-   2.25
+   2.0
   ],
   "lam_odds_only": [
    1.3,
@@ -257,15 +257,15 @@
    1.65
   ],
   "lam_fused": [
-   1.5400000000000003,
-   1.77
+   1.543,
+   1.6989999999999998
   ],
-  "w_data": 0.2,
+  "w_data": 0.13999999999999999,
   "evidence_grade": "偏弱（数据侧权重 <0.25）",
   "three_data": [
-   0.25321048265629453,
-   0.201059213797871,
-   0.5457303035458345
+   0.29025467441095865,
+   0.21618300985276068,
+   0.4935623157362807
   ],
   "three_market": [
    0.3413,
@@ -273,26 +273,26 @@
    0.4044
   ],
   "three_fused": [
-   0.33753822056129706,
-   0.22833559736562883,
-   0.4341261820730741
+   0.35098366273922266,
+   0.2318335548745014,
+   0.41718278238627593
   ],
   "edge_A_vs_mkt": [
-   -8.808951734370545,
-   -5.324078620212902,
-   14.133030354583454
+   -5.104532558904134,
+   -3.811699014723935,
+   8.91623157362807
   ],
   "n_eff": [
    2,
    3
   ],
   "interval_home_data": [
-   3.6269054165540107,
-   64.54364423291071
+   4.692307386425769,
+   67.84409899278535
   ],
   "interval_home": [
-   26.588709070456986,
-   42.57758305126955
+   30.022636807091974,
+   41.3167627176989
   ],
   "notes": [
    "杯赛/洲际赛赛季样本不足 4 场，λ_A 用近期场次速率（同主客优先，不足两场或接近 0 时退回近期全部场次），k=0 不收缩；等级封顶 C，融合时以市场为主"
@@ -300,7 +300,7 @@
  },
  "006": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "A",
   "data_grade": "A",
   "lam_data": [
@@ -365,7 +365,7 @@
  },
  "007": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "A",
   "data_grade": "A",
   "lam_data": [
@@ -432,7 +432,7 @@
  },
  "008": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "C",
   "data_grade": "C",
   "lam_data": [
@@ -497,7 +497,7 @@
  },
  "009": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "A",
   "data_grade": "A",
   "lam_data": [
@@ -562,7 +562,7 @@
  },
  "010": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "A",
   "data_grade": "A",
   "lam_data": [
@@ -629,7 +629,7 @@
  },
  "011": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "A",
   "data_grade": "A",
   "lam_data": [
@@ -694,7 +694,7 @@
  },
  "012": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "C",
   "data_grade": "C",
   "lam_data": [
@@ -761,7 +761,7 @@
  },
  "013": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "A",
   "data_grade": "A",
   "lam_data": [
@@ -828,12 +828,12 @@
  },
  "014": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
-  "grade": "B",
-  "data_grade": "B",
+  "data_snapshot": "6c0f0ea7b732",
+  "grade": "A",
+  "data_grade": "A",
   "lam_data": [
-   1.0700713900168448,
-   1.6270448678370257
+   1.0731820626622428,
+   1.5007215085329089
   ],
   "lam_odds_only": [
    1.3,
@@ -852,15 +852,15 @@
    1.55
   ],
   "lam_fused": [
-   1.4060214170050533,
-   1.5731134603511077
+   1.3640410044382747,
+   1.5307813883278345
   ],
-  "w_data": 0.3,
+  "w_data": 0.39,
   "evidence_grade": "中等（数据侧权重 0.25–0.50）",
   "three_data": [
-   0.24980749344772035,
-   0.2468571421595645,
-   0.5033353643927152
+   0.2710484109390847,
+   0.2582559058679106,
+   0.4706956831930047
   ],
   "three_market": [
    0.358,
@@ -868,26 +868,26 @@
    0.38
   ],
   "three_fused": [
-   0.3416562567475041,
-   0.2430466509801194,
-   0.4152970922723765
+   0.3392561282744534,
+   0.2470559624932828,
+   0.41368790923226384
   ],
   "edge_A_vs_mkt": [
-   -10.819250655227963,
-   -1.5142857840435509,
-   12.33353643927152
+   -8.695158906091526,
+   -0.3744094132089426,
+   9.069568319300469
   ],
   "n_eff": [
    4,
    3
   ],
   "interval_home_data": [
-   10.855049928187881,
-   44.30517614845113
+   10.93993410206862,
+   49.59424417015551
   ],
   "interval_home": [
-   28.926533829106905,
-   39.83726187160707
+   26.70466056134505,
+   42.32346833448282
   ],
   "notes": [
    "同主客样本不足（主 4 场 / 客 3 场），已向全季池化值收缩，融合权重按样本打折"
@@ -895,7 +895,7 @@
  },
  "015": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "A",
   "data_grade": "A",
   "lam_data": [
@@ -962,7 +962,7 @@
  },
  "016": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "A",
   "data_grade": "A",
   "lam_data": [
@@ -1029,12 +1029,12 @@
  },
  "017": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
-  "grade": "B",
-  "data_grade": "B",
+  "data_snapshot": "6c0f0ea7b732",
+  "grade": "A",
+  "data_grade": "A",
   "lam_data": [
-   1.6568505452456217,
-   1.3050494200865632
+   1.607725596464754,
+   1.2144209881361074
   ],
   "lam_odds_only": [
    2.1,
@@ -1053,15 +1053,15 @@
    1.2
   ],
   "lam_fused": [
-   2.0720551635736864,
-   1.231514826025969
+   1.9995129826212543,
+   1.205624185373082
   ],
-  "w_data": 0.3,
+  "w_data": 0.39,
   "evidence_grade": "中等（数据侧权重 0.25–0.50）",
   "three_data": [
-   0.4570940655377275,
-   0.24067572407816884,
-   0.3022302103841036
+   0.46521902370933593,
+   0.2462118170624226,
+   0.28856915922824156
   ],
   "three_market": [
    0.6136,
@@ -1069,26 +1069,26 @@
    0.1802
   ],
   "three_fused": [
-   0.5673291689451679,
-   0.21032588994287707,
-   0.222344941111955
+   0.5577275152184235,
+   0.21563451414255969,
+   0.22663797063901686
   ],
   "edge_A_vs_mkt": [
-   -15.650593446227251,
-   3.4475724078168843,
-   12.203021038410359
+   -14.83809762906641,
+   4.00118170624226,
+   10.836915922824156
   ],
   "n_eff": [
    3,
    4
   ],
   "interval_home_data": [
-   25.51637444255972,
-   66.22868067634883
+   24.411187454814552,
+   69.82248907453025
   ],
   "interval_home": [
-   50.730351019861644,
-   62.43578310847083
+   47.397650020266994,
+   64.34221597430785
   ],
   "notes": [
    "同主客样本不足（主 3 场 / 客 4 场），已向全季池化值收缩，融合权重按样本打折"
@@ -1096,7 +1096,7 @@
  },
  "018": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "A",
   "data_grade": "A",
   "lam_data": [
@@ -1163,7 +1163,7 @@
  },
  "019": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "C",
   "data_grade": "C",
   "lam_data": [
@@ -1230,7 +1230,7 @@
  },
  "020": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "C",
   "data_grade": "C",
   "lam_data": [
@@ -1297,7 +1297,7 @@
  },
  "021": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "A",
   "data_grade": "A",
   "lam_data": [
@@ -1364,7 +1364,7 @@
  },
  "022": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "A",
   "data_grade": "A",
   "lam_data": [
@@ -1431,7 +1431,7 @@
  },
  "023": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "A",
   "data_grade": "A",
   "lam_data": [
@@ -1496,7 +1496,7 @@
  },
  "024": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "C",
   "data_grade": "C",
   "lam_data": [
@@ -1563,7 +1563,7 @@
  },
  "025": {
   "model_version": "v3.1",
-  "data_snapshot": "5049c15a89a9",
+  "data_snapshot": "6c0f0ea7b732",
   "grade": "A",
   "data_grade": "A",
   "lam_data": [

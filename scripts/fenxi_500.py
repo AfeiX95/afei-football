@@ -164,6 +164,9 @@ def parse_recent(txt: str, team: str, n: int = 5) -> dict:
             continue
         if not _name_hit(team, home) and not _name_hit(team, away):
             continue
+        # 同一场在页面里可能出现两次（近期战绩/往绩混排），按日期+主客去重
+        if any(q["date"] == date and q["home"] == home and q["away"] == away for q in picked):
+            continue
         is_home = _name_hit(team, home)
         gf, ga = (hs, aw) if is_home else (aw, hs)
         out = "W" if gf > ga else ("D" if gf == ga else "L")
