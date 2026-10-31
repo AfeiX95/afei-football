@@ -321,10 +321,15 @@ def _auto_p5(num):
     edge = r.get("edge_ab") or [0.0, 0.0, 0.0]
     w = r.get("w_data") or 0.0
     k = max(range(3), key=lambda i: abs(edge[i]))
-    p1 = (f"A 独立模型主 {ta[0] * 100:.1f}% / 平 {ta[1] * 100:.1f}% / 客 {ta[2] * 100:.1f}%，"
-          f"市场 {tb[0] * 100:.1f}% / {tb[1] * 100:.1f}% / {tb[2] * 100:.1f}%，"
-          f"最大分歧在{['主胜', '平局', '客胜'][k]}（{edge[k]:+.1f}pp）；"
-          f"融合按数据权重 {w:.2f} 落在 {tc[0] * 100:.1f}% / {tc[1] * 100:.1f}% / {tc[2] * 100:.1f}%。")
+    if w <= 0 or sum(ta) <= 1e-9:
+        p1 = (f"**A 独立模型：无**（同主客样本为 0、未达建模门槛，本次不建独立模型，故没有「模型 vs 市场」的分歧可算）；"
+              f"市场 {tb[0] * 100:.1f}% / {tb[1] * 100:.1f}% / {tb[2] * 100:.1f}%，"
+              f"融合按数据权重 {w:.2f} 落在 {tc[0] * 100:.1f}% / {tc[1] * 100:.1f}% / {tc[2] * 100:.1f}%（等同市场点值）。")
+    else:
+        p1 = (f"A 独立模型主 {ta[0] * 100:.1f}% / 平 {ta[1] * 100:.1f}% / 客 {ta[2] * 100:.1f}%，"
+              f"市场 {tb[0] * 100:.1f}% / {tb[1] * 100:.1f}% / {tb[2] * 100:.1f}%，"
+              f"最大分歧在{['主胜', '平局', '客胜'][k]}（{edge[k]:+.1f}pp）；"
+              f"融合按数据权重 {w:.2f} 落在 {tc[0] * 100:.1f}% / {tc[1] * 100:.1f}% / {tc[2] * 100:.1f}%。")
     ahs = [x for x in (b.get("ah") or {}).values() if x]
     if ahs:
         moved = sum(1 for x in ahs if abs(x["close"]["line"] - x["open"]["line"]) > 1e-9)
@@ -445,7 +450,9 @@ def sect3(num, row):
                      f"主 {h5['gf_pg']:.2f}/{h5['ga_pg']:.2f}（{h5['w']}胜{h5['d']}平{h5['l']}负）；"
                      f"客 {a5['gf_pg']:.2f}/{a5['ga_pg']:.2f}（{a5['w']}胜{a5['d']}平{a5['l']}负）")
     else:
-        parts.append(f"- 近 {nh} 场场均进/失：主 {gfh:.2f}/{gah:.2f}；客 {gfa:.2f}/{gaa:.2f}")
+        _zh = "—（0 场，样本缺失，不作依据）" if not nh else f"{gfh:.2f}/{gah:.2f}"
+        _za = "—（0 场，样本缺失，不作依据）" if not na else f"{gfa:.2f}/{gaa:.2f}"
+        parts.append(f"- 近况样本：主 {nh} 场 场均进/失 {_zh}；客 {na} 场 场均进/失 {_za}")
     parts.append(f"- 逐场（近 5）：主 {recent_line(row['recent_home'])}；客 {recent_line(row['recent_away'])}")
     if h2h:
         parts.append(f"- 交锋：近 {h2h['n']} 次 {h2h['text']}进 {h2h['gf']} 失 {h2h['ga']}，大球 {h2h['over']} 次、小球 {h2h['under']} 次")
@@ -568,7 +575,7 @@ def sect_pan(num, v, b):
         coh.append(f"只用欧赔拟合的 λ（{v['lam_1x2'][0]:.2f}/{v['lam_1x2'][1]:.2f}，λ总 {sum(v['lam_1x2']):.2f}）给亚盘定价：主队 EV {v['ev_ah_mkt'][0]:+.1f}%、客队 {v['ev_ah_mkt'][1]:+.1f}%")
     if v["ev_ou_mkt"][0] is not None:
         coh.append(f"同一 λ 给大小定价：大 {v['ev_ou_mkt'][0]:+.1f}%、小 {v['ev_ou_mkt'][1]:+.1f}%")
-    lines.append("- 跨盘自洽：" + "；".join(coh) + "（越接近 0 = 该盘与欧赔越一致；明显偏离就是单盘溢价所在）")
+    lines.append("- 跨盘自洽（口径：只用欧赔去水三向拟合的单腿 λ，不含数据侧；与末尾「亚盘溢价」的融合 λ_C 不是同一条 λ，两者数值不可比）：" + "；".join(coh) + "（越接近 0 = 该盘与欧赔越一致；明显偏离就是单盘溢价所在）")
     if v["ou_implied_total"]:
         lines.append(f"- 大小盘水位反推的总进球期望 ≈ {v['ou_implied_total']:.2f}（与 λ总 {v['lam_total']:.2f} 对照用）")
     _mkt = INTEL_MKT.get(num, {})
@@ -626,7 +633,7 @@ def sect_model(num, v):
     ah = r.get("ah") or {}
     if ah.get("line") is not None:
         d = ah["dist"]
-        lines.append(f"- 亚盘 {line_txt(ah['side'], ah['line'])}（五状态）：全赢 {pct(d[settle.FULL_WIN])}、赢半 {pct(d[settle.HALF_WIN])}、"
+        lines.append(f"- 亚盘 {line_txt(ah['side'], ah['line'])}（五状态；结算线 = 500 即时众数线，水位取同线那本书，四分之一球按两注半仓）：全赢 {pct(d[settle.FULL_WIN])}、赢半 {pct(d[settle.HALF_WIN])}、"
                      f"走水 {pct(d[settle.PUSH])}、输半 {pct(d[settle.HALF_LOSS])}、全输 {pct(d[settle.FULL_LOSS])}"
                      f"　→ EV 主 {ah['ev'][0]:+.1f}% / 客 {ah['ev'][1]:+.1f}%（香港盘水位 {ah['water'][0]:.3f}/{ah['water'][1]:.3f}）")
     ou = r.get("ou") or {}
@@ -672,8 +679,11 @@ for num in sorted(books):
     row = data[b["id"]]
     v = model[num]
     lg, ttl = TITLE[num]
+    _jc = (V3[num].get("jc_ah") or {})
+    _ah_txt = ("亚盘（500即时众数）" + line_txt(v["ah_side"], v["ah_line"])) if v.get("ah_line") is not None else "亚盘（500即时众数）无"
+    _jc_txt = ("｜竞彩让球 " + line_txt(_jc.get("side") or "", _jc.get("line"))) if _jc.get("line") is not None else ""
     head = (f"### {num} {lg}｜{b['match'].split(' ', 1)[-1]}｜{b['kickoff']}｜"
-            f"亚盘 {line_txt(v['ah_side'], v['ah_line'])}\n\n"
+            f"{_ah_txt}{_jc_txt}\n\n"
             f"阿飞·内部研判　{DAY[:4]}-{DAY[4:6]}-{DAY[6:]}　分类：{lg}　90 分钟口径　"
             f"数据完整性 {V3[num]['grade']}／预测证据 {V3[num]['evidence_grade']}　模型 {VER}　快照 {SNAP}\n")
     body = f"""
@@ -764,25 +774,28 @@ for num in sorted(books):
                     buy_ou.append(f"{num} 小球 {ev:+.1f}%（C50拦截·不买）")
                 else:
                     buy_ou.append(f"{num} {side}球 {ev:+.1f}%")
-DEC += f"- 亚盘溢价（五状态 EV，≥+3% 才算买入）：{'、'.join(buy_ah) if buy_ah else '无——本批让球盘整体被抽干'}\n"
+DEC += f"- 亚盘溢价（口径：融合 λ_C，结算线为各场 500 即时众数线，水位取同线那本书；EV≥+3% 才算买入）：{'、'.join(buy_ah) if buy_ah else '无——本批让球盘整体被抽干'}\n"
 DEC += f"- 大小盘溢价（≥+3%）：{'、'.join(buy_ou) if buy_ou else '无'}\n"
 DEC += "- 亚盘两侧都没到买入线的场次（读作「这两个方向都不给价，别硬找」）："
 DEC += "、".join(f"{n}" for n in sorted(books)
                  if V3[n]["ah"]["ev"][0] is not None and max(V3[n]["ah"]["ev"]) < 3) + "\n"
 
 coh_ok, coh_bad = [], []
+_maxdev = 0.0
 for num in sorted(books):
     v = model[num]
-    a, b = v.get("ev_ah_mkt") or (None, None)
-    if a is None:
-        ev2 = (V3[num].get("ah") or {}).get("ev") or [None, None]
-        a, b = ev2[0], ev2[1]
-    if a is None:
+    _lo = (mv3.lam_pack(v.get("market3"), v.get("ou_implied_total")) or {}).get("odds_only")
+    if not _lo or v.get("ah_line") is None or not v.get("ah_water"):
         continue
-    worst = abs(a)
-    (coh_ok if worst <= 5 else coh_bad).append(f"{num} 主{a:+.1f}/客{b:+.1f}")
-DEC += (f"- 三盘自洽（只用欧赔拟合的 λ 给亚盘定价，|EV|≤5% 视为一致）：一致的 {'、'.join(coh_ok) or '无'}；"
-        f"偏离明显的 {'、'.join(coh_bad) or '无'}——偏离即该盘自带溢价\n")
+    _grid = mp.grid_probs(_lo[0], _lo[1])
+    a, b = settle.ev_ah(_grid, v["ah_line"], *v["ah_water"])[:2]
+    _maxdev = max(_maxdev, abs(a), abs(b))
+    if max(abs(a), abs(b)) > 1:
+        coh_bad.append(f"{num} 主{a:+.1f}/客{b:+.1f}")
+    else:
+        coh_ok.append(f"{num}")
+DEC += (f"- 一致性基线自检（口径：只用欧赔去水三向单腿拟合的 λ，对同一组欧赔反推的亚盘线定价；按构造应≈0，用途只是验证「线—水位」配对没写错，不是溢价证据）："
+        f"25 场最大偏离 {_maxdev:.1f}%；≤1% 的 {len(coh_ok)} 场{'，超 1% 的 ' + '、'.join(coh_bad) if coh_bad else '，全部通过'}。真正的溢价只看上面「亚盘溢价」那条（融合 λ_C）\n")
 not_stand = [n for n in sorted(books) if "不站" in ACTION_HINT.get(n, "")]
 DEC += f"- 立场汇总（R49）：全批共 {len(books)} 场，其中不站方向 {len(not_stand)} 场（{'/'.join(not_stand) or '无'}），其余场次按上表「站位」与「市场动作」分层执行。\n"
 text = HEAD + "\n" + "\n\n".join(blocks) + "\n" + DEC

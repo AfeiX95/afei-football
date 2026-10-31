@@ -81,10 +81,14 @@ def main() -> None:
             "id": None,
             "market3": m3,
             "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
-            "ah_line": (-abs(line) if (line is not None and side == "主让") else (abs(line) if line is not None else None)),
-            "ah_side": side,
-            "ah_water": water,
-            "ah_water_note": "竞彩让球赔率减 1 的近似香港水位，非亚盘真实水位",
+            "jc_ah_line": (-abs(line) if (line is not None and side == "主让") else (abs(line) if line is not None else None)),
+            "jc_ah_side": side,
+            "jc_ah_water": water,
+            "ah_line": None,
+            "ah_side": None,
+            "ah_water": (0.0, 0.0),
+            "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+            "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
             "ou_line": None,
             "ou_water": (0.0, 0.0),
             "ou_note": "竞彩无大小盘线，不折 EV",
@@ -132,6 +136,21 @@ def main() -> None:
                     c = v.get("close") or {}
                     if c.get("line") is not None and round(float(c["line"]), 2) == mode_line:
                         pick = (round(float(c["home"]), 3), round(float(c["away"]), 3))
+                        break
+            # 亚盘：线 = 500 即时众数线，水位 = 同线那本书的即时水位（成对）
+            if r["ah_close_lines"]:
+                mode_line = Counter(r["ah_close_lines"]).most_common(1)[0][0]
+                r["ah_line"] = float(mode_line)
+                r["ah_side"] = "主让" if mode_line < 0 else ("平手" if mode_line == 0 else "主受让")
+                r["ah_line_src"] = "500 即时众数线（%d 家同线）" % r["ah_close_lines"].count(mode_line)
+            if r["ou_close_lines"]:
+                mode_ou = Counter(r["ou_close_lines"]).most_common(1)[0][0]
+                r["ou_line"] = abs(float(mode_ou))
+                for bk, v in ou.items():
+                    c = v.get("close") or {}
+                    if c.get("line") is not None and round(float(c["line"]), 2) == mode_ou:
+                        r["ou_water"] = (round(float(c.get("over") or c.get("home") or 0.0), 3),
+                                         round(float(c.get("under") or c.get("away") or 0.0), 3))
                         break
             r["ah_water"] = pick or (0.0, 0.0)
             r["lam_1x2"] = [0.0, 0.0]

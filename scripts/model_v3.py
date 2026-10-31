@@ -378,9 +378,13 @@ def build_single(day, num, grade="A"):
     if ahline is not None:
         ev = settle.ev_ah(grid, ahline, v["ah_water"][0], v["ah_water"][1])
         out["ah"] = {"line": ahline, "side": v.get("ah_side"), "dist": ev[2],
-                     "ev": (ev[0] * 100, ev[1] * 100), "water": tuple(v["ah_water"])}
+                     "ev": (ev[0] * 100, ev[1] * 100), "water": tuple(v["ah_water"]),
+                     "src": v.get("ah_line_src") or "500 即时众数线"}
     else:
-        out["ah"] = {"line": None, "side": None, "dist": None, "ev": (None, None), "water": (0, 0)}
+        out["ah"] = {"line": None, "side": None, "dist": None, "ev": (None, None), "water": (0, 0),
+                     "src": "无 500 亚盘数据"}
+    out["jc_ah"] = {"line": v.get("jc_ah_line"), "side": v.get("jc_ah_side"),
+                    "water": tuple(v.get("jc_ah_water") or (0, 0))}
     ouline = v.get("ou_line")
     if ouline is not None:
         ev = settle.ev_ou(grid, abs(ouline), v["ou_water"][0], v["ou_water"][1])

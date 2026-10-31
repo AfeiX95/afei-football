@@ -541,3 +541,18 @@ python -X utf8 scripts/xhs_riskcheck.py --cards <卡片.json> --text <文案.md>
 - 情报要点：016 利物浦缺 Frimpong/Ekitike/Leoni/Bradley，阿森纳缺 Saka 且 Dowman 停赛三场；021 尤文缺 8 人、那不勒斯主帅 Allegri 停赛；014 柏林联主帅称「无伤病」；024 竞彩标「巴西杯」实为**半决赛首回合**；009 的 Goal.com「无伤停」是模板，与 fotmob 9 人名单冲突，采信后者。
 - 复核：`check_report_consistency.py 20261101` → ERROR 0 / WARN 2（002、004 为 K 联赛无独立模型，市场单腿，真实缺口）。
 - 未做：B 层三篇尚未开写；`state/ledger` 1029/1030/1031 仍未 append。
+
+## 2026-11-01 上午 · P0 修复：亚盘结算线换成 500 即时众数线（用户审查报告落地）
+
+- 用户贴来《20261101 周日25场内部分析报告》审查报告，P0 指控「25 场标题统一写主让/受让一球，与即时众数盘不符；五状态/EV/价值排名全受影响」。**核实为真**：
+  - `scripts/market_from_intel.py` 原先把 `ah_line` 写成**竞彩让球线**（`-abs(line)`/`abs(line)`），而 `ah_water` 下游被替换成「500 众数线那本书的即时水位」→ 线与水位不成对；
+  - `scripts/model_v3.py` 用 `v["ah_water"]` 配 `v["ah_line"]` 结算五状态；
+  - `scripts/build_internal_report.py` 把这条线打印成「亚盘 X」。
+- 修法（三处）：
+  1. `market_from_intel.py`：`ah_line/ah_side/ah_water` 全部改由 **books 即时众数线 + 同线那本书的水位** 填，新增 `ah_line_src`；竞彩让球改名列 `jc_ah_line/jc_ah_side/jc_ah_water`（附 note：不参与五状态结算）；新增 `ou_line/ou_water`（大小众数线+同线水位，符号取正）。
+  2. `model_v3.py`：`out["ah"]["src"]`、新增 `out["jc_ah"]`（只作竞彩口径参考）。
+  3. `build_internal_report.py`：标题改「亚盘（500即时众数）X｜竞彩让球 Y」；五状态注明结算线与水位来源；原「跨盘自洽」改名「**一致性基线自检**」（只用欧赔单腿 λ，按构造≈0，仅验证线—水位配对，本批最大偏离 0.2%，不是溢价证据）；末尾「亚盘溢价」标注融合 λ_C 口径；**A 模型缺失时不再打 0.0%**（改「A 独立模型：无（同主客样本为 0…）」）；零样本近况不再显示 0.00（改「—（0 场，样本缺失，不作依据）」）。
+- 修正后 25 场：`check_report_consistency.py 20261101` → ERROR 0 / WARN 2（002/004 仍是市场单腿，真实缺口）。
+- 关键结论变化：旧版按竞彩让球线结算，001 曾得出 +25% 级假正 EV、021 得到「站客队」的偏袒；换成真实亚盘线后 001 主侧仅 +7.3%、**021 主侧 −22.7%（追主队让球是负 EV）**，真正站得住的溢价是 **003 主侧 +17.7%**、007 客侧 +12.1%、005 客侧 +7.9%。
+- 踩坑：`ops_edit_file` 的中文 oldText 匹配失败；heredoc 里普通字符串写 `\n` 会被吃成真换行，必须用 raw string。
+- 未做（审查报告里还没落地的）：水位只取一本书（未做多家均值/区间）；多源覆盖率与异常报价过滤；赛事 ID/时区/抓取时间未进报告字段；A−B 仍只写作 pp（未拆 `most_likely_outcome` 与 `model_market_disagreement` 两字段）；v3.2 四层是结构性改造，需单独排期。
