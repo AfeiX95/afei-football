@@ -1,0 +1,561 @@
+{
+ "001": {
+  "note": "J1 第13轮",
+  "abs_home": [],
+  "abs_away": [],
+  "susp": [],
+  "lineup": "",
+  "media": "jpick 预览主线：客队创造机会数垫底，主队主场防守堡垒",
+  "flags": [
+   "Goal.com 两边都写『无伤停』属模板；jpick 列 Campbell（腿筋，9/19 起）、Miyahara（十字韧带，9/10 起），原文未明归属，只记「长期伤号 2 人」不落队"
+  ],
+  "src": [
+   {
+    "d": "jpick.jp",
+    "t": "10-28"
+   },
+   {
+    "d": "goal.com",
+    "t": "10-31"
+   }
+  ]
+ },
+ "002": {
+  "note": "K1 冠军附加第34轮",
+  "abs_home": [],
+  "abs_away": [],
+  "susp": [],
+  "lineup": "",
+  "media": "越南媒体预测 2-1；蔚山近 8 场赢 4，首尔已提前 5 轮夺冠",
+  "flags": [],
+  "src": [
+   {
+    "d": "bongda24h.vn",
+    "t": "10-30"
+   },
+   {
+    "d": "goal.com",
+    "t": "10-31"
+   }
+  ]
+ },
+ "003": {
+  "note": "J1 第13轮",
+  "abs_home": [],
+  "abs_away": [
+   "7 人（含门将荒木琉伟，肘伤 10/10 起）"
+  ],
+  "susp": [],
+  "lineup": "",
+  "media": "qiumiwu 伤病名单：主队 0 人、客队 7 人",
+  "flags": [
+   "Goal.com 写双方『无伤停』，与 7 人清单矛盾，采信后者"
+  ],
+  "src": [
+   {
+    "d": "qiumiwu.com",
+    "t": "10-30"
+   },
+   {
+    "d": "goal.com",
+    "t": "10-31"
+   }
+  ]
+ },
+ "004": {
+  "note": "K1 冠军附加第34轮",
+  "abs_home": [],
+  "abs_away": [],
+  "susp": [],
+  "lineup": "",
+  "media": "媒体给主队胜 37%／平 39%／客队 24%；主队近 6 轮 2 胜 2 平 2 负",
+  "flags": [],
+  "src": [
+   {
+    "d": "qiumiwu.com",
+    "t": "10-30"
+   }
+  ]
+ },
+ "005": {
+  "note": "A-League 第3轮",
+  "abs_home": [],
+  "abs_away": [],
+  "susp": [],
+  "lineup": "客队主帅格里菲斯赛前表态要「主动进攻」；奥斯勒（腿筋）、卡尔塔克（膝盖）下周才复训，沙蒙接近康复；库哈尔斯基与弗雷尼有望首发",
+  "media": "",
+  "flags": [],
+  "src": [
+   {
+    "d": "dongqiudi.com",
+    "t": "10-29"
+   },
+   {
+    "d": "goal.com",
+    "t": "10-31"
+   }
+  ]
+ },
+ "006": {
+  "note": "荷甲",
+  "abs_home": [
+   "Krastev、Rahajaan（另有 Namli）"
+  ],
+  "abs_away": [
+   "Reischl、Barany（另有 Peupion）"
+  ],
+  "susp": [],
+  "lineup": "",
+  "media": "",
+  "flags": [],
+  "src": [
+   {
+    "d": "goal.com",
+    "t": "10-30"
+   },
+   {
+    "d": "fotmob.com",
+    "t": "10-31"
+   }
+  ]
+ },
+ "007": {
+  "note": "意甲",
+  "abs_home": [
+   "Addai、Chalobah、Kean、Diao（另有 Rodríguez 肌肉伤），Liberali 待评估"
+  ],
+  "abs_away": [
+   "Franjić（肩）"
+  ],
+  "susp": [],
+  "lineup": "法布雷加斯确认 Nico Paz 打前腰，Baturina 与 Caqueret 争一个位置",
+  "media": "onefootball 预览把主队列为明显热门",
+  "flags": [],
+  "src": [
+   {
+    "d": "onefootball.com",
+    "t": "10-29"
+   },
+   {
+    "d": "calciomercato.com",
+    "t": "10-29"
+   }
+  ]
+ },
+ "008": {
+  "note": "西甲",
+  "abs_home": [
+   "Romero、Uche、Juanmi（伤）"
+  ],
+  "abs_away": [
+   "Marcão、Miguel Sierra"
+  ],
+  "susp": [
+   "主队 Mojica、Mario Martín"
+  ],
+  "lineup": "客队 24 人名单只缺上述两人，锋线仍用 Isaac Romero + Stassin 双前锋",
+  "media": "",
+  "flags": [],
+  "src": [
+   {
+    "d": "fotmob.com",
+    "t": "10-31"
+   },
+   {
+    "d": "as.com",
+    "t": "10-30"
+   }
+  ]
+ },
+ "009": {
+  "note": "瑞超",
+  "abs_home": [
+   "García、Åstrand John、Assibu、Busuladžić、Christiansen、Kamanzi、Ekong、Sjöstrand、Jansson"
+  ],
+  "abs_away": [
+   "Boudri"
+  ],
+  "susp": [],
+  "lineup": "",
+  "media": "",
+  "flags": [
+   "Goal.com 写『无伤停』，与 fotmob 长名单矛盾，采信 fotmob"
+  ],
+  "src": [
+   {
+    "d": "fotmob.com",
+    "t": "10-31"
+   },
+   {
+    "d": "goal.com",
+    "t": "10-31"
+   }
+  ]
+ },
+ "010": {
+  "note": "荷甲",
+  "abs_home": [],
+  "abs_away": [
+   "Lemkin、Unnerstall、Thorvaldsen、Bruns"
+  ],
+  "susp": [
+   "客队 Weidmann"
+  ],
+  "lineup": "客队主帅范登布罗姆称要延续胜势，并警告球员别轻视对手",
+  "media": "",
+  "flags": [],
+  "src": [
+   {
+    "d": "voetbalprimeur.nl",
+    "t": "10-29"
+   },
+   {
+    "d": "dongqiudi.com",
+    "t": "10-29"
+   }
+  ]
+ },
+ "011": {
+  "note": "挪超",
+  "abs_home": [
+   "Mathisen、Kjartansson、Boakye、Tronstad、Opsahl"
+  ],
+  "abs_away": [
+   "Risa、Haugan、S. Hansen、Hestad、Diop、Stenevik、Hoff、Kikkenborg"
+  ],
+  "susp": [],
+  "lineup": "",
+  "media": "",
+  "flags": [],
+  "src": [
+   {
+    "d": "fotmob.com",
+    "t": "10-31"
+   }
+  ]
+ },
+ "012": {
+  "note": "意甲",
+  "abs_home": [
+   "Grillitsch（肌肉）"
+  ],
+  "abs_away": [
+   "Cacciamani（肩，存疑）"
+  ],
+  "susp": [],
+  "lineup": "主队门将 Palmisani 首发，防线 Monterisi/Cittadini 二选一，Bracaglia 打左路；主帅 Alvini 不换锋线",
+  "media": "",
+  "flags": [],
+  "src": [
+   {
+    "d": "calciomercato.com",
+    "t": "10-29"
+   },
+   {
+    "d": "tuttomercatoweb.com",
+    "t": "10-29"
+   }
+  ]
+ },
+ "013": {
+  "note": "意甲",
+  "abs_home": [
+   "Gudmundsson（肩，恢复中）"
+  ],
+  "abs_away": [],
+  "susp": [],
+  "lineup": "主队主帅加图索能收回 Rovella 与 Marusic，但两人预计替补起步；预计 4-3-3，Mandas 把门",
+  "media": "",
+  "flags": [],
+  "src": [
+   {
+    "d": "onefootball.com",
+    "t": "10-29"
+   },
+   {
+    "d": "radioroma.it",
+    "t": "10-29"
+   }
+  ]
+ },
+ "014": {
+  "note": "德甲",
+  "abs_home": [],
+  "abs_away": [
+   "Ache（大腿）、Skov（未公开伤情）"
+  ],
+  "susp": [],
+  "lineup": "主队主帅 Hütter：「Brassier 可以踢，目前没有伤病要报。」（onefootball 另列 Ilic 食物中毒、Nsoki 肌肉、Markgraf 十字韧带）",
+  "media": "",
+  "flags": [],
+  "src": [
+   {
+    "d": "onefootball.com",
+    "t": "10-29"
+   },
+   {
+    "d": "foxsports.com",
+    "t": "10-30"
+   }
+  ]
+ },
+ "015": {
+  "note": "荷甲",
+  "abs_home": [
+   "Mercera、Metu、van der Laan、Hernes（对 Emmen 受伤）、Max de Ligt"
+  ],
+  "abs_away": [],
+  "susp": [],
+  "lineup": "van Bergen 可用；Martins Indi 与 Toornstra 周中轮休，预计回到首发",
+  "media": "",
+  "flags": [],
+  "src": [
+   {
+    "d": "oogtv.nl",
+    "t": "10-29"
+   },
+   {
+    "d": "sportsmole.co.uk",
+    "t": "10-29"
+   }
+  ]
+ },
+ "016": {
+  "note": "英超",
+  "abs_home": [
+   "Frimpong（腿筋，11 月国家队赛后才有望回归）、Ekitike、Leoni、Bradley"
+  ],
+  "abs_away": [
+   "Saka（四头肌，等复查）"
+  ],
+  "susp": [
+   "客队 Dowman（三场国内禁赛）"
+  ],
+  "lineup": "主队 Szoboszlai、Muñoz 可能回归；客队 Rice、Calafiori、Tzolis 已回训练，Madueke（脚踝）待体测。媒体预测主队首发含 Isak、Barcola",
+  "media": "多家英媒把「能否终结安菲尔德魔咒」作为主线",
+  "flags": [],
+  "src": [
+   {
+    "d": "onefootball.com",
+    "t": "10-30"
+   },
+   {
+    "d": "mirror.co.uk",
+    "t": "10-29"
+   },
+   {
+    "d": "si.com",
+    "t": "10-29"
+   }
+  ]
+ },
+ "017": {
+  "note": "德甲",
+  "abs_home": [],
+  "abs_away": [
+   "Fabio Vieira、Bilal Nadir（大腿）、Remberg（十字韧带）"
+  ],
+  "susp": [
+   "客队 Vuskovic（兴奋剂禁赛）"
+  ],
+  "lineup": "客队 Torunarigha、Capaldo 带伤",
+  "media": "",
+  "flags": [],
+  "src": [
+   {
+    "d": "fr.de",
+    "t": "10-29"
+   },
+   {
+    "d": "onefootball.com",
+    "t": "10-29"
+   }
+  ]
+ },
+ "018": {
+  "note": "意甲",
+  "abs_home": [
+   "Ilić、Coulibaly、Berisha、Pierotti、Geubbels（大腿）"
+  ],
+  "abs_away": [
+   "Ellertsson、Havel、Venturino"
+  ],
+  "susp": [
+   "主队 Gaspar"
+  ],
+  "lineup": "双方锋线仍是 Esteban 对 Osmajic 的组合",
+  "media": "",
+  "flags": [],
+  "src": [
+   {
+    "d": "tuttomercatoweb.com",
+    "t": "10-29"
+   },
+   {
+    "d": "fotmob.com",
+    "t": "10-31"
+   }
+  ]
+ },
+ "019": {
+  "note": "西甲",
+  "abs_home": [
+   "Marc Aguado（踝韧带，长期）"
+  ],
+  "abs_away": [
+   "Copete、Otorbi（腿筋）、Van Oevelen"
+  ],
+  "susp": [],
+  "lineup": "客队 Foulquier、Sadiq 进名单，主帅称「接近满员」；主队 Fer Niño 体能存疑",
+  "media": "",
+  "flags": [],
+  "src": [
+   {
+    "d": "valenciacf.com",
+    "t": "10-30"
+   },
+   {
+    "d": "eldesmarque.com",
+    "t": "10-30"
+   }
+  ]
+ },
+ "020": {
+  "note": "葡超",
+  "abs_home": [],
+  "abs_away": [
+   "Ryan Guilherme、Miszta、Aguilera"
+  ],
+  "susp": [],
+  "lineup": "客队 Patrício 存疑；主队无人缺阵",
+  "media": "",
+  "flags": [],
+  "src": [
+   {
+    "d": "whoscored.com",
+    "t": "10-31"
+   },
+   {
+    "d": "fotmob.com",
+    "t": "10-31"
+   }
+  ]
+ },
+ "021": {
+  "note": "意甲",
+  "abs_home": [
+   "Locatelli、Thuram、Čelik、Yildiz、N. González、Conceição、Ekhator、Grabara"
+  ],
+  "abs_away": [
+   "Badiashile、Alisson Santos、Neres"
+  ],
+  "susp": [
+   "客队 主帅 Allegri"
+  ],
+  "lineup": "主队锋线靠 Kolo Muani 与 Woltemade 撑",
+  "media": "",
+  "flags": [],
+  "src": [
+   {
+    "d": "khelnow.com",
+    "t": "10-29"
+   },
+   {
+    "d": "sport.fr",
+    "t": "10-29"
+   }
+  ]
+ },
+ "022": {
+  "note": "法甲",
+  "abs_home": [
+   "Cornelius（髋，预计 1 月才回）"
+  ],
+  "abs_away": [
+   "Oppong"
+  ],
+  "susp": [],
+  "lineup": "主队 Meïté 前一晚肠胃不适，Abdallah 被退回预备队",
+  "media": "交锋：主队近 10 次联赛对该对手 7 胜、共进 23 球",
+  "flags": [],
+  "src": [
+   {
+    "d": "fotmob.com",
+    "t": "10-31"
+   },
+   {
+    "d": "onefootball.com",
+    "t": "10-30"
+   }
+  ]
+ },
+ "023": {
+  "note": "西甲",
+  "abs_home": [
+   "Guruzeta（长期）、Ruiz de Galarreta、Sancet（另有 Canales、Eguiluz）"
+  ],
+  "abs_away": [
+   "Odriozola、Beitia、Zakharyan"
+  ],
+  "susp": [],
+  "lineup": "客队主帅 Matarazzo 无重要缺阵",
+  "media": "",
+  "flags": [],
+  "src": [
+   {
+    "d": "as.com",
+    "t": "10-30"
+   },
+   {
+    "d": "fotmob.com",
+    "t": "10-31"
+   }
+  ]
+ },
+ "024": {
+  "note": "巴西杯 半决赛首回合（当地 30 日 18:30）",
+  "abs_home": [],
+  "abs_away": [
+   "伤号名单很长，对克鲁塞罗一役又添两人"
+  ],
+  "susp": [],
+  "lineup": "主队 Kannemann、Jovane Cabral 回归训练；主帅 Portaluppi 赛前才定首发",
+  "media": "",
+  "flags": [
+   "竞彩页面标「巴西杯」，实际是半决赛首回合，不是决赛"
+  ],
+  "src": [
+   {
+    "d": "ole.com.ar",
+    "t": "10-29"
+   },
+   {
+    "d": "gauchazh.clicrbs.com.br",
+    "t": "10-29"
+   }
+  ]
+ },
+ "025": {
+  "note": "MLS",
+  "abs_home": [
+   "Campana、Harrison（均腿筋）"
+  ],
+  "abs_away": [
+   "Silvetti（肩）、Allende（膝）"
+  ],
+  "susp": [],
+  "lineup": "",
+  "media": "",
+  "flags": [],
+  "src": [
+   {
+    "d": "onefootball.com",
+    "t": "10-29"
+   },
+   {
+    "d": "goal.com",
+    "t": "10-31"
+   }
+  ]
+ }
+}

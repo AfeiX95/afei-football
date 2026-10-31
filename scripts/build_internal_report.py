@@ -34,6 +34,8 @@ if FILTER:
 _afp = INTEL / f"_af_pred_{DAY}.json"
 af = json.load(open(_afp, encoding="utf-8")) if _afp.exists() else {"rows": []}
 AF = {r["num"][-3:]: r for r in af["rows"]}
+_extp = INTEL / f"_ext_{DAY}.json"
+EXT = json.load(open(_extp, encoding="utf-8")) if _extp.exists() else {}
 
 sys.path.insert(0, str(ROOT / "scripts"))
 import model_poisson_500 as mp          # noqa: E402
@@ -192,6 +194,13 @@ elif DAY == "20261031":
     ZQ = {"001": "0/1", "002": "3/1", "003": "3/1", "004": "1", "005": "1", "010": "3",
           "011": "1", "012": "3/1", "013": "1/0", "014": "3/1", "015": "1", "016": "1/0",
           "017": "3/1", "018": "3", "022": "3/1"}
+elif DAY == "20261101":
+    # 周日 25 场：不手写，全部走下方通用兜底 _auto_action / _auto_p5
+    TITLE = {}
+    P5 = {}
+    BREAK = {}
+    ACTION_HINT = {}
+    ZQ = {}
 else:
     TITLE = {
         "001": ("亚冠精英", "大阪钢巴 vs 布里兰：主胜方向清，让球还得站着看"),
@@ -258,6 +267,87 @@ else:
           "013": "3/1", "014": "0", "015": "3"}
 
 
+def _med(vals):
+    vals = sorted(vals)
+    n = len(vals)
+    if not n:
+        return 0.0
+    return round(vals[n // 2] if n % 2 else (vals[n // 2 - 1] + vals[n // 2]) / 2, 2)
+
+
+def _mkt_action(num):
+    """市场动作：亚盘中位线位移 + 换线家数。"""
+    b = books[num]
+    ahs = [x for x in (b.get("ah") or {}).values() if x]
+    if not ahs:
+        return "亚盘无可用行"
+    op = _med([x["open"]["line"] for x in ahs])
+    cp = _med([x["close"]["line"] for x in ahs])
+    moved = sum(1 for x in ahs if abs(x["close"]["line"] - x["open"]["line"]) > 1e-9)
+    if abs(cp - op) < 1e-9:
+        return f"{len(ahs)} 家中位线不动（{cp:+.2f}），{moved} 家换水线"
+    return f"{len(ahs)} 家中位线 {op:+.2f}→{cp:+.2f}，{moved} 家换线"
+
+
+def _auto_action(num):
+    """没有手写分支的日期：按 C52 口径自动给站位（三种形态，不套同一句话）。"""
+    r = V3[num]
+    w = r.get("w_data")
+    edge = r.get("edge_ab") or [0.0, 0.0, 0.0]
+    ev = (r.get("ah") or {}).get("ev") or [None, None]
+    mkt = _mkt_action(num)
+    if (w is not None and w < 0.25) or AUDIT.get(num, {}).get("grade", "A") == "C":
+        return f"不站方向（数据侧权重低，只写结构与比分区间）；{mkt}"
+    i = max(range(3), key=lambda k: edge[k])
+    e = edge[i]
+    if e < 3:
+        return f"方向不站（数据里没有高出市场 3 个点的方向，最大差 {abs(max(edge, key=abs)):.1f}pp）；{mkt}"
+    side = ["主队", "平局", "客队"][i]
+    if i == 1 and max(r.get("three_c") or [0, 0, 0]) > 0.55:
+        return f"方向不站（数据只是把平局抬高 {e:+.1f}pp，全场主结论仍是{'主队' if (r['three_c'][0] > r['three_c'][2]) else '客队'}）；{mkt}"
+    same = ev[0] if i == 0 else (ev[1] if i == 2 else None)
+    if same is not None and same >= 3:
+        return f"站{side}（数据高 {e:+.1f}pp、这一侧价格也还在，方向与幅度一起跟）；{mkt}"
+    return f"站{side}（数据高 {e:+.1f}pp、但这一侧没价，只跟方向不追幅度）；{mkt}"
+
+
+def _auto_p5(num):
+    """没有手写分支的日期：用 A/B 分歧 + 亚盘位移 + 大小球结构自动成文。"""
+    r = V3[num]
+    b = books[num]
+    ta = r.get("three_data") or [0.0, 0.0, 0.0]
+    tb = r.get("three_b") or [0.0, 0.0, 0.0]
+    tc = r.get("three_c") or [0.0, 0.0, 0.0]
+    edge = r.get("edge_ab") or [0.0, 0.0, 0.0]
+    w = r.get("w_data") or 0.0
+    k = max(range(3), key=lambda i: abs(edge[i]))
+    p1 = (f"A 独立模型主 {ta[0] * 100:.1f}% / 平 {ta[1] * 100:.1f}% / 客 {ta[2] * 100:.1f}%，"
+          f"市场 {tb[0] * 100:.1f}% / {tb[1] * 100:.1f}% / {tb[2] * 100:.1f}%，"
+          f"最大分歧在{['主胜', '平局', '客胜'][k]}（{edge[k]:+.1f}pp）；"
+          f"融合按数据权重 {w:.2f} 落在 {tc[0] * 100:.1f}% / {tc[1] * 100:.1f}% / {tc[2] * 100:.1f}%。")
+    ahs = [x for x in (b.get("ah") or {}).values() if x]
+    if ahs:
+        moved = sum(1 for x in ahs if abs(x["close"]["line"] - x["open"]["line"]) > 1e-9)
+        p2 = (f"亚盘 {len(ahs)} 家，中位线 {_med([x['open']['line'] for x in ahs]):+.2f} → "
+              f"{_med([x['close']['line'] for x in ahs]):+.2f}，{moved} 家换线。")
+    else:
+        p2 = "亚盘无可用行。"
+    ous = [x for x in (b.get("ou") or {}).values() if x]
+    p3 = (f"大小 {len(ous)} 家中位 {abs(_med([x['open']['line'] for x in ous])):.2f} → "
+          f"{abs(_med([x['close']['line'] for x in ous])):.2f}。" if ous else "大小无可用行。")
+    return p1 + p2 + p3
+
+
+# —— 通用兜底：当天没有手写分支时按数据自动补齐，避免 KeyError ——
+for _n in sorted(books):
+    if _n not in TITLE:
+        TITLE[_n] = (books[_n]["match"].split(" ")[0], "")
+    P5.setdefault(_n, _auto_p5(_n))
+    BREAK.setdefault(_n, "本场未手写打破条件：以「二、模型」的 Edge 与亚盘位移方向为准。")
+    ACTION_HINT.setdefault(_n, _auto_action(_n))
+    ZQ.setdefault(_n, "—")
+
+
 def line_txt(side, line):
     m = {1.5: "球半", 1.25: "一/球半", 1.0: "一球", 0.75: "半/一", 0.5: "半球",
          0.25: "平/半", 0.0: "平手"}
@@ -275,7 +365,9 @@ def pp(x, n=1):
 
 def build_table(b):
     rows = []
-    names = ["皇冠", "Bet365", "易胜博", "威廉", "伟德", "Interwetten"]
+    PREF = ["澳彩", "皇冠", "Bet365", "易胜博", "威廉", "立博", "伟德", "Interwetten"]
+    names = [n for n in PREF if any(n in (b.get(s) or {}) for s in ("ah", "ou", "ox"))]
+    names += sorted({n for s in ("ah", "ou", "ox") for n in (b.get(s) or {})} - set(names))
     for nm in names:
         ah = b.get("ah", {}).get(nm)
         ou = b.get("ou", {}).get(nm)
@@ -365,16 +457,42 @@ def sect3(num, row):
 
 def sect4(num):
     a = AF.get(num)
-    if not a:
+    e = EXT.get(num)
+    lines = []
+    if a:
+        lines += [
+            f"- 外部模型倾向（api-football 免费层）：**{a.get('pred_winner') or '—'}**；原文建议：{a.get('pred_advice') or '—'}",
+            "- 该层三向百分比是模板值，**不采信、不进模型**，只保留倾向",
+        ]
+    if e:
+        b = books[num]
+        pair = b["match"].split(" ", 1)[-1].split(" vs ")
+        h, aw = (pair + ["", ""])[:2]
+        lines.append(f"- 赛事与媒体情报（{e.get('note') or '—'}）：")
+        if e.get("abs_home"):
+            lines.append(f"  - {h} 缺阵：{'、'.join(e['abs_home'])}")
+        if e.get("abs_away"):
+            lines.append(f"  - {aw} 缺阵：{'、'.join(e['abs_away'])}")
+        if e.get("susp"):
+            lines.append(f"  - 停赛：{'；'.join(e['susp'])}")
+        if e.get("lineup"):
+            lines.append(f"  - 阵容与教练口径：{e['lineup']}")
+        if e.get("media"):
+            lines.append(f"  - 媒体倾向：{e['media']}")
+        if e.get("flags"):
+            lines.append(f"  - 情报冲突与口径提醒：{'；'.join(e['flags'])}")
+        if e.get("src"):
+            lines.append("  - 来源：" + "；".join(f"{x['d']} {x['t']}" for x in e["src"]))
+        nh = sum(len(str(x).split("、")) for x in (e.get("abs_home") or []))
+        na = sum(len(str(x).split("、")) for x in (e.get("abs_away") or []))
+        act = ACTION_HINT.get(num, "")
+        if "站主队" in act and nh >= 5 and nh - na >= 3:
+            lines.append(f"  - **站位与情报相左**：站位站主队，但主队缺阵 {nh} 人、客队 {na} 人，这一场要人工复核")
+        if "站客队" in act and na >= 5 and na - nh >= 3:
+            lines.append(f"  - **站位与情报相左**：站位站客队，但客队缺阵 {na} 人、主队 {nh} 人，这一场要人工复核")
+    if not lines:
         return "- 外部预测未取到（缺源不写）"
-    lines = [
-        f"- 外部模型倾向（api-football 免费层）：**{a.get('pred_winner') or '—'}**；原文建议：{a.get('pred_advice') or '—'}",
-        "- 该层给出的三向百分比是模板值（多场同为 45/45/10 或 10/45/45，005 还是 0/50/50），**不采信、不进模型**，只保留倾向",
-        "- 外媒稿：本批未取到可引媒体稿；伤停/天气/裁判/xG 同缺，本节不编",
-    ]
     return "\n".join(lines)
-
-
 
 
 def _ou_water(v):
@@ -597,7 +715,7 @@ HEAD = f"""# {TITLE_LINE} · 内部分析报告
 - 生成：{GEN}（赛前）。口径：**竞彩只算 90 分钟**；杯赛 90 分钟平局要进加时，竞彩不计。
 - 版本：**后台模型 {VER}**；数据快照 **{SNAP}**（`_books_/ _data_` 的 sha256 前 12 位，换数即变）。
 - 盘口源：`odds.500.com/fenxi/{{yazhi,ouzhi,daxiao}}-<id>.shtml`（亚指/欧指/大小三表，初盘+即时）；基本面源 `shuju-<id>.shtml`。
-- 公司可用性：**500 从 2026-10-30 起把公司名匿名化**（返回形如 `I**********`/`易**`/`o***`，HTML 里已找不到「澳彩/皇冠/Bet365/威廉/立博」），所以本报告只按「几家动、中位线怎么移」使用，**不点名公司、不按公司权重加权**；亚盘 5–9 家、大小 6–9 家、欧赔 14 家。空白格即缺源。
+- 公司可用性：500 的公司名时有时无（2026-10-30 整批匿名成 `I**********` 这类，2026-11-01 又恢复真名）。本报告按**当日实际取到的名字**点名，取不到的那些行按「几家动、中位线怎么移」使用，**不按公司权重加权**。空白格即缺源。
 - 模板说明：本报告 = 足彩盘口表 + 原有六段结构的合并版。去重后每场固定六块：①盘口（三套+位移+跨盘自洽）②模型（λ双法 + 泊松解析 + 蒙特卡洛10万次 + 敏感性）③底层数据 ④外部预测 ⑤技术面 ⑥综合分析（方向/比分/概率/打破/动作+足彩）。
 - 模型口径（v3：三套 λ 分开算，不再「各半对冲」）
   - **A 独立模型**：λ_A = 经验贝叶斯收缩（同主客速率 × 对手防守指数^0.5，向全季池化值收缩，k=4；等级 B/C 时 k=6），权重按样本再打折。
@@ -655,7 +773,10 @@ DEC += "、".join(f"{n}" for n in sorted(books)
 coh_ok, coh_bad = [], []
 for num in sorted(books):
     v = model[num]
-    a, b = v["ev_ah_mkt"]
+    a, b = v.get("ev_ah_mkt") or (None, None)
+    if a is None:
+        ev2 = (V3[num].get("ah") or {}).get("ev") or [None, None]
+        a, b = ev2[0], ev2[1]
     if a is None:
         continue
     worst = abs(a)
