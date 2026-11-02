@@ -81,7 +81,7 @@
  "open_items": [
   {
    "type": "数据缺口",
-   "text": "🔴 20261103 周二8场全欧冠：500 通道被 js-challenge 拦（gate 需人工点验证码，用户定先降级）→ _books/_data 全缺，audit_data→model_v3→build_internal_report 整链今晚没跑，只出了情报单/外媒/积分榜/市场结构。补抓窗口：比赛 11-04 01:45/04:00 开球，明天白天跑 _x500.py gate（用户点验证）→ books_500 → fenxi_500 → audit → model_v3 → build_internal_report。另：prematch_intel 外媒子进程在场次表生成前跑且失败被吞的 bug 已修（未生成 _matches 先补、落盘后才报成功）。"
+   "text": "20261103 周二8场欧冠 A层管线已全通（真浏览器过EdgeOne验证+32页入500缓存→books/fenxi离线解析→audit 8场全绿→model_v3→内部报告 ERROR 0/WARN 1；修复 build_internal_report else 分支串场bug，20261027旧研判已钉死）。剩余：①亚盘即时盘偏薄（澳彩/B365多场未开盘，亚盘众数线样本3-4家）→ 临场补抓：比赛11-04 01:45/04:00开球前重跑浏览器缓存采集（驱动 state/tmp/_run_books_offline.py，若EdgeOne票据失效重过验证）→ market_from_intel → model_v3 重算 → 报告重生成；②007 国米近5场空（500近况表空）→ 市场单腿，临场再看；③写公开稿前必须 check_report_consistency + preflight。"
   },
   {
    "type": "数据缺口",
