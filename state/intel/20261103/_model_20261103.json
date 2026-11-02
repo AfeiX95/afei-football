@@ -1,0 +1,258 @@
+{
+ "004": {
+  "match": "欧冠 加拉塔萨 vs 斯图加特",
+  "kickoff": "01:45",
+  "id": null,
+  "market3": [
+   0.41,
+   0.234,
+   0.356
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   3.0,
+   0.53
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.59
+ },
+ "005": {
+  "match": "欧冠 马竞 vs 拜仁",
+  "kickoff": "04:00",
+  "id": null,
+  "market3": [
+   0.3544,
+   0.2372,
+   0.4084
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": 1.0,
+  "jc_ah_side": "主受让",
+  "jc_ah_water": [
+   0.51,
+   3.15
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.49
+ },
+ "006": {
+  "match": "欧冠 LASK林茨 vs 布拉迪斯",
+  "kickoff": "04:00",
+  "id": null,
+  "market3": [
+   0.67,
+   0.177,
+   0.153
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   0.94,
+   1.75
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.59
+ },
+ "007": {
+  "match": "欧冠 费耶诺德 vs 国际米兰",
+  "kickoff": "04:00",
+  "id": null,
+  "market3": [
+   0.231,
+   0.217,
+   0.552
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": 1.0,
+  "jc_ah_side": "主受让",
+  "jc_ah_water": [
+   1.0,
+   1.65
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.48
+ },
+ "008": {
+  "match": "欧冠 曼联 vs 罗马",
+  "kickoff": "04:00",
+  "id": null,
+  "market3": [
+   0.4184,
+   0.2372,
+   0.3443
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   3.1,
+   0.52
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.36
+ },
+ "009": {
+  "match": "欧冠 巴萨 vs 维拉",
+  "kickoff": "04:00",
+  "id": null,
+  "market3": [
+   0.77,
+   0.13,
+   0.1
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -2.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   1.2,
+   1.19
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 4.28
+ },
+ "010": {
+  "match": "欧冠 比利亚雷 vs 巴黎圣曼",
+  "kickoff": "04:00",
+  "id": null,
+  "market3": [
+   0.186,
+   0.183,
+   0.631
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": 1.0,
+  "jc_ah_side": "主受让",
+  "jc_ah_water": [
+   1.41,
+   1.12
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.78
+ },
+ "011": {
+  "match": "欧冠 博德闪耀 vs 里尔",
+  "kickoff": "04:00",
+  "id": null,
+  "market3": [
+   0.542,
+   0.222,
+   0.236
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   1.75,
+   0.95
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.43
+ }
+}

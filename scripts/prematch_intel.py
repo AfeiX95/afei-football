@@ -571,10 +571,21 @@ def main() -> None:
 
     if a.media:
         try:
+            # media_intel 依赖 state/batch/_matches_<date>.json（场次表），没有就先补
+            # （2026-11-03 教训：场次表未生成时外媒子进程静默失败，还误报「已采」）
+            need = ROOT / "state" / "batch" / f"_matches_{date_tag}.json"
+            if not need.exists():
+                subprocess.run([sys.executable, "-X", "utf8", str(SCRIPTS / "model_autofill.py"),
+                                "--date", date_tag], cwd=str(ROOT), capture_output=True,
+                               text=True, timeout=600)
             subprocess.run([sys.executable, "-X", "utf8", str(SCRIPTS / "media_intel.py"),
                             "--date", date_tag], cwd=str(ROOT), capture_output=True,
                            text=True, timeout=1800)
-            print(f"  已采外媒情报 → state/intel/{date_tag}/_media_{date_tag}.md")
+            media_md = ROOT / "state" / "intel" / date_tag / f"_media_{date_tag}.md"
+            if media_md.exists():
+                print(f"  已采外媒情报 → state/intel/{date_tag}/_media_{date_tag}.md")
+            else:
+                print("  ⚠️ 外媒情报未落盘（跑 media_intel.py --date %s 看具体报错）" % date_tag)
         except Exception as exc:  # noqa: BLE001
             print(f"  ⚠️ 外媒采集失败（缺 Key 或网络）：{exc}")
 
