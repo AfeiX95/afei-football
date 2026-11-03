@@ -398,7 +398,10 @@ def build_table(b):
                     cells.append("/".join(f"{x:.2f}" for x in d))
                 elif side == "ah":
                     ln = line_txt("主让" if d["line"] < 0 else ("平手" if d["line"] == 0 else "主受让"), d["line"])
-                    cells.append(f"{ln} {d['home']:.2f}/{d['away']:.2f}")
+                    if d.get("home") is None or d.get("away") is None:
+                        cells.append(f"{ln} 水位—")  # 替代源无亚盘水位，诚实留空
+                    else:
+                        cells.append(f"{ln} {d['home']:.2f}/{d['away']:.2f}")
                 else:
                     cells.append(f"{abs(d['line']):.2f} {d['home']:.2f}/{d['away']:.2f}")
         rows.append("| " + " | ".join(cells) + " |")
@@ -690,7 +693,8 @@ for num in sorted(books):
     v = model[num]
     lg, ttl = TITLE[num]
     _jc = (V3[num].get("jc_ah") or {})
-    _ah_txt = ("亚盘（500即时众数）" + line_txt(v["ah_side"], v["ah_line"])) if v.get("ah_line") is not None else "亚盘（500即时众数）无"
+    _ah_src = (v.get("ah_line_src") or "500即时众数").replace("（", "·").replace("）", "").replace("线", "")
+    _ah_txt = (f"亚盘（{_ah_src}）" + line_txt(v["ah_side"], v["ah_line"])) if v.get("ah_line") is not None else f"亚盘（{_ah_src}）无"
     _jc_txt = ("｜竞彩让球 " + line_txt(_jc.get("side") or "", _jc.get("line"))) if _jc.get("line") is not None else ""
     head = (f"### {num} {lg}｜{b['match'].split(' ', 1)[-1]}｜{b['kickoff']}｜"
             f"{_ah_txt}{_jc_txt}\n\n"
@@ -729,12 +733,14 @@ import datetime as _dt
 _WD = "一二三四五六日"[_dt.date(int(DAY[:4]), int(DAY[4:6]), int(DAY[6:])).weekday()]
 TITLE_LINE = f"{DAY[:4]}-{DAY[4:6]}-{DAY[6:]} 周{_WD} {len(books)} 场"
 GEN = _dt.datetime.now().strftime("%Y-%m-%d %H:%M")
+_alt = any("替代源" in (b.get("note") or "") for b in books.values())
+SRC_NOTE = ("竞彩官方 webapi 让球线+胜平负（初盘→即时）+ wiki 积分榜 + 官方近况/交锋；500 fenxi 本日被 EdgeOne 限流未用（用户 2026-11-04 指示换源），亚盘水位缺位如实留空" if _alt else "`odds.500.com/fenxi/{yazhi,ouzhi,daxiao}-<id>.shtml`（亚指/欧指/大小三表，初盘+即时）；基本面源 `shuju-<id>.shtml`")
 
 HEAD = f"""# {TITLE_LINE} · 内部分析报告
 
 - 生成：{GEN}（赛前）。口径：**竞彩只算 90 分钟**；杯赛 90 分钟平局要进加时，竞彩不计。
 - 版本：**后台模型 {VER}**；数据快照 **{SNAP}**（`_books_/ _data_` 的 sha256 前 12 位，换数即变）。
-- 盘口源：`odds.500.com/fenxi/{{yazhi,ouzhi,daxiao}}-<id>.shtml`（亚指/欧指/大小三表，初盘+即时）；基本面源 `shuju-<id>.shtml`。
+- 盘口源：{SRC_NOTE}。
 - 公司可用性：500 的公司名时有时无（2026-10-30 整批匿名成 `I**********` 这类，2026-11-01 又恢复真名）。本报告按**当日实际取到的名字**点名，取不到的那些行按「几家动、中位线怎么移」使用，**不按公司权重加权**。空白格即缺源。
 - 模板说明：本报告 = 足彩盘口表 + 原有六段结构的合并版。去重后每场固定六块：①盘口（三套+位移+跨盘自洽）②模型（λ双法 + 泊松解析 + 蒙特卡洛10万次 + 敏感性）③底层数据 ④外部预测 ⑤技术面 ⑥综合分析（方向/比分/概率/打破/动作+足彩）。
 - 模型口径（v3：三套 λ 分开算，不再「各半对冲」）

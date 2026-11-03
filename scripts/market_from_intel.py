@@ -135,6 +135,8 @@ def main() -> None:
                 for bk, v in ah.items():
                     c = v.get("close") or {}
                     if c.get("line") is not None and round(float(c["line"]), 2) == mode_line:
+                        if c.get("home") is None or c.get("away") is None:
+                            break  # 替代源（如竞彩让球）无亚盘水位：诚实留空，不编造
                         pick = (round(float(c["home"]), 3), round(float(c["away"]), 3))
                         break
             # 亚盘：线 = 500 即时众数线，水位 = 同线那本书的即时水位（成对）
@@ -142,7 +144,10 @@ def main() -> None:
                 mode_line = Counter(r["ah_close_lines"]).most_common(1)[0][0]
                 r["ah_line"] = float(mode_line)
                 r["ah_side"] = "主让" if mode_line < 0 else ("平手" if mode_line == 0 else "主受让")
-                r["ah_line_src"] = "500 即时众数线（%d 家同线）" % r["ah_close_lines"].count(mode_line)
+                if any("竞彩" in bk for bk in ah) and len(ah) == 1:
+                    r["ah_line_src"] = "竞彩官方让球线（替代源）"
+                else:
+                    r["ah_line_src"] = "500 即时众数线（%d 家同线）" % r["ah_close_lines"].count(mode_line)
             if r["ou_close_lines"]:
                 mode_ou = Counter(r["ou_close_lines"]).most_common(1)[0][0]
                 r["ou_line"] = abs(float(mode_ou))

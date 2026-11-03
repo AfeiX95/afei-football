@@ -1,0 +1,372 @@
+{
+ "001": {
+  "match": "亚冠精英 浦项制铁 vs 大阪钢巴",
+  "kickoff": "18:00",
+  "id": "2042506",
+  "note": "替代源：官方webapi+wiki，500 EdgeOne限流未用",
+  "ah": {
+   "竞彩官方": {
+    "raw": "竞彩让球(水位缺，三向见ox)",
+    "open": {
+     "home": null,
+     "line": 1.0,
+     "away": null
+    },
+    "close": {
+     "home": null,
+     "line": 1.0,
+     "away": null
+    }
+   }
+  },
+  "ox": {
+   "竞彩官方": {
+    "raw": "竞彩胜平负",
+    "open": [
+     2.85,
+     3.25,
+     2.08
+    ],
+    "close": [
+     2.85,
+     3.25,
+     2.08
+    ]
+   }
+  },
+  "ou": {}
+ },
+ "002": {
+  "match": "亚冠精英 布里兰 vs 鹿岛鹿角",
+  "kickoff": "20:15",
+  "id": "2042507",
+  "note": "替代源：官方webapi+wiki，500 EdgeOne限流未用",
+  "ah": {
+   "竞彩官方": {
+    "raw": "竞彩让球(水位缺，三向见ox)",
+    "open": {
+     "home": null,
+     "line": 1.0,
+     "away": null
+    },
+    "close": {
+     "home": null,
+     "line": 1.0,
+     "away": null
+    }
+   }
+  },
+  "ox": {
+   "竞彩官方": {
+    "raw": "竞彩胜平负",
+    "open": [
+     3.55,
+     3.5,
+     1.75
+    ],
+    "close": [
+     3.62,
+     3.55,
+     1.72
+    ]
+   }
+  },
+  "ou": {}
+ },
+ "004": {
+  "match": "欧冠 费内巴切 vs 利物浦",
+  "kickoff": "01:45",
+  "id": "2042509",
+  "note": "替代源：官方webapi+wiki，500 EdgeOne限流未用",
+  "ah": {
+   "竞彩官方": {
+    "raw": "竞彩让球(水位缺，三向见ox)",
+    "open": {
+     "home": null,
+     "line": 1.0,
+     "away": null
+    },
+    "close": {
+     "home": null,
+     "line": 1.0,
+     "away": null
+    }
+   }
+  },
+  "ox": {
+   "竞彩官方": {
+    "raw": "竞彩胜平负",
+    "open": [
+     4.7,
+     4.3,
+     1.44
+    ],
+    "close": [
+     5.35,
+     4.5,
+     1.37
+    ]
+   }
+  },
+  "ou": {}
+ },
+ "005": {
+  "match": "欧冠 莱红牛 vs 曼城",
+  "kickoff": "04:00",
+  "id": "2042510",
+  "note": "替代源：官方webapi+wiki，500 EdgeOne限流未用",
+  "ah": {
+   "竞彩官方": {
+    "raw": "竞彩让球(水位缺，三向见ox)",
+    "open": {
+     "home": null,
+     "line": 1.0,
+     "away": null
+    },
+    "close": {
+     "home": null,
+     "line": 1.0,
+     "away": null
+    }
+   }
+  },
+  "ox": {
+   "竞彩官方": {
+    "raw": "竞彩胜平负",
+    "open": [
+     4.85,
+     4.7,
+     1.39
+    ],
+    "close": [
+     5.1,
+     4.8,
+     1.36
+    ]
+   }
+  },
+  "ou": {}
+ },
+ "006": {
+  "match": "欧冠 波尔图 vs 那不勒斯",
+  "kickoff": "04:00",
+  "id": "2042511",
+  "note": "替代源：官方webapi+wiki，500 EdgeOne限流未用",
+  "ah": {
+   "竞彩官方": {
+    "raw": "竞彩让球(水位缺，三向见ox)",
+    "open": {
+     "home": null,
+     "line": -1.0,
+     "away": null
+    },
+    "close": {
+     "home": null,
+     "line": -1.0,
+     "away": null
+    }
+   }
+  },
+  "ox": {
+   "竞彩官方": {
+    "raw": "竞彩胜平负",
+    "open": [
+     1.88,
+     3.45,
+     3.15
+    ],
+    "close": [
+     1.88,
+     3.45,
+     3.15
+    ]
+   }
+  },
+  "ou": {}
+ },
+ "007": {
+  "match": "欧冠 埃因霍温 vs 布鲁日",
+  "kickoff": "04:00",
+  "id": "2042512",
+  "note": "替代源：官方webapi+wiki，500 EdgeOne限流未用",
+  "ah": {
+   "竞彩官方": {
+    "raw": "竞彩让球(水位缺，三向见ox)",
+    "open": {
+     "home": null,
+     "line": -1.0,
+     "away": null
+    },
+    "close": {
+     "home": null,
+     "line": -1.0,
+     "away": null
+    }
+   }
+  },
+  "ox": {
+   "竞彩官方": {
+    "raw": "竞彩胜平负",
+    "open": [
+     1.92,
+     3.85,
+     2.79
+    ],
+    "close": [
+     1.92,
+     3.85,
+     2.79
+    ]
+   }
+  },
+  "ou": {}
+ },
+ "008": {
+  "match": "欧冠 多特蒙德 vs 贝蒂斯",
+  "kickoff": "04:00",
+  "id": "2042513",
+  "note": "替代源：官方webapi+wiki，500 EdgeOne限流未用",
+  "ah": {
+   "竞彩官方": {
+    "raw": "竞彩让球(水位缺，三向见ox)",
+    "open": {
+     "home": null,
+     "line": -1.0,
+     "away": null
+    },
+    "close": {
+     "home": null,
+     "line": -1.0,
+     "away": null
+    }
+   }
+  },
+  "ox": {
+   "竞彩官方": {
+    "raw": "竞彩胜平负",
+    "open": [
+     1.6,
+     3.95,
+     3.82
+    ],
+    "close": [
+     1.6,
+     3.95,
+     3.82
+    ]
+   }
+  },
+  "ou": {}
+ },
+ "009": {
+  "match": "欧冠 维京 vs 萨巴赫",
+  "kickoff": "04:00",
+  "id": "2042514",
+  "note": "替代源：官方webapi+wiki，500 EdgeOne限流未用",
+  "ah": {
+   "竞彩官方": {
+    "raw": "竞彩让球(水位缺，三向见ox)",
+    "open": {
+     "home": null,
+     "line": -1.0,
+     "away": null
+    },
+    "close": {
+     "home": null,
+     "line": -1.0,
+     "away": null
+    }
+   }
+  },
+  "ox": {
+   "竞彩官方": {
+    "raw": "竞彩胜平负",
+    "open": [
+     1.28,
+     5.05,
+     6.25
+    ],
+    "close": [
+     1.26,
+     5.2,
+     6.5
+    ]
+   }
+  },
+  "ou": {}
+ },
+ "010": {
+  "match": "欧冠 朗斯 vs 科莫",
+  "kickoff": "04:00",
+  "id": "2042515",
+  "note": "替代源：官方webapi+wiki，500 EdgeOne限流未用",
+  "ah": {
+   "竞彩官方": {
+    "raw": "竞彩让球(水位缺，三向见ox)",
+    "open": {
+     "home": null,
+     "line": 1.0,
+     "away": null
+    },
+    "close": {
+     "home": null,
+     "line": 1.0,
+     "away": null
+    }
+   }
+  },
+  "ox": {
+   "竞彩官方": {
+    "raw": "竞彩胜平负",
+    "open": [
+     3.13,
+     3.7,
+     1.82
+    ],
+    "close": [
+     3.15,
+     3.75,
+     1.8
+    ]
+   }
+  },
+  "ou": {}
+ },
+ "011": {
+  "match": "欧冠 斯拉维亚 vs 阿森纳",
+  "kickoff": "04:00",
+  "id": "2042516",
+  "note": "替代源：官方webapi+wiki，500 EdgeOne限流未用",
+  "ah": {
+   "竞彩官方": {
+    "raw": "竞彩让球(水位缺，三向见ox)",
+    "open": {
+     "home": null,
+     "line": 2.0,
+     "away": null
+    },
+    "close": {
+     "home": null,
+     "line": 2.0,
+     "away": null
+    }
+   }
+  },
+  "ox": {
+   "竞彩官方": {
+    "raw": "竞彩胜平负",
+    "open": [
+     9.7,
+     5.5,
+     1.17
+    ],
+    "close": [
+     10.75,
+     5.9,
+     1.14
+    ]
+   }
+  },
+  "ou": {}
+ }
+}

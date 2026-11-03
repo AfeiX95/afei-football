@@ -1118,7 +1118,96 @@
     "半全场最热组合是「负负」（38.9%）。"
    ],
    "intel": {
-    "injuries": [],
+    "injuries": [
+     {
+      "team": "费内巴切",
+      "side": "home",
+      "name": "阿克",
+      "pos": "后卫",
+      "apps": 3,
+      "kind": "伤"
+     },
+     {
+      "team": "费内巴切",
+      "side": "home",
+      "name": "阿森西奥",
+      "pos": "中场",
+      "apps": 5,
+      "kind": "伤"
+     },
+     {
+      "team": "费内巴切",
+      "side": "home",
+      "name": "M.格林伍德",
+      "pos": "前锋",
+      "apps": 3,
+      "kind": "伤"
+     },
+     {
+      "team": "费内巴切",
+      "side": "home",
+      "name": "J.奥斯特沃尔德",
+      "pos": "后卫",
+      "apps": 3,
+      "kind": "伤"
+     },
+     {
+      "team": "费内巴切",
+      "side": "home",
+      "name": "K. Peprah Oppong",
+      "pos": "后卫",
+      "apps": 1,
+      "kind": "伤"
+     },
+     {
+      "team": "利物浦",
+      "side": "away",
+      "name": "弗林蓬",
+      "pos": "后卫",
+      "apps": 2,
+      "kind": "伤"
+     },
+     {
+      "team": "利物浦",
+      "side": "away",
+      "name": "R. Araújo",
+      "pos": "后卫",
+      "apps": 3,
+      "kind": "伤"
+     },
+     {
+      "team": "利物浦",
+      "side": "away",
+      "name": "亚罗什",
+      "pos": "守门员",
+      "apps": 0,
+      "kind": "伤"
+     },
+     {
+      "team": "利物浦",
+      "side": "away",
+      "name": "H. Ekitike",
+      "pos": "前锋",
+      "apps": 0,
+      "kind": "伤"
+     },
+     {
+      "team": "利物浦",
+      "side": "away",
+      "name": "C.布拉德利",
+      "pos": "后卫",
+      "apps": 0,
+      "kind": "伤"
+     },
+     {
+      "team": "利物浦",
+      "side": "away",
+      "name": "G. Leoni",
+      "pos": "后卫",
+      "apps": 0,
+      "kind": "伤"
+     }
+    ],
     "home_form": {
      "n": 5,
      "gf_avg": 1.4,
@@ -1507,7 +1596,48 @@
     "半全场最热组合是「负负」（39.9%）。"
    ],
    "intel": {
-    "injuries": [],
+    "injuries": [
+     {
+      "team": "莱红牛",
+      "side": "home",
+      "name": "M. Estève",
+      "pos": "后卫",
+      "apps": 0,
+      "kind": "伤"
+     },
+     {
+      "team": "莱红牛",
+      "side": "home",
+      "name": "F. Ouédraogo",
+      "pos": "中场",
+      "apps": 1,
+      "kind": "伤"
+     },
+     {
+      "team": "莱红牛",
+      "side": "home",
+      "name": "Marc Guiu",
+      "pos": "前锋",
+      "apps": 1,
+      "kind": "伤"
+     },
+     {
+      "team": "曼城",
+      "side": "away",
+      "name": "E. Anderson",
+      "pos": "中场",
+      "apps": 3,
+      "kind": "伤"
+     },
+     {
+      "team": "曼城",
+      "side": "away",
+      "name": "塞梅尼奥",
+      "pos": "前锋",
+      "apps": 2,
+      "kind": "伤"
+     }
+    ],
     "home_form": {
      "n": 5,
      "gf_avg": 2.0,
@@ -1923,7 +2053,88 @@
     "半全场最热组合是「胜胜」（26.6%）——半场就领先并保持到底，是定价认为最省事的一条路。"
    ],
    "intel": {
-    "injuries": [],
+    "injuries": [
+     {
+      "team": "波尔图",
+      "side": "home",
+      "name": "Gabriel Mec",
+      "pos": "前锋",
+      "apps": 0,
+      "kind": "伤"
+     },
+     {
+      "team": "那不勒斯",
+      "side": "away",
+      "name": "K. De Bruyne",
+      "pos": "中场",
+      "apps": 3,
+      "kind": "伤"
+     },
+     {
+      "team": "那不勒斯",
+      "side": "away",
+      "name": "L. Spinazzola",
+      "pos": "后卫",
+      "apps": 2,
+      "kind": "伤"
+     },
+     {
+      "team": "那不勒斯",
+      "side": "away",
+      "name": "米林科维奇",
+      "pos": "守门员",
+      "apps": 2,
+      "kind": "伤"
+     },
+     {
+      "team": "那不勒斯",
+      "side": "away",
+      "name": "David Neres",
+      "pos": "前锋",
+      "apps": 2,
+      "kind": "伤"
+     },
+     {
+      "team": "那不勒斯",
+      "side": "away",
+      "name": "布翁焦尔诺",
+      "pos": "后卫",
+      "apps": 0,
+      "kind": "伤"
+     },
+     {
+      "team": "那不勒斯",
+      "side": "away",
+      "name": "B. Badiashile",
+      "pos": "后卫",
+      "apps": 1,
+      "kind": "伤"
+     },
+     {
+      "team": "那不勒斯",
+      "side": "away",
+      "name": "赫伊隆",
+      "pos": "前锋",
+      "apps": 3,
+      "kind": "伤"
+     },
+     {
+      "team": "那不勒斯",
+      "side": "away",
+      "name": "Alisson Santos",
+      "pos": "前锋",
+      "apps": 1,
+      "kind": "伤"
+     },
+     {
+      "team": "那不勒斯",
+      "side": "away",
+      "name": "C. Favasuli",
+      "pos": "后卫",
+      "apps": 1,
+      "kind": "伤"
+     }
+    ],
     "home_form": {
      "n": 5,
      "gf_avg": 1.6,
@@ -2319,7 +2530,40 @@
     "半全场最热组合是「胜胜」（27.0%）——半场就领先并保持到底，是定价认为最省事的一条路。"
    ],
    "intel": {
-    "injuries": [],
+    "injuries": [
+     {
+      "team": "埃因霍温",
+      "side": "home",
+      "name": "A. Pléa",
+      "pos": "前锋",
+      "apps": 0,
+      "kind": "伤"
+     },
+     {
+      "team": "埃因霍温",
+      "side": "home",
+      "name": "P. Wanner",
+      "pos": "中场",
+      "apps": 1,
+      "kind": "伤"
+     },
+     {
+      "team": "埃因霍温",
+      "side": "home",
+      "name": "S. Ouaissa",
+      "pos": "前锋",
+      "apps": 2,
+      "kind": "伤"
+     },
+     {
+      "team": "布鲁日",
+      "side": "away",
+      "name": "奥多涅斯",
+      "pos": "后卫",
+      "apps": 0,
+      "kind": "伤"
+     }
+    ],
     "home_form": {
      "n": 5,
      "gf_avg": 2.0,
@@ -2725,7 +2969,56 @@
     "半全场最热组合是「胜胜」（33.2%）——半场就领先并保持到底，是定价认为最省事的一条路。"
    ],
    "intel": {
-    "injuries": [],
+    "injuries": [
+     {
+      "team": "多特蒙德",
+      "side": "home",
+      "name": "S. Guirassy",
+      "pos": "前锋",
+      "apps": 3,
+      "kind": "伤"
+     },
+     {
+      "team": "多特蒙德",
+      "side": "home",
+      "name": "I. Konstantelias",
+      "pos": "中场",
+      "apps": 0,
+      "kind": "伤"
+     },
+     {
+      "team": "多特蒙德",
+      "side": "home",
+      "name": "J. Lerma",
+      "pos": "中场",
+      "apps": 0,
+      "kind": "伤"
+     },
+     {
+      "team": "多特蒙德",
+      "side": "home",
+      "name": "考阿·普拉特斯",
+      "pos": "后卫",
+      "apps": 1,
+      "kind": "伤"
+     },
+     {
+      "team": "贝蒂斯",
+      "side": "away",
+      "name": "胡尼奥尔·菲尔波",
+      "pos": "后卫",
+      "apps": 1,
+      "kind": "伤"
+     },
+     {
+      "team": "贝蒂斯",
+      "side": "away",
+      "name": "J. Hernández",
+      "pos": "前锋",
+      "apps": 1,
+      "kind": "伤"
+     }
+    ],
     "home_form": {
      "n": 5,
      "gf_avg": 1.6,
@@ -3121,7 +3414,24 @@
     "半全场最热组合是「胜胜」（44.8%）——半场就领先并保持到底，是定价认为最省事的一条路。"
    ],
    "intel": {
-    "injuries": [],
+    "injuries": [
+     {
+      "team": "维京",
+      "side": "home",
+      "name": "德阿戈斯蒂诺",
+      "pos": "前锋",
+      "apps": 0,
+      "kind": "伤"
+     },
+     {
+      "team": "萨巴赫",
+      "side": "away",
+      "name": "Du Queiroz",
+      "pos": "中场",
+      "apps": 3,
+      "kind": "伤"
+     }
+    ],
     "home_form": {
      "n": 5,
      "gf_avg": 2.4,
@@ -3510,7 +3820,88 @@
     "半全场最热组合是「负负」（28.5%）。"
    ],
    "intel": {
-    "injuries": [],
+    "injuries": [
+     {
+      "team": "朗斯",
+      "side": "home",
+      "name": "O. Édouard",
+      "pos": "前锋",
+      "apps": 3,
+      "kind": "伤"
+     },
+     {
+      "team": "朗斯",
+      "side": "home",
+      "name": "M. Nawrocki",
+      "pos": "后卫",
+      "apps": 0,
+      "kind": "伤"
+     },
+     {
+      "team": "朗斯",
+      "side": "home",
+      "name": "A.西玛",
+      "pos": "前锋",
+      "apps": 1,
+      "kind": "伤"
+     },
+     {
+      "team": "朗斯",
+      "side": "home",
+      "name": "P. Ganiou",
+      "pos": "后卫",
+      "apps": 2,
+      "kind": "伤"
+     },
+     {
+      "team": "科莫",
+      "side": "away",
+      "name": "T. Chalobah",
+      "pos": "后卫",
+      "apps": 2,
+      "kind": "伤"
+     },
+     {
+      "team": "科莫",
+      "side": "away",
+      "name": "M. Kean",
+      "pos": "前锋",
+      "apps": 1,
+      "kind": "伤"
+     },
+     {
+      "team": "科莫",
+      "side": "away",
+      "name": "J. Addai",
+      "pos": "前锋",
+      "apps": 0,
+      "kind": "伤"
+     },
+     {
+      "team": "科莫",
+      "side": "away",
+      "name": "N. Paz",
+      "pos": "中场",
+      "apps": 3,
+      "kind": "伤"
+     },
+     {
+      "team": "科莫",
+      "side": "away",
+      "name": "Assane Diao",
+      "pos": "前锋",
+      "apps": 2,
+      "kind": "伤"
+     },
+     {
+      "team": "科莫",
+      "side": "away",
+      "name": "Jesús Rodríguez",
+      "pos": "前锋",
+      "apps": 1,
+      "kind": "伤"
+     }
+    ],
     "home_form": {
      "n": 5,
      "gf_avg": 1.0,
@@ -3899,7 +4290,24 @@
     "半全场最热组合是「负负」（51.4%）。"
    ],
    "intel": {
-    "injuries": [],
+    "injuries": [
+     {
+      "team": "斯拉维亚",
+      "side": "home",
+      "name": "B. Ouanda",
+      "pos": "前锋",
+      "apps": 0,
+      "kind": "伤"
+     },
+     {
+      "team": "阿森纳",
+      "side": "away",
+      "name": "梅里诺",
+      "pos": "中场",
+      "apps": 3,
+      "kind": "伤"
+     }
+    ],
     "home_form": {
      "n": 5,
      "gf_avg": 2.4,
