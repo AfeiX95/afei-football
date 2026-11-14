@@ -165,7 +165,9 @@ def mc_sim(lam_h, lam_a, line_ah, line_ou, n=100000, seed=20261027):
             d += 1
         else:
             l += 1
-        if _is_quarter(line_ah):
+        if line_ah is None:
+            pass                      # 无亚盘线（如 500 缺源）：不做让球统计，返回 None
+        elif _is_quarter(line_ah):
             for sub in (line_ah - 0.25, line_ah + 0.25):
                 df = hg - ag + sub
                 if df > 0:
@@ -206,7 +208,9 @@ def mc_sim(lam_h, lam_a, line_ah, line_ou, n=100000, seed=20261027):
     return {
         "n": n,
         "w": round(w / n, 4), "d": round(d / n, 4), "l": round(l / n, 4),
-        "ah_w": round(ah_w / n, 4), "ah_p": round(ah_p / n, 4), "ah_l": round(ah_l / n, 4),
+        "ah_w": round(ah_w / n, 4) if line_ah is not None else None,
+        "ah_p": round(ah_p / n, 4) if line_ah is not None else None,
+        "ah_l": round(ah_l / n, 4) if line_ah is not None else None,
         "o": round(ov / n, 4) if line_ou is not None else None,
         "p": round(pu / n, 4) if line_ou is not None else None,
         "u": round(un / n, 4) if line_ou is not None else None,

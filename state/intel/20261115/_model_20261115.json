@@ -1,0 +1,262 @@
+{
+ "001": {
+  "match": "日联赛杯 町田泽维 vs 神户胜利",
+  "kickoff": "13:00",
+  "id": "2160692",
+  "market3": [
+   0.379,
+   0.283,
+   0.338
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   4.55,
+   0.43
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 2.52,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "002": {
+  "match": "日联赛杯 鹿岛鹿角 vs 横滨水手",
+  "kickoff": "14:00",
+  "id": "2160694",
+  "market3": [
+   0.552,
+   0.228,
+   0.22
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   1.94,
+   0.98
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.23,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "003": {
+  "match": "日联赛杯 大阪樱花 vs 浦和红钻",
+  "kickoff": "14:00",
+  "id": "2160696",
+  "market3": [
+   0.359,
+   0.251,
+   0.39
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": 1.0,
+  "jc_ah_side": "主受让",
+  "jc_ah_water": [
+   0.46,
+   3.7
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.13,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "004": {
+  "match": "日联赛杯 柏太阳神 vs 川崎前锋",
+  "kickoff": "16:00",
+  "id": "2160690",
+  "market3": [
+   0.472,
+   0.234,
+   0.294
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   2.56,
+   0.68
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.35,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "005": {
+  "match": "荷乙 马斯特里 vs 维迪斯",
+  "kickoff": "21:30",
+  "id": "1416130",
+  "market3": [
+   0.303,
+   0.254,
+   0.443
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": 1.0,
+  "jc_ah_side": "主受让",
+  "jc_ah_water": [
+   0.62,
+   2.98
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.13,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ }
+}
