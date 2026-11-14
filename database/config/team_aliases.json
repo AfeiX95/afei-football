@@ -1,5 +1,14 @@
 {
  "_comment": "中文队名 → 外部源标识。sm_slug=Sports Mole slug；en=Sports Mole 显示名；af=API-Football 队名（写法常不同，如 Man City→Manchester City、毕尔巴鄂→Athletic Club、巴黎→Paris Saint Germain）。新队三列一起补。",
+ "登博思": {
+  "sm_slug": "den-bosch",
+  "en": "Den Bosch",
+  "af": "Den Bosch",
+  "wiki": "邓博施",
+  "alt": [
+   "邓博施"
+  ]
+ },
  "曼城": {
   "sm_slug": "man-city",
   "en": "Man City",

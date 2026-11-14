@@ -31,23 +31,50 @@ UA = {
 }
 
 
-def fetch(mid: str) -> str:
+def prefetch(ids, workers: int = 8):
+    """并发把缺的「数据页」拉下来；失败的页面再串行补两轮（500 瞬时失败多）"""
     CACHE.mkdir(parents=True, exist_ok=True)
+    need = [m for m in ids
+            if not ((CACHE / f"shuju_{m}.html").exists()
+                    and (CACHE / f"shuju_{m}.html").stat().st_size > 50000)]
+    if not need:
+        print(f"  数据页 {len(ids)} 场，全部命中缓存")
+        return 0, []
+    miss0 = len(need)
+    bad = need
+    for rnd in range(1, 4):
+        urls = [f"https://odds.500.com/fenxi/shuju-{m}.shtml" for m in bad]
+        got = _x500.fetch_many(urls, workers=workers, retries=1, sleep=0.05)
+        nb = []
+        for m, u in zip(bad, urls):
+            v = got.get(u)
+            if isinstance(v, str) and len(v) >= 5000:
+                (CACHE / f"shuju_{m}.html").write_text(v, encoding="gb18030", errors="ignore")
+            else:
+                nb.append(m)
+        print(f"  第 {rnd} 轮：待抓 {len(bad)} → 成功 {len(bad) - len(nb)}，剩 {len(nb)}")
+        bad = nb
+        if not bad:
+            break
+        time.sleep(0.5 * rnd)
+    print(f"  数据页 {len(ids)} 场（缺 {miss0}）→ 补齐后仍缺 {len(bad)}"
+          + (("：" + ",".join(bad[:8])) if bad else ""))
+    return miss0 - len(bad), bad
+
+
+def fetch(mid: str) -> str:
     fp = CACHE / f"shuju_{mid}.html"
     if fp.exists() and fp.stat().st_size > 50000:
         return fp.read_text(encoding="gb18030", errors="ignore")
     url = f"https://odds.500.com/fenxi/shuju-{mid}.shtml"
-    for attempt in range(4):
-        try:
-            # 反爬统一交给 _x500（票据 state/tmp/500session.json，30 天有效）
-            body = _x500.fetch(url, enc="gb18030")
-            fp.write_text(body, encoding="gb18030", errors="ignore")
-            time.sleep(1.5)
-            return body
-        except Exception as exc:  # noqa: BLE001
-            print(f"  !! {mid} {exc}")
-            time.sleep(4 * (attempt + 1))
-    return ""
+    try:
+        body = _x500.fetch(url, enc="gb18030", timeout=30, retries=2, sleep=0.8)
+        fp.parent.mkdir(parents=True, exist_ok=True)
+        fp.write_text(body, encoding="gb18030", errors="ignore")
+        return body
+    except Exception as exc:  # noqa: BLE001
+        print(f"  !! {mid} {exc}")
+        return ""
 
 
 def plain(seg: str) -> str:
@@ -244,10 +271,14 @@ def main() -> int:
     ap.add_argument("--date", required=True, help="YYYYMMDD")
     ap.add_argument("--ids", default="", help="逗号分隔的 500 id")
     ap.add_argument("--ids-file", default="", help="每行一个 id")
+    ap.add_argument("--workers", type=int, default=1,
+                    help="并发抓取线程数（默认 1=串行；EdgeOne 对同 IP 并发敏感）")
     args = ap.parse_args()
     ids = [x.strip() for x in args.ids.split(",") if x.strip()]
     if args.ids_file:
         ids += [x.strip() for x in Path(args.ids_file).read_text(encoding="utf-8").split() if x.strip()]
+    if ids:
+        prefetch(ids, workers=args.workers)
     out = {}
     for mid in ids:
         d = analyse(mid)

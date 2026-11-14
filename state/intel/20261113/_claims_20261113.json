@@ -1,0 +1,1036 @@
+[
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 220,
+  "value": 46.5,
+  "match_id": "006",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 46.45,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 238,
+  "value": 23.7,
+  "match_id": "006",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 23.72,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 620,
+  "value": 7.5,
+  "match_id": "006",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 7.485,
+    "layer": "data"
+   },
+   {
+    "key": "fused.score.2-0",
+    "value": 7.511,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.score.2-1",
+    "value": 7.36,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "data"
+  ],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 632,
+  "value": 58.0,
+  "match_id": "006",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 57.975,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 647,
+  "value": 38.0,
+  "match_id": "006",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 37.832,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 37.98,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 651,
+  "value": 30.0,
+  "match_id": "006",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "market.draw",
+    "value": 29.83,
+    "layer": "market"
+   },
+   {
+    "key": "fused.draw",
+    "value": 30.132,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 29.81,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.draw",
+  "status": "ambiguous"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 655,
+  "value": 32.0,
+  "match_id": "006",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 32.035,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 32.21,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 943,
+  "value": 38.0,
+  "match_id": "002",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 38.0,
+    "layer": "market"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 37.539,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 37.71,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 1171,
+  "value": 48.7,
+  "match_id": "002",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 48.652,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [
+   "data"
+  ],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 1179,
+  "value": 24.9,
+  "match_id": "002",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 24.927,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [
+   "data"
+  ],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 1195,
+  "value": 35.0,
+  "match_id": "002",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 34.864,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 34.71,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 1199,
+  "value": 28.0,
+  "match_id": "002",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.draw",
+    "value": 27.597,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 27.57,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 1203,
+  "value": 38.0,
+  "match_id": "002",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 38.0,
+    "layer": "market"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 37.539,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 37.71,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.home_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 1614,
+  "value": 51.0,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 51.05,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 1630,
+  "value": 69.7,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 69.742,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [
+   "data"
+  ],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 1641,
+  "value": 19.0,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 18.982,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 18.89,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 1645,
+  "value": 24.0,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.draw",
+    "value": 24.177,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 24.14,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 1649,
+  "value": 57.0,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 56.842,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 56.97,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 1967,
+  "value": 72.5,
+  "match_id": "007",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 72.5,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 1982,
+  "value": 64.7,
+  "match_id": "007",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 64.705,
+    "layer": "data"
+   },
+   {
+    "key": "fused.interval_lo",
+    "value": 64.342,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "data"
+  ],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 1993,
+  "value": 71.0,
+  "match_id": "007",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 70.803,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 70.77,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 1997,
+  "value": 18.0,
+  "match_id": "007",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.draw",
+    "value": 18.192,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 18.23,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五002+003+006+007_卢森堡对爱沙尼亚冰岛战保加利亚_欧国联C级四场纠偏_赛事前瞻.md",
+  "offset": 2001,
+  "value": 11.0,
+  "match_id": "007",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 11.006,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 11.0,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 269,
+  "value": 64.0,
+  "match_id": "009",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 64.04,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 540,
+  "value": 29.4,
+  "match_id": "009",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 29.377,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [
+   "data"
+  ],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 548,
+  "value": 44.9,
+  "match_id": "009",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 44.929,
+    "layer": "data"
+   },
+   {
+    "key": "fused.ah.全输",
+    "value": 44.845,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 563,
+  "value": 55.0,
+  "match_id": "009",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 55.155,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 55.3,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 567,
+  "value": 22.0,
+  "match_id": "009",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.draw",
+    "value": 22.093,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 21.92,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 571,
+  "value": 23.0,
+  "match_id": "009",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 22.752,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.走水",
+    "value": 23.021,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 22.78,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 1108,
+  "value": 58.5,
+  "match_id": "008",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 58.5,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 1126,
+  "value": 76.4,
+  "match_id": "008",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 76.435,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [
+   "data"
+  ],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 1137,
+  "value": 14.0,
+  "match_id": "008",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 14.173,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 14.12,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 1141,
+  "value": 21.0,
+  "match_id": "008",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.draw",
+    "value": 20.919,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 20.77,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 1145,
+  "value": 65.0,
+  "match_id": "008",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 64.908,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 65.11,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 1526,
+  "value": 74.4,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 74.4,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": null,
+  "status": "layer_mismatch"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 1541,
+  "value": 51.1,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 51.124,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [
+   "data"
+  ],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 1552,
+  "value": 12.0,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 12.421,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.score.0-2",
+    "value": 11.575,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 12.35,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 1556,
+  "value": 18.0,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.draw",
+    "value": 18.136,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 18.13,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 1560,
+  "value": 69.0,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 69.443,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 69.53,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 1897,
+  "value": 79.8,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 79.8,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 1912,
+  "value": 64.7,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 64.726,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [
+   "data"
+  ],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 1923,
+  "value": 77.0,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 76.998,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 76.97,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 1927,
+  "value": 16.0,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.draw",
+    "value": 16.147,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.score.2-0",
+    "value": 16.211,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 16.09,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "20261113_周五004+005+008+009_荷兰对希腊瑞士战斯洛文尼亚_欧国联四场深拆_赛事前瞻.md",
+  "offset": 1931,
+  "value": 7.0,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "21ff1877bec6",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 6.854,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.score.1-1",
+    "value": 7.297,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.score.4-0",
+    "value": 6.69,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.score.0-0",
+    "value": 6.547,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 6.94,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ }
+]

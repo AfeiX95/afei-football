@@ -1,0 +1,323 @@
+{
+ "001": {
+  "note": "澳超第4轮（Allianz Stadium）",
+  "abs_home": [
+   "门将 Gus Hoefsloot 手腕伤愈回归",
+   "后卫 Jacob Farrell 伤愈、可能首秀对旧主（朴茨茅斯租借回归）"
+  ],
+  "abs_away": [],
+  "susp": [],
+  "lineup": "Marin France 提拔进名单（可能替补）",
+  "media": "悉尼FC官网与澳超官方 Ins & Outs：Farrell 曾随中央海岸拿两座冠军与亚协杯",
+  "flags": [],
+  "src": [
+   {
+    "d": "sydneyfc.com",
+    "t": "11-04"
+   },
+   {
+    "d": "aleagues.com.au",
+    "t": "11-04"
+   }
+  ]
+ },
+ "002": {
+  "note": "德乙第11轮（18:30 CET）",
+  "abs_home": [],
+  "abs_away": [],
+  "susp": [],
+  "lineup": "",
+  "media": "两队同积 10 分、第14 对第15；科特布斯五轮不胜，主帅 Wollitz 称「不作为一个整体出场会很危险」；不伦瑞克开局 6:1 胜马格德堡后四连败（含三个主场），近两个主场零封汉诺威与基尔，上轮客场 1:3 负比勒菲尔德；2/3 级联赛往绩不伦瑞克 3 胜 3 平 2 负",
+  "flags": [],
+  "src": [
+   {
+    "d": "transfermarkt.de",
+    "t": "11-02"
+   },
+   {
+    "d": "bz-berlin.de",
+    "t": "11-04"
+   }
+  ]
+ },
+ "003": {
+  "note": "瑞超第28轮（3Arena）",
+  "abs_home": [
+   "Amin Boudri（伤）",
+   "Oliver Hagen（伤）",
+   "Oscar Johansson Schellhas（伤）"
+  ],
+  "abs_away": [],
+  "susp": [],
+  "lineup": "",
+  "media": "fotmob 明确埃夫斯堡无缺阵；H2H 哈马比 10 胜 8 平 9 负",
+  "flags": [
+   "Goal.com 写「两边无伤停」属模板，与 fotmob 冲突，采信 fotmob 的哈马比 3 人伤缺"
+  ],
+  "src": [
+   {
+    "d": "fotmob.com",
+    "t": "11-04"
+   },
+   {
+    "d": "goal.com",
+    "t": "11-01"
+   }
+  ]
+ },
+ "004": {
+  "note": "法乙第12轮",
+  "abs_home": [],
+  "abs_away": [
+   "Giorgi Abuashvili（小腿，主帅称很不确定）",
+   "Alpha Toure（随塞内加尔国青）",
+   "Diego Duarte",
+   "Nampa Mendy（长期缺阵，周二已归队）",
+   "Mangondo",
+   "Alassane Sy"
+  ],
+  "susp": [],
+  "lineup": "帕佩-法尔因父亲去世归队，主帅称除非出问题会出场",
+  "media": "梅斯主席 Carlo Molinari 去世，球队近期低迷、上轮 1-3 负波城；蒙彼利埃状态好",
+  "flags": [],
+  "src": [
+   {
+    "d": "ici.fr",
+    "t": "11-04"
+   },
+   {
+    "d": "dongqiudi.com",
+    "t": "11-04"
+   }
+  ]
+ },
+ "005": {
+  "note": "荷甲第12轮（Koning Willem II Stadion）",
+  "abs_home": [
+   "Thomas Didillon-Hodl",
+   "Justin Hoogma",
+   "Amine Lachkar",
+   "Thijs Muller",
+   "Jaden Slory"
+  ],
+  "abs_away": [
+   "Filip Krastev",
+   "Sherel Floranus"
+  ],
+  "susp": [],
+  "lineup": "新帅 Jurgen Streppel（57 岁）上任首战",
+  "media": "威廉二世本季联赛尚未取胜；杯赛 4-3 胜 Helmond 后曾 7-0 惨败；兹沃勒目标把联赛不败延续到四场",
+  "flags": [],
+  "src": [
+   {
+    "d": "sportsmole.co.uk",
+    "t": "11-04"
+   },
+   {
+    "d": "whoscored.com",
+    "t": "11-03"
+   }
+  ]
+ },
+ "006": {
+  "note": "荷乙",
+  "abs_home": [],
+  "abs_away": [],
+  "susp": [],
+  "lineup": "",
+  "media": "瓦尔韦克主帅 Sander Duits：上轮负阿尔梅勒城上半场缺能量，需要从头抢；奥斯主场强、纪律好、能量足，上周杯赛淘汰 PEC 兹沃勒，边锋 Hinoke 与 Silva 速度快",
+  "flags": [],
+  "src": [
+   {
+    "d": "rkcwaalwijk 官网",
+    "t": "11-05"
+   },
+   {
+    "d": "goal.com",
+    "t": "11-04"
+   }
+  ]
+ },
+ "007": {
+  "note": "德甲第9轮（20:30 CET）",
+  "abs_home": [],
+  "abs_away": [],
+  "susp": [],
+  "lineup": "汉堡可能沿用三中卫",
+  "media": "双方都被指向保级方向：汉堡三连败，门兴近三场不败（胜斯图加特、德国杯晋级）、争本季第二胜并想摘掉红灯笼",
+  "flags": [],
+  "src": [
+   {
+    "d": "onefootball.com",
+    "t": "11-05"
+   },
+   {
+    "d": "transfermarkt.com",
+    "t": "11-04"
+   }
+  ]
+ },
+ "008": {
+  "note": "意甲第11轮（Stadio Penzo）",
+  "abs_home": [
+   "Bartol Franjic（肩）"
+  ],
+  "abs_away": [
+   "Alessandro Zanoli（不明）",
+   "Vakoun Bayo（腿筋）",
+   "David Alaba（小腿）"
+  ],
+  "susp": [],
+  "lineup": "乌迪内斯新帅 Paolo Zanetti 首战；Solet 肌肉伤已回归；Davis 到最后一刻评估，若缺阵用 Unai Gomez 伪九，Zaniolo 与 Ekkelenkamp 在两侧",
+  "media": "乌迪内斯倒数第二、威尼斯垫底，两队为保级直接对手",
+  "flags": [],
+  "src": [
+   {
+    "d": "onefootball.com",
+    "t": "11-03"
+   },
+   {
+    "d": "ansa.it",
+    "t": "11-05"
+   }
+  ]
+ },
+ "009": {
+  "note": "法甲第10轮（20:45 CET，主裁 Mathieu Vernice）",
+  "abs_home": [
+   "Rafik Messali（腿，可能缺阵）"
+  ],
+  "abs_away": [
+   "Joaquin Panichelli（十字韧带，长期）"
+  ],
+  "susp": [
+   "Aron Donnum（图卢兹，黄牌累计停赛）"
+  ],
+  "lineup": "Abu Francis（腿筋）存疑；斯特拉斯 Fabio Balde（肌肉紧）存疑，Malonga、Deivid Washington、Maxi Oyedele 均存疑",
+  "media": "斯特拉斯可追平本季最长连胜",
+  "flags": [],
+  "src": [
+   {
+    "d": "sportsmole.co.uk",
+    "t": "11-02"
+   },
+   {
+    "d": "matchendirect.fr",
+    "t": "11-05"
+   }
+  ]
+ },
+ "010": {
+  "note": "英超（Hill Dickinson Stadium）",
+  "abs_home": [
+   "Jarrad Branthwaite（对纽卡 82 分钟抽筋被换下，Moyes 称在观察、希望可用）"
+  ],
+  "abs_away": [],
+  "susp": [],
+  "lineup": "",
+  "media": "埃弗顿排第七、四天内两胜纽卡（联赛杯+联赛 1-0，Barry 进球）；考文垂是升班马、由前埃弗顿主帅兰帕德执教",
+  "flags": [],
+  "src": [
+   {
+    "d": "evertonfc.com",
+    "t": "11-05"
+   },
+   {
+    "d": "onefootball.com",
+    "t": "11-05"
+   }
+  ]
+ },
+ "011": {
+  "note": "英冠第15轮（Pride Park，20:00 GMT）",
+  "abs_home": [],
+  "abs_away": [],
+  "susp": [],
+  "lineup": "",
+  "media": "德比郡周二 0-4 负诺维奇、主帅 Eustace 被指必须赢、离安全区 7 分；博尔顿周二 1-0 胜查尔顿",
+  "flags": [],
+  "src": [
+   {
+    "d": "the72.co.uk",
+    "t": "11-05"
+   },
+   {
+    "d": "racingpost.com",
+    "t": "11-04"
+   }
+  ]
+ },
+ "012": {
+  "note": "西甲第12轮（Ramon Sanchez-Pizjuan）",
+  "abs_home": [
+   "Peque（确认缺阵）"
+  ],
+  "abs_away": [],
+  "susp": [],
+  "lineup": "Isaac Romero 周四训练后评估、可能进名单；主帅 Luis Garcia Plaza 或因前场人手不足回到三后腰（Kochorashvili / Guridi 备选）",
+  "media": "塞维利亚上轮负赫塔费；阿拉维斯已连续七轮不胜",
+  "flags": [],
+  "src": [
+   {
+    "d": "diariodesevilla.es",
+    "t": "11-05"
+   }
+  ]
+ },
+ "013": {
+  "note": "葡超第11轮（Estadio Municipal 22 de Junho，20:45）",
+  "abs_home": [
+   "Matheus Mattara"
+  ],
+  "abs_away": [
+   "Miguel Puche",
+   "Pedro Santos"
+  ],
+  "susp": [
+   "Rodrigo Pinheiro（法马利康，上轮对布拉加红牌停赛）"
+  ],
+  "lineup": "Koutsias 5 球领衔锋线；Sorriso、Romeo Beney、Oscar Aranda 争两侧",
+  "media": "法马利康本季主场尚未取胜、排第 11（高降级区 3 分）；阿罗卡第 5、主帅 Vitor Severino 称对手个人能力很强、进攻时段很特定；法马利康最近 11 场有 10 场总进球低于 2.5",
+  "flags": [],
+  "src": [
+   {
+    "d": "sportsmole.co.uk",
+    "t": "11-03"
+   },
+   {
+    "d": "maisfutebol.iol.pt",
+    "t": "11-04"
+   }
+  ]
+ },
+ "014": {
+  "note": "巴甲第34轮（Barradao）",
+  "abs_home": [
+   "Dudu",
+   "Nathan Mendes",
+   "Fabiano",
+   "Ramon"
+  ],
+  "abs_away": [
+   "Matheus Martinelli（踝扭伤）",
+   "Julian Millan"
+  ],
+  "susp": [
+   "Emanuel Britez（维多利亚，三黄停赛）",
+   "Ignacio（弗鲁米嫩，三黄停赛）"
+  ],
+  "lineup": "维多利亚暂代主帅 Cleber dos Santos 首战（Jair Ventura 下课）；Jamerson、Luan Candido、Marinho 回归，两名后卫预计回首发",
+  "media": "维多利亚上轮客场 0-2 负科里蒂巴；弗鲁米嫩另有 10 名球员带黄牌在身",
+  "flags": [],
+  "src": [
+   {
+    "d": "atarde.com.br",
+    "t": "11-05"
+   },
+   {
+    "d": "bnews.com.br",
+    "t": "11-03"
+   }
+  ]
+ }
+}

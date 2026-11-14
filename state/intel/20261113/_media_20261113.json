@@ -1,0 +1,899 @@
+{
+  "date": "20261113",
+  "fetched_at": "2026-11-12T22:22:09",
+  "calls": 16,
+  "items": [
+    {
+      "no": "周五002",
+      "league": "欧国联",
+      "home": "摩尔多瓦",
+      "away": "哈萨克",
+      "home_en": "摩尔多瓦",
+      "away_en": "哈萨克",
+      "queries": [
+        "\"摩尔多瓦 vs 哈萨克\" preview prediction lang:en",
+        "摩尔多瓦 哈萨克 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "摩尔多瓦主场八场不胜，哈萨克斯坦垫底争三分",
+          "url": "http://pc.dongqiudi.com/articles/6644429.html",
+          "site": "懂球帝",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.291561719987262,
+          "summary": "# 摩尔多瓦主场八场不胜，哈萨克斯坦垫底争三分\n\n北京时间11月14日01:00（当地时间13日17:00），欧国联C3组第5轮，摩尔多瓦主场迎战哈萨克斯坦。\n\n摩尔多瓦主帅波佩斯库自2025年9月上任以来，已带队连续八场主场比赛不胜，且在其执教期间每场主场比赛都有失球。本届欧国联摩尔多瓦场均失球2.0个。球队在C3组唯一的亮点是10月客场2-1战胜哈萨克斯坦。\n\n哈萨克斯坦目前仅积两分，在C3组垫底，范特斯基普的球队必须取胜才能保留争夺小组第二的希望。哈萨克斯坦在最近十一场欧国联比赛中未尝胜绩。此役切斯诺科夫回归，为球队提供新的选择，但萨特帕耶夫因伤缺阵，谢尔盖-马利则因红牌停赛。\n\n预计首发方面，摩尔多瓦排出5-3-2：门将塞列德尼克；雷亚布丘克、巴博格洛、约武、盖拉西门科夫、雷文科组成后防；拉策、弗拉泰亚、佩尔琼坐镇中场；克列斯岑科与佩特鲁-波佩斯库搭档锋线。哈萨克斯坦预计以4-3-3出战：扎鲁茨基把守球门；沃罗戈夫斯基、阿利普、埃拉诺夫、姆伦斯基组成后防；库阿特、卡拉曼、伊斯兰汗在中场；卡里莫夫、肯热别克、萨莫罗多夫领衔进攻。\n\n摩尔多瓦的翼卫将是其防守组织的关键，塞尔久-佩尔琼在中场承担主要创造力任务；哈萨克斯坦方面，包伊尔詹-伊斯兰汗很可能是客队的创造力核心。\n\n两队近期趋势：摩尔多瓦连续八场主场不胜，波佩斯库执教期间尚未取得一场零封；哈萨克斯坦最近两场比赛保持不败。比赛场地尚待欧足联确认。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "5 比 3",
+            "4 比 3"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "摩尔多瓦主场迎哈萨克斯坦，两队争夺升级附加赛资格",
+          "url": "http://pc.dongqiudi.com/articles/6643597.html",
+          "site": "懂球帝",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.1250715447787956,
+          "summary": "# 摩尔多瓦主场迎哈萨克斯坦，两队争夺升级附加赛资格\n\n北京时间11月14日01:00，欧国联C3组，摩尔多瓦将在主场迎战哈萨克斯坦。两队都已无缘小组头名和直接升入B级联赛，但都还有机会争取升级附加赛资格。摩尔多瓦目前积4分排名第三，与第二名法罗群岛同分；哈萨克斯坦积2分垫底，落后法罗群岛2分。\n\n摩尔多瓦在C3组前四场取得1胜1平2负，首战0-2不敌斯洛伐克，随后1-1战平法罗群岛，之后2-1击败哈萨克斯坦。上一场他们0-4惨败给斯洛伐克。自2024年11月以来，摩尔多瓦只赢过一场比赛，正是首回合2-1战胜哈萨克斯坦。\n\n哈萨克斯坦前四场2平2负，首战1-1战平法罗群岛，之后接连输给斯洛伐克和摩尔多瓦。上一场他们2-2战平法罗群岛，目前已经连续六场不胜。两队历史交锋，哈萨克斯坦3胜2平3负，最近六场中有三场由哈萨克斯坦获胜。哈萨克斯坦将在11月16日主场对阵斯洛伐克，结束小组征程。\n\n摩尔多瓦本场没有球员停赛，但约武、拉策和雷亚布丘克再吃一张黄牌就将缺席下一场比赛。佩特鲁-波佩斯库为国家队出场8次打入2球，预计将继续出现在前场，莫兹潘有望在中场首发。\n\n哈萨克斯坦方面，马雷因上一场染红将停赛缺席。卡里莫夫和肯热别克预计出现在前场，朱可夫将在更靠后的位置首发。\n\n摩尔多瓦可能首发：塞列德尼克；雷亚布丘克、巴博格洛、约武、杜姆布拉瓦努；莫兹潘、佩尔琼、科若卡里、弗拉泰亚；波佩斯库、克列斯岑科。\n\n哈萨克斯坦可能首发：波卡季洛夫；阿利普、卡西姆、扎戈罗夫、塔帕洛夫；阿希尔别克、库阿特、朱可夫、阿米尔；肯热别克、卡里莫夫。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "摩尔多瓦 vs 哈萨克斯坦比分预测：模型认为两队势均力敌",
+          "url": "https://m.dongqiudi.com/xinwen/168291",
+          "site": "懂球帝",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.7896491805712902,
+          "summary": "# 摩尔多瓦 vs 哈萨克斯坦比分预测：模型认为两队势均力敌\n...\n## 30 秒看懂\n\n- 综合预测：哈萨克斯坦胜40%，摩尔多瓦胜38%，平局22%\n- 最可能比分：1-1（9.9%）、1-2（7.8%）、2-1（7.4%）\n- 泊松模型看好摩尔多瓦，近况模型看好哈萨克斯坦\n\n北京时间2026年11月14日01:00周六，欧国联C级联赛第5轮，摩尔多瓦主场对阵哈萨克斯坦。懂球帝数据模型按开球前的历史比赛数据算出综合预测：摩尔多瓦胜38%、平局22%、哈萨克斯坦胜40%，最可能的比分是1-1（9.9%）、1-2（7.8%）、2-1（7.4%），预计两队合计进3.4球左右，两队都进球的概率64%。\n\n泊松进球模型按本赛季欧国联的场均进球，算出两队在主客场的进攻和防守强度，相乘得到进球期望，再按泊松分布算每个比分的概率，并对0-0、1-1这类低比分做Dixon-Coles修正。本赛季欧国联截至赛前已赛104场，场均主队进1.26球、客队进1.23球；摩尔多瓦近10个主场场均进1.10球、失2.20球，进攻强度0.90、防守1.66；哈萨克斯坦近10个客场场均进0.60球、失3.00球，进攻强度0.57、防守2.15；进球期望：摩尔多瓦2.43、哈萨克斯坦1.17。结果：摩尔多瓦胜64%、平20%、哈萨克斯坦胜16%，最可能的比分2-1（9.4%）、1-1（8.6%）、2-0（8.1%）。\n\n近况加权模型只看两队各项赛事最近10场，越近的比赛权重越大（每往前一场权重乘0.85），用加权后的场均进球和对手的场均失球算进球期望，主场按赛事主客场进球比例加成。摩尔多瓦近10场加权场均进0.68球、失2.85球；哈萨克斯坦近10场加权场均进1.38球、失1.47球；主场加成1.01；进球期望：摩尔多瓦1.12、哈萨克斯坦2.06。结果：摩尔多瓦胜19%、平23%、哈萨克斯坦胜58%，最可能的比分1-1（10.6%）、1-2（9.9%）、0-2（8.8%）。\n\nElo等级分模型按懂球帝收录的全部正式比赛，从1500分起给每支球队算Elo等级分：赢球加分、输球扣分，对手越强、赢得越多，变动越大。赛前两队的分差加上主场优势换算成胜率期望，再结合两队预计总进球换算成各自的进球期望。赛前等级分：摩尔多瓦1255（已算111场）、哈萨克斯坦1358（已算117场），主场优势按60分算；摩尔多瓦的胜率期望（赢算1、平算0.5）0.44；进球期望：摩尔多瓦1.55、哈萨克斯坦1.84。结果：摩尔多瓦胜32%、平24%、哈萨克斯坦胜44%，最可能的比分1-1（10.6%）、1-2（8.9%）、2-1（7.4%）。\n\n近5场：摩尔多瓦1胜1平3负（进4失12），哈萨克斯坦1胜2平2负（进6失7）。本赛季欧国联：摩尔多瓦4战1胜1平2负，哈萨克斯坦4战0胜2平2负。历史...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": [
+            "1 比 1",
+            "0 比 0",
+            "2 比 1"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/index.html?showType=2&mid=2042727",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.7032105922698977,
+          "summary": "排名: Group 3 第3名\n\n赛季总成绩: 1胜 1平 2负\n\n赛季主场成绩: 0胜 1平 1负\n\n周五002 欧国联>\n\n2026/2027 League C Group 3 第5轮 2026-11-14 01:00\n\n排名: Group 3 第4名\n\n赛季总成绩: 0胜 2平 2负\n...\n特征分析\n\n摩尔多瓦 (主)\n\n2胜/1平/2负\n\n0胜/1平/1负\n\n1胜/3平/6负\n\n2胜/2平/6负\n\n0.9个\n\n2.2个\n\n近5场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n哈萨克 (客)\n...\n1胜/1平/0负\n\n2胜/4平/4负\n...\n1.1个\n\n1.3个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n近5场摩尔多瓦2胜 (40%) | 1平 (20%) | 2负 (40%)\n\n积分榜 欧国联2026/2027\n\n摩尔多瓦Group 3 第3名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 4 | 1/1/2 | 25% | 3/8 | -5 | 4 | 3 \n主 | 2 | 0/1/1 | 0% | 1/5 | -4 | 1 | 3 \n客 | 2 | 1/0/1 | 50% | 2/3 | -1 | 3 | 2 \n\n哈萨克Group 3 第4名 查看更多>\n...\n总 | 4 | 0/2/2 | 0% | 5/7 | -2 | 2 | 4 \n主 | 2 | 0/1/1 | 0% | 3/4 | -1 | 1 | 4 \n客 | 2 | 0/1/1 | 0% | 2/3 | -1 | 1 | 4 \n\n比赛近况\n...\n摩尔多瓦近10场1胜 (10%) | 3平 (30%) | 6负 (60%)\n\n进9球，失22球，净进-13球\n\n哈萨克近10场2胜 (20%) | 4平 (40%) | 4负 (40%)\n\n进11球，失13球，净进-2球\n...\n2026-11-16 | 欧国联 | League C Group 3 第6轮\n...\n射手信息 欧国联2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\nS. Perciun(中场) | 3 (2/1) | 1 (33%) | 1 (100%) | 0.3/0.3 \nN. Clescenco(前锋) | 4 (3/1) | 1 (33%) | 0 (0%) | 0.3/0 \nP. Popescu(前锋) | 4 (4/0) | 1 (33%) | 0 (0%) | 0.3/0\n...\nN. Alip(后卫) | 4 (4/0) | 2 (40%) | 0 (0%) | 0.5/0 \nS. Maliy(后卫) | 2 (1/1) | 1 (20%) | 0 (0%) | 0.5/0 \nR. Karimov(前锋) | 3 (3/0) | 1 (20%) | 0 (0%) | 0.3/0 \n\n伤停一览\n...\n暂无数据\n...\n注：赛事数据统计进行至全场90分钟（含伤停补时阶段）结果。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Preview: Kazakhstan vs Moldova - Back",
+          "url": "https://lite.apex-football.com/en-GH/news/691dd428260930en_zz#1",
+          "site": "Apex Football",
+          "date": null,
+          "authority": 3,
+          "score": 1.6412975788116455,
+          "summary": "Preview: Kazakhstan vs Moldova - prediction, team news, lineups\n\nTwo teams looking for their first UEFA Nations League victory of the campaign are set to lock horns at Astana Arena on Friday, when Group C3 rivals Kazakhstan face Moldova.\n\nThe Hawks are aiming to end their four-match winless run, against a Tricolorii side that have not emerged triumphant from any of their games since 2024.\n\n## Match preview\n\nKazakhstan remain hopeful that new manager John van 't Schip can improve the national team, but this week's showdown is seen as a must-win.\n\nThe Hawks - who are ranked 111th by FIFA - rarely come into a fixture as favourites, but a showdown against 159th-ranked Moldova will be seen as a gilt-edged opportunity to collect maximum points.\n\nThat being said, Van 't Schip's men failed to get the better of 123rd-ranked Faroe Islands on matchday one, requiring an equaliser from Temirlan Erlanov to salvage a 1-1 draw.\n\nOn Tuesday, Kazakhstan were downed 2-1 by Slovakia, and though the result was not unexpected, Friday's hosts have now won just one of their last eight competitive matches.\n\nHowever, the more positive amongst the home support would highlight that the Hawks pulled that game back to 1-1 at half time, before Ramazan Karimov's leveller was rendered a mere consolation when David Hancko scored a late winner for Slovakia.\n\nAdditionally, Kazakhstan have come out on top in three of their last four home clashes, keeping clean sheets in each of those victories and losing just once across that stretch - 1-0 against Wales in September 2025.\n\nMeanwhile, Lilian Popescu has been in the Moldovan dugout since September 2025, but is still waiting to record his first win as boss.\n\nThe Tricolorii kicked off their Nations League C campaign by losing 2-0 to Slovakia on September 26, and hardly fared better last time out, when they were held to a 1-1 draw by Faroe Islands.\n\nPopescu's side mirrored Friday's opponents in that clash, needing a second-half effort from Sergiu Perciun to come from behind and rescue a point.\n\nMoldova head into their third Group C3 fixture without a victory in 17 matches, losing 15 times and drawing on five occasions across that run, which stretches all the way back to a 1-0 Nations League triumph over Andorra in November 2024.\n\nDespite being the underdogs on Friday, fans will be cautiously hopeful after seeing the visitors score in six of their last seven away games, but they did lose five of those outings, including an 11-1 demolition at the hands of Norway in September 2025.\n\nKazakhstan Nations League form:\n\n- D\n- L\n\nMoldova Nations League form:\n...\n## Team News\n\nKazakhstan could be without midfielder Islambek Kuat on Friday, after he was forced off with a muscle injury against Slovakia on Tuesday.\n\nIn his absence, the versatile Damir Kasabulat could join Zhasulan Amir and Nauryzbek Zhagorov in the centre of the park.\n\nElsewhere, the hosts are unable to call on 18-year-old striker Dastan Satpaev due to a thigh issue, though Ramazan Karimov should be on hand to lead the line, supported by attacking midfielder Dinmukhamed Karaman.\n\nAs for Moldova, they are likely to start Petru Popescu up top once again, with Dmitri Mandricenco operating just behind the 24-year-old.\n\nAt the opposite end of the pitch, Catalin Cucos, Iurie Iovu and the Vancouver Whitecaps' Mihail Gherasimencov are set to form the visitors' defensive trio, shielding goalkeeper Dumitru Celeadnic.\n\nKazakhstan possible starting lineup:\n\nPokatilov; Ashirbek, Erlanov, Alip; Basmanov, Zhagorov, Kasabulat, Amir, Bekbolat; Karaman;\n...\nMoldova possible starting lineup:\n\nCeleadnic; Cucos, Iovu, Gherasimencov; Forov, Fratea, Baboglo, Stina, Reabciuk; Mandricenco;\n...\n## We say: Kazakhstan 2-1 Moldova\n\nKazakhstan will be desperate to earn their first win under their new manager, and with a commendable home record this year, the hosts will be cautiously optimistic.\n\nMoldova could find themselves on the scoresheet once again, but having lost seven and drawn three of their last 10 away games, it would be surprising to see the underdogs avoid another defeat.",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "2 比 1"
+          ]
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 4,
+        "zh": 4,
+        "home_mentions": 4,
+        "away_mentions": 4
+      },
+      "scores": [
+        "5 比 3",
+        "4 比 3",
+        "1 比 1"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周五003",
+      "league": "欧国联",
+      "home": "保加利亚",
+      "away": "冰岛",
+      "home_en": "保加利亚",
+      "away_en": "冰岛",
+      "queries": [
+        "\"保加利亚 vs 冰岛\" preview prediction lang:en",
+        "保加利亚 冰岛 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "欧国联保加利亚迎冰岛，冈恩劳格松率队争小组头名",
+          "url": "http://pc.dongqiudi.com/articles/6644118.html",
+          "site": "懂球帝",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.354489284500124,
+          "summary": "# 欧国联保加利亚迎冰岛，冈恩劳格松率队争小组头名\n\n北京时间11月14日03:45（英国时间11月13日19:45），欧国联C级第4组，保加利亚在普罗夫迪夫的赫里斯托-博特夫球场迎战冰岛。冰岛目前四战积8分领跑小组，在冈恩劳格松麾下保持不败；此役若取胜，几乎可以提前锁定小组头名。保加利亚积4分排名第三，本届赛事主场尚未取胜。\n\n两队上个月在雷克雅未克有过交手，冰岛3-0大胜，奥斯卡松梅开二度，安德里-古德约翰森在进攻端提供支持。那是冰岛历史上首次战胜保加利亚。双方此前共交手六次，1988年至2005年的前五次交锋中保加利亚赢下四场。\n\n保加利亚方面，上个月客场0-3不敌冰岛后，球队在客场2-0战胜卢森堡，这是他们本届赛事最亮眼的成绩。但回到主场，保加利亚与爱沙尼亚0-0互交白卷，随后1-2负于卢森堡，普罗夫迪夫的两场比赛仅打入一球。基里尔-德斯波多夫仍是球队进攻端的主要灵感来源。此役若不能取胜，保加利亚追赶爱沙尼亚的微弱希望将基本破灭。\n\n冰岛四场比赛拿到8分，是小组中唯一保持不败的球队，客场拿分、主场平局让他们稳居榜首。奥斯卡松是球队最大的进球威胁，他上个月对阵保加利亚独中两元，在俱乐部层面也状态正佳。\n\n原文对本场的比分预测为保加利亚0-2冰岛。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": [
+            "0 比 2"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "保加利亚主场迎冰岛，双方均无伤停",
+          "url": "http://pc.dongqiudi.com/articles/6644837.html",
+          "site": "懂球帝",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9377837001068936,
+          "summary": "# 保加利亚主场迎冰岛，双方均无伤停\n\n欧洲国家联赛C4组，保加利亚将于北京时间11月14日03:45（当地时间13日19:45）主场迎战冰岛。赛前双方均无伤病和停赛报告，均可派出完整阵容。\n\n冰岛目前以两胜两平位居小组榜首，前四场小组赛仅丢一球，防守数据十分突出。首回合交锋冰岛3-0击败保加利亚，升入B级联赛的形势相当有利。主帅哈雷德的球队此番阵容齐整出战。\n\n保加利亚的小组赛征程则较为艰难，近两场先平后负，四场小组赛共丢七球。主帅里巴尔斯基上任后球队有所变化，10月初客场2-0战胜卢森堡，那场比赛首发阵容做了九处调整，但对手是小组垫底的卢森堡。\n\n两队首回合交手以冰岛3-0告终。本场双方都表示阵容完整，不存在缺阵问题。比赛场地尚未确认，预计将在临近比赛时公布。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Preview: Iceland vs Bulgaria - Back",
+          "url": "https://lite.apex-football.com/en/news/4a89689d261002en_zz#1",
+          "site": "Apex Football",
+          "date": null,
+          "authority": 3,
+          "score": 1.81985604763031,
+          "summary": "Preview: Iceland vs Bulgaria - prediction, team news, lineups\n\nHoping to continue their strong start to their UEFA Nations League campaign, Iceland will welcome Group C4 rivals Bulgaria to Laugardalsvollur on Saturday.\n\nStrakarnir okkar are looking to build on their win last time out, while the Lions are managerless after struggling in the competition so far.\n\n## Match preview\n\nIceland suffered back-to-back relegations in the past two iterations of the Nations League, but seem to have found their feet in League C under Arnar Gunnlaugsson.\n\nStrakarnir okkar arrived for this autumn's fixtures with four defeats and two draws from their prior six outings, and fans would have been forgiven for doubting the team's chances, despite the lower level of opposition.\n\nHowever, Gunnlaugsson's side collected a point in a 1-1 draw against Estonia on September 16, before thoroughly beating Luxembourg 3-0 three days later.\n\nThat triumph ended Iceland's seven-game winless run - which stretched all the way back to November 2025's 2-0 victory over Azerbaijan in World Cup qualifying - and has put the team at the top of Group C4.\n\nHeading into Saturday's showdown undefeated in the 2026-27 Nations League will give Strakarnir okkar a sense of optimism, not to mention the hosts have only lost one of their last four home clashes, a spell that includes a 2-2 draw with France in October 2025.\n\nMeanwhile, Bulgaria are without a permanent manager after Aleksandar Dimitrov resigned from his post earlier this week.\n\nThe Lions were held to a 0-0 stalemate by Estonia on Tuesday, a frustrating result after which the former boss announced his departure, citing the dire showing as the reason why.\n\n\"It was a very chaotic performance on our part; our game plan wasn't executed, and the high press didn't materialise,\" said Dimitrov, who recorded five losses, two draws and three wins during his 12 months in charge.\n\nAtanas Ribarski will be taking the reins on an interim basis until a new head coach can be found, but he will be hard-pressed to reverse Bulgaria's fortunes, considering they are sat at the bottom of the group with a single point to their name.\n\nSaturday's contest will be the Lions' first away fixture in this term's Nations League, given they lost their opener 2-1 to Luxembourg, but the more positive amongst the travelling support may take heart from the fact the visitors carry a three-game unbeaten run on the road (two wins, one draw) into this clash.\n\nIceland Nations League form:\n\n- D\n- W\n\nBulgaria Nations League form:\n\n- L\n- D\n\n## Team News\n\nIceland are likely to be without the versatile Stefan Thordarson, whose place in the squad is in doubt after he picked up a muscle issue against Luxembourg on Tuesday.\n\nIn his absence, Hordur Magnusson should be on hand to start alongside Daniel Gretarsson at the heart of the hosts' defence, flanked by full-backs Victor Palsson and Logi Tomasson.\n\nElsewhere, there are questions about the fitness of left winger Albert Gudmundsson due to a shoulder problem, so expect to see Mikael Ellertsson and Hakon Arnar Haraldsson operate out wide, supporting the strike partnership of Orri Oskarsson and Andri Gudjohnsen up top.\n\nAs for Bulgaria, they could line up with Elversberg star Lukas Petkov leading the attack, aided by wingers Zdravko Dimitrov and Marin Petkov.\n\nAt the opposite end of the pitch, Daniel Naumov will start between the sticks, shielded by a centre-back pairing of Kristian Dimitrov and Stefan Velkov.\n\nIceland possible starting lineup:\n\nValdimarsson; Palsson, Magnusson, Gretarsson, Tomasson; Ellertsson, Johannesson, Sigurdsson, Haraldsson; Gudjohnsen, Oskarsson\n\nBulgaria possible starting lineup:\n\nNaumov; Turitsov, K Dimitrov, Velkov, Velkovski; Tsonev, Gruev, Stoyanov; M Petkov, L Petkov, Z Dimitrov\n\n## We say: Iceland 2-1 Bulgaria\n\nIceland will be confident after enjoying a successful beginning to their Nations League campaign, and should be able to get the better of a struggling Bulgaria on home turf.\n\nThat being said, the visitors will be desperate to deliver a strong showing after Dimitrov's resignation, so expect to see a close-fought clash regardless of the result.",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": [
+            "2 比 1"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "半全场分析：冰岛后程发力，保加利亚能否守住半场优势？_PP视频体育频道",
+          "url": "http://www.ppsport.com/article/news/2627900.html",
+          "site": "PP体育",
+          "date": "2026-10-02T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.7606025783035035,
+          "summary": "# 半全场分析：冰岛后程发力，保加利亚能否守住半场优势？\n\n2026年10月3日 13:55:18 懂球帝\n\n北京时间10月4日0点，欧国联冰岛将在主场对阵保加利亚。本场比赛数据为主让一球/球半，冰岛虽然拥有主场和数据优势，但保加利亚近期比赛韧性较强，双方上半场的节奏仍需结合临场表现观察，冰岛虽然具备后程破局机会，比赛进入下半场后仍需重点防范保加利亚的反击。\n\n【冰岛近5场半全场轨迹】\n\n客场对阵卢森堡，半场0-2、全场0-3胜；主场对阵爱沙尼亚，半场1-0、全场1-1平；客场对阵阿根廷，半场1-0、全场3-0负；客场对阵日本，半场0-0、全场1-0负；客场对阵海地，半场0-0、全场1-1平。\n\n从近五场比赛来看，冰岛半场2胜2平1负，全场1胜2平2负，近期整体表现较为低迷。球队近五场有2场在半场阶段建立优势，进入比赛状态较快，进攻端也具备一定的持续输出能力。\n\n冰岛半场打平的2场比赛最终取得0胜1平1负，说明球队虽然能够在上半场保持一定抗衡能力，但进入下半场后容易出现防线松动。此前面对日本时，球队均在半场战平，却最终遭遇失利。\n\n【保加利亚近5场半全场轨迹】\n\n主场对阵爱沙尼亚，半场0-0、全场0-0平；主场对阵卢森堡，半场1-1、全场1-2负；客场对阵摩尔多瓦，半场0-1、全场2-2平；主场对阵黑山，半场0-0、全场0-1负；客场对阵印度尼西亚，半场0-1、全场0-1胜。\n\n从近五场比赛来看，保加利亚半场2胜3平0负，全场1胜2平2负，近期整体表现较为低迷。球队连续多场在半场阶段与对手保持均势，但全场只有1场取胜，比赛后程的防守稳定性仍需提升。\n\n保加利亚半场打平的3场比赛最终取得0胜1平2负，说明球队虽然能够在上半场保持一定抗衡能力，但进入下半场后容易出现防线松动。此前面对卢森堡和黑山时，球队均在半场战平，却最终遭遇失利。\n\n【全场走势/数据影响】\n\n主让一球/球半的比赛数据下，冰岛方向值得重点关注。冰岛近五场取得1胜2平2负；保加利亚近五场取得1胜2平2负。\n\n综合双方近期半全场轨迹，本场比赛前段预计会比较谨慎。冰岛可能通过控球和边路推进争取主动，保加利亚则会优先压缩防线，尽量限制主队的中路渗透。冰岛半场2胜2平1负，保加利亚半场2胜3平0负，双方若在开局阶段互相牵制，半场0-0的走势值得重点关注。\n\n比赛进入下半场后，冰岛有望增加进攻投入，争取利用自身优势打破僵局；保加利亚则需要继续保持防线集中度，并通过反击寻找机会。\n...\n保加利亚近五场取得1胜2平2负，若冰岛率先取得进球，冰岛拿下比赛的可能性将进一步提升。因此，本场半全场首选平胜，稳健方向防范平平。\n\n【综合推荐】\n\n半全场首选 平胜\n\n稳健防 平平\n\n比分倾向 1-0、2-0\n\n半场比分关注 0-0",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "1 比 0",
+            "0 比 0"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "冰岛对保加利亚足球预测：奥里·奥斯卡松在3-0获胜后继续保持良好势头。 - 冰岛对保加利亚足球预测：奥里·奥斯卡松在3-0获胜后继续保持良好势头。",
+          "url": "https://www.vietnam.vn/zh-cn/nhan-dinh-bong-da-iceland-vs-bulgaria-orri-oskarsson-tiep-da-sau-cu-hich-3-0#1",
+          "site": "Vietnam.vn",
+          "date": "2026-10-01T16:00:00+00:00",
+          "authority": 4,
+          "score": 1.7522405195918591,
+          "summary": "# 冰岛对保加利亚足球预测：奥里·奥斯卡松在3-0获胜后继续保持良好势头。\n\n10 月 3 日晚上 11 点，冰岛将在欧国联比赛中对阵保加利亚。主队冰岛在以 3-0 战胜卢森堡后士气高昂。\n\n## 2026年10月3日，冰岛对阵保加利亚的比赛信息\n\n内容 | 信息 \n---|---\n匹配 | 冰岛对阵保加利亚 \n比赛 | 2026年欧洲国家联赛 \n圆形的 | 第三轮 \n时间 | 2026年10月3日23:00 \n地点 | 雷克雅未克 Laugardalsvöllur \n锦标赛对阵表 | C4 \n\n## 预测冰岛对保加利亚的胜负\n\n冰岛的开局并不完美，主场1-1战平爱沙尼亚，但他们在第二场比赛中展现出了许多积极的迹象。客场3-0战胜卢森堡不仅确保了三分，也帮助这支北欧球队在攻防两端重拾信心。\n\n奥里·奥斯卡松是进攻端最引人注目的球员之一。他出色的跑位和接应能力为冰岛队在禁区内提供了更多进攻点，而安德里·古德约翰森和阿尔伯特·古德蒙德松则提供了不同的进攻方式。\n\n在中场，吉尔菲·西于尔兹松和维克托·帕尔松的经验帮助冰岛队保持攻守平衡。这一点至关重要，因为主队既需要积极进攻，又要防止对手利用防线空当发起反击。\n\n保加利亚两轮过后仅积1分。他们先是以1-2负于卢森堡，随后又与爱沙尼亚0-0战平，这意味着他们的进攻只打入一球。\n\n保加利亚面临的最大挑战在于如何保持压迫性。当对手收缩防守时，他们缺乏速度和协调性，难以在禁区附近创造出空当。\n\n然而，冰岛不应低估来访的保加利亚队。保加利亚队在一些比赛中已经展现出，在合适的比赛中，他们能够打出极具爆发力的进攻。如果主队投入过多兵力压上，反击很可能成为保加利亚队创造机会的主要手段。\n\n劳加达尔斯沃鲁尔球场对冰岛来说是一大优势。 《林同报》冰岛国家队专版指出，这是这支北欧球队的主场。\n\n冰岛从两翼发起的压迫，加上奥斯卡松在禁区内的存在，可能会迫使保加利亚在比赛的大部分时间里都采取深度防守。在这种情况下，争抢第二落点和边路突破的质量将至关重要。\n\n保加利亚需要尽可能长时间地保持比赛的平衡。如果冰岛早早取得进球，保加利亚就不得不压上进攻，这将为他们创造更多空间。\n\n## 预测冰岛对保加利亚比赛的进球数。\n\n在最近5场比赛中，冰岛队打入5球，失6球；保加利亚队打入4球，失5球。\n...\n然而，冰岛刚刚以3-0大胜，而保加利亚在上一场比赛中颗粒无收。这清楚地表明，主队将掌握大部分的进攻机会。\n\n这场比赛可能会有2-3个进球。\n\n## 冰岛对阵保加利亚的球队新闻\n\n冰岛队因伤缺席埃利亚斯·奥拉夫森、斯维里尔·英吉·英加森、克里斯蒂安·赫林森和吉斯利·托尔达森。\n\n保加利亚拥有相对完整的军队。\n\n## 冰岛对阵保加利亚的最新战绩\n\n团队 | 最近5场比赛 | 进球数 - 失球数 \n---|---|---\n冰岛 | 胜1场，平2场，负2场 | 5-6 \n保加利亚 | 胜1场，平2场，负2场 | 4-5 \n\n两队在最近五场比赛中战绩相同，但冰岛队在第二场比赛中取得一场酣畅淋漓的胜利后，心态更加积极。\n\n## 冰岛和保加利亚最近的交锋结果\n\n根据提供的数据，冰岛在最近与保加利亚的 4 次交锋中取得了 3 胜 1 平的战绩。\n\n这项成就无疑会给主队带来额外的士气鼓舞，尽管目前的...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "3 比 0"
+          ]
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 1,
+        "goals": 0,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 4,
+        "home_mentions": 4,
+        "away_mentions": 4
+      },
+      "scores": [
+        "0 比 2",
+        "2 比 1",
+        "1 比 0"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周五004",
+      "league": "欧国联",
+      "home": "苏格兰",
+      "away": "北马其顿",
+      "home_en": "苏格兰",
+      "away_en": "北马其顿",
+      "queries": [
+        "\"苏格兰 vs 北马其顿\" preview prediction lang:en",
+        "苏格兰 北马其顿 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Scotland vs North Macedonia predictions: 13-2 Bet Builder tip, team news and odds",
+          "url": "https://www.racingpost.com/sport/football-tips/nations-league/scotland-vs-north-macedonia-predictions-team-news-odds-betting-tips-bet-builder-aFm4W6F53tJy/",
+          "site": "Racing Post",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.1835411113525476,
+          "summary": "Nations League\n\n# Scotland vs North Macedonia predictions: 13-2 Bet Builder tip, team news and odds\n\n## Scotland face North Macedonia in the Nations League. Get match details, betting tips, predictions and TV info for the big game at Hampden Park.\n...\n## Scotland vs North Macedonia kick-off, date & TV info\n\nDate Friday, November 13\nKick-off 7.45pm\nVenue Hampden Park, Glasgow\nCompetition Nations League\nTV BBC Two and BBC Scotland\n\nScotland are third in Nations League Group B1 and will look to keep alive their promotion hopes by targeting a victory over rock-bottom North Macedonia at Hampden Park.\n\nThe Scots need a response after last month's 2-1 loss at home to Slovenia, but they sit four points above North Macedonia, who are still searching for their first points and goals of the campaign.\n\n## Scotland vs North Macedonia Bet Builder\n\n### Scotland -1 goal handicap\n\nScotland were below par against Slovenia on matchday four but should be far too strong for bottom-side North Macedonia.\n\n### Oli McBurnie to score at any time\n\nThe centre-forward is back in favour after his World Cup omission and can score the first goal of his international career.\n\n### Jani Atansov to be carded\n\nThe midfielder has already served a ban for collecting two yellow cards in this competition and his caution count is likely to increase.\n\nPays out at 13-2 with Paddy Power\n\n## Scotland vs North Macedonia betting tips & predictions\n\n### Best bet\n\nScotland to win 3-0\n1pt 11-2 general\n\n### Best player bet\n\nJohn McGinn to register an assist\n16-5 Coral, Ladbrokes\n\n## Scotland vs North Macedonia preview\n\nScotland have taken just four points from their four Nations League matches but they should ease to a comfortable victory over North Macedonia.\n\nThe path to a top-two finish and potential promotion narrowed when Sebastien Pocognoli's side lost 2-1 at home to Slovenia on matchday four last month.\n\nThat result ended hopes of catching leaders Switzerland, and left the Scots three points adrift of Slovenia, who have the added advantage of a better head-to-head record.\n\nHowever, Scotland will be keen to stay in contention until the final round of fixtures, and look better equipped for the games at home to North Macedonia and away to Switzerland after Scott McTominay's return to the squad.\n\nMcTominay, 29, underwent a heart procedure in September, but has made a strong recovery, featuring nine times for Napoli since the start of October and scoring five goals.\n\nHe has become a pivotal player for Scotland and his drive and quality will add an extra dimension.\n\nScotland face a rejig in defence with centre-backs Stephen Welsh and Luis Binks out of contention, but they might not have much to resist against the North Macedonians, who look the weakest side in this group.\n\nNorth Macedonia have not won a match since September 2025 (a 5-0 win at home to Liechtenstein) and are yet to score a goal from eight games played since the start of the year.\n\nThe Balkan outfit have lost all of their Nations League fixtures, including last month's 2-0 defeat at home to Scotland, when they failed to register an attempt on target.\n\nNorth Macedonia look out of their depth in League B and are likely to suffer a fifth successive loss by a multiple-goal margin.\n\n### Magical McGinn can make something happen\n\nScotland lack a top-class striker but they have a decent midfield, including Aston Villa's John McGinn, who has made a strong start to the Premier League season.\n\nMcGinn has created six chances during the 2026 Nations League and is attractively priced to deliver his first assist of the campaign for Scotland.\n\n## Key stats for Scotland vs North Macedonia\n\n♦ Scotland have won three of their last four matches against North Macedonia\n♦ North Macedonia have gone 12 games without winning\n♦ The visitors have lost all of their last five games by at least two goals\n♦ North Macedonia have lost their last six competitive fixtures\n\n## Scotland vs North Macedonia betting odds\n\nSign up with bet365 to bet on this match. Here are the latest odds:\n\nMarket | Odds \n---|---\nScotland | 2-11 \nNorth Macedonia | 12-1 \nDraw | 11-2 \n\nOdds correct at time of publishing\n...\n## Scotland vs North Macedonia team news and predicted line-ups\n\n### Scotland\n\nScott McTominay returns to the squad, but Luis Binks and Stephen Welsh have had to withdraw.\n\nPredicted line-up (3-4-2-1): Gunn; Hickey, Hendry, Tierney; Gannon-Doak, Gilmour, Ferguson, Robertson; McTominay, McGinn; Mc...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Miovski replacement fires Scotland warning as he plots Hampden shock",
+          "url": "https://www.heraldscotland.com/sport/26722215.miovski-replacement-fires-scotland-warning-plots-hampden-shock/",
+          "site": "The Herald",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.0406148689069212,
+          "summary": "# Miovski replacement fires Scotland warning as he plots Hampden shock\n...\nBojan Miovski's replacement in the North Macedonia squad, Marko Gjorgjievski, insists he can shoot down Scotland tonight.\n\nScotland entertain the Balkan nation in their latest group game at Hampden and are strong favourites to get the three points.\n\nNorth Macedonia surprisingly dropped Rangers striker Miovski from their squad after they went eight games without scoring a goal.\n\nMiovski netted their last goal against Wales last September in a 7-1 defeat, but his place went to Gjorgjievski, with the Shkendija forward set to make his international debut tonight.\n\nAnd he's convinced they have the players to stun the Scots.\n\nHe said: \"I hope I get the chance to show what I can do in Glasgow.\n\n\"We cannot deny we are in a bit of a crisis at the moment, but I know we have the players to get out of this.\n\n\"I am sure once we score a goal and get a win, we will be back to how we used to be.\n\n\"I think the good thing about this squad is that everyone gets games with their clubs. We are all getting plenty of minutes.\n\n\"So I believe that the coach will find a way for us to set ourselves up and play a great match, to compete against Scotland and achieve a positive result.\"",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵数据",
+          "url": "https://m.sporttery.cn/zqlszl/bssj/?gm=2500454",
+          "site": "Sporttery",
+          "date": "2026-10-03T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9454399864472356,
+          "summary": "对阵数据\n\n特别提醒：本页面部分数据来源于第三方，仅供参考。\n\n特征分析\n\n历史交锋\n\n积分榜\n\n比赛近况\n...\n射手信息\n\n伤停一览\n...\n北马其顿\n\n苏格兰\n\n0胜/1平/1负\n\n近2场交锋\n\n1胜/1平/0负\n\n0胜/0平/1负\n\n同主客交锋\n\n1胜/0平/0负\n\n0胜/5平/5负\n\n近10场战况\n\n4胜/1平/5负\n\n4胜/5平/1负\n\n同主客战况\n\n6胜/2平/2负\n\n0.2个\n\n近10场场均进球\n\n1.3个\n\n2.1个\n\n近10场场均失球\n\n1.2个\n...\n同主客\n\n同赛制\n...\n0胜(0%) |\n\n1平(50%) |\n\n1负(50%)\n\n赛制/日期\n\n主队\n\nVS\n\n客队\n\n总进球数\n\n13-09-11\n...\n1:2\n\n半(0:0)\n...\n12-09-12\n...\n1:1\n\n半(1:1)\n...\n欧国联 2026/2027\n\n排名\n\n球队\n\n场次\n...\n胜率\n...\nGroup 14\n\n4\n\n0/0/4\n\n0%\n\n0\n\nGroup 13\n\n4\n\n1/1/2\n\n25%\n...\n近5场\n...\n2平(40%) |\n\n3负(60%)\n\n进0球， 失9球， 净进-9球\n...\n本队赛果\n\n2026-09-30\n\n斯洛文尼\n\n2:0\n...\n2026-09-27\n...\n0:3\n\n半(0:2)\n\n瑞士\n\n负\n\n2026-06-02\n\n土耳其\n\n4:0\n\n半(2:0)\n...\n2026-05-30\n\n波黑\n...\n平\n\n2026-04-01\n\n爱尔兰\n...\n1胜(20%) |\n\n1平(20%) |\n...\n进1球， 失7球， 净进-6球\n...\n半(0:1)\n...\n2026-09-26\n...\n2026-06-25\n...\n巴西\n\n负\n\n2026-06-20\n...\n摩洛哥\n\n负\n\n2026-06-14\n\n海地\n...\n时间/赛事轮次\n...\n暂无数据\n...\nK. Bowie\n\n前锋\n\n总场\n\n4\n\n首发\n\n2\n\n替补\n\n2\n\n进球/占本队\n\n1/33%\n\n助攻/占本队\n\n0/0%\n\n场均进球\n\n0.3\n\n场均助攻\n\n0\n\n克里斯蒂\n\n中场\n...\n麦金\n...\n艾里斯基\n\n后卫\n...\nN. Patterson\n...\n注：赛事数据统计进行至全场90分钟（含伤停补时阶段）的比赛结果。数据仅供参考，实际结果以赛果开奖公布内容为准。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Why North Macedonia star is confident they can stun Scotland at Hampden",
+          "url": "https://uk.sports.yahoo.com/news/why-north-macedonia-star-confident-103121565.html",
+          "site": "Yahoo",
+          "date": "2026-11-09T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9379649022437393,
+          "summary": "# Why North Macedonia star is confident they can stun Scotland at Hampden\n...\nNorth Macedonia star Luka Stankovski reckons they can stun Scotland on Friday...because the pressure is off them.\n\nScotland face the group's minnows, who have lost all four games in the section, including a 2-0 defeat to the Scots in Skopje.\n...\nThey have failed to win in their last 12 games since a victory against Liechtenstein and haven't even scored in their past eight games.\n\nMacedonian boss Goce Sedloski dropped Rangers striker Bojan Miovski from his squad and he was their last goalscorer....in a 7-1 defeat to Wales last September.\n...\nHowever, midfielder Stankovski, who plays for Ukrainian side Kolos Kovalivka, believes they can start to show what they can do because everyone has written them off.\n...\nHe said: \"Unfortunately, we no longer have a chance to advance from this group, so maybe we will be more psychologically relaxed and be able to play better.\n\n\"We have two tough matches ahead of us, but we hope that we will manage to achieve a positive result in both of them.\n\n\"Our ambition in every match is victory and I can promise that we will give 100 per cent to make Macedonian fans happy.\n\n\"It's hard to forget defeats, but believe me, we the players, experience them the hardest.\n...\n\"We give our all, not only on the pitch, but mentally too.\n\n\"I hope that it will be easier for us now, that we will play with more freedom, without pressure.\n\n\"I hope we will finally score this goal that we need. I believe we can win both matches if we perform to our best.\"",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "半全场分析：苏格兰先手更足，北马其顿后程反扑能否兑现？_PP视频体育频道",
+          "url": "https://www.ppsports.com/article/news/2627910.html",
+          "site": "Ppsports",
+          "date": "2026-10-02T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9367815942786288,
+          "summary": "# 半全场分析：苏格兰先手更足，北马其顿后程反扑能否兑现？\n\n2026年10月3日 14:25:14 懂球帝\n\n北京时间10月4日2点45分，欧国联北马其顿将在主场对阵苏格兰。本场比赛数据为主受让半一，苏格兰近期半场阶段更容易取得主动，北马其顿需要提高开局阶段的防守专注度。苏格兰近五场全场取得1胜1平3负，若苏格兰能够延续前段节奏，比赛后程有望守住优势。\n\n【北马其顿近5场半全场轨迹】\n\n客场对阵斯洛文尼亚，半场0-0、全场2-0负；主场对阵瑞士，半场0-2、全场0-3负；客场对阵土耳其，半场2-0、全场4-0负；客场对阵波黑，半场0-0、全场0-0平；客场对阵爱尔兰，半场0-0、全场0-0平。\n\n从近五场比赛来看，北马其顿半场0胜3平2负，全场0胜2平3负，近期整体表现较为低迷。球队连续多场在半场阶段与对手保持均势，但全场只有0场取胜，比赛后程的防守稳定性仍需提升。\n\n北马其顿半场打平的3场比赛最终取得0胜2平1负，说明球队虽然能够在上半场保持一定抗衡能力，但进入下半场后容易出现防线松动。此前面对斯洛文尼亚时，球队均在半场战平，却最终遭遇失利。\n\n【苏格兰近5场半全场轨迹】\n\n主场对阵瑞士，半场0-1、全场0-3负；客场对阵斯洛文尼亚，半场0-0、全场0-0平；主场对阵巴西，半场0-2、全场0-3负；主场对阵摩洛哥，半场0-1、全场0-1负；客场对阵海地，半场0-1、全场0-1胜。\n\n从近五场比赛来看，苏格兰半场1胜1平3负，全场1胜1平3负，近期整体表现较为低迷。球队有多场半场落后并最终失利，开局阶段的应对和后程调整都将影响本场走势。\n\n苏格兰有1场半场领先并最终取胜，说明球队较早建立优势后具备延续比赛节奏的能力。\n\n【全场走势/数据影响】\n\n主受让半一的比赛数据下，苏格兰方向值得重点关注。北马其顿近五场取得0胜2平3负；苏格兰近五场取得1胜1平3负。\n\n综合双方近期半全场轨迹，苏格兰在比赛前段更有机会争取主动。北马其顿半场0胜3平2负，苏格兰半场1胜1平3负，北马其顿需要尽量避免在开局阶段过早失去位置，半场0-1的走势值得重点关注。\n\n比赛进入下半场后，苏格兰有望增加进攻投入，争取利用自身优势打破僵局；北马其顿则需要继续保持防线集中度，并通过反击寻找机会。\n...\n苏格兰近五场取得1胜1平3负，若苏格兰率先取得进球，苏格兰拿下比赛的可能性将进一步提升。因此，本场半全场首选负负，稳健方向防范负平。\n\n【综合推荐】\n\n比分倾向 0-1、0-2\n\n半场比分关注 0-1",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "0 比 1"
+          ]
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 5,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 2,
+        "home_mentions": 2,
+        "away_mentions": 2
+      },
+      "scores": [
+        "0 比 1"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周五005",
+      "league": "欧国联",
+      "home": "塞尔维亚",
+      "away": "德国",
+      "home_en": "塞尔维亚",
+      "away_en": "德国",
+      "queries": [
+        "\"塞尔维亚 vs 德国\" preview prediction lang:en",
+        "塞尔维亚 德国 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Serbia vs Germany football prediction in Nations League",
+          "url": "https://news.laodong.vn/bong-da-quoc-te/nhan-dinh-bong-da-serbia-vs-duc-tai-nations-league-1799219.ldo",
+          "site": "Laodong.vn",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.0675996503059086,
+          "summary": "# Serbia vs Germany football prediction in Nations League\n\nAn An - 19:00, Thu Nov 12, 2026 (GMT+7)\n\nFootball prediction for the Serbia - Germany match within the framework of the Nations League 2026-2027 season.\n\nOverview\n\nThe Serbian team is deeply mired in crisis before welcoming Germany in the Nations League. After four consecutive defeats in Group A2, coach Veljko Paunovic's team has run out of opportunities to compete for the top two positions. Germany is also under pressure as they need a victory to nurture hopes for the quarter-finals.\n\nSerbia started the campaign with a 1-2 home defeat to Greece. In the next match, they continued to lose to the Netherlands with the same score, before receiving a 0-2 defeat at the German stadium. In the rematch against the Netherlands, this team succumbed 1-2 again. Four matches, four defeats put Serbia out of the race for a ticket to the next round.\n\nSerbia can still surpass Germany to take third place, but the prerequisite is to win the next match. Current form makes this task heavy. This team has lost six consecutive matches in all competitions and only won once since the end of 2025.\n\nA series of poor results put Paunovic under great pressure. Serbia continuously made mistakes, and the attack lacked sharpness at decisive moments. Two narrow defeats against Greece and the Netherlands made them even more disappointed.\n\nHead-to-head history does not completely lean towards Serbia. In four encounters with Germany, they won one, drew one and lost two. The only victory took place in the group stage of the 2010 World Cup, but that memory is difficult to fill their current form.\n\nOn the other side, Germany has also not had a campaign as expected. After four rounds, coach Jurgen Klopp's team has one win, two draws and one defeat. They are three points behind both Greece and the Netherlands, while the group has only two rounds left.\n\nThe German team started with a 1-1 draw at the Netherlands, before unexpectedly losing to Greece 0-1 at home at the end of September. In early October, they beat Serbia 2-0, but then were held to a 0-0 draw by Greece. The last two matches against Serbia and the Netherlands will decide the opportunity to advance.\n\nIf they win four points less in the remaining two matches, Germany's chances of reaching the quarter-finals will be very low. Two consecutive victories will help them increase their total points to 11 and may be enough to squeeze into the top eight strongest teams.\n\nPersonnel situation\n\nSerbia loses two midfielders Sasa Lukic and Nemanja Maksimovic due to suspension. Aleksandar Mitrovic is likely to have his 107th appearance for the national team. The 32-year-old striker can play highest, alongside Mihajlo Cvetkovic, who has scored a goal after five appearances. Sergej Milinkovic-Savic is expected to be present in midfield.\n\nGermany has three players facing the risk of being suspended if they receive more yellow cards: Philipp Treu, Malick Thiaw and Yann Bisseck.\n\nKai Havertz, who has scored 25 goals for the national team, is predicted to continue playing as a center forward. Florian Wirtz is also likely to start, while Said El Mala and Lennart Karl compete for the opportunity to participate from the start of the match.\n\nMarc-Andre ter Stegen has been confirmed as the number one choice in the German national team's goal.\n\nThe match between Serbia and Germany takes place at 2:45 am on November 14 (Vietnam time).",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "塞尔维亚 vs 德国国家联赛足球评论",
+          "url": "https://zh.laodong.vn/bong-da-quoc-te/nhan-dinh-bong-da-serbia-vs-duc-tai-nations-league-1799219.ldo",
+          "site": "iPhone 折叠将给三星带来巨大的电池压力",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.0257383903639745,
+          "summary": "# 塞尔维亚 vs 德国国家联赛足球评论\n\nAn An - 19:00, Thu Nov 12, 2026 (GMT+7)\n\n对2026-2027赛季欧洲国家联赛塞尔维亚-德国比赛的足球评论。\n\n总览\n\n塞尔维亚队在国家联赛迎战德国队之前陷入了危机。在A2组四轮全败后,维尔科·帕乌诺维奇教练的球队已经失去了争夺前两名的机会。德国队也面临压力,需要获胜才能保持进入四分之一决赛的希望。\n\n塞尔维亚队在主场以1-2输给希腊队开局。在下一轮比赛中,他们继续以同样的比分输给荷兰队,然后在德国队主场以0-2落败。在与荷兰队的重赛中,这支球队再次以1-2落败。四场比赛,四场失利使得塞尔维亚队无缘晋级。\n\n塞尔维亚仍然可以超越德国,占据第三位,但先决条件是必须赢得下一场比赛。目前的状态使得这项任务变得艰巨。这支球队自2025年底以来,在所有赛场上已连续输掉六场比赛,仅赢过一次。\n\n糟糕的连败给保诺维奇带来了巨大的压力。塞尔维亚不断犯错,而进攻端在关键时刻缺乏锐利。输给希腊和荷兰的两次险胜让他们更加失望。\n\n对阵历史并没有完全倾向于塞尔维亚。在四次对阵德国的比赛中,他们赢了一场,平了一场,输了两场。唯一的胜利发生在2010年世界杯小组赛,但这种记忆很难弥补目前的状态。\n\n在另一边,德国队也没有像预期的那样进行战役。 经过四轮比赛,尤尔根·克洛普教练的球队取得了一场胜利,两场平局和一场失利。 他们落后希腊和荷兰三分,而小组赛只剩下两轮。\n\n德国队以1-1战平荷兰队开局,9月底在主场0-1意外输给希腊。10月初,他们2-0战胜塞尔维亚,但随后被希腊0-0逼平。最后两场比赛对阵塞尔维亚和荷兰将决定晋级的机会。\n\n如果在剩下的两场比赛中获得不到四分,德国进入四分之一决赛的可能性将非常低。两连胜将帮助他们将总分提高到11分,并可能足以跻身八强。\n\n人事情况\n\n塞尔维亚因停赛失去了两名中场球员萨萨·卢基奇和内马尼亚·马克西莫维奇。亚历山大·米特罗维奇很可能将第107次代表国家队出战。这位32岁的前锋可以踢最高位置,与五次出场后打进一球的米哈伊洛·切特科维奇并列。塞尔盖·米林科维奇-萨维奇预计将出现在中场。\n\n如果再吃到黄牌,德国有三名球员面临停赛的危险:菲利普·特雷乌、马利克·蒂亚乌和扬·比塞克。\n\n为国家队打进25球的凯·哈弗茨预计将继续担任中锋。弗洛里安·维尔茨也有首发机会,而赛义德·埃尔·马拉和伦纳特·卡尔则争相从一开始就有机会上场。\n\n马克-安德烈·特尔施特根已被确认为德国队球门的首选。\n\n塞尔维亚和德国之间的比赛于越南时间11月14日凌晨2点45分举行。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "360体育-德国vs塞尔维亚赛前分析：德国主场占优，塞尔维亚防线承压",
+          "url": "http://www.ppsport.com/360news/news/2626917.html?plt=clt",
+          "site": "PP体育",
+          "date": "2026-09-30T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.765517234802246,
+          "summary": "# 德国vs塞尔维亚赛前分析：德国主场占优，塞尔维亚防线承压\n\n2026年10月1日 14:55:12 编辑：懂球帝\n\n北京时间10月2日2点45分，欧洲国家联赛A级联赛第3轮，德国坐镇慕尼黑安联球场迎战塞尔维亚。德国目前排名、阵容身价和主场条件都占据优势，但球队近期状态并不算稳定；塞尔维亚则在前两轮连续失利，最近防守端问题较多。结合双方近期表现、阵容配置和比赛走势，本场倾向德国主场取胜。\n\n## 【德国近期表现和战术特点】\n\n德国最近5场比赛取得1胜1平3负，打进8球、失10球。欧洲国家联赛前两轮，德国先是客场1比1战平荷兰，随后主场0比1负于希腊。此前的世界杯比赛中，德国4比5负于巴拉圭、1比2负于厄瓜多尔，但曾以2比1战胜科特迪瓦，整体表现存在一定波动。\n\n从比赛阵容和近期站位来看，德国本场预计采用4-4-2阵型。劳姆和巴库负责两侧推进，马利克-佳夫与安东坐镇中路防守，亚历山大-帕夫洛维奇和雅内尔特负责中场保护与出球，维尔茨、比朔夫需要在中前场提供组织和前插支持，阿德耶米与伯卡特组成双前锋。\n\n德国的优势在于整体阵容厚度和球员个人能力。不过，德国最近5场丢掉10球，防线稳定性并不理想。如果中场压上过多，两个边后卫身后的空间可能被塞尔维亚利用。\n\n## 【塞尔维亚近期表现和战术特点】\n\n塞尔维亚最近5场比赛取得1胜4负，打进5球、失13球。球队最近连续输给荷兰和希腊，比分都是1比2；此前还曾以1比5负于墨西哥、0比3负于佛得角，只有在对阵沙特阿拉伯时取得2比1胜利。连续失球说明塞尔维亚目前的防守承受着较大压力。\n\n塞尔维亚预计采用4-4-2阵型。阿列克萨-泰尔齐奇和内德利科维奇负责两侧防守，帕夫洛维奇与巴比奇搭档中卫。萨萨-卢基奇、古德利、米林科维奇-萨维奇和亚历山大-斯坦科维奇组成中场，安德里亚-日夫科维奇与德扬-约韦利奇突前。\n\n塞尔维亚的进攻主要依靠边路推进、前锋跑动和中场球员的后插上。米林科维奇-萨维奇具备较好的身体条件和空中对抗能力，安德里亚-日夫科维奇也能在边路制造突破机会。但球队最近5场丢掉13球，后防线在面对德国连续冲击时，能否保持阵型完整将是关键。\n\n## 【双方预计首发】\n\n正式首发尚未公布，以下为结合当前比赛阵容和近期站位作出的预测，阵型及名单均未官宣。\n\n德国预计首发：4-4-2（预测阵容·未官宣）\n\n门将：乌尔比希\n\n后卫：劳姆、马利克-佳夫、安东、巴库\n\n中场：亚历山大-帕夫洛维奇、雅内尔特、维尔茨、比朔夫\n\n前锋：阿德耶米、伯卡特\n...\n门将：瓦尼亚-米林科维奇-萨维奇\n\n后卫：阿列克萨-泰尔齐奇、帕夫洛维奇、巴比奇、内德利科维奇\n\n中场：萨萨-卢基奇、古德利、米林科维奇-萨维奇、亚历山大-斯坦科维奇\n\n前锋：安德里亚-日夫科维奇、德扬-约韦利奇\n\n## 【核心对位观察】\n\n中场控制：德国预计会通过亚历山大-帕夫洛维奇和雅内尔特控制中场节奏，维尔茨和比朔夫则负责把球向前输送。塞尔维亚需要依靠古德利、萨萨-卢基奇和米林科维奇-萨维奇加强...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "4 比 4",
+            "1 比 2"
+          ]
+        },
+        {
+          "kind": "preview",
+          "title": "Germany and Serbia meet in Munich with both sides seeking a Nations League revival - Back",
+          "url": "https://lite.apex-football.com/en-KE/news/5f7a369b260929en_za#1",
+          "site": "Apex Football",
+          "date": "2026-09-30T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.7032105922698977,
+          "summary": "Germany and Serbia meet in Munich with both sides seeking a Nations League revival\n\nGermany face Serbia at the Allianz Arena on Thursday, 1 October 2026, in the third round of the Nations League, with both teams looking to recover from disappointing results.\n\nThe match in Munich will kick off at 18:45 GMT.\n...\n#### Head-to-head record\n\nGermany and Serbia have met three times in all competitions, according to Transfermarkt. Each side has recorded one victory, while the other fixture ended in a draw.\n\nThe scoring record is also completely even, with both teams having found the net three times in those meetings.\n\n#### Germany under pressure after Greece defeat\n\nGermany began this Nations League campaign with an encouraging 1-1 draw against the Netherlands, but their momentum was checked by a surprise 1-0 defeat by Greece.\n\nThat result has created uncertainty around the Mannschaft ahead of a match that carries added importance. Germany will now attempt to respond in front of their home supporters at the Allianz Arena.\n\nSerbia’s position is even more concerning. They have lost their past two games, going down 2-1 to Greece before suffering the same scoreline against the Netherlands. Defensive problems have contributed to those results, and the Serbian team currently sit bottom of the group.\n\n#### Prediction and available odds\n\nGermany are considered strong favourites for the fixture. The home side will look to draw on the influence of Jurgen Klopp and the atmosphere at the Allianz Arena as they seek to repair the damage caused by their recent results.\n\nSerbia arrive in Munich after consecutive defeats and are struggling for confidence, making a Germany victory the expected outcome.\n\nAfricafoot’s prediction is Germany 2-0 Serbia.\n\nThe betting company 1xbet lists Germany at 1.18 to win, with a draw priced at 6.10 and a Serbia victory at 8.50.",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "2 比 0"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "塞尔维亚 vs 德国比分预测：模型看好德国，最可能1-1",
+          "url": "https://m.dongqiudi.com/xinwen/168524",
+          "site": "懂球帝",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6922540201336365,
+          "summary": "# 塞尔维亚 vs 德国比分预测：模型看好德国，最可能1-1\n...\n## 30 秒看懂\n\n- 综合预测：塞尔维亚胜22%、平29%、德国胜49%。\n- 最可能比分1-1（13.4%），预计两队合计进2.3球。\n- 三个模型都看好德国，但泊松模型认为德国胜38%优势最小。\n\n北京时间2026年11月14日03:45，欧国联A级联赛第5轮，塞尔维亚主场对阵德国。懂球帝数据模型按开球前的历史比赛数据算出，综合三个模型的平均预测为：塞尔维亚胜22%、平局29%、德国胜49%，最可能的比分是1-1（13.4%）、0-1（12.6%）、0-0（11.2%），预计两队合计进2.3球左右，两队都进球的概率46%。\n\n泊松进球模型按本赛季欧国联的场均进球，算出两队在主客场的进攻和防守强度，相乘得到进球期望，再按泊松分布算每个比分的概率，并对0-0、1-1这类低比分做Dixon-Coles修正。本赛季欧国联截至赛前已赛104场，场均主队进1.26球、客队进1.23球；塞尔维亚近10个主场场均进1.10球、失1.10球，进攻强度0.90、防守0.91；德国近10个客场场均进1.20球、失1.00球，进攻强度0.98、防守0.83；进球期望塞尔维亚0.93、德国1.10。该模型给出塞尔维亚胜29%、平33%、德国胜38%，最可能比分1-1（14.8%）、0-0（14.4%）、0-1（13%）。\n\n近况加权模型只看两队各项赛事最近10场，越近的比赛权重越大（每往前一场权重乘0.85），用加权后的场均进球和对手的场均失球算进球期望，主场按赛事主客场进球比例加成。塞尔维亚近10场加权场均进0.89球、失1.84球；德国近10场加权场均进1.56球、失0.64球；主场加成1.01；进球期望塞尔维亚0.87、德国1.77。该模型给出塞尔维亚胜17%、平25%、德国胜58%，最可能比分1-1（12.1%）、0-1（11.6%）、0-2（11.2%）。\n\nElo等级分模型按懂球帝收录的全部正式比赛，从1500分起给每支球队算Elo等级分，赛前塞尔维亚1625（已算126场）、德国1797（已算201场），主场优势按60分算；塞尔维亚的胜率期望（赢算1、平算0.5）0.34；进球期望塞尔维亚0.84、德国1.49。该模型给出塞尔维亚胜20%、平29%、德国胜51%，最可能比分1-1（13.4%）、0-1（13.2%）、0-0（10.9%）。\n\n近5场：塞尔维亚1胜0平4负（进5失9），德国1胜3平1负（进4失3）。本赛季欧国联：塞尔维亚4战0胜0平4负，德国4战1胜2平1负。历史交锋（2次）：塞尔维亚1胜0平1负，德国1胜0平1负。\n\n三个模型都更看好德国，但泊松模型认为德国胜38%，优势最小，且平局概率33%最高；近况加权模型给德国58%的胜率，分歧明显。综合来看德国胜面更大，最可能比分1-1。模型只看历史...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": [
+            "1 比 1",
+            "0 比 0"
+          ]
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 0,
+        "draw": 1,
+        "goals": 0,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 4,
+        "zh": 3,
+        "home_mentions": 3,
+        "away_mentions": 3
+      },
+      "scores": [
+        "4 比 4",
+        "1 比 2",
+        "2 比 0"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周五006",
+      "league": "欧国联",
+      "home": "卢森堡",
+      "away": "爱沙尼亚",
+      "home_en": "卢森堡",
+      "away_en": "爱沙尼亚",
+      "queries": [
+        "\"卢森堡 vs 爱沙尼亚\" preview prediction lang:en",
+        "卢森堡 爱沙尼亚 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "爱沙尼亚客战卢森堡，赢球且冰岛取胜可锁定附加赛",
+          "url": "http://pc.dongqiudi.com/articles/6644121.html",
+          "site": "懂球帝",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.3616401570585133,
+          "summary": "# 爱沙尼亚客战卢森堡，赢球且冰岛取胜可锁定附加赛\n\n北京时间11月14日03:45，欧国联C4组，卢森堡坐镇卢森堡市迎战爱沙尼亚。爱沙尼亚目前排名小组第二，此役取胜且冰岛在保加利亚身上全取三分，他们就能提前一轮锁定升级附加赛席位。卢森堡虽然小组垫底，但赢球即可在积分上追平对手。\n\n卢森堡在施特拉塞尔的带领下小组赛首轮客场2-1击败保加利亚，但随后主场0-3不敌冰岛，又接连输给爱沙尼亚和保加利亚且一球未进，遭遇三连败。不过他们仍有机会争取升级附加赛资格。国际足联排名上，卢森堡位列第101位，比爱沙尼亚高21位。\n\n爱沙尼亚则保持六场不败，期间只丢一球。小组赛唯一一场胜利正是1-0击败卢森堡，此外还两次与冰岛打成低比分平局，并与保加利亚战平。他们最近三场国际比赛胜利的比分都是1-0。\n\n阵容方面，卢森堡的迪克-卡尔森因累积两张黄牌停赛一场，博纳特可能移到后防线中路，队长扬斯在因伤缺席两场后有望回到右后卫位置。塞巴斯蒂安-蒂尔和达尔达里是中前场的调整选项。\n\n爱沙尼亚首发至少有两处变动，马滕-库斯克和罗比-萨尔马未进入尤尔根-亨的名单。队长梅茨可能进入三后卫，卡雷尔-穆斯特马可能被推上进攻线。凯特是阵中唯一国际比赛进球超过三个的球员，有望回到中场中路。\n\n卢森堡可能首发：莫里斯；扬斯，博纳特，塞利莫维奇，韦加；克鲁斯；纳塔米，文森特-蒂尔，多斯桑托斯，哈姆扎-卡达马尼；杰森-维代拉。爱沙尼亚可能首发：伊戈南；梅茨，帕斯科特希，通格亚斯；佩特森，帕卢梅茨，帕特里克-克里斯塔尔，波姆，萨利斯特；卡雷尔-穆斯特马，曼尼兰。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": [
+            "1 比 0"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "卢森堡多人伤缺，巴雷罗缺阵至明年一月",
+          "url": "http://pc.dongqiudi.com/articles/6645383.html",
+          "site": "懂球帝",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.250437017771589,
+          "summary": "# 卢森堡多人伤缺，巴雷罗缺阵至明年一月\n\n欧国联C级第4组，卢森堡将于北京时间11月14日03:45（当地时间13日）主场迎战爱沙尼亚。卢森堡目前以3分排名小组垫底，爱沙尼亚则有望锁定小组前两名和升级附加赛席位。首回合交锋爱沙尼亚1-0取胜。\n\n卢森堡的伤病名单相当长：巴雷罗因大腿伤势预计缺阵至2027年1月（此前有背部问题），西纳尼十字韧带受伤，马丁斯-佩雷拉、科拉茨、基基-马丁斯、伊万德罗-博尔赫斯均因伤缺阵，卡尔森则因累计黄牌停赛。球队近3场欧国联0进球，4场失7球。\n\n爱沙尼亚方面同样有减员：莱皮克右膝前十字韧带撕裂，预计恢复期10至12个月；西尼亚夫斯基十字韧带受伤；萨皮宁、库斯克、索梅茨、萨尔马因医疗原因缺阵；苏菲安-古拉姆接受德国青年队征召。不过爱沙尼亚本届赛事4场3次零封、仅失1球，各项赛事已六场不败。\n\n预计首发方面，卢森堡排出4-2-3-1：莫里斯；扬斯、博纳特、马穆托维奇、韦加；托马斯-莫雷拉、奥勒森；达尔达里、文森特-蒂尔、哈姆扎-卡达马尼；杰森-维代拉。爱沙尼亚为3-5-1-1：伊戈南；帕斯科特希、梅茨、通格亚斯；佩特森、波姆、帕卢梅茨、帕特里克-克里斯塔尔、萨利斯特；沙因；曼尼兰。\n\n文森特-蒂尔将在锋线身后的空间承担为卢森堡破解爱沙尼亚五后卫防线的任务，爱沙尼亚翼卫的发挥则关系到球队能否顶住压力并在反击中制造威胁。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "4 比 2"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "施特拉塞尔盼主场收官，卢森堡迎战爱沙尼亚",
+          "url": "http://pc.dongqiudi.com/articles/6644116.html",
+          "site": "懂球帝",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.2000007373925228,
+          "summary": "# 施特拉塞尔盼主场收官，卢森堡迎战爱沙尼亚\n\n北京时间11月14日03:45（当地时间11月13日19:45），欧国联小组赛，卢森堡将在卢森堡体育场迎战爱沙尼亚。主队在三连败后希望用一场胜利结束本阶段的征程，而爱沙尼亚则带着四战不败的战绩客场出战。\n\n卢森堡由施特拉塞尔执教，他在2025年接替长期执教的吕克-霍尔茨执掌国家队。施特拉塞尔的球队在附加赛中击败马耳他晋级C级联赛，但小组赛阶段并不顺利：首战客场2-1战胜保加利亚后，球队先后主场0-3负于冰岛、客场0-1负于爱沙尼亚、主场0-2负于保加利亚，遭遇三连败，排名靠后，进球难是主要问题。\n\n爱沙尼亚在尤尔根-亨的带领下小组保持不败，四场比赛一胜三平，排名高于卢森堡。防守是他们的最大优势，四场比赛保持三场零封，包括客场与保加利亚、主场与冰岛的两场0-0，10月主场1-0击败卢森堡同样建立在稳固防守之上。球队创造的机会不多，但很难被击败。客场作战时，爱沙尼亚将寻求稳守、保持紧凑，并通过反击或定位球寻找机会。\n\n两队今年10月已在同一小组交手，爱沙尼亚主场1-0获胜。此番再度相遇，卢森堡拥有主场优势，且在遭遇三连败后更有紧迫感；爱沙尼亚则希望延续不败势头，从客场带走分数。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "卢森堡对爱沙尼亚 交手统计数据 | FootyStats - Loading",
+          "url": "https://footystats.org/cn/international/luxembourg-national-team-vs-estonia-national-team-h2h-stats#1",
+          "site": "FootyStats",
+          "date": "2026-10-02T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.8003344346132282,
+          "summary": "# 卢森堡对爱沙尼亚数据、分析及正面交锋\n\n1.20\n...\n1.10\n...\n因为这是一个国际赛程，所以显示最近10次的统计数据。\n...\n## 正面交手统计数据 / 以前的结果 - 卢森堡对爱沙尼亚\n...\n0%\n\n0%\n\n100%\n\n1 赢\n...\n(100%)\n\n卢森堡 vs 爱沙尼亚的交锋纪录显示1, 卢森堡 0 次获胜且 爱沙尼亚 1 次获胜。 卢森堡 和 爱沙尼亚之间有0次交锋在以和局告终。\n\n0%高于1.5\n\n0 / 1 赛事\n\n0%高于2.5\n...\n0%高于3.5\n...\n0%两队都得分\n...\n0%没有失球\n...\n100%没有失球\n...\n## 所有预测- 卢森堡对爱沙尼亚\n\n30%高于2.5\n\n联盟平均 : 48%\n\n65%高于1.5\n...\n74%\n\n35%两队都得分\n...\n47%\n\n2每场赛事进球数\n...\n2.48\n\n高于1.5进球，上半场/下半场 ＆ 更多\n\n高于 8.5, 9.5进球 & 更多\n\n*本赛季卢森堡和爱沙尼亚之间的平均统计数据\n\n状态表\n...\n场均得分\n\n总体\n\n- 输\n- 赢\n...\n主场\n...\n0.75\n\n客场\n...\n1.50\n...\n赢%\n\n40%\n\n25%\n\n50%\n...\n1.90\n\n2.25\n\n1.67\n...\n0.80\n\n0.75\n\n0.83\n...\n10%\n\n0%\n\n17%\n\n没有失球\n...\n33%\n\n第一队入球\n\n60%\n\n75%\n\n50%\n\nxG\n\n1.07\n\n0.97\n\n1.15\n\n预计失球数\n\n1.49\n\n1.51\n\n1.48\n\n这些统计数据是什么?\n...\n- 平\n...\n1.25\n...\n20%\n...\n2.40\n\n1.75\n\n2.83\n...\n1.17\n...\n1.40\n...\n67%\n...\n1.24\n\n1.55\n\n1.04\n...\n1.53\n\n1.43\n\n1.60\n\n## 进球数 谁得分更多？\n\n爱沙尼亚 是+25% 更好 方面进球\n\n0.8 每场赛事进球数\n\n卢森堡 (主场)\n\n1 每场赛事进球数\n\n爱沙尼亚 (客场)\n\n全场\n\n上半场/下半场\n\n每场平均得分 | Luxembourg | Estonia \n---|---|---\n高于0.5 | 40% | 70% \n高于1.5 | 30% | 10% \n高于2.5 | 10% | 10% \n高于3.5 | 0% | 10% \n未能得分 | 60% | 30% \n\n上半场/下半场 得分 | Luxembourg | Estonia \n---|---|---\n上半场得分 | 30% | 40% \n下半场得分 | 30% | 40% \n上下半场均得分 | 20% | 10% \n上半场平均得分 | 0.3 | 0.4 \n下半场平均得分 | 0.50 | 0.60 \n\n* 统计数据包含卢森堡 和 爱沙尼亚已打过的主客场比赛。\n\n## 失球数 谁会失球？\n\n卢森堡 是+27% 更好 方面失球\n\n1.1 每场球赛失球\n...\n1.4 每场球赛失球\n...\n角球 / 比赛 | Luxembourg | Estonia \n---|---|---\n高于0.5 | 70% | 70% \n高于1.5 | 30% | 40% \n高于2.5 | 10% | 20% \n高于3.5 | 0% | 10% \n没有失球 | 30% | 30%\n...\n* 失球数据包括...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Luxembourg vs Estonia : prediction, betting tips & odds for UEFA Nations League on | Tribuna.com",
+          "url": "https://tribuna.com/en/match/estonia-vs-luxembourg/prediction/",
+          "site": "Tribuna.com",
+          "date": null,
+          "authority": 3,
+          "score": 1.6566694974899292,
+          "summary": "# Luxembourg vs Estonia prediction\n\nLuxembourg – Estonia match will take place on Matchday 5 of UEFA Nations League on Friday, 13.11.2026.\n...\nCaptain AI provides its exclusive prediction and estimates Luxembourg win probability at 57.91%, draw probability at 24.88% and Estonia win probability at 17.21%. The match outcome is calculated and based on the biggest football database and AI. Prediction accuracy over the last month is > 81%.\n\nThe Luxembourg – Estonia match odds indicate that Luxembourg are the favourites. Below, we compiled key stats of both teams to analyse their form and to predict the winner – Luxembourg or Estonia .\n...\nThe analysis of the last 4 head-to-head matches shows that Luxembourg won 0 times while Estonia won 3 times. There were 1 draws. The total score of those clashes is 1:8. Luxembourg won 0 home matches and 0 away clashes out of those. The last game between the two teams took place on 03.10.2026 and finished 1:0.\n\n## Goals by minute this season 2026/2027\n...\nLuxembourg most often score in 30-45', 60-75', while Estonia most often concede in 30-45'.\n\nLuxembourg currently hold the number 4 spot in the league table, while their opposition, Estonia , keep the number 2 spot. The league standings directly impact the Luxembourg v Estonia match odds offered by bookmakers.\n\nBefore kick-off16 days\n\nStadium: Stade de Luxembourg, Lëtzebuerg (Luxembourg), Luxembourg\n\nCapacity: 9 386\n...\nSquad: number of players – 27, average team age – 26.1Show more\n\nDate of foundation: 1908",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 0,
+        "draw": 1,
+        "goals": 0,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 4,
+        "home_mentions": 4,
+        "away_mentions": 4
+      },
+      "scores": [
+        "1 比 0",
+        "4 比 2"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周五007",
+      "league": "欧国联",
+      "home": "斯洛伐克",
+      "away": "法罗群岛",
+      "home_en": "斯洛伐克",
+      "away_en": "法罗群岛",
+      "queries": [
+        "\"斯洛伐克 vs 法罗群岛\" preview prediction lang:en",
+        "斯洛伐克 法罗群岛 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "斯洛伐克國家隊對法羅群島國家隊 交手統計數據 | FootyStats - Loading",
+          "url": "https://footystats.org/zht/international/slovakia-national-team-vs-faroe-islands-national-team-h2h-stats?__cf_chl_rt_tk=513X6YwBXpM.L2RFhnxWyyFwW1HMYNqNZ1XtUDdtJos-1782603285-1.0.1.1-8GtltcXvKkDBET2Oht_Y5RMYUS69_kY.jNLM9SeXbCM#1",
+          "site": "FootyStats",
+          "date": "2026-10-01T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.873456710709535,
+          "summary": "# 斯洛伐克國家隊對法羅群島國家隊數據、分析及正面交鋒\n\n2.00\n...\n1.80\n...\n因為這是一個國際賽程，所以顯示最近10次的統計數據。\n...\n## 正面交手統計數據 / 以前的結果 - 斯洛伐克國家隊對法羅群島國家隊\n...\n0%\n\n100%\n\n0%\n\n1 平局(100%)\n\n斯洛伐克國家隊 vs 法羅群島國家隊的交鋒紀錄顯示1, 斯洛伐克國家隊 0 次獲勝且 法羅群島國家隊 0次獲勝。 斯洛伐克國家隊和法羅群島國家隊之間有1次交鋒在以和局告終。\n\n100%高於1.5\n\n1 / 1 賽事\n\n0%高於2.5\n\n0 / 1 賽事\n\n0%高於3.5\n\n0 / 1 賽事\n\n100%兩隊都得分\n...\n0%沒有失球\n...\n## 所有預測- 斯洛伐克國家隊對法羅群島國家隊\n\n45%高於2.5\n\n聯盟平均 : 48%\n\n80%高於1.5\n...\n55%兩隊都得分\n...\n3每場賽事進球數\n\n聯盟平均 : 2.52\n\n高於1.5進球，上半場/下半場 ＆ 更多\n\n高於 8.5, 9.5進球 & 更多\n\n*本賽季斯洛伐克國家隊和法羅群島國家隊之間的平均統計數據\n\n狀態表\n...\n場均得分\n\n總體\n\n- 贏\n- 平\n...\n主場\n...\n2.38\n\n客場\n\n- 輸\n- 平\n\n0.50\n...\n贏%\n\n60%\n\n75%\n...\n3.20\n\n3.00\n\n4.00\n...\n1.70\n...\n1.50\n\n1.00\n\n3.50\n...\n50%\n...\n40%\n...\n第一隊入球\n...\nxG\n\n1.62\n\n1.77\n\n1.04\n\n預計失球數\n\n1.16\n\n0.92\n\n2.13\n...\n1.83\n...\n1.75\n...\n2.30\n\n2.17\n\n2.50\n...\n1.40\n\n1.50\n\n1.25\n...\n0.90\n\n0.67\n...\n30%\n\n33%\n\n25%\n...\n17%\n...\n1.34\n\n1.12\n...\n1.53\n\n1.55\n\n1.50\n\n## 進球數 誰得分更多？\n\n斯洛伐克國家隊 是 +21% 更好 方面 進球\n\n1.7 每場賽事進球數\n\n斯洛伐克國家隊 (主場)\n\n1.4 每場賽事進球數\n\n法羅群島國家隊 (客場)\n\n全場\n\n上半場/下半場\n\n每場平均得分 | Slovakia | Faroe Islands \n---|---|---\n高於0.5 | 90% | 90% \n高於1.5 | 70% | 30% \n高於2.5 | 10% | 10% \n高於3.5 | 0% | 10% \n未能得分 | 10% | 10% \n\n上半場/下半場 得分 | Slovakia | Faroe Islands \n---|---|---\n上半場得分 | 70% | 60% \n下半場得分 | 70% | 50% \n上下半場均得分 | 50% | 20% \n上半場平均得分 | 0.9 | 0.7 \n下半場平均得分 | 0.80 | 0.70 \n\n* 統計數據包含斯洛伐克國家隊和法羅群島國家隊已打過的主客場比賽。\n\n## 失球數 誰會失球？\n\n法羅群島國家隊 是 +40% 更好 方面 失球\n\n1.5 每場球賽失球\n...\n0.9 每場球賽失球\n...\n* 失球數據包括 斯洛伐克國家隊和法羅群島國家隊 的主客場比賽。...",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "斯洛伐克 vs 法罗群岛比分预测：模型看好斯洛伐克，最可能1-0",
+          "url": "https://m.dongqiudi.com/xinwen/168521",
+          "site": "懂球帝",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.8220182689221824,
+          "summary": "# 斯洛伐克 vs 法罗群岛比分预测：模型看好斯洛伐克，最可能1-0\n...\n## 30 秒看懂\n\n- 三模型平均：斯洛伐克胜60%、平24%、法罗群岛胜16%\n- 综合最可能比分1-0（13.9%），预计合计进2.5球左右\n- Elo模型最看好主队，给出斯洛伐克胜78%\n\n北京时间2026年11月14日 03:45 周六，欧国联C级联赛第5轮，斯洛伐克（主）对法罗群岛（客）开球，本场是竞彩周五007、胜负彩26163期的比赛。懂球帝数据模型按开球前的历史比赛数据算出，3个模型平均下来斯洛伐克胜60%、平局24%、法罗群岛胜16%，最可能的比分是1-0（13.9%）、2-0（13.1%）、1-1（10.1%），预计两队合计进2.5球左右，两队都进球的概率41%。\n\n泊松进球模型按本赛季欧国联的场均进球算出两队在主 / 客场的进攻和防守强度，相乘得到进球期望，再按泊松分布算每个比分的概率，并对0-0、1-1这类低比分做Dixon-Coles修正。本赛季欧国联截至赛前已赛104场，场均主队进1.26球、客队进1.23球；斯洛伐克近10个主场场均进1.70球、失0.70球，进攻强度1.29、防守0.64；法罗群岛近10个客场场均进0.70球、失1.10球，进攻强度0.64、防守0.90；进球期望斯洛伐克1.46、法罗群岛0.51。结果：斯洛伐克胜60%、平28%、法罗群岛胜12%，最可能1-0（19.4%）、0-0（15.1%）、2-0（14.9%）。\n\n近况加权模型只看两队各项赛事最近10场，越近的比赛权重越大（每往前一场权重乘0.85），用加权后的场均进球和对手的场均失球算进球期望，主场按赛事主客场进球比例加成。斯洛伐克近10场加权场均进1.93球、失1.28球；法罗群岛近10场加权场均进1.47球、失1.25球；主场加成1.01；进球期望斯洛伐克1.68、法罗群岛1.46。结果：斯洛伐克胜42%、平26%、法罗群岛胜32%，最可能1-1（11.7%）、2-1（8.9%）、1-2（7.7%），这个模型明显比另外两个更看好法罗群岛。\n\nElo等级分模型按懂球帝收录的全部正式比赛，从1500分起给每支球队算等级分，赛前斯洛伐克1572（已算129场）、法罗群岛1310（已算113场），主场优势按60分算；斯洛伐克的胜率期望0.86；进球期望斯洛伐克2.15、法罗群岛0.40。结果：斯洛伐克胜78%、平17%、法罗群岛胜5%，最可能2-0（18.1%）、1-0（16.2%）、3-0（13%），是三个模型里最看好主队的一个。\n\n近5场斯洛伐克3胜1平1负（进12失6），法罗群岛0胜4平1负（进6失8）。本赛季欧国联斯洛伐克4战3胜1平0负，法罗群岛4战0胜4平0负。历史交锋只有1次，斯洛伐克0胜1平0负，法罗群岛0胜1平0...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "看好主队",
+            "主场优势"
+          ],
+          "scores": [
+            "1 比 0",
+            "0 比 0"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "斯洛伐克对法罗群岛 交手统计数据 | FootyStats - Loading",
+          "url": "https://footystats.org/cn/international/slovakia-national-team-vs-faroe-islands-national-team-h2h-stats#1",
+          "site": "FootyStats",
+          "date": "2026-10-01T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.8049537725007,
+          "summary": "# 斯洛伐克对法罗群岛数据、分析及正面交锋\n\n2.00\n\nWDWWD\n...\n1.80\n...\n因为这是一个国际赛程，所以显示最近10次的统计数据。\n...\n## 正面交手统计数据 / 以前的结果 - 斯洛伐克对法罗群岛\n\n1\n赛事\n\n0%\n\n100%\n\n0%\n\n1 平局(100%)\n\n斯洛伐克 vs 法罗群岛的交锋纪录显示1, 斯洛伐克 0 次获胜且 法罗群岛 0 次获胜。 斯洛伐克 和 法罗群岛之间有1次交锋在以和局告终。\n\n100%高于1.5\n\n1 / 1 赛事\n\n0%高于2.5\n\n0 / 1 赛事\n\n0%高于3.5\n\n0 / 1 赛事\n\n100%两队都得分\n...\n0%没有失球\n...\n## 所有预测- 斯洛伐克对法罗群岛\n\n45%高于2.5\n\n联盟平均 : 49%\n\n80%高于1.5\n\n联盟平均 : 75%\n\n55%两队都得分\n...\n3每场赛事进球数\n\n联盟平均 : 2.54\n\n高于1.5进球，上半场/下半场 ＆ 更多\n\n高于 8.5, 9.5进球 & 更多\n\n*本赛季斯洛伐克和法罗群岛之间的平均统计数据\n\n状态表\n...\n场均得分\n\n总体\n\n- 赢\n- 平\n- 赢\n...\n主场\n...\n2.38\n\n客场\n\n- 输\n- 平\n\n0.50\n...\n赢%\n\n60%\n...\n3.20\n\n3.00\n\n4.00\n...\n1.70\n...\n1.50\n\n1.00\n\n3.50\n...\n50%\n...\n没有失球\n\n40%\n...\n第一队入球\n...\nxG\n\n1.62\n\n1.77\n\n1.04\n\n预计失球数\n\n1.16\n\n0.92\n\n2.13\n\n这些统计数据是什么?\n...\n1.83\n...\n1.75\n...\n2.30\n\n2.17\n\n2.50\n...\n1.40\n\n1.50\n\n1.25\n...\n0.90\n\n0.67\n...\n30%\n\n33%\n\n25%\n...\n17%\n...\n1.34\n\n1.12\n...\n1.53\n\n1.55\n\n1.50\n\n## 进球数 谁得分更多？\n\n斯洛伐克 是+21% 更好 方面进球\n\n1.7 每场赛事进球数\n\n斯洛伐克 (主场)\n\n1.4 每场赛事进球数\n\n法罗群岛 (客场)\n\n全场\n...\n每场平均得分 | Slovakia | Faroe Islands \n---|---|---\n高于0.5 | 90% | 90% \n高于1.5 | 70% | 30% \n高于2.5 | 10% | 10% \n高于3.5 | 0% | 10% \n未能得分 | 10% | 10% \n\n上半场/下半场 得分 | Slovakia | Faroe Islands \n---|---|---\n上半场得分 | 70% | 60% \n下半场得分 | 70% | 50% \n上下半场均得分 | 50% | 20% \n上半场平均得分 | 0.9 | 0.7 \n下半场平均得分 | 0.80 | 0.70 \n\n* 统计数据包含斯洛伐克 和 法罗群岛已打过的主客场比赛。\n\n## 失球数 谁会失球？\n\n法罗群岛 是+40% 更好 方面失球\n\n1.5 每场球赛失球\n...\n0.9 每场球赛失球\n...\n角球 / 比赛 | Slovakia | Faroe Islands \n---|---|---\n高于0.5 | 60% | 70% \n高于1.5 | 30% | 10%\n...\n* 失球数据包括 斯洛伐克 和 法...",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "欧国联斯洛伐克主场迎战法罗群岛",
+          "url": "https://m.dongqiudi.com/xinwen/168483",
+          "site": "懂球帝",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.7369404746672028,
+          "summary": "# 欧国联斯洛伐克主场迎战法罗群岛\n...\n## 30 秒看懂\n\n- 欧国联C级第5轮，斯洛伐克主场对法罗群岛\n- 斯洛伐克4战3胜1平，法罗群岛4战4平\n- 两队上次交手法罗群岛主场1比1\n\n北京时间2026年11月14日03:45（周六），欧国联2026/27赛季C级联赛第5轮，斯洛伐克坐镇主场迎战法罗群岛。\n\n本赛季欧国联截至赛前，斯洛伐克4战3胜1平0负，进9球失2球；法罗群岛4战0胜4平0负，进5球失5球。斯洛伐克本赛季主场2战2胜，法罗群岛客场2战2平。\n\n各项赛事近5场，斯洛伐克3胜1平1负，进12球失6球；法罗群岛0胜4平1负，进6球失8球。法罗群岛各项赛事已连续4场打平，并且连续8场比赛都有进球。\n\n懂球帝收录两队自2026年以来1次交手，2026年10月3日欧国联，法罗群岛主场1比1战平斯洛伐克。\n\n斯洛伐克最近5场：10月7日欧国联客场4比0胜摩尔多瓦，10月3日欧国联客场1比1平法罗群岛，9月30日欧国联主场2比1胜哈萨克斯坦，9月27日欧国联主场2比0胜摩尔多瓦，3月27日欧洲预选主场3比4负科索沃。\n\n法罗群岛最近5场：10月6日欧国联客场2比2平哈萨克斯坦，10月3日欧国联主场1比1平斯洛伐克，9月30日欧国联客场1比1平摩尔多瓦，9月27日欧国联主场1比1平哈萨克斯坦，2025年11月15日欧洲预选客场1比3负克罗地亚。\n\n近10场数据对比：斯洛伐克6胜1平3负，场均进1.6球、失1.4球，5场零封；法罗群岛4胜4平2负，场均进1.5球、失1.1球，2场零封。近10个主场斯洛伐克7胜2平1负，近10个客场法罗群岛2胜3平5负。斯洛伐克本赛季欧国联进球中，汉茨科打进2球。\n\n本文根据懂球帝数据的报道《斯洛伐克vs法罗群岛赛前数据（欧国联）》编译整理。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "半全场分析：斯洛伐克下半场寻找突破，法罗群岛领先并不保险",
+          "url": "http://pc.dongqiudi.com/articles/6426890.html",
+          "site": "dongqiudi.com",
+          "date": "2026-10-01T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.6703562650535104,
+          "summary": "# 半全场分析：斯洛伐克下半场寻找突破，法罗群岛领先并不保险\n\n北京时间10月3日2点45分，欧国联法罗群岛将在主场对阵斯洛伐克。本场比赛数据为主受让一球，法罗群岛虽然拥有主场和数据优势，但斯洛伐克近期比赛韧性较强，双方上半场可能先保持谨慎胶着，法罗群岛虽然具备后程破局机会，比赛进入下半场后仍需重点防范斯洛伐克的反击。\n\n【法罗群岛近5场半全场轨迹】\n\n客场对阵摩尔多瓦，半场0-1、全场1-1平；主场对阵哈萨克斯坦，半场1-1、全场1-1平；客场对阵拉脱维亚，半场0-0、全场0-1胜；客场对阵爱沙尼亚，半场0-0、全场1-0负；客场对阵圣马力诺，半场1-1、全场1-2胜。\n\n从近五场比赛来看，法罗群岛半场1胜4平0负，全场2胜2平1负，近期整体表现较为稳定。球队连续多场在半场阶段与对手保持均势，但全场只有2场取胜，比赛后程的防守稳定性仍需提升。\n\n法罗群岛半场打平的4场比赛最终取得2胜1平1负，说明球队虽然能够在上半场保持一定抗衡能力，但进入下半场后容易出现防线松动。此前面对爱沙尼亚时，球队均在半场战平，却最终遭遇失利。\n\n【斯洛伐克近5场半全场轨迹】\n\n主场对阵哈萨克斯坦，半场1-1、全场2-1胜；主场对阵摩尔多瓦，半场2-0、全场2-0胜；主场对阵黑山，半场1-1、全场2-2平；主场对阵马耳他，半场1-1、全场2-1胜；主场对阵罗马尼亚，半场1-0、全场2-0胜。\n\n从近五场比赛来看，斯洛伐克半场2胜3平0负，全场4胜1平0负，近期整体表现较为稳定。球队近五场有2场在半场阶段建立优势，进入比赛状态较快，进攻端也具备一定的持续输出能力。\n\n斯洛伐克有2场半场领先并最终取胜，说明球队较早建立优势后具备延续比赛节奏的能力。\n\n【全场走势/数据影响】\n\n主受让一球的比赛数据下，斯洛伐克方向值得重点关注。法罗群岛近五场取得2胜2平1负；斯洛伐克近五场取得4胜1平0负。\n\n综合双方近期半全场轨迹，本场比赛前段预计会比较谨慎。法罗群岛可能通过控球和边路推进争取主动，斯洛伐克则会优先压缩防线，尽量限制主队的中路渗透。法罗群岛半场1胜4平0负，斯洛伐克半场2胜3平0负，双方若在开局阶段互相牵制，半场1-1的走势值得重点关注。\n\n比赛进入下半场后，斯洛伐克有望增加进攻投入，争取利用自身优势打破僵局；法罗群岛则需要继续保持防线集中度，并通过反击寻找机会。\n...\n斯洛伐克近五场取得4胜1平0负，若斯洛伐克率先取得进球，斯洛伐克拿下比赛的可能性将进一步提升。因此，本场半全场首选平负，稳健方向防范平平。\n\n【综合推荐】\n\n半全场首选 平负\n\n稳健防 平平\n\n比分倾向 0-1、1-2\n\n半场比分关注 1-1",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "0 比 1",
+            "1 比 1"
+          ]
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 0,
+        "draw": 2,
+        "goals": 0,
+        "none": 2,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 3,
+        "zh": 5,
+        "home_mentions": 5,
+        "away_mentions": 4
+      },
+      "scores": [
+        "1 比 0",
+        "0 比 0",
+        "0 比 1"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周五008",
+      "league": "欧国联",
+      "home": "斯洛文尼",
+      "away": "瑞士",
+      "home_en": "斯洛文尼",
+      "away_en": "瑞士",
+      "queries": [
+        "\"斯洛文尼 vs 瑞士\" preview prediction lang:en",
+        "斯洛文尼 瑞士 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "斯洛文尼亚两将停赛，谢什科伤缺无缘战瑞士",
+          "url": "http://pc.dongqiudi.com/articles/6644140.html",
+          "site": "懂球帝",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.2354522163578956,
+          "summary": "# 斯洛文尼亚两将停赛，谢什科伤缺无缘战瑞士\n\n北京时间11月14日03:45，欧国联B1组第5轮，斯洛文尼亚主场迎战瑞士。瑞士目前4战全胜积12分排名小组第一，本场取胜即可锁定头名并自动晋级A级联赛；斯洛文尼亚2胜1平1负积7分位列第二，落后瑞士5分，领先第三名苏格兰3分。\n\n斯洛文尼亚方面，泽茨和扬扎因累积黄牌停赛，谢什科因胫骨伤势继续缺阵，预计2027年初才能回归。上轮对阵苏格兰时首发居中锋的维波特尼克预计将继续占据首发位置。\n\n瑞士没有停赛问题，但埃贝彻尔若本场吃到黄牌，将缺席最后一场小组赛。预计首发不会有太大意外，弗罗伊勒、曼赞比和恩多耶等人将进入首发，阿姆杜尼应该会占据中路位置，他为国家队出场37次打进14球。\n\n斯洛文尼亚可能首发：奥布拉克；卡尔尼奇尼克、布雷卡洛、比约尔、德尔库希奇、库兹米奇；马特科、扎布科夫尼克、切林、施图尔姆；维波特尼克。\n\n瑞士可能首发：科贝尔；布里奇吉、埃尔维迪、阿坎吉、罗德里格斯；弗罗伊勒、曼赞比；索乌、里德、恩多耶；阿姆杜尼。\n\n斯洛文尼亚在各项赛事过去12次对阵瑞士的比赛中仅赢过两场，上一次取胜是在2014年10月。瑞士在2026年世界杯四分之一决赛被阿根廷淘汰，但近9场比赛赢下8场。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "“我们将全力以赴，踢出一场精彩的比赛！”",
+          "url": "http://pc.dongqiudi.com/articles/6646290.html",
+          "site": "懂球帝",
+          "date": "2026-11-11T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.151638317747211,
+          "summary": "# “我们将全力以赴，踢出一场精彩的比赛！”\n\n斯洛文尼亚国家队将于北京时间11月14日凌晨03:45分在人民花园球场迎来本届欧国联B级A组中最关键的比赛之一。若战胜瑞士队，主教练博什蒂扬-切萨尔麾下的球队将至少锁定小组第二名，从而获得晋级A级联赛的附加赛资格，此外，斯洛文尼亚还将为欧洲杯预选赛分组抽签争取到更有利的起跑位置。尽管主教练深知对手的实力——瑞士队迄今在小组赛中四战全胜，但在这场艰难的对决前，他仍毫不掩饰自己的乐观态度。\n\n经过四轮比赛，斯洛文尼亚以7分暂列第二，而领头羊瑞士则以12分的满分战绩高居榜首。双方在实力和国际声望上的差距在国际足联（FIFA）排名中也显而易见：瑞士位列第12位，斯洛文尼亚则排在第52位。双方交锋记录明显有利于客队，12场比赛中客队赢了8场，2场平局，2场失利。不过，在上一场比赛中带领斯洛文尼亚队在苏格兰取得轰动性胜利的主教练切萨尔，并不在意过去的战绩。\n\n“我们与瑞士队交手过不少次，有赢过，也有输过。我以积极的态度展望未来，我们也是抱着这样的心态进行备战的。”--以寡言著称的博什蒂扬-切萨尔在布尔多国足中心举行的赛前新闻发布会上说道。“我们将全力以赴，力求踢出一场精彩的比赛。我相信我们完全有能力与被看好的瑞士队一较高下。”--这位斯洛文尼亚主教练补充道。\n\n人民花园球场对切萨尔而言是额外优势\n\n国家队时隔许久，确切地说，是时隔五年多重返马里博尔，博什蒂扬-切萨尔期待能从看台上获得强有力的支持。即便有组织球迷团体“维奥拉”此前曾就国家队比赛可能出现的麻烦发出警告，主教练也并不担心。\n\n“马里博尔是一座足球之城。马里博尔的球迷也希望斯洛文尼亚国家队能在人民花园球场参赛。我期待看到座无虚席的球场，球迷将成为我们的第12名球员。我相信现场观众会非常出色，在整整90分钟内为球员们助威，最终我们能一起欢庆胜利。”--主教练强调道。\n\n布雷卡洛出战成疑，埃尔什尼克缺阵\n\n在这场比赛前，斯洛文尼亚国家队主教练面临一些人员问题。由于埃里克-扬扎和大卫-泽茨累计黄牌，他不得不对首发阵容进行调整；球队中场将缺少马克斯-埃尔什尼克，而后卫大卫-布雷卡洛的出场状态也存疑，他在国家队集训期间尚未完成常规训练。瑞士队同样无法以最强阵容出战，其中经验丰富的中场球员格拉尼特-扎卡因伤将缺席比赛。“我们也有一些黄牌问题，但我们会做出相应的调整，所有队员都清楚我们在攻防两端的原则，我们必须保持阵型紧凑，只要做到这一点，表现就会非常出色。”--切萨尔解释道。\n\n主教练特别提到了在格拉斯哥的那场比赛，当时斯洛文尼亚队以2比1获胜，证明了即使面对实力强劲的对手，他们也能打出进攻性强且高效的比赛。在他看来，能否延续这样的表现，正是国家队面临的下一个重大挑战。\n\n“我致力于让球队不断进步，在与球员们的会议上我也说过，要达到对阵苏格兰时的那种水平很难，而要保持那个水平则更加困难。队员们训练得很刻苦，每场比赛情况各不相同，但我希望我们能重现对阵苏格兰时的那种进攻表现，并期待队员们能按照我们的期望去发挥。”--博什蒂扬-切萨尔在前往下施泰尔马克首府之前补充道。",
+          "side": "draw",
+          "neg": true,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵数据",
+          "url": "https://m.sporttery.cn/zqlszl/bssj/?gm=2500453",
+          "site": "Sporttery",
+          "date": "2026-10-03T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.880375743504188,
+          "summary": "对阵数据\n\n特别提醒：本页面部分数据来源于第三方，仅供参考。\n\n特征分析\n\n历史交锋\n\n积分榜\n\n比赛近况\n\n未来赛事\n\n射手信息\n\n伤停一览\n...\n瑞士\n\n斯洛文尼\n\n4胜/1平/1负\n\n近6场交锋\n\n1胜/1平/4负\n\n3胜/0平/0负\n\n同主客交锋\n\n0胜/0平/3负\n\n6胜/4平/0负\n\n近10场战况\n\n2胜/5平/3负\n\n8胜/1平/1负\n\n同主客战况\n\n3胜/4平/3负\n\n2.1个\n\n近10场场均进球\n\n0.8个\n\n0.6个\n\n近10场场均失球\n\n0.9个\n...\n同主客\n\n同赛制\n\n5场\n\n10场\n\n近5场\n...\n3胜(60%) |\n\n1平(20%) |\n\n1负(20%)\n\n赛制/日期\n\n主队\n\nVS\n\n客队\n\n总进球数\n\n25-10-14\n...\n0:0\n\n半(0:0)\n...\n25-09-09\n...\n3:0\n\n半(3:0)\n...\n15-09-06\n...\n3:2\n\n半(0:1)\n...\n14-10-10\n...\n1:0\n...\n13-10-16\n...\n欧国联 2026/2027\n\n排名\n\n球队\n\n场次\n\n胜/平/负\n\n胜率\n...\nGroup 11\n\n4\n\n4/0/0\n\n100%\n\n12\n\nGroup 12\n\n4\n\n2/1/1\n\n50%\n...\n2平(40%) |\n\n0负(0%)\n\n进9球， 失1球， 净进8球\n...\n本队赛果\n\n2026-09-30\n\n苏格兰\n\n0:3\n...\n2026-09-27\n\n北马其顿\n\n0:3\n\n半(0:2)\n...\n2026-07-12\n\n阿根廷\n\n1:1\n\n半(1:0)\n...\n2026-07-08\n...\n哥伦比亚\n\n平\n\n2026-07-03\n...\n2:0\n...\n阿尔及利\n...\n2胜(40%) |\n...\n进7球， 失5球， 净进2球\n...\n2026-09-26\n...\n2026-06-08\n\n克罗地亚\n...\n2026-06-05\n...\n塞浦路斯\n\n平\n\n2026-04-01\n\n黑山\n\n2:3\n\n半(2:1)\n...\n时间/赛事轮次\n...\n阿姆杜尼\n\n前锋\n\n总场\n\n4\n\n首发\n\n4\n\n替补\n\n0\n\n进球/占本队\n\n3/30%\n\n助攻/占本队\n\n1/20%\n\n场均进球\n\n0.8\n\n场均助攻\n\n0.3\n\n恩多耶\n...\n2/20%\n...\n3/60%\n...\n0.5\n...\n里德\n\n中场\n...\n1/10%\n...\n0/0%\n...\nA. Matko\n...\n2/40%\n...\nD. Šturm\n...\nS. Lovric\n...\n索乌\n...\n阿坎吉\n\n后卫\n...\n暂无数据\n\n注：赛事数据统计进行至全场90分钟（含伤停补时阶段）的比赛结果。数据仅供参考，实际结果以赛果开奖公布内容为准。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "歐國聯‧瑞士| 「洛」花有意瑞士無情 軍刀強闖「斯」家重地",
+          "url": "https://www.stheadline.com/football-betting/3621814/%e6%ad%90%e5%9c%8b%e8%81%af%e7%91%9e%e5%a3%ab-%e6%b4%9b%e8%8a%b1%e6%9c%89%e6%84%8f%e7%91%9e%e5%a3%ab%e7%84%a1%e6%83%85-%e8%bb%8d%e5%88%80%e5%bc%b7%e9%97%96%e6%96%af%e5%ae%b6%e9%87%8d%e5%9c%b0",
+          "site": "星島頭條",
+          "date": "2026-10-02T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.8374790268879528,
+          "summary": "# 歐國聯‧瑞士| 「洛」花有意瑞士無情 軍刀強闖「斯」家重地\n\n更新時間：07:00 2026-10-03 HKT\n...\n歐國聯B1組榜首大戰，瑞士主場迎擊斯洛文尼亞。主隊近期狀態大勇，憑強大的傳控戰術與主場威力，近兩仗皆大勝對手三球兼一球不失，今仗贏面極高。其中，前鋒尖刀安杜尼近期兩戰狂轟3球，腳風大順下勢成今仗破密集防線的主角。推介波膽為1:0及2:0。 馬高\n\n## 安杜尼|飢餓的瑞士尖刀\n\n瑞士近兩仗歐國聯作客下接連以3:0橫掃北馬其頓及蘇格蘭，錄得兩連勝兼合共轟入6球，攻守皆非常出色。主帥耶堅力讚球隊進攻立體，全隊傳球成功率高達91%，盡顯歐洲勁旅級別的控球壓迫優勢。主力前鋒安杜尼近兩場國家隊賽事直接參與4球，3入球另加1助攻，在主力安保路缺陣下獨力撐起鋒線。安杜尼擅長於兩邊進攻輔位穿插，其多功能性和靈活走位能有效拉開對手防線。領隊耶堅亦公開盛讚這名25歲射手「射術精湛且極具進攻飢餓感」。面對斯軍擺出鐵桶陣，安杜尼的敏銳埋門嗅覺與把握力，將是瑞士打破僵局、全取三分的關鍵武器。\n\n相反，斯洛文尼亞近13場賽事僅有1場能在上半場取得入球，進攻方面絕對慢熱，且作客火力疲弱。面對瑞士的高壓逼搶，斯軍勢必陷入被動。綜合而言，預料瑞士能掌控大局，穩操勝券，小勝波膽1:0或2:0。\n\n### 星島推介\n\n波膽 1:0/2:0\nUEFA.tv周日凌晨2:45直播",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "欧国联‧瑞士| “洛”花有意瑞士无情 军刀强闯“斯”家重地",
+          "url": "https://dushi.singtao.ca/toronto/%e4%bd%93%e8%82%b2/%e6%ac%a7%e5%9b%bd%e8%81%94%e2%80%a7%e7%91%9e%e5%a3%ab-%e6%b4%9b%e8%8a%b1%e6%9c%89%e6%84%8f%e7%91%9e%e5%a3%ab%e6%97%a0%e6%83%85-%e5%86%9b%e5%88%80%e5%bc%ba%e9%97%af/?variant=zh-hk",
+          "site": "加拿大都市网",
+          "date": "2026-10-01T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.8205081466310131,
+          "summary": "歐國聯‧瑞士| 「洛」花有意瑞士無情 軍刀強闖「斯」家重地\n\n加拿大都市网\n\n2026年10月2日 19:00\n\n歐國聯B1組榜首大戰，瑞士主場迎擊斯洛文尼亞。主隊近期狀態大勇，憑強大的傳控戰術與主場威力，近兩仗皆大勝對手三球兼一球不失，今仗贏面極高。其中，前鋒尖刀安杜尼近期兩戰狂轟3球，腳風大順下勢成今仗破密集防線的主角。推介波膽為1:0及2:0。 馬高\n\n安杜尼|飢餓的瑞士尖刀\n\n瑞士近兩仗歐國聯作客下接連以3:0橫掃北馬其頓及蘇格蘭，錄得兩連勝兼合共轟入6球，攻守皆非常出色。主帥耶堅力贊球隊進攻立體，全隊傳球成功率高達91%，盡顯歐洲勁旅級別的控球壓迫優勢。主力前鋒安杜尼近兩場國家隊賽事直接參与4球，3入球另加1助攻，在主力安保路缺陣下獨力撐起鋒線。安杜尼擅長於兩邊進攻輔位穿插，其多功能性和靈活走位能有效拉開對手防線。領隊耶堅亦公開盛讚這名25歲射手「射術精湛且極具進攻飢餓感」。面對斯軍擺出鐵桶陣，安杜尼的敏銳埋門嗅覺與把握力，將是瑞士打破僵局、全取三分的關鍵武器。\n\n相反，斯洛文尼亞近13場賽事僅有1場能在上半場取得入球，進攻方面絕對慢熱，且作客火力疲弱。面對瑞士的高壓逼搶，斯軍勢必陷入被動。綜合而言，預料瑞士能掌控大局，穩操勝券，小勝波膽1:0或2:0。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 1,
+        "goals": 0,
+        "none": 4,
+        "neg": 1
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 5,
+        "home_mentions": 5,
+        "away_mentions": 5
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周五009",
+      "league": "欧国联",
+      "home": "荷兰",
+      "away": "希腊",
+      "home_en": "荷兰",
+      "away_en": "希腊",
+      "queries": [
+        "\"荷兰 vs 希腊\" preview prediction lang:en",
+        "荷兰 希腊 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "希腊守护细界 折荷以马首是瞻",
+          "url": "https://www.stheadline.com/zh-hans/daily-sport/3621204/%E5%B8%8C%E8%85%8A%E5%AE%88%E6%8A%A4%E7%BB%86%E7%95%8C-%E6%8A%98%E8%8D%B7%E4%BB%A5%E9%A9%AC%E9%A6%96%E6%98%AF%E7%9E%BB",
+          "site": "星島頭條",
+          "date": "2026-09-30T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.049239033314216,
+          "summary": "# 希腊守护细界 折荷以马首是瞻\n\n更新时间：03:00 2026-10-01 HKT\n...\n希腊在欧国联尽显黑马本色，凭借极好防守纪律，上场历史性首挫德国惊动球坛，保持全胜于小组带头。今仗面对防线有隐忧的荷兰，预期将以稳守为先，入球偏少，强推入球大细2.5/3球「细」。阵中制空力强的后卫马夫洛柏路斯上仗对德国表现无懈可击，今季更已4度透过死球为韦斯咸建奇功，其制空力可在今仗打破僵局，推荐其「任何时间入球」。\n\n希腊在近两仗欧国联分组赛表现惊艳，首战2:1挫塞尔维亚，次仗更作客1:0历史性击败德国，两战全胜高踞榜首。希腊近年进步神速，多名主力如谢索利斯及柏夫列迪斯等早已在欧洲主流联赛站稳阵脚。希腊在上仗对德国时虽控球率仅得24.2%，却凭场均多达30次的成功拦截与极好的防守纪律，令德国16脚射门无功而还。不少评论皆指，现时的希腊已建立不惧强敌的防线，在主场球迷支持下，防守纪律将成为今仗对抗另一传统强队荷兰的最大本钱。\n潜行凶器死球破闷局\n上仗对德国表现神勇的中后卫马夫洛柏路斯，是希腊防线与死球进攻的灵魂。身高1米94的他上仗交出8次成功解围及3次封阻射门的亮丽数据，5次地面和5次空中对抗皆100%全胜，制空力惊人。近期他在球会亦透过死球4度破门。教练祖云奴域亦赞扬其制空威胁是球队致命的「潜行凶器」。在战况预期胶着的格局下，马夫洛柏路斯将是希腊今仗打破僵局、抢得分数的关键钥匙。\n反观荷兰虽然整体实力或仍占优，但近期防守问题频现。在新帅沙维治下，荷兰两闸经常压上助攻，丢失控球时，全队补位和重组却慢半拍，暴露两边空档。更致命的是，荷兰近期在死球防守中屡现盯人不紧，沙维亦坦言球队在防守仍须改善。此番客战防守滴水不漏的希腊，荷兰极可能在破门乏术之际，反在死球防守中交学费。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "360体育-希腊vs荷兰赛前分析：主队防守韧性遇上荷兰攻势",
+          "url": "https://www.ppsports.com/360news/news/2626930.html",
+          "site": "Ppsports",
+          "date": "2026-09-30T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.895886661018256,
+          "summary": "# 希腊vs荷兰赛前分析：主队防守韧性遇上荷兰攻势\n\n2026年10月1日 15:40:12 编辑：懂球帝\n\n北京时间10月2日2点45分，欧洲国家联赛A级联赛第3轮，希腊坐镇图姆帕球场迎战荷兰。希腊近两轮欧洲国家联赛取得两连胜，状态有所回升，但荷兰的整体实力、近期进攻效率和阵容厚度仍然占优。本场综合数据和比赛走势，更倾向荷兰客场取胜。\n\n【希腊近期表现和战术特点】\n\n希腊最近5场比赛取得2胜2平1负，打进5球、失4球。球队在欧洲国家联赛前两轮先后以2比1击败塞尔维亚、1比0战胜德国。整体来看，希腊近期防守表现较为稳固，但进攻端的持续输出能力仍然有限。\n\n近10场数据中，希腊场均控球率为49.8%，场均进攻次数98.3次，危险进攻46.2次，场均射门13.5次。球队场均进球为1.0个，平均需要16.2次射门才能取得一球，进攻机会的转化效率不高。防守方面，希腊场均失球为1.3个，被射门失球效率为13.8次，面对高质量进攻时仍有一定压力。\n\n阵容方面，希腊预计会采用4-4-2。齐米卡斯和瓦扬尼季斯负责两侧推进，马夫罗帕诺斯与雷索斯组成中卫组合，安德鲁索斯和扎菲里斯负责中场的组织与拦截。\n\n措利斯、卡雷察斯可以在边路和肋部寻找接球空间，安德烈亚斯-泰泰与帕夫利季斯则承担前场冲击和终结任务。希腊更可能依靠紧凑防守、边路推进和快速反击制造机会，如果中场无法有效限制荷兰的传球，防线将持续承受压力。\n\n【荷兰近期表现和战术特点】\n\n荷兰最近5场比赛取得3胜1平1负，打进14球、失8球。球队先后以2比1战胜塞尔维亚、3比1击败突尼斯、5比1战胜瑞典，并与德国1比1战平，唯一一场失利是世界杯期间3比4负于摩洛哥。荷兰近期进攻火力明显强于希腊，前场球员的个人能力和整体配合也更具威胁。\n\n近10场数据中，荷兰场均控球率达到52.7%，场均进攻次数104.6次，危险进攻50.8次，场均射门14.1次。球队场均进球达到1.9个，平均7.4次射门便能取得一球，进攻效率明显优于希腊。荷兰场均失球为1.1个，被射门失球效率为9.6次，防守稳定性虽然并非完美，但整体攻防效率仍然占优。\n\n荷兰预计同样采用4-4-2阵型。范德芬、范戴克、阿克和邓弗里斯组成后防线，赖因德斯、乔伊-费尔曼、赫拉芬贝赫和鲁本-范博梅尔负责中场及前场衔接，梅尔丁克与萨默维尔出任锋线。荷兰能够通过中场连续传递和边后卫前插扩大进攻宽度，范戴克的防空能力以及邓弗里斯的前插，也会给希腊边路防守带来较大压力。\n\n荷兰近10场上半场场均进球为0.8个，下半场场均进球为1.1个，比赛后程的进攻威胁更加明显。双方近5次交锋中，荷兰取得4胜1负，占据明显优势。\n\n【双方预计首发】\n\n正式首发尚未公布，以下为结合当前比赛阵容和近期站位作出的预测，属于预测阵容·未官宣。\n\n希腊预计首发：4-4-2（预测阵容·未官宣）\n\n门将：措拉基斯\n\n后卫：齐米卡斯、马夫罗帕诺斯、雷索斯、瓦扬尼季斯\n\n中场：措利斯、扎菲里斯、安德鲁索斯、卡雷察斯\n\n前锋：安德烈亚斯-泰泰、帕夫利季斯\n...\n门将：巴尔特-费布鲁亨\n\n后卫：范德芬、范戴...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "4 比 4"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "希臘守護細界 折荷以馬首是瞻",
+          "url": "https://www.stheadline.com/daily-sport/3621204/希臘守護細界-折荷以馬首是瞻",
+          "site": "星島頭條",
+          "date": "2026-09-30T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.895886661018256,
+          "summary": "# 希臘守護細界 折荷以馬首是瞻\n\n更新時間：03:00 2026-10-01 HKT\n...\n希臘在歐國聯盡顯黑馬本色，憑藉極好防守紀律，上場歷史性首挫德國驚動球壇，保持全勝於小組帶頭。今仗面對防線有隱憂的荷蘭，預期將以穩守為先，入球偏少，強推入球大細2.5/3球「細」。陣中制空力強的後衛馬夫洛柏路斯上仗對德國表現無懈可擊，今季更已4度透過死球為韋斯咸建奇功，其制空力可在今仗打破僵局，推薦其「任何時間入球」。\n\n希臘在近兩仗歐國聯分組賽表現驚艷，首戰2:1挫塞爾維亞，次仗更作客1:0歷史性擊敗德國，兩戰全勝高踞榜首。希臘近年進步神速，多名主力如謝索利斯及柏夫列迪斯等早已在歐洲主流聯賽站穩陣腳。希臘在上仗對德國時雖控球率僅得24.2%，卻憑場均多達30次的成功攔截與極好的防守紀律，令德國16腳射門無功而還。不少評論皆指，現時的希臘已建立不懼強敵的防線，在主場球迷支持下，防守紀律將成為今仗對抗另一傳統強隊荷蘭的最大本錢。\n潛行兇器死球破悶局\n上仗對德國表現神勇的中後衛馬夫洛柏路斯，是希臘防線與死球進攻的靈魂。身高1米94的他上仗交出8次成功解圍及3次封阻射門的亮麗數據，5次地面和5次空中對抗皆100%全勝，制空力驚人。近期他在球會亦透過死球4度破門。教練祖雲奴域亦讚揚其制空威脅是球隊致命的「潛行兇器」。在戰況預期膠着的格局下，馬夫洛柏路斯將是希臘今仗打破僵局、搶得分數的關鍵鑰匙。\n反觀荷蘭雖然整體實力或仍佔優，但近期防守問題頻現。在新帥沙維治下，荷蘭兩閘經常壓上助攻，丟失控球時，全隊補位和重組卻慢半拍，暴露兩邊空檔。更致命的是，荷蘭近期在死球防守中屢現盯人不緊，沙維亦坦言球隊在防守仍須改善。此番客戰防守滴水不漏的希臘，荷蘭極可能在破門乏術之際，反在死球防守中交學費。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "欧国联| 希腊保卫“细”界 折“荷”以“马”首是瞻",
+          "url": "https://dushi.singtao.ca/toronto/%e4%bd%93%e8%82%b2/%e6%ac%a7%e5%9b%bd%e8%81%94-%e5%b8%8c%e8%85%8a%e4%bf%9d%e5%8d%ab%e7%bb%86%e7%95%8c-%e6%8a%98%e8%8d%b7%e4%bb%a5%e9%a9%ac%e9%a6%96%e6%98%af/?variant=zh-hk",
+          "site": "加拿大都市网",
+          "date": "2026-09-29T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.861523383022687,
+          "summary": "# 歐國聯| 希臘保衛「細」界 折「荷」以「馬」首是瞻\n\n希臘在歐國聯盡顯黑馬本色，憑藉極高防守紀律，上場歷史性首挫德國驚動球壇，保持全勝於小組帶頭。今仗面對防線有隱憂的荷蘭，預期將以穩守為先，戰術格局下預期入球偏少，強推入球大細2.5/3球「細」。陣中制空力強的後衛馬夫洛柏路斯上仗對德國表現無懈可擊，今季更已4度透過死球為韋斯咸建奇功，其制空力可在今仗打破僵局，推薦其「任何時間入球」。馬高\n\n## 希臘上仗歷史性擊敗德國證進步\n\n希臘在近兩仗歐國聯分組賽表現驚艷，首戰2:1挫塞爾維亞，次仗更作客1:0歷史性擊敗德國，兩戰全勝高踞榜首。這支由祖雲奴域帶領的國家隊近年進步神速，多名主力如謝索利斯及前鋒柏夫列迪斯等早已在歐洲主流聯賽站穩陣腳。希臘在上仗對德國時雖然控球率僅得24.2%，卻憑藉場均多達30次的成功攔截與極高的防守紀律，令德國隊16腳射門無功而還。不少評論皆指，現時的希臘已建立不懼強敵的防線，在主場球迷支持下，防守紀律將成為今仗對抗另一傳統強隊荷蘭的最大本錢。\n\n### 潛行兇器-馬夫洛柏路斯\n\n上仗對德國表現神勇的中後衛馬夫洛柏路斯，是希臘防線與死球進攻的靈魂。身高1米94的他上仗交出8次成功解圍及3次封阻射門的亮麗數據，5次地面和5次空中對抗皆100%全勝，制空力驚人。近期他在球會亦維持極佳狀態，更在死球進攻中屢建奇功，已斬獲4球。祖雲奴域亦讚揚其門前制空威脅是希臘陣中最致命的「潛行兇器」。在戰況預期膠着的格局下，馬夫洛柏路斯的頭槌攻門，將是希臘今仗打破僵局、搶得分數的關鍵鑰匙。\n\n反觀荷蘭雖然整體實力或仍佔優，但近期防守問題頻現。在新帥沙維治下，荷蘭兩閘經常壓上助攻，在失去控球時，全隊防守補位和重組卻慢半拍，頻頻暴露兩邊空檔。更致命的是，荷蘭近期在死球防守中屢現盯人不緊，沙維亦坦言球隊在防守仍需改善。此番客戰防守滴水不漏的希臘，荷蘭極可能在破門乏術之際，反在死球防守中交學費。\n\n#### 星島推介\n\n入球大細[2.5/3]球 細\n\n任何時間入球 馬夫洛柏路斯\n希臘 1:0 荷蘭\nUEFA.tv周五凌晨2:45直播",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "360体育-半全场分析：荷兰客场抢占先机，希腊防线或难抵挡",
+          "url": "https://www.ppsport.com/360news/news/2627017.html?plt=clt",
+          "site": "PP体育",
+          "date": "2026-09-30T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.8358463550648452,
+          "summary": "# 半全场分析：荷兰客场抢占先机，希腊防线或难抵挡\n\n2026年10月1日 18:55:16 编辑：懂球帝\n\n北京时间10月2日2点45分，欧国联希腊将在主场对阵荷兰。本场比赛数据为主受让半球，荷兰近期半场阶段更容易取得主动，希腊需要提高开局阶段的防守专注度。荷兰近五场全场取得3胜2平0负，若荷兰能够延续前段节奏，比赛后程有望守住优势。\n\n# 希腊\n## 过去5场\n| 德国 希腊 | 主客 | 半场 |\n\n| 2026-09-28 02:45 • 欧国联 • 欧国联级联赛 | 客 | 0-0 |\n## 塞尔维亚 希腊\n| 希腊 意大利 | 主 | 0-1 |\n\n| 2026-06-08 03:00 • 友谊赛 • 友谊赛 | 客 | 0-1 |\n## 瑞典 希腊\n...\n| 2026-06-05 01:00 • 友谊赛 • 友谊赛 | 客 | 0-1 |\n## 匈牙利 希腊\n...\n| 2026-04-01 01:00 • 友谊赛 • 友谊赛 | 客 | 0-0 |\n# 荷兰\n...\n### 塞尔维亚 荷兰\n2026-09-28 00:00 • 欧国联 • 欧国联 级联赛\n### 荷兰 德国\n2026-09-25 02:45 • 欧国联 • 欧国联 级联赛\n### 荷兰 摩洛哥\n2026-06-30 09:00 • 世界杯 • 世界杯 1/16决赛\n### 突尼斯 荷兰\n2026-06-26 07:00 • 世界杯 • 世界杯 小组赛\n### 荷兰 瑞典\n2026-06-21 01:00 • 世界杯 • 世界杯 小组赛\n\n| 主客 | 半场 | 全场 |\n\n| 客 | 0-0 | 0-1 |\n| 客 | 1-0 | 1-2 |\n| 主 | 0-1 | 0-1 |\n| 客 | 0-1 | 2-2 |\n...\n| **鲁亚** 荷兰 | | |\n| 39-28 00:00 • 欧国联 • 欧国联 级联赛 | 客 | 0-1 | 1-2 |\n| **德国** | | |\n| 39-25 02:45 • 欧国联 • 欧国联 级联赛 | 主 | 0-1 | 1-1 |\n| **摩洛哥** | | |\n| 36-30 09:00 • 世界杯 • 世界杯 1/16决赛 | 主 | 0-0 | 1-1 |\n| **斯 荷兰** | | |\n| 36-26 07:00 • 世界杯 • 世界杯 小组赛 | 客 | 0-2 | 1-3 |\n| **瑞典** | | |\n| 36-21 01:00 • 世界杯 • 世界杯 小组赛 | 主 | 2-0 | 5-1 |\n\n【希腊近5场半全场轨迹】\n\n客场对阵德国，半场0-0、全场0-1胜；客场对阵塞尔维亚，半场1-0、全场1-2胜；主场对阵意大利，半场0-1、全场0-1负；客场对阵瑞典，半场0-1、全场2-2平；客场对阵匈牙利，半场0-0、全场0-0平。\n\n从近五场比赛来看，希腊半场1胜2平2负，全场2胜2平1负，近期整体表现较为稳定。球队有多场半场落后并最终失利，开局阶段的应对和后程调整都将影响本场走势。\n\n希腊有1场半场领先并最终取胜，说明球队较早建立优势后具备延续比赛节奏的能力。\n\n【荷兰近5场半全场轨迹...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 5,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 5,
+        "home_mentions": 3,
+        "away_mentions": 3
+      },
+      "scores": [
+        "4 比 4"
+      ],
+      "fetched": 0
+    }
+  ]
+}

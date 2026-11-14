@@ -44,15 +44,27 @@ def save_session(ua: str, cookie: str) -> None:
                                   ensure_ascii=False, indent=1), encoding="utf-8")
 
 
+_HDR_CACHE: dict | None = None
+
+
+def reset_headers() -> None:
+    global _HDR_CACHE
+    _HDR_CACHE = None
+
+
 def headers() -> dict:
-    s = load_session()
-    h = {"User-Agent": s.get("ua") or DEFAULT_UA,
-         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-         "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
-         "Referer": "https://odds.500.com/"}
-    if s.get("cookie"):
-        h["Cookie"] = s["cookie"]
-    return h
+    """进程内复用同一份 headers（避免每请求读一次磁盘 session 文件）。"""
+    global _HDR_CACHE
+    if _HDR_CACHE is None:
+        s = load_session()
+        h = {"User-Agent": s.get("ua") or DEFAULT_UA,
+             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+             "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+             "Referer": "https://odds.500.com/"}
+        if s.get("cookie"):
+            h["Cookie"] = s["cookie"]
+        _HDR_CACHE = h
+    return dict(_HDR_CACHE)
 
 
 def _raw(url: str, enc: str, timeout: int) -> str:
@@ -81,6 +93,24 @@ def fetch(url: str, enc: str = "gb18030", timeout: int = 40,
         time.sleep(sleep * (attempt + 1))
     raise RuntimeError("500 拦截（%s）→ 先跑一次：python -X utf8 scripts/_x500.py gate"
                        % last)
+
+
+def fetch_many(urls, workers: int = 6, enc: str = "gb18030", timeout: int = 25,
+               retries: int = 2, sleep: float = 0.6) -> dict:
+    """并发抓一批 URL，返回 {url: html 或 Exception}；单页失败不拖累整批。"""
+    from concurrent.futures import ThreadPoolExecutor
+
+    def one(u):
+        try:
+            return u, fetch(u, enc=enc, timeout=timeout, retries=retries, sleep=sleep)
+        except Exception as exc:  # noqa: BLE001
+            return u, exc
+
+    urls = list(dict.fromkeys(urls))
+    if not urls:
+        return {}
+    with ThreadPoolExecutor(max_workers=max(1, min(workers, len(urls)))) as ex:
+        return dict(ex.map(one, urls))
 
 
 def session_ok() -> tuple[bool, str]:

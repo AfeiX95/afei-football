@@ -1,0 +1,6739 @@
+{
+ "2042612": {
+  "id": "2042612",
+  "round": "",
+  "home": "町田泽维",
+  "away": "广岛三箭",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 13,
+    "w": 8,
+    "d": 4,
+    "l": 1,
+    "gf": 30,
+    "ga": 10,
+    "gd": 20,
+    "pts": 28,
+    "rank": 3,
+    "wr": 62
+   },
+   "home": {
+    "p": 6,
+    "w": 3,
+    "d": 2,
+    "l": 1,
+    "gf": 11,
+    "ga": 7,
+    "gd": 4,
+    "pts": 11,
+    "rank": 3,
+    "wr": 50
+   },
+   "away": {
+    "p": 7,
+    "w": 5,
+    "d": 2,
+    "l": 0,
+    "gf": 19,
+    "ga": 3,
+    "gd": 16,
+    "pts": 17,
+    "rank": 3,
+    "wr": 71
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 13,
+    "w": 9,
+    "d": 2,
+    "l": 2,
+    "gf": 32,
+    "ga": 10,
+    "gd": 22,
+    "pts": 29,
+    "rank": 2,
+    "wr": 69
+   },
+   "home": {
+    "p": 6,
+    "w": 5,
+    "d": 1,
+    "l": 0,
+    "gf": 20,
+    "ga": 2,
+    "gd": 18,
+    "pts": 16,
+    "rank": 2,
+    "wr": 83
+   },
+   "away": {
+    "p": 7,
+    "w": 4,
+    "d": 1,
+    "l": 2,
+    "gf": 12,
+    "ga": 8,
+    "gd": 4,
+    "pts": 13,
+    "rank": 2,
+    "wr": 57
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 4,
+    "text": "0胜0平4负",
+    "gf": 3,
+    "ga": 8,
+    "over": 3,
+    "under": 1
+   },
+   "rows": [
+    {
+     "league": "日职",
+     "date": "2025-10-04",
+     "home": "广岛三箭",
+     "away": "町田泽维",
+     "extra": "2-1"
+    },
+    {
+     "league": "日职",
+     "date": "2025-02-16",
+     "home": "町田泽维",
+     "away": "广岛三箭",
+     "extra": "1-2"
+    },
+    {
+     "league": "日职",
+     "date": "2024-09-28",
+     "home": "广岛三箭",
+     "away": "町田泽维",
+     "extra": "2-0"
+    },
+    {
+     "league": "日职",
+     "date": "2024-04-03",
+     "home": "町田泽维",
+     "away": "广岛三箭",
+     "extra": "1-2"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-05",
+     "home": "町田泽维",
+     "away": "上海申花",
+     "score": "2-1",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "町田泽维",
+     "away": "大阪钢巴",
+     "score": "0-0",
+     "venue": "H",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "上海申花",
+     "away": "町田泽维",
+     "score": "0-1",
+     "venue": "A",
+     "result": "W",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "神户胜利",
+     "away": "町田泽维",
+     "score": "0-0",
+     "venue": "A",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-21",
+     "home": "清水鼓动",
+     "away": "町田泽维",
+     "score": "0-5",
+     "venue": "A",
+     "result": "W",
+     "half": "0:1"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-10-31",
+     "home": "水户蜀葵",
+     "away": "广岛三箭",
+     "score": "0-3",
+     "venue": "A",
+     "result": "W",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-28",
+     "home": "横滨水手",
+     "away": "广岛三箭",
+     "score": "4-3",
+     "venue": "A",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "广岛三箭",
+     "away": "清水鼓动",
+     "score": "4-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-21",
+     "home": "长崎航海",
+     "away": "广岛三箭",
+     "score": "4-0",
+     "venue": "A",
+     "result": "L",
+     "half": "2:0"
+    },
+    {
+     "date": "2026-10-17",
+     "home": "广岛三箭",
+     "away": "京都",
+     "score": "3-0",
+     "venue": "H",
+     "result": "W",
+     "half": "0:0"
+    }
+   ]
+  }
+ },
+ "2042613": {
+  "id": "2042613",
+  "round": "",
+  "home": "首尔FC",
+  "away": "蔚山现代",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 34,
+    "w": 20,
+    "d": 7,
+    "l": 7,
+    "gf": 61,
+    "ga": 30,
+    "gd": 31,
+    "pts": 67,
+    "rank": 1,
+    "wr": 59
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 34,
+    "w": 16,
+    "d": 6,
+    "l": 12,
+    "gf": 54,
+    "ga": 48,
+    "gd": 6,
+    "pts": 54,
+    "rank": 2,
+    "wr": 47
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "3胜0平2负",
+    "gf": 9,
+    "ga": 7,
+    "over": 3,
+    "under": 2
+   },
+   "rows": [
+    {
+     "league": "韩职",
+     "date": "2026-09-08",
+     "home": "蔚山现代",
+     "away": "首尔FC",
+     "extra": "1-0"
+    },
+    {
+     "league": "韩职",
+     "date": "2026-07-26",
+     "home": "首尔FC",
+     "away": "蔚山现代",
+     "extra": "1-3"
+    },
+    {
+     "league": "韩职",
+     "date": "2026-04-15",
+     "home": "蔚山现代",
+     "away": "首尔FC",
+     "extra": "1-4"
+    },
+    {
+     "league": "韩职",
+     "date": "2025-08-24",
+     "home": "首尔FC",
+     "away": "蔚山现代",
+     "extra": "3-2"
+    },
+    {
+     "league": "韩职",
+     "date": "2025-07-20",
+     "home": "首尔FC",
+     "away": "蔚山现代",
+     "extra": "1-0"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-04",
+     "home": "首尔FC",
+     "away": "军用电信",
+     "score": "3-0",
+     "venue": "H",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "首尔FC",
+     "away": "仁川联",
+     "score": "0-1",
+     "venue": "H",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-28",
+     "home": "军用电信",
+     "away": "首尔FC",
+     "score": "0-5",
+     "venue": "A",
+     "result": "W",
+     "half": "0:4"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "首尔FC",
+     "away": "江原FC",
+     "score": "1-1",
+     "venue": "H",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "首尔FC",
+     "away": "金泉尚武",
+     "score": "2-2",
+     "venue": "H",
+     "result": "D",
+     "half": "1:1"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-01",
+     "home": "蔚山现代",
+     "away": "江原FC",
+     "score": "2-1",
+     "venue": "H",
+     "result": "W",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "蔚山现代",
+     "away": "浦项制铁",
+     "score": "2-2",
+     "venue": "H",
+     "result": "D",
+     "half": "0:2"
+    },
+    {
+     "date": "2026-10-17",
+     "home": "蔚山现代",
+     "away": "富川FC",
+     "score": "2-1",
+     "venue": "H",
+     "result": "W",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-11",
+     "home": "光州FC",
+     "away": "蔚山现代",
+     "score": "4-3",
+     "venue": "A",
+     "result": "L",
+     "half": "2:2"
+    },
+    {
+     "date": "2026-09-19",
+     "home": "安养FC",
+     "away": "蔚山现代",
+     "score": "2-1",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    }
+   ]
+  }
+ },
+ "2042614": {
+  "id": "2042614",
+  "round": "",
+  "home": "阿德莱德",
+  "away": "墨胜利",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 3,
+    "w": 0,
+    "d": 0,
+    "l": 3,
+    "gf": 1,
+    "ga": 10,
+    "gd": -9,
+    "pts": 0,
+    "rank": 12,
+    "wr": 0
+   },
+   "home": {
+    "p": 0,
+    "w": 0,
+    "d": 0,
+    "l": 0,
+    "gf": 0,
+    "ga": 0,
+    "gd": 0,
+    "pts": 0,
+    "rank": 0,
+    "wr": 0
+   },
+   "away": {
+    "p": 3,
+    "w": 0,
+    "d": 0,
+    "l": 3,
+    "gf": 1,
+    "ga": 10,
+    "gd": -9,
+    "pts": 0,
+    "rank": 12,
+    "wr": 0
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 3,
+    "w": 0,
+    "d": 2,
+    "l": 1,
+    "gf": 3,
+    "ga": 4,
+    "gd": -1,
+    "pts": 2,
+    "rank": 9,
+    "wr": 0
+   },
+   "home": {
+    "p": 2,
+    "w": 0,
+    "d": 2,
+    "l": 0,
+    "gf": 2,
+    "ga": 2,
+    "gd": 0,
+    "pts": 2,
+    "rank": 0,
+    "wr": 0
+   },
+   "away": {
+    "p": 1,
+    "w": 0,
+    "d": 0,
+    "l": 1,
+    "gf": 1,
+    "ga": 2,
+    "gd": -1,
+    "pts": 0,
+    "rank": 0,
+    "wr": 0
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "1胜1平3负",
+    "gf": 7,
+    "ga": 12,
+    "over": 4,
+    "under": 1
+   },
+   "rows": [
+    {
+     "league": "澳超",
+     "date": "2026-02-27",
+     "home": "墨胜利",
+     "away": "阿德莱德",
+     "extra": "1-1"
+    },
+    {
+     "league": "澳超",
+     "date": "2026-01-17",
+     "home": "阿德莱德",
+     "away": "墨胜利",
+     "extra": "2-1"
+    },
+    {
+     "league": "澳超",
+     "date": "2025-12-13",
+     "home": "墨胜利",
+     "away": "阿德莱德",
+     "extra": "2-1"
+    },
+    {
+     "league": "俱乐部赛",
+     "date": "2025-10-04",
+     "home": "墨胜利",
+     "away": "阿德莱德",
+     "extra": "3-0"
+    },
+    {
+     "league": "澳超",
+     "date": "2025-03-29",
+     "home": "墨胜利",
+     "away": "阿德莱德",
+     "extra": "5-3"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-07",
+     "home": "珀斯",
+     "away": "阿德莱德",
+     "score": "4-0",
+     "venue": "A",
+     "result": "L",
+     "half": "2:0"
+    },
+    {
+     "date": "2026-11-05",
+     "home": "狮城水手",
+     "away": "阿德莱德",
+     "score": "5-0",
+     "venue": "A",
+     "result": "L",
+     "half": "3:0"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "阿德莱德",
+     "away": "狮城水手",
+     "score": "0-2",
+     "venue": "H",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "悉尼FC",
+     "away": "阿德莱德",
+     "score": "2-1",
+     "venue": "A",
+     "result": "L",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-19",
+     "home": "布里斯班",
+     "away": "阿德莱德",
+     "score": "4-0",
+     "venue": "A",
+     "result": "L",
+     "half": "2:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-04",
+     "home": "墨胜利",
+     "away": "万隆",
+     "score": "1-2",
+     "venue": "H",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "墨胜利",
+     "away": "中央海岸",
+     "score": "1-1",
+     "venue": "H",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-28",
+     "home": "万隆",
+     "away": "墨胜利",
+     "score": "2-0",
+     "venue": "A",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "墨胜利",
+     "away": "墨尔本城",
+     "score": "1-1",
+     "venue": "H",
+     "result": "D",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "惠灵顿",
+     "away": "墨胜利",
+     "score": "2-1",
+     "venue": "A",
+     "result": "L",
+     "half": "1:1"
+    }
+   ]
+  }
+ },
+ "2042615": {
+  "id": "2042615",
+  "round": "",
+  "home": "大阪钢巴",
+  "away": "大阪樱花",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 13,
+    "w": 2,
+    "d": 6,
+    "l": 5,
+    "gf": 14,
+    "ga": 21,
+    "gd": -7,
+    "pts": 12,
+    "rank": 16,
+    "wr": 15
+   },
+   "home": {
+    "p": 5,
+    "w": 1,
+    "d": 2,
+    "l": 2,
+    "gf": 6,
+    "ga": 8,
+    "gd": -2,
+    "pts": 5,
+    "rank": 16,
+    "wr": 20
+   },
+   "away": {
+    "p": 8,
+    "w": 1,
+    "d": 4,
+    "l": 3,
+    "gf": 8,
+    "ga": 13,
+    "gd": -5,
+    "pts": 7,
+    "rank": 16,
+    "wr": 12
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 13,
+    "w": 3,
+    "d": 5,
+    "l": 5,
+    "gf": 13,
+    "ga": 23,
+    "gd": -10,
+    "pts": 14,
+    "rank": 12,
+    "wr": 23
+   },
+   "home": {
+    "p": 7,
+    "w": 3,
+    "d": 3,
+    "l": 1,
+    "gf": 9,
+    "ga": 7,
+    "gd": 2,
+    "pts": 12,
+    "rank": 12,
+    "wr": 43
+   },
+   "away": {
+    "p": 6,
+    "w": 0,
+    "d": 2,
+    "l": 4,
+    "gf": 4,
+    "ga": 16,
+    "gd": -12,
+    "pts": 2,
+    "rank": 12,
+    "wr": 0
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "1胜1平3负",
+    "gf": 3,
+    "ga": 7,
+    "over": 1,
+    "under": 4
+   },
+   "rows": [
+    {
+     "league": "日职",
+     "date": "2026-04-11",
+     "home": "大阪钢巴",
+     "away": "大阪樱花",
+     "extra": "0-1"
+    },
+    {
+     "league": "日职",
+     "date": "2026-02-07",
+     "home": "大阪樱花",
+     "away": "大阪钢巴",
+     "extra": "0-0"
+    },
+    {
+     "league": "日职",
+     "date": "2025-07-05",
+     "home": "大阪樱花",
+     "away": "大阪钢巴",
+     "extra": "0-1"
+    },
+    {
+     "league": "日职",
+     "date": "2025-02-14",
+     "home": "大阪钢巴",
+     "away": "大阪樱花",
+     "extra": "2-5"
+    },
+    {
+     "league": "日职",
+     "date": "2024-10-02",
+     "home": "大阪樱花",
+     "away": "大阪钢巴",
+     "extra": "1-0"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-04",
+     "home": "浦项制铁",
+     "away": "大阪钢巴",
+     "score": "3-3",
+     "venue": "A",
+     "result": "D",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "町田泽维",
+     "away": "大阪钢巴",
+     "score": "0-0",
+     "venue": "A",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-28",
+     "home": "大阪钢巴",
+     "away": "布里兰",
+     "score": "1-1",
+     "venue": "H",
+     "result": "D",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "大阪钢巴",
+     "away": "京都",
+     "score": "2-2",
+     "venue": "H",
+     "result": "D",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-21",
+     "home": "福冈黄蜂",
+     "away": "大阪钢巴",
+     "score": "1-2",
+     "venue": "A",
+     "result": "W",
+     "half": "0:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-10-31",
+     "home": "鹿岛鹿角",
+     "away": "大阪樱花",
+     "score": "4-1",
+     "venue": "A",
+     "result": "L",
+     "half": "3:1"
+    },
+    {
+     "date": "2026-10-28",
+     "home": "水户蜀葵",
+     "away": "大阪樱花",
+     "score": "1-3",
+     "venue": "A",
+     "result": "W",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "大阪樱花",
+     "away": "千叶市原",
+     "score": "2-2",
+     "venue": "H",
+     "result": "D",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-21",
+     "home": "名古屋鲸",
+     "away": "大阪樱花",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-17",
+     "home": "大阪樱花",
+     "away": "川崎前锋",
+     "score": "2-4",
+     "venue": "H",
+     "result": "L",
+     "half": "1:2"
+    }
+   ]
+  }
+ },
+ "2042616": {
+  "id": "2042616",
+  "round": "",
+  "home": "江原FC",
+  "away": "全北现代",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 34,
+    "w": 11,
+    "d": 15,
+    "l": 8,
+    "gf": 41,
+    "ga": 32,
+    "gd": 9,
+    "pts": 48,
+    "rank": 6,
+    "wr": 32
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 34,
+    "w": 12,
+    "d": 13,
+    "l": 9,
+    "gf": 43,
+    "ga": 33,
+    "gd": 10,
+    "pts": 49,
+    "rank": 5,
+    "wr": 35
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "1胜3平1负",
+    "gf": 5,
+    "ga": 5,
+    "over": 2,
+    "under": 3
+   },
+   "rows": [
+    {
+     "league": "韩职",
+     "date": "2026-09-09",
+     "home": "江原FC",
+     "away": "全北现代",
+     "extra": "1-1"
+    },
+    {
+     "league": "韩职",
+     "date": "2026-07-04",
+     "home": "全北现代",
+     "away": "江原FC",
+     "extra": "1-2"
+    },
+    {
+     "league": "韩职",
+     "date": "2026-04-18",
+     "home": "江原FC",
+     "away": "全北现代",
+     "extra": "1-1"
+    },
+    {
+     "league": "韩职",
+     "date": "2025-11-01",
+     "home": "江原FC",
+     "away": "全北现代",
+     "extra": "0-0"
+    },
+    {
+     "league": "韩国杯",
+     "date": "2025-08-27",
+     "home": "江原FC",
+     "away": "全北现代",
+     "extra": "1-2"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-05",
+     "home": "Kuching FA",
+     "away": "江原FC",
+     "score": "2-0",
+     "venue": "A",
+     "result": "L",
+     "half": "2:0"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "蔚山现代",
+     "away": "江原FC",
+     "score": "2-1",
+     "venue": "A",
+     "result": "L",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "江原FC",
+     "away": "Kuching FA",
+     "score": "1-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "首尔FC",
+     "away": "江原FC",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "江原FC",
+     "away": "仁川联",
+     "score": "1-1",
+     "venue": "H",
+     "result": "D",
+     "half": "1:1"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-03",
+     "home": "全北现代",
+     "away": "柔佛",
+     "score": "2-0",
+     "venue": "H",
+     "result": "W",
+     "half": "2:0"
+    },
+    {
+     "date": "2026-10-31",
+     "home": "全北现代",
+     "away": "大田市民",
+     "score": "0-0",
+     "venue": "H",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-27",
+     "home": "北京国安",
+     "away": "全北现代",
+     "score": "2-2",
+     "venue": "A",
+     "result": "D",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "安养FC",
+     "away": "全北现代",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "全北现代",
+     "away": "济州SK",
+     "score": "3-2",
+     "venue": "H",
+     "result": "W",
+     "half": "1:1"
+    }
+   ]
+  }
+ },
+ "2042617": {
+  "id": "2042617",
+  "round": "",
+  "home": "那不勒斯",
+  "away": "拉齐奥",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 10,
+    "w": 4,
+    "d": 2,
+    "l": 4,
+    "gf": 17,
+    "ga": 13,
+    "gd": 4,
+    "pts": 14,
+    "rank": 8,
+    "wr": 40
+   },
+   "home": {
+    "p": 4,
+    "w": 2,
+    "d": 1,
+    "l": 1,
+    "gf": 8,
+    "ga": 5,
+    "gd": 3,
+    "pts": 7,
+    "rank": 8,
+    "wr": 50
+   },
+   "away": {
+    "p": 6,
+    "w": 2,
+    "d": 1,
+    "l": 3,
+    "gf": 9,
+    "ga": 8,
+    "gd": 1,
+    "pts": 7,
+    "rank": 8,
+    "wr": 33
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 10,
+    "w": 9,
+    "d": 1,
+    "l": 0,
+    "gf": 24,
+    "ga": 8,
+    "gd": 16,
+    "pts": 28,
+    "rank": 1,
+    "wr": 90
+   },
+   "home": {
+    "p": 5,
+    "w": 4,
+    "d": 1,
+    "l": 0,
+    "gf": 10,
+    "ga": 5,
+    "gd": 5,
+    "pts": 13,
+    "rank": 1,
+    "wr": 80
+   },
+   "away": {
+    "p": 5,
+    "w": 5,
+    "d": 0,
+    "l": 0,
+    "gf": 14,
+    "ga": 3,
+    "gd": 11,
+    "pts": 15,
+    "rank": 1,
+    "wr": 100
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "1胜1平3负",
+    "gf": 5,
+    "ga": 8,
+    "over": 2,
+    "under": 3
+   },
+   "rows": [
+    {
+     "league": "意甲",
+     "date": "2026-04-19",
+     "home": "那不勒斯",
+     "away": "拉齐奥",
+     "extra": "0-2"
+    },
+    {
+     "league": "意甲",
+     "date": "2026-01-04",
+     "home": "拉齐奥",
+     "away": "那不勒斯",
+     "extra": "0-2"
+    },
+    {
+     "league": "意甲",
+     "date": "2025-02-16",
+     "home": "拉齐奥",
+     "away": "那不勒斯",
+     "extra": "2-2"
+    },
+    {
+     "league": "意甲",
+     "date": "2024-12-09",
+     "home": "那不勒斯",
+     "away": "拉齐奥",
+     "extra": "0-1"
+    },
+    {
+     "league": "意大利杯",
+     "date": "2024-12-06",
+     "home": "拉齐奥",
+     "away": "那不勒斯",
+     "extra": "3-1"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-05",
+     "home": "波尔图",
+     "away": "那不勒斯",
+     "score": "4-1",
+     "venue": "A",
+     "result": "L",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-11-02",
+     "home": "尤文图斯",
+     "away": "那不勒斯",
+     "score": "2-0",
+     "venue": "A",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "蒙扎",
+     "away": "那不勒斯",
+     "score": "1-4",
+     "venue": "A",
+     "result": "W",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "那不勒斯",
+     "away": "罗马",
+     "score": "3-3",
+     "venue": "H",
+     "result": "D",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-21",
+     "home": "那不勒斯",
+     "away": "博德闪耀",
+     "score": "4-3",
+     "venue": "H",
+     "result": "W",
+     "half": "2:1"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-01",
+     "home": "拉齐奥",
+     "away": "卡利亚里",
+     "score": "2-1",
+     "venue": "H",
+     "result": "W",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-28",
+     "home": "萨索洛",
+     "away": "拉齐奥",
+     "score": "2-6",
+     "venue": "A",
+     "result": "W",
+     "half": "2:4"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "拉齐奥",
+     "away": "帕尔马",
+     "score": "2-1",
+     "venue": "H",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-19",
+     "home": "尤文图斯",
+     "away": "拉齐奥",
+     "score": "0-3",
+     "venue": "A",
+     "result": "W",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-11",
+     "home": "拉齐奥",
+     "away": "蒙扎",
+     "score": "3-1",
+     "venue": "H",
+     "result": "W",
+     "half": "2:0"
+    }
+   ]
+  }
+ },
+ "2042618": {
+  "id": "2042618",
+  "round": "",
+  "home": "埃尔切",
+  "away": "贝蒂斯",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 11,
+    "w": 2,
+    "d": 4,
+    "l": 5,
+    "gf": 14,
+    "ga": 18,
+    "gd": -4,
+    "pts": 10,
+    "rank": 17,
+    "wr": 18
+   },
+   "home": {
+    "p": 5,
+    "w": 0,
+    "d": 1,
+    "l": 4,
+    "gf": 4,
+    "ga": 12,
+    "gd": -8,
+    "pts": 1,
+    "rank": 17,
+    "wr": 0
+   },
+   "away": {
+    "p": 6,
+    "w": 2,
+    "d": 3,
+    "l": 1,
+    "gf": 10,
+    "ga": 6,
+    "gd": 4,
+    "pts": 9,
+    "rank": 17,
+    "wr": 33
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 11,
+    "w": 7,
+    "d": 2,
+    "l": 2,
+    "gf": 18,
+    "ga": 15,
+    "gd": 3,
+    "pts": 23,
+    "rank": 4,
+    "wr": 64
+   },
+   "home": {
+    "p": 6,
+    "w": 5,
+    "d": 0,
+    "l": 1,
+    "gf": 12,
+    "ga": 8,
+    "gd": 4,
+    "pts": 15,
+    "rank": 4,
+    "wr": 83
+   },
+   "away": {
+    "p": 5,
+    "w": 2,
+    "d": 2,
+    "l": 1,
+    "gf": 6,
+    "ga": 7,
+    "gd": -1,
+    "pts": 8,
+    "rank": 4,
+    "wr": 40
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "0胜1平4负",
+    "gf": 5,
+    "ga": 11,
+    "over": 4,
+    "under": 1
+   },
+   "rows": [
+    {
+     "league": "西甲",
+     "date": "2026-05-13",
+     "home": "贝蒂斯",
+     "away": "埃尔切",
+     "extra": "2-1"
+    },
+    {
+     "league": "西国王杯",
+     "date": "2026-01-15",
+     "home": "贝蒂斯",
+     "away": "埃尔切",
+     "extra": "2-1"
+    },
+    {
+     "league": "西甲",
+     "date": "2025-08-19",
+     "home": "埃尔切",
+     "away": "贝蒂斯",
+     "extra": "1-1"
+    },
+    {
+     "league": "西甲",
+     "date": "2023-02-25",
+     "home": "埃尔切",
+     "away": "贝蒂斯",
+     "extra": "2-3"
+    },
+    {
+     "league": "西甲",
+     "date": "2022-08-16",
+     "home": "贝蒂斯",
+     "away": "埃尔切",
+     "extra": "3-0"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-02",
+     "home": "埃尔切",
+     "away": "巴伦西亚",
+     "score": "0-1",
+     "venue": "H",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-28",
+     "home": "UD Pinatar",
+     "away": "埃尔切",
+     "score": "1-3",
+     "venue": "A",
+     "result": "W",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "巴列卡诺",
+     "away": "埃尔切",
+     "score": "0-3",
+     "venue": "A",
+     "result": "W",
+     "half": "0:2"
+    },
+    {
+     "date": "2026-10-17",
+     "home": "比利亚雷",
+     "away": "埃尔切",
+     "score": "0-0",
+     "venue": "A",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-11",
+     "home": "埃尔切",
+     "away": "塞尔塔",
+     "score": "0-0",
+     "venue": "H",
+     "result": "D",
+     "half": "0:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-05",
+     "home": "多特蒙德",
+     "away": "贝蒂斯",
+     "score": "2-1",
+     "venue": "A",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "贝蒂斯",
+     "away": "马拉加",
+     "score": "2-1",
+     "venue": "H",
+     "result": "W",
+     "half": "2:0"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "塞尔塔",
+     "away": "贝蒂斯",
+     "score": "0-0",
+     "venue": "A",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-22",
+     "home": "贝蒂斯",
+     "away": "费耶诺德",
+     "score": "1-0",
+     "venue": "H",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "贝蒂斯",
+     "away": "巴萨",
+     "score": "2-5",
+     "venue": "H",
+     "result": "L",
+     "half": "1:2"
+    }
+   ]
+  }
+ },
+ "2042619": {
+  "id": "2042619",
+  "round": "",
+  "home": "库奥皮奥",
+  "away": "国际图尔",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 31,
+    "w": 14,
+    "d": 11,
+    "l": 6,
+    "gf": 46,
+    "ga": 31,
+    "gd": 15,
+    "pts": 53,
+    "rank": 3,
+    "wr": 45
+   },
+   "home": {
+    "p": 15,
+    "w": 7,
+    "d": 6,
+    "l": 2,
+    "gf": 24,
+    "ga": 16,
+    "gd": 8,
+    "pts": 27,
+    "rank": 3,
+    "wr": 47
+   },
+   "away": {
+    "p": 16,
+    "w": 7,
+    "d": 5,
+    "l": 4,
+    "gf": 22,
+    "ga": 15,
+    "gd": 7,
+    "pts": 26,
+    "rank": 3,
+    "wr": 44
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 31,
+    "w": 16,
+    "d": 10,
+    "l": 5,
+    "gf": 41,
+    "ga": 27,
+    "gd": 14,
+    "pts": 58,
+    "rank": 2,
+    "wr": 52
+   },
+   "home": {
+    "p": 16,
+    "w": 8,
+    "d": 5,
+    "l": 3,
+    "gf": 20,
+    "ga": 15,
+    "gd": 5,
+    "pts": 29,
+    "rank": 2,
+    "wr": 50
+   },
+   "away": {
+    "p": 15,
+    "w": 8,
+    "d": 5,
+    "l": 2,
+    "gf": 21,
+    "ga": 12,
+    "gd": 9,
+    "pts": 29,
+    "rank": 2,
+    "wr": 53
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "2胜1平2负",
+    "gf": 7,
+    "ga": 5,
+    "over": 2,
+    "under": 3
+   },
+   "rows": [
+    {
+     "league": "芬超",
+     "date": "2026-10-11",
+     "home": "国际图尔",
+     "away": "库奥皮奥",
+     "extra": "1-0"
+    },
+    {
+     "league": "芬超",
+     "date": "2026-09-01",
+     "home": "国际图尔",
+     "away": "库奥皮奥",
+     "extra": "1-0"
+    },
+    {
+     "league": "芬超",
+     "date": "2026-05-30",
+     "home": "库奥皮奥",
+     "away": "国际图尔",
+     "extra": "1-1"
+    },
+    {
+     "league": "芬超",
+     "date": "2025-11-02",
+     "home": "库奥皮奥",
+     "away": "国际图尔",
+     "extra": "3-2"
+    },
+    {
+     "league": "芬超",
+     "date": "2025-10-05",
+     "home": "国际图尔",
+     "away": "库奥皮奥",
+     "extra": "0-3"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "库奥皮奥",
+     "away": "根特",
+     "score": "0-0",
+     "venue": "H",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "AC奥卢",
+     "away": "库奥皮奥",
+     "score": "2-0",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-30",
+     "home": "库奥皮奥",
+     "away": "赫尔火花",
+     "score": "1-1",
+     "venue": "H",
+     "result": "D",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "赫尔辛基",
+     "away": "库奥皮奥",
+     "score": "2-2",
+     "venue": "A",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "巴战士",
+     "away": "库奥皮奥",
+     "score": "2-0",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-03",
+     "home": "国际图尔",
+     "away": "赫尔火花",
+     "score": "4-3",
+     "venue": "H",
+     "result": "W",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-30",
+     "home": "国际图尔",
+     "away": "赫尔辛基",
+     "score": "2-4",
+     "venue": "H",
+     "result": "L",
+     "half": "1:2"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "瓦萨",
+     "away": "国际图尔",
+     "score": "0-1",
+     "venue": "A",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-17",
+     "home": "国际图尔",
+     "away": "AC奥卢",
+     "score": "1-2",
+     "venue": "H",
+     "result": "L",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-11",
+     "home": "国际图尔",
+     "away": "库奥皮奥",
+     "score": "1-0",
+     "venue": "H",
+     "result": "W",
+     "half": "0:0"
+    }
+   ]
+  }
+ },
+ "2042620": {
+  "id": "2042620",
+  "round": "",
+  "home": "特温特",
+  "away": "阿贾克斯",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 11,
+    "w": 7,
+    "d": 2,
+    "l": 2,
+    "gf": 28,
+    "ga": 10,
+    "gd": 18,
+    "pts": 23,
+    "rank": 4,
+    "wr": 64
+   },
+   "home": {
+    "p": 5,
+    "w": 4,
+    "d": 0,
+    "l": 1,
+    "gf": 10,
+    "ga": 5,
+    "gd": 5,
+    "pts": 12,
+    "rank": 4,
+    "wr": 80
+   },
+   "away": {
+    "p": 6,
+    "w": 3,
+    "d": 2,
+    "l": 1,
+    "gf": 18,
+    "ga": 5,
+    "gd": 13,
+    "pts": 11,
+    "rank": 4,
+    "wr": 50
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 11,
+    "w": 7,
+    "d": 3,
+    "l": 1,
+    "gf": 30,
+    "ga": 13,
+    "gd": 17,
+    "pts": 24,
+    "rank": 2,
+    "wr": 64
+   },
+   "home": {
+    "p": 6,
+    "w": 2,
+    "d": 3,
+    "l": 1,
+    "gf": 12,
+    "ga": 9,
+    "gd": 3,
+    "pts": 9,
+    "rank": 2,
+    "wr": 33
+   },
+   "away": {
+    "p": 5,
+    "w": 5,
+    "d": 0,
+    "l": 0,
+    "gf": 18,
+    "ga": 4,
+    "gd": 14,
+    "pts": 15,
+    "rank": 2,
+    "wr": 100
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "1胜1平3负",
+    "gf": 7,
+    "ga": 10,
+    "over": 4,
+    "under": 1
+   },
+   "rows": [
+    {
+     "league": "荷甲",
+     "date": "2026-04-05",
+     "home": "阿贾克斯",
+     "away": "特温特",
+     "extra": "1-2"
+    },
+    {
+     "league": "荷甲",
+     "date": "2025-10-26",
+     "home": "特温特",
+     "away": "阿贾克斯",
+     "extra": "2-3"
+    },
+    {
+     "league": "荷甲",
+     "date": "2025-05-18",
+     "home": "阿贾克斯",
+     "away": "特温特",
+     "extra": "2-0"
+    },
+    {
+     "league": "荷甲",
+     "date": "2024-11-10",
+     "home": "特温特",
+     "away": "阿贾克斯",
+     "extra": "2-2"
+    },
+    {
+     "league": "荷甲",
+     "date": "2024-04-14",
+     "home": "阿贾克斯",
+     "away": "特温特",
+     "extra": "2-1"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "特温特",
+     "away": "帕福斯",
+     "score": "3-1",
+     "venue": "H",
+     "result": "W",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "SBV精英",
+     "away": "特温特",
+     "score": "0-9",
+     "venue": "A",
+     "result": "W",
+     "half": "0:5"
+    },
+    {
+     "date": "2026-10-26",
+     "home": "阿尔克马",
+     "away": "特温特",
+     "score": "0-2",
+     "venue": "A",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "红色小鬼",
+     "away": "特温特",
+     "score": "1-4",
+     "venue": "A",
+     "result": "W",
+     "half": "1:2"
+    },
+    {
+     "date": "2026-10-19",
+     "home": "特温特",
+     "away": "乌德勒支",
+     "score": "1-2",
+     "venue": "H",
+     "result": "L",
+     "half": "1:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "中日德兰",
+     "away": "阿贾克斯",
+     "score": "1-6",
+     "venue": "A",
+     "result": "W",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "阿贾克斯",
+     "away": "阿尔克马",
+     "score": "1-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "鹿斯巴达",
+     "away": "阿贾克斯",
+     "score": "1-2",
+     "venue": "A",
+     "result": "W",
+     "half": "1:2"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "阿贾克斯",
+     "away": "亚特兰大",
+     "score": "2-0",
+     "venue": "H",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "格罗宁根",
+     "away": "阿贾克斯",
+     "score": "2-5",
+     "venue": "A",
+     "result": "W",
+     "half": "0:2"
+    }
+   ]
+  }
+ },
+ "2042621": {
+  "id": "2042621",
+  "round": "",
+  "home": "特罗姆瑟",
+  "away": "博德闪耀",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 25,
+    "w": 11,
+    "d": 7,
+    "l": 7,
+    "gf": 43,
+    "ga": 38,
+    "gd": 5,
+    "pts": 40,
+    "rank": 6,
+    "wr": 44
+   },
+   "home": {
+    "p": 12,
+    "w": 7,
+    "d": 4,
+    "l": 1,
+    "gf": 22,
+    "ga": 10,
+    "gd": 12,
+    "pts": 25,
+    "rank": 6,
+    "wr": 58
+   },
+   "away": {
+    "p": 13,
+    "w": 4,
+    "d": 3,
+    "l": 6,
+    "gf": 21,
+    "ga": 28,
+    "gd": -7,
+    "pts": 15,
+    "rank": 6,
+    "wr": 31
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 25,
+    "w": 19,
+    "d": 2,
+    "l": 4,
+    "gf": 61,
+    "ga": 23,
+    "gd": 38,
+    "pts": 59,
+    "rank": 2,
+    "wr": 76
+   },
+   "home": {
+    "p": 13,
+    "w": 11,
+    "d": 0,
+    "l": 2,
+    "gf": 37,
+    "ga": 10,
+    "gd": 27,
+    "pts": 33,
+    "rank": 2,
+    "wr": 85
+   },
+   "away": {
+    "p": 12,
+    "w": 8,
+    "d": 2,
+    "l": 2,
+    "gf": 24,
+    "ga": 13,
+    "gd": 11,
+    "pts": 26,
+    "rank": 2,
+    "wr": 67
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "1胜2平2负",
+    "gf": 3,
+    "ga": 11,
+    "over": 3,
+    "under": 2
+   },
+   "rows": [
+    {
+     "league": "挪超",
+     "date": "2026-05-17",
+     "home": "博德闪耀",
+     "away": "特罗姆瑟",
+     "extra": "5-0"
+    },
+    {
+     "league": "挪超",
+     "date": "2025-08-10",
+     "home": "博德闪耀",
+     "away": "特罗姆瑟",
+     "extra": "1-1"
+    },
+    {
+     "league": "挪超",
+     "date": "2025-05-17",
+     "home": "特罗姆瑟",
+     "away": "博德闪耀",
+     "extra": "2-1"
+    },
+    {
+     "league": "挪超",
+     "date": "2024-10-20",
+     "home": "特罗姆瑟",
+     "away": "博德闪耀",
+     "extra": "0-0"
+    },
+    {
+     "league": "挪超",
+     "date": "2024-05-17",
+     "home": "博德闪耀",
+     "away": "特罗姆瑟",
+     "extra": "4-0"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-02",
+     "home": "瓦勒伦加",
+     "away": "特罗姆瑟",
+     "score": "4-0",
+     "venue": "A",
+     "result": "L",
+     "half": "2:0"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "特罗姆瑟",
+     "away": "海于格松",
+     "score": "3-2",
+     "venue": "H",
+     "result": "W",
+     "half": "2:0"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "维京",
+     "away": "特罗姆瑟",
+     "score": "3-1",
+     "venue": "A",
+     "result": "L",
+     "half": "3:0"
+    },
+    {
+     "date": "2026-10-19",
+     "home": "特罗姆瑟",
+     "away": "奥斯KFUM",
+     "score": "1-1",
+     "venue": "H",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-11",
+     "home": "腓特烈",
+     "away": "特罗姆瑟",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "0:1"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-04",
+     "home": "博德闪耀",
+     "away": "里尔",
+     "score": "0-0",
+     "venue": "H",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-31",
+     "home": "博德闪耀",
+     "away": "维京",
+     "score": "3-2",
+     "venue": "H",
+     "result": "W",
+     "half": "3:2"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "博德闪耀",
+     "away": "瓦勒伦加",
+     "score": "0-1",
+     "venue": "H",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-21",
+     "home": "那不勒斯",
+     "away": "博德闪耀",
+     "score": "4-3",
+     "venue": "A",
+     "result": "L",
+     "half": "2:1"
+    },
+    {
+     "date": "2026-10-17",
+     "home": "汉坎",
+     "away": "博德闪耀",
+     "score": "0-2",
+     "venue": "A",
+     "result": "W",
+     "half": "0:2"
+    }
+   ]
+  }
+ },
+ "2042622": {
+  "id": "2042622",
+  "round": "",
+  "home": "桑德兰",
+  "away": "切尔西",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 9,
+    "w": 1,
+    "d": 2,
+    "l": 6,
+    "gf": 7,
+    "ga": 17,
+    "gd": -10,
+    "pts": 5,
+    "rank": 20,
+    "wr": 11
+   },
+   "home": {
+    "p": 4,
+    "w": 1,
+    "d": 1,
+    "l": 2,
+    "gf": 1,
+    "ga": 4,
+    "gd": -3,
+    "pts": 4,
+    "rank": 20,
+    "wr": 25
+   },
+   "away": {
+    "p": 5,
+    "w": 0,
+    "d": 1,
+    "l": 4,
+    "gf": 6,
+    "ga": 13,
+    "gd": -7,
+    "pts": 1,
+    "rank": 20,
+    "wr": 0
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 9,
+    "w": 5,
+    "d": 1,
+    "l": 3,
+    "gf": 19,
+    "ga": 15,
+    "gd": 4,
+    "pts": 16,
+    "rank": 4,
+    "wr": 56
+   },
+   "home": {
+    "p": 5,
+    "w": 3,
+    "d": 1,
+    "l": 1,
+    "gf": 13,
+    "ga": 8,
+    "gd": 5,
+    "pts": 10,
+    "rank": 4,
+    "wr": 60
+   },
+   "away": {
+    "p": 4,
+    "w": 2,
+    "d": 0,
+    "l": 2,
+    "gf": 6,
+    "ga": 7,
+    "gd": -1,
+    "pts": 6,
+    "rank": 4,
+    "wr": 50
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "3胜0平2负",
+    "gf": 8,
+    "ga": 10,
+    "over": 4,
+    "under": 1
+   },
+   "rows": [
+    {
+     "league": "英超",
+     "date": "2026-05-24",
+     "home": "桑德兰",
+     "away": "切尔西",
+     "extra": "2-1"
+    },
+    {
+     "league": "英超",
+     "date": "2025-10-25",
+     "home": "切尔西",
+     "away": "桑德兰",
+     "extra": "1-2"
+    },
+    {
+     "league": "英超",
+     "date": "2017-05-21",
+     "home": "切尔西",
+     "away": "桑德兰",
+     "extra": "5-1"
+    },
+    {
+     "league": "英超",
+     "date": "2016-12-15",
+     "home": "桑德兰",
+     "away": "切尔西",
+     "extra": "0-1"
+    },
+    {
+     "league": "英超",
+     "date": "2016-05-07",
+     "home": "桑德兰",
+     "away": "切尔西",
+     "extra": "3-2"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "桑德兰",
+     "away": "萨迪纳摩",
+     "score": "0-2",
+     "venue": "H",
+     "result": "L",
+     "half": "0:2"
+    },
+    {
+     "date": "2026-10-31",
+     "home": "考文垂",
+     "away": "桑德兰",
+     "score": "3-1",
+     "venue": "A",
+     "result": "L",
+     "half": "2:0"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "桑德兰",
+     "away": "布伦特",
+     "score": "3-2",
+     "venue": "H",
+     "result": "W",
+     "half": "3:1"
+    },
+    {
+     "date": "2026-10-26",
+     "home": "桑德兰",
+     "away": "利兹联",
+     "score": "0-0",
+     "venue": "H",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "波兹南",
+     "away": "桑德兰",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "0:1"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-10-31",
+     "home": "切尔西",
+     "away": "曼联",
+     "score": "2-0",
+     "venue": "H",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "利物浦",
+     "away": "切尔西",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "切尔西",
+     "away": "热刺",
+     "score": "0-2",
+     "venue": "H",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-17",
+     "home": "埃弗顿",
+     "away": "切尔西",
+     "score": "0-2",
+     "venue": "A",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-10",
+     "home": "切尔西",
+     "away": "伯恩茅斯",
+     "score": "5-1",
+     "venue": "H",
+     "result": "W",
+     "half": "2:0"
+    }
+   ]
+  }
+ },
+ "2042623": {
+  "id": "2042623",
+  "round": "",
+  "home": "伊普斯",
+  "away": "伯恩茅斯",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 9,
+    "w": 3,
+    "d": 2,
+    "l": 4,
+    "gf": 14,
+    "ga": 18,
+    "gd": -4,
+    "pts": 11,
+    "rank": 14,
+    "wr": 33
+   },
+   "home": {
+    "p": 4,
+    "w": 2,
+    "d": 1,
+    "l": 1,
+    "gf": 5,
+    "ga": 5,
+    "gd": 0,
+    "pts": 7,
+    "rank": 14,
+    "wr": 50
+   },
+   "away": {
+    "p": 5,
+    "w": 1,
+    "d": 1,
+    "l": 3,
+    "gf": 9,
+    "ga": 13,
+    "gd": -4,
+    "pts": 4,
+    "rank": 14,
+    "wr": 20
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 9,
+    "w": 3,
+    "d": 3,
+    "l": 3,
+    "gf": 14,
+    "ga": 13,
+    "gd": 1,
+    "pts": 12,
+    "rank": 8,
+    "wr": 33
+   },
+   "home": {
+    "p": 5,
+    "w": 2,
+    "d": 2,
+    "l": 1,
+    "gf": 7,
+    "ga": 4,
+    "gd": 3,
+    "pts": 8,
+    "rank": 8,
+    "wr": 40
+   },
+   "away": {
+    "p": 4,
+    "w": 1,
+    "d": 1,
+    "l": 2,
+    "gf": 7,
+    "ga": 9,
+    "gd": -2,
+    "pts": 4,
+    "rank": 8,
+    "wr": 25
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "1胜3平1负",
+    "gf": 8,
+    "ga": 8,
+    "over": 4,
+    "under": 1
+   },
+   "rows": [
+    {
+     "league": "英超",
+     "date": "2025-04-03",
+     "home": "伯恩茅斯",
+     "away": "伊普斯",
+     "extra": "1-2"
+    },
+    {
+     "league": "英超",
+     "date": "2024-12-08",
+     "home": "伊普斯",
+     "away": "伯恩茅斯",
+     "extra": "1-2"
+    },
+    {
+     "league": "英冠",
+     "date": "2015-04-04",
+     "home": "伊普斯",
+     "away": "伯恩茅斯",
+     "extra": "1-1"
+    },
+    {
+     "league": "英冠",
+     "date": "2014-11-22",
+     "home": "伯恩茅斯",
+     "away": "伊普斯",
+     "extra": "2-2"
+    },
+    {
+     "league": "英冠",
+     "date": "2014-04-21",
+     "home": "伊普斯",
+     "away": "伯恩茅斯",
+     "extra": "2-2"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-10-31",
+     "home": "赫尔城",
+     "away": "伊普斯",
+     "score": "2-2",
+     "venue": "A",
+     "result": "D",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "伊普斯",
+     "away": "诺丁汉",
+     "score": "1-1",
+     "venue": "H",
+     "result": "D",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-17",
+     "home": "曼城",
+     "away": "伊普斯",
+     "score": "3-2",
+     "venue": "A",
+     "result": "L",
+     "half": "2:1"
+    },
+    {
+     "date": "2026-10-10",
+     "home": "伊普斯",
+     "away": "富勒姆",
+     "score": "2-1",
+     "venue": "H",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-09-19",
+     "home": "埃弗顿",
+     "away": "伊普斯",
+     "score": "1-0",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "布斯巴达",
+     "away": "伯恩茅斯",
+     "score": "1-3",
+     "venue": "A",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-31",
+     "home": "伯恩茅斯",
+     "away": "利兹联",
+     "score": "2-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "伯恩茅斯",
+     "away": "维拉",
+     "score": "3-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "曼联",
+     "away": "伯恩茅斯",
+     "score": "0-3",
+     "venue": "A",
+     "result": "W",
+     "half": "0:2"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "伯恩茅斯",
+     "away": "AC米兰",
+     "score": "3-0",
+     "venue": "H",
+     "result": "W",
+     "half": "2:0"
+    }
+   ]
+  }
+ },
+ "2042624": {
+  "id": "2042624",
+  "round": "",
+  "home": "水晶宫",
+  "away": "利物浦",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 9,
+    "w": 2,
+    "d": 1,
+    "l": 6,
+    "gf": 9,
+    "ga": 21,
+    "gd": -12,
+    "pts": 7,
+    "rank": 18,
+    "wr": 22
+   },
+   "home": {
+    "p": 4,
+    "w": 1,
+    "d": 0,
+    "l": 3,
+    "gf": 6,
+    "ga": 10,
+    "gd": -4,
+    "pts": 3,
+    "rank": 18,
+    "wr": 25
+   },
+   "away": {
+    "p": 5,
+    "w": 1,
+    "d": 1,
+    "l": 3,
+    "gf": 3,
+    "ga": 11,
+    "gd": -8,
+    "pts": 4,
+    "rank": 18,
+    "wr": 20
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 9,
+    "w": 4,
+    "d": 3,
+    "l": 2,
+    "gf": 11,
+    "ga": 9,
+    "gd": 2,
+    "pts": 15,
+    "rank": 5,
+    "wr": 44
+   },
+   "home": {
+    "p": 5,
+    "w": 1,
+    "d": 2,
+    "l": 2,
+    "gf": 4,
+    "ga": 6,
+    "gd": -2,
+    "pts": 5,
+    "rank": 5,
+    "wr": 20
+   },
+   "away": {
+    "p": 4,
+    "w": 3,
+    "d": 1,
+    "l": 0,
+    "gf": 7,
+    "ga": 3,
+    "gd": 4,
+    "pts": 10,
+    "rank": 5,
+    "wr": 75
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "2胜2平1负",
+    "gf": 9,
+    "ga": 7,
+    "over": 4,
+    "under": 1
+   },
+   "rows": [
+    {
+     "league": "英超",
+     "date": "2026-04-25",
+     "home": "利物浦",
+     "away": "水晶宫",
+     "extra": "3-1"
+    },
+    {
+     "league": "英联赛杯",
+     "date": "2025-10-30",
+     "home": "利物浦",
+     "away": "水晶宫",
+     "extra": "0-3"
+    },
+    {
+     "league": "英超",
+     "date": "2025-09-27",
+     "home": "水晶宫",
+     "away": "利物浦",
+     "extra": "2-1"
+    },
+    {
+     "league": "英社区盾",
+     "date": "2025-08-10",
+     "home": "水晶宫",
+     "away": "利物浦",
+     "extra": "2-2"
+    },
+    {
+     "league": "英超",
+     "date": "2025-05-25",
+     "home": "利物浦",
+     "away": "水晶宫",
+     "extra": "1-1"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "水晶宫",
+     "away": "霍芬海姆",
+     "score": "1-1",
+     "venue": "H",
+     "result": "D",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "热刺",
+     "away": "水晶宫",
+     "score": "2-0",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "富勒姆",
+     "away": "水晶宫",
+     "score": "0-1",
+     "venue": "A",
+     "result": "W",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "水晶宫",
+     "away": "纽卡斯尔",
+     "score": "0-2",
+     "venue": "H",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "贝西克塔",
+     "away": "水晶宫",
+     "score": "2-2",
+     "venue": "A",
+     "result": "D",
+     "half": "1:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-05",
+     "home": "费内巴切",
+     "away": "利物浦",
+     "score": "3-2",
+     "venue": "A",
+     "result": "L",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-11-02",
+     "home": "利物浦",
+     "away": "阿森纳",
+     "score": "0-1",
+     "venue": "H",
+     "result": "L",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "利物浦",
+     "away": "切尔西",
+     "score": "1-1",
+     "venue": "H",
+     "result": "D",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "利物浦",
+     "away": "布赖顿",
+     "score": "2-0",
+     "venue": "H",
+     "result": "W",
+     "half": "2:0"
+    },
+    {
+     "date": "2026-10-21",
+     "home": "利物浦",
+     "away": "比利亚雷",
+     "score": "4-3",
+     "venue": "H",
+     "result": "W",
+     "half": "2:2"
+    }
+   ]
+  }
+ },
+ "2042625": {
+  "id": "2042625",
+  "round": "",
+  "home": "蒙扎",
+  "away": "亚特兰大",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 10,
+    "w": 2,
+    "d": 1,
+    "l": 7,
+    "gf": 17,
+    "ga": 24,
+    "gd": -7,
+    "pts": 7,
+    "rank": 18,
+    "wr": 20
+   },
+   "home": {
+    "p": 4,
+    "w": 2,
+    "d": 0,
+    "l": 2,
+    "gf": 9,
+    "ga": 8,
+    "gd": 1,
+    "pts": 6,
+    "rank": 18,
+    "wr": 50
+   },
+   "away": {
+    "p": 6,
+    "w": 0,
+    "d": 1,
+    "l": 5,
+    "gf": 8,
+    "ga": 16,
+    "gd": -8,
+    "pts": 1,
+    "rank": 18,
+    "wr": 0
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 10,
+    "w": 3,
+    "d": 2,
+    "l": 5,
+    "gf": 16,
+    "ga": 20,
+    "gd": -4,
+    "pts": 11,
+    "rank": 13,
+    "wr": 30
+   },
+   "home": {
+    "p": 6,
+    "w": 3,
+    "d": 1,
+    "l": 2,
+    "gf": 11,
+    "ga": 11,
+    "gd": 0,
+    "pts": 10,
+    "rank": 13,
+    "wr": 50
+   },
+   "away": {
+    "p": 4,
+    "w": 0,
+    "d": 1,
+    "l": 3,
+    "gf": 5,
+    "ga": 9,
+    "gd": -4,
+    "pts": 1,
+    "rank": 13,
+    "wr": 0
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "0胜0平5负",
+    "gf": 2,
+    "ga": 13,
+    "over": 4,
+    "under": 1
+   },
+   "rows": [
+    {
+     "league": "俱乐部赛",
+     "date": "2025-08-06",
+     "home": "蒙扎",
+     "away": "亚特兰大",
+     "extra": "1-2"
+    },
+    {
+     "league": "意甲",
+     "date": "2025-05-04",
+     "home": "蒙扎",
+     "away": "亚特兰大",
+     "extra": "0-4"
+    },
+    {
+     "league": "意甲",
+     "date": "2024-10-31",
+     "home": "亚特兰大",
+     "away": "蒙扎",
+     "extra": "2-0"
+    },
+    {
+     "league": "意甲",
+     "date": "2024-04-22",
+     "home": "蒙扎",
+     "away": "亚特兰大",
+     "extra": "1-2"
+    },
+    {
+     "league": "意甲",
+     "date": "2023-09-03",
+     "home": "亚特兰大",
+     "away": "蒙扎",
+     "extra": "3-0"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-10-31",
+     "home": "博洛尼亚",
+     "away": "蒙扎",
+     "score": "2-1",
+     "venue": "A",
+     "result": "L",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "蒙扎",
+     "away": "那不勒斯",
+     "score": "1-4",
+     "venue": "H",
+     "result": "L",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "都灵",
+     "away": "蒙扎",
+     "score": "3-2",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-20",
+     "home": "蒙扎",
+     "away": "卡利亚里",
+     "score": "4-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-11",
+     "home": "拉齐奥",
+     "away": "蒙扎",
+     "score": "3-1",
+     "venue": "A",
+     "result": "L",
+     "half": "2:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "亚特兰大",
+     "away": "阿拉木图",
+     "score": "1-1",
+     "venue": "H",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-11-03",
+     "home": "亚特兰大",
+     "away": "帕尔马",
+     "score": "0-3",
+     "venue": "H",
+     "result": "L",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-30",
+     "home": "佛罗伦萨",
+     "away": "亚特兰大",
+     "score": "2-2",
+     "venue": "A",
+     "result": "D",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "亚特兰大",
+     "away": "弗洛西诺",
+     "score": "4-4",
+     "venue": "H",
+     "result": "D",
+     "half": "3:2"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "阿贾克斯",
+     "away": "亚特兰大",
+     "score": "2-0",
+     "venue": "A",
+     "result": "L",
+     "half": "0:0"
+    }
+   ]
+  }
+ },
+ "2042626": {
+  "id": "2042626",
+  "round": "",
+  "home": "热那亚",
+  "away": "AC米兰",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 10,
+    "w": 4,
+    "d": 1,
+    "l": 5,
+    "gf": 10,
+    "ga": 14,
+    "gd": -4,
+    "pts": 13,
+    "rank": 11,
+    "wr": 40
+   },
+   "home": {
+    "p": 6,
+    "w": 3,
+    "d": 1,
+    "l": 2,
+    "gf": 7,
+    "ga": 8,
+    "gd": -1,
+    "pts": 10,
+    "rank": 11,
+    "wr": 50
+   },
+   "away": {
+    "p": 4,
+    "w": 1,
+    "d": 0,
+    "l": 3,
+    "gf": 3,
+    "ga": 6,
+    "gd": -3,
+    "pts": 3,
+    "rank": 11,
+    "wr": 25
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 10,
+    "w": 6,
+    "d": 3,
+    "l": 1,
+    "gf": 21,
+    "ga": 12,
+    "gd": 9,
+    "pts": 21,
+    "rank": 5,
+    "wr": 60
+   },
+   "home": {
+    "p": 5,
+    "w": 4,
+    "d": 0,
+    "l": 1,
+    "gf": 13,
+    "ga": 7,
+    "gd": 6,
+    "pts": 12,
+    "rank": 5,
+    "wr": 80
+   },
+   "away": {
+    "p": 5,
+    "w": 2,
+    "d": 3,
+    "l": 0,
+    "gf": 8,
+    "ga": 5,
+    "gd": 3,
+    "pts": 9,
+    "rank": 5,
+    "wr": 40
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "0胜3平2负",
+    "gf": 6,
+    "ga": 8,
+    "over": 3,
+    "under": 2
+   },
+   "rows": [
+    {
+     "league": "意甲",
+     "date": "2026-05-17",
+     "home": "热那亚",
+     "away": "AC米兰",
+     "extra": "1-2"
+    },
+    {
+     "league": "意甲",
+     "date": "2026-01-09",
+     "home": "AC米兰",
+     "away": "热那亚",
+     "extra": "1-1"
+    },
+    {
+     "league": "意甲",
+     "date": "2025-05-06",
+     "home": "热那亚",
+     "away": "AC米兰",
+     "extra": "1-2"
+    },
+    {
+     "league": "意甲",
+     "date": "2024-12-16",
+     "home": "AC米兰",
+     "away": "热那亚",
+     "extra": "0-0"
+    },
+    {
+     "league": "意甲",
+     "date": "2024-05-06",
+     "home": "AC米兰",
+     "away": "热那亚",
+     "extra": "3-3"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-02",
+     "home": "莱切",
+     "away": "热那亚",
+     "score": "1-2",
+     "venue": "A",
+     "result": "W",
+     "half": "1:2"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "热那亚",
+     "away": "尤文图斯",
+     "score": "2-0",
+     "venue": "H",
+     "result": "W",
+     "half": "2:0"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "热那亚",
+     "away": "威尼斯",
+     "score": "1-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "罗马",
+     "away": "热那亚",
+     "score": "2-0",
+     "venue": "A",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-10",
+     "home": "热那亚",
+     "away": "佛罗伦萨",
+     "score": "2-1",
+     "venue": "H",
+     "result": "W",
+     "half": "2:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "AC米兰",
+     "away": "费伦茨",
+     "score": "0-2",
+     "venue": "H",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "AC米兰",
+     "away": "国际米兰",
+     "score": "3-1",
+     "venue": "H",
+     "result": "W",
+     "half": "3:1"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "AC米兰",
+     "away": "博洛尼亚",
+     "score": "2-4",
+     "venue": "H",
+     "result": "L",
+     "half": "2:1"
+    },
+    {
+     "date": "2026-10-26",
+     "home": "乌迪内斯",
+     "away": "AC米兰",
+     "score": "0-2",
+     "venue": "A",
+     "result": "W",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "伯恩茅斯",
+     "away": "AC米兰",
+     "score": "3-0",
+     "venue": "A",
+     "result": "L",
+     "half": "2:0"
+    }
+   ]
+  }
+ },
+ "2042627": {
+  "id": "2042627",
+  "round": "",
+  "home": "科隆",
+  "away": "勒沃库森",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 8,
+    "w": 2,
+    "d": 3,
+    "l": 3,
+    "gf": 9,
+    "ga": 12,
+    "gd": -3,
+    "pts": 9,
+    "rank": 13,
+    "wr": 25
+   },
+   "home": {
+    "p": 4,
+    "w": 2,
+    "d": 2,
+    "l": 0,
+    "gf": 6,
+    "ga": 4,
+    "gd": 2,
+    "pts": 8,
+    "rank": 13,
+    "wr": 50
+   },
+   "away": {
+    "p": 4,
+    "w": 0,
+    "d": 1,
+    "l": 3,
+    "gf": 3,
+    "ga": 8,
+    "gd": -5,
+    "pts": 1,
+    "rank": 13,
+    "wr": 0
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 8,
+    "w": 4,
+    "d": 1,
+    "l": 3,
+    "gf": 18,
+    "ga": 16,
+    "gd": 2,
+    "pts": 13,
+    "rank": 6,
+    "wr": 50
+   },
+   "home": {
+    "p": 4,
+    "w": 3,
+    "d": 0,
+    "l": 1,
+    "gf": 10,
+    "ga": 5,
+    "gd": 5,
+    "pts": 9,
+    "rank": 6,
+    "wr": 75
+   },
+   "away": {
+    "p": 4,
+    "w": 1,
+    "d": 1,
+    "l": 2,
+    "gf": 8,
+    "ga": 11,
+    "gd": -3,
+    "pts": 4,
+    "rank": 6,
+    "wr": 25
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "0胜1平4负",
+    "gf": 3,
+    "ga": 11,
+    "over": 3,
+    "under": 2
+   },
+   "rows": [
+    {
+     "league": "德甲",
+     "date": "2026-04-25",
+     "home": "科隆",
+     "away": "勒沃库森",
+     "extra": "1-2"
+    },
+    {
+     "league": "德甲",
+     "date": "2025-12-14",
+     "home": "勒沃库森",
+     "away": "科隆",
+     "extra": "2-0"
+    },
+    {
+     "league": "德国杯",
+     "date": "2025-02-06",
+     "home": "勒沃库森",
+     "away": "科隆",
+     "extra": "2-2"
+    },
+    {
+     "league": "德甲",
+     "date": "2024-03-03",
+     "home": "科隆",
+     "away": "勒沃库森",
+     "extra": "0-2"
+    },
+    {
+     "league": "德甲",
+     "date": "2023-10-08",
+     "home": "勒沃库森",
+     "away": "科隆",
+     "extra": "3-0"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-01",
+     "home": "柏林联合",
+     "away": "科隆",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-28",
+     "home": "科隆",
+     "away": "柏林联合",
+     "score": "5-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "科隆",
+     "away": "沙尔克04",
+     "score": "0-0",
+     "venue": "H",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-17",
+     "home": "法兰克福",
+     "away": "科隆",
+     "score": "1-0",
+     "venue": "A",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-11",
+     "home": "科隆",
+     "away": "门兴",
+     "score": "2-1",
+     "venue": "H",
+     "result": "W",
+     "half": "1:1"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "勒沃库森",
+     "away": "马赛",
+     "score": "0-1",
+     "venue": "H",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-31",
+     "home": "勒沃库森",
+     "away": "斯图加特",
+     "score": "2-4",
+     "venue": "H",
+     "result": "L",
+     "half": "1:2"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "勒沃库森",
+     "away": "纽伦堡",
+     "score": "5-2",
+     "venue": "H",
+     "result": "W",
+     "half": "1:2"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "霍芬海姆",
+     "away": "勒沃库森",
+     "score": "3-0",
+     "venue": "A",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "克里特",
+     "away": "勒沃库森",
+     "score": "0-2",
+     "venue": "A",
+     "result": "W",
+     "half": "0:2"
+    }
+   ]
+  }
+ },
+ "2042628": {
+  "id": "2042628",
+  "round": "",
+  "home": "皇家社会",
+  "away": "巴列卡诺",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 11,
+    "w": 6,
+    "d": 1,
+    "l": 4,
+    "gf": 20,
+    "ga": 20,
+    "gd": 0,
+    "pts": 19,
+    "rank": 5,
+    "wr": 55
+   },
+   "home": {
+    "p": 5,
+    "w": 3,
+    "d": 1,
+    "l": 1,
+    "gf": 7,
+    "ga": 7,
+    "gd": 0,
+    "pts": 10,
+    "rank": 5,
+    "wr": 60
+   },
+   "away": {
+    "p": 6,
+    "w": 3,
+    "d": 0,
+    "l": 3,
+    "gf": 13,
+    "ga": 13,
+    "gd": 0,
+    "pts": 9,
+    "rank": 5,
+    "wr": 50
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 10,
+    "w": 3,
+    "d": 3,
+    "l": 4,
+    "gf": 15,
+    "ga": 20,
+    "gd": -5,
+    "pts": 12,
+    "rank": 12,
+    "wr": 30
+   },
+   "home": {
+    "p": 5,
+    "w": 3,
+    "d": 1,
+    "l": 1,
+    "gf": 9,
+    "ga": 7,
+    "gd": 2,
+    "pts": 10,
+    "rank": 12,
+    "wr": 60
+   },
+   "away": {
+    "p": 5,
+    "w": 0,
+    "d": 2,
+    "l": 3,
+    "gf": 6,
+    "ga": 13,
+    "gd": -7,
+    "pts": 2,
+    "rank": 12,
+    "wr": 0
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "1胜2平2负",
+    "gf": 9,
+    "ga": 9,
+    "over": 4,
+    "under": 1
+   },
+   "rows": [
+    {
+     "league": "西甲",
+     "date": "2026-04-26",
+     "home": "巴列卡诺",
+     "away": "皇家社会",
+     "extra": "3-3"
+    },
+    {
+     "league": "西甲",
+     "date": "2025-10-06",
+     "home": "皇家社会",
+     "away": "巴列卡诺",
+     "extra": "0-1"
+    },
+    {
+     "league": "西甲",
+     "date": "2025-03-17",
+     "home": "巴列卡诺",
+     "away": "皇家社会",
+     "extra": "2-2"
+    },
+    {
+     "league": "西国王杯",
+     "date": "2025-01-17",
+     "home": "皇家社会",
+     "away": "巴列卡诺",
+     "extra": "3-1"
+    },
+    {
+     "league": "西甲",
+     "date": "2024-08-19",
+     "home": "皇家社会",
+     "away": "巴列卡诺",
+     "extra": "1-2"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "皇家社会",
+     "away": "里昂",
+     "score": "1-1",
+     "venue": "H",
+     "result": "D",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-11-02",
+     "home": "毕尔巴鄂",
+     "away": "皇家社会",
+     "score": "2-1",
+     "venue": "A",
+     "result": "L",
+     "half": "2:1"
+    },
+    {
+     "date": "2026-10-26",
+     "home": "皇家社会",
+     "away": "莱万特",
+     "score": "2-1",
+     "venue": "H",
+     "result": "W",
+     "half": "2:1"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "利勒斯特",
+     "away": "皇家社会",
+     "score": "0-6",
+     "venue": "A",
+     "result": "W",
+     "half": "0:3"
+    },
+    {
+     "date": "2026-10-19",
+     "home": "马拉加",
+     "away": "皇家社会",
+     "score": "2-5",
+     "venue": "A",
+     "result": "W",
+     "half": "0:2"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-10-31",
+     "home": "巴列卡诺",
+     "away": "塞尔塔",
+     "score": "3-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-28",
+     "home": "韦尔瓦",
+     "away": "巴列卡诺",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "巴列卡诺",
+     "away": "埃尔切",
+     "score": "0-3",
+     "venue": "H",
+     "result": "L",
+     "half": "0:2"
+    },
+    {
+     "date": "2026-10-20",
+     "home": "赫塔费",
+     "away": "巴列卡诺",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-09-19",
+     "home": "奥萨苏纳",
+     "away": "巴列卡诺",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "1:0"
+    }
+   ]
+  }
+ },
+ "2042629": {
+  "id": "2042629",
+  "round": "",
+  "home": "索尔纳",
+  "away": "赫根",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 27,
+    "w": 10,
+    "d": 8,
+    "l": 9,
+    "gf": 43,
+    "ga": 47,
+    "gd": -4,
+    "pts": 38,
+    "rank": 8,
+    "wr": 37
+   },
+   "home": {
+    "p": 13,
+    "w": 4,
+    "d": 3,
+    "l": 6,
+    "gf": 21,
+    "ga": 29,
+    "gd": -8,
+    "pts": 15,
+    "rank": 8,
+    "wr": 31
+   },
+   "away": {
+    "p": 14,
+    "w": 6,
+    "d": 5,
+    "l": 3,
+    "gf": 22,
+    "ga": 18,
+    "gd": 4,
+    "pts": 23,
+    "rank": 8,
+    "wr": 43
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 27,
+    "w": 13,
+    "d": 10,
+    "l": 4,
+    "gf": 48,
+    "ga": 30,
+    "gd": 18,
+    "pts": 49,
+    "rank": 4,
+    "wr": 48
+   },
+   "home": {
+    "p": 14,
+    "w": 7,
+    "d": 5,
+    "l": 2,
+    "gf": 26,
+    "ga": 18,
+    "gd": 8,
+    "pts": 26,
+    "rank": 4,
+    "wr": 50
+   },
+   "away": {
+    "p": 13,
+    "w": 6,
+    "d": 5,
+    "l": 2,
+    "gf": 22,
+    "ga": 12,
+    "gd": 10,
+    "pts": 23,
+    "rank": 4,
+    "wr": 46
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "1胜3平1负",
+    "gf": 9,
+    "ga": 7,
+    "over": 3,
+    "under": 2
+   },
+   "rows": [
+    {
+     "league": "瑞超",
+     "date": "2026-07-28",
+     "home": "赫根",
+     "away": "索尔纳",
+     "extra": "0-0"
+    },
+    {
+     "league": "瑞典杯",
+     "date": "2026-03-10",
+     "home": "索尔纳",
+     "away": "赫根",
+     "extra": "4-0"
+    },
+    {
+     "league": "瑞超",
+     "date": "2025-10-26",
+     "home": "索尔纳",
+     "away": "赫根",
+     "extra": "2-2"
+    },
+    {
+     "league": "瑞超",
+     "date": "2025-05-15",
+     "home": "赫根",
+     "away": "索尔纳",
+     "extra": "3-3"
+    },
+    {
+     "league": "瑞超",
+     "date": "2024-10-06",
+     "home": "索尔纳",
+     "away": "赫根",
+     "extra": "0-2"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-03",
+     "home": "盖斯",
+     "away": "索尔纳",
+     "score": "2-1",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-28",
+     "home": "索尔纳",
+     "away": "埃夫斯堡",
+     "score": "2-2",
+     "venue": "H",
+     "result": "D",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "天狼星",
+     "away": "索尔纳",
+     "score": "1-2",
+     "venue": "A",
+     "result": "W",
+     "half": "1:2"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "索尔纳",
+     "away": "哥德堡",
+     "score": "2-2",
+     "venue": "H",
+     "result": "D",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-10",
+     "home": "索尔纳",
+     "away": "布鲁马波",
+     "score": "5-6",
+     "venue": "H",
+     "result": "L",
+     "half": "0:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-01",
+     "home": "赫根",
+     "away": "哥德堡",
+     "score": "1-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "布鲁马波",
+     "away": "赫根",
+     "score": "0-0",
+     "venue": "A",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "赫根",
+     "away": "代格福什",
+     "score": "4-0",
+     "venue": "H",
+     "result": "W",
+     "half": "4:0"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "马尔默",
+     "away": "赫根",
+     "score": "0-1",
+     "venue": "A",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-11",
+     "home": "赫根",
+     "away": "厄格里特",
+     "score": "3-0",
+     "venue": "H",
+     "result": "W",
+     "half": "2:0"
+    }
+   ]
+  }
+ },
+ "2042630": {
+  "id": "2042630",
+  "round": "",
+  "home": "阿尔克马",
+  "away": "格罗宁根",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 11,
+    "w": 6,
+    "d": 2,
+    "l": 3,
+    "gf": 20,
+    "ga": 13,
+    "gd": 7,
+    "pts": 20,
+    "rank": 5,
+    "wr": 55
+   },
+   "home": {
+    "p": 5,
+    "w": 3,
+    "d": 1,
+    "l": 1,
+    "gf": 9,
+    "ga": 5,
+    "gd": 4,
+    "pts": 10,
+    "rank": 5,
+    "wr": 60
+   },
+   "away": {
+    "p": 6,
+    "w": 3,
+    "d": 1,
+    "l": 2,
+    "gf": 11,
+    "ga": 8,
+    "gd": 3,
+    "pts": 10,
+    "rank": 5,
+    "wr": 50
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 11,
+    "w": 4,
+    "d": 3,
+    "l": 4,
+    "gf": 26,
+    "ga": 24,
+    "gd": 2,
+    "pts": 15,
+    "rank": 8,
+    "wr": 36
+   },
+   "home": {
+    "p": 6,
+    "w": 2,
+    "d": 1,
+    "l": 3,
+    "gf": 13,
+    "ga": 14,
+    "gd": -1,
+    "pts": 7,
+    "rank": 8,
+    "wr": 33
+   },
+   "away": {
+    "p": 5,
+    "w": 2,
+    "d": 2,
+    "l": 1,
+    "gf": 13,
+    "ga": 10,
+    "gd": 3,
+    "pts": 8,
+    "rank": 8,
+    "wr": 40
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "3胜1平1负",
+    "gf": 10,
+    "ga": 5,
+    "over": 4,
+    "under": 1
+   },
+   "rows": [
+    {
+     "league": "荷甲",
+     "date": "2026-03-22",
+     "home": "格罗宁根",
+     "away": "阿尔克马",
+     "extra": "3-0"
+    },
+    {
+     "league": "荷甲",
+     "date": "2025-08-10",
+     "home": "阿尔克马",
+     "away": "格罗宁根",
+     "extra": "4-1"
+    },
+    {
+     "league": "荷甲",
+     "date": "2025-05-11",
+     "home": "阿尔克马",
+     "away": "格罗宁根",
+     "extra": "3-0"
+    },
+    {
+     "league": "荷兰杯",
+     "date": "2024-12-19",
+     "home": "阿尔克马",
+     "away": "格罗宁根",
+     "extra": "3-1"
+    },
+    {
+     "league": "荷甲",
+     "date": "2024-08-25",
+     "home": "格罗宁根",
+     "away": "阿尔克马",
+     "extra": "0-0"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "阿尔克马",
+     "away": "尤文图斯",
+     "score": "1-2",
+     "venue": "H",
+     "result": "L",
+     "half": "0:2"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "阿贾克斯",
+     "away": "阿尔克马",
+     "score": "1-0",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-26",
+     "home": "阿尔克马",
+     "away": "特温特",
+     "score": "0-2",
+     "venue": "H",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "亚拉腊",
+     "away": "阿尔克马",
+     "score": "0-4",
+     "venue": "A",
+     "result": "W",
+     "half": "0:2"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "坎布尔",
+     "away": "阿尔克马",
+     "score": "2-2",
+     "venue": "A",
+     "result": "D",
+     "half": "2:1"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-01",
+     "home": "格罗宁根",
+     "away": "鹿斯巴达",
+     "score": "2-3",
+     "venue": "H",
+     "result": "L",
+     "half": "2:2"
+    },
+    {
+     "date": "2026-10-30",
+     "home": "格罗宁根",
+     "away": "埃门",
+     "score": "0-2",
+     "venue": "H",
+     "result": "L",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "奈梅亨",
+     "away": "格罗宁根",
+     "score": "2-2",
+     "venue": "A",
+     "result": "D",
+     "half": "0:2"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "格罗宁根",
+     "away": "阿贾克斯",
+     "score": "2-5",
+     "venue": "H",
+     "result": "L",
+     "half": "0:2"
+    },
+    {
+     "date": "2026-10-11",
+     "home": "SBV精英",
+     "away": "格罗宁根",
+     "score": "1-5",
+     "venue": "A",
+     "result": "W",
+     "half": "1:2"
+    }
+   ]
+  }
+ },
+ "2042631": {
+  "id": "2042631",
+  "round": "",
+  "home": "勒芒",
+  "away": "摩纳哥",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 9,
+    "w": 1,
+    "d": 4,
+    "l": 4,
+    "gf": 11,
+    "ga": 18,
+    "gd": -7,
+    "pts": 7,
+    "rank": 17,
+    "wr": 11
+   },
+   "home": {
+    "p": 4,
+    "w": 1,
+    "d": 2,
+    "l": 1,
+    "gf": 6,
+    "ga": 8,
+    "gd": -2,
+    "pts": 5,
+    "rank": 17,
+    "wr": 25
+   },
+   "away": {
+    "p": 5,
+    "w": 0,
+    "d": 2,
+    "l": 3,
+    "gf": 5,
+    "ga": 10,
+    "gd": -5,
+    "pts": 2,
+    "rank": 17,
+    "wr": 0
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 9,
+    "w": 4,
+    "d": 3,
+    "l": 2,
+    "gf": 12,
+    "ga": 10,
+    "gd": 2,
+    "pts": 15,
+    "rank": 7,
+    "wr": 44
+   },
+   "home": {
+    "p": 4,
+    "w": 2,
+    "d": 2,
+    "l": 0,
+    "gf": 7,
+    "ga": 4,
+    "gd": 3,
+    "pts": 8,
+    "rank": 7,
+    "wr": 50
+   },
+   "away": {
+    "p": 5,
+    "w": 2,
+    "d": 1,
+    "l": 2,
+    "gf": 5,
+    "ga": 6,
+    "gd": -1,
+    "pts": 7,
+    "rank": 7,
+    "wr": 40
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "0胜2平3负",
+    "gf": 6,
+    "ga": 9,
+    "over": 3,
+    "under": 2
+   },
+   "rows": [
+    {
+     "league": "法乙",
+     "date": "2013-05-18",
+     "home": "摩纳哥",
+     "away": "勒芒",
+     "extra": "2-1"
+    },
+    {
+     "league": "法乙",
+     "date": "2012-12-22",
+     "home": "勒芒",
+     "away": "摩纳哥",
+     "extra": "2-3"
+    },
+    {
+     "league": "法乙",
+     "date": "2012-03-31",
+     "home": "勒芒",
+     "away": "摩纳哥",
+     "extra": "0-1"
+    },
+    {
+     "league": "法乙",
+     "date": "2011-11-05",
+     "home": "摩纳哥",
+     "away": "勒芒",
+     "extra": "2-2"
+    },
+    {
+     "league": "法甲",
+     "date": "2010-04-28",
+     "home": "摩纳哥",
+     "away": "勒芒",
+     "extra": "1-1"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-01",
+     "home": "特鲁瓦",
+     "away": "勒芒",
+     "score": "2-0",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-26",
+     "home": "欧塞尔",
+     "away": "勒芒",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-17",
+     "home": "勒芒",
+     "away": "图卢兹",
+     "score": "0-3",
+     "venue": "H",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-11",
+     "home": "巴黎圣曼",
+     "away": "勒芒",
+     "score": "3-1",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-03",
+     "home": "甘冈",
+     "away": "勒芒",
+     "score": "2-1",
+     "venue": "A",
+     "result": "L",
+     "half": null
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "摩纳哥",
+     "away": "北西兰",
+     "score": "2-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-11-02",
+     "home": "巴黎FC",
+     "away": "摩纳哥",
+     "score": "3-1",
+     "venue": "A",
+     "result": "L",
+     "half": "2:0"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "摩纳哥",
+     "away": "里尔",
+     "score": "1-1",
+     "venue": "H",
+     "result": "D",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "摩纳哥",
+     "away": "弗赖堡",
+     "score": "3-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "洛里昂",
+     "away": "摩纳哥",
+     "score": "1-0",
+     "venue": "A",
+     "result": "L",
+     "half": "0:0"
+    }
+   ]
+  }
+ },
+ "2042632": {
+  "id": "2042632",
+  "round": "",
+  "home": "曼联",
+  "away": "维拉",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 9,
+    "w": 1,
+    "d": 4,
+    "l": 4,
+    "gf": 10,
+    "ga": 15,
+    "gd": -5,
+    "pts": 7,
+    "rank": 17,
+    "wr": 11
+   },
+   "home": {
+    "p": 4,
+    "w": 1,
+    "d": 1,
+    "l": 2,
+    "gf": 6,
+    "ga": 7,
+    "gd": -1,
+    "pts": 4,
+    "rank": 17,
+    "wr": 25
+   },
+   "away": {
+    "p": 5,
+    "w": 0,
+    "d": 3,
+    "l": 2,
+    "gf": 4,
+    "ga": 8,
+    "gd": -4,
+    "pts": 3,
+    "rank": 17,
+    "wr": 0
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 9,
+    "w": 3,
+    "d": 3,
+    "l": 3,
+    "gf": 10,
+    "ga": 13,
+    "gd": -3,
+    "pts": 12,
+    "rank": 10,
+    "wr": 33
+   },
+   "home": {
+    "p": 5,
+    "w": 1,
+    "d": 2,
+    "l": 2,
+    "gf": 6,
+    "ga": 7,
+    "gd": -1,
+    "pts": 5,
+    "rank": 10,
+    "wr": 20
+   },
+   "away": {
+    "p": 4,
+    "w": 2,
+    "d": 1,
+    "l": 1,
+    "gf": 4,
+    "ga": 6,
+    "gd": -2,
+    "pts": 7,
+    "rank": 10,
+    "wr": 50
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "3胜1平1负",
+    "gf": 8,
+    "ga": 4,
+    "over": 3,
+    "under": 2
+   },
+   "rows": [
+    {
+     "league": "英超",
+     "date": "2026-03-15",
+     "home": "曼联",
+     "away": "维拉",
+     "extra": "3-1"
+    },
+    {
+     "league": "英超",
+     "date": "2025-12-22",
+     "home": "维拉",
+     "away": "曼联",
+     "extra": "2-1"
+    },
+    {
+     "league": "英超",
+     "date": "2025-05-25",
+     "home": "曼联",
+     "away": "维拉",
+     "extra": "2-0"
+    },
+    {
+     "league": "英超",
+     "date": "2024-10-06",
+     "home": "维拉",
+     "away": "曼联",
+     "extra": "0-0"
+    },
+    {
+     "league": "英超",
+     "date": "2024-02-12",
+     "home": "维拉",
+     "away": "曼联",
+     "extra": "1-2"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-04",
+     "home": "曼联",
+     "away": "罗马",
+     "score": "3-2",
+     "venue": "H",
+     "result": "W",
+     "half": "0:2"
+    },
+    {
+     "date": "2026-10-31",
+     "home": "切尔西",
+     "away": "曼联",
+     "score": "2-0",
+     "venue": "A",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "曼联",
+     "away": "伯恩茅斯",
+     "score": "0-3",
+     "venue": "H",
+     "result": "L",
+     "half": "0:2"
+    },
+    {
+     "date": "2026-10-22",
+     "home": "科莫",
+     "away": "曼联",
+     "score": "4-1",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "利兹联",
+     "away": "曼联",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "0:1"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-04",
+     "home": "巴萨",
+     "away": "维拉",
+     "score": "3-0",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "维拉",
+     "away": "富勒姆",
+     "score": "1-1",
+     "venue": "H",
+     "result": "D",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "伯恩茅斯",
+     "away": "维拉",
+     "score": "3-0",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "维拉",
+     "away": "曼城",
+     "score": "2-1",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-22",
+     "home": "维拉",
+     "away": "维京",
+     "score": "3-1",
+     "venue": "H",
+     "result": "W",
+     "half": "2:0"
+    }
+   ]
+  }
+ },
+ "2042633": {
+  "id": "2042633",
+  "round": "",
+  "home": "弗赖堡",
+  "away": "柏林联合",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 8,
+    "w": 5,
+    "d": 1,
+    "l": 2,
+    "gf": 18,
+    "ga": 10,
+    "gd": 8,
+    "pts": 16,
+    "rank": 3,
+    "wr": 62
+   },
+   "home": {
+    "p": 4,
+    "w": 3,
+    "d": 0,
+    "l": 1,
+    "gf": 12,
+    "ga": 5,
+    "gd": 7,
+    "pts": 9,
+    "rank": 3,
+    "wr": 75
+   },
+   "away": {
+    "p": 4,
+    "w": 2,
+    "d": 1,
+    "l": 1,
+    "gf": 6,
+    "ga": 5,
+    "gd": 1,
+    "pts": 7,
+    "rank": 3,
+    "wr": 50
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 8,
+    "w": 1,
+    "d": 4,
+    "l": 3,
+    "gf": 7,
+    "ga": 19,
+    "gd": -12,
+    "pts": 7,
+    "rank": 16,
+    "wr": 12
+   },
+   "home": {
+    "p": 5,
+    "w": 1,
+    "d": 3,
+    "l": 1,
+    "gf": 6,
+    "ga": 7,
+    "gd": -1,
+    "pts": 6,
+    "rank": 16,
+    "wr": 20
+   },
+   "away": {
+    "p": 3,
+    "w": 0,
+    "d": 1,
+    "l": 2,
+    "gf": 1,
+    "ga": 12,
+    "gd": -11,
+    "pts": 1,
+    "rank": 16,
+    "wr": 0
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "0胜2平3负",
+    "gf": 2,
+    "ga": 5,
+    "over": 2,
+    "under": 3
+   },
+   "rows": [
+    {
+     "league": "德甲",
+     "date": "2026-03-16",
+     "home": "弗赖堡",
+     "away": "柏林联合",
+     "extra": "0-1"
+    },
+    {
+     "league": "德甲",
+     "date": "2025-11-01",
+     "home": "柏林联合",
+     "away": "弗赖堡",
+     "extra": "0-0"
+    },
+    {
+     "league": "德甲",
+     "date": "2025-03-30",
+     "home": "弗赖堡",
+     "away": "柏林联合",
+     "extra": "1-2"
+    },
+    {
+     "league": "德甲",
+     "date": "2024-11-09",
+     "home": "柏林联合",
+     "away": "弗赖堡",
+     "extra": "0-0"
+    },
+    {
+     "league": "德甲",
+     "date": "2024-05-18",
+     "home": "柏林联合",
+     "away": "弗赖堡",
+     "extra": "2-1"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "特拉布宗",
+     "away": "弗赖堡",
+     "score": "0-1",
+     "venue": "A",
+     "result": "W",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-31",
+     "home": "奥格斯堡",
+     "away": "弗赖堡",
+     "score": "1-2",
+     "venue": "A",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "弗赖堡",
+     "away": "沃夫斯堡",
+     "score": "3-2",
+     "venue": "H",
+     "result": "W",
+     "half": "1:2"
+    },
+    {
+     "date": "2026-10-26",
+     "home": "弗赖堡",
+     "away": "拜仁",
+     "score": "1-3",
+     "venue": "H",
+     "result": "L",
+     "half": "0:2"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "摩纳哥",
+     "away": "弗赖堡",
+     "score": "3-0",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-01",
+     "home": "柏林联合",
+     "away": "科隆",
+     "score": "1-1",
+     "venue": "H",
+     "result": "D",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-28",
+     "home": "科隆",
+     "away": "柏林联合",
+     "score": "5-0",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "奥格斯堡",
+     "away": "柏林联合",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-17",
+     "home": "柏林联合",
+     "away": "多特蒙德",
+     "score": "0-0",
+     "venue": "H",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-10",
+     "home": "柏林联合",
+     "away": "埃沃斯堡",
+     "score": "1-0",
+     "venue": "H",
+     "result": "W",
+     "half": "0:0"
+    }
+   ]
+  }
+ },
+ "2042634": {
+  "id": "2042634",
+  "round": "",
+  "home": "国际米兰",
+  "away": "科莫",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 10,
+    "w": 8,
+    "d": 1,
+    "l": 1,
+    "gf": 26,
+    "ga": 13,
+    "gd": 13,
+    "pts": 25,
+    "rank": 2,
+    "wr": 80
+   },
+   "home": {
+    "p": 5,
+    "w": 5,
+    "d": 0,
+    "l": 0,
+    "gf": 17,
+    "ga": 7,
+    "gd": 10,
+    "pts": 15,
+    "rank": 2,
+    "wr": 100
+   },
+   "away": {
+    "p": 5,
+    "w": 3,
+    "d": 1,
+    "l": 1,
+    "gf": 9,
+    "ga": 6,
+    "gd": 3,
+    "pts": 10,
+    "rank": 2,
+    "wr": 60
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 10,
+    "w": 7,
+    "d": 2,
+    "l": 1,
+    "gf": 18,
+    "ga": 8,
+    "gd": 10,
+    "pts": 23,
+    "rank": 4,
+    "wr": 70
+   },
+   "home": {
+    "p": 4,
+    "w": 3,
+    "d": 1,
+    "l": 0,
+    "gf": 5,
+    "ga": 1,
+    "gd": 4,
+    "pts": 10,
+    "rank": 4,
+    "wr": 75
+   },
+   "away": {
+    "p": 6,
+    "w": 4,
+    "d": 1,
+    "l": 1,
+    "gf": 13,
+    "ga": 7,
+    "gd": 6,
+    "pts": 13,
+    "rank": 4,
+    "wr": 67
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "4胜1平0负",
+    "gf": 13,
+    "ga": 5,
+    "over": 3,
+    "under": 2
+   },
+   "rows": [
+    {
+     "league": "意大利杯",
+     "date": "2026-04-22",
+     "home": "国际米兰",
+     "away": "科莫",
+     "extra": "3-2"
+    },
+    {
+     "league": "意甲",
+     "date": "2026-04-13",
+     "home": "科莫",
+     "away": "国际米兰",
+     "extra": "3-4"
+    },
+    {
+     "league": "意大利杯",
+     "date": "2026-03-04",
+     "home": "科莫",
+     "away": "国际米兰",
+     "extra": "0-0"
+    },
+    {
+     "league": "意甲",
+     "date": "2025-12-07",
+     "home": "国际米兰",
+     "away": "科莫",
+     "extra": "4-0"
+    },
+    {
+     "league": "意甲",
+     "date": "2025-05-24",
+     "home": "科莫",
+     "away": "国际米兰",
+     "extra": "0-2"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-04",
+     "home": "费耶诺德",
+     "away": "国际米兰",
+     "score": "0-3",
+     "venue": "A",
+     "result": "W",
+     "half": "0:2"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "AC米兰",
+     "away": "国际米兰",
+     "score": "3-1",
+     "venue": "A",
+     "result": "L",
+     "half": "3:1"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "威尼斯",
+     "away": "国际米兰",
+     "score": "0-2",
+     "venue": "A",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "国际米兰",
+     "away": "佛罗伦萨",
+     "score": "2-1",
+     "venue": "H",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-22",
+     "home": "国际米兰",
+     "away": "顿矿工",
+     "score": "1-0",
+     "venue": "H",
+     "result": "W",
+     "half": "0:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-05",
+     "home": "朗斯",
+     "away": "科莫",
+     "score": "1-9",
+     "venue": "A",
+     "result": "W",
+     "half": "0:3"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "科莫",
+     "away": "威尼斯",
+     "score": "1-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-28",
+     "home": "都灵",
+     "away": "科莫",
+     "score": "1-3",
+     "venue": "A",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "科莫",
+     "away": "萨索洛",
+     "score": "2-0",
+     "venue": "H",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-22",
+     "home": "科莫",
+     "away": "曼联",
+     "score": "4-1",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    }
+   ]
+  }
+ },
+ "2042635": {
+  "id": "2042635",
+  "round": "",
+  "home": "比利亚雷",
+  "away": "赫塔费",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 11,
+    "w": 3,
+    "d": 3,
+    "l": 5,
+    "gf": 15,
+    "ga": 15,
+    "gd": 0,
+    "pts": 12,
+    "rank": 9,
+    "wr": 27
+   },
+   "home": {
+    "p": 5,
+    "w": 1,
+    "d": 1,
+    "l": 3,
+    "gf": 6,
+    "ga": 7,
+    "gd": -1,
+    "pts": 4,
+    "rank": 9,
+    "wr": 20
+   },
+   "away": {
+    "p": 6,
+    "w": 2,
+    "d": 2,
+    "l": 2,
+    "gf": 9,
+    "ga": 8,
+    "gd": 1,
+    "pts": 8,
+    "rank": 9,
+    "wr": 33
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 11,
+    "w": 3,
+    "d": 3,
+    "l": 5,
+    "gf": 8,
+    "ga": 16,
+    "gd": -8,
+    "pts": 12,
+    "rank": 13,
+    "wr": 27
+   },
+   "home": {
+    "p": 6,
+    "w": 3,
+    "d": 3,
+    "l": 0,
+    "gf": 8,
+    "ga": 4,
+    "gd": 4,
+    "pts": 12,
+    "rank": 13,
+    "wr": 50
+   },
+   "away": {
+    "p": 5,
+    "w": 0,
+    "d": 0,
+    "l": 5,
+    "gf": 0,
+    "ga": 12,
+    "gd": -12,
+    "pts": 0,
+    "rank": 13,
+    "wr": 0
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "2胜2平1负",
+    "gf": 7,
+    "ga": 5,
+    "over": 2,
+    "under": 3
+   },
+   "rows": [
+    {
+     "league": "西甲",
+     "date": "2026-02-14",
+     "home": "赫塔费",
+     "away": "比利亚雷",
+     "extra": "2-1"
+    },
+    {
+     "league": "西甲",
+     "date": "2025-12-06",
+     "home": "比利亚雷",
+     "away": "赫塔费",
+     "extra": "2-0"
+    },
+    {
+     "league": "西甲",
+     "date": "2025-03-30",
+     "home": "赫塔费",
+     "away": "比利亚雷",
+     "extra": "1-2"
+    },
+    {
+     "league": "西甲",
+     "date": "2024-10-21",
+     "home": "比利亚雷",
+     "away": "赫塔费",
+     "extra": "1-1"
+    },
+    {
+     "league": "西甲",
+     "date": "2024-02-17",
+     "home": "比利亚雷",
+     "away": "赫塔费",
+     "extra": "1-1"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-04",
+     "home": "比利亚雷",
+     "away": "巴黎圣曼",
+     "score": "0-6",
+     "venue": "H",
+     "result": "L",
+     "half": "0:4"
+    },
+    {
+     "date": "2026-10-31",
+     "home": "比利亚雷",
+     "away": "西班牙人",
+     "score": "0-1",
+     "venue": "H",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-28",
+     "home": "Manacor",
+     "away": "比利亚雷",
+     "score": "0-5",
+     "venue": "A",
+     "result": "W",
+     "half": "0:2"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "巴伦西亚",
+     "away": "比利亚雷",
+     "score": "1-2",
+     "venue": "A",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-21",
+     "home": "利物浦",
+     "away": "比利亚雷",
+     "score": "4-3",
+     "venue": "A",
+     "result": "L",
+     "half": "2:2"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "赫塔费",
+     "away": "布赖顿",
+     "score": "0-1",
+     "venue": "H",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "赫塔费",
+     "away": "塞维利亚",
+     "score": "3-1",
+     "venue": "H",
+     "result": "W",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-30",
+     "home": "Lebrijana",
+     "away": "赫塔费",
+     "score": "2-3",
+     "venue": "A",
+     "result": "W",
+     "half": "2:2"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "毕尔巴鄂",
+     "away": "赫塔费",
+     "score": "4-0",
+     "venue": "A",
+     "result": "L",
+     "half": "2:0"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "赫塔费",
+     "away": "卢加诺",
+     "score": "2-5",
+     "venue": "H",
+     "result": "L",
+     "half": "1:3"
+    }
+   ]
+  }
+ },
+ "2042636": {
+  "id": "2042636",
+  "round": "",
+  "home": "塞尔塔",
+  "away": "莱万特",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 11,
+    "w": 2,
+    "d": 6,
+    "l": 3,
+    "gf": 10,
+    "ga": 10,
+    "gd": 0,
+    "pts": 12,
+    "rank": 10,
+    "wr": 18
+   },
+   "home": {
+    "p": 6,
+    "w": 2,
+    "d": 2,
+    "l": 2,
+    "gf": 9,
+    "ga": 6,
+    "gd": 3,
+    "pts": 8,
+    "rank": 10,
+    "wr": 33
+   },
+   "away": {
+    "p": 5,
+    "w": 0,
+    "d": 4,
+    "l": 1,
+    "gf": 1,
+    "ga": 4,
+    "gd": -3,
+    "pts": 4,
+    "rank": 10,
+    "wr": 0
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 11,
+    "w": 2,
+    "d": 4,
+    "l": 5,
+    "gf": 16,
+    "ga": 21,
+    "gd": -5,
+    "pts": 10,
+    "rank": 18,
+    "wr": 18
+   },
+   "home": {
+    "p": 5,
+    "w": 2,
+    "d": 1,
+    "l": 2,
+    "gf": 13,
+    "ga": 12,
+    "gd": 1,
+    "pts": 7,
+    "rank": 18,
+    "wr": 40
+   },
+   "away": {
+    "p": 6,
+    "w": 0,
+    "d": 3,
+    "l": 3,
+    "gf": 3,
+    "ga": 9,
+    "gd": -6,
+    "pts": 3,
+    "rank": 18,
+    "wr": 0
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "3胜1平1负",
+    "gf": 9,
+    "ga": 5,
+    "over": 2,
+    "under": 3
+   },
+   "rows": [
+    {
+     "league": "西甲",
+     "date": "2026-05-13",
+     "home": "塞尔塔",
+     "away": "莱万特",
+     "extra": "2-3"
+    },
+    {
+     "league": "西甲",
+     "date": "2025-11-02",
+     "home": "莱万特",
+     "away": "塞尔塔",
+     "extra": "1-2"
+    },
+    {
+     "league": "西甲",
+     "date": "2022-02-22",
+     "home": "塞尔塔",
+     "away": "莱万特",
+     "extra": "1-1"
+    },
+    {
+     "league": "西甲",
+     "date": "2021-09-22",
+     "home": "莱万特",
+     "away": "塞尔塔",
+     "extra": "0-2"
+    },
+    {
+     "league": "西甲",
+     "date": "2021-05-01",
+     "home": "塞尔塔",
+     "away": "莱万特",
+     "extra": "2-0"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "塞尔塔",
+     "away": "圣吉联合",
+     "score": "1-2",
+     "venue": "H",
+     "result": "L",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-31",
+     "home": "巴列卡诺",
+     "away": "塞尔塔",
+     "score": "3-0",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "塞尔塔",
+     "away": "贝蒂斯",
+     "score": "0-0",
+     "venue": "H",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "凯尔特人",
+     "away": "塞尔塔",
+     "score": "1-2",
+     "venue": "A",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "塞尔塔",
+     "away": "阿拉维斯",
+     "score": "2-1",
+     "venue": "H",
+     "result": "W",
+     "half": "0:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-10-31",
+     "home": "莱万特",
+     "away": "马竞",
+     "score": "0-2",
+     "venue": "H",
+     "result": "L",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-26",
+     "home": "皇家社会",
+     "away": "莱万特",
+     "score": "2-1",
+     "venue": "A",
+     "result": "L",
+     "half": "2:1"
+    },
+    {
+     "date": "2026-10-17",
+     "home": "拉科",
+     "away": "莱万特",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-13",
+     "home": "莱万特",
+     "away": "塞维利亚",
+     "score": "3-3",
+     "venue": "H",
+     "result": "D",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-09-21",
+     "home": "比利亚雷",
+     "away": "莱万特",
+     "score": "3-1",
+     "venue": "A",
+     "result": "L",
+     "half": "1:1"
+    }
+   ]
+  }
+ },
+ "2042637": {
+  "id": "2042637",
+  "round": "",
+  "home": "吉马良斯",
+  "away": "波尔图",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 10,
+    "w": 2,
+    "d": 3,
+    "l": 5,
+    "gf": 10,
+    "ga": 10,
+    "gd": 0,
+    "pts": 9,
+    "rank": 13,
+    "wr": 20
+   },
+   "home": {
+    "p": 5,
+    "w": 2,
+    "d": 2,
+    "l": 1,
+    "gf": 7,
+    "ga": 2,
+    "gd": 5,
+    "pts": 8,
+    "rank": 13,
+    "wr": 40
+   },
+   "away": {
+    "p": 5,
+    "w": 0,
+    "d": 1,
+    "l": 4,
+    "gf": 3,
+    "ga": 8,
+    "gd": -5,
+    "pts": 1,
+    "rank": 13,
+    "wr": 0
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 10,
+    "w": 10,
+    "d": 0,
+    "l": 0,
+    "gf": 25,
+    "ga": 4,
+    "gd": 21,
+    "pts": 30,
+    "rank": 1,
+    "wr": 100
+   },
+   "home": {
+    "p": 5,
+    "w": 5,
+    "d": 0,
+    "l": 0,
+    "gf": 13,
+    "ga": 2,
+    "gd": 11,
+    "pts": 15,
+    "rank": 1,
+    "wr": 100
+   },
+   "away": {
+    "p": 5,
+    "w": 5,
+    "d": 0,
+    "l": 0,
+    "gf": 12,
+    "ga": 2,
+    "gd": 10,
+    "pts": 15,
+    "rank": 1,
+    "wr": 100
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "1胜1平3负",
+    "gf": 4,
+    "ga": 9,
+    "over": 3,
+    "under": 2
+   },
+   "rows": [
+    {
+     "league": "葡超",
+     "date": "2026-01-19",
+     "home": "吉马良斯",
+     "away": "波尔图",
+     "extra": "0-1"
+    },
+    {
+     "league": "葡联赛杯",
+     "date": "2025-12-05",
+     "home": "波尔图",
+     "away": "吉马良斯",
+     "extra": "1-3"
+    },
+    {
+     "league": "葡超",
+     "date": "2025-08-12",
+     "home": "波尔图",
+     "away": "吉马良斯",
+     "extra": "3-0"
+    },
+    {
+     "league": "葡超",
+     "date": "2025-02-25",
+     "home": "波尔图",
+     "away": "吉马良斯",
+     "extra": "1-1"
+    },
+    {
+     "league": "葡超",
+     "date": "2024-09-22",
+     "home": "吉马良斯",
+     "away": "波尔图",
+     "extra": "0-3"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-03",
+     "home": "吉维森特",
+     "away": "吉马良斯",
+     "score": "0-0",
+     "venue": "A",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "吉马良斯",
+     "away": "马里迪莫",
+     "score": "5-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-17",
+     "home": "Recreativa de Lamelas",
+     "away": "吉马良斯",
+     "score": "0-1",
+     "venue": "A",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-12",
+     "home": "本菲卡",
+     "away": "吉马良斯",
+     "score": "2-0",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-09-20",
+     "home": "吉马良斯",
+     "away": "摩雷伦斯",
+     "score": "1-1",
+     "venue": "H",
+     "result": "D",
+     "half": "0:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-05",
+     "home": "波尔图",
+     "away": "那不勒斯",
+     "score": "4-1",
+     "venue": "H",
+     "result": "W",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "波尔图",
+     "away": "埃斯托里",
+     "score": "4-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "波尔图",
+     "away": "维塞乌",
+     "score": "1-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "吉维森特",
+     "away": "波尔图",
+     "score": "0-1",
+     "venue": "A",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-21",
+     "home": "波尔图",
+     "away": "埃因霍温",
+     "score": "0-1",
+     "venue": "H",
+     "result": "L",
+     "half": "0:0"
+    }
+   ]
+  }
+ },
+ "2042638": {
+  "id": "2042638",
+  "round": "",
+  "home": "霍芬海姆",
+  "away": "沙尔克04",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 8,
+    "w": 3,
+    "d": 0,
+    "l": 5,
+    "gf": 14,
+    "ga": 16,
+    "gd": -2,
+    "pts": 9,
+    "rank": 12,
+    "wr": 38
+   },
+   "home": {
+    "p": 4,
+    "w": 2,
+    "d": 0,
+    "l": 2,
+    "gf": 9,
+    "ga": 7,
+    "gd": 2,
+    "pts": 6,
+    "rank": 12,
+    "wr": 50
+   },
+   "away": {
+    "p": 4,
+    "w": 1,
+    "d": 0,
+    "l": 3,
+    "gf": 5,
+    "ga": 9,
+    "gd": -4,
+    "pts": 3,
+    "rank": 12,
+    "wr": 25
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 8,
+    "w": 1,
+    "d": 3,
+    "l": 4,
+    "gf": 4,
+    "ga": 9,
+    "gd": -5,
+    "pts": 6,
+    "rank": 17,
+    "wr": 12
+   },
+   "home": {
+    "p": 4,
+    "w": 0,
+    "d": 2,
+    "l": 2,
+    "gf": 0,
+    "ga": 3,
+    "gd": -3,
+    "pts": 2,
+    "rank": 17,
+    "wr": 0
+   },
+   "away": {
+    "p": 4,
+    "w": 1,
+    "d": 1,
+    "l": 2,
+    "gf": 4,
+    "ga": 6,
+    "gd": -2,
+    "pts": 4,
+    "rank": 17,
+    "wr": 25
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "4胜0平1负",
+    "gf": 14,
+    "ga": 7,
+    "over": 4,
+    "under": 1
+   },
+   "rows": [
+    {
+     "league": "德甲",
+     "date": "2023-04-10",
+     "home": "霍芬海姆",
+     "away": "沙尔克04",
+     "extra": "2-0"
+    },
+    {
+     "league": "德国杯",
+     "date": "2022-10-19",
+     "home": "霍芬海姆",
+     "away": "沙尔克04",
+     "extra": "5-1"
+    },
+    {
+     "league": "德甲",
+     "date": "2022-10-15",
+     "home": "沙尔克04",
+     "away": "霍芬海姆",
+     "extra": "0-3"
+    },
+    {
+     "league": "德甲",
+     "date": "2021-05-08",
+     "home": "霍芬海姆",
+     "away": "沙尔克04",
+     "extra": "4-2"
+    },
+    {
+     "league": "德甲",
+     "date": "2021-01-09",
+     "home": "沙尔克04",
+     "away": "霍芬海姆",
+     "extra": "4-0"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "水晶宫",
+     "away": "霍芬海姆",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-31",
+     "home": "不来梅",
+     "away": "霍芬海姆",
+     "score": "2-0",
+     "venue": "A",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "基尔",
+     "away": "霍芬海姆",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "霍芬海姆",
+     "away": "勒沃库森",
+     "score": "3-0",
+     "venue": "H",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "霍芬海姆",
+     "away": "里昂",
+     "score": "3-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-10-31",
+     "home": "沙尔克04",
+     "away": "莱红牛",
+     "score": "0-2",
+     "venue": "H",
+     "result": "L",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "德累斯顿",
+     "away": "沙尔克04",
+     "score": "2-0",
+     "venue": "A",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-24",
+     "home": "科隆",
+     "away": "沙尔克04",
+     "score": "0-0",
+     "venue": "A",
+     "result": "D",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-17",
+     "home": "沙尔克04",
+     "away": "美因茨",
+     "score": "0-1",
+     "venue": "H",
+     "result": "L",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-11",
+     "home": "弗赖堡",
+     "away": "沙尔克04",
+     "score": "2-1",
+     "venue": "A",
+     "result": "L",
+     "half": "1:1"
+    }
+   ]
+  }
+ },
+ "2042639": {
+  "id": "2042639",
+  "round": "",
+  "home": "佛罗伦萨",
+  "away": "尤文图斯",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 10,
+    "w": 2,
+    "d": 2,
+    "l": 6,
+    "gf": 15,
+    "ga": 23,
+    "gd": -8,
+    "pts": 8,
+    "rank": 16,
+    "wr": 20
+   },
+   "home": {
+    "p": 5,
+    "w": 0,
+    "d": 2,
+    "l": 3,
+    "gf": 5,
+    "ga": 11,
+    "gd": -6,
+    "pts": 2,
+    "rank": 16,
+    "wr": 0
+   },
+   "away": {
+    "p": 5,
+    "w": 2,
+    "d": 0,
+    "l": 3,
+    "gf": 10,
+    "ga": 12,
+    "gd": -2,
+    "pts": 6,
+    "rank": 16,
+    "wr": 40
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 10,
+    "w": 5,
+    "d": 2,
+    "l": 3,
+    "gf": 13,
+    "ga": 10,
+    "gd": 3,
+    "pts": 17,
+    "rank": 7,
+    "wr": 50
+   },
+   "home": {
+    "p": 5,
+    "w": 3,
+    "d": 1,
+    "l": 1,
+    "gf": 7,
+    "ga": 4,
+    "gd": 3,
+    "pts": 10,
+    "rank": 7,
+    "wr": 60
+   },
+   "away": {
+    "p": 5,
+    "w": 2,
+    "d": 1,
+    "l": 2,
+    "gf": 6,
+    "ga": 6,
+    "gd": 0,
+    "pts": 7,
+    "rank": 7,
+    "wr": 40
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "2胜2平1负",
+    "gf": 8,
+    "ga": 4,
+    "over": 2,
+    "under": 3
+   },
+   "rows": [
+    {
+     "league": "意甲",
+     "date": "2026-05-17",
+     "home": "尤文图斯",
+     "away": "佛罗伦萨",
+     "extra": "0-2"
+    },
+    {
+     "league": "意甲",
+     "date": "2025-11-23",
+     "home": "佛罗伦萨",
+     "away": "尤文图斯",
+     "extra": "1-1"
+    },
+    {
+     "league": "意甲",
+     "date": "2025-03-17",
+     "home": "佛罗伦萨",
+     "away": "尤文图斯",
+     "extra": "3-0"
+    },
+    {
+     "league": "意甲",
+     "date": "2024-12-30",
+     "home": "尤文图斯",
+     "away": "佛罗伦萨",
+     "extra": "2-2"
+    },
+    {
+     "league": "意甲",
+     "date": "2024-04-08",
+     "home": "尤文图斯",
+     "away": "佛罗伦萨",
+     "extra": "1-0"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-03",
+     "home": "萨索洛",
+     "away": "佛罗伦萨",
+     "score": "2-4",
+     "venue": "A",
+     "result": "W",
+     "half": "1:1"
+    },
+    {
+     "date": "2026-10-30",
+     "home": "佛罗伦萨",
+     "away": "亚特兰大",
+     "score": "2-2",
+     "venue": "H",
+     "result": "D",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "国际米兰",
+     "away": "佛罗伦萨",
+     "score": "2-1",
+     "venue": "A",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "佛罗伦萨",
+     "away": "科莫",
+     "score": "1-3",
+     "venue": "H",
+     "result": "L",
+     "half": "1:2"
+    },
+    {
+     "date": "2026-10-10",
+     "home": "热那亚",
+     "away": "佛罗伦萨",
+     "score": "2-1",
+     "venue": "A",
+     "result": "L",
+     "half": "2:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "阿尔克马",
+     "away": "尤文图斯",
+     "score": "1-2",
+     "venue": "A",
+     "result": "W",
+     "half": "0:2"
+    },
+    {
+     "date": "2026-11-02",
+     "home": "尤文图斯",
+     "away": "那不勒斯",
+     "score": "2-0",
+     "venue": "H",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-29",
+     "home": "热那亚",
+     "away": "尤文图斯",
+     "score": "2-0",
+     "venue": "A",
+     "result": "L",
+     "half": "2:0"
+    },
+    {
+     "date": "2026-10-26",
+     "home": "莱切",
+     "away": "尤文图斯",
+     "score": "0-2",
+     "venue": "A",
+     "result": "W",
+     "half": "0:2"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "尤文图斯",
+     "away": "雷恩",
+     "score": "2-2",
+     "venue": "H",
+     "result": "D",
+     "half": "1:2"
+    }
+   ]
+  }
+ },
+ "2042640": {
+  "id": "2042640",
+  "round": "",
+  "home": "朗斯",
+  "away": "马赛",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 9,
+    "w": 4,
+    "d": 1,
+    "l": 4,
+    "gf": 16,
+    "ga": 13,
+    "gd": 3,
+    "pts": 13,
+    "rank": 9,
+    "wr": 44
+   },
+   "home": {
+    "p": 4,
+    "w": 3,
+    "d": 0,
+    "l": 1,
+    "gf": 9,
+    "ga": 5,
+    "gd": 4,
+    "pts": 9,
+    "rank": 9,
+    "wr": 75
+   },
+   "away": {
+    "p": 5,
+    "w": 1,
+    "d": 1,
+    "l": 3,
+    "gf": 7,
+    "ga": 8,
+    "gd": -1,
+    "pts": 4,
+    "rank": 9,
+    "wr": 20
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 9,
+    "w": 5,
+    "d": 0,
+    "l": 4,
+    "gf": 20,
+    "ga": 13,
+    "gd": 7,
+    "pts": 15,
+    "rank": 6,
+    "wr": 56
+   },
+   "home": {
+    "p": 5,
+    "w": 3,
+    "d": 0,
+    "l": 2,
+    "gf": 13,
+    "ga": 8,
+    "gd": 5,
+    "pts": 9,
+    "rank": 6,
+    "wr": 60
+   },
+   "away": {
+    "p": 4,
+    "w": 2,
+    "d": 0,
+    "l": 2,
+    "gf": 7,
+    "ga": 5,
+    "gd": 2,
+    "pts": 6,
+    "rank": 6,
+    "wr": 50
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "2胜0平3负",
+    "gf": 6,
+    "ga": 9,
+    "over": 4,
+    "under": 1
+   },
+   "rows": [
+    {
+     "league": "法甲",
+     "date": "2026-01-25",
+     "home": "马赛",
+     "away": "朗斯",
+     "extra": "3-1"
+    },
+    {
+     "league": "法甲",
+     "date": "2025-10-26",
+     "home": "朗斯",
+     "away": "马赛",
+     "extra": "2-1"
+    },
+    {
+     "league": "法甲",
+     "date": "2025-03-09",
+     "home": "马赛",
+     "away": "朗斯",
+     "extra": "0-1"
+    },
+    {
+     "league": "法甲",
+     "date": "2024-11-24",
+     "home": "朗斯",
+     "away": "马赛",
+     "extra": "1-3"
+    },
+    {
+     "league": "法甲",
+     "date": "2024-04-29",
+     "home": "马赛",
+     "away": "朗斯",
+     "extra": "2-1"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-05",
+     "home": "朗斯",
+     "away": "科莫",
+     "score": "1-9",
+     "venue": "H",
+     "result": "L",
+     "half": "0:3"
+    },
+    {
+     "date": "2026-10-31",
+     "home": "里尔",
+     "away": "朗斯",
+     "score": "1-0",
+     "venue": "A",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "朗斯",
+     "away": "巴黎FC",
+     "score": "2-1",
+     "venue": "H",
+     "result": "W",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-22",
+     "home": "布鲁日",
+     "away": "朗斯",
+     "score": "3-0",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "特鲁瓦",
+     "away": "朗斯",
+     "score": "1-3",
+     "venue": "A",
+     "result": "W",
+     "half": "1:2"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-06",
+     "home": "勒沃库森",
+     "away": "马赛",
+     "score": "0-1",
+     "venue": "A",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-11-02",
+     "home": "马赛",
+     "away": "图卢兹",
+     "score": "2-0",
+     "venue": "H",
+     "result": "W",
+     "half": "2:0"
+    },
+    {
+     "date": "2026-10-26",
+     "home": "马赛",
+     "away": "勒阿弗尔",
+     "score": "4-3",
+     "venue": "H",
+     "result": "W",
+     "half": "2:0"
+    },
+    {
+     "date": "2026-10-23",
+     "home": "格风暴",
+     "away": "马赛",
+     "score": "1-0",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "昂热",
+     "away": "马赛",
+     "score": "2-5",
+     "venue": "A",
+     "result": "W",
+     "half": "1:2"
+    }
+   ]
+  }
+ },
+ "2042641": {
+  "id": "2042641",
+  "round": "",
+  "home": "马竞",
+  "away": "巴萨",
+  "standings": [],
+  "season_home": {
+   "total": {
+    "p": 11,
+    "w": 9,
+    "d": 1,
+    "l": 1,
+    "gf": 22,
+    "ga": 8,
+    "gd": 14,
+    "pts": 28,
+    "rank": 2,
+    "wr": 82
+   },
+   "home": {
+    "p": 5,
+    "w": 4,
+    "d": 1,
+    "l": 0,
+    "gf": 11,
+    "ga": 3,
+    "gd": 8,
+    "pts": 13,
+    "rank": 2,
+    "wr": 80
+   },
+   "away": {
+    "p": 6,
+    "w": 5,
+    "d": 0,
+    "l": 1,
+    "gf": 11,
+    "ga": 5,
+    "gd": 6,
+    "pts": 15,
+    "rank": 2,
+    "wr": 83
+   }
+  },
+  "season_away": {
+   "total": {
+    "p": 11,
+    "w": 10,
+    "d": 0,
+    "l": 1,
+    "gf": 46,
+    "ga": 12,
+    "gd": 34,
+    "pts": 30,
+    "rank": 1,
+    "wr": 91
+   },
+   "home": {
+    "p": 6,
+    "w": 5,
+    "d": 0,
+    "l": 1,
+    "gf": 24,
+    "ga": 7,
+    "gd": 17,
+    "pts": 15,
+    "rank": 1,
+    "wr": 83
+   },
+   "away": {
+    "p": 5,
+    "w": 5,
+    "d": 0,
+    "l": 0,
+    "gf": 22,
+    "ga": 5,
+    "gd": 17,
+    "pts": 15,
+    "rank": 1,
+    "wr": 100
+   }
+  },
+  "h2h": {
+   "summary": {
+    "n": 5,
+    "text": "2胜0平3负",
+    "gf": 8,
+    "ga": 7,
+    "over": 4,
+    "under": 1
+   },
+   "rows": [
+    {
+     "league": "欧冠",
+     "date": "2026-04-15",
+     "home": "马竞",
+     "away": "巴萨",
+     "extra": "1-2"
+    },
+    {
+     "league": "欧冠",
+     "date": "2026-04-09",
+     "home": "巴萨",
+     "away": "马竞",
+     "extra": "0-2"
+    },
+    {
+     "league": "西甲",
+     "date": "2026-04-05",
+     "home": "马竞",
+     "away": "巴萨",
+     "extra": "1-2"
+    },
+    {
+     "league": "西国王杯",
+     "date": "2026-03-04",
+     "home": "巴萨",
+     "away": "马竞",
+     "extra": "3-0"
+    },
+    {
+     "league": "西国王杯",
+     "date": "2026-02-13",
+     "home": "马竞",
+     "away": "巴萨",
+     "extra": "4-0"
+    }
+   ]
+  },
+  "recent_home": {
+   "matches": [
+    {
+     "date": "2026-11-04",
+     "home": "马竞",
+     "away": "拜仁",
+     "score": "0-2",
+     "venue": "H",
+     "result": "L",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-31",
+     "home": "莱万特",
+     "away": "马竞",
+     "score": "0-2",
+     "venue": "A",
+     "result": "W",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-25",
+     "home": "马竞",
+     "away": "拉科",
+     "score": "1-0",
+     "venue": "H",
+     "result": "W",
+     "half": "0:0"
+    },
+    {
+     "date": "2026-10-21",
+     "home": "斯图加特",
+     "away": "马竞",
+     "score": "1-1",
+     "venue": "A",
+     "result": "D",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-17",
+     "home": "西班牙人",
+     "away": "马竞",
+     "score": "0-1",
+     "venue": "A",
+     "result": "W",
+     "half": "0:0"
+    }
+   ]
+  },
+  "recent_away": {
+   "matches": [
+    {
+     "date": "2026-11-04",
+     "home": "巴萨",
+     "away": "维拉",
+     "score": "3-0",
+     "venue": "H",
+     "result": "W",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-11-01",
+     "home": "巴萨",
+     "away": "阿拉维斯",
+     "score": "6-1",
+     "venue": "H",
+     "result": "W",
+     "half": "4:0"
+    },
+    {
+     "date": "2026-10-26",
+     "home": "巴萨",
+     "away": "皇马",
+     "score": "1-2",
+     "venue": "H",
+     "result": "L",
+     "half": "0:1"
+    },
+    {
+     "date": "2026-10-21",
+     "home": "巴黎圣曼",
+     "away": "巴萨",
+     "score": "4-2",
+     "venue": "A",
+     "result": "L",
+     "half": "1:0"
+    },
+    {
+     "date": "2026-10-18",
+     "home": "贝蒂斯",
+     "away": "巴萨",
+     "score": "2-5",
+     "venue": "A",
+     "result": "W",
+     "half": "1:2"
+    }
+   ]
+  }
+ }
+}

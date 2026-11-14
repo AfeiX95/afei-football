@@ -32,6 +32,10 @@ try:
     from reader_lens import scan as lens_scan  # R55
 except Exception:  # noqa: BLE001
     lens_scan = None
+try:
+    from writing_engine import analyze as variety_scan  # R62 轮换去重（提示项，不阻断）
+except Exception:  # noqa: BLE001
+    variety_scan = None
 ARTICLES = ROOT / "📝文章"
 
 
@@ -87,6 +91,7 @@ def main():
     ap = argparse.ArgumentParser(description="写文一键盘：字数 + 发布门禁")
     ap.add_argument("paths", nargs="*", help="md 文件路径；省略则取最新文章")
     ap.add_argument("--detail", action="store_true", help="附门禁逐项明细")
+    ap.add_argument("--short", action="store_true", help="按 R62 H型极简快评（300-500字）核对")
     ap.add_argument("--skip-lens", action="store_true", help="跳过 R55 读者视角过滤（不建议）")
     args = ap.parse_args()
 
@@ -111,7 +116,8 @@ def main():
             failed += 1
             continue
         abs_path = str(path.resolve())
-        wout = run([str(WORDCOUNT), abs_path])
+        wcmd = [str(WORDCOUNT), abs_path] + (["--short"] if args.short else [])
+        wout = run(wcmd)
         gout = run([str(GATE), abs_path], cwd=GATE_DIR)
         total, band, warn = parse_words(wout)
         gate_pass, items, ai = parse_gate(gout)
@@ -149,6 +155,17 @@ def main():
         bad = [f"{m} {n_}" for m, n_, _ in items if m != "✅"]
         for b in bad:
             print(f"          {b}")
+        if variety_scan is not None:
+            try:
+                vr = variety_scan(abs_path)
+                vh, vs = vr["hard"], vr["soft"]
+                tag = "✅" if not vh and not vs else ("⚠️" if not vh else "⚠️❗")
+                print(f"    轮换　{tag}（R62 开头 {vr['opening']}｜结尾 {vr['ending']}｜标题 {vr['title']}"
+                      f"｜重复 {len(vh)} 硬 / {len(vs)} 软，提示不阻断）")
+                for x in (vh + vs)[: (None if args.detail else 4)]:
+                    print(f"          · {x}")
+            except Exception as e:  # noqa: BLE001
+                print(f"    轮换　⚠️ 体检失败：{e}")
         if args.detail:
             for m, n_, d in items:
                 print(f"          {m} {n_}: {d}")

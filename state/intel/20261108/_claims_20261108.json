@@ -1,0 +1,1816 @@
+[
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 399,
+  "value": 32.0,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 32.0,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 405,
+  "value": 26.0,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.draw",
+    "value": 26.0,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.draw",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 411,
+  "value": 42.0,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 42.0,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 619,
+  "value": 39.4,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 39.44,
+    "layer": "data"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 39.31,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 39.32,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 643,
+  "value": 37.0,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 37.355,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 37.44,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 647,
+  "value": 23.0,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.draw",
+    "value": 22.663,
+    "layer": "data"
+   },
+   {
+    "key": "fused.draw",
+    "value": 23.335,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 23.24,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.draw",
+  "status": "ambiguous"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 651,
+  "value": 39.0,
+  "match_id": "001",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 39.44,
+    "layer": "data"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 39.31,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 39.32,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 970,
+  "value": 44.8,
+  "match_id": "002",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 44.8,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 984,
+  "value": 43.0,
+  "match_id": "002",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 43.403,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 988,
+  "value": 23.0,
+  "match_id": "002",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.draw",
+    "value": 22.929,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.全赢",
+    "value": 23.019,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 22.75,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 992,
+  "value": 34.0,
+  "match_id": "002",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 33.669,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 33.63,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 1190,
+  "value": 45.0,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 44.976,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 44.98,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 1194,
+  "value": 27.0,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.draw",
+    "value": 26.512,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 26.55,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 1198,
+  "value": 29.0,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 28.512,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 28.47,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 1238,
+  "value": 45.0,
+  "match_id": "004",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 44.976,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 44.98,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 1467,
+  "value": 33.0,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 32.762,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 32.69,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 1471,
+  "value": 25.0,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.draw",
+    "value": 25.1,
+    "layer": "market"
+   },
+   {
+    "key": "fused.draw",
+    "value": 24.864,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 24.8,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "fused"
+  ],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 1475,
+  "value": 42.0,
+  "match_id": "003",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 42.374,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 42.51,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 1732,
+  "value": 38.0,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 38.035,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 37.82,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 1736,
+  "value": 27.0,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.draw",
+    "value": 26.722,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 26.96,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日001+002+003+004+005_日韩澳五场_町田对广岛四连败首尔夺冠松劲_赛事前瞻.md",
+  "offset": 1740,
+  "value": 35.0,
+  "match_id": "005",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 35.244,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 35.22,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 493,
+  "value": 53.2,
+  "match_id": "030",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 53.25,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 509,
+  "value": 59.5,
+  "match_id": "030",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 59.549,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 529,
+  "value": 25.0,
+  "match_id": "030",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 25.19,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 25.03,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 533,
+  "value": 17.0,
+  "match_id": "030",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.draw",
+    "value": 17.447,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 537,
+  "value": 57.0,
+  "match_id": "030",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 57.362,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 57.39,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 658,
+  "value": 42.2,
+  "match_id": "006",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 42.24,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 673,
+  "value": 31.9,
+  "match_id": "006",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 31.93,
+    "layer": "market"
+   },
+   {
+    "key": "fused.ah.ev_home",
+    "value": 31.716,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ou.全输",
+    "value": 31.545,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 966,
+  "value": 63.7,
+  "match_id": "006",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 63.703,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 991,
+  "value": 29.0,
+  "match_id": "006",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 28.774,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.全赢",
+    "value": 28.774,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 28.62,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 995,
+  "value": 21.0,
+  "match_id": "006",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.draw",
+    "value": 21.474,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.半输",
+    "value": 21.474,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 21.5,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 999,
+  "value": 50.0,
+  "match_id": "006",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 49.752,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.全输",
+    "value": 49.752,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 49.89,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 1350,
+  "value": 37.1,
+  "match_id": "023",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 37.1,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 1372,
+  "value": 25.5,
+  "match_id": "023",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 25.5,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 1384,
+  "value": 47.0,
+  "match_id": "023",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 46.688,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.全赢",
+    "value": 46.688,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 46.62,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 1388,
+  "value": 20.0,
+  "match_id": "023",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.draw",
+    "value": 19.493,
+    "layer": "data"
+   },
+   {
+    "key": "fused.draw",
+    "value": 20.205,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 20.24,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.draw",
+  "status": "ambiguous"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 1392,
+  "value": 33.0,
+  "match_id": "023",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 33.107,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 33.13,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.interval_lo",
+    "value": 32.473,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 1649,
+  "value": 66.5,
+  "match_id": "022",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 66.5,
+    "layer": "market"
+   },
+   {
+    "key": "fused.interval_lo",
+    "value": 66.118,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 1662,
+  "value": 84.5,
+  "match_id": "022",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 84.5,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 1672,
+  "value": 74.0,
+  "match_id": "022",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 74.156,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 74.04,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 1676,
+  "value": 16.0,
+  "match_id": "022",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.draw",
+    "value": 15.654,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 15.72,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日006+022+023+030_马竞对巴萨国米对科莫_深夜焦点战拆局_赛事前瞻.md",
+  "offset": 1680,
+  "value": 10.0,
+  "match_id": "022",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.draw",
+    "value": 10.469,
+    "layer": "data"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 10.19,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 10.24,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.draw",
+  "status": "ambiguous"
+ },
+ {
+  "article": "20261108_周日013+026_水晶宫对利物浦吉马良斯对波尔图_两场强队客场快评_赛事前瞻.md",
+  "offset": 116,
+  "value": 19.0,
+  "match_id": "013",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 19.397,
+    "layer": "data"
+   },
+   {
+    "key": "market.home_win",
+    "value": 18.68,
+    "layer": "market"
+   },
+   {
+    "key": "fused.home_win",
+    "value": 18.984,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 18.81,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "20261108_周日013+026_水晶宫对利物浦吉马良斯对波尔图_两场强队客场快评_赛事前瞻.md",
+  "offset": 120,
+  "value": 21.0,
+  "match_id": "013",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.draw",
+    "value": 20.936,
+    "layer": "data"
+   },
+   {
+    "key": "market.draw",
+    "value": 21.18,
+    "layer": "market"
+   },
+   {
+    "key": "fused.draw",
+    "value": 20.543,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 20.55,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.draw",
+  "status": "ambiguous"
+ },
+ {
+  "article": "20261108_周日013+026_水晶宫对利物浦吉马良斯对波尔图_两场强队客场快评_赛事前瞻.md",
+  "offset": 124,
+  "value": 60.0,
+  "match_id": "013",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 59.667,
+    "layer": "data"
+   },
+   {
+    "key": "market.away_win",
+    "value": 60.14,
+    "layer": "market"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 60.473,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "20261108_周日013+026_水晶宫对利物浦吉马良斯对波尔图_两场强队客场快评_赛事前瞻.md",
+  "offset": 273,
+  "value": 60.1,
+  "match_id": "013",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 59.667,
+    "layer": "data"
+   },
+   {
+    "key": "market.away_win",
+    "value": 60.14,
+    "layer": "market"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 60.473,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 60.64,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日013+026_水晶宫对利物浦吉马良斯对波尔图_两场强队客场快评_赛事前瞻.md",
+  "offset": 279,
+  "value": 59.7,
+  "match_id": "013",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 59.667,
+    "layer": "data"
+   },
+   {
+    "key": "market.away_win",
+    "value": 60.14,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日013+026_水晶宫对利物浦吉马良斯对波尔图_两场强队客场快评_赛事前瞻.md",
+  "offset": 392,
+  "value": 14.0,
+  "match_id": "026",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 14.21,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 14.11,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日013+026_水晶宫对利物浦吉马良斯对波尔图_两场强队客场快评_赛事前瞻.md",
+  "offset": 396,
+  "value": 18.0,
+  "match_id": "026",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.draw",
+    "value": 18.452,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 18.44,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.draw",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日013+026_水晶宫对利物浦吉马良斯对波尔图_两场强队客场快评_赛事前瞻.md",
+  "offset": 400,
+  "value": 67.0,
+  "match_id": "026",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 67.338,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 67.45,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日013+026_水晶宫对利物浦吉马良斯对波尔图_两场强队客场快评_赛事前瞻.md",
+  "offset": 508,
+  "value": 70.5,
+  "match_id": "026",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 70.505,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日013+026_水晶宫对利物浦吉马良斯对波尔图_两场强队客场快评_赛事前瞻.md",
+  "offset": 517,
+  "value": 60.1,
+  "match_id": "026",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 60.1,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 532,
+  "value": 34.4,
+  "match_id": "021",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 34.351,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 711,
+  "value": 47.4,
+  "match_id": "021",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 47.4,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 731,
+  "value": 44.0,
+  "match_id": "021",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 43.724,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.全赢",
+    "value": 43.724,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 43.88,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 735,
+  "value": 25.0,
+  "match_id": "021",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.draw",
+    "value": 24.7,
+    "layer": "market"
+   },
+   {
+    "key": "fused.draw",
+    "value": 24.534,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.半输",
+    "value": 24.534,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 24.46,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "market.draw",
+  "status": "ambiguous"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 739,
+  "value": 32.0,
+  "match_id": "021",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 31.743,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.全输",
+    "value": 31.743,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 31.66,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1040,
+  "value": 44.8,
+  "match_id": "029",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 44.8,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1055,
+  "value": 30.5,
+  "match_id": "029",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 30.5,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1097,
+  "value": 44.0,
+  "match_id": "029",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 43.849,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.全赢",
+    "value": 43.849,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 43.98,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1101,
+  "value": 22.0,
+  "match_id": "029",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.draw",
+    "value": 21.486,
+    "layer": "data"
+   },
+   {
+    "key": "fused.draw",
+    "value": 22.142,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.半输",
+    "value": 22.142,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 21.97,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.draw",
+  "status": "ambiguous"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1105,
+  "value": 34.0,
+  "match_id": "029",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 34.009,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.全输",
+    "value": 34.009,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 34.05,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1277,
+  "value": 44.8,
+  "match_id": "014",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 44.367,
+    "layer": "data"
+   },
+   {
+    "key": "market.away_win",
+    "value": 44.8,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1289,
+  "value": 30.8,
+  "match_id": "014",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 30.8,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1453,
+  "value": 44.4,
+  "match_id": "014",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.home_win",
+    "value": 44.367,
+    "layer": "data"
+   },
+   {
+    "key": "market.away_win",
+    "value": 44.8,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.home_win",
+  "status": "ambiguous"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1474,
+  "value": 39.0,
+  "match_id": "014",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 38.62,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 39.039,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.全输",
+    "value": 39.039,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 38.62,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 39.06,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1478,
+  "value": 22.0,
+  "match_id": "014",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.draw",
+    "value": 21.595,
+    "layer": "data"
+   },
+   {
+    "key": "fused.draw",
+    "value": 22.341,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 22.32,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.draw",
+  "status": "ambiguous"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1482,
+  "value": 39.0,
+  "match_id": "014",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 38.62,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.away_win",
+    "value": 39.039,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.全输",
+    "value": 39.039,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 38.62,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 39.06,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1735,
+  "value": 42.6,
+  "match_id": "028",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.away_win",
+    "value": 42.6,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1749,
+  "value": 30.8,
+  "match_id": "028",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "market.home_win",
+    "value": 30.8,
+    "layer": "market"
+   }
+  ],
+  "implied_layers": [
+   "market"
+  ],
+  "bound_key": "market.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1762,
+  "value": 54.8,
+  "match_id": "028",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.away_win",
+    "value": 54.817,
+    "layer": "data"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.away_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1785,
+  "value": 25.0,
+  "match_id": "028",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.home_win",
+    "value": 24.607,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.home_win",
+  "status": "ok"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1789,
+  "value": 24.0,
+  "match_id": "028",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "data.draw",
+    "value": 23.964,
+    "layer": "data"
+   },
+   {
+    "key": "fused.draw",
+    "value": 24.311,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.w",
+    "value": 24.43,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.d",
+    "value": 24.36,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "data.draw",
+  "status": "ambiguous"
+ },
+ {
+  "article": "20261108_周日014+021+028+029_复盘主场连败误区_曼联朗斯怎么看_赛事前瞻.md",
+  "offset": 1793,
+  "value": 51.0,
+  "match_id": "028",
+  "model_version": "v3.1",
+  "snapshot_id": "e6c5c952efae",
+  "candidates": [
+   {
+    "key": "fused.away_win",
+    "value": 51.083,
+    "layer": "fused"
+   },
+   {
+    "key": "fused.ah.全输",
+    "value": 51.083,
+    "layer": "fused"
+   },
+   {
+    "key": "mc.l",
+    "value": 51.21,
+    "layer": "fused"
+   }
+  ],
+  "implied_layers": [],
+  "bound_key": "fused.away_win",
+  "status": "ok"
+ }
+]

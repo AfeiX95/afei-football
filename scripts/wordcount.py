@@ -24,12 +24,13 @@ except Exception:
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# 目标区间（R32）
+# 目标区间（R32 + R62 H型短图文）
 RANGES = {
     "单场前瞻": (800, 1500),
     "双场合集": (800, 1500),
     "多场合集": (800, 1500),
 }
+SHORT_RANGE = (300, 500)  # R62 H｜极简快评型（微头条/短图文）
 
 EXCLUDE_PATTERNS = [
     r"^#\s",                      # H1 标题
@@ -79,6 +80,7 @@ def main():
     ap = argparse.ArgumentParser(description="文章正文字数核对（R32）")
     ap.add_argument("path", nargs="?", help="md 文件路径；省略则取最新文章")
     ap.add_argument("--detail", action="store_true", help="显示分段统计")
+    ap.add_argument("--short", action="store_true", help="按 R62 H型极简快评（300-500字）核对")
     args = ap.parse_args()
 
     path = Path(args.path) if args.path else find_latest_article()
@@ -103,14 +105,24 @@ def main():
     if args.detail:
         print(f"[结构] 小标题 {headings} ｜ 表格行 {tables} ｜ 引用块 {quotes} ｜ 加粗行 {bold_lines} ｜ 有效行 {paras}")
     print()
+    is_short = args.short or any(k in path.name for k in ("_快评", "_微头条", "_短图文"))
     print("[R32 目标区间]")
-    for label, (lo, hi) in RANGES.items():
+    if is_short:
+        lo, hi = SHORT_RANGE
         flag = "← 落在区间" if lo <= total <= hi else ""
-        print(f"  {label}: {lo}-{hi} 字 {flag}")
-    if total < 800:
-        print(f"\n⚠️ 低于下限，建议补 ①战意细节 ②市场定价对比 ③风险提示")
-    elif total > 1500:
-        print(f"\n⚠️ 超过上限，建议删 ①重复铺垫 ②形容词堆砌 ③无关数据罗列")
+        print(f"  极简快评(H型微头条/短图文): {lo}-{hi} 字 {flag}")
+        if total < lo:
+            print(f"\n⚠️ 低于下限（{lo}字），建议补关键对位或比分理由")
+        elif total > hi:
+            print(f"\n⚠️ 超过上限（{hi}字），极简快评只留 2-3 个核心信息")
+    else:
+        for label, (lo, hi) in RANGES.items():
+            flag = "← 落在区间" if lo <= total <= hi else ""
+            print(f"  {label}: {lo}-{hi} 字 {flag}")
+        if total < 800:
+            print(f"\n⚠️ 低于下限，建议补 ①战意细节 ②市场定价对比 ③风险提示（若为 H 型短图文请加 --short 或文件名含 _快评）")
+        elif total > 1500:
+            print(f"\n⚠️ 超过上限，建议删 ①重复铺垫 ②形容词堆砌 ③无关数据罗列")
     return 0
 
 

@@ -1,0 +1,128 @@
+{
+ "001": {
+  "match": "英锦标 伯顿 vs 诺茨郡",
+  "kickoff": "03:00",
+  "id": "2042684",
+  "market3": [
+   0.5296,
+   0.2471,
+   0.2233
+  ],
+  "market_source": "百家欧赔去水（归一化）",
+  "jc_ah_line": 0.5,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   0.75,
+   1.05
+  ],
+  "ah_line": 0.5,
+  "ah_side": "主让",
+  "ah_water": [
+   0.75,
+   1.05
+  ],
+  "ah_line_src": "百家亚盘让球线",
+  "jc_ah_note": "百家亚盘让球线",
+  "ou_line": 2.5,
+  "ou_water": [
+   0.85,
+   1.05
+  ],
+  "ou_note": "百家大小球盘口",
+  "ou_implied_total": 2.65,
+  "books_ox": 3,
+  "ox_open": [
+   2.18,
+   3.4,
+   3.0
+  ],
+  "ox_close": [
+   1.75,
+   3.75,
+   4.15
+  ],
+  "ah_open_lines": [
+   0.5
+  ],
+  "ah_close_lines": [
+   0.5
+  ],
+  "ou_open_lines": [
+   2.5
+  ],
+  "ou_close_lines": [
+   2.5
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ],
+  "ev_ah_mkt": [
+   null,
+   null
+  ]
+ },
+ "002": {
+  "match": "英锦标 布罗姆利 vs 米尔顿",
+  "kickoff": "03:30",
+  "id": "2042685",
+  "market3": [
+   0.299,
+   0.273,
+   0.4281
+  ],
+  "market_source": "百家欧赔去水（归一化）",
+  "jc_ah_line": 0.25,
+  "jc_ah_side": "主受让",
+  "jc_ah_water": [
+   0.95,
+   0.85
+  ],
+  "ah_line": 0.25,
+  "ah_side": "主受让",
+  "ah_water": [
+   0.95,
+   0.85
+  ],
+  "ah_line_src": "百家亚盘让球线",
+  "jc_ah_note": "百家亚盘让球线",
+  "ou_line": 2.5,
+  "ou_water": [
+   0.85,
+   1.05
+  ],
+  "ou_note": "百家大小球盘口",
+  "ou_implied_total": 2.65,
+  "books_ox": 3,
+  "ox_open": [
+   3.25,
+   3.4,
+   2.1
+  ],
+  "ox_close": [
+   3.15,
+   3.45,
+   2.2
+  ],
+  "ah_open_lines": [
+   0.25
+  ],
+  "ah_close_lines": [
+   0.25
+  ],
+  "ou_open_lines": [
+   2.5
+  ],
+  "ou_close_lines": [
+   2.5
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ],
+  "ev_ah_mkt": [
+   null,
+   null
+  ]
+ }
+}
