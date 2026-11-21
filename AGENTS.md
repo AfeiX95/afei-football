@@ -1,4 +1,4 @@
-# AGENTS.md — 阿飞说球 足球分析项目（路由总入口 · v3.1）
+# AGENTS.md — 阿飞说球 足球分析项目（路由总入口 · v3.2）
 
 > 任何 agent（Claude Code / Codex / Hermes / DSH）开工先读本文件。
 > **本文件只做路由，不堆细节。长内容都拆到 `docs/` + `state/`，真源在 `📚知识库/skills/`。**
@@ -54,6 +54,7 @@ python -X utf8 scripts/sync.py --status   # 只看状态
 |------|------|
 | 当前进度/待办/会话交接 | `python -X utf8 scripts/brief.py`（首选）→ `docs/HANDOFF.md` 最新一节 + `state/model-state.json` |
 | **工作流一页纸（采→验→算→报→写→检→复）** | `docs/WORKFLOW-ONE-PAGE.md`（每步命令 + 产物 + 失败速查） |
+| **内部分析报告与双层出稿工作流（v3.2 · 17维+50元方案+传足双模式）** | `docs/INTERNAL-REPORT-WORKFLOW.md`（整合《足球情报与盘面预测》+《传统足彩全流程》+ A/B 分层红线） |
 | 写作与分析管线详版（v3.1） | `docs/WORKFLOW.md` |
 | 修正规则 C01-C51 摘要 | `docs/RULES.md` → 真源 `📚知识库/模型脚本/修正规则.md`（v1.8.2） |
 | 写作铁律 R1-R59 覆盖层 | 真源 `📚知识库/skills/afei-writing-standards/SKILL.md`（**R41 = 去盘口语 + 内外分层；R55 = 读者视角去模型内部词；R56 = 去模板标签与自然语气；R58 = 头条官方信用分与禁删重发；R59 = 小红书纯历史数据看板 ≤4场、禁方向/区间/竞彩口径**）|
@@ -121,7 +122,7 @@ python -X utf8 scripts/sync.py --status   # 只看状态
 4. `docs/WORKFLOW.md` + `docs/RULES.md` — 流程与规则索引
 
 ## 技能真源
-所有技能在 `📚知识库/skills/<技能名>/SKILL.md`（唯一真源，共 29 个）。**清单与分节行号见 `📚知识库/skills/INDEX.md`**——技能按任务按需加载。
+所有技能在 `📚知识库/skills/<技能名>/SKILL.md`（唯一真源，共 22 个；主线技能 **`afei-internal-report-v32`**；8 个过时/停用旧技能已归档 `_archive/旧skills/`）。**清单与分节行号见 `📚知识库/skills/INDEX.md`**——技能按任务按需加载。
 
 ## Agent skills
 

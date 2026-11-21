@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赛果核对与预测校准闭环 · 总览</title><style>
+:root{--bg:#12161D;--panel:#1B212B;--panel2:#232B38;--line:#313B4C;--text:#E6EAF2;--muted:#9AA7BD;
+--accent:#7AA2F7;--accent2:#A8C0FF;--green:#56C08D;--red:#E47070;--yellow:#E0B25A;--purple:#B48CE8;}
+*{box-sizing:border-box}body{margin:0;padding:32px 20px 70px;background:var(--bg);color:var(--text);
+font-family:system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;line-height:1.65}
+.wrap{max-width:1180px;margin:0 auto}header{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:20px}
+h1{font-size:27px;margin:0 0 8px}h2{font-size:19px;margin:34px 0 12px;padding-left:11px;border-left:3px solid var(--accent)}
+h3{font-size:15px;margin:20px 0 6px;color:var(--accent2)}p{font-size:14px;margin:8px 0}
+.sub{color:var(--muted);font-size:14px;margin:0}.muted{color:var(--muted);font-size:13px}
+code{background:var(--panel2);border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-size:12.5px;color:var(--accent2)}
+.badge{display:inline-block;margin-left:10px;padding:3px 10px;border:1px solid var(--accent);border-radius:999px;
+color:var(--accent2);font-size:12px;vertical-align:middle}
+.warn{padding:13px 17px;border-left:3px solid var(--yellow);background:rgba(224,178,90,.09);border-radius:0 8px 8px 0;
+font-size:13px;color:#EED9A9;margin:14px 0}
+.ok{padding:13px 17px;border-left:3px solid var(--green);background:rgba(86,192,141,.09);border-radius:0 8px 8px 0;
+font-size:13px;color:#BFE8D3;margin:14px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:12.5px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--panel2);color:var(--accent2);font-weight:600;white-space:nowrap}
+tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+.tag{display:inline-block;padding:1px 7px;border-radius:5px;font-size:11px;white-space:nowrap}
+.t-green{background:rgba(86,192,141,.15);color:var(--green)}.t-red{background:rgba(228,112,112,.15);color:var(--red)}
+.t-yellow{background:rgba(224,178,90,.15);color:var(--yellow)}.t-blue{background:rgba(122,162,247,.15);color:var(--accent2)}
+.t-purple{background:rgba(180,140,232,.15);color:var(--purple)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:12px 0}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+.tile{background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:13px 16px}
+.tile b{display:block;color:var(--accent2);font-size:13px;margin-bottom:5px}.tile span{font-size:13px}
+.tile small{display:block;color:var(--muted);font-size:12px;margin-top:6px}
+.num{font-size:22px;font-weight:700;color:var(--accent);display:block;line-height:1.3}
+.kpi{background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--purple);border-radius:0 9px 9px 0;padding:12px 16px}
+.kpi b{display:block;color:var(--purple);font-size:13px;margin-bottom:3px}.kpi span{font-size:12.5px;color:var(--muted)}
+ul{margin:8px 0 0 18px;padding:0;font-size:13px;color:var(--muted)}li{margin:5px 0}
+.flow{width:100%;height:auto;display:block;margin:8px 0 4px}
+footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+@media print{body{background:#fff;color:#111}.card,.tile,.kpi{background:#fff;border-color:#ccc}th{background:#eee;color:#111}
+.muted,footer,ul{color:#555}h2{border-color:#4472C4}}
+</style></head><body><div class="wrap">
+<header><h1>赛果核对与预测校准闭环 <span class="badge">自动化反哺版 v1.0</span></h1>
+<p class="sub">赛果自动核对 → 偏差自动纠正 → 变差自动归因 → 反哺下一期分析预测 ｜ 首个挂载期：第 26167 期 ｜ 生成 2026-11-21</p></header>
+
+<div class="warn"><strong>当前状态（2026-11-21 21:50）：</strong>26167 期 22:00 停售、11-22 开奖，<strong>赛果尚未产生</strong>。
+14 场赛前预测基线已冻结登记，赛果列留空；引擎此时只输出「等待赛果录入」，不编造赛果、不生成结论、不修改参数。</div>
+
+<h2>1. 闭环总流程</h2>
+<div class="card">
+<svg class="flow" viewBox="0 0 1160 195" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="赛果核对与预测校准闭环流程图">
+<defs><marker id="ar" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#7AA2F7"/></marker>
+<marker id="ar2" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#B48CE8"/></marker></defs>
+<rect x="8" y="30" width="196" height="74" rx="9" fill="#232B38" stroke="#7AA2F7" stroke-width="1.5"/>
+<text x="106" y="58" text-anchor="middle" fill="#E6EAF2" font-size="14" font-weight="600">① 赛前预测基线</text>
+<text x="106" y="79" text-anchor="middle" fill="#9AA7BD" font-size="11.5">S1–S3 产出，冻结登记</text>
+<text x="106" y="94" text-anchor="middle" fill="#9AA7BD" font-size="11.5">14 场 · A–K / U / V 列</text>
+
+<rect x="240" y="30" width="196" height="74" rx="9" fill="#232B38" stroke="#7AA2F7" stroke-width="1.5"/>
+<text x="338" y="58" text-anchor="middle" fill="#E6EAF2" font-size="14" font-weight="600">② 赛果录入</text>
+<text x="338" y="79" text-anchor="middle" fill="#9AA7BD" font-size="11.5">只填 L（3/1/0）、M（比分）</text>
+<text x="338" y="94" text-anchor="middle" fill="#9AA7BD" font-size="11.5">或 --input / --demo</text>
+
+<rect x="472" y="30" width="196" height="74" rx="9" fill="#232B38" stroke="#56C08D" stroke-width="1.5"/>
+<text x="570" y="58" text-anchor="middle" fill="#E6EAF2" font-size="14" font-weight="600">③ 自动核对</text>
+<text x="570" y="79" text-anchor="middle" fill="#9AA7BD" font-size="11.5">命中 / Brier / LogLoss</text>
+<text x="570" y="94" text-anchor="middle" fill="#9AA7BD" font-size="11.5">信心偏差 / 比分命中</text>
+
+<rect x="704" y="30" width="196" height="74" rx="9" fill="#232B38" stroke="#E0B25A" stroke-width="1.5"/>
+<text x="802" y="58" text-anchor="middle" fill="#E6EAF2" font-size="14" font-weight="600">④ 变差总结</text>
+<text x="802" y="79" text-anchor="middle" fill="#9AA7BD" font-size="11.5">11 条信号 · 六类归因</text>
+<text x="802" y="94" text-anchor="middle" fill="#9AA7BD" font-size="11.5">下期验证点</text>
+
+<rect x="936" y="30" width="216" height="74" rx="9" fill="#232B38" stroke="#B48CE8" stroke-width="1.5"/>
+<text x="1044" y="58" text-anchor="middle" fill="#E6EAF2" font-size="14" font-weight="600">⑤ 反哺下一期</text>
+<text x="1044" y="79" text-anchor="middle" fill="#9AA7BD" font-size="11.5">权重 / 阈值 / 偏置 / 结构</text>
+<text x="1044" y="94" text-anchor="middle" fill="#9AA7BD" font-size="11.5">v26167 → v26168</text>
+
+<line x1="206" y1="67" x2="236" y2="67" stroke="#7AA2F7" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="438" y1="67" x2="468" y2="67" stroke="#7AA2F7" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="670" y1="67" x2="700" y2="67" stroke="#7AA2F7" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="902" y1="67" x2="932" y2="67" stroke="#7AA2F7" stroke-width="2" marker-end="url(#ar)"/>
+<path d="M1044 106 L1044 150 L106 150 L106 108" fill="none" stroke="#B48CE8" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#ar2)"/>
+<rect x="440" y="136" width="280" height="27" rx="6" fill="#12161D" stroke="#313B4C"/>
+<text x="580" y="154" text-anchor="middle" fill="#B48CE8" font-size="12">参数版本确认后回流，仅对下一期生效</text>
+</svg>
+<p class="muted">回流箭头表示「不追溯」：纠偏只作用于下一期 S1–S3，绝不反向修改本期已发布的预测方向与已交付报告。</p>
+</div>
+
+<h2>2. 四层职责与产出</h2>
+<div class="grid4">
+<div class="tile"><b>第一层 · 赛果核对</b><span>方向层、概率层、方案层三层核对；24 项期次汇总指标</span><small>产出：01_赛果核对台账、03_期次汇总</small></div>
+<div class="tile"><b>第二层 · 自动纠正</b><span>A 权重 / B 阈值 / C 偏置 / D 剔除规则四类动作，带幅度上限</span><small>产出：02_来源权重纠偏、纠偏建议清单</small></div>
+<div class="tile"><b>第三层 · 变差总结</b><span>11 条信号判定 + 六类归因 + 下期验证点</span><small>产出：04_变差监控、05_变差总结归档、变差总结_期号.md</small></div>
+<div class="tile"><b>第四层 · 反哺预测</b><span>参数出口写回 S1 权重、S2 阈值、把握层次、S3 结构</span><small>产出：06_反哺参数出口、校准结果_期号.json</small></div>
+</div>
+
+<h2>3. 「变差」的定义与 11 条信号</h2>
+<div class="ok"><strong>变差 ≠ 单场输赢，也 ≠ 某期没中奖。</strong>指<strong>预测校准度衰减</strong>：滚动窗口内统计指标越过基线 ± 容差，且必须可归因、可验证。判定结果三态：<span class="tag t-red">变差</span> <span class="tag t-green">正常</span> <span class="tag t-yellow">数据未齐</span>。</div>
+<table><thead><tr><th>#</th><th>信号</th><th>基线</th><th>方向</th><th>容差</th><th>归因方向</th></tr></thead><tbody>
+<tr><td>1</td><td>方向命中率衰减</td><td>0.45</td><td>低</td><td>0.08</td><td>来源失效 / 盘型漂移</td></tr>
+<tr><td>2</td><td>Brier 上升</td><td>0.60</td><td>高</td><td>0.05</td><td>过拟合 / 概率校准失效</td></tr>
+<tr><td>3</td><td>LogLoss 上升</td><td>1.00</td><td>高</td><td>0.15</td><td>过拟合 / 高置信错判</td></tr>
+<tr><td>4</td><td>实际项概率下降</td><td>0.45</td><td>低</td><td>0.05</td><td>来源失效</td></tr>
+<tr><td>5</td><td>信心偏差扩大</td><td>0.20</td><td>高</td><td>0.05</td><td>临场信息 / 大热倒灶</td></tr>
+<tr><td>6</td><td>比分命中率衰减</td><td>0.20</td><td>低</td><td>0.08</td><td>比分区间过窄</td></tr>
+<tr><td>7</td><td>高置信倒灶率上升</td><td>0.15</td><td>高</td><td>0.10</td><td>临场信息 / 深盘松懈</td></tr>
+<tr><td>8</td><td>共振兑现率下降</td><td>0.55</td><td>低</td><td>0.10</td><td>数据缺口 / 来源失效</td></tr>
+<tr><td>9</td><td><strong>剔除规则倒挂</strong></td><td>0.00</td><td>高</td><td>0.05</td><td>S3 剔除优先级错配</td></tr>
+<tr><td>10</td><td><strong>把握层次倒挂</strong></td><td>0.10</td><td>低</td><td>0.05</td><td>「该赢 vs 真赢得」失效</td></tr>
+<tr><td>11</td><td><strong>平局低估扩大</strong></td><td>0.00</td><td>高</td><td>0.08</td><td>系统性低估平局</td></tr>
+</tbody></table>
+<p class="muted">基线为首版参考值，跑满 5 期后改用近 5 期滚动均值，替换动作写入参数版本记录。</p>
+
+<h2>4. 三个倒挂差值（最值得盯的数）</h2>
+<div class="grid">
+<div class="kpi"><b>W · 剔除场命中率 − 单选场命中率</b><span>正常应为负。转正且 &gt; 0.05，说明把该剔除的留着、该留的剔了，S3 剔除规则正在变差。</span></div>
+<div class="kpi"><b>X · 最敢碰命中率 − 数据不足命中率</b><span>正常应 &gt; 0.10。收窄或转负，说明把握层次排序没拉开，「该赢 vs 真赢得」的拆解失效。口径：精确匹配「最敢碰」四场（2/6/9/13），11 号低赔变体不计入。</span></div>
+<div class="kpi"><b>Y · 实际平局占比 − 平均预测平局概率</b><span>正常应 ≈ 0。持续 &gt; 0.08，说明系统性低估平局，需给平局加校准偏置。</span></div>
+</div>
+
+<h2>5. 四类纠偏动作与幅度上限</h2>
+<table><thead><tr><th>动作</th><th>规则</th><th>硬约束</th></tr></thead><tbody>
+<tr><td><strong>A · 来源权重</strong></td><td>系数 = clamp(滚动命中率 / 基准命中率, 0.60, 1.50)；建议权重 = 基线 × 系数</td><td>最小样本 30 场；单期调整 ≤ 20%；缺席来源不降权</td></tr>
+<tr><td><strong>B · 判定阈值</strong></td><td>价值 +5% / 回避 −5% 按实测回撤微调；完整度 60% 按低完整度场实测命中率复核</td><td>单次 ≤ 1 个百分点；需连续 2 期同向</td></tr>
+<tr><td><strong>C · 结果偏置</strong></td><td>指数平滑 bias ← 0.7×bias + 0.3×(实测 − 预测)</td><td>单期 ≤ 0.03；绝对值上限 0.08；仅内部量化层</td></tr>
+<tr><td><strong>D · 剔除规则</strong></td><td>W 倒挂时下期减少剔除场数或按「数据不足且命中率最低」重排优先级</td><td>需 ≥ 3 期样本；不得单期翻转整套 S3 结构</td></tr>
+</tbody></table>
+
+<h2>6. 六类变差归因</h2>
+<div class="grid">
+<div class="tile"><b>数据缺口型</b><span>数据不足场命中率异常、来源覆盖数低</span><small>补来源，不调权重；扩 S1 必查清单</small></div>
+<div class="tile"><b>来源失效型</b><span>某来源滚动命中率持续低于基准</span><small>按动作 A 降权，观察 2 期</small></div>
+<div class="tile"><b>盘型漂移型</b><span>均势 / 次级联赛期与基线差异集中</span><small>按盘型分组建独立基线</small></div>
+<div class="tile"><b>赛季阶段型</b><span>国际比赛日后、冬歇前后集中变差</span><small>加时间衰减因子，不永久改权重</small></div>
+<div class="tile"><b>临场信息型</b><span>高置信倒灶集中在首发 / 天气未复核场</span><small>停售前 22:00 强制二次定盘</small></div>
+<div class="tile"><b>过拟合型</b><span>参数频繁调整但指标不改善</span><small>冻结参数 3 期，回退上一稳定版本</small></div>
+</div>
+
+<h2>7. 反哺回分析预测</h2>
+<table><thead><tr><th>参数</th><th>当前值</th><th>写回目标</th></tr></thead><tbody>
+<tr><td>10 类来源权重</td><td>0.08–0.14（欧赔为市场基准不加权）</td><td>足球预测共识分析框架.xlsx → 04_权重参数</td></tr>
+<tr><td>价值 / 回避 / 完整度阈值</td><td>+5% / −5% / 60%</td><td>S2 共识汇总判定规则</td></tr>
+<tr><td>主 / 平 / 客校准偏置</td><td>0.00</td><td>S1 去水概率 → S2 共识输入</td></tr>
+<tr><td>高置信门槛</td><td>0.60</td><td>S2 稳胆识别、S3 双胆选择</td></tr>
+<tr><td>任九剔除场数</td><td>5</td><td>S3 任选九场剔除优先级</td></tr>
+<tr><td>预算上限 / 单注</td><td>50 元 / 2 元</td><td><span class="tag t-yellow">硬约束，不参与纠偏</span></td></tr>
+</tbody></table>
+<p class="muted">纠偏只发生在内部量化层；S4 对外合规口径（零赔率、零机构态度解读）不受影响。参数建议默认「待确认」，人工确认版本后才生效。</p>
+
+<h2>8. 执行与当前待办</h2>
+<div class="card"><p><code>python3 _工具/reconcile.py</code> — 无赛果时只报「等待赛果录入」<br>
+<code>python3 _工具/reconcile.py --issue 26167</code> — 读 L/M 已录入赛果，输出 <code>校准结果_26167.json</code> 与 <code>变差总结_26167.md</code><br>
+<code>python3 _工具/reconcile.py --input results.json</code> — 批量导入<br>
+<code>python3 _工具/reconcile.py --demo</code> — 内置模拟赛果演示（明确标注，不改台账、不代表真实赛果）<br>
+<code>python3 _工具/reconcile.py --issue 26167 --write-back</code> — 显式回写 05/06 表</p></div>
+<div class="grid">
+<div class="tile"><b>本期已挂载</b><span>14 场基线冻结、7 条可证伪断言、三个倒挂差值已写入 26167 报告第 8 章</span><small>台账 01 表 L/M 留空</small></div>
+<div class="tile"><b>开奖后要做</b><span>填 L/M 两列 → 跑引擎 → 看变差总结 → 人工确认参数版本</span><small>不追溯改本期报告</small></div>
+<div class="tile"><b>仍未关闭</b><span>22:00 二次定盘、临场首发、逐场天气；预测市场与主流算法模型未取到</span><small>缺席来源不降权、不计入分母</small></div>
+<div class="tile"><b>可选挂载</b><span>每期开奖后定时跑核对并追加变差总结</span><small>需用户给时间表后创建</small></div>
+</div>
+
+<h2>9. 硬规则</h2>
+<div class="card"><ul>
+<li><strong>不追溯</strong>：赛果只用于下一期纠偏，不反向修改已发布预测与已交付报告；台账 A–K 基线列冻结。</li>
+<li><strong>不编造</strong>：赛果未录入、来源未取到一律留空，标「数据未齐」，不估算、不填充。</li>
+<li><strong>最小样本</strong>：权重类 ≥ 30 场滚动样本；结构类 ≥ 3 期。</li>
+<li><strong>幅度上限</strong>：单期权重 ≤ 20%、偏置 ≤ 0.03、阈值 ≤ 1 个百分点。</li>
+<li><strong>默认 dry-run</strong>：<code>--write-back</code> 必须显式指定；缺席来源不降权、不计入分母。</li>
+<li><strong>内外双轨不变</strong>：纠偏只在内部量化层生效；预算上限 50 元与单注 2 元恒定。</li>
+<li><strong>免责</strong>：全部输出仅作数据观察与思路参考，控制仓位与过关风险。</li>
+</ul></div>
+
+<footer>赛果核对与预测校准闭环 v1.0 ｜ 配套：赛果核对与预测校准闭环_SOP.md（规则全文）、预测校准台账.xlsx（数据载体）、reconcile.py（执行引擎）、26167期_内部分析报告.html 第 8 章（挂载接口）<br>
+由内部分析工作流 SOP v2.1 的 S5-C 阶段调度。全部内容仅作数据观察与思路参考，不构成投注建议。</footer>
+</div></body></html>

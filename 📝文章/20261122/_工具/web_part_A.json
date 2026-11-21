@@ -1,0 +1,1315 @@
+{
+ "007": {
+  "no": "007",
+  "match": "鹿斯巴达 vs 阿尔克马",
+  "kickoff": "2026-11-22 21:30",
+  "verified": true,
+  "official_odds": [
+   4.26,
+   4.05,
+   1.52
+  ],
+  "ox": {
+   "10BET": {
+    "open": [
+     4.3,
+     4.1,
+     1.64
+    ],
+    "close": [
+     4.0,
+     3.7,
+     1.76
+    ]
+   },
+   "12bet": {
+    "open": [
+     3.85,
+     4.0,
+     1.75
+    ],
+    "close": [
+     3.75,
+     3.95,
+     1.78
+    ]
+   },
+   "利记": {
+    "open": [
+     3.84,
+     3.86,
+     1.66
+    ],
+    "close": [
+     3.58,
+     3.66,
+     1.76
+    ]
+   },
+   "18Bet": {
+    "open": [
+     4.3,
+     4.1,
+     1.64
+    ],
+    "close": [
+     4.2,
+     4.0,
+     1.74
+    ]
+   },
+   "澳彩": {
+    "open": [
+     3.88,
+     4.25,
+     1.58
+    ],
+    "close": [
+     3.51,
+     3.88,
+     1.72
+    ]
+   },
+   "威廉": {
+    "open": [
+     4.0,
+     3.9,
+     1.7
+    ],
+    "close": [
+     4.0,
+     3.9,
+     1.73
+    ]
+   },
+   "伟德": {
+    "open": [
+     4.1,
+     4.2,
+     1.7
+    ],
+    "close": [
+     4.1,
+     4.2,
+     1.7
+    ]
+   },
+   "Interwetten": {
+    "open": [
+     4.3,
+     4.1,
+     1.67
+    ],
+    "close": [
+     3.95,
+     4.0,
+     1.8
+    ]
+   },
+   "盈禾": {
+    "open": [
+     3.93,
+     4.05,
+     1.62
+    ],
+    "close": [
+     3.84,
+     4.04,
+     1.76
+    ]
+   },
+   "Bet365": {
+    "open": [
+     4.33,
+     4.1,
+     1.65
+    ],
+    "close": [
+     4.33,
+     4.0,
+     1.72
+    ]
+   },
+   "平博": {
+    "open": [
+     4.07,
+     4.18,
+     1.73
+    ],
+    "close": [
+     4.18,
+     4.18,
+     1.79
+    ]
+   },
+   "皇冠": {
+    "open": [
+     3.95,
+     4.45,
+     1.75
+    ],
+    "close": [
+     4.35,
+     3.55,
+     1.7
+    ]
+   },
+   "SNAI": {
+    "open": [
+     3.75,
+     4.0,
+     1.72
+    ],
+    "close": [
+     3.75,
+     4.0,
+     1.72
+    ]
+   },
+   "易胜博": {
+    "open": [
+     3.9,
+     4.0,
+     1.7
+    ],
+    "close": [
+     4.0,
+     3.8,
+     1.74
+    ]
+   },
+   "立博": {
+    "open": [
+     3.9,
+     4.33,
+     1.73
+    ],
+    "close": [
+     4.0,
+     4.0,
+     1.75
+    ]
+   },
+   "明陞": {
+    "open": [
+     3.85,
+     4.0,
+     1.75
+    ],
+    "close": [
+     3.75,
+     3.95,
+     1.78
+    ]
+   },
+   "onex": {
+    "open": [
+     4.46,
+     4.26,
+     1.71
+    ],
+    "close": [
+     4.32,
+     4.32,
+     1.73
+    ]
+   }
+  },
+  "ah": {},
+  "ou": {
+   "10BET": {
+    "open_line": 3.25,
+    "open_over": 0.8,
+    "open_under": 0.9,
+    "close_line": 3.25,
+    "close_over": 0.88,
+    "close_under": 0.86
+   },
+   "12bet": {
+    "open_line": 3.25,
+    "open_over": 0.93,
+    "open_under": 0.93,
+    "close_line": 3.25,
+    "close_over": 0.96,
+    "close_under": 0.91
+   },
+   "利记": {
+    "open_line": 3.25,
+    "open_over": 0.94,
+    "open_under": 0.92,
+    "close_line": 3.25,
+    "close_over": 0.96,
+    "close_under": 0.9
+   },
+   "18Bet": {
+    "open_line": 3.25,
+    "open_over": 0.83,
+    "open_under": 0.91,
+    "close_line": 3.25,
+    "close_over": 0.91,
+    "close_under": 0.87
+   },
+   "澳彩": {
+    "open_line": 3.25,
+    "open_over": 0.85,
+    "open_under": 0.87,
+    "close_line": 3.25,
+    "close_over": 0.87,
+    "close_under": 0.85
+   },
+   "威廉": {
+    "open_line": 3.5,
+    "open_over": 0.95,
+    "open_under": 0.8,
+    "close_line": 3.5,
+    "close_over": 1.05,
+    "close_under": 0.7
+   },
+   "伟德": {
+    "open_line": 3.25,
+    "open_over": 0.92,
+    "open_under": 0.93,
+    "close_line": 3.25,
+    "close_over": 0.9,
+    "close_under": 0.89
+   },
+   "Interwetten": {
+    "open_line": 3.5,
+    "open_over": 0.95,
+    "open_under": 0.75,
+    "close_line": 3.5,
+    "close_over": 1.05,
+    "close_under": 0.7
+   },
+   "盈禾": {
+    "open_line": 3.25,
+    "open_over": 0.87,
+    "open_under": 0.97,
+    "close_line": 3.25,
+    "close_over": 0.93,
+    "close_under": 0.95
+   },
+   "Bet365": {
+    "open_line": 3.25,
+    "open_over": 0.87,
+    "open_under": 0.92,
+    "close_line": 3.25,
+    "close_over": 0.9,
+    "close_under": 0.9
+   },
+   "平博": {
+    "open_line": 3.25,
+    "open_over": 0.88,
+    "open_under": 0.92,
+    "close_line": 3.25,
+    "close_over": 0.95,
+    "close_under": 0.92
+   },
+   "皇冠": {
+    "open_line": 3.25,
+    "open_over": 0.93,
+    "open_under": 0.93,
+    "close_line": 3.25,
+    "close_over": 0.97,
+    "close_under": 0.9
+   },
+   "易胜博": {
+    "open_line": 3.25,
+    "open_over": 0.94,
+    "open_under": 0.92,
+    "close_line": 3.25,
+    "close_over": 0.96,
+    "close_under": 0.9
+   },
+   "立博": {
+    "open_line": 2.5,
+    "open_over": 0.4,
+    "open_under": 1.7,
+    "close_line": 3.5,
+    "close_over": 1.05,
+    "close_under": 0.67
+   },
+   "明陞": {
+    "open_line": 3.25,
+    "open_over": 0.93,
+    "open_under": 0.93,
+    "close_line": 3.25,
+    "close_over": 0.96,
+    "close_under": 0.91
+   },
+   "onex": {
+    "open_line": 3.5,
+    "open_over": 1.07,
+    "open_under": 0.78,
+    "close_line": 3.5,
+    "close_over": 1.11,
+    "close_under": 0.75
+   }
+  },
+  "media": "外媒/预测观点（仅客观数字与事实，附来源与URL，已剔除『投注人气/竞猜形势/指数走高走低/博胆』类操盘与资金流解读）：[1] sdxzai.com 足球赛事数据模型解读 https://www.sdxzai.com/ — 周日007 模型比分 1-2(概率Top1)/0-1/0-2，胜4.26 平4.05 负1.52，让球 +1（客让1球），明示为基于公开赔率的机械推算。[2] 球迷屋 qiumiwu.com https://www.qiumiwu.com/news/2047178357858 — 胜平负预测 鹿特丹斯巴达22.22%/平44.44%/阿尔克马尔33.33%。[3] Sportsgambler https://www.sportsgambler.com/betting-tips/football/sparta-rotterdam-vs-az-alkmaar-prediction-lineups-odds-2026-11-22 — 主推 AZ Alkmaar to Win @1.71，博彩公司隐含概率58.5%、其tipster估65-70%，正确比分 Sparta 0-2 AZ @8.50，价格截至 Nov 21 03:58。[4] FootballPredictions.com https://footballpredictions.com/footballpredictions/netherlands-eredivisie-predictions/sparta-rotterdam-vs-az-prediction-22-11-2026 — 预测 Sparta Rotterdam 1-2 AZ，Asian Handicap AZ -0.5 @1.70，Over 2.5 @1.44，开赛 2026-11-22 21:30。[5] APWin https://www.apwin.com/predictions/sparta-rotterdam-vs-az-alkmaar-prediction-eredivisie-22-11-2026 — 主推 Under 3.5 Goals @1.73 (sportingbet)、Confidence 55%，AZ 胜概率54.35%，1x2 betfred 3.90/3.60/1.64。[6] Top Football Tipster https://topfootballtipster.com/news/2026/11/16/sparta-rotterdam-vs-az-alkmaar-match-preview-2026 — Best odds 主4.00/平4.20/客1.75，预测 1-2，主24%/平23%/客53%。核对：竞彩网计算器页 https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark 列周日007 胜平负 4.26/4.05/1.52、让球+1 2.10/3.75/2.52，与纳米数据『竞彩赔率』段 4.26/4.05/1.52 一致；500彩票网 https://liansai.500.com/zuqiu-19878/ 平均欧指 3.99/4.00/1.72。ox 采用定向检索『鹿特丹斯巴达 阿尔克马尔 全场指数』返回的纳米数据快照；另一条英文检索快照中 皇冠/盈禾/18Bet 的『当前』赔率有细微差异（实时变动），未混用。ah 留空：本场竞彩让球 +1、sdxzai 标注『客让1球』，纳米数据亚盘盘口为 -0.75/-1.0/-1.5 等（客队让球），与『负数=主让』约定相反，按宁缺勿错不录。",
+  "ai_preds": [
+   {
+    "src": "sdxzai.com 足球赛事数据模型解读 (https://www.sdxzai.com/)",
+    "lean": "客胜/阿尔克马尔",
+    "read": "模型比分 1-2(概率Top1)/0-1/0-2；胜4.26 平4.05 负1.52；让球+1 客让1球；明示为基于公开赔率的机械推算"
+   },
+   {
+    "src": "球迷屋 qiumiwu.com (https://www.qiumiwu.com/news/2047178357858)",
+    "lean": "平局概率最高",
+    "read": "胜平负预测 鹿特丹斯巴达22.22% / 平44.44% / 阿尔克马尔33.33%"
+   },
+   {
+    "src": "Sportsgambler (https://www.sportsgambler.com/betting-tips/football/sparta-rotterdam-vs-az-alkmaar-prediction-lineups-odds-2026-11-22)",
+    "lean": "AZ Alkmaar 客胜",
+    "read": "AZ to Win @1.71；博彩公司隐含概率58.5%、tipster估65-70%；正确比分 Sparta 0-2 AZ @8.50；价格截至 Nov 21 03:58"
+   },
+   {
+    "src": "FootballPredictions.com (https://footballpredictions.com/footballpredictions/netherlands-eredivisie-predictions/sparta-rotterdam-vs-az-prediction-22-11-2026)",
+    "lean": "客胜 / 1-2",
+    "read": "预测 Sparta Rotterdam 1-2 AZ；Asian Handicap AZ -0.5 @1.70；Over 2.5 @1.44；开赛 2026-11-22 21:30"
+   },
+   {
+    "src": "APWin (https://www.apwin.com/predictions/sparta-rotterdam-vs-az-alkmaar-prediction-eredivisie-22-11-2026)",
+    "lean": "Under 3.5 Goals / 客队热门",
+    "read": "主推 Under 3.5 Goals @1.73 (sportingbet)、Confidence 55%；AZ 胜概率54.35%；1x2 betfred 3.90/3.60/1.64"
+   },
+   {
+    "src": "Top Football Tipster (https://topfootballtipster.com/news/2026/11/16/sparta-rotterdam-vs-az-alkmaar-match-preview-2026)",
+    "lean": "AZ Alkmaar 客胜",
+    "read": "Best odds 主4.00/平4.20/客1.75；预测 1-2；主24%/平23%/客53%"
+   }
+  ],
+  "sources": [
+   {
+    "name": "纳米数据「来自纳米数据的足球比赛预测分析结果」（WebSearch 结构化结果，结果未附 URL）",
+    "url": "",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "竞彩网 足球胜平负计算器",
+    "url": "https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "sdxzai.com 足球赛事数据模型解读",
+    "url": "https://www.sdxzai.com/",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "球迷屋 荷甲比赛前瞻 鹿特丹斯巴达vs阿尔克马尔",
+    "url": "https://www.qiumiwu.com/news/2047178357858",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "球迷屋 荷甲预测分析 主场困局待解",
+    "url": "https://www.qiumiwu.com/news/2047511338172",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "新浪网/广东体彩 赛事提点",
+    "url": "https://k.sina.com.cn/article_7517400647_1c0126e4705909fc7c.html",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "500彩票网 2026/2027 荷甲赛程",
+    "url": "https://liansai.500.com/zuqiu-19878/",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "Sportsgambler — Sparta Rotterdam vs AZ Alkmaar Prediction",
+    "url": "https://www.sportsgambler.com/betting-tips/football/sparta-rotterdam-vs-az-alkmaar-prediction-lineups-odds-2026-11-22",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "APWin — Sparta Rotterdam vs AZ Alkmaar prediction",
+    "url": "https://www.apwin.com/predictions/sparta-rotterdam-vs-az-alkmaar-prediction-eredivisie-22-11-2026",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "FootballPredictions.com — Sparta Rotterdam vs AZ Prediction",
+    "url": "https://footballpredictions.com/footballpredictions/netherlands-eredivisie-predictions/sparta-rotterdam-vs-az-prediction-22-11-2026",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "Top Football Tipster — Sparta Rotterdam vs AZ Alkmaar Preview",
+    "url": "https://topfootballtipster.com/news/2026/11/16/sparta-rotterdam-vs-az-alkmaar-match-preview-2026",
+    "date": "2026-11-21"
+   }
+  ]
+ },
+ "008": {
+  "no": "008",
+  "match": "博洛尼亚 vs 乌迪内斯",
+  "kickoff": "2026-11-22 22:00",
+  "verified": true,
+  "official_odds": [
+   1.59,
+   3.45,
+   4.55
+  ],
+  "ox": {
+   "onex": {
+    "open": [
+     1.8,
+     3.81,
+     5.03
+    ],
+    "close": [
+     1.75,
+     4.03,
+     5.09
+    ]
+   },
+   "皇冠": {
+    "open": [
+     1.78,
+     3.95,
+     4.45
+    ],
+    "close": [
+     1.72,
+     3.85,
+     5.0
+    ]
+   },
+   "澳彩": {
+    "open": [
+     1.6,
+     3.8,
+     4.5
+    ],
+    "close": [
+     1.58,
+     3.81,
+     4.55
+    ]
+   },
+   "竞彩官方": {
+    "open": [
+     1.56,
+     3.5,
+     4.7
+    ],
+    "close": [
+     1.56,
+     3.5,
+     4.7
+    ]
+   },
+   "Bet365": {
+    "open": [
+     1.7,
+     3.6,
+     4.75
+    ],
+    "close": [
+     1.7,
+     3.75,
+     5.0
+    ]
+   },
+   "立博": {
+    "open": [
+     1.73,
+     3.75,
+     4.6
+    ],
+    "close": [
+     1.7,
+     3.8,
+     4.6
+    ]
+   },
+   "伟德": {
+    "open": [
+     1.7,
+     3.7,
+     4.6
+    ],
+    "close": [
+     1.66,
+     3.7,
+     4.75
+    ]
+   },
+   "Interwetten": {
+    "open": [
+     1.77,
+     3.7,
+     4.7
+    ],
+    "close": [
+     1.73,
+     3.75,
+     4.7
+    ]
+   },
+   "平博": {
+    "open": [
+     1.76,
+     3.71,
+     4.69
+    ],
+    "close": [
+     1.75,
+     3.87,
+     4.95
+    ]
+   },
+   "明陞": {
+    "open": [
+     1.77,
+     3.55,
+     4.3
+    ],
+    "close": [
+     1.74,
+     3.7,
+     4.25
+    ]
+   },
+   "威廉": {
+    "open": [
+     1.73,
+     3.5,
+     4.75
+    ],
+    "close": [
+     1.7,
+     3.7,
+     4.6
+    ]
+   },
+   "12bet": {
+    "open": [
+     1.77,
+     3.6,
+     4.2
+    ],
+    "close": [
+     1.74,
+     3.7,
+     4.25
+    ]
+   },
+   "18Bet": {
+    "open": [
+     1.74,
+     3.6,
+     4.5
+    ],
+    "close": [
+     1.72,
+     3.7,
+     4.8
+    ]
+   },
+   "10BET": {
+    "open": [
+     1.73,
+     3.35,
+     4.3
+    ],
+    "close": [
+     1.74,
+     3.45,
+     4.6
+    ]
+   },
+   "SNAI": {
+    "open": [
+     1.75,
+     3.6,
+     4.5
+    ],
+    "close": [
+     1.7,
+     3.75,
+     4.75
+    ]
+   },
+   "易胜博": {
+    "open": [
+     1.73,
+     3.5,
+     4.6
+    ],
+    "close": [
+     1.72,
+     3.6,
+     4.7
+    ]
+   },
+   "利记": {
+    "open": [
+     1.71,
+     3.48,
+     4.32
+    ],
+    "close": [
+     1.73,
+     3.45,
+     4.3
+    ]
+   },
+   "盈禾": {
+    "open": [
+     1.78,
+     3.81,
+     4.49
+    ],
+    "close": [
+     1.73,
+     3.88,
+     4.68
+    ]
+   }
+  },
+  "ah": {},
+  "ou": {
+   "onex": {
+    "open_line": 2.5,
+    "open_over": 0.87,
+    "open_under": 1.07,
+    "close_line": 2.5,
+    "close_over": 0.97,
+    "close_under": 0.96
+   },
+   "皇冠": {
+    "open_line": 2.5,
+    "open_over": 0.96,
+    "open_under": 0.92,
+    "close_line": 2.5,
+    "close_over": 0.92,
+    "close_under": 0.96
+   },
+   "澳彩": {
+    "open_line": 2.5,
+    "open_over": 0.92,
+    "open_under": 0.88,
+    "close_line": 2.5,
+    "close_over": 0.92,
+    "close_under": 0.88
+   },
+   "Bet365": {
+    "open_line": 2.5,
+    "open_over": 0.82,
+    "open_under": 1.02,
+    "close_line": 2.5,
+    "close_over": 0.87,
+    "close_under": 0.97
+   },
+   "立博": {
+    "open_line": 2.5,
+    "open_over": 0.85,
+    "open_under": 0.85,
+    "close_line": 2.5,
+    "close_over": 0.83,
+    "close_under": 0.85
+   },
+   "伟德": {
+    "open_line": 2.5,
+    "open_over": 0.95,
+    "open_under": 0.93,
+    "close_line": 2.5,
+    "close_over": 0.89,
+    "close_under": 0.9
+   },
+   "Interwetten": {
+    "open_line": 2.5,
+    "open_over": 0.9,
+    "open_under": 0.85,
+    "close_line": 2.5,
+    "close_over": 0.9,
+    "close_under": 0.9
+   },
+   "平博": {
+    "open_line": 2.5,
+    "open_over": 0.93,
+    "open_under": 0.9,
+    "close_line": 2.5,
+    "close_over": 0.92,
+    "close_under": 0.97
+   },
+   "明陞": {
+    "open_line": 2.5,
+    "open_over": 0.96,
+    "open_under": 0.9,
+    "close_line": 2.5,
+    "close_over": 0.89,
+    "close_under": 0.99
+   },
+   "威廉": {
+    "open_line": 2.5,
+    "open_over": 0.91,
+    "open_under": 0.85,
+    "close_line": 2.5,
+    "close_over": 0.85,
+    "close_under": 0.91
+   },
+   "12bet": {
+    "open_line": 2.5,
+    "open_over": 0.96,
+    "open_under": 0.9,
+    "close_line": 2.5,
+    "close_over": 0.89,
+    "close_under": 0.99
+   },
+   "18Bet": {
+    "open_line": 2.5,
+    "open_over": 0.9,
+    "open_under": 0.87,
+    "close_line": 2.5,
+    "close_over": 0.87,
+    "close_under": 0.92
+   },
+   "10BET": {
+    "open_line": 2.5,
+    "open_over": 0.89,
+    "open_under": 0.85,
+    "close_line": 2.5,
+    "close_over": 0.89,
+    "close_under": 0.91
+   },
+   "易胜博": {
+    "open_line": 2.5,
+    "open_over": 0.98,
+    "open_under": 0.9,
+    "close_line": 2.5,
+    "close_over": 0.93,
+    "close_under": 0.95
+   },
+   "利记": {
+    "open_line": 2.5,
+    "open_over": 1.0,
+    "open_under": 0.88,
+    "close_line": 2.5,
+    "close_over": 0.93,
+    "close_under": 0.95
+   },
+   "盈禾": {
+    "open_line": 2.5,
+    "open_over": 0.96,
+    "open_under": 0.9,
+    "close_line": 2.5,
+    "close_over": 0.9,
+    "close_under": 0.98
+   }
+  },
+  "media": "外媒/预测观点（仅客观数字与事实，附来源与URL，已剔除操盘/资金流类解读）：[1] FOX Sports https://www.foxsports.com/soccer/serie-a-bologna-vs-udinese-nov-22-2026-game-boxscore-869496 — 标题『A mismatch in Renato Dall'Ara as Bologna hosts Udinese』；Moneyline BGN -141 / UDN +374；Over/Under 2.5（Over -112 / Under -115）；Nov 22 10:00 PM。[2] 新浪体育 胜负彩26168期澳盘(11.21) https://sports.sina.com.cn/l/2026-11-19/doc-inizfunc0446595.shtml — 博洛尼亚 vs 乌迪内斯 半球/一球，胜1.60/平3.80/负4.50（周六 1.58/3.81/4.55）。[3] 球迷屋/复旦大学附属中山医院苏北医院转载 https://www.zssubeihospital.com/qmw-article-2047513902992.html — 胜平负预测 博洛尼亚52.70%/平25.68%/乌迪内斯21.62%。[4] sdxzai.com 足球赛事数据模型解读 https://www.sdxzai.com/ — 周日008 模型比分 2-1(概率Top1)/1-0/2-0，胜1.59 平3.45 负4.55，主让1球。核对：竞彩网计算器页 https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark 列周日008 胜平负 1.59/3.45/4.55、让球-1 2.97/3.30/2.00，与 sdxzai 一致；纳米数据『竞彩赔率』段为 1.56/3.50/4.70、让球-1 2.91/3.30/2.03，两者不一致，official_odds 按竞彩网计算器页填，纳米数据『竞彩官方』公司行仍按 1.56/3.50/4.70 抄入 ox（与本批次 web_part_C.json 处理一致）。ah 留空：虽多来源显示主队让球，但纳米数据亚盘盘口为正数且『上盘/下盘』未明确主客指向，按宁缺勿错不录。",
+  "ai_preds": [
+   {
+    "src": "FOX Sports (https://www.foxsports.com/soccer/serie-a-bologna-vs-udinese-nov-22-2026-game-boxscore-869496)",
+    "lean": "主队博洛尼亚热门",
+    "read": "标题称 A mismatch in Renato Dall'Ara；Moneyline BGN -141 / UDN +374；O/U 2.5（Over -112 / Under -115）；Nov 22 10:00 PM"
+   },
+   {
+    "src": "新浪体育 胜负彩26168期澳盘 (https://sports.sina.com.cn/l/2026-11-19/doc-inizfunc0446595.shtml)",
+    "lean": "澳盘主队让半球/一球",
+    "read": "博洛尼亚 vs 乌迪内斯 半球/一球，胜1.60/平3.80/负4.50（周六 1.58/3.81/4.55）"
+   },
+   {
+    "src": "球迷屋 qiumiwu.com (https://www.zssubeihospital.com/qmw-article-2047513902992.html)",
+    "lean": "主胜",
+    "read": "胜平负预测 博洛尼亚52.70% / 平25.68% / 乌迪内斯21.62%"
+   },
+   {
+    "src": "sdxzai.com 足球赛事数据模型解读 (https://www.sdxzai.com/)",
+    "lean": "主胜",
+    "read": "模型比分 2-1(概率Top1)/1-0/2-0；胜1.59 平3.45 负4.55；主让1球"
+   }
+  ],
+  "sources": [
+   {
+    "name": "纳米数据「来自纳米数据的足球比赛预测分析结果」（WebSearch 结构化结果，结果未附 URL）",
+    "url": "",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "竞彩网 足球胜平负计算器",
+    "url": "https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "sdxzai.com 足球赛事数据模型解读",
+    "url": "https://www.sdxzai.com/",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "新浪体育 中国足球彩票胜负彩26168期澳盘最新赔率(11.21)",
+    "url": "https://sports.sina.com.cn/l/2026-11-19/doc-inizfunc0446595.shtml",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "新浪网/广东体彩 赛事提点",
+    "url": "https://k.sina.com.cn/article_7517400647_1c0126e4705909fc7c.html",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "FOX Sports — Bologna vs. Udinese: Nov 22, 2026",
+    "url": "https://www.foxsports.com/soccer/serie-a-bologna-vs-udinese-nov-22-2026-game-boxscore-869496",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "球迷屋 意甲 博洛尼亚vs乌迪内斯预测分析",
+    "url": "https://www.qiumiwu.com/news/2047513902992",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "复旦大学附属中山医院苏北医院（转载球迷屋预测）",
+    "url": "https://www.zssubeihospital.com/qmw-article-2047513902992.html",
+    "date": "2026-11-21"
+   }
+  ]
+ },
+ "009": {
+  "no": "009",
+  "match": "萨索洛 vs 热那亚",
+  "kickoff": "2026-11-22 22:00",
+  "verified": true,
+  "official_odds": [
+   2.45,
+   3.15,
+   2.42
+  ],
+  "ox": {
+   "Interwetten": {
+    "open": [
+     2.45,
+     3.35,
+     2.9
+    ],
+    "close": [
+     2.65,
+     3.35,
+     2.65
+    ]
+   },
+   "Bet365": {
+    "open": [
+     2.45,
+     3.3,
+     2.75
+    ],
+    "close": [
+     2.6,
+     3.3,
+     2.6
+    ]
+   },
+   "皇冠": {
+    "open": [
+     2.41,
+     3.5,
+     2.92
+    ],
+    "close": [
+     2.72,
+     3.3,
+     2.61
+    ]
+   },
+   "10BET": {
+    "open": [
+     2.39,
+     3.3,
+     2.9
+    ],
+    "close": [
+     2.65,
+     3.1,
+     2.65
+    ]
+   },
+   "立博": {
+    "open": [
+     2.37,
+     3.4,
+     2.87
+    ],
+    "close": [
+     2.6,
+     3.3,
+     2.62
+    ]
+   },
+   "澳彩": {
+    "open": [
+     2.58,
+     3.42,
+     2.32
+    ],
+    "close": [
+     2.48,
+     3.48,
+     2.38
+    ]
+   },
+   "易胜博": {
+    "open": [
+     2.9,
+     3.3,
+     2.36
+    ],
+    "close": [
+     2.6,
+     3.2,
+     2.6
+    ]
+   },
+   "马会": {
+    "open": [
+     2.58,
+     3.2,
+     2.31
+    ],
+    "close": [
+     2.55,
+     3.2,
+     2.34
+    ]
+   },
+   "盈禾": {
+    "open": [
+     2.36,
+     3.58,
+     2.91
+    ],
+    "close": [
+     2.56,
+     3.51,
+     2.62
+    ]
+   },
+   "18Bet": {
+    "open": [
+     2.35,
+     3.4,
+     2.85
+    ],
+    "close": [
+     2.65,
+     3.3,
+     2.6
+    ]
+   },
+   "威廉": {
+    "open": [
+     2.3,
+     3.25,
+     2.9
+    ],
+    "close": [
+     2.6,
+     3.3,
+     2.6
+    ]
+   },
+   "伟德": {
+    "open": [
+     2.38,
+     3.3,
+     2.88
+    ],
+    "close": [
+     2.6,
+     3.3,
+     2.6
+    ]
+   },
+   "利记": {
+    "open": [
+     2.35,
+     3.16,
+     2.77
+    ],
+    "close": [
+     2.52,
+     3.16,
+     2.57
+    ]
+   },
+   "SNAI": {
+    "open": [
+     2.35,
+     3.25,
+     2.9
+    ],
+    "close": [
+     2.8,
+     3.25,
+     2.5
+    ]
+   },
+   "12bet": {
+    "open": [
+     2.36,
+     3.25,
+     2.87
+    ],
+    "close": [
+     2.57,
+     3.25,
+     2.6
+    ]
+   },
+   "onex": {
+    "open": [
+     2.6,
+     3.48,
+     2.9
+    ],
+    "close": [
+     2.75,
+     3.58,
+     2.67
+    ]
+   },
+   "平博": {
+    "open": [
+     2.41,
+     3.43,
+     2.93
+    ],
+    "close": [
+     2.7,
+     3.39,
+     2.74
+    ]
+   },
+   "明陞": {
+    "open": [
+     2.35,
+     3.3,
+     2.85
+    ],
+    "close": [
+     2.57,
+     3.25,
+     2.6
+    ]
+   }
+  },
+  "ah": {},
+  "ou": {
+   "Interwetten": {
+    "open_line": 2.5,
+    "open_over": 0.85,
+    "open_under": 0.9,
+    "close_line": 2.5,
+    "close_over": 0.9,
+    "close_under": 0.9
+   },
+   "Bet365": {
+    "open_line": 2.5,
+    "open_over": 0.85,
+    "open_under": 1.0,
+    "close_line": 2.5,
+    "close_over": 0.95,
+    "close_under": 0.9
+   },
+   "皇冠": {
+    "open_line": 2.5,
+    "open_over": 1.0,
+    "open_under": 0.88,
+    "close_line": 2.5,
+    "close_over": 0.96,
+    "close_under": 0.92
+   },
+   "10BET": {
+    "open_line": 2.5,
+    "open_over": 0.87,
+    "open_under": 0.87,
+    "close_line": 2.5,
+    "close_over": 0.9,
+    "close_under": 0.91
+   },
+   "立博": {
+    "open_line": 2.5,
+    "open_over": 0.91,
+    "open_under": 0.8,
+    "close_line": 2.5,
+    "close_over": 0.85,
+    "close_under": 0.83
+   },
+   "澳彩": {
+    "open_line": 2.5,
+    "open_over": 0.96,
+    "open_under": 0.84,
+    "close_line": 2.5,
+    "close_over": 0.96,
+    "close_under": 0.84
+   },
+   "易胜博": {
+    "open_line": 2.5,
+    "open_over": 1.03,
+    "open_under": 0.85,
+    "close_line": 2.5,
+    "close_over": 0.98,
+    "close_under": 0.9
+   },
+   "盈禾": {
+    "open_line": 2.5,
+    "open_over": 0.99,
+    "open_under": 0.87,
+    "close_line": 2.5,
+    "close_over": 0.95,
+    "close_under": 0.93
+   },
+   "18Bet": {
+    "open_line": 2.5,
+    "open_over": 0.91,
+    "open_under": 0.85,
+    "close_line": 2.5,
+    "close_over": 0.92,
+    "close_under": 0.87
+   },
+   "威廉": {
+    "open_line": 2.5,
+    "open_over": 0.95,
+    "open_under": 0.8,
+    "close_line": 2.5,
+    "close_over": 0.91,
+    "close_under": 0.85
+   },
+   "伟德": {
+    "open_line": 2.5,
+    "open_over": 0.96,
+    "open_under": 0.92,
+    "close_line": 2.5,
+    "close_over": 0.91,
+    "close_under": 0.88
+   },
+   "利记": {
+    "open_line": 2.5,
+    "open_over": 0.98,
+    "open_under": 0.9,
+    "close_line": 2.5,
+    "close_over": 0.98,
+    "close_under": 0.9
+   },
+   "12bet": {
+    "open_line": 2.5,
+    "open_over": 0.98,
+    "open_under": 0.88,
+    "close_line": 2.5,
+    "close_over": 0.95,
+    "close_under": 0.93
+   },
+   "onex": {
+    "open_line": 2.5,
+    "open_over": 0.87,
+    "open_under": 1.07,
+    "close_line": 2.5,
+    "close_over": 0.99,
+    "close_under": 0.94
+   },
+   "平博": {
+    "open_line": 2.5,
+    "open_over": 0.96,
+    "open_under": 0.88,
+    "close_line": 2.5,
+    "close_over": 1.0,
+    "close_under": 0.89
+   },
+   "明陞": {
+    "open_line": 2.5,
+    "open_over": 0.89,
+    "open_under": 0.97,
+    "close_line": 2.5,
+    "close_over": 0.95,
+    "close_under": 0.93
+   }
+  },
+  "media": "外媒/预测观点（仅客观数字与事实，附来源与URL，已剔除操盘/资金流类解读）：[1] Forebet https://www.forebet.com/en/football/matches/sassuolo-genoa-2496598 — 1X2 概率 主37%/平24%/客39%，Genoa Win Probability 39%，正确比分 1-3 @4.38，模型主推 Over 2.5 goals，近6次交锋 Genoa 胜率67%。[2] BetProfessor http://betprofessor.co.za/blog/sassuolo-vs-genoa-2026-11-22-betprofessor-co-za.html — William Hill 赔率 Sassuolo 2.62 / Draw 3.30 / Genoa 2.50，主推 BTTS Yes @1.75、Over 2.5，开赛 2026-11-22 14:00 SAST。[3] WinOnBetOnline https://www.winonbetonline.com/football/matches/sassuolo-vs-genoa-158348/ — 主推 Double Chance X2 (Away or Draw) 90% confidence，Bet365 赔率 2.70/3.30/2.45，Over 2.5 @1.91。[4] Football Fanager https://footballfanager.com/sassuolo-vs-genoa-prediction-team-news-stats-1550206 — 平均赔率 主2.79/平3.36/客2.50，概率 主34%/平28%/客38%，Over 2.5 @1.94，BTTS Yes 1.69。[5] 球迷屋 https://www.qiumiwu.com/news/2047183168293 — 胜平负预测 萨索洛29.41%/平23.53%/热那亚47.06%。[6] sdxzai.com https://www.sdxzai.com/ — 周日009 模型比分 1-0(概率Top1)/2-1/1-1，胜2.45 平3.15 负2.42，客让1球。核对：竞彩网计算器页 https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark 列周日009 胜平负 2.45/3.15/2.42、让球+1 1.40/4.05/5.60，与纳米数据『竞彩赔率』段 2.45/3.15/2.42 一致；新浪澳盘 https://sports.sina.com.cn/l/2026-11-19/doc-inizfunc0446595.shtml 列 平手 2.02/1.82、胜2.58/平3.42/负2.32（周六 2.55/3.48/2.31）。ah 留空：竞彩让球 +1、sdxzai 标注『客让1球』，纳米数据亚盘盘口混用 0.0/0.25/-0.25/-0.5，主客让球方向不明确，按宁缺勿错不录。",
+  "ai_preds": [
+   {
+    "src": "Forebet (https://www.forebet.com/en/football/matches/sassuolo-genoa-2496598)",
+    "lean": "客队热那亚 / Over 2.5",
+    "read": "1X2 概率 主37%/平24%/客39%；Genoa Win Probability 39%；正确比分 1-3 @4.38；模型主推 Over 2.5 goals；近6次交锋 Genoa 胜率67%"
+   },
+   {
+    "src": "BetProfessor (http://betprofessor.co.za/blog/sassuolo-vs-genoa-2026-11-22-betprofessor-co-za.html)",
+    "lean": "BTTS Yes / Over 2.5",
+    "read": "William Hill 赔率 Sassuolo 2.62 / Draw 3.30 / Genoa 2.50；主推 BTTS Yes @1.75、Over 2.5；开赛 2026-11-22 14:00 SAST"
+   },
+   {
+    "src": "WinOnBetOnline (https://www.winonbetonline.com/football/matches/sassuolo-vs-genoa-158348/)",
+    "lean": "客队或平局 X2",
+    "read": "主推 Double Chance X2 (Away or Draw) 90% confidence；Bet365 2.70/3.30/2.45；Over 2.5 @1.91"
+   },
+   {
+    "src": "Football Fanager (https://footballfanager.com/sassuolo-vs-genoa-prediction-team-news-stats-1550206)",
+    "lean": "客队略占优（无明显热门）",
+    "read": "平均赔率 主2.79/平3.36/客2.50；概率 主34%/平28%/客38%；Over 2.5 @1.94；BTTS Yes 1.69"
+   },
+   {
+    "src": "球迷屋 qiumiwu.com (https://www.qiumiwu.com/news/2047183168293)",
+    "lean": "客胜/热那亚",
+    "read": "胜平负预测 萨索洛29.41% / 平23.53% / 热那亚47.06%"
+   },
+   {
+    "src": "sdxzai.com 足球赛事数据模型解读 (https://www.sdxzai.com/)",
+    "lean": "主胜（模型比分）",
+    "read": "模型比分 1-0(概率Top1)/2-1/1-1；胜2.45 平3.15 负2.42；客让1球"
+   }
+  ],
+  "sources": [
+   {
+    "name": "纳米数据「来自纳米数据的足球比赛预测分析结果」（WebSearch 结构化结果，结果未附 URL）",
+    "url": "",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "竞彩网 足球胜平负计算器",
+    "url": "https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "sdxzai.com 足球赛事数据模型解读",
+    "url": "https://www.sdxzai.com/",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "新浪体育 中国足球彩票胜负彩26168期澳盘最新赔率(11.21)",
+    "url": "https://sports.sina.com.cn/l/2026-11-19/doc-inizfunc0446595.shtml",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "新浪网/广东体彩 赛事提点",
+    "url": "https://k.sina.com.cn/article_7517400647_1c0126e4705909fc7c.html",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "球迷屋 意甲比赛前瞻 萨索洛vs热那亚",
+    "url": "https://www.qiumiwu.com/news/2047183168293",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "球迷屋 意甲 萨索洛vs热那亚预测分析",
+    "url": "https://www.qiumiwu.com/news/2047514489811",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "Forebet — Sassuolo vs Genoa Prediction",
+    "url": "https://www.forebet.com/en/football/matches/sassuolo-genoa-2496598",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "BetProfessor — Expert Tip: Sassuolo vs Genoa",
+    "url": "http://betprofessor.co.za/blog/sassuolo-vs-genoa-2026-11-22-betprofessor-co-za.html",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "WinOnBetOnline — Sassuolo vs Genoa",
+    "url": "https://www.winonbetonline.com/football/matches/sassuolo-vs-genoa-158348/",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "Football Fanager — Sassuolo vs Genoa prediction",
+    "url": "https://footballfanager.com/sassuolo-vs-genoa-prediction-team-news-stats-1550206",
+    "date": "2026-11-21"
+   }
+  ]
+ }
+}

@@ -1,0 +1,6217 @@
+{
+ "date_tag": "20261122",
+ "fetched_at": "2026-11-22 00:22",
+ "method": "公开联网检索（WebSearch / WebFetch）；500.com 直连仍返回 EdgeOne 验证页",
+ "sources": [
+  {
+   "name": "纳米数据 · 全场指数（搜索引擎结构化返回）",
+   "url": "未随搜索结果返回 URL",
+   "date": "2026-11-21",
+   "use": "18 家左右公司的欧赔/亚盘/大小 初盘→即时"
+  },
+  {
+   "name": "中国体彩网 竞彩胜平负计算器",
+   "url": "https://www.lottery.gov.cn/jc/jsq/zqspf/",
+   "date": "2026-11-21",
+   "use": "18 场官方胜平负与让球赔率；确认 003/006 胜平负未开售"
+  },
+  {
+   "name": "竞彩网 胜平负计算器",
+   "url": "https://www.sporttery.cn/jc/jsq/zqspf/",
+   "date": "2026-11-21",
+   "use": "后半批次官方赔率复核"
+  },
+  {
+   "name": "竞彩网 足球竞猜赛程",
+   "url": "http://lottery.gov.cn/football/match_list.jspx",
+   "date": "2026-11-21",
+   "use": "18 场对阵与开赛时间核对"
+  },
+  {
+   "name": "Kalshi 预测市场",
+   "url": "https://kalshi.com/markets/kxeplgame/liverpool-vs-manchester-united/kxeplgame-26nov22lfcmun",
+   "date": "2026-11-21",
+   "use": "90 分钟口径三项概率"
+  },
+  {
+   "name": "PickCenterPro AI 分析",
+   "url": "https://pickcenterpro.com/zh-tw/2026-138-5272-3",
+   "date": "2026-11-21",
+   "use": "三项概率与比分倾向（注明无可用赔率、市场权重 0.25）"
+  },
+  {
+   "name": "球迷屋 比赛前瞻",
+   "url": "https://www.qiumiwu.com/news/2047499393105",
+   "date": "2026-11-21",
+   "use": "胜平负预测概率"
+  },
+  {
+   "name": "sdxzai 足球赛事数据模型",
+   "url": "https://www.sdxzai.com/",
+   "date": "2026-11-21",
+   "use": "模型比分 Top3（机械推算，自述未结合临场信息）"
+  },
+  {
+   "name": "GiveMeSport 赛前数据",
+   "url": "https://www.givemesport.com/game/premier-league/liverpool-vs-manchester-united-20261122/",
+   "date": "2026-11-21",
+   "use": "赛季统计与伤停名单"
+  },
+  {
+   "name": "腾讯新闻 / 网易 / 新浪 / 有球说 赛前前瞻",
+   "url": "https://news.qq.com/rain/a/20261121A0C15Q00 ; https://www.163.com/dy/article/LC9VA8DK0556QLTA.html ; https://youqiushuo.com/fenxi/getafe-vs-atletico-madrid-2026-11-23",
+   "date": "2026-11-21",
+   "use": "交锋纪录、轮换与伤停事实（仅取事实，不取机构态度解读）"
+  }
+ ],
+ "coverage": {
+  "odds_matches": [
+   "001",
+   "002",
+   "003",
+   "004",
+   "005",
+   "006",
+   "007",
+   "008",
+   "009",
+   "010",
+   "011",
+   "012",
+   "013",
+   "014",
+   "015",
+   "016",
+   "017",
+   "018"
+  ],
+  "media_matches": [
+   "001",
+   "002",
+   "003",
+   "004",
+   "005",
+   "006",
+   "007",
+   "008",
+   "009",
+   "010",
+   "011",
+   "012",
+   "013",
+   "014",
+   "015",
+   "016",
+   "017",
+   "018"
+  ],
+  "odds_companies": {
+   "001": 16,
+   "002": 18,
+   "003": 17,
+   "004": 17,
+   "005": 19,
+   "006": 17,
+   "007": 17,
+   "008": 18,
+   "009": 18,
+   "010": 18,
+   "011": 17,
+   "012": 18,
+   "013": 17,
+   "014": 19,
+   "015": 18,
+   "016": 18,
+   "017": 17,
+   "018": 18
+  },
+  "note": "外围百家欧赔已覆盖 18/18 场（首批 6 场人工核录 + 第二批 12 场子任务核录）；003/006 竞彩官方胜平负未开售，外围欧赔仅作对照，不改市场基准"
+ },
+ "official_check": {
+  "012": "竞彩官方 1.60/4.10/3.70；外围聚合里的竞彩官方行一致",
+  "004": "竞彩官方 1.21/5.05/8.75；外围聚合里的竞彩官方行一致",
+  "003": "竞彩网计算器页：胜平负「未开售」，让球 -3；与项目 _intel_ 一致",
+  "006": "竞彩网计算器页：胜平负「未开售」，让球 -2；与项目 _intel_ 一致",
+  "016": "竞彩官方 4.55/4.35/1.45；外围聚合里的竞彩官方行一致",
+  "018": "竞彩官方 6.20/3.95/1.38；外围聚合里的竞彩官方行一致"
+ },
+ "official_check_part2": {
+  "007": "竞彩网计算器页官方胜平负 [4.26, 4.05, 1.52]",
+  "008": "竞彩网计算器页官方胜平负 [1.59, 3.45, 4.55]",
+  "009": "竞彩网计算器页官方胜平负 [2.45, 3.15, 2.42]",
+  "010": "竞彩网计算器页官方胜平负 [2.6, 3.65, 2.08]",
+  "011": "竞彩网计算器页官方胜平负 [2.95, 3.8, 1.86]",
+  "013": "竞彩网计算器页官方胜平负 [1.49, 4.1, 4.45]",
+  "014": "竞彩网计算器页官方胜平负 [1.41, 4.5, 4.8]",
+  "015": "竞彩网计算器页官方胜平负 [2.04, 3.8, 2.6]",
+  "017": "竞彩网计算器页官方胜平负 [1.29, 4.7, 6.6]",
+  "001": "竞彩网计算器页官方胜平负 [2.43, 3.05, 2.5]",
+  "002": "竞彩网计算器页官方胜平负 [2.12, 3.19, 2.82]",
+  "005": "竞彩网计算器页官方胜平负 [1.81, 3.4, 3.42]"
+ },
+ "sources_part2": [
+  {
+   "name": "纳米数据「来自纳米数据的足球比赛预测分析结果」（WebSearch 结构化结果，结果未附 URL）",
+   "url": "",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "竞彩网 足球胜平负计算器",
+   "url": "https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "sdxzai.com 足球赛事数据模型解读",
+   "url": "https://www.sdxzai.com/",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "球迷屋 荷甲比赛前瞻 鹿特丹斯巴达vs阿尔克马尔",
+   "url": "https://www.qiumiwu.com/news/2047178357858",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "球迷屋 荷甲预测分析 主场困局待解",
+   "url": "https://www.qiumiwu.com/news/2047511338172",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "新浪网/广东体彩 赛事提点",
+   "url": "https://k.sina.com.cn/article_7517400647_1c0126e4705909fc7c.html",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "500彩票网 2026/2027 荷甲赛程",
+   "url": "https://liansai.500.com/zuqiu-19878/",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "Sportsgambler — Sparta Rotterdam vs AZ Alkmaar Prediction",
+   "url": "https://www.sportsgambler.com/betting-tips/football/sparta-rotterdam-vs-az-alkmaar-prediction-lineups-odds-2026-11-22",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "APWin — Sparta Rotterdam vs AZ Alkmaar prediction",
+   "url": "https://www.apwin.com/predictions/sparta-rotterdam-vs-az-alkmaar-prediction-eredivisie-22-11-2026",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "FootballPredictions.com — Sparta Rotterdam vs AZ Prediction",
+   "url": "https://footballpredictions.com/footballpredictions/netherlands-eredivisie-predictions/sparta-rotterdam-vs-az-prediction-22-11-2026",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "Top Football Tipster — Sparta Rotterdam vs AZ Alkmaar Preview",
+   "url": "https://topfootballtipster.com/news/2026/11/16/sparta-rotterdam-vs-az-alkmaar-match-preview-2026",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "纳米数据「来自纳米数据的足球比赛预测分析结果」（WebSearch 结构化结果，结果未附 URL）",
+   "url": "",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "竞彩网 足球胜平负计算器",
+   "url": "https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "sdxzai.com 足球赛事数据模型解读",
+   "url": "https://www.sdxzai.com/",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "新浪体育 中国足球彩票胜负彩26168期澳盘最新赔率(11.21)",
+   "url": "https://sports.sina.com.cn/l/2026-11-19/doc-inizfunc0446595.shtml",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "新浪网/广东体彩 赛事提点",
+   "url": "https://k.sina.com.cn/article_7517400647_1c0126e4705909fc7c.html",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "FOX Sports — Bologna vs. Udinese: Nov 22, 2026",
+   "url": "https://www.foxsports.com/soccer/serie-a-bologna-vs-udinese-nov-22-2026-game-boxscore-869496",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "球迷屋 意甲 博洛尼亚vs乌迪内斯预测分析",
+   "url": "https://www.qiumiwu.com/news/2047513902992",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "复旦大学附属中山医院苏北医院（转载球迷屋预测）",
+   "url": "https://www.zssubeihospital.com/qmw-article-2047513902992.html",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "纳米数据「来自纳米数据的足球比赛预测分析结果」（WebSearch 结构化结果，结果未附 URL）",
+   "url": "",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "竞彩网 足球胜平负计算器",
+   "url": "https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "sdxzai.com 足球赛事数据模型解读",
+   "url": "https://www.sdxzai.com/",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "新浪体育 中国足球彩票胜负彩26168期澳盘最新赔率(11.21)",
+   "url": "https://sports.sina.com.cn/l/2026-11-19/doc-inizfunc0446595.shtml",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "新浪网/广东体彩 赛事提点",
+   "url": "https://k.sina.com.cn/article_7517400647_1c0126e4705909fc7c.html",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "球迷屋 意甲比赛前瞻 萨索洛vs热那亚",
+   "url": "https://www.qiumiwu.com/news/2047183168293",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "球迷屋 意甲 萨索洛vs热那亚预测分析",
+   "url": "https://www.qiumiwu.com/news/2047514489811",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "Forebet — Sassuolo vs Genoa Prediction",
+   "url": "https://www.forebet.com/en/football/matches/sassuolo-genoa-2496598",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "BetProfessor — Expert Tip: Sassuolo vs Genoa",
+   "url": "http://betprofessor.co.za/blog/sassuolo-vs-genoa-2026-11-22-betprofessor-co-za.html",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "WinOnBetOnline — Sassuolo vs Genoa",
+   "url": "https://www.winonbetonline.com/football/matches/sassuolo-vs-genoa-158348/",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "Football Fanager — Sassuolo vs Genoa prediction",
+   "url": "https://footballfanager.com/sassuolo-vs-genoa-prediction-team-news-stats-1550206",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "纳米数据·足球比赛预测分析结果(全场指数)",
+   "url": "",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "竞彩网 足球胜平负计算器",
+   "url": "https://www.sporttery.cn/jc/jsq/zqspf/?tt_prefers_color_scheme=light&theme=dark",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "中国体彩网 胜平负/让球",
+   "url": "https://www.lottery.gov.cn/jc/jsq/zqspf/?matchDate=20260816",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "足球赛事数据模型解读 sdxzai",
+   "url": "https://www.sdxzai.com/",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "球迷屋 比赛前瞻(胜平负预测)",
+   "url": "https://www.qiumiwu.com/news/2047190680414",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "球迷屋 前瞻(客场数据能否兑现)",
+   "url": "https://www.qiumiwu.com/news/2047517759241",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "球探体育 titan007 德甲赛程积分",
+   "url": "https://zq.titan007.com/cn/SubLeague/8.html",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "大数据预测中心 bdpredict 德甲第10周",
+   "url": "https://www.bdpredict.hk/content/202627DBLWEEK10",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "500彩票网 德甲赛程",
+   "url": "https://liansai.500.com/zuqiu-19951/",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "纳米数据·足球比赛预测分析结果(全场指数)",
+   "url": "",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "竞彩网 足球胜平负计算器",
+   "url": "https://www.sporttery.cn/jc/jsq/zqspf/?tt_prefers_color_scheme=light&theme=dark",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "中国体彩网 胜平负/让球",
+   "url": "https://www.lottery.gov.cn/jc/jsq/zqspf/?matchDate=20260816",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "Dimers La Liga 预测与赔率",
+   "url": "https://www.dimers.com/la-liga/predictions/2026_13_racs_rso",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "球迷屋 西甲前瞻",
+   "url": "https://www.qiumiwu.com/news/2047192205330",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "足球赛事数据模型解读 sdxzai",
+   "url": "https://www.sdxzai.com/",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "纳米数据·足球比赛预测分析结果(全场指数)",
+   "url": "",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "竞彩网 足球胜平负计算器",
+   "url": "https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "足球赛事数据模型解读 sdxzai",
+   "url": "https://www.sdxzai.com/",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "大数据预测中心 bdpredict 德甲第10周",
+   "url": "https://www.bdpredict.hk/content/202627DBLWEEK10",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "球探体育 titan007 德甲赛程积分",
+   "url": "https://zq.titan007.com/cn/SubLeague/8.html",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "500彩票网 德甲赛程",
+   "url": "https://liansai.500.com/zuqiu-19951/",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "纳米数据「来自纳米数据的足球比赛预测分析结果」（WebSearch 结构化结果，结果未附 URL）",
+   "url": "",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "竞彩网 足球胜平负计算器",
+   "url": "https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "BETXIO — AC Milan vs Frosinone Calcio prediction & analysis",
+   "url": "https://betxio.com/news/ac-milan-vs-frosinone-calcio-prediction-analysis-14mwqnhg31up",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "FootballPredictions — Milan vs Frosinone Prediction",
+   "url": "https://footballpredictions.com/footballpredictions/serieapredictions/milan-vs-frosinone-prediction-22-11-2026",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "SBOTOP — Serie A: High Flying Canaries Head to Milan",
+   "url": "https://blog.sbotop.com/football/serie-a/serie-a-high-flying-canaries-head-milan",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "TipsQuant — Serie A predictions",
+   "url": "https://tipsquant.com/serie-a-predictions",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "纳米数据「来自纳米数据的足球比赛预测分析结果」（WebSearch 结构化结果，结果未附 URL）",
+   "url": "",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "竞彩网 足球胜平负计算器",
+   "url": "https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "中国体彩网 足球半全场胜平负计算器",
+   "url": "https://www.lottery.gov.cn/jc/jsq/zqbqc/",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "懂球帝 — 萨普斯堡两将缺阵，主场迎战利勒斯特罗姆",
+   "url": "https://www.dongqiudi.com/articles/6676905.html",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "500彩票网 — 2026赛季挪超赛程",
+   "url": "https://liansai.500.com/zuqiu-19507/",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "FootyPulse — Sarpsborg 08 vs Lillestrom Prediction",
+   "url": "https://footypulse.org/matches/eliteserien/sarpsborg-08-vs-lillestr-m-2026-11-22",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "EagleEyeOdds — Sarpsborg FK vs Lillestrom prediction",
+   "url": "https://eagleeyeodds.com/predictions/sarpsborg-fk-vs-lillestrom-prediction-2026-11-22",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "Bet90 — Sarpsborg 08 vs Lillestrom preview",
+   "url": "https://bet90.com/football/preview/sarpsborg-08-vs-lillestrom/19629527",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "BananaGoal — Sarpsborg 08 FF AI predictions",
+   "url": "https://bananagoal.com/clubs/sarpsborg-333",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "纳米数据「来自纳米数据的足球比赛预测分析结果」（WebSearch 结构化结果，结果未附 URL）",
+   "url": "",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "竞彩网 足球胜平负计算器",
+   "url": "https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "中国体彩网 足球半全场胜平负计算器",
+   "url": "https://www.lottery.gov.cn/jc/jsq/zqbqc/",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "The GoalPost — Marseille vs Le Mans",
+   "url": "https://the-goalpost.com/matches/marseille-vs-le-mans-2026-11-22",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "sdxzai.com — 足球赛事数据模型解读",
+   "url": "https://www.sdxzai.com/",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "有球说 — 马赛 vs 勒芒 赛前分析与预测",
+   "url": "https://youqiushuo.com/fenxi/marseille-vs-le-mans-2026-11-23",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "纳米数据 · 全场指数",
+   "url": "未随搜索结果返回 URL",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "Clevertips 赛前分析（含主客分项）",
+   "url": "https://clevertips.co.ke/football-predictions/gimcheon-sangmu-fc-vs-jeju-united-fc-1647397-2026-11-22",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "BananaGoal K League 1 AI",
+   "url": "https://bananagoal.com/competitions/k-league-1-south-korea-292",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "sdxzai 足球赛事数据模型",
+   "url": "https://www.sdxzai.com/",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "纳米数据 · 全场指数",
+   "url": "未随搜索结果返回 URL",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "球迷屋 韩K联前瞻",
+   "url": "https://www.qiumiwu.com/news/2047488809958",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "Wincomparator 赛前统计",
+   "url": "https://www.wincomparator.com/pt/prognosticos/gwangju-fc-bucheon-fc-1995-8929561",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "BananaGoal K League 1 AI",
+   "url": "https://bananagoal.com/competitions/k-league-1-south-korea-292",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "纳米数据 · 全场指数",
+   "url": "未随搜索结果返回 URL",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "球迷屋 英冠前瞻",
+   "url": "https://www.qiumiwu.com/news/2047495535322",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "网易 伯恩利对布莱克本",
+   "url": "https://www.163.com/dy/article/LC9NMO600556QOO5.html",
+   "date": "2026-11-21"
+  },
+  {
+   "name": "网易 英冠前瞻",
+   "url": "https://www.163.com/dy/article/LC9NKTCI0556QOO5.html",
+   "date": "2026-11-21"
+  }
+ ],
+ "odds_part2": {
+  "007": {
+   "open": {
+    "10BET": [
+     4.3,
+     4.1,
+     1.64
+    ],
+    "12bet": [
+     3.85,
+     4.0,
+     1.75
+    ],
+    "利记": [
+     3.84,
+     3.86,
+     1.66
+    ],
+    "18Bet": [
+     4.3,
+     4.1,
+     1.64
+    ],
+    "澳彩": [
+     3.88,
+     4.25,
+     1.58
+    ],
+    "威廉": [
+     4.0,
+     3.9,
+     1.7
+    ],
+    "伟德": [
+     4.1,
+     4.2,
+     1.7
+    ],
+    "Interwetten": [
+     4.3,
+     4.1,
+     1.67
+    ],
+    "盈禾": [
+     3.93,
+     4.05,
+     1.62
+    ],
+    "Bet365": [
+     4.33,
+     4.1,
+     1.65
+    ],
+    "平博": [
+     4.07,
+     4.18,
+     1.73
+    ],
+    "皇冠": [
+     3.95,
+     4.45,
+     1.75
+    ],
+    "SNAI": [
+     3.75,
+     4.0,
+     1.72
+    ],
+    "易胜博": [
+     3.9,
+     4.0,
+     1.7
+    ],
+    "立博": [
+     3.9,
+     4.33,
+     1.73
+    ],
+    "明陞": [
+     3.85,
+     4.0,
+     1.75
+    ],
+    "onex": [
+     4.46,
+     4.26,
+     1.71
+    ]
+   },
+   "close": {
+    "10BET": [
+     4.0,
+     3.7,
+     1.76
+    ],
+    "12bet": [
+     3.75,
+     3.95,
+     1.78
+    ],
+    "利记": [
+     3.58,
+     3.66,
+     1.76
+    ],
+    "18Bet": [
+     4.2,
+     4.0,
+     1.74
+    ],
+    "澳彩": [
+     3.51,
+     3.88,
+     1.72
+    ],
+    "威廉": [
+     4.0,
+     3.9,
+     1.73
+    ],
+    "伟德": [
+     4.1,
+     4.2,
+     1.7
+    ],
+    "Interwetten": [
+     3.95,
+     4.0,
+     1.8
+    ],
+    "盈禾": [
+     3.84,
+     4.04,
+     1.76
+    ],
+    "Bet365": [
+     4.33,
+     4.0,
+     1.72
+    ],
+    "平博": [
+     4.18,
+     4.18,
+     1.79
+    ],
+    "皇冠": [
+     4.35,
+     3.55,
+     1.7
+    ],
+    "SNAI": [
+     3.75,
+     4.0,
+     1.72
+    ],
+    "易胜博": [
+     4.0,
+     3.8,
+     1.74
+    ],
+    "立博": [
+     4.0,
+     4.0,
+     1.75
+    ],
+    "明陞": [
+     3.75,
+     3.95,
+     1.78
+    ],
+    "onex": [
+     4.32,
+     4.32,
+     1.73
+    ]
+   },
+   "official_odds": [
+    4.26,
+    4.05,
+    1.52
+   ],
+   "ah": {},
+   "ou": {
+    "10BET": {
+     "open_line": 3.25,
+     "open_over": 0.8,
+     "open_under": 0.9,
+     "close_line": 3.25,
+     "close_over": 0.88,
+     "close_under": 0.86
+    },
+    "12bet": {
+     "open_line": 3.25,
+     "open_over": 0.93,
+     "open_under": 0.93,
+     "close_line": 3.25,
+     "close_over": 0.96,
+     "close_under": 0.91
+    },
+    "利记": {
+     "open_line": 3.25,
+     "open_over": 0.94,
+     "open_under": 0.92,
+     "close_line": 3.25,
+     "close_over": 0.96,
+     "close_under": 0.9
+    },
+    "18Bet": {
+     "open_line": 3.25,
+     "open_over": 0.83,
+     "open_under": 0.91,
+     "close_line": 3.25,
+     "close_over": 0.91,
+     "close_under": 0.87
+    },
+    "澳彩": {
+     "open_line": 3.25,
+     "open_over": 0.85,
+     "open_under": 0.87,
+     "close_line": 3.25,
+     "close_over": 0.87,
+     "close_under": 0.85
+    },
+    "威廉": {
+     "open_line": 3.5,
+     "open_over": 0.95,
+     "open_under": 0.8,
+     "close_line": 3.5,
+     "close_over": 1.05,
+     "close_under": 0.7
+    },
+    "伟德": {
+     "open_line": 3.25,
+     "open_over": 0.92,
+     "open_under": 0.93,
+     "close_line": 3.25,
+     "close_over": 0.9,
+     "close_under": 0.89
+    },
+    "Interwetten": {
+     "open_line": 3.5,
+     "open_over": 0.95,
+     "open_under": 0.75,
+     "close_line": 3.5,
+     "close_over": 1.05,
+     "close_under": 0.7
+    },
+    "盈禾": {
+     "open_line": 3.25,
+     "open_over": 0.87,
+     "open_under": 0.97,
+     "close_line": 3.25,
+     "close_over": 0.93,
+     "close_under": 0.95
+    },
+    "Bet365": {
+     "open_line": 3.25,
+     "open_over": 0.87,
+     "open_under": 0.92,
+     "close_line": 3.25,
+     "close_over": 0.9,
+     "close_under": 0.9
+    },
+    "平博": {
+     "open_line": 3.25,
+     "open_over": 0.88,
+     "open_under": 0.92,
+     "close_line": 3.25,
+     "close_over": 0.95,
+     "close_under": 0.92
+    },
+    "皇冠": {
+     "open_line": 3.25,
+     "open_over": 0.93,
+     "open_under": 0.93,
+     "close_line": 3.25,
+     "close_over": 0.97,
+     "close_under": 0.9
+    },
+    "易胜博": {
+     "open_line": 3.25,
+     "open_over": 0.94,
+     "open_under": 0.92,
+     "close_line": 3.25,
+     "close_over": 0.96,
+     "close_under": 0.9
+    },
+    "立博": {
+     "open_line": 2.5,
+     "open_over": 0.4,
+     "open_under": 1.7,
+     "close_line": 3.5,
+     "close_over": 1.05,
+     "close_under": 0.67
+    },
+    "明陞": {
+     "open_line": 3.25,
+     "open_over": 0.93,
+     "open_under": 0.93,
+     "close_line": 3.25,
+     "close_over": 0.96,
+     "close_under": 0.91
+    },
+    "onex": {
+     "open_line": 3.5,
+     "open_over": 1.07,
+     "open_under": 0.78,
+     "close_line": 3.5,
+     "close_over": 1.11,
+     "close_under": 0.75
+    }
+   },
+   "media": "外媒/预测观点（仅客观数字与事实，附来源与URL，已剔除『投注人气/竞猜形势/指数走高走低/博胆』类操盘与资金流解读）：[1] sdxzai.com 足球赛事数据模型解读 https://www.sdxzai.com/ — 周日007 模型比分 1-2(概率Top1)/0-1/0-2，胜4.26 平4.05 负1.52，让球 +1（客让1球），明示为基于公开赔率的机械推算。[2] 球迷屋 qiumiwu.com https://www.qiumiwu.com/news/2047178357858 — 胜平负预测 鹿特丹斯巴达22.22%/平44.44%/阿尔克马尔33.33%。[3] Sportsgambler https://www.sportsgambler.com/betting-tips/football/sparta-rotterdam-vs-az-alkmaar-prediction-lineups-odds-2026-11-22 — 主推 AZ Alkmaar to Win @1.71，博彩公司隐含概率58.5%、其tipster估65-70%，正确比分 Sparta 0-2 AZ @8.50，价格截至 Nov 21 03:58。[4] FootballPredictions.com https://footballpredictions.com/footballpredictions/netherlands-eredivisie-predictions/sparta-rotterdam-vs-az-prediction-22-11-2026 — 预测 Sparta Rotterdam 1-2 AZ，Asian Handicap AZ -0.5 @1.70，Over 2.5 @1.44，开赛 2026-11-22 21:30。[5] APWin https://www.apwin.com/predictions/sparta-rotterdam-vs-az-alkmaar-prediction-eredivisie-22-11-2026 — 主推 Under 3.5 Goals @1.73 (sportingbet)、Confidence 55%，AZ 胜概率54.35%，1x2 betfred 3.90/3.60/1.64。[6] Top Football Tipster https://topfootballtipster.com/news/2026/11/16/sparta-rotterdam-vs-az-alkmaar-match-preview-2026 — Best odds 主4.00/平4.20/客1.75，预测 1-2，主24%/平23%/客53%。核对：竞彩网计算器页 https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark 列周日007 胜平负 4.26/4.05/1.52、让球+1 2.10/3.75/2.52，与纳米数据『竞彩赔率』段 4.26/4.05/1.52 一致；500彩票网 https://liansai.500.com/zuqiu-19878/ 平均欧指 3.99/4.00/1.72。ox 采用定向检索『鹿特丹斯巴达 阿尔克马尔 全场指数』返回的纳米数据快照；另一条英文检索快照中 皇冠/盈禾/18Bet 的『当前』赔率有细微差异（实时变动），未混用。ah 留空：本场竞彩让球 +1、sdxzai 标注『客让1球』，纳米数据亚盘盘口为 -0.75/-1.0/-1.5 等（客队让球），与『负数=主让』约定相反，按宁缺勿错不录。",
+   "ai_preds": [
+    {
+     "src": "sdxzai.com 足球赛事数据模型解读 (https://www.sdxzai.com/)",
+     "lean": "客胜/阿尔克马尔",
+     "read": "模型比分 1-2(概率Top1)/0-1/0-2；胜4.26 平4.05 负1.52；让球+1 客让1球；明示为基于公开赔率的机械推算"
+    },
+    {
+     "src": "球迷屋 qiumiwu.com (https://www.qiumiwu.com/news/2047178357858)",
+     "lean": "平局概率最高",
+     "read": "胜平负预测 鹿特丹斯巴达22.22% / 平44.44% / 阿尔克马尔33.33%"
+    },
+    {
+     "src": "Sportsgambler (https://www.sportsgambler.com/betting-tips/football/sparta-rotterdam-vs-az-alkmaar-prediction-lineups-odds-2026-11-22)",
+     "lean": "AZ Alkmaar 客胜",
+     "read": "AZ to Win @1.71；博彩公司隐含概率58.5%、tipster估65-70%；正确比分 Sparta 0-2 AZ @8.50；价格截至 Nov 21 03:58"
+    },
+    {
+     "src": "FootballPredictions.com (https://footballpredictions.com/footballpredictions/netherlands-eredivisie-predictions/sparta-rotterdam-vs-az-prediction-22-11-2026)",
+     "lean": "客胜 / 1-2",
+     "read": "预测 Sparta Rotterdam 1-2 AZ；Asian Handicap AZ -0.5 @1.70；Over 2.5 @1.44；开赛 2026-11-22 21:30"
+    },
+    {
+     "src": "APWin (https://www.apwin.com/predictions/sparta-rotterdam-vs-az-alkmaar-prediction-eredivisie-22-11-2026)",
+     "lean": "Under 3.5 Goals / 客队热门",
+     "read": "主推 Under 3.5 Goals @1.73 (sportingbet)、Confidence 55%；AZ 胜概率54.35%；1x2 betfred 3.90/3.60/1.64"
+    },
+    {
+     "src": "Top Football Tipster (https://topfootballtipster.com/news/2026/11/16/sparta-rotterdam-vs-az-alkmaar-match-preview-2026)",
+     "lean": "AZ Alkmaar 客胜",
+     "read": "Best odds 主4.00/平4.20/客1.75；预测 1-2；主24%/平23%/客53%"
+    }
+   ]
+  },
+  "008": {
+   "open": {
+    "onex": [
+     1.8,
+     3.81,
+     5.03
+    ],
+    "皇冠": [
+     1.78,
+     3.95,
+     4.45
+    ],
+    "澳彩": [
+     1.6,
+     3.8,
+     4.5
+    ],
+    "竞彩官方": [
+     1.56,
+     3.5,
+     4.7
+    ],
+    "Bet365": [
+     1.7,
+     3.6,
+     4.75
+    ],
+    "立博": [
+     1.73,
+     3.75,
+     4.6
+    ],
+    "伟德": [
+     1.7,
+     3.7,
+     4.6
+    ],
+    "Interwetten": [
+     1.77,
+     3.7,
+     4.7
+    ],
+    "平博": [
+     1.76,
+     3.71,
+     4.69
+    ],
+    "明陞": [
+     1.77,
+     3.55,
+     4.3
+    ],
+    "威廉": [
+     1.73,
+     3.5,
+     4.75
+    ],
+    "12bet": [
+     1.77,
+     3.6,
+     4.2
+    ],
+    "18Bet": [
+     1.74,
+     3.6,
+     4.5
+    ],
+    "10BET": [
+     1.73,
+     3.35,
+     4.3
+    ],
+    "SNAI": [
+     1.75,
+     3.6,
+     4.5
+    ],
+    "易胜博": [
+     1.73,
+     3.5,
+     4.6
+    ],
+    "利记": [
+     1.71,
+     3.48,
+     4.32
+    ],
+    "盈禾": [
+     1.78,
+     3.81,
+     4.49
+    ]
+   },
+   "close": {
+    "onex": [
+     1.75,
+     4.03,
+     5.09
+    ],
+    "皇冠": [
+     1.72,
+     3.85,
+     5.0
+    ],
+    "澳彩": [
+     1.58,
+     3.81,
+     4.55
+    ],
+    "竞彩官方": [
+     1.56,
+     3.5,
+     4.7
+    ],
+    "Bet365": [
+     1.7,
+     3.75,
+     5.0
+    ],
+    "立博": [
+     1.7,
+     3.8,
+     4.6
+    ],
+    "伟德": [
+     1.66,
+     3.7,
+     4.75
+    ],
+    "Interwetten": [
+     1.73,
+     3.75,
+     4.7
+    ],
+    "平博": [
+     1.75,
+     3.87,
+     4.95
+    ],
+    "明陞": [
+     1.74,
+     3.7,
+     4.25
+    ],
+    "威廉": [
+     1.7,
+     3.7,
+     4.6
+    ],
+    "12bet": [
+     1.74,
+     3.7,
+     4.25
+    ],
+    "18Bet": [
+     1.72,
+     3.7,
+     4.8
+    ],
+    "10BET": [
+     1.74,
+     3.45,
+     4.6
+    ],
+    "SNAI": [
+     1.7,
+     3.75,
+     4.75
+    ],
+    "易胜博": [
+     1.72,
+     3.6,
+     4.7
+    ],
+    "利记": [
+     1.73,
+     3.45,
+     4.3
+    ],
+    "盈禾": [
+     1.73,
+     3.88,
+     4.68
+    ]
+   },
+   "official_odds": [
+    1.59,
+    3.45,
+    4.55
+   ],
+   "ah": {},
+   "ou": {
+    "onex": {
+     "open_line": 2.5,
+     "open_over": 0.87,
+     "open_under": 1.07,
+     "close_line": 2.5,
+     "close_over": 0.97,
+     "close_under": 0.96
+    },
+    "皇冠": {
+     "open_line": 2.5,
+     "open_over": 0.96,
+     "open_under": 0.92,
+     "close_line": 2.5,
+     "close_over": 0.92,
+     "close_under": 0.96
+    },
+    "澳彩": {
+     "open_line": 2.5,
+     "open_over": 0.92,
+     "open_under": 0.88,
+     "close_line": 2.5,
+     "close_over": 0.92,
+     "close_under": 0.88
+    },
+    "Bet365": {
+     "open_line": 2.5,
+     "open_over": 0.82,
+     "open_under": 1.02,
+     "close_line": 2.5,
+     "close_over": 0.87,
+     "close_under": 0.97
+    },
+    "立博": {
+     "open_line": 2.5,
+     "open_over": 0.85,
+     "open_under": 0.85,
+     "close_line": 2.5,
+     "close_over": 0.83,
+     "close_under": 0.85
+    },
+    "伟德": {
+     "open_line": 2.5,
+     "open_over": 0.95,
+     "open_under": 0.93,
+     "close_line": 2.5,
+     "close_over": 0.89,
+     "close_under": 0.9
+    },
+    "Interwetten": {
+     "open_line": 2.5,
+     "open_over": 0.9,
+     "open_under": 0.85,
+     "close_line": 2.5,
+     "close_over": 0.9,
+     "close_under": 0.9
+    },
+    "平博": {
+     "open_line": 2.5,
+     "open_over": 0.93,
+     "open_under": 0.9,
+     "close_line": 2.5,
+     "close_over": 0.92,
+     "close_under": 0.97
+    },
+    "明陞": {
+     "open_line": 2.5,
+     "open_over": 0.96,
+     "open_under": 0.9,
+     "close_line": 2.5,
+     "close_over": 0.89,
+     "close_under": 0.99
+    },
+    "威廉": {
+     "open_line": 2.5,
+     "open_over": 0.91,
+     "open_under": 0.85,
+     "close_line": 2.5,
+     "close_over": 0.85,
+     "close_under": 0.91
+    },
+    "12bet": {
+     "open_line": 2.5,
+     "open_over": 0.96,
+     "open_under": 0.9,
+     "close_line": 2.5,
+     "close_over": 0.89,
+     "close_under": 0.99
+    },
+    "18Bet": {
+     "open_line": 2.5,
+     "open_over": 0.9,
+     "open_under": 0.87,
+     "close_line": 2.5,
+     "close_over": 0.87,
+     "close_under": 0.92
+    },
+    "10BET": {
+     "open_line": 2.5,
+     "open_over": 0.89,
+     "open_under": 0.85,
+     "close_line": 2.5,
+     "close_over": 0.89,
+     "close_under": 0.91
+    },
+    "易胜博": {
+     "open_line": 2.5,
+     "open_over": 0.98,
+     "open_under": 0.9,
+     "close_line": 2.5,
+     "close_over": 0.93,
+     "close_under": 0.95
+    },
+    "利记": {
+     "open_line": 2.5,
+     "open_over": 1.0,
+     "open_under": 0.88,
+     "close_line": 2.5,
+     "close_over": 0.93,
+     "close_under": 0.95
+    },
+    "盈禾": {
+     "open_line": 2.5,
+     "open_over": 0.96,
+     "open_under": 0.9,
+     "close_line": 2.5,
+     "close_over": 0.9,
+     "close_under": 0.98
+    }
+   },
+   "media": "外媒/预测观点（仅客观数字与事实，附来源与URL，已剔除操盘/资金流类解读）：[1] FOX Sports https://www.foxsports.com/soccer/serie-a-bologna-vs-udinese-nov-22-2026-game-boxscore-869496 — 标题『A mismatch in Renato Dall'Ara as Bologna hosts Udinese』；Moneyline BGN -141 / UDN +374；Over/Under 2.5（Over -112 / Under -115）；Nov 22 10:00 PM。[2] 新浪体育 胜负彩26168期澳盘(11.21) https://sports.sina.com.cn/l/2026-11-19/doc-inizfunc0446595.shtml — 博洛尼亚 vs 乌迪内斯 半球/一球，胜1.60/平3.80/负4.50（周六 1.58/3.81/4.55）。[3] 球迷屋/复旦大学附属中山医院苏北医院转载 https://www.zssubeihospital.com/qmw-article-2047513902992.html — 胜平负预测 博洛尼亚52.70%/平25.68%/乌迪内斯21.62%。[4] sdxzai.com 足球赛事数据模型解读 https://www.sdxzai.com/ — 周日008 模型比分 2-1(概率Top1)/1-0/2-0，胜1.59 平3.45 负4.55，主让1球。核对：竞彩网计算器页 https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark 列周日008 胜平负 1.59/3.45/4.55、让球-1 2.97/3.30/2.00，与 sdxzai 一致；纳米数据『竞彩赔率』段为 1.56/3.50/4.70、让球-1 2.91/3.30/2.03，两者不一致，official_odds 按竞彩网计算器页填，纳米数据『竞彩官方』公司行仍按 1.56/3.50/4.70 抄入 ox（与本批次 web_part_C.json 处理一致）。ah 留空：虽多来源显示主队让球，但纳米数据亚盘盘口为正数且『上盘/下盘』未明确主客指向，按宁缺勿错不录。",
+   "ai_preds": [
+    {
+     "src": "FOX Sports (https://www.foxsports.com/soccer/serie-a-bologna-vs-udinese-nov-22-2026-game-boxscore-869496)",
+     "lean": "主队博洛尼亚热门",
+     "read": "标题称 A mismatch in Renato Dall'Ara；Moneyline BGN -141 / UDN +374；O/U 2.5（Over -112 / Under -115）；Nov 22 10:00 PM"
+    },
+    {
+     "src": "新浪体育 胜负彩26168期澳盘 (https://sports.sina.com.cn/l/2026-11-19/doc-inizfunc0446595.shtml)",
+     "lean": "澳盘主队让半球/一球",
+     "read": "博洛尼亚 vs 乌迪内斯 半球/一球，胜1.60/平3.80/负4.50（周六 1.58/3.81/4.55）"
+    },
+    {
+     "src": "球迷屋 qiumiwu.com (https://www.zssubeihospital.com/qmw-article-2047513902992.html)",
+     "lean": "主胜",
+     "read": "胜平负预测 博洛尼亚52.70% / 平25.68% / 乌迪内斯21.62%"
+    },
+    {
+     "src": "sdxzai.com 足球赛事数据模型解读 (https://www.sdxzai.com/)",
+     "lean": "主胜",
+     "read": "模型比分 2-1(概率Top1)/1-0/2-0；胜1.59 平3.45 负4.55；主让1球"
+    }
+   ]
+  },
+  "009": {
+   "open": {
+    "Interwetten": [
+     2.45,
+     3.35,
+     2.9
+    ],
+    "Bet365": [
+     2.45,
+     3.3,
+     2.75
+    ],
+    "皇冠": [
+     2.41,
+     3.5,
+     2.92
+    ],
+    "10BET": [
+     2.39,
+     3.3,
+     2.9
+    ],
+    "立博": [
+     2.37,
+     3.4,
+     2.87
+    ],
+    "澳彩": [
+     2.58,
+     3.42,
+     2.32
+    ],
+    "易胜博": [
+     2.9,
+     3.3,
+     2.36
+    ],
+    "马会": [
+     2.58,
+     3.2,
+     2.31
+    ],
+    "盈禾": [
+     2.36,
+     3.58,
+     2.91
+    ],
+    "18Bet": [
+     2.35,
+     3.4,
+     2.85
+    ],
+    "威廉": [
+     2.3,
+     3.25,
+     2.9
+    ],
+    "伟德": [
+     2.38,
+     3.3,
+     2.88
+    ],
+    "利记": [
+     2.35,
+     3.16,
+     2.77
+    ],
+    "SNAI": [
+     2.35,
+     3.25,
+     2.9
+    ],
+    "12bet": [
+     2.36,
+     3.25,
+     2.87
+    ],
+    "onex": [
+     2.6,
+     3.48,
+     2.9
+    ],
+    "平博": [
+     2.41,
+     3.43,
+     2.93
+    ],
+    "明陞": [
+     2.35,
+     3.3,
+     2.85
+    ]
+   },
+   "close": {
+    "Interwetten": [
+     2.65,
+     3.35,
+     2.65
+    ],
+    "Bet365": [
+     2.6,
+     3.3,
+     2.6
+    ],
+    "皇冠": [
+     2.72,
+     3.3,
+     2.61
+    ],
+    "10BET": [
+     2.65,
+     3.1,
+     2.65
+    ],
+    "立博": [
+     2.6,
+     3.3,
+     2.62
+    ],
+    "澳彩": [
+     2.48,
+     3.48,
+     2.38
+    ],
+    "易胜博": [
+     2.6,
+     3.2,
+     2.6
+    ],
+    "马会": [
+     2.55,
+     3.2,
+     2.34
+    ],
+    "盈禾": [
+     2.56,
+     3.51,
+     2.62
+    ],
+    "18Bet": [
+     2.65,
+     3.3,
+     2.6
+    ],
+    "威廉": [
+     2.6,
+     3.3,
+     2.6
+    ],
+    "伟德": [
+     2.6,
+     3.3,
+     2.6
+    ],
+    "利记": [
+     2.52,
+     3.16,
+     2.57
+    ],
+    "SNAI": [
+     2.8,
+     3.25,
+     2.5
+    ],
+    "12bet": [
+     2.57,
+     3.25,
+     2.6
+    ],
+    "onex": [
+     2.75,
+     3.58,
+     2.67
+    ],
+    "平博": [
+     2.7,
+     3.39,
+     2.74
+    ],
+    "明陞": [
+     2.57,
+     3.25,
+     2.6
+    ]
+   },
+   "official_odds": [
+    2.45,
+    3.15,
+    2.42
+   ],
+   "ah": {},
+   "ou": {
+    "Interwetten": {
+     "open_line": 2.5,
+     "open_over": 0.85,
+     "open_under": 0.9,
+     "close_line": 2.5,
+     "close_over": 0.9,
+     "close_under": 0.9
+    },
+    "Bet365": {
+     "open_line": 2.5,
+     "open_over": 0.85,
+     "open_under": 1.0,
+     "close_line": 2.5,
+     "close_over": 0.95,
+     "close_under": 0.9
+    },
+    "皇冠": {
+     "open_line": 2.5,
+     "open_over": 1.0,
+     "open_under": 0.88,
+     "close_line": 2.5,
+     "close_over": 0.96,
+     "close_under": 0.92
+    },
+    "10BET": {
+     "open_line": 2.5,
+     "open_over": 0.87,
+     "open_under": 0.87,
+     "close_line": 2.5,
+     "close_over": 0.9,
+     "close_under": 0.91
+    },
+    "立博": {
+     "open_line": 2.5,
+     "open_over": 0.91,
+     "open_under": 0.8,
+     "close_line": 2.5,
+     "close_over": 0.85,
+     "close_under": 0.83
+    },
+    "澳彩": {
+     "open_line": 2.5,
+     "open_over": 0.96,
+     "open_under": 0.84,
+     "close_line": 2.5,
+     "close_over": 0.96,
+     "close_under": 0.84
+    },
+    "易胜博": {
+     "open_line": 2.5,
+     "open_over": 1.03,
+     "open_under": 0.85,
+     "close_line": 2.5,
+     "close_over": 0.98,
+     "close_under": 0.9
+    },
+    "盈禾": {
+     "open_line": 2.5,
+     "open_over": 0.99,
+     "open_under": 0.87,
+     "close_line": 2.5,
+     "close_over": 0.95,
+     "close_under": 0.93
+    },
+    "18Bet": {
+     "open_line": 2.5,
+     "open_over": 0.91,
+     "open_under": 0.85,
+     "close_line": 2.5,
+     "close_over": 0.92,
+     "close_under": 0.87
+    },
+    "威廉": {
+     "open_line": 2.5,
+     "open_over": 0.95,
+     "open_under": 0.8,
+     "close_line": 2.5,
+     "close_over": 0.91,
+     "close_under": 0.85
+    },
+    "伟德": {
+     "open_line": 2.5,
+     "open_over": 0.96,
+     "open_under": 0.92,
+     "close_line": 2.5,
+     "close_over": 0.91,
+     "close_under": 0.88
+    },
+    "利记": {
+     "open_line": 2.5,
+     "open_over": 0.98,
+     "open_under": 0.9,
+     "close_line": 2.5,
+     "close_over": 0.98,
+     "close_under": 0.9
+    },
+    "12bet": {
+     "open_line": 2.5,
+     "open_over": 0.98,
+     "open_under": 0.88,
+     "close_line": 2.5,
+     "close_over": 0.95,
+     "close_under": 0.93
+    },
+    "onex": {
+     "open_line": 2.5,
+     "open_over": 0.87,
+     "open_under": 1.07,
+     "close_line": 2.5,
+     "close_over": 0.99,
+     "close_under": 0.94
+    },
+    "平博": {
+     "open_line": 2.5,
+     "open_over": 0.96,
+     "open_under": 0.88,
+     "close_line": 2.5,
+     "close_over": 1.0,
+     "close_under": 0.89
+    },
+    "明陞": {
+     "open_line": 2.5,
+     "open_over": 0.89,
+     "open_under": 0.97,
+     "close_line": 2.5,
+     "close_over": 0.95,
+     "close_under": 0.93
+    }
+   },
+   "media": "外媒/预测观点（仅客观数字与事实，附来源与URL，已剔除操盘/资金流类解读）：[1] Forebet https://www.forebet.com/en/football/matches/sassuolo-genoa-2496598 — 1X2 概率 主37%/平24%/客39%，Genoa Win Probability 39%，正确比分 1-3 @4.38，模型主推 Over 2.5 goals，近6次交锋 Genoa 胜率67%。[2] BetProfessor http://betprofessor.co.za/blog/sassuolo-vs-genoa-2026-11-22-betprofessor-co-za.html — William Hill 赔率 Sassuolo 2.62 / Draw 3.30 / Genoa 2.50，主推 BTTS Yes @1.75、Over 2.5，开赛 2026-11-22 14:00 SAST。[3] WinOnBetOnline https://www.winonbetonline.com/football/matches/sassuolo-vs-genoa-158348/ — 主推 Double Chance X2 (Away or Draw) 90% confidence，Bet365 赔率 2.70/3.30/2.45，Over 2.5 @1.91。[4] Football Fanager https://footballfanager.com/sassuolo-vs-genoa-prediction-team-news-stats-1550206 — 平均赔率 主2.79/平3.36/客2.50，概率 主34%/平28%/客38%，Over 2.5 @1.94，BTTS Yes 1.69。[5] 球迷屋 https://www.qiumiwu.com/news/2047183168293 — 胜平负预测 萨索洛29.41%/平23.53%/热那亚47.06%。[6] sdxzai.com https://www.sdxzai.com/ — 周日009 模型比分 1-0(概率Top1)/2-1/1-1，胜2.45 平3.15 负2.42，客让1球。核对：竞彩网计算器页 https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark 列周日009 胜平负 2.45/3.15/2.42、让球+1 1.40/4.05/5.60，与纳米数据『竞彩赔率』段 2.45/3.15/2.42 一致；新浪澳盘 https://sports.sina.com.cn/l/2026-11-19/doc-inizfunc0446595.shtml 列 平手 2.02/1.82、胜2.58/平3.42/负2.32（周六 2.55/3.48/2.31）。ah 留空：竞彩让球 +1、sdxzai 标注『客让1球』，纳米数据亚盘盘口混用 0.0/0.25/-0.25/-0.5，主客让球方向不明确，按宁缺勿错不录。",
+   "ai_preds": [
+    {
+     "src": "Forebet (https://www.forebet.com/en/football/matches/sassuolo-genoa-2496598)",
+     "lean": "客队热那亚 / Over 2.5",
+     "read": "1X2 概率 主37%/平24%/客39%；Genoa Win Probability 39%；正确比分 1-3 @4.38；模型主推 Over 2.5 goals；近6次交锋 Genoa 胜率67%"
+    },
+    {
+     "src": "BetProfessor (http://betprofessor.co.za/blog/sassuolo-vs-genoa-2026-11-22-betprofessor-co-za.html)",
+     "lean": "BTTS Yes / Over 2.5",
+     "read": "William Hill 赔率 Sassuolo 2.62 / Draw 3.30 / Genoa 2.50；主推 BTTS Yes @1.75、Over 2.5；开赛 2026-11-22 14:00 SAST"
+    },
+    {
+     "src": "WinOnBetOnline (https://www.winonbetonline.com/football/matches/sassuolo-vs-genoa-158348/)",
+     "lean": "客队或平局 X2",
+     "read": "主推 Double Chance X2 (Away or Draw) 90% confidence；Bet365 2.70/3.30/2.45；Over 2.5 @1.91"
+    },
+    {
+     "src": "Football Fanager (https://footballfanager.com/sassuolo-vs-genoa-prediction-team-news-stats-1550206)",
+     "lean": "客队略占优（无明显热门）",
+     "read": "平均赔率 主2.79/平3.36/客2.50；概率 主34%/平28%/客38%；Over 2.5 @1.94；BTTS Yes 1.69"
+    },
+    {
+     "src": "球迷屋 qiumiwu.com (https://www.qiumiwu.com/news/2047183168293)",
+     "lean": "客胜/热那亚",
+     "read": "胜平负预测 萨索洛29.41% / 平23.53% / 热那亚47.06%"
+    },
+    {
+     "src": "sdxzai.com 足球赛事数据模型解读 (https://www.sdxzai.com/)",
+     "lean": "主胜（模型比分）",
+     "read": "模型比分 1-0(概率Top1)/2-1/1-1；胜2.45 平3.15 负2.42；客让1球"
+    }
+   ]
+  },
+  "010": {
+   "open": {
+    "SNAI": [
+     2.6,
+     3.75,
+     2.3
+    ],
+    "Bet365": [
+     2.5,
+     3.8,
+     2.45
+    ],
+    "onex": [
+     2.61,
+     3.99,
+     2.61
+    ],
+    "澳彩": [
+     2.48,
+     3.95,
+     2.18
+    ],
+    "威廉": [
+     2.63,
+     3.8,
+     2.3
+    ],
+    "Interwetten": [
+     2.65,
+     3.85,
+     2.4
+    ],
+    "皇冠": [
+     2.7,
+     4.0,
+     2.36
+    ],
+    "10BET": [
+     2.6,
+     3.8,
+     2.36
+    ],
+    "易胜博": [
+     2.6,
+     3.7,
+     2.31
+    ],
+    "12bet": [
+     2.59,
+     3.75,
+     2.33
+    ],
+    "利记": [
+     2.52,
+     3.58,
+     2.35
+    ],
+    "18Bet": [
+     2.65,
+     3.8,
+     2.35
+    ],
+    "立博": [
+     2.6,
+     3.8,
+     2.37
+    ],
+    "明陞": [
+     2.6,
+     3.75,
+     2.24
+    ],
+    "伟德": [
+     2.6,
+     3.7,
+     2.25
+    ],
+    "马会": [
+     2.47,
+     3.65,
+     2.2
+    ],
+    "盈禾": [
+     2.65,
+     4.05,
+     2.31
+    ],
+    "平博": [
+     2.73,
+     3.85,
+     2.38
+    ]
+   },
+   "close": {
+    "SNAI": [
+     2.6,
+     3.75,
+     2.35
+    ],
+    "Bet365": [
+     2.62,
+     3.8,
+     2.45
+    ],
+    "onex": [
+     2.67,
+     4.16,
+     2.49
+    ],
+    "澳彩": [
+     2.45,
+     4.05,
+     2.2
+    ],
+    "威廉": [
+     2.5,
+     3.75,
+     2.3
+    ],
+    "Interwetten": [
+     2.65,
+     3.85,
+     2.45
+    ],
+    "皇冠": [
+     2.65,
+     4.05,
+     2.36
+    ],
+    "10BET": [
+     2.6,
+     3.55,
+     2.41
+    ],
+    "易胜博": [
+     2.6,
+     3.7,
+     2.38
+    ],
+    "12bet": [
+     2.52,
+     3.8,
+     2.38
+    ],
+    "利记": [
+     2.54,
+     3.64,
+     2.31
+    ],
+    "18Bet": [
+     2.65,
+     3.9,
+     2.4
+    ],
+    "立博": [
+     2.5,
+     3.9,
+     2.45
+    ],
+    "明陞": [
+     2.52,
+     3.8,
+     2.38
+    ],
+    "伟德": [
+     2.5,
+     3.75,
+     2.3
+    ],
+    "马会": [
+     2.47,
+     3.65,
+     2.2
+    ],
+    "盈禾": [
+     2.61,
+     4.12,
+     2.35
+    ],
+    "平博": [
+     2.68,
+     4.0,
+     2.45
+    ]
+   },
+   "official_odds": [
+    2.6,
+    3.65,
+    2.08
+   ],
+   "ah": {},
+   "ou": {
+    "Bet365": {
+     "open_line": 3.25,
+     "open_over": 0.9,
+     "open_under": 0.95,
+     "close_line": 3.25,
+     "close_over": 0.82,
+     "close_under": 1.02
+    },
+    "onex": {
+     "open_line": 3.5,
+     "open_over": 1.16,
+     "open_under": 0.8,
+     "close_line": 3.5,
+     "close_over": 1.09,
+     "close_under": 0.85
+    },
+    "澳彩": {
+     "open_line": 3.25,
+     "open_over": 0.92,
+     "open_under": 0.88,
+     "close_line": 3.25,
+     "close_over": 0.82,
+     "close_under": 0.98
+    },
+    "威廉": {
+     "open_line": 3.5,
+     "open_over": 1.1,
+     "open_under": 0.7,
+     "close_line": 3.5,
+     "close_over": 1.0,
+     "close_under": 0.75
+    },
+    "Interwetten": {
+     "open_line": 3.5,
+     "open_over": 1.05,
+     "open_under": 0.73,
+     "close_line": 3.5,
+     "close_over": 1.0,
+     "close_under": 0.77
+    },
+    "皇冠": {
+     "open_line": 3.25,
+     "open_over": 0.95,
+     "open_under": 0.93,
+     "close_line": 3.25,
+     "close_over": 0.84,
+     "close_under": 1.04
+    },
+    "10BET": {
+     "open_line": 3.25,
+     "open_over": 0.86,
+     "open_under": 0.87,
+     "close_line": 3.25,
+     "close_over": 0.84,
+     "close_under": 0.98
+    },
+    "易胜博": {
+     "open_line": 3.25,
+     "open_over": 0.93,
+     "open_under": 0.95,
+     "close_line": 3.25,
+     "close_over": 0.88,
+     "close_under": 1.0
+    },
+    "12bet": {
+     "open_line": 3.25,
+     "open_over": 0.93,
+     "open_under": 0.93,
+     "close_line": 3.25,
+     "close_over": 0.86,
+     "close_under": 1.02
+    },
+    "利记": {
+     "open_line": 3.25,
+     "open_over": 0.97,
+     "open_under": 0.91,
+     "close_line": 3.25,
+     "close_over": 0.88,
+     "close_under": 1.0
+    },
+    "18Bet": {
+     "open_line": 3.25,
+     "open_over": 0.87,
+     "open_under": 0.89,
+     "close_line": 3.25,
+     "close_over": 0.8,
+     "close_under": 0.99
+    },
+    "立博": {
+     "open_line": 2.5,
+     "open_over": 0.4,
+     "open_under": 1.62,
+     "close_line": 2.5,
+     "close_over": 0.4,
+     "close_under": 1.7
+    },
+    "明陞": {
+     "open_line": 3.25,
+     "open_over": 0.92,
+     "open_under": 0.94,
+     "close_line": 3.25,
+     "close_over": 0.86,
+     "close_under": 1.02
+    },
+    "伟德": {
+     "open_line": 3.25,
+     "open_over": 0.91,
+     "open_under": 0.9,
+     "close_line": 3.25,
+     "close_over": 0.83,
+     "close_under": 0.97
+    },
+    "盈禾": {
+     "open_line": 3.25,
+     "open_over": 0.95,
+     "open_under": 0.91,
+     "close_line": 3.25,
+     "close_over": 0.85,
+     "close_under": 1.03
+    },
+    "平博": {
+     "open_line": 3.25,
+     "open_over": 0.9,
+     "open_under": 0.93,
+     "close_line": 3.25,
+     "close_over": 0.85,
+     "close_under": 1.04
+    }
+   },
+   "media": "核对：纳米数据标注德甲2026-2027第10轮、奥格斯堡vs美因茨、2026-11-22 22:30、未开赛，与竞彩周日010一致；竞彩网与中国体彩网计算器页均列官方胜平负2.60/3.65/2.08、让球+1。球探体育titan007赛程列本场平手盘(1.06/0.82)，500彩票网列平均欧指2.63/3.83/2.34。球迷屋前瞻客观数据：9轮奥格斯堡2胜3平4负积9分第15(进20失20)、美因茨3胜1平5负积10分第12(进18失19)；美因茨客场3胜0平1负进11失7列客场第2、近6次交锋4胜1平1负；奥格斯堡后防马桑戈/马齐马/布拉克尔曼/班克斯/穆尼耶伤缺，美因茨海达拉停赛、科尔/赛拉斯伤缺。预测观点：球迷屋胜平负预测0.00%/50.00%/50.00%(平或客胜)，sdxzai数据模型比分0-1/1-2/1-1(0-1概率Top1)，bdpredict大数据主胜29.3%/客胜48.2%。来源URL：竞彩网 https://www.sporttery.cn/jc/jsq/zqspf/?tt_prefers_color_scheme=light&theme=dark ；中国体彩网 https://www.lottery.gov.cn/jc/jsq/zqspf/?matchDate=20260816 ；sdxzai https://www.sdxzai.com/ ；球迷屋 https://www.qiumiwu.com/news/2047190680414 与 https://www.qiumiwu.com/news/2047517759241 ；bdpredict https://www.bdpredict.hk/content/202627DBLWEEK10 ；titan007 https://zq.titan007.com/cn/SubLeague/8.html ；500彩票网 https://liansai.500.com/zuqiu-19951/ ；纳米数据全场指数搜索结果未提供URL。",
+   "ai_preds": [
+    {
+     "src": "球迷屋·胜平负预测",
+     "lean": "平局/美因茨胜(主胜0%)",
+     "read": "奥格斯堡0.00% / 平50.00% / 美因茨50.00%"
+    },
+    {
+     "src": "sdxzai·足球赛事数据模型",
+     "lean": "客队美因茨小幅占优",
+     "read": "模型比分0-1/1-2/1-1，0-1概率Top1；客队胜赔2.08仅小幅占优；让球+1模型倾向让负"
+    },
+    {
+     "src": "bdpredict.hk·大数据预测中心",
+     "lean": "客胜",
+     "read": "主胜29.3% / 客胜48.2%"
+    }
+   ]
+  },
+  "011": {
+   "open": {
+    "10BET": [
+     2.95,
+     3.55,
+     2.06
+    ],
+    "伟德": [
+     2.9,
+     3.8,
+     2.05
+    ],
+    "澳彩": [
+     2.73,
+     3.93,
+     2.04
+    ],
+    "12bet": [
+     3.15,
+     3.75,
+     2.04
+    ],
+    "18Bet": [
+     3.05,
+     3.9,
+     2.05
+    ],
+    "onex": [
+     3.08,
+     4.01,
+     2.26
+    ],
+    "明陞": [
+     3.1,
+     3.7,
+     2.06
+    ],
+    "SNAI": [
+     3.0,
+     3.75,
+     2.05
+    ],
+    "Interwetten": [
+     3.1,
+     3.9,
+     2.1
+    ],
+    "利记": [
+     2.83,
+     3.63,
+     2.11
+    ],
+    "盈禾": [
+     3.03,
+     4.15,
+     2.08
+    ],
+    "平博": [
+     3.15,
+     4.0,
+     2.08
+    ],
+    "立博": [
+     3.1,
+     3.9,
+     2.05
+    ],
+    "威廉": [
+     3.1,
+     3.8,
+     2.1
+    ],
+    "易胜博": [
+     3.0,
+     3.7,
+     2.15
+    ],
+    "Bet365": [
+     3.0,
+     3.75,
+     2.15
+    ],
+    "皇冠": [
+     3.1,
+     4.15,
+     2.1
+    ]
+   },
+   "close": {
+    "10BET": [
+     3.1,
+     3.75,
+     2.04
+    ],
+    "伟德": [
+     3.1,
+     4.0,
+     1.95
+    ],
+    "澳彩": [
+     2.75,
+     3.93,
+     2.02
+    ],
+    "12bet": [
+     2.98,
+     4.0,
+     2.03
+    ],
+    "18Bet": [
+     3.2,
+     4.1,
+     2.0
+    ],
+    "onex": [
+     3.32,
+     4.15,
+     2.11
+    ],
+    "明陞": [
+     2.98,
+     4.0,
+     2.03
+    ],
+    "SNAI": [
+     3.25,
+     4.0,
+     2.0
+    ],
+    "Interwetten": [
+     3.15,
+     4.1,
+     2.05
+    ],
+    "利记": [
+     2.88,
+     3.72,
+     2.06
+    ],
+    "盈禾": [
+     3.07,
+     4.38,
+     2.03
+    ],
+    "平博": [
+     3.31,
+     4.27,
+     2.02
+    ],
+    "立博": [
+     3.1,
+     4.0,
+     2.0
+    ],
+    "威廉": [
+     3.0,
+     3.9,
+     2.0
+    ],
+    "易胜博": [
+     3.1,
+     4.0,
+     2.03
+    ],
+    "Bet365": [
+     3.25,
+     4.1,
+     2.0
+    ],
+    "皇冠": [
+     3.2,
+     4.2,
+     2.04
+    ]
+   },
+   "official_odds": [
+    2.95,
+    3.8,
+    1.86
+   ],
+   "ah": {},
+   "ou": {
+    "10BET": {
+     "open_line": 3.25,
+     "open_over": 0.85,
+     "open_under": 0.89,
+     "close_line": 3.75,
+     "close_over": 1.0,
+     "close_under": 0.82
+    },
+    "伟德": {
+     "open_line": 3.25,
+     "open_over": 0.89,
+     "open_under": 0.96,
+     "close_line": 3.5,
+     "close_over": 0.85,
+     "close_under": 0.94
+    },
+    "澳彩": {
+     "open_line": 3.25,
+     "open_over": 0.88,
+     "open_under": 0.92,
+     "close_line": 3.5,
+     "close_over": 0.92,
+     "close_under": 0.88
+    },
+    "12bet": {
+     "open_line": 3.25,
+     "open_over": 0.9,
+     "open_under": 0.96,
+     "close_line": 3.5,
+     "close_over": 0.84,
+     "close_under": 1.04
+    },
+    "18Bet": {
+     "open_line": 3.25,
+     "open_over": 0.83,
+     "open_under": 0.93,
+     "close_line": 3.5,
+     "close_over": 0.82,
+     "close_under": 0.97
+    },
+    "onex": {
+     "open_line": 3.5,
+     "open_over": 1.19,
+     "open_under": 0.78,
+     "close_line": 3.5,
+     "close_over": 1.05,
+     "close_under": 0.89
+    },
+    "明陞": {
+     "open_line": 3.25,
+     "open_over": 0.92,
+     "open_under": 0.94,
+     "close_line": 3.5,
+     "close_over": 0.84,
+     "close_under": 1.04
+    },
+    "Interwetten": {
+     "open_line": 3.5,
+     "open_over": 1.05,
+     "open_under": 0.73,
+     "close_line": 3.5,
+     "close_over": 0.83,
+     "close_under": 0.9
+    },
+    "利记": {
+     "open_line": 3.25,
+     "open_over": 0.93,
+     "open_under": 0.95,
+     "close_line": 3.5,
+     "close_over": 0.82,
+     "close_under": 1.06
+    },
+    "盈禾": {
+     "open_line": 3.25,
+     "open_over": 0.89,
+     "open_under": 0.97,
+     "close_line": 3.5,
+     "close_over": 0.85,
+     "close_under": 1.03
+    },
+    "平博": {
+     "open_line": 3.25,
+     "open_over": 0.85,
+     "open_under": 0.98,
+     "close_line": 3.5,
+     "close_over": 0.87,
+     "close_under": 1.03
+    },
+    "立博": {
+     "open_line": 2.5,
+     "open_over": 0.44,
+     "open_under": 1.62,
+     "close_line": 3.5,
+     "close_over": 0.91,
+     "close_under": 0.83
+    },
+    "威廉": {
+     "open_line": 3.5,
+     "open_over": 1.05,
+     "open_under": 0.73,
+     "close_line": 3.5,
+     "close_over": 0.85,
+     "close_under": 0.85
+    },
+    "易胜博": {
+     "open_line": 3.25,
+     "open_over": 0.93,
+     "open_under": 0.95,
+     "close_line": 3.5,
+     "close_over": 0.82,
+     "close_under": 1.06
+    },
+    "Bet365": {
+     "open_line": 3.25,
+     "open_over": 0.95,
+     "open_under": 0.9,
+     "close_line": 3.5,
+     "close_over": 0.87,
+     "close_under": 0.97
+    },
+    "皇冠": {
+     "open_line": 3.25,
+     "open_over": 0.89,
+     "open_under": 0.99,
+     "close_line": 3.5,
+     "close_over": 0.88,
+     "close_under": 1.0
+    }
+   },
+   "media": "核对：纳米数据标注西甲2026-2027第13轮、桑坦德竞技vs皇家社会、2026-11-22 23:15、未开赛，与竞彩周日011一致；竞彩网与中国体彩网计算器页列官方胜平负2.95/3.80/1.86、让球+1。Dimers列比赛于Estadio El Sardinero、11月22日10:15 AM ET，预测市场主队30.5%/平21.9%/皇家社会47.6%、最可能比分1-1(9.1%)、大小2.5球(72¢/29¢)，页面标注Last updated November 20, 2026。球迷屋前瞻客观数据：桑坦德竞技主场3胜2平1负进11失11(主排名8)，皇家社会7胜1平4负进21失20列第5、客场3胜0平3负进13失13；球迷屋胜平负预测33.33%/25.00%/41.67%；sdxzai数据模型比分1-2/0-1/0-2(1-2概率Top1)。来源URL：竞彩网 https://www.sporttery.cn/jc/jsq/zqspf/?tt_prefers_color_scheme=light&theme=dark ；中国体彩网 https://www.lottery.gov.cn/jc/jsq/zqspf/?matchDate=20260816 ；Dimers https://www.dimers.com/la-liga/predictions/2026_13_racs_rso ；球迷屋 https://www.qiumiwu.com/news/2047192205330 ；sdxzai https://www.sdxzai.com/ ；纳米数据全场指数搜索结果未提供URL。",
+   "ai_preds": [
+    {
+     "src": "Dimers·预测市场",
+     "lean": "皇家社会客胜",
+     "read": "胜率 桑坦德30.5% / 平21.9% / 皇家社会47.6%；最可能比分1-1(9.1%)；大小2.5球(72¢/29¢)"
+    },
+    {
+     "src": "球迷屋·胜平负预测",
+     "lean": "皇家社会略占优",
+     "read": "桑坦德竞技33.33% / 平25.00% / 皇家社会41.67%"
+    },
+    {
+     "src": "sdxzai·足球赛事数据模型",
+     "lean": "客队皇家社会小幅占优",
+     "read": "模型比分1-2/0-1/0-2，1-2概率Top1；客队胜赔1.86仅小幅占优；让球+1模型倾向让负"
+    }
+   ]
+  },
+  "013": {
+   "open": {
+    "SNAI": [
+     1.7,
+     4.0,
+     4.25
+    ],
+    "威廉": [
+     1.65,
+     4.0,
+     4.5
+    ],
+    "12bet": [
+     1.74,
+     3.9,
+     4.0
+    ],
+    "伟德": [
+     1.61,
+     4.0,
+     4.33
+    ],
+    "onex": [
+     1.76,
+     4.3,
+     4.62
+    ],
+    "皇冠": [
+     1.69,
+     4.5,
+     4.45
+    ],
+    "立博": [
+     1.7,
+     4.0,
+     4.33
+    ],
+    "Interwetten": [
+     1.7,
+     4.2,
+     4.5
+    ],
+    "利记": [
+     1.64,
+     3.9,
+     4.24
+    ],
+    "18Bet": [
+     1.69,
+     4.1,
+     4.3
+    ],
+    "Bet365": [
+     1.66,
+     4.0,
+     4.33
+    ],
+    "平博": [
+     1.72,
+     4.25,
+     4.24
+    ],
+    "明陞": [
+     1.69,
+     3.95,
+     4.15
+    ],
+    "澳彩": [
+     1.53,
+     4.35,
+     4.4
+    ],
+    "易胜博": [
+     1.67,
+     4.0,
+     4.4
+    ],
+    "盈禾": [
+     1.72,
+     4.26,
+     4.26
+    ],
+    "10BET": [
+     1.67,
+     3.8,
+     4.2
+    ]
+   },
+   "close": {
+    "SNAI": [
+     1.65,
+     4.25,
+     4.25
+    ],
+    "威廉": [
+     1.6,
+     4.0,
+     4.6
+    ],
+    "12bet": [
+     1.62,
+     4.1,
+     4.6
+    ],
+    "伟德": [
+     1.55,
+     4.1,
+     4.75
+    ],
+    "onex": [
+     1.65,
+     4.57,
+     5.18
+    ],
+    "皇冠": [
+     1.62,
+     4.5,
+     4.85
+    ],
+    "立博": [
+     1.61,
+     4.2,
+     4.8
+    ],
+    "Interwetten": [
+     1.65,
+     4.2,
+     4.8
+    ],
+    "利记": [
+     1.62,
+     3.88,
+     4.43
+    ],
+    "18Bet": [
+     1.62,
+     4.3,
+     4.8
+    ],
+    "Bet365": [
+     1.57,
+     4.33,
+     5.0
+    ],
+    "平博": [
+     1.62,
+     4.55,
+     5.07
+    ],
+    "明陞": [
+     1.62,
+     4.1,
+     4.6
+    ],
+    "澳彩": [
+     1.52,
+     4.35,
+     4.45
+    ],
+    "易胜博": [
+     1.6,
+     4.1,
+     4.7
+    ],
+    "盈禾": [
+     1.61,
+     4.47,
+     4.92
+    ],
+    "10BET": [
+     1.62,
+     3.95,
+     4.8
+    ]
+   },
+   "official_odds": [
+    1.49,
+    4.1,
+    4.45
+   ],
+   "ah": {
+    "威廉": {
+     "open_line": -0.75,
+     "open_home": 0.8,
+     "open_away": 0.91,
+     "close_line": -0.75,
+     "close_home": 0.8,
+     "close_away": 0.91
+    },
+    "12bet": {
+     "open_line": -0.75,
+     "open_home": 0.93,
+     "open_away": 0.95,
+     "close_line": -1.0,
+     "close_home": 1.01,
+     "close_away": 0.89
+    },
+    "伟德": {
+     "open_line": -0.75,
+     "open_home": 0.83,
+     "open_away": 0.99,
+     "close_line": -1.0,
+     "close_home": 0.98,
+     "close_away": 0.82
+    },
+    "onex": {
+     "open_line": -1.0,
+     "open_home": 1.11,
+     "open_away": 0.7,
+     "close_line": -1.0,
+     "close_home": 1.01,
+     "close_away": 0.82
+    },
+    "皇冠": {
+     "open_line": -0.75,
+     "open_home": 0.86,
+     "open_away": 1.02,
+     "close_line": -1.0,
+     "close_home": 1.0,
+     "close_away": 0.88
+    },
+    "Interwetten": {
+     "open_line": -0.5,
+     "open_home": 0.7,
+     "open_away": 1.15,
+     "close_line": -1.0,
+     "close_home": 1.05,
+     "close_away": 0.7
+    },
+    "利记": {
+     "open_line": -0.75,
+     "open_home": 0.89,
+     "open_away": 1.01,
+     "close_line": -1.0,
+     "close_home": 1.01,
+     "close_away": 0.89
+    },
+    "18Bet": {
+     "open_line": -0.75,
+     "open_home": 0.84,
+     "open_away": 0.93,
+     "close_line": -1.0,
+     "close_home": 0.96,
+     "close_away": 0.83
+    },
+    "Bet365": {
+     "open_line": -0.75,
+     "open_home": 0.87,
+     "open_away": 0.97,
+     "close_line": -1.0,
+     "close_home": 0.97,
+     "close_away": 0.87
+    },
+    "平博": {
+     "open_line": -0.75,
+     "open_home": 0.92,
+     "open_away": 0.93,
+     "close_line": -1.0,
+     "close_home": 1.03,
+     "close_away": 0.88
+    },
+    "明陞": {
+     "open_line": -0.75,
+     "open_home": 0.89,
+     "open_away": 0.99,
+     "close_line": -1.0,
+     "close_home": 1.01,
+     "close_away": 0.89
+    },
+    "澳彩": {
+     "open_line": -0.75,
+     "open_home": 0.82,
+     "open_away": 1.02,
+     "close_line": -1.0,
+     "close_home": 1.04,
+     "close_away": 0.8
+    },
+    "易胜博": {
+     "open_line": -0.75,
+     "open_home": 0.89,
+     "open_away": 1.01,
+     "close_line": -1.0,
+     "close_home": 1.01,
+     "close_away": 0.89
+    },
+    "盈禾": {
+     "open_line": -0.75,
+     "open_home": 0.92,
+     "open_away": 0.96,
+     "close_line": -1.0,
+     "close_home": 1.01,
+     "close_away": 0.89
+    }
+   },
+   "ou": {
+    "威廉": {
+     "open_line": 2.5,
+     "open_over": 0.57,
+     "open_under": 1.38,
+     "close_line": 3.5,
+     "close_over": 1.3,
+     "close_under": 0.57
+    },
+    "12bet": {
+     "open_line": 3.0,
+     "open_over": 0.87,
+     "open_under": 0.99,
+     "close_line": 3.0,
+     "close_over": 0.87,
+     "close_under": 1.01
+    },
+    "伟德": {
+     "open_line": 3.0,
+     "open_over": 0.83,
+     "open_under": 0.99,
+     "close_line": 3.0,
+     "close_over": 0.84,
+     "close_under": 0.95
+    },
+    "onex": {
+     "open_line": 3.0,
+     "open_over": 0.78,
+     "open_under": 1.06,
+     "close_line": 3.0,
+     "close_over": 0.86,
+     "close_under": 0.98
+    },
+    "皇冠": {
+     "open_line": 3.0,
+     "open_over": 0.86,
+     "open_under": 1.02,
+     "close_line": 3.0,
+     "close_over": 0.85,
+     "close_under": 1.03
+    },
+    "立博": {
+     "open_line": 2.5,
+     "open_over": 0.5,
+     "open_under": 1.4,
+     "close_line": 2.5,
+     "close_over": 0.5,
+     "close_under": 1.4
+    },
+    "Interwetten": {
+     "open_line": 3.5,
+     "open_over": 1.3,
+     "open_under": 0.6,
+     "close_line": 3.5,
+     "close_over": 1.3,
+     "close_under": 0.6
+    },
+    "利记": {
+     "open_line": 3.0,
+     "open_over": 0.89,
+     "open_under": 0.99,
+     "close_line": 3.0,
+     "close_over": 0.86,
+     "close_under": 1.02
+    },
+    "18Bet": {
+     "open_line": 3.0,
+     "open_over": 0.82,
+     "open_under": 0.94,
+     "close_line": 3.0,
+     "close_over": 0.82,
+     "close_under": 0.97
+    },
+    "Bet365": {
+     "open_line": 3.25,
+     "open_over": 1.05,
+     "open_under": 0.8,
+     "close_line": 3.0,
+     "close_over": 0.85,
+     "close_under": 1.0
+    },
+    "平博": {
+     "open_line": 3.0,
+     "open_over": 0.85,
+     "open_under": 0.99,
+     "close_line": 3.0,
+     "close_over": 0.89,
+     "close_under": 1.0
+    },
+    "明陞": {
+     "open_line": 3.0,
+     "open_over": 0.85,
+     "open_under": 1.01,
+     "close_line": 3.0,
+     "close_over": 0.87,
+     "close_under": 1.01
+    },
+    "澳彩": {
+     "open_line": 3.0,
+     "open_over": 0.8,
+     "open_under": 1.0,
+     "close_line": 3.0,
+     "close_over": 0.8,
+     "close_under": 1.0
+    },
+    "易胜博": {
+     "open_line": 3.0,
+     "open_over": 0.86,
+     "open_under": 1.02,
+     "close_line": 3.0,
+     "close_over": 0.86,
+     "close_under": 1.02
+    },
+    "盈禾": {
+     "open_line": 3.0,
+     "open_over": 0.87,
+     "open_under": 0.99,
+     "close_line": 3.0,
+     "close_over": 0.86,
+     "close_under": 1.02
+    },
+    "10BET": {
+     "open_line": 3.0,
+     "open_over": 0.82,
+     "open_under": 0.92,
+     "close_line": 3.0,
+     "close_over": 0.84,
+     "close_under": 0.98
+    }
+   },
+   "media": "核对：纳米数据标注德甲2026-2027第10轮、云达不莱梅vs汉堡、2026-11-23 00:30、未开赛，与竞彩周日013(不来梅vs汉堡)一致；竞彩网计算器页列官方胜平负1.49/4.10/4.45、让球-1。球探体育titan007赛程列本场主让半/一(0.86/1.02)，积分榜不来梅9轮4胜3平2负进17失15积15第6、汉堡4胜0平5负进10失20积12第11；500彩票网列平均欧指1.67/4.10/4.37。sdxzai数据模型比分2-1/1-0/2-0(2-1概率Top1)、主胜赔1.49市场明显看好、让球-1模型倾向让胜；bdpredict大数据主胜54.3%/客胜26.7%，并记汉堡Vieira复出进度偏慢、M.Vuskovic禁药停赛期满准备复出。来源URL：竞彩网 https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark ；sdxzai https://www.sdxzai.com/ ；bdpredict https://www.bdpredict.hk/content/202627DBLWEEK10 ；titan007 https://zq.titan007.com/cn/SubLeague/8.html ；500彩票网 https://liansai.500.com/zuqiu-19951/ ；纳米数据全场指数搜索结果未提供URL。",
+   "ai_preds": [
+    {
+     "src": "sdxzai·足球赛事数据模型",
+     "lean": "主队不来梅明显看好",
+     "read": "模型比分2-1/1-0/2-0，2-1概率Top1；主胜赔1.49；让球-1模型倾向让胜"
+    },
+    {
+     "src": "bdpredict.hk·大数据预测中心",
+     "lean": "主胜",
+     "read": "主胜54.3% / 客胜26.7%"
+    }
+   ]
+  },
+  "014": {
+   "open": {
+    "伟德": [
+     1.53,
+     4.6,
+     5.0
+    ],
+    "Interwetten": [
+     1.53,
+     4.9,
+     5.25
+    ],
+    "马会": [
+     1.42,
+     4.6,
+     4.75
+    ],
+    "onex": [
+     1.49,
+     5.47,
+     6.1
+    ],
+    "明陞": [
+     1.56,
+     4.4,
+     4.7
+    ],
+    "澳彩": [
+     1.43,
+     4.85,
+     4.8
+    ],
+    "威廉": [
+     1.5,
+     4.33,
+     5.5
+    ],
+    "利记": [
+     1.54,
+     4.31,
+     4.54
+    ],
+    "盈禾": [
+     1.54,
+     4.92,
+     5.05
+    ],
+    "竞彩官方": [
+     1.39,
+     4.55,
+     5.0
+    ],
+    "Bet365": [
+     1.4,
+     4.75,
+     6.25
+    ],
+    "平博": [
+     1.56,
+     4.55,
+     5.21
+    ],
+    "皇冠": [
+     1.51,
+     5.1,
+     5.3
+    ],
+    "12bet": [
+     1.5,
+     4.6,
+     5.1
+    ],
+    "18Bet": [
+     1.53,
+     4.6,
+     5.0
+    ],
+    "立博": [
+     1.55,
+     4.6,
+     4.8
+    ],
+    "易胜博": [
+     1.49,
+     4.4,
+     5.1
+    ],
+    "10BET": [
+     1.51,
+     4.4,
+     4.8
+    ],
+    "SNAI": [
+     1.52,
+     4.5,
+     5.0
+    ]
+   },
+   "close": {
+    "伟德": [
+     1.53,
+     4.6,
+     5.0
+    ],
+    "Interwetten": [
+     1.55,
+     4.7,
+     5.0
+    ],
+    "马会": [
+     1.42,
+     4.6,
+     4.75
+    ],
+    "onex": [
+     1.58,
+     5.08,
+     5.43
+    ],
+    "明陞": [
+     1.51,
+     4.5,
+     5.1
+    ],
+    "澳彩": [
+     1.42,
+     4.9,
+     4.9
+    ],
+    "威廉": [
+     1.53,
+     4.6,
+     4.8
+    ],
+    "利记": [
+     1.52,
+     4.4,
+     4.64
+    ],
+    "盈禾": [
+     1.55,
+     4.91,
+     4.97
+    ],
+    "竞彩官方": [
+     1.39,
+     4.55,
+     5.0
+    ],
+    "Bet365": [
+     1.53,
+     4.75,
+     5.25
+    ],
+    "平博": [
+     1.58,
+     4.62,
+     5.35
+    ],
+    "皇冠": [
+     1.5,
+     5.0,
+     5.2
+    ],
+    "12bet": [
+     1.51,
+     4.5,
+     5.1
+    ],
+    "18Bet": [
+     1.54,
+     4.7,
+     5.25
+    ],
+    "立博": [
+     1.53,
+     4.6,
+     5.0
+    ],
+    "易胜博": [
+     1.53,
+     4.6,
+     5.0
+    ],
+    "10BET": [
+     1.55,
+     4.3,
+     5.0
+    ],
+    "SNAI": [
+     1.5,
+     4.5,
+     5.25
+    ]
+   },
+   "official_odds": [
+    1.41,
+    4.5,
+    4.8
+   ],
+   "ah": {},
+   "ou": {
+    "伟德": {
+     "open_line": 3.5,
+     "open_over": 0.94,
+     "open_under": 0.94,
+     "close_line": 3.5,
+     "close_over": 0.9,
+     "close_under": 0.89
+    },
+    "Interwetten": {
+     "open_line": 3.5,
+     "open_over": 0.9,
+     "open_under": 0.9,
+     "close_line": 3.5,
+     "close_over": 0.85,
+     "close_under": 0.9
+    },
+    "onex": {
+     "open_line": 3.5,
+     "open_over": 0.87,
+     "open_under": 1.07,
+     "close_line": 3.5,
+     "close_over": 0.97,
+     "close_under": 0.97
+    },
+    "明陞": {
+     "open_line": 3.5,
+     "open_over": 0.94,
+     "open_under": 0.92,
+     "close_line": 3.5,
+     "close_over": 0.95,
+     "close_under": 0.93
+    },
+    "澳彩": {
+     "open_line": 3.5,
+     "open_over": 0.89,
+     "open_under": 0.91,
+     "close_line": 3.5,
+     "close_over": 0.9,
+     "close_under": 0.9
+    },
+    "威廉": {
+     "open_line": 3.5,
+     "open_over": 0.85,
+     "open_under": 0.85,
+     "close_line": 3.5,
+     "close_over": 0.85,
+     "close_under": 0.85
+    },
+    "利记": {
+     "open_line": 3.5,
+     "open_over": 0.98,
+     "open_under": 0.9,
+     "close_line": 3.5,
+     "close_over": 0.93,
+     "close_under": 0.95
+    },
+    "盈禾": {
+     "open_line": 3.5,
+     "open_over": 0.92,
+     "open_under": 0.94,
+     "close_line": 3.5,
+     "close_over": 0.91,
+     "close_under": 0.95
+    },
+    "Bet365": {
+     "open_line": 3.75,
+     "open_over": 1.02,
+     "open_under": 0.82,
+     "close_line": 3.5,
+     "close_over": 0.9,
+     "close_under": 0.95
+    },
+    "平博": {
+     "open_line": 3.5,
+     "open_over": 0.9,
+     "open_under": 0.93,
+     "close_line": 3.5,
+     "close_over": 0.93,
+     "close_under": 0.95
+    },
+    "皇冠": {
+     "open_line": 3.5,
+     "open_over": 0.94,
+     "open_under": 0.94,
+     "close_line": 3.5,
+     "close_over": 0.91,
+     "close_under": 0.97
+    },
+    "12bet": {
+     "open_line": 3.5,
+     "open_over": 0.93,
+     "open_under": 0.93,
+     "close_line": 3.5,
+     "close_over": 0.95,
+     "close_under": 0.93
+    },
+    "18Bet": {
+     "open_line": 3.5,
+     "open_over": 0.88,
+     "open_under": 0.89,
+     "close_line": 3.5,
+     "close_over": 0.89,
+     "close_under": 0.9
+    },
+    "立博": {
+     "open_line": 2.5,
+     "open_over": 0.33,
+     "open_under": 2.0,
+     "close_line": 2.5,
+     "close_over": 0.35,
+     "close_under": 2.0
+    },
+    "易胜博": {
+     "open_line": 3.5,
+     "open_over": 0.93,
+     "open_under": 0.95,
+     "close_line": 3.5,
+     "close_over": 0.93,
+     "close_under": 0.95
+    },
+    "10BET": {
+     "open_line": 3.5,
+     "open_over": 0.88,
+     "open_under": 0.86,
+     "close_line": 3.5,
+     "close_over": 0.85,
+     "close_under": 0.92
+    }
+   },
+   "media": "外媒/预测观点（仅客观数字与事实，附来源与URL）：[1] BETXIO https://betxio.com/news/ac-milan-vs-frosinone-calcio-prediction-analysis-14mwqnhg31up — Home Win 61% confidence，1X2 1.57/4.64/5.44，Over 2.5 61%，BTTS Yes 60%，开赛 Mon Nov 23 01:00。[2] FootballPredictions https://footballpredictions.com/footballpredictions/serieapredictions/milan-vs-frosinone-prediction-22-11-2026 — 预测比分 Milan 3-2 Frosinone（正文另提 3-1），主推 Home Win，Over 2.5 74%，BTTS Yes 69%，开赛 23 Nov 2026 01:00。[3] SBOTOP https://blog.sbotop.com/football/serie-a/serie-a-high-flying-canaries-head-milan — 推荐 Milan Asian Handicap -1.00 @1.84，Milan 1.50 / Draw 4.50 / Frosinone 5.00，开赛 Nov 23 01:00 GMT+8。[4] TipsQuant https://tipsquant.com/serie-a-predictions — AC Milan to win 59%（fair 1.69），Over 2.5 63%（fair 1.59），BTTS Yes 60%，Megapari 赔率截至 21 Nov 2026 09:35 EAT。核对：竞彩网计算器页 https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark 列周日014 胜平负 1.41/4.50/4.80、让球-1 2.20/3.75/2.40；纳米数据结果「竞彩赔率」段另列胜平负 1.39/4.55/5.00、让球-1 2.15/3.75/2.45，两者不一致，official_odds 按竞彩网计算器页填，纳米数据「竞彩官方」公司行仍按 1.39/4.55/5.0 抄入 ox。",
+   "ai_preds": [
+    {
+     "src": "BETXIO (betxio.com)",
+     "lean": "主胜",
+     "read": "Home Win 61% confidence；1X2 1.57/4.64/5.44；Over 2.5 61%；BTTS Yes 60%；开赛 Mon Nov 23 01:00"
+    },
+    {
+     "src": "FootballPredictions (footballpredictions.com)",
+     "lean": "主胜",
+     "read": "预测比分 Milan 3-2 Frosinone；主推 Home Win；Over 2.5 74%；BTTS Yes 69%；开赛 23 Nov 2026 01:00"
+    },
+    {
+     "src": "SBOTOP (blog.sbotop.com)",
+     "lean": "主胜",
+     "read": "推荐 Milan Asian Handicap -1.00 @1.84；Milan 1.50 / Draw 4.50 / Frosinone 5.00；开赛 Nov 23 01:00 GMT+8"
+    },
+    {
+     "src": "TipsQuant (tipsquant.com)",
+     "lean": "主胜",
+     "read": "AC Milan to win 59%（fair 1.69）；Over 2.5 63%（fair 1.59）；BTTS Yes 60%；Megapari 赔率截至 21 Nov 2026 09:35 EAT"
+    }
+   ]
+  },
+  "015": {
+   "open": {
+    "18Bet": [
+     2.35,
+     3.8,
+     2.55
+    ],
+    "平博": [
+     2.09,
+     3.82,
+     3.16
+    ],
+    "10BET": [
+     2.15,
+     3.5,
+     2.65
+    ],
+    "伟德": [
+     2.1,
+     3.9,
+     2.75
+    ],
+    "利记": [
+     2.1,
+     3.62,
+     2.71
+    ],
+    "Bet365": [
+     2.35,
+     3.8,
+     2.5
+    ],
+    "onex": [
+     2.45,
+     3.98,
+     2.58
+    ],
+    "SNAI": [
+     2.15,
+     3.75,
+     2.75
+    ],
+    "易胜博": [
+     2.17,
+     3.7,
+     2.7
+    ],
+    "12bet": [
+     2.13,
+     3.9,
+     2.81
+    ],
+    "盈禾": [
+     2.35,
+     3.8,
+     2.45
+    ],
+    "立博": [
+     2.1,
+     3.7,
+     2.62
+    ],
+    "澳彩": [
+     2.11,
+     3.93,
+     2.52
+    ],
+    "Interwetten": [
+     2.25,
+     3.85,
+     2.75
+    ],
+    "竞彩官方": [
+     2.04,
+     3.8,
+     2.6
+    ],
+    "皇冠": [
+     2.37,
+     4.2,
+     2.57
+    ],
+    "明陞": [
+     2.13,
+     3.9,
+     2.81
+    ],
+    "威廉": [
+     2.4,
+     3.7,
+     2.5
+    ]
+   },
+   "close": {
+    "18Bet": [
+     2.2,
+     3.9,
+     2.8
+    ],
+    "平博": [
+     2.22,
+     4.12,
+     2.83
+    ],
+    "10BET": [
+     2.15,
+     3.5,
+     2.65
+    ],
+    "伟德": [
+     2.1,
+     3.9,
+     2.75
+    ],
+    "利记": [
+     2.25,
+     3.48,
+     2.57
+    ],
+    "Bet365": [
+     2.25,
+     3.8,
+     2.62
+    ],
+    "onex": [
+     2.23,
+     4.01,
+     2.87
+    ],
+    "SNAI": [
+     2.15,
+     3.75,
+     2.75
+    ],
+    "易胜博": [
+     2.23,
+     3.7,
+     2.7
+    ],
+    "12bet": [
+     2.23,
+     3.9,
+     2.66
+    ],
+    "盈禾": [
+     2.17,
+     3.93,
+     2.72
+    ],
+    "立博": [
+     2.1,
+     3.75,
+     2.62
+    ],
+    "澳彩": [
+     2.15,
+     3.92,
+     2.48
+    ],
+    "Interwetten": [
+     2.3,
+     3.85,
+     2.75
+    ],
+    "竞彩官方": [
+     2.04,
+     3.8,
+     2.6
+    ],
+    "皇冠": [
+     2.17,
+     4.15,
+     2.85
+    ],
+    "明陞": [
+     2.23,
+     3.9,
+     2.66
+    ],
+    "威廉": [
+     2.15,
+     3.8,
+     2.75
+    ]
+   },
+   "official_odds": [
+    2.04,
+    3.8,
+    2.6
+   ],
+   "ah": {},
+   "ou": {
+    "18Bet": {
+     "open_line": 3.25,
+     "open_over": 0.82,
+     "open_under": 0.92,
+     "close_line": 3.5,
+     "close_over": 0.96,
+     "close_under": 0.82
+    },
+    "平博": {
+     "open_line": 3.25,
+     "open_over": 0.81,
+     "open_under": 1.0,
+     "close_line": 3.5,
+     "close_over": 0.98,
+     "close_under": 0.88
+    },
+    "10BET": {
+     "open_line": 3.5,
+     "open_over": 0.84,
+     "open_under": 0.8,
+     "close_line": 3.5,
+     "close_over": 0.87,
+     "close_under": 0.77
+    },
+    "伟德": {
+     "open_line": 3.25,
+     "open_over": 0.71,
+     "open_under": 0.98,
+     "close_line": 3.5,
+     "close_over": 0.96,
+     "close_under": 0.84
+    },
+    "利记": {
+     "open_line": 3.25,
+     "open_over": 0.82,
+     "open_under": 1.04,
+     "close_line": 3.5,
+     "close_over": 1.04,
+     "close_under": 0.82
+    },
+    "Bet365": {
+     "open_line": 3.25,
+     "open_over": 0.82,
+     "open_under": 0.97,
+     "close_line": 3.75,
+     "close_over": 1.15,
+     "close_under": 0.67
+    },
+    "onex": {
+     "open_line": 3.5,
+     "open_over": 1.07,
+     "open_under": 0.78,
+     "close_line": 3.5,
+     "close_over": 0.95,
+     "close_under": 0.87
+    },
+    "易胜博": {
+     "open_line": 3.5,
+     "open_over": 1.04,
+     "open_under": 0.82,
+     "close_line": 3.5,
+     "close_over": 1.04,
+     "close_under": 0.82
+    },
+    "12bet": {
+     "open_line": 3.5,
+     "open_over": 1.03,
+     "open_under": 0.83,
+     "close_line": 3.5,
+     "close_over": 1.02,
+     "close_under": 0.85
+    },
+    "盈禾": {
+     "open_line": 3.25,
+     "open_over": 0.86,
+     "open_under": 1.0,
+     "close_line": 3.5,
+     "close_over": 1.0,
+     "close_under": 0.86
+    },
+    "立博": {
+     "open_line": 2.5,
+     "open_over": 0.36,
+     "open_under": 1.8,
+     "close_line": 2.5,
+     "close_over": 0.36,
+     "close_under": 1.8
+    },
+    "澳彩": {
+     "open_line": 3.25,
+     "open_over": 0.73,
+     "open_under": 0.99,
+     "close_line": 3.5,
+     "close_over": 0.94,
+     "close_under": 0.78
+    },
+    "Interwetten": {
+     "open_line": 3.5,
+     "open_over": 0.85,
+     "open_under": 0.85,
+     "close_line": 3.5,
+     "close_over": 0.9,
+     "close_under": 0.8
+    },
+    "皇冠": {
+     "open_line": 3.25,
+     "open_over": 0.86,
+     "open_under": 1.01,
+     "close_line": 3.5,
+     "close_over": 1.0,
+     "close_under": 0.87
+    },
+    "明陞": {
+     "open_line": 3.5,
+     "open_over": 1.03,
+     "open_under": 0.83,
+     "close_line": 3.5,
+     "close_over": 1.02,
+     "close_under": 0.85
+    },
+    "威廉": {
+     "open_line": 3.5,
+     "open_over": 1.0,
+     "open_under": 0.75,
+     "close_line": 3.5,
+     "close_over": 0.91,
+     "close_under": 0.8
+    }
+   },
+   "media": "外媒/预测观点（仅客观数字与事实，附来源与URL）：[1] 懂球帝 https://www.dongqiudi.com/articles/6676905.html — 北京时间 11月23日 02:15 挪超萨普斯堡主场迎战利勒斯特罗姆；萨普斯堡尼尤库里停赛、卡斯滕森因伤缺阵、奥波库出战成疑，最近六个主场联赛仅1胜、期间丢15球；利勒斯特罗姆联赛四连胜（客场1-0胜斯塔特、2-0胜桑德菲尤尔），最近四个客场赢下三个；文中判断双方都能破门、利勒斯特罗姆有望在比赛后段取得优势。[2] FootyPulse https://footypulse.org/matches/eliteserien/sarpsborg-08-vs-lillestr-m-2026-11-22 — 模型 pick Lillestrom to win 40%（Sarpsborg 32%、Draw 27%）；Best odds SA08 2.26 Dafabet、Draw 4.12 Pinnacle、LILL 3.05 Unibet；Over 2.5 1.40 bet365、Under 2.5 3.10 Betfair；对比 21 家博彩公司，Updated 21 Nov 2026；开赛 Mon 23 Nov 2026 02:15。[3] EagleEyeOdds https://eagleeyeodds.com/predictions/sarpsborg-fk-vs-lillestrom-prediction-2026-11-22 — 预测 Sarpsborg FK to win 37%（Draw 25%、Lillestrom 37%），最可能比分 1-1，best bet Over 1.5 goals 1.24（81%），BTTS 62%，bookmakers 使 Sarpsborg 为 2.15 热门。[4] Bet90 https://bet90.com/football/preview/sarpsborg-08-vs-lillestrom/19629527 — 胜率 Sarpsborg 42.97% / Draw 23.35% / Lillestrom 33.68%；baseline split 43% / 23.4% / 33.7%；开赛 Mon 23 Nov 2:15 AM。[5] BananaGoal https://bananagoal.com/clubs/sarpsborg-333 — 该场 Bookmaker odds 2.23 / 3.85 / 2.82，best tip 89% chance（具体选项需免费账户），Updated 21 Nov 2026，开赛 Mon 23 Nov 02:15。[6] 500彩票网 https://liansai.500.com/zuqiu-19507/ — 赛程列 2026-11-23 02:15 萨普斯堡 vs 利勒斯特罗姆，平均欧指 2.16/3.84/2.74。核对：竞彩网计算器页 https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark 列周日015 胜平负 2.04/3.80/2.60、让球-1 3.90/4.15/1.56，与纳米数据「竞彩赔率」段一致。",
+   "ai_preds": [
+    {
+     "src": "懂球帝 (dongqiudi.com)",
+     "lean": "客队占优",
+     "read": "萨普斯堡两将缺阵（尼尤库里停赛、卡斯滕森伤缺、奥波库出战成疑），近6主场仅1胜丢15球；利勒斯特罗姆联赛四连胜、近4客场赢3场；11月23日 02:15 开赛"
+    },
+    {
+     "src": "FootyPulse (footypulse.org)",
+     "lean": "客胜",
+     "read": "模型 Lillestrom to win 40%（Sarpsborg 32%、Draw 27%）；Best odds 2.26/4.12/3.05；Over 2.5 1.40、Under 2.5 3.10；21 家博彩公司；Updated 21 Nov 2026"
+    },
+    {
+     "src": "EagleEyeOdds (eagleeyeodds.com)",
+     "lean": "主胜（微弱）",
+     "read": "Sarpsborg 37% / Draw 25% / Lillestrom 37%；最可能比分 1-1；best bet Over 1.5 goals 1.24（81%）；BTTS 62%"
+    },
+    {
+     "src": "Bet90 (bet90.com)",
+     "lean": "主胜",
+     "read": "胜率 Sarpsborg 42.97% / Draw 23.35% / Lillestrom 33.68%；baseline split 43%/23.4%/33.7%；Mon 23 Nov 2:15 AM"
+    },
+    {
+     "src": "BananaGoal (bananagoal.com)",
+     "lean": "未公开具体倾向",
+     "read": "Bookmaker odds 2.23 / 3.85 / 2.82；best tip 89% chance（具体选项需免费账户）；Updated 21 Nov 2026"
+    }
+   ]
+  },
+  "017": {
+   "open": {
+    "Interwetten": [
+     1.45,
+     4.9,
+     6.25
+    ],
+    "盈禾": [
+     1.46,
+     4.93,
+     6.3
+    ],
+    "平博": [
+     1.45,
+     4.9,
+     6.32
+    ],
+    "明陞": [
+     1.43,
+     4.6,
+     6.2
+    ],
+    "SNAI": [
+     1.44,
+     4.75,
+     6.0
+    ],
+    "易胜博": [
+     1.42,
+     4.4,
+     6.4
+    ],
+    "12bet": [
+     1.43,
+     4.6,
+     6.1
+    ],
+    "Bet365": [
+     1.36,
+     4.75,
+     7.5
+    ],
+    "立博": [
+     1.44,
+     4.8,
+     6.5
+    ],
+    "澳彩": [
+     1.37,
+     4.75,
+     5.8
+    ],
+    "威廉": [
+     1.4,
+     4.5,
+     7.0
+    ],
+    "伟德": [
+     1.4,
+     4.6,
+     6.5
+    ],
+    "利记": [
+     1.41,
+     4.49,
+     5.8
+    ],
+    "皇冠": [
+     1.46,
+     5.0,
+     6.0
+    ],
+    "10BET": [
+     1.43,
+     4.5,
+     5.6
+    ],
+    "18Bet": [
+     1.42,
+     4.8,
+     6.25
+    ],
+    "onex": [
+     1.4,
+     5.65,
+     7.8
+    ]
+   },
+   "close": {
+    "Interwetten": [
+     1.5,
+     4.8,
+     6.0
+    ],
+    "盈禾": [
+     1.47,
+     4.83,
+     6.1
+    ],
+    "平博": [
+     1.49,
+     4.9,
+     6.34
+    ],
+    "明陞": [
+     1.45,
+     4.45,
+     6.0
+    ],
+    "SNAI": [
+     1.44,
+     4.75,
+     6.0
+    ],
+    "易胜博": [
+     1.44,
+     4.6,
+     6.1
+    ],
+    "12bet": [
+     1.45,
+     4.45,
+     6.0
+    ],
+    "Bet365": [
+     1.44,
+     4.75,
+     6.5
+    ],
+    "立博": [
+     1.48,
+     4.8,
+     5.75
+    ],
+    "澳彩": [
+     1.38,
+     4.75,
+     5.7
+    ],
+    "威廉": [
+     1.44,
+     4.6,
+     6.0
+    ],
+    "伟德": [
+     1.44,
+     4.5,
+     6.0
+    ],
+    "利记": [
+     1.43,
+     4.37,
+     5.7
+    ],
+    "皇冠": [
+     1.46,
+     5.0,
+     6.1
+    ],
+    "10BET": [
+     1.48,
+     4.3,
+     6.0
+    ],
+    "18Bet": [
+     1.47,
+     4.7,
+     6.0
+    ],
+    "onex": [
+     1.49,
+     5.08,
+     6.7
+    ]
+   },
+   "official_odds": [
+    1.29,
+    4.7,
+    6.6
+   ],
+   "ah": {},
+   "ou": {
+    "Interwetten": {
+     "open_line": 3.5,
+     "open_over": 1.2,
+     "open_under": 0.63,
+     "close_line": 3.5,
+     "close_over": 1.25,
+     "close_under": 0.6
+    },
+    "盈禾": {
+     "open_line": 3.25,
+     "open_over": 1.03,
+     "open_under": 0.83,
+     "close_line": 3.0,
+     "close_over": 0.83,
+     "close_under": 1.03
+    },
+    "平博": {
+     "open_line": 3.25,
+     "open_over": 1.02,
+     "open_under": 0.81,
+     "close_line": 3.0,
+     "close_over": 0.85,
+     "close_under": 1.04
+    },
+    "明陞": {
+     "open_line": 3.25,
+     "open_over": 1.03,
+     "open_under": 0.83,
+     "close_line": 3.0,
+     "close_over": 0.84,
+     "close_under": 1.04
+    },
+    "易胜博": {
+     "open_line": 3.0,
+     "open_over": 0.86,
+     "open_under": 1.01,
+     "close_line": 3.0,
+     "close_over": 0.88,
+     "close_under": 0.99
+    },
+    "12bet": {
+     "open_line": 3.25,
+     "open_over": 1.05,
+     "open_under": 0.81,
+     "close_line": 3.0,
+     "close_over": 0.84,
+     "close_under": 1.04
+    },
+    "Bet365": {
+     "open_line": 3.5,
+     "open_over": 1.02,
+     "open_under": 0.82,
+     "close_line": 3.0,
+     "close_over": 0.82,
+     "close_under": 1.02
+    },
+    "立博": {
+     "open_line": 2.5,
+     "open_over": 0.48,
+     "open_under": 1.45,
+     "close_line": 2.5,
+     "close_over": 0.5,
+     "close_under": 1.4
+    },
+    "澳彩": {
+     "open_line": 3.0,
+     "open_over": 0.81,
+     "open_under": 0.99,
+     "close_line": 3.0,
+     "close_over": 0.8,
+     "close_under": 1.0
+    },
+    "威廉": {
+     "open_line": 3.5,
+     "open_over": 1.2,
+     "open_under": 0.65,
+     "close_line": 3.5,
+     "close_over": 1.25,
+     "close_under": 0.62
+    },
+    "伟德": {
+     "open_line": 3.25,
+     "open_over": 1.01,
+     "open_under": 0.81,
+     "close_line": 3.0,
+     "close_over": 0.81,
+     "close_under": 0.99
+    },
+    "利记": {
+     "open_line": 3.25,
+     "open_over": 1.03,
+     "open_under": 0.85,
+     "close_line": 3.0,
+     "close_over": 0.88,
+     "close_under": 1.0
+    },
+    "皇冠": {
+     "open_line": 3.25,
+     "open_over": 1.04,
+     "open_under": 0.83,
+     "close_line": 3.0,
+     "close_over": 0.84,
+     "close_under": 1.03
+    },
+    "10BET": {
+     "open_line": 3.25,
+     "open_over": 0.97,
+     "open_under": 0.78,
+     "close_line": 3.0,
+     "close_over": 0.82,
+     "close_under": 0.96
+    },
+    "18Bet": {
+     "open_line": 3.25,
+     "open_over": 1.0,
+     "open_under": 0.77,
+     "close_line": 3.0,
+     "close_over": 0.81,
+     "close_under": 0.98
+    },
+    "onex": {
+     "open_line": 3.5,
+     "open_over": 1.07,
+     "open_under": 0.87,
+     "close_line": 3.25,
+     "close_over": 1.12,
+     "close_under": 0.84
+    }
+   },
+   "media": "外媒/预测观点（仅客观数字与事实，附来源与URL）：[1] The GoalPost https://the-goalpost.com/matches/marseille-vs-le-mans-2026-11-22 — GoalPost Prediction Marseille win 71%、Draw 16%、Le Mans win 13%（High confidence）；Expected goals 2.5；最可能比分 2-0 10%、2-1 9%、3-0 8%；页面注明该场暂无博彩市场价格（The betting market's prices aren't available for this match）；开赛 Mon Nov 23 3:45 AM GMT+8，Orange Velodrome，Ligue 1 Matchday 11。[2] sdxzai.com https://www.sdxzai.com/ — 模型比分 2-0 / 3-0 / 3-1（概率最高 2-0），胜 1.29 / 平 4.70 / 负 6.60、让球 -1，三档场均总进球约 3.0 球。[3] 有球说 https://youqiushuo.com/fenxi/marseille-vs-le-mans-2026-11-23 — 足球预测马赛净胜两球或以上；马赛各项赛事四连胜（客场胜勒沃库森、朗斯），10轮 6胜4负积18分排第4；勒芒 1胜5平4负积8分排第15、10轮丢19球；伤停：马赛埃默森（膝）、科尼利厄斯（髋）缺阵，勒芒西迪贝（跖骨骨折）、布拉巴（踝部术后）缺阵；开赛 11月23日 03:45 北京时间。核对：竞彩网计算器页 https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark 列周日017 胜平负 1.29/4.70/6.60、让球-1 1.97/3.65/2.80，与纳米数据「竞彩赔率」段一致；本场纳米数据「全场指数」未列竞彩官方公司行，故 ox 无该公司。",
+   "ai_preds": [
+    {
+     "src": "The GoalPost (the-goalpost.com)",
+     "lean": "主胜",
+     "read": "Marseille win 71% / Draw 16% / Le Mans 13%（High confidence）；Expected goals 2.5；最可能比分 2-0 10%、2-1 9%、3-0 8%；页面注明该场暂无博彩市场价格；Mon Nov 23 3:45 AM GMT+8"
+    },
+    {
+     "src": "sdxzai.com 足球赛事数据模型",
+     "lean": "主胜",
+     "read": "模型比分 2-0 / 3-0 / 3-1（2-0 概率最高）；胜 1.29 / 平 4.70 / 负 6.60；让球 -1；三档场均总进球约 3.0 球"
+    },
+    {
+     "src": "有球说 (youqiushuo.com)",
+     "lean": "主胜（净胜两球或以上）",
+     "read": "足球预测马赛净胜两球或以上；马赛各项赛事四连胜、10轮6胜4负积18分第4；勒芒1胜5平4负积8分第15、10轮丢19球；11月23日 03:45 开赛"
+    }
+   ]
+  },
+  "001": {
+   "open": {
+    "易胜博": [
+     2.5,
+     3.3,
+     2.7
+    ],
+    "伟德": [
+     2.5,
+     3.4,
+     2.62
+    ],
+    "盈禾": [
+     2.41,
+     3.32,
+     2.5
+    ],
+    "平博": [
+     2.53,
+     3.37,
+     2.73
+    ],
+    "皇冠": [
+     2.47,
+     3.4,
+     2.61
+    ],
+    "立博": [
+     2.4,
+     3.2,
+     2.6
+    ],
+    "澳彩": [
+     2.3,
+     3.48,
+     2.48
+    ],
+    "Bet365": [
+     2.55,
+     3.3,
+     2.45
+    ],
+    "onex": [
+     2.5,
+     3.35,
+     2.7
+    ],
+    "SNAI": [
+     2.5,
+     3.25,
+     2.6
+    ],
+    "威廉": [
+     2.5,
+     3.1,
+     2.7
+    ],
+    "Interwetten": [
+     2.5,
+     3.3,
+     2.65
+    ],
+    "12bet": [
+     2.34,
+     3.3,
+     2.57
+    ],
+    "18Bet": [
+     2.45,
+     3.3,
+     2.65
+    ],
+    "明陞": [
+     2.39,
+     3.25,
+     2.54
+    ],
+    "10BET": [
+     2.31,
+     3.3,
+     2.8
+    ]
+   },
+   "close": {
+    "易胜博": [
+     2.41,
+     3.3,
+     2.6
+    ],
+    "伟德": [
+     2.45,
+     3.4,
+     2.7
+    ],
+    "盈禾": [
+     2.44,
+     3.44,
+     2.62
+    ],
+    "平博": [
+     2.58,
+     3.45,
+     2.79
+    ],
+    "皇冠": [
+     2.42,
+     3.45,
+     2.66
+    ],
+    "立博": [
+     2.45,
+     3.2,
+     2.5
+    ],
+    "澳彩": [
+     2.3,
+     3.48,
+     2.48
+    ],
+    "Bet365": [
+     2.4,
+     3.4,
+     2.6
+    ],
+    "onex": [
+     2.48,
+     3.36,
+     2.67
+    ],
+    "SNAI": [
+     2.5,
+     3.25,
+     2.6
+    ],
+    "威廉": [
+     2.5,
+     3.1,
+     2.7
+    ],
+    "Interwetten": [
+     2.5,
+     3.2,
+     2.65
+    ],
+    "12bet": [
+     2.33,
+     3.3,
+     2.59
+    ],
+    "18Bet": [
+     2.5,
+     3.35,
+     2.75
+    ],
+    "明陞": [
+     2.33,
+     3.3,
+     2.59
+    ],
+    "10BET": [
+     2.48,
+     3.1,
+     2.65
+    ]
+   },
+   "official_odds": [
+    2.43,
+    3.05,
+    2.5
+   ],
+   "ah": {},
+   "ou": {
+    "易胜博": {
+     "open_line": 2.5,
+     "open_over": 0.82,
+     "open_under": 0.97,
+     "close_line": 2.5,
+     "close_over": 0.82,
+     "close_under": 0.97
+    },
+    "伟德": {
+     "open_line": 2.5,
+     "open_over": 0.79,
+     "open_under": 0.88,
+     "close_line": 2.5,
+     "close_over": 0.84,
+     "close_under": 0.95
+    },
+    "皇冠": {
+     "open_line": 2.5,
+     "open_over": 0.86,
+     "open_under": 1.01,
+     "close_line": 2.75,
+     "close_over": 1.02,
+     "close_under": 0.85
+    },
+    "Bet365": {
+     "open_line": 2.5,
+     "open_over": 0.9,
+     "open_under": 0.9,
+     "close_line": 2.5,
+     "close_over": 0.82,
+     "close_under": 0.97
+    },
+    "澳彩": {
+     "open_line": 2.5,
+     "open_over": 0.79,
+     "open_under": 0.93,
+     "close_line": 2.5,
+     "close_over": 0.79,
+     "close_under": 0.93
+    }
+   },
+   "media": "BananaGoal AI 给本场 86% 最佳倾向、盘口 2.60/3.30/2.80；Clevertips 给 1X2 估算 39%/27%/34%、最可能比分 1-1（13%），并列出近 10 场主客分项；sdxzai 模型比分 1-0 / 2-1 / 1-1；纳米数据全场指数显示本场亚盘为平手（0.0）。",
+   "ai_preds": [
+    {
+     "src": "Clevertips",
+     "lean": "主胜（弱）",
+     "read": "1X2 估算 39% / 27% / 34%；最可能比分 1-1 约 13%"
+    },
+    {
+     "src": "BananaGoal AI",
+     "lean": "未公开倾向",
+     "read": "最佳倾向标注 86% 概率，具体选项需注册后可见；盘口 2.60/3.30/2.80"
+    },
+    {
+     "src": "sdxzai 数据模型",
+     "lean": "主胜（机械推算）",
+     "read": "比分 Top3：1-0 / 2-1 / 1-1，三档场均总进球约 2.0 球"
+    }
+   ]
+  },
+  "002": {
+   "open": {
+    "Interwetten": [
+     2.35,
+     3.35,
+     2.75
+    ],
+    "12bet": [
+     2.21,
+     3.25,
+     2.75
+    ],
+    "利记": [
+     2.29,
+     3.16,
+     2.71
+    ],
+    "Bet365": [
+     2.4,
+     3.3,
+     2.62
+    ],
+    "皇冠": [
+     2.36,
+     3.45,
+     2.72
+    ],
+    "立博": [
+     2.3,
+     3.2,
+     2.7
+    ],
+    "明陞": [
+     2.17,
+     3.3,
+     2.8
+    ],
+    "SNAI": [
+     2.35,
+     3.4,
+     2.75
+    ],
+    "盈禾": [
+     2.36,
+     3.28,
+     2.57
+    ],
+    "18Bet": [
+     2.35,
+     3.35,
+     2.8
+    ],
+    "onex": [
+     2.37,
+     3.45,
+     2.85
+    ],
+    "威廉": [
+     2.3,
+     3.25,
+     2.8
+    ],
+    "竞彩官方": [
+     2.1,
+     3.25,
+     2.82
+    ],
+    "10BET": [
+     2.49,
+     3.3,
+     2.6
+    ],
+    "澳彩": [
+     2.25,
+     3.47,
+     2.55
+    ],
+    "易胜博": [
+     2.39,
+     3.3,
+     2.9
+    ],
+    "伟德": [
+     2.38,
+     3.4,
+     2.8
+    ],
+    "平博": [
+     2.39,
+     3.45,
+     2.86
+    ]
+   },
+   "close": {
+    "Interwetten": [
+     2.35,
+     3.2,
+     2.85
+    ],
+    "12bet": [
+     2.17,
+     3.3,
+     2.8
+    ],
+    "利记": [
+     2.29,
+     3.16,
+     2.71
+    ],
+    "Bet365": [
+     2.25,
+     3.3,
+     2.87
+    ],
+    "皇冠": [
+     2.4,
+     3.4,
+     2.7
+    ],
+    "立博": [
+     2.3,
+     3.25,
+     2.7
+    ],
+    "明陞": [
+     2.17,
+     3.3,
+     2.8
+    ],
+    "SNAI": [
+     2.35,
+     3.4,
+     2.75
+    ],
+    "盈禾": [
+     2.38,
+     3.46,
+     2.72
+    ],
+    "18Bet": [
+     2.4,
+     3.4,
+     2.8
+    ],
+    "onex": [
+     2.37,
+     3.42,
+     2.77
+    ],
+    "威廉": [
+     2.3,
+     3.25,
+     2.8
+    ],
+    "竞彩官方": [
+     2.1,
+     3.25,
+     2.82
+    ],
+    "10BET": [
+     2.32,
+     3.15,
+     2.85
+    ],
+    "澳彩": [
+     2.23,
+     3.48,
+     2.55
+    ],
+    "易胜博": [
+     2.29,
+     3.3,
+     2.8
+    ],
+    "伟德": [
+     2.3,
+     3.4,
+     2.88
+    ],
+    "平博": [
+     2.44,
+     3.53,
+     2.92
+    ]
+   },
+   "official_odds": [
+    2.12,
+    3.19,
+    2.82
+   ],
+   "ah": {},
+   "ou": {
+    "Interwetten": {
+     "open_line": 2.5,
+     "open_over": 0.75,
+     "open_under": 0.9,
+     "close_line": 2.5,
+     "close_over": 0.75,
+     "close_under": 0.9
+    },
+    "Bet365": {
+     "open_line": 2.5,
+     "open_over": 0.8,
+     "open_under": 1.0,
+     "close_line": 2.5,
+     "close_over": 0.82,
+     "close_under": 0.97
+    },
+    "皇冠": {
+     "open_line": 2.5,
+     "open_over": 0.86,
+     "open_under": 1.01,
+     "close_line": 2.5,
+     "close_over": 0.86,
+     "close_under": 1.01
+    },
+    "澳彩": {
+     "open_line": 2.5,
+     "open_over": 0.81,
+     "open_under": 0.91,
+     "close_line": 2.5,
+     "close_over": 0.81,
+     "close_under": 0.91
+    }
+   },
+   "media": "球迷屋给胜平负预测 47.37% / 23.68% / 28.95%，并记录光州近 6 个联赛主场 1胜2平3负 进8失12、富川近 6 个联赛客场 1胜5负 进6失9；Wincomparator 给客队富川胜 43.65%、大 2.5 球 57.11%、双方进球「否」51.25%；BananaGoal 给 79% 最佳倾向（具体选项未公开）；sdxzai 模型比分 1-0 / 2-1 / 1-1。注：竞彩网计算器页官方赔率为 2.12/3.19/2.82，纳米数据「竞彩赔率」行写 2.10/3.25/2.82，两者略有差异，官方口径以竞彩网为准。",
+   "ai_preds": [
+    {
+     "src": "球迷屋",
+     "lean": "主胜",
+     "read": "胜平负预测 47.37% / 23.68% / 28.95%"
+    },
+    {
+     "src": "Wincomparator",
+     "lean": "客胜",
+     "read": "富川胜 43.65%；大 2.5 球 57.11%；BTTS 否 51.25%"
+    },
+    {
+     "src": "BananaGoal AI",
+     "lean": "未公开倾向",
+     "read": "最佳倾向标注 79% 概率，具体选项需注册后可见"
+    },
+    {
+     "src": "sdxzai 数据模型",
+     "lean": "主胜（机械推算）",
+     "read": "比分 Top3：1-0 / 2-1 / 1-1"
+    }
+   ]
+  },
+  "005": {
+   "open": {
+    "威廉": [
+     1.8,
+     3.6,
+     3.75
+    ],
+    "伟德": [
+     1.8,
+     3.6,
+     3.9
+    ],
+    "平博": [
+     1.94,
+     3.6,
+     3.73
+    ],
+    "10BET": [
+     1.84,
+     3.5,
+     3.6
+    ],
+    "明陞": [
+     1.88,
+     3.7,
+     3.6
+    ],
+    "易胜博": [
+     1.83,
+     3.4,
+     3.7
+    ],
+    "18Bet": [
+     1.85,
+     3.7,
+     3.6
+    ],
+    "竞彩官方": [
+     1.81,
+     3.4,
+     3.42
+    ],
+    "皇冠": [
+     1.86,
+     3.7,
+     3.65
+    ],
+    "Interwetten": [
+     1.9,
+     3.7,
+     3.7
+    ],
+    "马会": [
+     1.68,
+     3.6,
+     3.85
+    ],
+    "利记": [
+     1.86,
+     3.29,
+     3.59
+    ],
+    "盈禾": [
+     1.89,
+     3.49,
+     3.34
+    ],
+    "SNAI": [
+     1.75,
+     3.6,
+     4.25
+    ],
+    "12bet": [
+     1.89,
+     3.65,
+     3.6
+    ],
+    "Bet365": [
+     1.85,
+     3.6,
+     3.6
+    ],
+    "onex": [
+     1.87,
+     3.7,
+     3.7
+    ],
+    "立博": [
+     1.83,
+     3.7,
+     4.2
+    ],
+    "澳彩": [
+     1.87,
+     3.48,
+     3.25
+    ]
+   },
+   "close": {
+    "威廉": [
+     1.91,
+     3.4,
+     3.75
+    ],
+    "伟德": [
+     1.87,
+     3.5,
+     3.7
+    ],
+    "平博": [
+     1.92,
+     3.78,
+     3.96
+    ],
+    "10BET": [
+     1.94,
+     3.4,
+     3.7
+    ],
+    "明陞": [
+     1.94,
+     3.6,
+     3.5
+    ],
+    "易胜博": [
+     1.93,
+     3.5,
+     3.5
+    ],
+    "18Bet": [
+     1.9,
+     3.7,
+     3.7
+    ],
+    "竞彩官方": [
+     1.81,
+     3.4,
+     3.42
+    ],
+    "皇冠": [
+     1.94,
+     3.65,
+     3.45
+    ],
+    "Interwetten": [
+     1.95,
+     3.6,
+     3.65
+    ],
+    "马会": [
+     1.68,
+     3.55,
+     3.9
+    ],
+    "利记": [
+     1.96,
+     3.19,
+     3.37
+    ],
+    "盈禾": [
+     1.95,
+     3.57,
+     3.53
+    ],
+    "SNAI": [
+     1.85,
+     3.6,
+     3.75
+    ],
+    "12bet": [
+     1.94,
+     3.6,
+     3.5
+    ],
+    "Bet365": [
+     1.85,
+     3.8,
+     3.8
+    ],
+    "onex": [
+     1.83,
+     3.7,
+     3.95
+    ],
+    "立博": [
+     1.91,
+     3.7,
+     3.75
+    ],
+    "澳彩": [
+     1.91,
+     3.47,
+     3.21
+    ]
+   },
+   "official_odds": [
+    1.81,
+    3.4,
+    3.42
+   ],
+   "ah": {
+    "Bet365": {
+     "open_line": -0.5,
+     "open_home": 0.92,
+     "open_away": 0.92,
+     "close_line": -0.5,
+     "close_home": 0.9,
+     "close_away": 0.95
+    },
+    "皇冠": {
+     "open_line": -0.5,
+     "open_home": 0.86,
+     "open_away": 1.02,
+     "close_line": -0.5,
+     "close_home": 0.94,
+     "close_away": 0.94
+    },
+    "澳彩": {
+     "open_line": -0.5,
+     "open_home": 0.87,
+     "open_away": 0.91,
+     "close_line": -0.5,
+     "close_home": 0.91,
+     "close_away": 0.87
+    },
+    "易胜博": {
+     "open_line": -0.5,
+     "open_home": 0.92,
+     "open_away": 0.96,
+     "close_line": -0.5,
+     "close_home": 0.92,
+     "close_away": 0.96
+    },
+    "威廉": {
+     "open_line": -0.5,
+     "open_home": 0.85,
+     "open_away": 0.83,
+     "close_line": -0.5,
+     "close_home": 0.85,
+     "close_away": 0.83
+    },
+    "立博": {
+     "open_line": -0.5,
+     "open_home": 0.8,
+     "open_away": 0.91,
+     "close_line": -0.5,
+     "close_home": 0.83,
+     "close_away": 0.85
+    }
+   },
+   "ou": {
+    "Bet365": {
+     "open_line": 2.75,
+     "open_over": 0.85,
+     "open_under": 1.0,
+     "close_line": 2.75,
+     "close_over": 0.95,
+     "close_under": 0.9
+    },
+    "皇冠": {
+     "open_line": 2.75,
+     "open_over": 1.01,
+     "open_under": 0.86,
+     "close_line": 2.75,
+     "close_over": 1.04,
+     "close_under": 0.83
+    },
+    "澳彩": {
+     "open_line": 2.75,
+     "open_over": 0.92,
+     "open_under": 0.8,
+     "close_line": 2.75,
+     "close_over": 0.95,
+     "close_under": 0.77
+    },
+    "威廉": {
+     "open_line": 2.5,
+     "open_over": 0.67,
+     "open_under": 1.1,
+     "close_line": 2.5,
+     "close_over": 0.7,
+     "close_under": 1.05
+    }
+   },
+   "media": "球迷屋：英冠 15 轮后伯恩利 1胜7平7负、22 进 31 失、主场 5平2负未尝胜绩，布莱克本 6胜3平6负、22 进 23 失、客场 1胜3平3负；两队近 6 次相遇伯恩利 5胜1平。网易两篇前瞻都偏向低比分平局，参考比分 1-1 / 2-1 与 1-0 / 1-1，并列出双方伤停人数（伯恩利 7–8 人、布莱克本 5–6 人，两篇口径略有差异，临场首发为准）。",
+   "ai_preds": [
+    {
+     "src": "网易 兰开夏德比前瞻",
+     "lean": "平局",
+     "read": "参考比分 1-1 / 2-1，判断为低比分拉锯"
+    },
+    {
+     "src": "网易 英冠前瞻",
+     "lean": "平局（弱）",
+     "read": "参考比分 1-0 / 1-1；两队本赛季主/客胜率均低"
+    },
+    {
+     "src": "球迷屋 赛季数据",
+     "lean": "无明确方向",
+     "read": "伯恩利 15 场 22进31失、主场 5平2负；布莱克本 15 场 22进23失、客场 1胜3平3负"
+    }
+   ]
+  }
+ },
+ "rejected": [
+  "新浪《初盘盘口分歧炸裂，机构暗战谁在操盘》与虎扑《盘口与赔率拆解》中的「诱盘 / 操盘 / 机构态度」解读——违反项目零机构态度解读纪律，只取其客观盘口数字与时间戳",
+  "虎扑《国际米兰 vs 亚特兰大 意甲第 29 轮》——主客与本场（亚特兰大主场）相反，属另一场比赛，整条剔除",
+  "纳米数据「历史同赔胜率」等派生统计——只作对照登记，不进入模型或方向判断",
+  "所有未随搜索结果返回 URL 的推断性结论——不写入方向，只登记为可核对事实"
+ ],
+ "odds": {
+  "012": {
+   "open": {
+    "澳彩": [
+     1.58,
+     4.25,
+     4.05
+    ],
+    "皇冠": [
+     1.81,
+     4.15,
+     4.0
+    ],
+    "Bet365": [
+     1.8,
+     4.0,
+     4.0
+    ],
+    "易胜博": [
+     1.73,
+     3.9,
+     4.0
+    ],
+    "威廉": [
+     1.73,
+     4.0,
+     4.5
+    ],
+    "立博": [
+     1.75,
+     3.8,
+     4.33
+    ],
+    "伟德": [
+     1.72,
+     4.0,
+     4.1
+    ],
+    "Interwetten": [
+     1.83,
+     3.95,
+     3.95
+    ],
+    "平博": [
+     1.83,
+     3.96,
+     3.98
+    ],
+    "SNAI": [
+     1.72,
+     4.0,
+     4.25
+    ],
+    "10BET": [
+     1.8,
+     3.6,
+     3.75
+    ],
+    "12bet": [
+     1.83,
+     3.9,
+     3.65
+    ],
+    "利记": [
+     1.85,
+     3.32,
+     3.86
+    ],
+    "18Bet": [
+     1.69,
+     3.8,
+     4.6
+    ],
+    "明陞": [
+     1.84,
+     3.9,
+     3.6
+    ],
+    "盈禾": [
+     1.81,
+     4.12,
+     3.93
+    ],
+    "马会": [
+     1.59,
+     4.0,
+     4.0
+    ],
+    "onex": [
+     1.8,
+     4.17,
+     4.51
+    ]
+   },
+   "close": {
+    "澳彩": [
+     1.55,
+     4.35,
+     4.2
+    ],
+    "皇冠": [
+     1.71,
+     4.45,
+     4.35
+    ],
+    "Bet365": [
+     1.66,
+     4.2,
+     4.5
+    ],
+    "易胜博": [
+     1.7,
+     4.0,
+     4.2
+    ],
+    "威廉": [
+     1.7,
+     4.0,
+     4.2
+    ],
+    "立博": [
+     1.67,
+     4.33,
+     4.2
+    ],
+    "伟德": [
+     1.67,
+     4.1,
+     4.33
+    ],
+    "Interwetten": [
+     1.73,
+     4.2,
+     4.3
+    ],
+    "平博": [
+     1.7,
+     4.35,
+     4.6
+    ],
+    "SNAI": [
+     1.72,
+     4.0,
+     4.0
+    ],
+    "10BET": [
+     1.73,
+     3.9,
+     4.4
+    ],
+    "12bet": [
+     1.71,
+     4.15,
+     3.95
+    ],
+    "利记": [
+     1.74,
+     3.75,
+     3.82
+    ],
+    "18Bet": [
+     1.7,
+     4.2,
+     4.3
+    ],
+    "明陞": [
+     1.71,
+     4.15,
+     3.95
+    ],
+    "盈禾": [
+     1.69,
+     4.4,
+     4.3
+    ],
+    "马会": [
+     1.62,
+     3.95,
+     3.85
+    ],
+    "onex": [
+     1.73,
+     4.44,
+     4.64
+    ]
+   }
+  },
+  "004": {
+   "open": {
+    "澳彩": [
+     1.28,
+     5.0,
+     7.4
+    ],
+    "皇冠": [
+     1.38,
+     5.2,
+     7.9
+    ],
+    "Bet365": [
+     1.33,
+     4.75,
+     8.0
+    ],
+    "易胜博": [
+     1.33,
+     4.8,
+     7.7
+    ],
+    "威廉": [
+     1.33,
+     4.75,
+     8.0
+    ],
+    "立博": [
+     1.36,
+     5.0,
+     7.5
+    ],
+    "伟德": [
+     1.33,
+     5.0,
+     8.0
+    ],
+    "Interwetten": [
+     1.37,
+     5.25,
+     7.75
+    ],
+    "平博": [
+     1.34,
+     5.37,
+     8.14
+    ],
+    "SNAI": [
+     1.33,
+     5.0,
+     8.0
+    ],
+    "10BET": [
+     1.36,
+     5.0,
+     7.4
+    ],
+    "12bet": [
+     1.34,
+     4.9,
+     7.7
+    ],
+    "利记": [
+     1.34,
+     4.59,
+     7.1
+    ],
+    "18Bet": [
+     1.35,
+     5.0,
+     7.75
+    ],
+    "明陞": [
+     1.35,
+     4.8,
+     7.6
+    ],
+    "盈禾": [
+     1.37,
+     5.0,
+     8.25
+    ],
+    "onex": [
+     1.38,
+     5.65,
+     8.55
+    ]
+   },
+   "close": {
+    "澳彩": [
+     1.27,
+     5.1,
+     7.9
+    ],
+    "皇冠": [
+     1.37,
+     5.3,
+     8.1
+    ],
+    "Bet365": [
+     1.36,
+     5.0,
+     8.5
+    ],
+    "易胜博": [
+     1.35,
+     4.8,
+     7.9
+    ],
+    "威廉": [
+     1.36,
+     4.8,
+     7.5
+    ],
+    "立博": [
+     1.36,
+     5.25,
+     7.5
+    ],
+    "伟德": [
+     1.33,
+     5.0,
+     8.0
+    ],
+    "Interwetten": [
+     1.37,
+     5.25,
+     7.75
+    ],
+    "平博": [
+     1.37,
+     5.43,
+     8.35
+    ],
+    "SNAI": [
+     1.33,
+     5.0,
+     8.0
+    ],
+    "10BET": [
+     1.37,
+     4.7,
+     7.8
+    ],
+    "12bet": [
+     1.33,
+     4.95,
+     8.0
+    ],
+    "利记": [
+     1.34,
+     4.59,
+     7.1
+    ],
+    "18Bet": [
+     1.36,
+     5.25,
+     8.0
+    ],
+    "明陞": [
+     1.33,
+     4.95,
+     8.0
+    ],
+    "盈禾": [
+     1.37,
+     5.0,
+     8.4
+    ],
+    "onex": [
+     1.39,
+     5.39,
+     8.8
+    ]
+   }
+  },
+  "003": {
+   "open": {
+    "澳彩": [
+     1.01,
+     12.0,
+     25.0
+    ],
+    "皇冠": [
+     1.07,
+     13.0,
+     26.0
+    ],
+    "Bet365": [
+     1.05,
+     13.0,
+     26.0
+    ],
+    "易胜博": [
+     1.05,
+     12.0,
+     23.0
+    ],
+    "威廉": [
+     1.04,
+     15.0,
+     41.0
+    ],
+    "立博": [
+     1.07,
+     13.0,
+     26.0
+    ],
+    "伟德": [
+     1.06,
+     11.5,
+     23.0
+    ],
+    "Interwetten": [
+     1.05,
+     15.0,
+     23.0
+    ],
+    "平博": [
+     1.04,
+     19.69,
+     26.74
+    ],
+    "SNAI": [
+     1.06,
+     13.0,
+     22.0
+    ],
+    "10BET": [
+     1.04,
+     15.0,
+     24.0
+    ],
+    "12bet": [
+     1.07,
+     12.0,
+     16.0
+    ],
+    "利记": [
+     1.07,
+     8.6,
+     14.0
+    ],
+    "18Bet": [
+     1.04,
+     12.0,
+     26.0
+    ],
+    "明陞": [
+     1.07,
+     12.0,
+     16.0
+    ],
+    "盈禾": [
+     1.04,
+     8.6,
+     27.0
+    ],
+    "onex": [
+     1.05,
+     15.5,
+     31.0
+    ]
+   },
+   "close": {
+    "澳彩": [
+     1.04,
+     9.4,
+     18.0
+    ],
+    "皇冠": [
+     1.1,
+     11.0,
+     21.0
+    ],
+    "Bet365": [
+     1.08,
+     11.0,
+     21.0
+    ],
+    "易胜博": [
+     1.09,
+     9.8,
+     17.0
+    ],
+    "威廉": [
+     1.07,
+     12.0,
+     29.0
+    ],
+    "立博": [
+     1.1,
+     11.0,
+     19.0
+    ],
+    "伟德": [
+     1.06,
+     11.5,
+     23.0
+    ],
+    "Interwetten": [
+     1.08,
+     11.0,
+     19.0
+    ],
+    "平博": [
+     1.08,
+     14.54,
+     20.08
+    ],
+    "SNAI": [
+     1.07,
+     13.0,
+     20.0
+    ],
+    "10BET": [
+     1.09,
+     9.6,
+     20.0
+    ],
+    "12bet": [
+     1.07,
+     11.0,
+     17.0
+    ],
+    "利记": [
+     1.08,
+     8.6,
+     13.0
+    ],
+    "18Bet": [
+     1.08,
+     11.0,
+     21.0
+    ],
+    "明陞": [
+     1.07,
+     11.0,
+     17.0
+    ],
+    "盈禾": [
+     1.09,
+     8.8,
+     23.0
+    ],
+    "onex": [
+     1.04,
+     16.5,
+     34.0
+    ]
+   }
+  },
+  "006": {
+   "open": {
+    "澳彩": [
+     1.12,
+     7.7,
+     11.0
+    ],
+    "皇冠": [
+     1.25,
+     7.3,
+     9.3
+    ],
+    "Bet365": [
+     1.2,
+     7.0,
+     9.5
+    ],
+    "易胜博": [
+     1.18,
+     7.0,
+     9.4
+    ],
+    "威廉": [
+     1.2,
+     6.5,
+     9.5
+    ],
+    "立博": [
+     1.28,
+     6.5,
+     8.5
+    ],
+    "伟德": [
+     1.2,
+     6.5,
+     9.5
+    ],
+    "Interwetten": [
+     1.25,
+     7.25,
+     9.5
+    ],
+    "平博": [
+     1.23,
+     7.59,
+     8.49
+    ],
+    "SNAI": [
+     1.22,
+     7.0,
+     9.0
+    ],
+    "10BET": [
+     1.23,
+     6.6,
+     8.8
+    ],
+    "12bet": [
+     1.22,
+     6.8,
+     8.5
+    ],
+    "利记": [
+     1.2,
+     6.6,
+     8.6
+    ],
+    "18Bet": [
+     1.22,
+     7.0,
+     9.0
+    ],
+    "明陞": [
+     1.21,
+     7.0,
+     9.0
+    ],
+    "盈禾": [
+     1.24,
+     6.9,
+     9.8
+    ],
+    "onex": [
+     1.24,
+     8.2,
+     11.3
+    ]
+   },
+   "close": {
+    "澳彩": [
+     1.13,
+     7.8,
+     11.0
+    ],
+    "皇冠": [
+     1.2,
+     7.8,
+     10.0
+    ],
+    "Bet365": [
+     1.16,
+     8.5,
+     13.0
+    ],
+    "易胜博": [
+     1.2,
+     7.6,
+     9.2
+    ],
+    "威廉": [
+     1.2,
+     7.0,
+     11.0
+    ],
+    "立博": [
+     1.22,
+     7.5,
+     9.0
+    ],
+    "伟德": [
+     1.16,
+     7.5,
+     10.5
+    ],
+    "Interwetten": [
+     1.2,
+     8.0,
+     11.0
+    ],
+    "平博": [
+     1.21,
+     7.34,
+     13.22
+    ],
+    "SNAI": [
+     1.17,
+     8.0,
+     12.0
+    ],
+    "10BET": [
+     1.2,
+     7.2,
+     11.0
+    ],
+    "12bet": [
+     1.2,
+     7.3,
+     9.0
+    ],
+    "利记": [
+     1.17,
+     7.2,
+     8.8
+    ],
+    "18Bet": [
+     1.21,
+     7.25,
+     11.5
+    ],
+    "明陞": [
+     1.2,
+     7.3,
+     9.0
+    ],
+    "盈禾": [
+     1.21,
+     7.4,
+     10.7
+    ],
+    "onex": [
+     1.25,
+     7.6,
+     11.9
+    ]
+   }
+  },
+  "016": {
+   "open": {
+    "竞彩官方": [
+     4.55,
+     4.35,
+     1.45
+    ],
+    "皇冠": [
+     4.45,
+     4.65,
+     1.65
+    ],
+    "SNAI": [
+     4.5,
+     4.25,
+     1.6
+    ],
+    "Interwetten": [
+     4.7,
+     4.4,
+     1.63
+    ],
+    "12bet": [
+     4.65,
+     4.3,
+     1.58
+    ],
+    "盈禾": [
+     4.46,
+     4.61,
+     1.65
+    ],
+    "Bet365": [
+     4.5,
+     4.2,
+     1.65
+    ],
+    "马会": [
+     4.5,
+     4.45,
+     1.45
+    ],
+    "18Bet": [
+     4.6,
+     4.3,
+     1.61
+    ],
+    "10BET": [
+     4.5,
+     4.3,
+     1.62
+    ],
+    "伟德": [
+     4.6,
+     4.4,
+     1.57
+    ],
+    "平博": [
+     4.75,
+     4.48,
+     1.62
+    ],
+    "立博": [
+     4.6,
+     4.4,
+     1.61
+    ],
+    "明陞": [
+     4.4,
+     4.2,
+     1.63
+    ],
+    "澳彩": [
+     4.3,
+     4.5,
+     1.52
+    ],
+    "威廉": [
+     4.75,
+     4.2,
+     1.62
+    ],
+    "易胜博": [
+     4.6,
+     4.3,
+     1.57
+    ],
+    "利记": [
+     4.22,
+     4.13,
+     1.61
+    ]
+   },
+   "close": {
+    "竞彩官方": [
+     4.55,
+     4.35,
+     1.45
+    ],
+    "皇冠": [
+     5.1,
+     4.7,
+     1.57
+    ],
+    "SNAI": [
+     4.5,
+     4.25,
+     1.6
+    ],
+    "Interwetten": [
+     5.0,
+     4.6,
+     1.57
+    ],
+    "12bet": [
+     4.65,
+     4.4,
+     1.57
+    ],
+    "盈禾": [
+     4.85,
+     4.75,
+     1.59
+    ],
+    "Bet365": [
+     5.0,
+     4.5,
+     1.57
+    ],
+    "马会": [
+     4.5,
+     4.45,
+     1.45
+    ],
+    "18Bet": [
+     5.0,
+     4.5,
+     1.56
+    ],
+    "10BET": [
+     5.0,
+     4.2,
+     1.57
+    ],
+    "伟德": [
+     5.0,
+     4.5,
+     1.53
+    ],
+    "平博": [
+     5.28,
+     4.79,
+     1.57
+    ],
+    "立博": [
+     4.5,
+     4.5,
+     1.61
+    ],
+    "明陞": [
+     4.65,
+     4.4,
+     1.57
+    ],
+    "澳彩": [
+     4.75,
+     4.65,
+     1.45
+    ],
+    "威廉": [
+     4.75,
+     4.33,
+     1.57
+    ],
+    "易胜博": [
+     4.9,
+     4.4,
+     1.57
+    ],
+    "利记": [
+     4.71,
+     4.31,
+     1.52
+    ]
+   }
+  },
+  "018": {
+   "open": {
+    "易胜博": [
+     5.1,
+     3.6,
+     1.62
+    ],
+    "利记": [
+     4.72,
+     3.45,
+     1.67
+    ],
+    "平博": [
+     5.6,
+     3.85,
+     1.63
+    ],
+    "立博": [
+     5.5,
+     3.7,
+     1.65
+    ],
+    "SNAI": [
+     5.25,
+     3.75,
+     1.62
+    ],
+    "威廉": [
+     5.0,
+     3.7,
+     1.62
+    ],
+    "Interwetten": [
+     5.75,
+     3.8,
+     1.63
+    ],
+    "竞彩官方": [
+     6.2,
+     3.95,
+     1.38
+    ],
+    "onex": [
+     5.06,
+     3.69,
+     1.82
+    ],
+    "明陞": [
+     5.0,
+     3.5,
+     1.68
+    ],
+    "18Bet": [
+     5.5,
+     3.7,
+     1.62
+    ],
+    "Bet365": [
+     4.75,
+     3.5,
+     1.72
+    ],
+    "皇冠": [
+     6.0,
+     3.75,
+     1.65
+    ],
+    "澳彩": [
+     5.4,
+     3.81,
+     1.51
+    ],
+    "伟德": [
+     5.25,
+     3.6,
+     1.6
+    ],
+    "12bet": [
+     5.4,
+     3.65,
+     1.61
+    ],
+    "盈禾": [
+     5.6,
+     3.82,
+     1.64
+    ],
+    "10BET": [
+     5.4,
+     3.7,
+     1.62
+    ]
+   },
+   "close": {
+    "易胜博": [
+     5.8,
+     3.8,
+     1.56
+    ],
+    "利记": [
+     5.6,
+     3.72,
+     1.52
+    ],
+    "平博": [
+     6.51,
+     4.1,
+     1.57
+    ],
+    "立博": [
+     5.75,
+     3.9,
+     1.57
+    ],
+    "SNAI": [
+     5.75,
+     3.75,
+     1.57
+    ],
+    "威廉": [
+     5.5,
+     3.8,
+     1.57
+    ],
+    "Interwetten": [
+     6.25,
+     4.0,
+     1.55
+    ],
+    "竞彩官方": [
+     6.2,
+     3.95,
+     1.38
+    ],
+    "onex": [
+     6.19,
+     4.0,
+     1.66
+    ],
+    "明陞": [
+     6.0,
+     3.85,
+     1.53
+    ],
+    "18Bet": [
+     6.25,
+     3.8,
+     1.55
+    ],
+    "Bet365": [
+     6.25,
+     4.0,
+     1.55
+    ],
+    "皇冠": [
+     7.2,
+     3.9,
+     1.54
+    ],
+    "澳彩": [
+     5.8,
+     3.9,
+     1.45
+    ],
+    "伟德": [
+     5.75,
+     3.75,
+     1.53
+    ],
+    "12bet": [
+     6.0,
+     3.85,
+     1.53
+    ],
+    "盈禾": [
+     6.35,
+     4.06,
+     1.56
+    ],
+    "10BET": [
+     6.2,
+     3.7,
+     1.55
+    ]
+   }
+  }
+ },
+ "ah": {
+  "012": {
+   "澳彩": [
+    -0.75,
+    0.91,
+    0.93,
+    -0.75,
+    0.86,
+    0.98
+   ],
+   "皇冠": [
+    -0.75,
+    1.03,
+    0.85,
+    -0.75,
+    0.88,
+    1.0
+   ],
+   "Bet365": [
+    -0.75,
+    1.02,
+    0.82,
+    -0.75,
+    0.87,
+    0.97
+   ],
+   "易胜博": [
+    -0.75,
+    0.95,
+    0.95,
+    -0.75,
+    0.92,
+    0.98
+   ],
+   "威廉": [
+    -0.75,
+    0.8,
+    0.91,
+    -0.75,
+    0.91,
+    0.8
+   ],
+   "立博": [
+    -0.5,
+    0.65,
+    1.1,
+    -0.5,
+    0.65,
+    1.1
+   ],
+   "伟德": [
+    -0.75,
+    0.98,
+    0.82,
+    -0.75,
+    0.84,
+    0.95
+   ],
+   "Interwetten": [
+    -0.5,
+    0.83,
+    0.95,
+    -0.5,
+    0.73,
+    1.1
+   ]
+  },
+  "004": {
+   "澳彩": [
+    -1.25,
+    0.79,
+    1.05,
+    -1.5,
+    1.02,
+    0.82
+   ],
+   "皇冠": [
+    -1.5,
+    1.05,
+    0.83,
+    -1.25,
+    0.83,
+    1.05
+   ],
+   "Bet365": [
+    -1.5,
+    1.0,
+    0.85,
+    -1.5,
+    1.02,
+    0.82
+   ],
+   "易胜博": [
+    -1.5,
+    1.08,
+    0.82,
+    -1.5,
+    1.09,
+    0.81
+   ],
+   "威廉": [
+    -1.25,
+    0.8,
+    0.91,
+    -1.25,
+    0.8,
+    0.91
+   ],
+   "立博": [
+    -1.5,
+    0.95,
+    0.8,
+    -1.5,
+    0.95,
+    0.8
+   ],
+   "伟德": [
+    -1.5,
+    1.07,
+    0.83,
+    -1.5,
+    1.02,
+    0.79
+   ],
+   "Interwetten": [
+    -1.5,
+    0.97,
+    0.77,
+    -1.5,
+    1.0,
+    0.75
+   ]
+  },
+  "003": {
+   "澳彩": [
+    -2.75,
+    0.8,
+    0.98,
+    -2.75,
+    0.87,
+    0.91
+   ],
+   "皇冠": [
+    -3.0,
+    0.94,
+    0.94,
+    -2.75,
+    0.94,
+    0.94
+   ],
+   "Bet365": [
+    -3.25,
+    1.0,
+    0.8,
+    -2.75,
+    0.9,
+    0.9
+   ],
+   "易胜博": [
+    -2.75,
+    0.83,
+    0.98,
+    -2.75,
+    0.94,
+    0.94
+   ],
+   "威廉": [
+    -3.0,
+    1.0,
+    0.73,
+    -2.75,
+    0.85,
+    0.85
+   ],
+   "立博": [
+    -2.5,
+    0.61,
+    1.2,
+    -2.5,
+    0.7,
+    1.0
+   ],
+   "伟德": [
+    -3.0,
+    1.04,
+    0.82,
+    -2.75,
+    0.89,
+    0.9
+   ],
+   "Interwetten": [
+    -3.0,
+    0.8,
+    0.9,
+    -2.5,
+    0.7,
+    1.05
+   ]
+  },
+  "006": {
+   "澳彩": [
+    -2.25,
+    1.0,
+    0.84,
+    -2.0,
+    0.78,
+    1.06
+   ],
+   "皇冠": [
+    -2.0,
+    0.93,
+    0.95,
+    -2.25,
+    1.03,
+    0.85
+   ],
+   "Bet365": [
+    -2.25,
+    1.02,
+    0.82,
+    -2.25,
+    1.0,
+    0.85
+   ],
+   "易胜博": [
+    -2.25,
+    1.03,
+    0.87,
+    -2.25,
+    1.0,
+    0.9
+   ],
+   "威廉": [
+    -2.0,
+    0.85,
+    0.85,
+    -2.0,
+    0.7,
+    0.91
+   ],
+   "立博": [
+    -2.5,
+    1.25,
+    0.57,
+    -2.5,
+    1.1,
+    0.65
+   ],
+   "伟德": [
+    -2.0,
+    0.93,
+    0.93,
+    -2.25,
+    0.94,
+    0.85
+   ],
+   "Interwetten": [
+    -2.0,
+    0.83,
+    0.9,
+    -2.5,
+    1.05,
+    0.73
+   ]
+  }
+ },
+ "ou": {
+  "012": {
+   "澳彩": [
+    3.25,
+    1.03,
+    0.77,
+    3.25,
+    0.96,
+    0.84
+   ],
+   "皇冠": [
+    3.0,
+    0.93,
+    0.95,
+    3.25,
+    1.01,
+    0.87
+   ],
+   "Bet365": [
+    3.25,
+    1.05,
+    0.8,
+    3.25,
+    1.0,
+    0.85
+   ],
+   "易胜博": [
+    3.25,
+    1.08,
+    0.8,
+    3.25,
+    1.02,
+    0.86
+   ],
+   "威廉": [
+    2.5,
+    0.57,
+    1.3,
+    3.5,
+    1.2,
+    0.62
+   ],
+   "立博": [
+    2.5,
+    0.67,
+    1.1,
+    2.5,
+    0.48,
+    1.5
+   ],
+   "伟德": [
+    3.25,
+    0.99,
+    0.81,
+    3.25,
+    0.98,
+    0.82
+   ]
+  },
+  "004": {
+   "澳彩": [
+    2.75,
+    0.77,
+    1.03,
+    3.0,
+    1.02,
+    0.78
+   ],
+   "皇冠": [
+    3.0,
+    1.05,
+    0.83,
+    2.75,
+    0.82,
+    1.06
+   ],
+   "Bet365": [
+    3.0,
+    1.0,
+    0.85,
+    2.75,
+    0.8,
+    1.05
+   ],
+   "易胜博": [
+    3.0,
+    1.06,
+    0.82,
+    2.75,
+    0.81,
+    1.07
+   ],
+   "威廉": [
+    2.5,
+    0.6,
+    1.2,
+    2.5,
+    0.62,
+    1.25
+   ],
+   "立博": [
+    2.5,
+    0.6,
+    1.2,
+    2.5,
+    0.6,
+    1.2
+   ],
+   "伟德": [
+    3.0,
+    1.05,
+    0.84,
+    3.0,
+    1.01,
+    0.79
+   ]
+  },
+  "003": {
+   "澳彩": [
+    4.0,
+    0.83,
+    0.89,
+    4.0,
+    0.84,
+    0.88
+   ],
+   "皇冠": [
+    4.0,
+    0.83,
+    1.03,
+    4.0,
+    0.9,
+    0.97
+   ],
+   "Bet365": [
+    4.25,
+    0.85,
+    0.95,
+    4.0,
+    0.85,
+    0.95
+   ],
+   "易胜博": [
+    4.0,
+    0.83,
+    0.98,
+    4.0,
+    0.93,
+    0.92
+   ],
+   "威廉": [
+    4.5,
+    1.1,
+    0.67,
+    4.5,
+    1.1,
+    0.67
+   ],
+   "立博": [
+    2.5,
+    0.2,
+    3.0,
+    4.5,
+    1.2,
+    0.6
+   ]
+  },
+  "006": {
+   "澳彩": [
+    4.25,
+    1.0,
+    0.8,
+    4.25,
+    0.88,
+    0.92
+   ],
+   "皇冠": [
+    4.25,
+    0.99,
+    0.89,
+    4.5,
+    1.03,
+    0.85
+   ],
+   "Bet365": [
+    4.25,
+    0.97,
+    0.87,
+    4.25,
+    0.85,
+    1.0
+   ],
+   "易胜博": [
+    4.25,
+    0.98,
+    0.9,
+    4.25,
+    0.84,
+    1.04
+   ],
+   "威廉": [
+    4.5,
+    1.25,
+    0.62,
+    4.5,
+    1.0,
+    0.75
+   ],
+   "伟德": [
+    4.0,
+    0.89,
+    0.96,
+    4.25,
+    0.82,
+    0.97
+   ],
+   "Interwetten": [
+    4.5,
+    1.15,
+    0.67,
+    4.5,
+    0.97,
+    0.77
+   ]
+  }
+ },
+ "media": {
+  "012": "Kalshi 预测市场（90 分钟口径）给主 57% / 平 23% / 客 22%；GiveMeSport 列出双方赛季场均数据与伤停；BettingStats 明确标注「statistics, not tips」，只给近 5 场与大球比例，不给方向；新浪初盘报道给出 0.5 / 0.75 / 1 球三档初盘分歧（只取盘口数字，不取其机构态度措辞）。",
+  "004": "腾讯新闻 / 网易：尤文对威尼斯 12 场不败（7 胜 5 平，上次输球 1993 年意大利杯），尤文 11 轮 18 分第 7、威尼斯 6 分在降级区，并提示下周中欧联杯可能轮换；网易战术前瞻给「阵地攻坚 vs 防反」对位描述。",
+  "006": "球迷屋给胜平负预测 87.27% / 7.27% / 5.45%；新浪记录亚盘初盘主让 2 球、部分公司升至 2/2.5 球的客观时间线；sdxzai 明确写「本场暂无完整官方赔率，以模型参考为主」，与竞彩官方胜平负未开售一致。",
+  "016": "sdxzai 模型比分 Top3：1-2 / 0-1 / 0-2（基于公开赔率的机械推算）；纳米数据情报显示国米近 15 次交锋 11 胜 4 平、近 5 次 4 胜 1 平，亚特兰大近 5 年对国米主客输球率均 80%。",
+  "018": "PickCenterPro AI：主 28% / 平 23% / 客 49%，比分 0-1 / 1-1 / 1-2，并自述「没有可用赔率、市场式评估权重降至 0.25」；有球说给「全场 2 球或以下」；腾讯西甲前瞻预测 0-2；sdxzai 模型比分 0-2 / 0-3 / 1-3。",
+  "003": "纳米数据情报：特温特 12 轮 7 胜 3 平 2 负第 3、近 5 场 4 胜 1 平且场均 4 球；威廉二世 12 轮 0 胜 3 平 9 负垫底、失 40 球为联赛最多；竞彩网计算器页确认本场胜平负「未开售」。"
+ },
+ "ai_preds": {
+  "012": [
+   {
+    "src": "Kalshi 预测市场",
+    "lean": "主胜",
+    "read": "主 57% / 平 23% / 客 22%（90 分钟含补时，不含加时点球）"
+   },
+   {
+    "src": "GiveMeSport 赛前赔率",
+    "lean": "主胜",
+    "read": "Money line -152 / +370，Spread -1 / +1"
+   },
+   {
+    "src": "纳米数据 历史同赔",
+    "lean": "无明确方向",
+    "read": "bet365 同赔 4 场主胜率 50%，Crown 4 场主胜率 50%（仅对照）"
+   }
+  ],
+  "004": [
+   {
+    "src": "sdxzai 数据模型",
+    "lean": "主胜",
+    "read": "比分 Top3：2-0 / 3-0 / 3-1；官方胜 1.21 平 5.05 负 8.75"
+   },
+   {
+    "src": "腾讯新闻 交锋统计",
+    "lean": "主不败",
+    "read": "尤文对威尼斯 12 场不败（7 胜 5 平）"
+   }
+  ],
+  "006": [
+   {
+    "src": "球迷屋",
+    "lean": "主胜",
+    "read": "胜平负预测 87.27% / 7.27% / 5.45%"
+   },
+   {
+    "src": "sdxzai 数据模型",
+    "lean": "平局（机械推算）",
+    "read": "比分 Top3：1-1 / 2-1 / 1-2；该源自述本场无完整官方赔率"
+   }
+  ],
+  "016": [
+   {
+    "src": "sdxzai 数据模型",
+    "lean": "客胜",
+    "read": "比分 Top3：1-2 / 0-1 / 0-2；官方胜 4.55 平 4.30 负 1.47"
+   }
+  ],
+  "018": [
+   {
+    "src": "PickCenterPro AI",
+    "lean": "客胜",
+    "read": "主 28% / 平 23% / 客 49%；比分 0-1 / 1-1 / 1-2；可靠度中等"
+   },
+   {
+    "src": "sdxzai 数据模型",
+    "lean": "客胜",
+    "read": "比分 Top3：0-2 / 0-3 / 1-3"
+   },
+   {
+    "src": "腾讯 西甲第 13 轮前瞻",
+    "lean": "客胜",
+    "read": "预测比分 赫塔费 0-2 马竞"
+   }
+  ],
+  "003": [
+   {
+    "src": "竞彩网计算器页",
+    "lean": "官方未开售",
+    "read": "胜平负 未开售；让球 -3 赔率 2.36/4.65/2.00"
+   }
+  ]
+ },
+ "discipline": "外盘欧赔只作市场基准与凯利计算，不进入共识加权；盘口只记时间/方向/幅度，不解读机构态度；90 分钟口径"
+}

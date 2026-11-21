@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>足球比赛综合研判报告 · 框架 v1.0</title>
+<style>
+  :root{
+    --bg:#12161D; --panel:#1B212B; --panel2:#232B38; --line:#313B4C;
+    --text:#E6EAF2; --muted:#9AA7BD; --accent:#7AA2F7; --accent2:#A8C0FF;
+    --green:#56C08D; --red:#E47070; --yellow:#E0B25A;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:32px 20px 60px;background:var(--bg);color:var(--text);
+       font-family:system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;line-height:1.65}
+  .wrap{max-width:1080px;margin:0 auto}
+  header{border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:24px}
+  h1{font-size:28px;margin:0 0 8px;letter-spacing:.5px}
+  .sub{color:var(--muted);font-size:14px;margin:0}
+  .badge{display:inline-block;margin-left:10px;padding:3px 10px;border:1px solid var(--accent);
+         border-radius:999px;color:var(--accent2);font-size:12px;vertical-align:middle}
+  .warn{margin:18px 0 28px;padding:14px 18px;border-left:3px solid var(--yellow);
+        background:rgba(224,178,90,.09);border-radius:0 8px 8px 0;font-size:14px;color:#EED9A9}
+  h2{font-size:19px;margin:36px 0 14px;padding-left:11px;border-left:3px solid var(--accent)}
+  h3{font-size:15px;margin:22px 0 8px;color:var(--accent2)}
+  p{margin:8px 0;font-size:14px}
+  .muted{color:var(--muted);font-size:13px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:12px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:14px 0}
+  .tile{background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:14px 16px}
+  .tile b{display:block;color:var(--accent2);font-size:13px;margin-bottom:6px}
+  .tile code{display:block;color:var(--text);font-size:13px;line-height:1.55;
+             font-family:"Cascadia Code",Consolas,monospace;word-break:break-word}
+  .tile small{display:block;color:var(--muted);font-size:12px;margin-top:8px}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  th{background:var(--panel2);color:var(--accent2);font-weight:600;white-space:nowrap}
+  td small{color:var(--muted)}
+  tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+  .ph{display:inline-block;padding:1px 8px;border:1px dashed var(--muted);border-radius:5px;
+      color:var(--muted);font-size:12px}
+  .sec{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:12px 0}
+  .sec .no{color:var(--accent);font-weight:700;margin-right:8px}
+  .sec ul{margin:8px 0 0 18px;padding:0;font-size:13px;color:var(--muted)}
+  .sec li{margin:4px 0}
+  .flow{width:100%;height:auto;display:block;margin:8px 0 4px}
+  .tag{display:inline-block;padding:2px 8px;border-radius:5px;font-size:12px;margin-right:6px}
+  .t-green{background:rgba(86,192,141,.15);color:var(--green)}
+  .t-red{background:rgba(228,112,112,.15);color:var(--red)}
+  .t-yellow{background:rgba(224,178,90,.15);color:var(--yellow)}
+  footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+  @media print{body{background:#fff;color:#111}.card,.sec,.tile{background:#fff;border-color:#ccc}
+    th{background:#eee;color:#111}h2{border-color:#4472C4}.muted,td small,footer,.sec ul{color:#555}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>足球比赛综合研判报告 <span class="badge">框架 v1.0 · 模板</span></h1>
+  <p class="sub">外盘欧赔 × 多来源预测共识 ｜ 配套文件：足球预测共识分析框架.xlsx ｜ 编制日期 2026-11-20</p>
+</header>
+
+<div class="warn">
+  <strong>本文件是报告骨架与方法论，不含任何真实比赛、赔率或预测数据。</strong>
+  所有 <span class="ph">占位</span> 需由填好的汇总表数据替换。数据到位后，把 Excel 中「05_共识汇总」的结果交给我，即可按本骨架生成正式研判报告。
+</div>
+
+<h2>0. 分析链路</h2>
+<div class="card">
+  <svg class="flow" viewBox="0 0 1080 132" role="img" aria-label="分析流程">
+    <defs>
+      <marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+        <path d="M0,0 L8,4 L0,8 z" fill="#7AA2F7"/>
+      </marker>
+    </defs>
+    <g font-family="Microsoft YaHei, sans-serif" font-size="13" text-anchor="middle">
+      <g fill="#232B38" stroke="#7AA2F7" stroke-width="1.2">
+        <rect x="4"   y="30" width="152" height="62" rx="9"/>
+        <rect x="184" y="30" width="152" height="62" rx="9"/>
+        <rect x="364" y="30" width="152" height="62" rx="9"/>
+        <rect x="544" y="30" width="152" height="62" rx="9"/>
+        <rect x="724" y="30" width="152" height="62" rx="9"/>
+        <rect x="904" y="30" width="172" height="62" rx="9"/>
+      </g>
+      <g fill="#E6EAF2">
+        <text x="80"  y="56">① 原始数据</text><text x="80"  y="76" fill="#9AA7BD" font-size="11">欧赔 + 10 类来源</text>
+        <text x="260" y="56">② 口径统一</text><text x="260" y="76" fill="#9AA7BD" font-size="11">归一化 / 去水</text>
+        <text x="440" y="56">③ 加权共识</text><text x="440" y="76" fill="#9AA7BD" font-size="11">缺席自动剔除</text>
+        <text x="620" y="56">④ 对比市场</text><text x="620" y="76" fill="#9AA7BD" font-size="11">偏离 + 分歧度</text>
+        <text x="800" y="56">⑤ 分类打标</text><text x="800" y="76" fill="#9AA7BD" font-size="11">共识/价值/回避</text>
+        <text x="990" y="56">⑥ 研判报告</text><text x="990" y="76" fill="#9AA7BD" font-size="11">分层结论 + 披露</text>
+      </g>
+      <g stroke="#7AA2F7" stroke-width="1.4" marker-end="url(#ar)">
+        <line x1="158" y1="61" x2="180" y2="61"/><line x1="338" y1="61" x2="360" y2="61"/>
+        <line x1="518" y1="61" x2="540" y2="61"/><line x1="698" y1="61" x2="720" y2="61"/>
+        <line x1="878" y1="61" x2="900" y2="61"/>
+      </g>
+      <text x="540" y="116" fill="#9AA7BD" font-size="11">市场基准不进入共识加权，避免循环论证；只作为对照锚点</text>
+    </g>
+  </svg>
+</div>
+
+<h2>1. 来源分级与默认权重</h2>
+<p class="muted">权重是起点，不是结论。建议积累历史样本后用命中率 / Brier 分数回测校准；单个来源连续失效时应临时降权并在报告中披露。</p>
+<table>
+  <thead><tr><th>来源</th><th>层级</th><th>默认权重</th><th>口径处理</th><th>主要风险</th></tr></thead>
+  <tbody>
+    <tr><td>Google 数据模型</td><td>模型层</td><td>15%</td><td>取赛前 1X2 概率，记录抓取时间</td><td>赛前概率随伤停更新，版本易漂移</td></tr>
+    <tr><td>BetBuilders AI（xG）</td><td>模型层</td><td>15%</td><td>xG 模拟转 1X2 概率</td><td>需确认是否含最新伤停/首发修正</td></tr>
+    <tr><td>Forebet</td><td>模型层</td><td>10%</td><td>概率或最可能比分 → 三项概率</td><td>比分转概率需统一换算规则</td></tr>
+    <tr><td>Wincomparator</td><td>模型层</td><td>10%</td><td>算法 1X2 概率</td><td>同场可能存在多个历史版本</td></tr>
+    <tr><td>Polymarket</td><td>预测市场</td><td>15%</td><td>「某队获胜」是/否合约价格 → 三项概率</td><td>合约标的、流动性与时间衰减</td></tr>
+    <tr><td>Kalshi</td><td>预测市场</td><td>10%</td><td>同上，须登记合约与换算方式</td><td>部分赛事无对应合约，深度不足</td></tr>
+    <tr><td>Goal</td><td>媒体</td><td>7%</td><td>文字倾向 → 倾向量化赋分</td><td>主观、无概率刻度</td></tr>
+    <tr><td>FootballWhispers</td><td>媒体</td><td>6%</td><td>同上</td><td>常含叙事性偏好</td></tr>
+    <tr><td>SportsGambler</td><td>媒体</td><td>6%</td><td>比分/倾向 → 三项概率</td><td>与投注推介内容混杂</td></tr>
+    <tr><td>Futbol24</td><td>媒体</td><td>6%</td><td>同上</td><td>更新频率不稳定</td></tr>
+  </tbody>
+</table>
+<p class="muted">分层合计：模型 50% ｜ 预测市场 25% ｜ 媒体 25%。<strong>外盘欧赔均值单独作为市场基准，不参与共识加权。</strong></p>
+
+<h2>2. 计算口径</h2>
+<div class="grid">
+  <div class="tile"><b>归一化</b><code>p'ᵢ = pᵢ / (p_H + p_D + p_A)</code><small>强制三项合计为 1，消除来源口径差异；只有三项齐全才计为有效来源。</small></div>
+  <div class="tile"><b>欧赔去水（比例法）</b><code>overround = Σ(1/均赔)<br>qᵢ = (1/均赔ᵢ) / overround</code><small>均赔取多家公司算术平均；主胜赔率极差用于观察公司间分歧。</small></div>
+  <div class="tile"><b>共识概率</b><code>Pᶜᵒⁿ = Σ(wⱼ·p'ⱼ) / Σwⱼ</code><small>wⱼ 仅对有效来源求和，缺席自动剔除，等价于按参与来源重新归一。</small></div>
+  <div class="tile"><b>偏离（edge）</b><code>Δᵢ = Pᶜᵒⁿᵢ − qᵢ</code><small>取绝对值最大的一项为主偏离；保留符号区分「价值」与「回避」。</small></div>
+  <div class="tile"><b>分歧度</b><code>σᵢ = √(Σw·p'²/Σw − (Pᶜᵒⁿᵢ)²)</code><small>三项加权标准差取平均。越大说明各来源越分裂，共识可信度越低。</small></div>
+  <div class="tile"><b>数据完整度</b><code>C = Σw有效 / Σw全部</code><small>低于最低完整度时不做价值判定，只标「数据不足」，避免小样本假信号。</small></div>
+  <div class="tile"><b>优先级分</b><code>30·C + 30·(1 − σ/σ_max) + 40·(|Δ|/0.15)</code><small>0–100 截断；≥70 记 A，45–69 记 B，其余 C。仅用于排序，不是投注建议。</small></div>
+  <div class="tile"><b>媒体倾向量化</b><code>主胜倾向 55/27/18<br>平局倾向 30/40/30<br>客胜倾向 18/27/55</code><small>仅在来源无数值概率时使用，必须在备注标注「媒体量化」，权重保持低位。</small></div>
+</div>
+
+<h2>3. 判定规则</h2>
+<table>
+  <thead><tr><th>标签</th><th>触发条件</th><th>报告中的处理</th></tr></thead>
+  <tbody>
+    <tr><td><span class="tag t-green">高共识</span></td><td>完整度 ≥ 60% 且 分歧度 ≤ 6%</td><td>进入「高共识场次」章节，重点看与市场是否一致</td></tr>
+    <tr><td><span class="tag t-red">高分歧</span></td><td>完整度 ≥ 60% 且 分歧度 ≥ 12%</td><td>进入「高分歧场次」章节，必须拆解分歧来自哪一层（模型 / 市场 / 媒体）</td></tr>
+    <tr><td><span class="tag t-green">价值</span></td><td>带符号最大偏离 ≥ +5% 且 完整度 ≥ 60%</td><td>进入「价值场次」，须同时披露赔率时点与水位</td></tr>
+    <tr><td><span class="tag t-red">回避</span></td><td>带符号最大偏离 ≤ −5% 且 完整度 ≥ 60%</td><td>列为市场比共识更乐观的场次，提示不要跟随模型</td></tr>
+    <tr><td><span class="tag t-yellow">数据不足</span></td><td>完整度 &lt; 60%</td><td>只做事实陈述，不给方向性结论</td></tr>
+  </tbody>
+</table>
+<p class="muted">阈值均可在 Excel「04_权重参数」中修改；报告须注明本次采用的阈值版本。价值判定<strong>不等于</strong>可投注结论：还需复核赔率时效、公司水位、赛前伤停与首发。</p>
+
+<h2>4. 报告正文骨架</h2>
+
+<div class="sec"><span class="no">0</span><strong>报告信息</strong>
+  <ul><li>数据截止：<span class="ph">YYYY-MM-DD HH:mm</span>　覆盖场次：<span class="ph">N</span> 场　口径版本：<span class="ph">v1.0 / 自定义阈值</span></li>
+  <li>赔率来源公司：<span class="ph">公司名列表</span>　采集时点：<span class="ph">时点</span></li></ul>
+</div>
+
+<div class="sec"><span class="no">1</span><strong>市场基准概览</strong>
+  <ul><li>逐场列出欧赔均值、水位合计、去水后 1X2 隐含概率，标注水位异常（过高/过低）的场次。</li>
+  <li>说明公司间主胜赔率极差：极差大 → 市场本身定价不稳，后续偏离要打折看待。</li></ul>
+</div>
+
+<div class="sec"><span class="no">2</span><strong>共识总览表</strong>
+  <ul><li>表格列：编号 / 对阵 / 有效来源数 / 完整度 / 市场 H-D-A / 共识 H-D-A / 主偏离 / 分歧度 / 共识标签 / 价值标签 / 优先级。</li>
+  <li>数据直接来自 Excel「05_共识汇总」A–U 列，不重新手工计算。</li></ul>
+</div>
+
+<div class="sec"><span class="no">3</span><strong>高共识场次</strong>
+  <ul><li>逐场说明：共识方向、与市场一致 or 相反、支撑该共识的是哪一层来源。</li>
+  <li>若高共识但与市场偏离小 → 属「市场已充分定价」，明确写出来，避免包装成机会。</li></ul>
+</div>
+
+<div class="sec"><span class="no">4</span><strong>高分歧场次与分歧拆解</strong>
+  <ul><li>定位分歧来源：模型层 vs 预测市场 vs 媒体层，列出具体来源的三项概率。</li>
+  <li>说明可能的成因（伤停信息差、合约流动性、模型未更新、杯赛轮换），并标注为推断而非事实。</li></ul>
+</div>
+
+<div class="sec"><span class="no">5</span><strong>价值 / 回避场次</strong>
+  <ul><li>逐场给出：带符号偏离、对应赔率、凯利参考值 f* = (b·p − q)/b、数据完整度。</li>
+  <li>必须列出反向风险：赔率是否已变动、共识是否被少数高权重来源主导、是否存在缺席来源。</li>
+  <li>本框架不自动给出仓位建议；凯利值仅作参考，需自行决定是否采用分数凯利。</li></ul>
+</div>
+
+<div class="sec"><span class="no">6</span><strong>数据缺口与风险披露（必填，不可省略）</strong>
+  <ul><li>缺席来源清单及原因；被「媒体量化」处理的来源清单；预测市场合约的换算方式与价格时点。</li>
+  <li>赔率与预测的采集时点是否一致；赛前信息（伤停、首发、天气、赛程密度）是否已反映。</li>
+  <li>任何未验证的公开来源、无法抓取的页面，一律标注「未取到」，严禁用估计值填充。</li></ul>
+</div>
+
+<div class="sec"><span class="no">7</span><strong>结论与优先级</strong>
+  <ul><li>按优先级 A → C 排序，给出每场一句话结论；区分「高共识且有价值」「高共识但已定价」「高分歧需观察」「数据不足」四类。</li>
+  <li>结尾声明：本报告为公开信息的结构化汇总与统计分析，不构成任何投注建议。</li></ul>
+</div>
+
+<h2>5. 汇总表字段字典</h2>
+<table>
+  <thead><tr><th>列</th><th>字段</th><th>含义 / 来源</th></tr></thead>
+  <tbody>
+    <tr><td>A–B</td><td>编号 / 对阵</td><td>引用「01_比赛清单」</td></tr>
+    <tr><td>C–D</td><td>有效来源数 / 数据完整度</td><td>三项概率齐全的来源数；有效权重占总权重比例</td></tr>
+    <tr><td>E–G</td><td>市场_主 / 平 / 客</td><td>外盘欧赔去水后的隐含概率（比例法）</td></tr>
+    <tr><td>H–J</td><td>共识_主 / 平 / 客</td><td>按有效权重加权后的共识概率</td></tr>
+    <tr><td>K–M</td><td>偏离_主 / 平 / 客</td><td>共识 − 市场，正值代表共识更看好</td></tr>
+    <tr><td>N–P</td><td>最大偏离项 / 幅度 / 带符号偏离</td><td>绝对值最大项、其幅度、保留符号的偏离值</td></tr>
+    <tr><td>Q–S</td><td>分歧度 / 共识标签 / 价值标签</td><td>三项加权标准差均值；高共识·高分歧·数据不足；价值·回避·无</td></tr>
+    <tr><td>T–V</td><td>优先级分 / 优先级 / 自动摘要</td><td>0–100 排序分；A/B/C；自动拼接的一句话摘要</td></tr>
+    <tr><td>W</td><td>人工备注</td><td>唯一可手填列：伤停、赛前变动、复核意见</td></tr>
+  </tbody>
+</table>
+
+<h2>6. 使用方式</h2>
+<div class="card">
+  <p>① 在 Excel 中按「01 比赛清单 → 02 外盘欧赔 → 03 来源预测」填入真实数据，按需在「04 权重参数」调整权重与阈值。</p>
+  <p>② 「05 共识汇总」自动出结果；核对状态看板中的已填场次、来源组数、高共识与价值场次是否合理。</p>
+  <p>③ 把填好的工作簿（或汇总表结果）交给我，按本骨架逐章生成正式研判报告，并补齐第 6 章的数据缺口披露。</p>
+  <p class="muted">当前模板预留 5 场比赛 × 10 个来源。若实际场次更多，告诉我场次数，我会按实际规模重新生成并把公式扩展到全部行。</p>
+</div>
+
+<footer>
+  足球比赛综合研判报告 · 框架 v1.0 ｜ 与「足球预测共识分析框架.xlsx」配套 ｜ 2026-11-20<br>
+  本文件仅提供分析结构与统计口径，不含任何真实比赛、赔率或预测数据，不构成投注建议。
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated": "2026-11-19",
+  "updated": "2026-11-22",
   "model_version": "3.1.0",
   "calibration": {
     "last_batch": 53,
@@ -92,17 +92,8 @@
   "open_items": [
     {
       "type": "数据缺口",
-      "text": "20261103 周二8场欧冠 A层管线已全通（真浏览器过EdgeOne验证+32页入500缓存→books/fenxi离线解析→audit 8场全绿→model_v3→内部报告 ERROR 0/WARN 1；修复 build_internal_report else 分支串场bug，20261027旧研判已钉死）。剩余：①亚盘即时盘偏薄（澳彩/B365多场未开盘，亚盘众数线样本3-4家）→ 临场补抓：比赛11-04 01:45/04:00开球前重跑浏览器缓存采集（驱动 state/tmp/_run_books_offline.py，若EdgeOne票据失效重过验证）→ market_from_intel → model_v3 重算 → 报告重生成；②007 国米近5场空（500近况表空）→ 市场单腿，临场再看；③写公开稿前必须 check_report_consistency + preflight。"
-    },
-    {
-      "type": "数据缺口",
       "text": "历史数据缺口（长期未补，集中留档）：周六003-007 晚场（大宫松鼠-1 / 蔚山-1 / 卡斯鲁厄+1 / 利物浦-1 vs 诺丁汉 / 伍尔弗-1）、Batch#24 第二/三页 31 场、2026-09-04 巴西杯八强次回合、LASK 加时赛果（90 分钟 4:4）",
       "ref": "pending_pages"
-    },
-    {
-      "type": "研究",
-      "text": "概率台账 📚知识库/赛后校验/prob_log.tsv 从 Batch#38 起逐批补录（模型与市场三向概率；Batch#37 及以前无快照不回填）；攒够约 30 场跑 scripts/calib_score.py，与公司侧 45 场基准（模型 Brier 0.695 vs 市场 0.608）同口径对照；🔴Batch#46（10-21/10-22 两档 18 场）本批 0 行——文章只给单侧可信值，需从 📝文章/20261021/20261021_周三13场_内部分析报告.md 与 20261020 周二报告「六、收敛」段批量提取三向后补录。",
-      "ref": "scripts/calib_score.py + football-calibration-batch 记录规范 v1.4"
     },
     {
       "type": "数据缺口",
@@ -123,14 +114,6 @@
       "text": "docs/TOOLBOX.md 已建（2026-10-18）：skills/插件改进评估 A/B/C 三级。**建议第一个动作**＝用 content-analysis 把 TOP5 五篇（10-14 神户全北 9.3%／10-16 悉尼FC 10.1%／10-07 巴西国际 9.6%／10-09 仁川柏太阳神 8.7%／10-11 光州蔚山 9.1%）拆成标题公式表，结论并入 R38d 或 📚知识库/写作指南/；第二顺位＝A1 小红书出图（每期都出图，边际收益最高）"
     },
     {
-      "type": "流程",
-      "text": "**写稿前必跑盘口采集与情报单（R48 · 2026-10-18 起）**：`python -X utf8 scripts/prematch_intel.py --date YYYYMMDD`（只读缓存加 `--no-fetch`）。一次输出 `state/intel/<date>/_intel_<date>.md`：五套盘口（胜平负/让球/总进球/半全场/波胆）最新赔率与去水概率、快照次数、开盘→最新位移、跨盘一致性校验、冷热与抽水、伤停/近期/交锋、缺源清单。写头条与做小红书信息卡之前先读这份再动笔；盘口只作研判依据，公开稿按 R41 换非盘口语，位移不编资金流向。"
-    },
-    {
-      "type": "流程",
-      "text": "writing_history.json 补录 10-21 之前的旧稿结构（现只有 10-22 两篇，R53 的「近 3 篇」形同虚设）"
-    },
-    {
       "type": "数据缺口",
       "text": "澳客胜负指数/凯利/伤停：本机被 WAF 限流，按用户定的「隔日/临场补抓」执行（intel_fetch.py 已就绪，betfa 通道能过）"
     },
@@ -147,8 +130,8 @@
       "text": "state/ledger 只到 20261028；1029/1030 两日预测未 append，补写须带 --retrospective 并在 model-state 标注"
     },
     {
-      "type": "流程",
-      "text": "20261107 周六德甲四场内部报告已出（011/012/013/014）：500 EdgeOne 票据过期（captcha），本批改用竞彩官方 webapi + football-data.co.uk 德甲赛季分项；build_internal_report 自动站位改为「融合最大概率优先、数据 Edge 只作低估侧提示」（R61），model_v3 替代源不折亚盘 EV。下次需人工跑 python -X utf8 scripts/_x500.py gate 后补真实亚盘水位并重算。"
+      "type": "待校验",
+      "text": "20261122 周日 18 场（三篇公开稿：早场 001/002、晚场 003-011、凌晨 012-018）待赛后按 90 分钟口径校验；003/006 因官方未开胜平负剔除、未做逐场拆解，校验时不计方向分母；晚场荐彩密度偏高，是否对 D 级场次做减法待拍板"
     }
   ],
   "pending_checks": [
@@ -218,9 +201,9 @@
     }
   ],
   "counters": {
-    "open_items": 14,
+    "open_items": 10,
     "pending_checks": 8,
-    "task_log": 125,
+    "task_log": 131,
     "candidate_rules": 26
   },
   "task_log_ref": "state/task-log.json",
@@ -241,5 +224,6 @@
       "rho": -0.05,
       "rho_note": "保留Dixon-Coles经典经验值, MLE不可辨识"
     }
-  }
+  },
+  "workflow_version": "3.2"
 }

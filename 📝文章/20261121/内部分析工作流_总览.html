@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>内部分析工作流 · 整合优化版 v2.0</title>
+<style>
+  :root{
+    --bg:#12161D; --panel:#1B212B; --panel2:#232B38; --line:#313B4C;
+    --text:#E6EAF2; --muted:#9AA7BD; --accent:#7AA2F7; --accent2:#A8C0FF;
+    --green:#56C08D; --red:#E47070; --yellow:#E0B25A; --purple:#B48CE8;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:32px 20px 60px;background:var(--bg);color:var(--text);
+       font-family:system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;line-height:1.65}
+  .wrap{max-width:1120px;margin:0 auto}
+  header{border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:22px}
+  h1{font-size:27px;margin:0 0 8px}
+  .sub{color:var(--muted);font-size:14px;margin:0}
+  .badge{display:inline-block;margin-left:10px;padding:3px 10px;border:1px solid var(--accent);
+         border-radius:999px;color:var(--accent2);font-size:12px;vertical-align:middle}
+  h2{font-size:19px;margin:34px 0 12px;padding-left:11px;border-left:3px solid var(--accent)}
+  p{font-size:14px;margin:8px 0}
+  .muted{color:var(--muted);font-size:13px}
+  .lead{padding:14px 18px;border-left:3px solid var(--yellow);background:rgba(224,178,90,.09);
+        border-radius:0 8px 8px 0;font-size:14px;color:#EED9A9;margin:16px 0 26px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:12px 0}
+  .flow{width:100%;height:auto;display:block}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  th{background:var(--panel2);color:var(--accent2);font-weight:600;white-space:nowrap}
+  tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:12px 0}
+  .tile{background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:14px 16px}
+  .tile b{display:block;color:var(--accent2);font-size:13px;margin-bottom:6px}
+  .tile span{font-size:13px;color:var(--text)}
+  .tile small{display:block;color:var(--muted);font-size:12px;margin-top:6px}
+  .tag{display:inline-block;padding:2px 8px;border-radius:5px;font-size:12px;white-space:nowrap}
+  .t-green{background:rgba(86,192,141,.15);color:var(--green)}
+  .t-red{background:rgba(228,112,112,.15);color:var(--red)}
+  .t-yellow{background:rgba(224,178,90,.15);color:var(--yellow)}
+  .t-blue{background:rgba(122,162,247,.15);color:var(--accent2)}
+  .t-purple{background:rgba(180,140,232,.15);color:var(--purple)}
+  ul{margin:8px 0 0 18px;padding:0;font-size:13px;color:var(--muted)}
+  li{margin:5px 0}
+  .chk{list-style:none;margin-left:0}
+  .chk li::before{content:"☐ ";color:var(--accent)}
+  footer{margin-top:42px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+  @media print{body{background:#fff;color:#111}.card,.tile{background:#fff;border-color:#ccc}
+    th{background:#eee;color:#111}.muted,footer,ul{color:#555}h2{border-color:#4472C4}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>足球赛事内部分析工作流 <span class="badge">整合优化版 v2.0</span></h1>
+  <p class="sub">内部分析报告（决策 / 全量化） → 头条文章（对外 / 合规口径）｜ 配套 SOP：内部分析工作流_SOP.md ｜ 2026-11-20</p>
+</header>
+
+<div class="lead">
+  <strong>本次整合解决的核心冲突：</strong>原内部报告要求「百家欧赔对比、盘口变化、凯利指数」，参考文档要求正文零赔率数字、零机构态度解读。
+  解法不是二选一，而是<strong>内外双轨</strong>——量化数据全部留在内部报告，对外稿件经 S4 交接过滤后只保留事实性情报与定性判断。
+</div>
+
+<h2>1. 六阶段流水线</h2>
+<div class="card">
+  <svg class="flow" viewBox="0 0 1120 168" role="img" aria-label="六阶段流水线">
+    <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#7AA2F7"/></marker></defs>
+    <g font-family="Microsoft YaHei, sans-serif" font-size="13" text-anchor="middle">
+      <g fill="#232B38" stroke-width="1.2">
+        <rect x="4"   y="28" width="164" height="66" rx="9" stroke="#7AA2F7"/>
+        <rect x="192" y="28" width="164" height="66" rx="9" stroke="#7AA2F7"/>
+        <rect x="380" y="28" width="164" height="66" rx="9" stroke="#B48CE8"/>
+        <rect x="568" y="28" width="164" height="66" rx="9" stroke="#56C08D"/>
+        <rect x="756" y="28" width="164" height="66" rx="9" stroke="#E0B25A"/>
+        <rect x="944" y="28" width="172" height="66" rx="9" stroke="#7AA2F7"/>
+      </g>
+      <g fill="#E6EAF2">
+        <text x="86"  y="52">S0 锁定输入</text><text x="86"  y="72" fill="#9AA7BD" font-size="11">期号 / 玩法 / 50元上限</text>
+        <text x="274" y="52">S1 客观数据</text><text x="274" y="72" fill="#9AA7BD" font-size="11">情报 · 盘面 · 外部预测</text>
+        <text x="462" y="52">S2 落差拆解</text><text x="462" y="72" fill="#9AA7BD" font-size="11">该赢 vs 真赢得</text>
+        <text x="650" y="52">S3 方案核算</text><text x="650" y="72" fill="#9AA7BD" font-size="11">比分 · 注数 · ≤50元</text>
+        <text x="838" y="52">S4 出稿交接</text><text x="838" y="72" fill="#9AA7BD" font-size="11">合规过滤 · 去AI味</text>
+        <text x="1030" y="52">S5 复盘反哺</text><text x="1030" y="72" fill="#9AA7BD" font-size="11">历史校准 · 回写参数</text>
+      </g>
+      <g stroke="#7AA2F7" stroke-width="1.4" marker-end="url(#ar)">
+        <line x1="170" y1="61" x2="188" y2="61"/><line x1="358" y1="61" x2="376" y2="61"/>
+        <line x1="546" y1="61" x2="564" y2="61"/><line x1="734" y1="61" x2="752" y2="61"/>
+        <line x1="922" y1="61" x2="940" y2="61"/>
+      </g>
+      <g font-size="11" fill="#9AA7BD">
+        <text x="274" y="118">↓ 填入 共识分析框架.xlsx（量化引擎）</text>
+        <text x="650" y="118">↓ 套用 综合研判报告_框架.html（0–7 章）</text>
+        <text x="838" y="118">↓ 头条正文（零赔率 / 零机构解读）</text>
+      </g>
+      <text x="560" y="150" fill="#E0B25A" font-size="11">硬规则：先客观后主观 ｜ 每场必有反证 ｜ 缺失数据必须搜索补齐，不得估算凑数</text>
+    </g>
+  </svg>
+</div>
+
+<h2>2. 模块路由矩阵</h2>
+<table>
+  <thead><tr><th>当前页面 / 指令</th><th>执行阶段</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>传足赛程页 / 传足计算器页</td><td><span class="tag t-blue">S0 + S1 + S2 + S3</span></td><td>赛程读取 → 情报与盘面补齐 → 落差拆解 → 投注方案</td></tr>
+    <tr><td>历史开奖列表（近 30 / 近 100 期）</td><td><span class="tag t-blue">S5-A</span></td><td>3/1/0 分布、奖金五档、冷热节奏校准</td></tr>
+    <tr><td>赛果开奖单期页</td><td><span class="tag t-blue">S5-B</span></td><td>逐场冷热归类、奖金成因、跨期联动预警</td></tr>
+    <tr><td>指定期号 / 要求全流程</td><td><span class="tag t-purple">S0 → S5 全串联</span></td><td>按顺序完整执行</td></tr>
+    <tr><td>写头条 / 出稿 / 改稿 / 审核</td><td><span class="tag t-yellow">S4</span></td><td>合规转换 + 反工整 + 终态校验</td></tr>
+    <tr><td>「继续」但期号未切换 / 清单未附上</td><td><span class="tag t-red">停止输出</span></td><td>提醒补发清单或切换页面；不重复上期、不编造对阵</td></tr>
+  </tbody>
+</table>
+
+<h2>3. 内外双轨口径分离（核心红线）</h2>
+<table>
+  <thead><tr><th>内容项</th><th>内部分析报告</th><th>头条正文</th></tr></thead>
+  <tbody>
+    <tr><td>具体赔率、盘口数字、支持率百分比</td><td><span class="tag t-green">保留</span>集中在量化校准区</td><td><span class="tag t-red">不写</span></td></tr>
+    <tr><td>凯利指数、隐含概率、模型概率数值</td><td><span class="tag t-green">保留</span></td><td><span class="tag t-red">不写</span>改为定性表述</td></tr>
+    <tr><td>机构态度 / 操盘意图 / 诱导解读</td><td><span class="tag t-red">不写</span>只记盘口变化事实</td><td><span class="tag t-red">不写</span></td></tr>
+    <tr><td>伤停、体能、交锋、战意、天气、积分形势</td><td><span class="tag t-green">保留</span>事实表述</td><td><span class="tag t-green">保留</span>事实表述</td></tr>
+    <tr><td>核心矛盾、胜负手、看点</td><td><span class="tag t-green">完整</span></td><td><span class="tag t-green">保留</span>去结构化、去模板化</td></tr>
+    <tr><td>投注方向与比分</td><td><span class="tag t-green">完整方案 + 金额核算</span></td><td><span class="tag t-yellow">仅思路参考</span>不承诺、不写金额明细</td></tr>
+    <tr><td>数据缺口与免责</td><td><span class="tag t-green">必填</span></td><td><span class="tag t-green">精简版免责</span></td></tr>
+  </tbody>
+</table>
+<p class="muted">交接单必须列出：采纳项 / 因合规红线不采纳项 / 不得外发内容清单。若要在表格中做隐含概率校准，须与正文口径明确区分。</p>
+
+<h2>4. 原有 17 个模块归位（一项不丢）</h2>
+<table>
+  <thead><tr><th>阶段</th><th>承接的原有模块</th><th>新增约束（来自参考文档）</th></tr></thead>
+  <tbody>
+    <tr><td>S0</td><td>—</td><td>页面/期号锁定、盘型四类归类、缺失赔率标记位、严禁脑补未加载页面</td></tr>
+    <tr><td>S1</td><td>情报收集、有利情报、不利情报、百家欧赔对比、盘口变化、凯利指数、天气、近期状态、战意、积分形势、全球主流媒体及 AI 预测分析</td><td>四项硬核事实核查；正反情报分栏且每场留反证；盘口只记事实不归因；预测市场登记合约换算；多维共振总表</td></tr>
+    <tr><td>S2</td><td>核心矛盾、胜负手、看点、数学模型模拟分析预测、综合分析</td><td>「该赢 vs 真赢得」把握层次排序；共振/背离标记；分歧度与完整度门槛；每场结论不同构</td></tr>
+    <tr><td>S3</td><td>50 元内投注比分方案</td><td>纠偏剔除说明；比分区间；单注 2 元、≤25 注、≤50 元精确核算；任九/14 场结构校验</td></tr>
+    <tr><td>S4</td><td>（第二阶段：头条文章出稿）</td><td>内外口径分离、反工整去 AI 味、标点篇幅控制、终态校验清单</td></tr>
+    <tr><td>S5</td><td>—</td><td>历史宏观统计、赛后单期复盘、结论回写下一期参数</td></tr>
+  </tbody>
+</table>
+
+<h2>5. 既有资产衔接</h2>
+<div class="grid">
+  <div class="tile"><b>足球预测共识分析框架.xlsx</b><span>量化引擎</span>
+    <small>S1 把欧赔与外部预测填入 02/03 表，S2 从 05_共识汇总取市场隐含概率、共识概率、偏离、分歧度、价值/回避标签。欧赔只作市场基准，不进共识加权。</small></div>
+  <div class="tile"><b>综合研判报告_框架.html</b><span>内部报告骨架</span>
+    <small>S2/S3 套用 0–7 章；第 6 章数据缺口与风险披露必填，覆盖缺席来源、媒体量化项、合约换算方式、赔率时点。</small></div>
+  <div class="tile"><b>内部分析工作流_SOP.md</b><span>流程与红线</span>
+    <small>可直接复制为工作流提示词：模块路由、S0–S5 步骤、字段清单、方案核算、交接单、终态校验、硬规则。</small></div>
+  <div class="tile"><b>本总览</b><span>速查</span>
+    <small>流水线、路由矩阵、双轨口径、模块归位、红线与校验清单，用于快速对齐。</small></div>
+</div>
+
+<h2>6. 合规红线与硬规则</h2>
+<div class="grid">
+  <div class="tile"><b>零赔率 / 零机构解读</b><span>正文不写赔率、盘口数字、支持率；不把让球定价解读为机构主观态度。</span><small>内部量化区例外，但同样禁止主观归因。</small></div>
+  <div class="tile"><b>区分概率与可信度</b><span>多场同向也要按体能、伤停、交锋、战术执行拉开把握层次。</span><small>明确最敢碰 / 防平博冷 / 赢面在但卡壳 / 最不敢碰。</small></div>
+  <div class="tile"><b>反工整去 AI 味</b><span>避免连续平行排比与相同结尾模板，口语化收尾。</span><small>改稿优先压缩冗余修饰，保留事实与核心反证。</small></div>
+  <div class="tile"><b>标点篇幅与错字</b><span>控制破折号与长句，核对「一球没进」类错字。</span><small>球队名、比分、伤停人名逐一核对。</small></div>
+  <div class="tile"><b>信息准确优先</b><span>缺失赔率与模型数据必须搜索补齐，不得估算凑数。</span><small>伤停与首发以官方最新公布为准，临场变动须重取。</small></div>
+  <div class="tile"><b>预算硬约束</b><span>单注 2 元、总注数 ≤ 25、总金额 ≤ 50 元。</span><small>逐项列出注数拆解与合计，并校验 3/1/0 配比。</small></div>
+</div>
+
+<h2>7. 出稿终态校验清单</h2>
+<div class="card">
+  <ul class="chk">
+    <li>正文无赔率数字、盘口数字、支持率百分比</li>
+    <li>正文无机构态度 / 操盘意图解读</li>
+    <li>每场至少一条反证，多场结论不同构</li>
+    <li>字数、破折号数、最长句长度在约定范围</li>
+    <li>风险扫描：承诺性、诱导性、绝对化表述 = 0</li>
+    <li>采纳项 / 不采纳项 / 不得外发清单已列</li>
+    <li>免责声明：仅作数据观察与思路参考，控制仓位与过关风险</li>
+    <li>复盘结论已回写：来源权重、共振阈值、盘型判断、3/1/0 结构参数</li>
+  </ul>
+</div>
+
+<footer>
+  内部分析工作流 · 整合优化版 v2.0 ｜ 配套：内部分析工作流_SOP.md / 足球预测共识分析框架.xlsx / 综合研判报告_框架.html ｜ 2026-11-20<br>
+  全部输出仅作数据观察与思路参考，不构成投注建议；注意控制仓位与过关风险。
+</footer>
+
+</div>
+</body>
+</html>

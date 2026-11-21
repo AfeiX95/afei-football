@@ -38,6 +38,11 @@ af = json.load(open(_afp, encoding="utf-8")) if _afp.exists() else {"rows": []}
 AF = {r["num"][-3:]: r for r in af["rows"]}
 _extp = INTEL / f"_ext_{DAY}.json"
 EXT = json.load(open(_extp, encoding="utf-8")) if _extp.exists() else {}
+_lgp = INTEL / f"_leagues_{DAY}.json"
+LEAGUES_RAW = json.load(open(_lgp, encoding="utf-8")) if _lgp.exists() else {}
+LEAGUES = {k[-3:]: v for k, v in (LEAGUES_RAW.get("matches") or {}).items()}
+_planp = INTEL / f"_plan_{DAY}.json"
+CUSTOM_PLAN = json.load(open(_planp, encoding="utf-8")) if _planp.exists() else None
 
 sys.path.insert(0, str(ROOT / "scripts"))
 import model_poisson_500 as mp          # noqa: E402
@@ -498,6 +503,103 @@ def recent_10(rows):
     return (gf / n if n else 0), (ga / n if n else 0), n
 
 
+def calc_kelly(b):
+    """由百家即时欧赔计算凯利指数均值、返还率、主/平/客凯利方差(×100)及超标警报。"""
+    ox = b.get("ox") or {}
+    valid = []
+    for bk, seg in ox.items():
+        c = seg.get("close")
+        if isinstance(c, list) and len(c) == 3 and all(isinstance(x, (int, float)) and x > 1.0 for x in c):
+            inv_sum = sum(1.0 / x for x in c)
+            ret = 1.0 / inv_sum
+            valid.append((bk, c, ret, [(1.0 / x) * ret for x in c]))
+    if len(valid) < 2:
+        return None
+    n = len(valid)
+    avg_p = [sum(v[3][j] for v in valid) / n for j in range(3)]
+    avg_ret = sum(v[2] for v in valid) / n
+    k_vals = [[], [], []]
+    alerts = []
+    for bk, c, ret, _ in valid:
+        ks = [c[j] * avg_p[j] for j in range(3)]
+        for j in range(3):
+            k_vals[j].append(ks[j])
+        # 超标：单家凯利 > 1.00 或超过自身返还率 +0.03
+        for j, lbl in enumerate(("主", "平", "客")):
+            if ks[j] > 1.00 or ks[j] > ret + 0.03:
+                alerts.append(f"{bk}({lbl}{ks[j]:.2f})")
+    k_mean = [sum(k_vals[j]) / n for j in range(3)]
+    k_var = [sum((x - k_mean[j]) ** 2 for x in k_vals[j]) / n * 100.0 for j in range(3)]
+    return {
+        "n": n,
+        "avg_ret": avg_ret,
+        "mean": k_mean,
+        "var100": k_var,
+        "alerts": alerts[:6],
+    }
+
+
+def sect_intel_weather(num):
+    """一、情报收集与利弊拆解（含天气、伤停、体能、有利/不利情报）"""
+    e = EXT.get(num) or {}
+    lg = LEAGUES.get(num) or {}
+    b = books[num]
+    pair = b["match"].split(" ", 1)[-1].split(" vs ")
+    h, aw = (pair + ["", ""])[:2]
+    lines = []
+    if e.get("note"):
+        lines.append(f"- 赛事背景：{e['note']}")
+    # 天气
+    w = lg.get("weather")
+    if isinstance(w, dict) and w.get("temp") is not None:
+        lines.append(f"- 比赛时刻天气（{w.get('time', '—')}）：气温 {w['temp']}°C，降水 {w.get('rain', 0.0)} mm，风速 {w.get('wind', 0.0)} km/h")
+    else:
+        lines.append("- 比赛时刻天气：本批未取到（缺源不估）")
+    # 关键伤停与停赛
+    if e.get("abs_home"):
+        lines.append(f"- {h} 伤停/缺阵：{'、'.join(e['abs_home'])}")
+    if e.get("abs_away"):
+        lines.append(f"- {aw} 伤停/缺阵：{'、'.join(e['abs_away'])}")
+    if e.get("susp"):
+        lines.append(f"- 停赛名单：{'；'.join(e['susp'])}")
+    if not (e.get("abs_home") or e.get("abs_away") or e.get("susp")):
+        lines.append("- 伤停与停赛：本批公开源未列具体伤停名单（临场以官方首发为准）")
+    if e.get("fatigue"):
+        lines.append(f"- 赛程密度与体能消耗：{e['fatigue']}")
+    if e.get("lineup"):
+        lines.append(f"- 阵容与主帅口径：{e['lineup']}")
+    # 有利情报 / 不利情报
+    pros = []
+    if e.get("pros_home"):
+        pros.append(f"{h}：{'；'.join(e['pros_home'])}")
+    if e.get("pros_away"):
+        pros.append(f"{aw}：{'；'.join(e['pros_away'])}")
+    cons = []
+    if e.get("cons_home"):
+        cons.append(f"{h}：{'；'.join(e['cons_home'])}")
+    if e.get("cons_away"):
+        cons.append(f"{aw}：{'；'.join(e['cons_away'])}")
+    if pros:
+        lines.append("- 有利情报：" + " ｜ ".join(pros))
+    else:
+        lines.append("- 有利情报：见下方「积分形势、近期状态与战意」主客分项优势（待临场情报补充）")
+    if cons:
+        lines.append("- 不利情报：" + " ｜ ".join(cons))
+    else:
+        lines.append("- 不利情报：见上方伤停/停赛及下方状态短板（无额外未核实传闻）")
+    if e.get("flags"):
+        lines.append(f"- 情报冲突与口径提醒：{'；'.join(e['flags'])}")
+    # 伤停与站位冲突预警
+    nh = sum(len(str(x).split("、")) for x in (e.get("abs_home") or []))
+    na = sum(len(str(x).split("、")) for x in (e.get("abs_away") or []))
+    act = ACTION_HINT.get(num, "")
+    if "站主队" in act and nh >= 5 and nh - na >= 3:
+        lines.append(f"- **⚠️ 站位与情报相左**：站位站主队，但主队缺阵 {nh} 人、客队 {na} 人，需人工复核")
+    if "站客队" in act and na >= 5 and na - nh >= 3:
+        lines.append(f"- **⚠️ 站位与情报相左**：站位站客队，但客队缺阵 {na} 人、主队 {nh} 人，需人工复核")
+    return "\n".join(lines)
+
+
 def sect3(num, row):
     sh, sa = row["season_home"], row["season_away"]
     t1, t2 = sh.get("total"), sa.get("total")
@@ -505,75 +607,123 @@ def sect3(num, row):
     gfh, gah, nh = recent_10(row["recent_home"])
     gfa, gaa, na = recent_10(row["recent_away"])
     h2h = (row.get("h2h") or {}).get("summary")
+    lg = LEAGUES.get(num) or {}
+    e = EXT.get(num) or {}
     parts = []
     if t1 and t2:
         parts.append(
-            f"- {row.get('season_label') or '全季'}：{row['home']} {t1['p']} 场 {t1['w']}胜{t1['d']}平{t1['l']}负、进 {t1['gf']} 失 {t1['ga']}"
+            f"- 积分形势（{row.get('season_label') or '全季'}）：{row['home']} {t1['p']} 场 {t1['w']}胜{t1['d']}平{t1['l']}负、进 {t1['gf']} 失 {t1['ga']}"
             f"（第 {t1['rank']}）；{row['away']} {t2['p']} 场 {t2['w']}胜{t2['d']}平{t2['l']}负、进 {t2['gf']} 失 {t2['ga']}（第 {t2['rank']}）")
         if h1.get("p") and a2.get("p"):
             parts.append(
-                f"- 同主客：主队主场 {h1['p']} 场 进 {h1['gf']} 失 {h1['ga']}（场均 {h1['gf']/h1['p']:.2f}/{h1['ga']/h1['p']:.2f}）；"
+                f"- 同主客分项：主队主场 {h1['p']} 场 进 {h1['gf']} 失 {h1['ga']}（场均 {h1['gf']/h1['p']:.2f}/{h1['ga']/h1['p']:.2f}）；"
                 f"客队客场 {a2['p']} 场 进 {a2['gf']} 失 {a2['ga']}（场均 {a2['gf']/a2['p']:.2f}/{a2['ga']/a2['p']:.2f}）")
     else:
-        parts.append("- 杯赛页无积分表：本场赛季分项缺源，λ 只用市场反推法，底层数据靠逐场与交锋补")
+        hr, ar = lg.get("home_rank"), lg.get("away_rank")
+        if hr or ar:
+            def _rfmt(lbl, r_):
+                if not r_:
+                    return f"{lbl} 排名缺源"
+                return f"{lbl} 第 {r_.get('pos', '—')}（{r_.get('pld', '—')}场 {r_.get('w', '—')}胜{r_.get('d', '—')}平{r_.get('l', '—')}负，进{r_.get('gf', '—')}失{r_.get('ga', '—')}，积{r_.get('pts', '—')}分）"
+            parts.append(f"- 积分形势（维基联赛榜补充）：{_rfmt(row['home'], hr)}；{_rfmt(row['away'], ar)}")
+        else:
+            parts.append("- 积分形势：500 与联赛榜均未取到本场完整积分表（λ 只用近期速率或市场反推）")
+    if e.get("motivation"):
+        parts.append(f"- 战意定位：{e['motivation']}")
+    elif e.get("note"):
+        parts.append(f"- 战意定位：{e['note']}（具体战意强弱结合积分差与赛程综合判读）")
+    else:
+        parts.append("- 战意定位：按积分榜位置与赛制常规战意评估（无额外特殊战意线索）")
     au = AUDIT.get(num) or {}
     h5 = (au.get("recent_home") or {}).get("n5")
     a5 = (au.get("recent_away") or {}).get("n5")
     if h5 and a5:
-        parts.append(f"- 近 5 场场均进/失（逐场比分重算，审计等级 {au.get('grade')}）："
+        parts.append(f"- 近期状态（近 5 场逐场重算，审计等级 {au.get('grade')}）："
                      f"主 {h5['gf_pg']:.2f}/{h5['ga_pg']:.2f}（{h5['w']}胜{h5['d']}平{h5['l']}负）；"
                      f"客 {a5['gf_pg']:.2f}/{a5['ga_pg']:.2f}（{a5['w']}胜{a5['d']}平{a5['l']}负）")
     else:
         _zh = "—（0 场，样本缺失，不作依据）" if not nh else f"{gfh:.2f}/{gah:.2f}"
         _za = "—（0 场，样本缺失，不作依据）" if not na else f"{gfa:.2f}/{gaa:.2f}"
-        parts.append(f"- 近况样本：主 {nh} 场 场均进/失 {_zh}；客 {na} 场 场均进/失 {_za}")
-    parts.append(f"- 逐场（近 5）：主 {recent_line(row['recent_home'])}；客 {recent_line(row['recent_away'])}")
+        parts.append(f"- 近期状态样本：主 {nh} 场 场均进/失 {_zh}；客 {na} 场 场均进/失 {_za}")
+    parts.append(f"- 逐场战绩（近 5）：主 {recent_line(row['recent_home'])}；客 {recent_line(row['recent_away'])}")
     if h2h:
-        parts.append(f"- 交锋：近 {h2h['n']} 次 {h2h['text']}进 {h2h['gf']} 失 {h2h['ga']}，大球 {h2h['over']} 次、小球 {h2h['under']} 次")
+        parts.append(f"- 历史交锋（风格与心理克制）：近 {h2h['n']} 次 {h2h['text']}进 {h2h['gf']} 失 {h2h['ga']}，大球 {h2h['over']} 次、小球 {h2h['under']} 次")
     else:
-        parts.append("- 交锋：本批未取到有效交锋表（缺源不写）")
-    parts.append("- 缺源：伤停名单、天气、裁判、xG、逐场射门本批均未取到，不赋值、不估")
+        parts.append("- 历史交锋：本批未取到有效交锋表（缺源不写）")
+    parts.append("- 底层缺源声明：裁判、xG、逐场射门转化率本批未接入，不赋值、不估")
     return "\n".join(parts)
 
 
 def sect4(num):
     a = AF.get(num)
-    e = EXT.get(num)
+    e = EXT.get(num) or {}
     lines = []
     if a:
         lines += [
-            f"- 外部模型倾向（api-football 免费层）：**{a.get('pred_winner') or '—'}**；原文建议：{a.get('pred_advice') or '—'}",
-            "- 该层三向百分比是模板值，**不采信、不进模型**，只保留倾向",
+            f"- 第三方算法倾向（api-football 免费层）：**{a.get('pred_winner') or '—'}**；原文建议：{a.get('pred_advice') or '—'}（模板百分比不进模型，仅作方向对照）",
         ]
-    if e:
-        b = books[num]
-        pair = b["match"].split(" ", 1)[-1].split(" vs ")
-        h, aw = (pair + ["", ""])[:2]
-        lines.append(f"- 赛事与媒体情报（{e.get('note') or '—'}）：")
-        if e.get("abs_home"):
-            lines.append(f"  - {h} 缺阵：{'、'.join(e['abs_home'])}")
-        if e.get("abs_away"):
-            lines.append(f"  - {aw} 缺阵：{'、'.join(e['abs_away'])}")
-        if e.get("susp"):
-            lines.append(f"  - 停赛：{'；'.join(e['susp'])}")
-        if e.get("lineup"):
-            lines.append(f"  - 阵容与教练口径：{e['lineup']}")
-        if e.get("media"):
-            lines.append(f"  - 媒体倾向：{e['media']}")
-        if e.get("flags"):
-            lines.append(f"  - 情报冲突与口径提醒：{'；'.join(e['flags'])}")
-        if e.get("src"):
-            lines.append("  - 来源：" + "；".join(f"{x['d']} {x['t']}" for x in e["src"]))
-        nh = sum(len(str(x).split("、")) for x in (e.get("abs_home") or []))
-        na = sum(len(str(x).split("、")) for x in (e.get("abs_away") or []))
-        act = ACTION_HINT.get(num, "")
-        if "站主队" in act and nh >= 5 and nh - na >= 3:
-            lines.append(f"  - **站位与情报相左**：站位站主队，但主队缺阵 {nh} 人、客队 {na} 人，这一场要人工复核")
-        if "站客队" in act and na >= 5 and na - nh >= 3:
-            lines.append(f"  - **站位与情报相左**：站位站客队，但客队缺阵 {na} 人、主队 {nh} 人，这一场要人工复核")
+    if e.get("ai_preds"):
+        for item in e["ai_preds"]:
+            lines.append(f"- 外部模型/预测市场（{item.get('src', '—')}）：倾向 **{item.get('lean', '—')}**；读数：{item.get('read', '—')}")
+    if e.get("media"):
+        lines.append(f"- 全球/主流媒体前瞻：{e['media']}")
+    if e.get("src"):
+        lines.append("- 媒体与情报来源：" + "；".join(f"{x['d']} {x['t']}" for x in e["src"]))
     if not lines:
-        return "- 外部预测未取到（缺源不写）"
+        return "- 全球主流媒体及第三方 AI 预测：本批未取到（缺源不编）"
     return "\n".join(lines)
+
+
+def sect_core(num):
+    """六、核心矛盾、胜负手与看点（「该赢」vs「真赢得」拆解）"""
+    e = EXT.get(num) or {}
+    lines = []
+    if e.get("core_conflict"):
+        lines.append(f"- **核心矛盾（「该赢」vs「真赢得」）**：{e['core_conflict']}")
+    if e.get("key_factor"):
+        lines.append(f"- **胜负手（R63 单场关键变量）**：{e['key_factor']}")
+    if e.get("watchpoints"):
+        lines.append(f"- **比赛看点**：{e['watchpoints']}")
+    lines.append(f"- **技术面综合研判**：{P5[num]}")
+    return "\n".join(lines)
+
+
+def _derive_resonance(num):
+    e = EXT.get(num) or {}
+    if e.get("resonance"):
+        return e["resonance"]
+    r = V3[num]
+    if r["w_data"] == 0 or r.get("three_data") is None:
+        return "单腿缺证据"
+    eb = r.get("edge_ab") or [0, 0, 0]
+    mx = max(abs(x) for x in eb)
+    ta, tb = r["three_data"], r["three_b"]
+    same_top = ta.index(max(ta)) == tb.index(max(tb))
+    if same_top and mx < 8.0 and r["w_data"] >= 0.25:
+        return "多维共振"
+    if same_top and mx < 12.0:
+        return "同向轻分歧"
+    return "明显背离/冲突"
+
+
+def _derive_tier(num):
+    e = EXT.get(num) or {}
+    if e.get("tier"):
+        return e["tier"]
+    r = V3[num]
+    act = ACTION_HINT.get(num, "")
+    tc = r["three_c"]
+    top_p = max(tc)
+    res = _derive_resonance(num)
+    if "不站" in act or r["w_data"] == 0:
+        return "D 证据不足跳过"
+    if r["w_data"] >= 0.50 and res == "多维共振" and top_p >= 0.55:
+        return "S 最敢碰"
+    if r["w_data"] >= 0.25 and res in ("多维共振", "同向轻分歧") and top_p >= 0.48:
+        return "A 顺势可跟"
+    if "平局" in act or "反手" in act or "薄站" in act or "弱站" in act:
+        return "C 防平/弱倾向"
+    return "B 赢面在但易卡壳"
 
 
 def _ou_water(v):
@@ -626,6 +776,17 @@ def sect_pan(num, v, b):
     if ou_o is not None and ou_c is not None:
         dx.append(f"大小 {abs(ou_o):.2f}→{abs(ou_c):.2f}")
     lines.append("- 位移：" + "；".join(dx))
+    kl = calc_kelly(b)
+    if kl:
+        kv = kl["var100"]
+        al = "；超标预警：" + "、".join(kl["alerts"]) if kl["alerts"] else "；无明显超标预警"
+        lines.append(
+            f"- 凯利指数（{kl['n']} 家即时欧赔，平均返还率 {kl['avg_ret']*100:.1f}%）："
+            f"均值 主 {kl['mean'][0]:.2f} / 平 {kl['mean'][1]:.2f} / 客 {kl['mean'][2]:.2f}；"
+            f"凯利方差(×100) **主 {kv[0]:.2f} / 平 {kv[1]:.2f} / 客 {kv[2]:.2f}**（越小=各家共识越强）{al}"
+        )
+    else:
+        lines.append("- 凯利指数：有效欧赔公司不足 2 家，暂无法计算凯利方差")
     # 跨盘自洽：用欧赔（去水三向）单腿拟合的 λ 给亚盘/大小定价（现算，不依赖历史字段）
     coh = []
     _pk = mv3.lam_pack(m3, v.get("ou_implied_total")) if m3 else None
@@ -737,19 +898,108 @@ def sect_model(num, v):
 def sect_end(num, v):
     r = V3[num]
     tc = r["three_c"]
-    sc = r["top_scores"]  # 只认 λ_C，避免与「二、模型」比分表打架
+    sc = r["top_scores"]  # 只认 λ_C，避免与「五、数学模型」比分表打架
     iv = r.get("interval_home")
     iv_txt = (f"λ_C 参数区间 {iv[0]:.0f}–{iv[1]:.0f}%" if iv else "λ_C 参数区间不适用（无独立模型，只给市场点值）")
+    tier = _derive_tier(num)
+    res = _derive_resonance(num)
     lines = [
+        f"- 把握分级与共振：**{tier}** ｜ 多维定性：**{res}**（区分赢球概率与赢球可信度）",
         f"- 方向：{ACTION_HINT[num]}",
         (f"- 比分：首选 {sc[0][0]}（{pct(sc[0][1])}）／次选 {sc[1][0]}（{pct(sc[1][1])}）"
          + (f"／防范 {sc[2][0]}（{pct(sc[2][1])}）" if len(sc) > 2 else "")
-         + "　（λ_C 泊松；与第六项「方向」配对读：站主看主胜比分为主，站客反之，不站时以平局/低比分为先）"),
+         + "　（λ_C 泊松；与上方「方向」配对读：站主看主胜比分为主，站客反之，不站时以平局/低比分为先）"),
         f"- 概率口径（λ_C 融合，数据权重 {r['w_data']:.2f}）：主 {pct(tc[0], 0)} / 平 {pct(tc[1], 0)} / 客 {pct(tc[2], 0)}；"
         + iv_txt + f"；足彩 **{ZQ[num]}**",
         f"- 打破条件：{BREAK[num]}",
     ]
     return "\n".join(lines)
+
+
+def build_budget_plan():
+    """九、50 元以内投注与比分方案（A 层内部参考 · 严禁进公开稿；单注 2 元，硬上限 ≤50 元）"""
+    if CUSTOM_PLAN and isinstance(CUSTOM_PLAN, dict) and CUSTOM_PLAN.get("markdown"):
+        return "\n## 九、50 元以内投注与比分方案（A 层内部参考 · 严禁进公开稿）\n\n" + CUSTOM_PLAN["markdown"].strip() + "\n"
+
+    tier_rank = {"S": 0, "A": 1, "B": 2, "C": 3, "D": 4}
+    ranked = []
+    for num in sorted(books):
+        t = _derive_tier(num)
+        rk = tier_rank.get(t[:1], 3)
+        r = V3[num]
+        tc = r["three_c"]
+        sc = r["top_scores"]
+        name = books[num]["match"].split(" ", 1)[-1].replace(" vs ", "–")
+        ranked.append((rk, -max(tc), num, name, t, ZQ.get(num, "—"), sc[:3]))
+    ranked.sort()
+
+    core = [x for x in ranked if x[0] <= 2]       # S/A/B 级
+    cautious = [x for x in ranked if x[0] == 3]   # C 级
+    skip = [x for x in ranked if x[0] >= 4]       # D 级
+
+    lines = [
+        "\n## 九、50 元以内投注与比分方案（A 层内部参考 · 严禁进公开稿）\n",
+        "> 口径：竞彩 90 分钟常规时间，单注 2 元，总预算硬上限 **50 元**；仅作内部数据观察与仓位演练，临场首发/核心伤停异动自动熔断。\n",
+    ]
+    total_cost = 0
+
+    pick_a = (core if len(core) >= 2 else (core + cautious))[:2]
+    if len(pick_a) == 2:
+        m1, m2 = pick_a[0], pick_a[1]
+        c1 = len([x for x in m1[5].split("/") if x and x != "—"]) or 1
+        c2 = len([x for x in m2[5].split("/") if x and x != "—"]) or 1
+        units_a = c1 * c2
+        mult_a = max(1, min(3, 24 // (units_a * 2)))
+        cost_a = units_a * 2 * mult_a
+        total_cost += cost_a
+        lines.append(f"### 方案 A · 稳健方向 2 串 1（{cost_a} 元）")
+        lines.append(f"- 选场：`{m1[2]} {m1[3]}`（{m1[4]}，选 **{m1[5]}**）× `{m2[2]} {m2[3]}`（{m2[4]}，选 **{m2[5]}**）")
+        lines.append(f"- 核算：{c1} × {c2} = {units_a} 注 × {mult_a} 倍 × 2 元 = **{cost_a} 元**")
+    elif len(pick_a) == 1:
+        m1 = pick_a[0]
+        c1 = len([x for x in m1[5].split("/") if x and x != "—"]) or 1
+        mult_a = max(1, min(5, 20 // (c1 * 2)))
+        cost_a = c1 * 2 * mult_a
+        total_cost += cost_a
+        lines.append(f"### 方案 A · 稳健方向单关（{cost_a} 元）")
+        lines.append(f"- 选场：`{m1[2]} {m1[3]}`（{m1[4]}，选 **{m1[5]}**）→ {c1} 注 × {mult_a} 倍 × 2 元 = **{cost_a} 元**")
+    else:
+        lines.append("### 方案 A · 稳健方向（0 元 · 本批无达标场次，空仓观望）")
+
+    rem = 50 - total_cost
+    pick_b = (core + cautious)[:2]
+    if pick_b and rem >= 6:
+        lines.append("")
+        if len(pick_b) == 2 and rem >= 12:
+            b1, b2 = pick_b[0], pick_b[1]
+            s1 = [x[0] for x in b1[6][:3]]
+            s2 = [x[0] for x in b2[6][:3]]
+            if len(s1) * len(s2) * 2 <= rem:
+                u_b = len(s1) * len(s2)
+            else:
+                s2 = s2[:2]
+                u_b = len(s1) * len(s2)
+            cost_b = u_b * 2
+            total_cost += cost_b
+            lines.append(f"### 方案 B · 剧本比分 2 串 1 博弈（{cost_b} 元）")
+            lines.append(f"- 选场：`{b1[2]} {b1[3]}`（{' / '.join(s1)}）× `{b2[2]} {b2[3]}`（{' / '.join(s2)}）")
+            lines.append(f"- 核算：{len(s1)} × {len(s2)} = {u_b} 注 × 1 倍 × 2 元 = **{cost_b} 元**")
+        else:
+            b1 = pick_b[0]
+            s1 = [x[0] for x in b1[6][:3]]
+            u_b = len(s1)
+            cost_b = u_b * 2
+            total_cost += cost_b
+            lines.append(f"### 方案 B · 单场剧本比分小博弈（{cost_b} 元）")
+            lines.append(f"- 选场：`{b1[2]} {b1[3]}`（{' / '.join(s1)}）→ {u_b} 注 × 1 倍 × 2 元 = **{cost_b} 元**")
+
+    lines.append("")
+    lines.append(f"- **总预算校验**：合计 **{total_cost} 元**（硬上限 50 元，状态：{'✅ 合规' if total_cost <= 50 else '❌ 超限需缩减'}）")
+    if skip:
+        lines.append("- **剔除不碰清单（D 级 / 证据不足）**：" + "、".join(f"{x[2]} {x[3]}" for x in skip))
+    if not core and cautious:
+        lines.append("- **仓位提醒**：本批无 S/A/B 级强证据场次（全为 C 级弱倾向），建议压缩至 20–30 元以内轻仓观察，或直接跳过。")
+    return "\n".join(lines) + "\n"
 
 
 blocks = []
@@ -767,29 +1017,33 @@ for num in sorted(books):
             f"阿飞·内部研判　{DAY[:4]}-{DAY[4:6]}-{DAY[6:]}　分类：{lg}　90 分钟口径　"
             f"数据完整性 {V3[num]['grade']}／预测证据 {V3[num]['evidence_grade']}　模型 {VER}　快照 {SNAP}\n")
     body = f"""
-**一、盘口**
+**一、情报收集与利弊拆解（含天气）**
+
+{sect_intel_weather(num)}
+
+**二、百家欧赔、盘口变化与凯利指数**
 
 {build_table(b)}
 
 {sect_pan(num, v, b)}
 
-**二、模型**
-
-{sect_model(num, v)}
-
-**三、底层数据**
+**三、积分形势、近期状态与战意**
 
 {sect3(num, row)}
 
-**四、外部预测与情报**
+**四、全球主流媒体及 AI 预测分析**
 
 {sect4(num)}
 
-**五、技术面判断**
+**五、数学模型模拟分析预测（{VER}）**
 
-{P5[num]}
+{sect_model(num, v)}
 
-**六、综合分析**
+**六、核心矛盾、胜负手与看点（「该赢」vs「真赢得」）**
+
+{sect_core(num)}
+
+**七、单场综合分析与打破条件**
 
 {sect_end(num, v)}
 """
@@ -802,13 +1056,13 @@ GEN = _dt.datetime.now().strftime("%Y-%m-%d %H:%M")
 _alt = any("替代源" in (b.get("note") or "") for b in books.values())
 SRC_NOTE = ("竞彩官方 webapi 让球线+胜平负（初盘→即时）+ 公开赛季分项（football-data.co.uk 等）+ 官方近况/交锋；500 fenxi 本日被 EdgeOne 限流未用（用户 2026-11-04 指示换源），亚盘水位按竞彩让球赔率-1 近似并标注" if _alt else "`odds.500.com/fenxi/{yazhi,ouzhi,daxiao}-<id>.shtml`（亚指/欧指/大小三表，初盘+即时）；基本面源 `shuju-<id>.shtml`")
 
-HEAD = f"""# {TITLE_LINE} · 内部分析报告
+HEAD = f"""# {TITLE_LINE} · 内部分析报告（v3.2）
 
 - 生成：{GEN}（赛前）。口径：**竞彩只算 90 分钟**；杯赛 90 分钟平局要进加时，竞彩不计。
 - 版本：**后台模型 {VER}**；数据快照 **{SNAP}**（`_books_/ _data_` 的 sha256 前 12 位，换数即变）。
 - 盘口源：{SRC_NOTE}。
 - 公司可用性：500 的公司名时有时无（2026-10-30 整批匿名成 `I**********` 这类，2026-11-01 又恢复真名）。本报告按**当日实际取到的名字**点名，取不到的那些行按「几家动、中位线怎么移」使用，**不按公司权重加权**。空白格即缺源。
-- 模板说明：本报告 = 足彩盘口表 + 原有六段结构的合并版。去重后每场固定六块：①盘口（三套+位移+跨盘自洽）②模型（λ双法 + 泊松解析 + 蒙特卡洛10万次 + 敏感性）③底层数据 ④外部预测 ⑤技术面 ⑥综合分析（方向/比分/概率/打破/动作+足彩）。
+- 模板说明（v3.2 全维度整合版）：每场固定七块（①情报收集与利弊拆解含天气 ②百家欧赔/盘口变化/凯利指数 ③积分形势/近期状态/战意 ④全球主流媒体及AI预测 ⑤数学模型模拟预测 ⑥核心矛盾/胜负手/看点 ⑦单场综合分析与打破条件），全批末尾固定两块（⑧多维共振总表与把握分层排序 ⑨50元以内投注与比分方案）。
 - 模型口径（v3：三套 λ 分开算，不再「各半对冲」）
   - **A 独立模型**：λ_A = 经验贝叶斯收缩（同主客速率 × 对手防守指数^0.5，向全季池化值收缩，k=4；等级 B/C 时 k=6），权重按样本再打折。
   - **B 市场隐含**：Poisson 网格同时拟合欧赔去水三向 + 大小水位隐含总进球。
@@ -826,20 +1080,35 @@ HEAD = f"""# {TITLE_LINE} · 内部分析报告
 """
 
 DEC = """
-## 决策层汇总
+## 八、全批多维共振总表与把握分层排序
 
-| 场 | 数据完整性 | 预测证据 | 站位 | 市场动作 | 融合概率（主/平/客） | 足彩 |
-|---|---|---|---|---|---|
+| 场 | 数据完整性 | 预测证据 | 凯利方差(主/平/客) | 融合概率（主/平/客） | 共振/背离 | 把握分级 | 站位与市场动作 | 足彩 |
+|---|---|---|---|---|---|---|---|---|
 """
 rows = []
+tier_groups = {"S": [], "A": [], "B": [], "C": [], "D": []}
 for num in sorted(books):
     r = V3[num]
     tc = r["three_c"]
-    act = ACTION_HINT[num].split("；")
-    rows.append(f"| {num} {books[num]['match'].split(' ', 1)[-1].replace(' vs ', '–')} | {r['grade']} | "
-                f"{r['evidence_grade']} | {act[0]} | {'；'.join(act[1:]) or '—'} | "
-                f"{tc[0]*100:.0f}/{tc[1]*100:.0f}/{tc[2]*100:.0f} | {ZQ[num]} |")
+    act = ACTION_HINT[num]
+    kl = calc_kelly(books[num])
+    kv_txt = f"{kl['var100'][0]:.2f}/{kl['var100'][1]:.2f}/{kl['var100'][2]:.2f}" if kl else "—"
+    res = _derive_resonance(num)
+    tier = _derive_tier(num)
+    nm = books[num]['match'].split(' ', 1)[-1].replace(' vs ', '–')
+    tier_groups.setdefault(tier[:1], []).append(f"{num} {nm}")
+    rows.append(f"| {num} {nm} | {r['grade']} | "
+                f"{r['evidence_grade']} | {kv_txt} | "
+                f"{tc[0]*100:.0f}/{tc[1]*100:.0f}/{tc[2]*100:.0f} | {res} | {tier} | {act} | {ZQ[num]} |")
 DEC += "\n".join(rows) + "\n\n"
+DEC += (
+    "- **把握层次排序（赢球概率 vs 赢球可信度）**：\n"
+    f"  - S 最敢碰：{'、'.join(tier_groups['S']) or '无'}\n"
+    f"  - A 顺势可跟：{'、'.join(tier_groups['A']) or '无'}\n"
+    f"  - B 赢面在但易卡壳：{'、'.join(tier_groups['B']) or '无'}\n"
+    f"  - C 防平/弱倾向：{'、'.join(tier_groups['C']) or '无'}\n"
+    f"  - D 证据不足跳过：{'、'.join(tier_groups['D']) or '无'}\n"
+)
 
 # —— 数据驱动的盘点（全部取 V3 的五状态 EV，阈值 +3%） ——
 buy_ah, buy_ou = [], []
@@ -882,6 +1151,6 @@ DEC += (f"- 一致性基线自检（口径：只用欧赔去水三向单腿拟�
         f"{len(books)} 场最大偏离 {_maxdev:.1f}%；≤1% 的 {len(coh_ok)} 场{'，超 1% 的 ' + '、'.join(coh_bad) if coh_bad else '，全部通过'}。真正的溢价只看上面「亚盘溢价」那条（融合 λ_C）\n")
 not_stand = [n for n in sorted(books) if "不站" in ACTION_HINT.get(n, "")]
 DEC += f"- 立场汇总（R49）：全批共 {len(books)} 场，其中不站方向 {len(not_stand)} 场（{'/'.join(not_stand) or '无'}），其余场次按上表「站位」与「市场动作」分层执行。\n"
-text = HEAD + "\n" + "\n\n".join(blocks) + "\n" + DEC
+text = HEAD + "\n" + "\n\n".join(blocks) + "\n" + DEC + "\n" + build_budget_plan()
 OUT.write_text(text, encoding="utf-8")
 print("→", OUT, len(text), "chars")

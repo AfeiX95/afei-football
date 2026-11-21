@@ -1,0 +1,1262 @@
+{
+ "014": {
+  "no": "014",
+  "match": "AC米兰 vs 弗洛西诺",
+  "kickoff": "2026-11-23 01:00",
+  "verified": true,
+  "official_odds": [
+   1.41,
+   4.5,
+   4.8
+  ],
+  "ox": {
+   "伟德": {
+    "open": [
+     1.53,
+     4.6,
+     5.0
+    ],
+    "close": [
+     1.53,
+     4.6,
+     5.0
+    ]
+   },
+   "Interwetten": {
+    "open": [
+     1.53,
+     4.9,
+     5.25
+    ],
+    "close": [
+     1.55,
+     4.7,
+     5.0
+    ]
+   },
+   "马会": {
+    "open": [
+     1.42,
+     4.6,
+     4.75
+    ],
+    "close": [
+     1.42,
+     4.6,
+     4.75
+    ]
+   },
+   "onex": {
+    "open": [
+     1.49,
+     5.47,
+     6.1
+    ],
+    "close": [
+     1.58,
+     5.08,
+     5.43
+    ]
+   },
+   "明陞": {
+    "open": [
+     1.56,
+     4.4,
+     4.7
+    ],
+    "close": [
+     1.51,
+     4.5,
+     5.1
+    ]
+   },
+   "澳彩": {
+    "open": [
+     1.43,
+     4.85,
+     4.8
+    ],
+    "close": [
+     1.42,
+     4.9,
+     4.9
+    ]
+   },
+   "威廉": {
+    "open": [
+     1.5,
+     4.33,
+     5.5
+    ],
+    "close": [
+     1.53,
+     4.6,
+     4.8
+    ]
+   },
+   "利记": {
+    "open": [
+     1.54,
+     4.31,
+     4.54
+    ],
+    "close": [
+     1.52,
+     4.4,
+     4.64
+    ]
+   },
+   "盈禾": {
+    "open": [
+     1.54,
+     4.92,
+     5.05
+    ],
+    "close": [
+     1.55,
+     4.91,
+     4.97
+    ]
+   },
+   "竞彩官方": {
+    "open": [
+     1.39,
+     4.55,
+     5.0
+    ],
+    "close": [
+     1.39,
+     4.55,
+     5.0
+    ]
+   },
+   "Bet365": {
+    "open": [
+     1.4,
+     4.75,
+     6.25
+    ],
+    "close": [
+     1.53,
+     4.75,
+     5.25
+    ]
+   },
+   "平博": {
+    "open": [
+     1.56,
+     4.55,
+     5.21
+    ],
+    "close": [
+     1.58,
+     4.62,
+     5.35
+    ]
+   },
+   "皇冠": {
+    "open": [
+     1.51,
+     5.1,
+     5.3
+    ],
+    "close": [
+     1.5,
+     5.0,
+     5.2
+    ]
+   },
+   "12bet": {
+    "open": [
+     1.5,
+     4.6,
+     5.1
+    ],
+    "close": [
+     1.51,
+     4.5,
+     5.1
+    ]
+   },
+   "18Bet": {
+    "open": [
+     1.53,
+     4.6,
+     5.0
+    ],
+    "close": [
+     1.54,
+     4.7,
+     5.25
+    ]
+   },
+   "立博": {
+    "open": [
+     1.55,
+     4.6,
+     4.8
+    ],
+    "close": [
+     1.53,
+     4.6,
+     5.0
+    ]
+   },
+   "易胜博": {
+    "open": [
+     1.49,
+     4.4,
+     5.1
+    ],
+    "close": [
+     1.53,
+     4.6,
+     5.0
+    ]
+   },
+   "10BET": {
+    "open": [
+     1.51,
+     4.4,
+     4.8
+    ],
+    "close": [
+     1.55,
+     4.3,
+     5.0
+    ]
+   },
+   "SNAI": {
+    "open": [
+     1.52,
+     4.5,
+     5.0
+    ],
+    "close": [
+     1.5,
+     4.5,
+     5.25
+    ]
+   }
+  },
+  "ah": {},
+  "ou": {
+   "伟德": {
+    "open_line": 3.5,
+    "open_over": 0.94,
+    "open_under": 0.94,
+    "close_line": 3.5,
+    "close_over": 0.9,
+    "close_under": 0.89
+   },
+   "Interwetten": {
+    "open_line": 3.5,
+    "open_over": 0.9,
+    "open_under": 0.9,
+    "close_line": 3.5,
+    "close_over": 0.85,
+    "close_under": 0.9
+   },
+   "onex": {
+    "open_line": 3.5,
+    "open_over": 0.87,
+    "open_under": 1.07,
+    "close_line": 3.5,
+    "close_over": 0.97,
+    "close_under": 0.97
+   },
+   "明陞": {
+    "open_line": 3.5,
+    "open_over": 0.94,
+    "open_under": 0.92,
+    "close_line": 3.5,
+    "close_over": 0.95,
+    "close_under": 0.93
+   },
+   "澳彩": {
+    "open_line": 3.5,
+    "open_over": 0.89,
+    "open_under": 0.91,
+    "close_line": 3.5,
+    "close_over": 0.9,
+    "close_under": 0.9
+   },
+   "威廉": {
+    "open_line": 3.5,
+    "open_over": 0.85,
+    "open_under": 0.85,
+    "close_line": 3.5,
+    "close_over": 0.85,
+    "close_under": 0.85
+   },
+   "利记": {
+    "open_line": 3.5,
+    "open_over": 0.98,
+    "open_under": 0.9,
+    "close_line": 3.5,
+    "close_over": 0.93,
+    "close_under": 0.95
+   },
+   "盈禾": {
+    "open_line": 3.5,
+    "open_over": 0.92,
+    "open_under": 0.94,
+    "close_line": 3.5,
+    "close_over": 0.91,
+    "close_under": 0.95
+   },
+   "Bet365": {
+    "open_line": 3.75,
+    "open_over": 1.02,
+    "open_under": 0.82,
+    "close_line": 3.5,
+    "close_over": 0.9,
+    "close_under": 0.95
+   },
+   "平博": {
+    "open_line": 3.5,
+    "open_over": 0.9,
+    "open_under": 0.93,
+    "close_line": 3.5,
+    "close_over": 0.93,
+    "close_under": 0.95
+   },
+   "皇冠": {
+    "open_line": 3.5,
+    "open_over": 0.94,
+    "open_under": 0.94,
+    "close_line": 3.5,
+    "close_over": 0.91,
+    "close_under": 0.97
+   },
+   "12bet": {
+    "open_line": 3.5,
+    "open_over": 0.93,
+    "open_under": 0.93,
+    "close_line": 3.5,
+    "close_over": 0.95,
+    "close_under": 0.93
+   },
+   "18Bet": {
+    "open_line": 3.5,
+    "open_over": 0.88,
+    "open_under": 0.89,
+    "close_line": 3.5,
+    "close_over": 0.89,
+    "close_under": 0.9
+   },
+   "立博": {
+    "open_line": 2.5,
+    "open_over": 0.33,
+    "open_under": 2.0,
+    "close_line": 2.5,
+    "close_over": 0.35,
+    "close_under": 2.0
+   },
+   "易胜博": {
+    "open_line": 3.5,
+    "open_over": 0.93,
+    "open_under": 0.95,
+    "close_line": 3.5,
+    "close_over": 0.93,
+    "close_under": 0.95
+   },
+   "10BET": {
+    "open_line": 3.5,
+    "open_over": 0.88,
+    "open_under": 0.86,
+    "close_line": 3.5,
+    "close_over": 0.85,
+    "close_under": 0.92
+   }
+  },
+  "media": "外媒/预测观点（仅客观数字与事实，附来源与URL）：[1] BETXIO https://betxio.com/news/ac-milan-vs-frosinone-calcio-prediction-analysis-14mwqnhg31up — Home Win 61% confidence，1X2 1.57/4.64/5.44，Over 2.5 61%，BTTS Yes 60%，开赛 Mon Nov 23 01:00。[2] FootballPredictions https://footballpredictions.com/footballpredictions/serieapredictions/milan-vs-frosinone-prediction-22-11-2026 — 预测比分 Milan 3-2 Frosinone（正文另提 3-1），主推 Home Win，Over 2.5 74%，BTTS Yes 69%，开赛 23 Nov 2026 01:00。[3] SBOTOP https://blog.sbotop.com/football/serie-a/serie-a-high-flying-canaries-head-milan — 推荐 Milan Asian Handicap -1.00 @1.84，Milan 1.50 / Draw 4.50 / Frosinone 5.00，开赛 Nov 23 01:00 GMT+8。[4] TipsQuant https://tipsquant.com/serie-a-predictions — AC Milan to win 59%（fair 1.69），Over 2.5 63%（fair 1.59），BTTS Yes 60%，Megapari 赔率截至 21 Nov 2026 09:35 EAT。核对：竞彩网计算器页 https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark 列周日014 胜平负 1.41/4.50/4.80、让球-1 2.20/3.75/2.40；纳米数据结果「竞彩赔率」段另列胜平负 1.39/4.55/5.00、让球-1 2.15/3.75/2.45，两者不一致，official_odds 按竞彩网计算器页填，纳米数据「竞彩官方」公司行仍按 1.39/4.55/5.0 抄入 ox。",
+  "ai_preds": [
+   {
+    "src": "BETXIO (betxio.com)",
+    "lean": "主胜",
+    "read": "Home Win 61% confidence；1X2 1.57/4.64/5.44；Over 2.5 61%；BTTS Yes 60%；开赛 Mon Nov 23 01:00"
+   },
+   {
+    "src": "FootballPredictions (footballpredictions.com)",
+    "lean": "主胜",
+    "read": "预测比分 Milan 3-2 Frosinone；主推 Home Win；Over 2.5 74%；BTTS Yes 69%；开赛 23 Nov 2026 01:00"
+   },
+   {
+    "src": "SBOTOP (blog.sbotop.com)",
+    "lean": "主胜",
+    "read": "推荐 Milan Asian Handicap -1.00 @1.84；Milan 1.50 / Draw 4.50 / Frosinone 5.00；开赛 Nov 23 01:00 GMT+8"
+   },
+   {
+    "src": "TipsQuant (tipsquant.com)",
+    "lean": "主胜",
+    "read": "AC Milan to win 59%（fair 1.69）；Over 2.5 63%（fair 1.59）；BTTS Yes 60%；Megapari 赔率截至 21 Nov 2026 09:35 EAT"
+   }
+  ],
+  "sources": [
+   {
+    "name": "纳米数据「来自纳米数据的足球比赛预测分析结果」（WebSearch 结构化结果，结果未附 URL）",
+    "url": "",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "竞彩网 足球胜平负计算器",
+    "url": "https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "BETXIO — AC Milan vs Frosinone Calcio prediction & analysis",
+    "url": "https://betxio.com/news/ac-milan-vs-frosinone-calcio-prediction-analysis-14mwqnhg31up",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "FootballPredictions — Milan vs Frosinone Prediction",
+    "url": "https://footballpredictions.com/footballpredictions/serieapredictions/milan-vs-frosinone-prediction-22-11-2026",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "SBOTOP — Serie A: High Flying Canaries Head to Milan",
+    "url": "https://blog.sbotop.com/football/serie-a/serie-a-high-flying-canaries-head-milan",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "TipsQuant — Serie A predictions",
+    "url": "https://tipsquant.com/serie-a-predictions",
+    "date": "2026-11-21"
+   }
+  ]
+ },
+ "015": {
+  "no": "015",
+  "match": "萨普斯堡 vs 利勒斯特",
+  "kickoff": "2026-11-23 02:15",
+  "verified": true,
+  "official_odds": [
+   2.04,
+   3.8,
+   2.6
+  ],
+  "ox": {
+   "18Bet": {
+    "open": [
+     2.35,
+     3.8,
+     2.55
+    ],
+    "close": [
+     2.2,
+     3.9,
+     2.8
+    ]
+   },
+   "平博": {
+    "open": [
+     2.09,
+     3.82,
+     3.16
+    ],
+    "close": [
+     2.22,
+     4.12,
+     2.83
+    ]
+   },
+   "10BET": {
+    "open": [
+     2.15,
+     3.5,
+     2.65
+    ],
+    "close": [
+     2.15,
+     3.5,
+     2.65
+    ]
+   },
+   "伟德": {
+    "open": [
+     2.1,
+     3.9,
+     2.75
+    ],
+    "close": [
+     2.1,
+     3.9,
+     2.75
+    ]
+   },
+   "利记": {
+    "open": [
+     2.1,
+     3.62,
+     2.71
+    ],
+    "close": [
+     2.25,
+     3.48,
+     2.57
+    ]
+   },
+   "Bet365": {
+    "open": [
+     2.35,
+     3.8,
+     2.5
+    ],
+    "close": [
+     2.25,
+     3.8,
+     2.62
+    ]
+   },
+   "onex": {
+    "open": [
+     2.45,
+     3.98,
+     2.58
+    ],
+    "close": [
+     2.23,
+     4.01,
+     2.87
+    ]
+   },
+   "SNAI": {
+    "open": [
+     2.15,
+     3.75,
+     2.75
+    ],
+    "close": [
+     2.15,
+     3.75,
+     2.75
+    ]
+   },
+   "易胜博": {
+    "open": [
+     2.17,
+     3.7,
+     2.7
+    ],
+    "close": [
+     2.23,
+     3.7,
+     2.7
+    ]
+   },
+   "12bet": {
+    "open": [
+     2.13,
+     3.9,
+     2.81
+    ],
+    "close": [
+     2.23,
+     3.9,
+     2.66
+    ]
+   },
+   "盈禾": {
+    "open": [
+     2.35,
+     3.8,
+     2.45
+    ],
+    "close": [
+     2.17,
+     3.93,
+     2.72
+    ]
+   },
+   "立博": {
+    "open": [
+     2.1,
+     3.7,
+     2.62
+    ],
+    "close": [
+     2.1,
+     3.75,
+     2.62
+    ]
+   },
+   "澳彩": {
+    "open": [
+     2.11,
+     3.93,
+     2.52
+    ],
+    "close": [
+     2.15,
+     3.92,
+     2.48
+    ]
+   },
+   "Interwetten": {
+    "open": [
+     2.25,
+     3.85,
+     2.75
+    ],
+    "close": [
+     2.3,
+     3.85,
+     2.75
+    ]
+   },
+   "竞彩官方": {
+    "open": [
+     2.04,
+     3.8,
+     2.6
+    ],
+    "close": [
+     2.04,
+     3.8,
+     2.6
+    ]
+   },
+   "皇冠": {
+    "open": [
+     2.37,
+     4.2,
+     2.57
+    ],
+    "close": [
+     2.17,
+     4.15,
+     2.85
+    ]
+   },
+   "明陞": {
+    "open": [
+     2.13,
+     3.9,
+     2.81
+    ],
+    "close": [
+     2.23,
+     3.9,
+     2.66
+    ]
+   },
+   "威廉": {
+    "open": [
+     2.4,
+     3.7,
+     2.5
+    ],
+    "close": [
+     2.15,
+     3.8,
+     2.75
+    ]
+   }
+  },
+  "ah": {},
+  "ou": {
+   "18Bet": {
+    "open_line": 3.25,
+    "open_over": 0.82,
+    "open_under": 0.92,
+    "close_line": 3.5,
+    "close_over": 0.96,
+    "close_under": 0.82
+   },
+   "平博": {
+    "open_line": 3.25,
+    "open_over": 0.81,
+    "open_under": 1.0,
+    "close_line": 3.5,
+    "close_over": 0.98,
+    "close_under": 0.88
+   },
+   "10BET": {
+    "open_line": 3.5,
+    "open_over": 0.84,
+    "open_under": 0.8,
+    "close_line": 3.5,
+    "close_over": 0.87,
+    "close_under": 0.77
+   },
+   "伟德": {
+    "open_line": 3.25,
+    "open_over": 0.71,
+    "open_under": 0.98,
+    "close_line": 3.5,
+    "close_over": 0.96,
+    "close_under": 0.84
+   },
+   "利记": {
+    "open_line": 3.25,
+    "open_over": 0.82,
+    "open_under": 1.04,
+    "close_line": 3.5,
+    "close_over": 1.04,
+    "close_under": 0.82
+   },
+   "Bet365": {
+    "open_line": 3.25,
+    "open_over": 0.82,
+    "open_under": 0.97,
+    "close_line": 3.75,
+    "close_over": 1.15,
+    "close_under": 0.67
+   },
+   "onex": {
+    "open_line": 3.5,
+    "open_over": 1.07,
+    "open_under": 0.78,
+    "close_line": 3.5,
+    "close_over": 0.95,
+    "close_under": 0.87
+   },
+   "易胜博": {
+    "open_line": 3.5,
+    "open_over": 1.04,
+    "open_under": 0.82,
+    "close_line": 3.5,
+    "close_over": 1.04,
+    "close_under": 0.82
+   },
+   "12bet": {
+    "open_line": 3.5,
+    "open_over": 1.03,
+    "open_under": 0.83,
+    "close_line": 3.5,
+    "close_over": 1.02,
+    "close_under": 0.85
+   },
+   "盈禾": {
+    "open_line": 3.25,
+    "open_over": 0.86,
+    "open_under": 1.0,
+    "close_line": 3.5,
+    "close_over": 1.0,
+    "close_under": 0.86
+   },
+   "立博": {
+    "open_line": 2.5,
+    "open_over": 0.36,
+    "open_under": 1.8,
+    "close_line": 2.5,
+    "close_over": 0.36,
+    "close_under": 1.8
+   },
+   "澳彩": {
+    "open_line": 3.25,
+    "open_over": 0.73,
+    "open_under": 0.99,
+    "close_line": 3.5,
+    "close_over": 0.94,
+    "close_under": 0.78
+   },
+   "Interwetten": {
+    "open_line": 3.5,
+    "open_over": 0.85,
+    "open_under": 0.85,
+    "close_line": 3.5,
+    "close_over": 0.9,
+    "close_under": 0.8
+   },
+   "皇冠": {
+    "open_line": 3.25,
+    "open_over": 0.86,
+    "open_under": 1.01,
+    "close_line": 3.5,
+    "close_over": 1.0,
+    "close_under": 0.87
+   },
+   "明陞": {
+    "open_line": 3.5,
+    "open_over": 1.03,
+    "open_under": 0.83,
+    "close_line": 3.5,
+    "close_over": 1.02,
+    "close_under": 0.85
+   },
+   "威廉": {
+    "open_line": 3.5,
+    "open_over": 1.0,
+    "open_under": 0.75,
+    "close_line": 3.5,
+    "close_over": 0.91,
+    "close_under": 0.8
+   }
+  },
+  "media": "外媒/预测观点（仅客观数字与事实，附来源与URL）：[1] 懂球帝 https://www.dongqiudi.com/articles/6676905.html — 北京时间 11月23日 02:15 挪超萨普斯堡主场迎战利勒斯特罗姆；萨普斯堡尼尤库里停赛、卡斯滕森因伤缺阵、奥波库出战成疑，最近六个主场联赛仅1胜、期间丢15球；利勒斯特罗姆联赛四连胜（客场1-0胜斯塔特、2-0胜桑德菲尤尔），最近四个客场赢下三个；文中判断双方都能破门、利勒斯特罗姆有望在比赛后段取得优势。[2] FootyPulse https://footypulse.org/matches/eliteserien/sarpsborg-08-vs-lillestr-m-2026-11-22 — 模型 pick Lillestrom to win 40%（Sarpsborg 32%、Draw 27%）；Best odds SA08 2.26 Dafabet、Draw 4.12 Pinnacle、LILL 3.05 Unibet；Over 2.5 1.40 bet365、Under 2.5 3.10 Betfair；对比 21 家博彩公司，Updated 21 Nov 2026；开赛 Mon 23 Nov 2026 02:15。[3] EagleEyeOdds https://eagleeyeodds.com/predictions/sarpsborg-fk-vs-lillestrom-prediction-2026-11-22 — 预测 Sarpsborg FK to win 37%（Draw 25%、Lillestrom 37%），最可能比分 1-1，best bet Over 1.5 goals 1.24（81%），BTTS 62%，bookmakers 使 Sarpsborg 为 2.15 热门。[4] Bet90 https://bet90.com/football/preview/sarpsborg-08-vs-lillestrom/19629527 — 胜率 Sarpsborg 42.97% / Draw 23.35% / Lillestrom 33.68%；baseline split 43% / 23.4% / 33.7%；开赛 Mon 23 Nov 2:15 AM。[5] BananaGoal https://bananagoal.com/clubs/sarpsborg-333 — 该场 Bookmaker odds 2.23 / 3.85 / 2.82，best tip 89% chance（具体选项需免费账户），Updated 21 Nov 2026，开赛 Mon 23 Nov 02:15。[6] 500彩票网 https://liansai.500.com/zuqiu-19507/ — 赛程列 2026-11-23 02:15 萨普斯堡 vs 利勒斯特罗姆，平均欧指 2.16/3.84/2.74。核对：竞彩网计算器页 https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark 列周日015 胜平负 2.04/3.80/2.60、让球-1 3.90/4.15/1.56，与纳米数据「竞彩赔率」段一致。",
+  "ai_preds": [
+   {
+    "src": "懂球帝 (dongqiudi.com)",
+    "lean": "客队占优",
+    "read": "萨普斯堡两将缺阵（尼尤库里停赛、卡斯滕森伤缺、奥波库出战成疑），近6主场仅1胜丢15球；利勒斯特罗姆联赛四连胜、近4客场赢3场；11月23日 02:15 开赛"
+   },
+   {
+    "src": "FootyPulse (footypulse.org)",
+    "lean": "客胜",
+    "read": "模型 Lillestrom to win 40%（Sarpsborg 32%、Draw 27%）；Best odds 2.26/4.12/3.05；Over 2.5 1.40、Under 2.5 3.10；21 家博彩公司；Updated 21 Nov 2026"
+   },
+   {
+    "src": "EagleEyeOdds (eagleeyeodds.com)",
+    "lean": "主胜（微弱）",
+    "read": "Sarpsborg 37% / Draw 25% / Lillestrom 37%；最可能比分 1-1；best bet Over 1.5 goals 1.24（81%）；BTTS 62%"
+   },
+   {
+    "src": "Bet90 (bet90.com)",
+    "lean": "主胜",
+    "read": "胜率 Sarpsborg 42.97% / Draw 23.35% / Lillestrom 33.68%；baseline split 43%/23.4%/33.7%；Mon 23 Nov 2:15 AM"
+   },
+   {
+    "src": "BananaGoal (bananagoal.com)",
+    "lean": "未公开具体倾向",
+    "read": "Bookmaker odds 2.23 / 3.85 / 2.82；best tip 89% chance（具体选项需免费账户）；Updated 21 Nov 2026"
+   }
+  ],
+  "sources": [
+   {
+    "name": "纳米数据「来自纳米数据的足球比赛预测分析结果」（WebSearch 结构化结果，结果未附 URL）",
+    "url": "",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "竞彩网 足球胜平负计算器",
+    "url": "https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "中国体彩网 足球半全场胜平负计算器",
+    "url": "https://www.lottery.gov.cn/jc/jsq/zqbqc/",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "懂球帝 — 萨普斯堡两将缺阵，主场迎战利勒斯特罗姆",
+    "url": "https://www.dongqiudi.com/articles/6676905.html",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "500彩票网 — 2026赛季挪超赛程",
+    "url": "https://liansai.500.com/zuqiu-19507/",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "FootyPulse — Sarpsborg 08 vs Lillestrom Prediction",
+    "url": "https://footypulse.org/matches/eliteserien/sarpsborg-08-vs-lillestr-m-2026-11-22",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "EagleEyeOdds — Sarpsborg FK vs Lillestrom prediction",
+    "url": "https://eagleeyeodds.com/predictions/sarpsborg-fk-vs-lillestrom-prediction-2026-11-22",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "Bet90 — Sarpsborg 08 vs Lillestrom preview",
+    "url": "https://bet90.com/football/preview/sarpsborg-08-vs-lillestrom/19629527",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "BananaGoal — Sarpsborg 08 FF AI predictions",
+    "url": "https://bananagoal.com/clubs/sarpsborg-333",
+    "date": "2026-11-21"
+   }
+  ]
+ },
+ "017": {
+  "no": "017",
+  "match": "马赛 vs 勒芒",
+  "kickoff": "2026-11-23 03:45",
+  "verified": true,
+  "official_odds": [
+   1.29,
+   4.7,
+   6.6
+  ],
+  "ox": {
+   "Interwetten": {
+    "open": [
+     1.45,
+     4.9,
+     6.25
+    ],
+    "close": [
+     1.5,
+     4.8,
+     6.0
+    ]
+   },
+   "盈禾": {
+    "open": [
+     1.46,
+     4.93,
+     6.3
+    ],
+    "close": [
+     1.47,
+     4.83,
+     6.1
+    ]
+   },
+   "平博": {
+    "open": [
+     1.45,
+     4.9,
+     6.32
+    ],
+    "close": [
+     1.49,
+     4.9,
+     6.34
+    ]
+   },
+   "明陞": {
+    "open": [
+     1.43,
+     4.6,
+     6.2
+    ],
+    "close": [
+     1.45,
+     4.45,
+     6.0
+    ]
+   },
+   "SNAI": {
+    "open": [
+     1.44,
+     4.75,
+     6.0
+    ],
+    "close": [
+     1.44,
+     4.75,
+     6.0
+    ]
+   },
+   "易胜博": {
+    "open": [
+     1.42,
+     4.4,
+     6.4
+    ],
+    "close": [
+     1.44,
+     4.6,
+     6.1
+    ]
+   },
+   "12bet": {
+    "open": [
+     1.43,
+     4.6,
+     6.1
+    ],
+    "close": [
+     1.45,
+     4.45,
+     6.0
+    ]
+   },
+   "Bet365": {
+    "open": [
+     1.36,
+     4.75,
+     7.5
+    ],
+    "close": [
+     1.44,
+     4.75,
+     6.5
+    ]
+   },
+   "立博": {
+    "open": [
+     1.44,
+     4.8,
+     6.5
+    ],
+    "close": [
+     1.48,
+     4.8,
+     5.75
+    ]
+   },
+   "澳彩": {
+    "open": [
+     1.37,
+     4.75,
+     5.8
+    ],
+    "close": [
+     1.38,
+     4.75,
+     5.7
+    ]
+   },
+   "威廉": {
+    "open": [
+     1.4,
+     4.5,
+     7.0
+    ],
+    "close": [
+     1.44,
+     4.6,
+     6.0
+    ]
+   },
+   "伟德": {
+    "open": [
+     1.4,
+     4.6,
+     6.5
+    ],
+    "close": [
+     1.44,
+     4.5,
+     6.0
+    ]
+   },
+   "利记": {
+    "open": [
+     1.41,
+     4.49,
+     5.8
+    ],
+    "close": [
+     1.43,
+     4.37,
+     5.7
+    ]
+   },
+   "皇冠": {
+    "open": [
+     1.46,
+     5.0,
+     6.0
+    ],
+    "close": [
+     1.46,
+     5.0,
+     6.1
+    ]
+   },
+   "10BET": {
+    "open": [
+     1.43,
+     4.5,
+     5.6
+    ],
+    "close": [
+     1.48,
+     4.3,
+     6.0
+    ]
+   },
+   "18Bet": {
+    "open": [
+     1.42,
+     4.8,
+     6.25
+    ],
+    "close": [
+     1.47,
+     4.7,
+     6.0
+    ]
+   },
+   "onex": {
+    "open": [
+     1.4,
+     5.65,
+     7.8
+    ],
+    "close": [
+     1.49,
+     5.08,
+     6.7
+    ]
+   }
+  },
+  "ah": {},
+  "ou": {
+   "Interwetten": {
+    "open_line": 3.5,
+    "open_over": 1.2,
+    "open_under": 0.63,
+    "close_line": 3.5,
+    "close_over": 1.25,
+    "close_under": 0.6
+   },
+   "盈禾": {
+    "open_line": 3.25,
+    "open_over": 1.03,
+    "open_under": 0.83,
+    "close_line": 3.0,
+    "close_over": 0.83,
+    "close_under": 1.03
+   },
+   "平博": {
+    "open_line": 3.25,
+    "open_over": 1.02,
+    "open_under": 0.81,
+    "close_line": 3.0,
+    "close_over": 0.85,
+    "close_under": 1.04
+   },
+   "明陞": {
+    "open_line": 3.25,
+    "open_over": 1.03,
+    "open_under": 0.83,
+    "close_line": 3.0,
+    "close_over": 0.84,
+    "close_under": 1.04
+   },
+   "易胜博": {
+    "open_line": 3.0,
+    "open_over": 0.86,
+    "open_under": 1.01,
+    "close_line": 3.0,
+    "close_over": 0.88,
+    "close_under": 0.99
+   },
+   "12bet": {
+    "open_line": 3.25,
+    "open_over": 1.05,
+    "open_under": 0.81,
+    "close_line": 3.0,
+    "close_over": 0.84,
+    "close_under": 1.04
+   },
+   "Bet365": {
+    "open_line": 3.5,
+    "open_over": 1.02,
+    "open_under": 0.82,
+    "close_line": 3.0,
+    "close_over": 0.82,
+    "close_under": 1.02
+   },
+   "立博": {
+    "open_line": 2.5,
+    "open_over": 0.48,
+    "open_under": 1.45,
+    "close_line": 2.5,
+    "close_over": 0.5,
+    "close_under": 1.4
+   },
+   "澳彩": {
+    "open_line": 3.0,
+    "open_over": 0.81,
+    "open_under": 0.99,
+    "close_line": 3.0,
+    "close_over": 0.8,
+    "close_under": 1.0
+   },
+   "威廉": {
+    "open_line": 3.5,
+    "open_over": 1.2,
+    "open_under": 0.65,
+    "close_line": 3.5,
+    "close_over": 1.25,
+    "close_under": 0.62
+   },
+   "伟德": {
+    "open_line": 3.25,
+    "open_over": 1.01,
+    "open_under": 0.81,
+    "close_line": 3.0,
+    "close_over": 0.81,
+    "close_under": 0.99
+   },
+   "利记": {
+    "open_line": 3.25,
+    "open_over": 1.03,
+    "open_under": 0.85,
+    "close_line": 3.0,
+    "close_over": 0.88,
+    "close_under": 1.0
+   },
+   "皇冠": {
+    "open_line": 3.25,
+    "open_over": 1.04,
+    "open_under": 0.83,
+    "close_line": 3.0,
+    "close_over": 0.84,
+    "close_under": 1.03
+   },
+   "10BET": {
+    "open_line": 3.25,
+    "open_over": 0.97,
+    "open_under": 0.78,
+    "close_line": 3.0,
+    "close_over": 0.82,
+    "close_under": 0.96
+   },
+   "18Bet": {
+    "open_line": 3.25,
+    "open_over": 1.0,
+    "open_under": 0.77,
+    "close_line": 3.0,
+    "close_over": 0.81,
+    "close_under": 0.98
+   },
+   "onex": {
+    "open_line": 3.5,
+    "open_over": 1.07,
+    "open_under": 0.87,
+    "close_line": 3.25,
+    "close_over": 1.12,
+    "close_under": 0.84
+   }
+  },
+  "media": "外媒/预测观点（仅客观数字与事实，附来源与URL）：[1] The GoalPost https://the-goalpost.com/matches/marseille-vs-le-mans-2026-11-22 — GoalPost Prediction Marseille win 71%、Draw 16%、Le Mans win 13%（High confidence）；Expected goals 2.5；最可能比分 2-0 10%、2-1 9%、3-0 8%；页面注明该场暂无博彩市场价格（The betting market's prices aren't available for this match）；开赛 Mon Nov 23 3:45 AM GMT+8，Orange Velodrome，Ligue 1 Matchday 11。[2] sdxzai.com https://www.sdxzai.com/ — 模型比分 2-0 / 3-0 / 3-1（概率最高 2-0），胜 1.29 / 平 4.70 / 负 6.60、让球 -1，三档场均总进球约 3.0 球。[3] 有球说 https://youqiushuo.com/fenxi/marseille-vs-le-mans-2026-11-23 — 足球预测马赛净胜两球或以上；马赛各项赛事四连胜（客场胜勒沃库森、朗斯），10轮 6胜4负积18分排第4；勒芒 1胜5平4负积8分排第15、10轮丢19球；伤停：马赛埃默森（膝）、科尼利厄斯（髋）缺阵，勒芒西迪贝（跖骨骨折）、布拉巴（踝部术后）缺阵；开赛 11月23日 03:45 北京时间。核对：竞彩网计算器页 https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark 列周日017 胜平负 1.29/4.70/6.60、让球-1 1.97/3.65/2.80，与纳米数据「竞彩赔率」段一致；本场纳米数据「全场指数」未列竞彩官方公司行，故 ox 无该公司。",
+  "ai_preds": [
+   {
+    "src": "The GoalPost (the-goalpost.com)",
+    "lean": "主胜",
+    "read": "Marseille win 71% / Draw 16% / Le Mans 13%（High confidence）；Expected goals 2.5；最可能比分 2-0 10%、2-1 9%、3-0 8%；页面注明该场暂无博彩市场价格；Mon Nov 23 3:45 AM GMT+8"
+   },
+   {
+    "src": "sdxzai.com 足球赛事数据模型",
+    "lean": "主胜",
+    "read": "模型比分 2-0 / 3-0 / 3-1（2-0 概率最高）；胜 1.29 / 平 4.70 / 负 6.60；让球 -1；三档场均总进球约 3.0 球"
+   },
+   {
+    "src": "有球说 (youqiushuo.com)",
+    "lean": "主胜（净胜两球或以上）",
+    "read": "足球预测马赛净胜两球或以上；马赛各项赛事四连胜、10轮6胜4负积18分第4；勒芒1胜5平4负积8分第15、10轮丢19球；11月23日 03:45 开赛"
+   }
+  ],
+  "sources": [
+   {
+    "name": "纳米数据「来自纳米数据的足球比赛预测分析结果」（WebSearch 结构化结果，结果未附 URL）",
+    "url": "",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "竞彩网 足球胜平负计算器",
+    "url": "https://www.sporttery.cn/jc/jsq/zqspf/?TPS&theme=dark",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "中国体彩网 足球半全场胜平负计算器",
+    "url": "https://www.lottery.gov.cn/jc/jsq/zqbqc/",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "The GoalPost — Marseille vs Le Mans",
+    "url": "https://the-goalpost.com/matches/marseille-vs-le-mans-2026-11-22",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "sdxzai.com — 足球赛事数据模型解读",
+    "url": "https://www.sdxzai.com/",
+    "date": "2026-11-21"
+   },
+   {
+    "name": "有球说 — 马赛 vs 勒芒 赛前分析与预测",
+    "url": "https://youqiushuo.com/fenxi/marseille-vs-le-mans-2026-11-23",
+    "date": "2026-11-21"
+   }
+  ]
+ }
+}
