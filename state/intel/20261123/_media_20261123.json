@@ -1,0 +1,864 @@
+{
+  "date": "20261123",
+  "fetched_at": "2026-11-22T23:12:42",
+  "calls": 16,
+  "items": [
+    {
+      "no": "周一001",
+      "league": "瑞超",
+      "home": "厄格里特",
+      "away": "卡尔马",
+      "home_en": "厄格里特",
+      "away_en": "Kalmar",
+      "queries": [
+        "\"厄格里特 vs Kalmar\" preview prediction lang:en",
+        "厄格里特 卡尔马 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=2042942&gm=2471803",
+          "site": "中国竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.7810938358306885,
+          "summary": "排名: Regular Season 第15名\n\n赛季总成绩: 4胜 8平 16负\n\n赛季主场成绩: 2胜 7平 5负\n\n周一001 瑞超>\n\n2026 Regular Season 第29轮 2026-11-24 02:00\n\n排名: Regular Season 第13名\n\n赛季总成绩: 7胜 5平 16负\n\n赛季客场成绩: 1胜 3平 10负\n\n特征分析\n\n厄格里特 (主)\n\n2胜/1平/4负\n\n1胜/0平/1负\n\n1胜/3平/6负\n\n2胜/5平/3负\n\n1.1个\n\n1.9个\n\n近7场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n卡尔马 (客)\n\n4胜/1平/2负\n...\n2胜/2平/6负\n\n2胜/4平/4负\n\n0.3个\n\n1.3个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n近7场厄格里特2胜 (29%) | 1平 (14%) | 4负 (57%)\n\n积分榜 瑞超2026\n\n厄格里特Regular Season 第15名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 28 | 4/8/16 | 14% | 33/60 | -27 | 20 | 15 \n主 | 14 | 2/7/5 | 14% | 22/24 | -2 | 13 | 14 \n客 | 14 | 2/1/11 | 14% | 11/36 | -25 | 7 | 14 \n\n卡尔马Regular Season 第13名 查看更多>\n...\n总 | 28 | 7/5/16 | 25% | 24/42 | -18 | 26 | 13 \n主 | 14 | 6/2/6 | 43% | 15/21 | -6 | 20 | 9 \n客 | 14 | 1/3/10 | 7% | 9/21 | -12 | 6 | 15 \n\n比赛近况\n...\n厄格里特近10场1胜 (10%) | 3平 (30%) | 6负 (60%)\n\n进11球，失19球，净进-8球\n\n卡尔马近10场2胜 (20%) | 2平 (20%) | 6负 (60%)\n\n进3球，失13球，净进-10球\n...\n比赛日期 | 赛制 |\n...\n| 轮次\n...\n2026-11-29 | 瑞超 | Regular Season 第30轮 \n\n射手信息 瑞超2026\n...\n号码-球员(位置) | 总\n(首/替)\n | 进球\n(本队占比)\n | 助攻\n...\n| 场均\n...\n11-N. Christoffersson(前锋) | 18 (14/4) | 8 (24%) | 1 (4%) | 0.4/0.1 \n22-T. Sana(中场) | 27 (27/0) | 5 (15%) | 6 (23%) | 0.2/0.2 \n17-W. Hofvander(前锋) | 27 (22/5) | 3 (9%) | 3 (12%) | 0.1/0.1\n...\n13-C. Rosenqvist(前锋) | 28 (22/6) | 8 (32%) | 1 (5%) | 0.3/0 \n24-C. Sagoe(前锋) | 28 (28/0) | 3 (12%) |...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "周一001 瑞超 厄尔格里特VS卡尔马",
+          "url": "https://www.sohu.com/a/1104940541_122707191?scm=10001.7746_13-119000.0.0-0-0-0-0.0&spm=smpc.channel_354.block3_32_P7Ovbu_1_fd.7.1795358554960U7iwJcE_7746",
+          "site": "Sohu",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6182396411895752,
+          "summary": "# 周一001 瑞超 厄尔格里特VS卡尔马\n...\n2026-11-22 22:42\n...\n北京时间11月24日02:00，哥德堡旧乌勒维球场，第29轮。20分对26分，第15对第13，这是一场标准的保级六分战，但两队的算盘完全相反——厄尔格里特身后，代格福什21分、哈尔姆斯塔德20分全在盯着，末轮还要去硬碰哈尔姆斯塔德，本场等于没有退路；卡尔马则是\"不输就上岸\"，十一月先逼平米亚尔比、再掀翻天狼星，已经把身后三队甩开六分，一场不败就能锁定下赛季瑞超名额。想赢的和只想不输的撞在一起，节奏天然错位。\n\n厄尔格里特：主场是唯一的救命稻草，但这条稻草一半是窟窿。 通过附加赛才升上来的升班马，本季场均只进1.18球，却要丢2.14个，60个失球全联赛最差，客场失球36个同样是垫底。14个主场2胜7平5负，平局率高到离谱，是瑞超出了名的\"平局大师\"，主场场均进1.57、失1.71，攻得开、守不住。克里斯托弗森包办全队近四分之一进球，萨纳与保罗松在两翼制造宽度，三中卫一压上，翼卫身后就是高速公路。近四轮不胜，各项赛事十场只赢过一场；拉图尔努斯大腿前侧伤缺、斯文松与阿布卡尔同样挂免战牌，本就薄的防线更紧。真正的隐忧是末轮生死战——若主帅前半段留力，开场强度可能低于预期。\n\n卡尔马：全联赛最不会进球的\"上岸专业户\"。 另一支升班马（瑞甲亚军直升）走的是反路子：场均进0.86球、失1.5球，24个进球全联赛倒数第二；客场14战1胜3平10负、只进9球，是瑞超客场火力最差的一队，客场六成场次交白卷，可场均也只失1.5个，十一月这两轮一平一胜把命攥回自己手里。4-3-3落位极务实，马加希、古斯塔夫森、戈亚尼三人常在开场阶段就打完胜负手，罗森奎斯特8球是最稳终结点，小萨戈的助攻是进攻梳理的关键，布罗林把门。隐患是马加希与伊梅里赛前 clearance 未定、凯塔刚踢满一场 Guinea 国战，中场轮换偏窄；近五场只进三球，遇弱不强的老毛病没治好。\n\n交锋是压在主队身上的一层旧账：近七次正式比赛卡尔马4胜1平2负，七月刚在自家主场把对手打得毫无还手之力，2025年瑞甲也曾在奥里奥尔斯全身而退；不过去年六月厄尔格里特客场掀过对手一次，心理枷锁并非拆不动。数据模型给主队预期进球约1.1、客队约1.7，胜平负倾向客队占优。\n\n对位看三处：其一，主队必须压出来，恰好喂饱卡尔马最舒服的低位反击模板，罗森奎斯特冲的就是翼卫身后；其二，主队破密防靠传中和定位球，而卡尔马禁区高空不虚，反过来主队临时中卫组合面对二点球很脆；其三，两队画风一\"漏\"一\"贫\"——厄尔格里特近五场四场双方破门、场均总进球3.3上下，卡尔马却有六成多场次双方难同时破门，总进球的方向比胜负更撕裂，这也是本场最大的分歧点。",
+          "side": "away",
+          "neg": false,
+          "hits": [
+            "客队占优"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Oergryte FF v Kalmar FF | Goal.com Canada",
+          "url": "https://www.goal.com/en-ca/match/oergryte-ff-vs-kalmar-ff/s9ASsSIJhX7HP1O0PSZjA",
+          "site": "Goal.com",
+          "date": null,
+          "authority": 3,
+          "score": 1.610553741455078,
+          "summary": "# Oergryte FF vs Kalmar FFMatch preview,\n\n## ORG-Form\n\n- Goal Scored (Conceded)\n- 7/12\n- Games over 2.5 goals\n- 4/5\n- Both teams scored\n- 4/5\n\n## KAL-Form\n...\n- 2/8\n...\n- 2/5\n...\n- 1/5\n\n## Head to head\n\nORG\n\nLast 5 matches\n\nKAL\n\n## Injuries and Suspensions\n\n- No sidelined players\n...\nAllsvenskan - Game Week 29\n\n## Match details\n\nGamla Ullevi\n...\n## Allsvenskan\n\nPos | Team | P | W | D | L | F | A | +/- | PTS | Form\n...\n13 | Kalmar FF | 24 | 6 | 4 | 14 | 23 | 38 | -15 | 22 |\n...\n15 | Oergryte FF | 24 | 4 | 6 | 14 | 29 | 54 | -25 | 18 |",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Previews - Bostrom - Orgryte to win in relegation clash with Kalmar",
+          "url": "https://football.hkjc.com/en-us/preview-summary/details-page?path=MatchPreview/2026-11/20/FB9385&Expert=SAL_Bostrom&MatchID=FB9385&Title=Orgryte%20to%20win%20in%20relegation%20clash%20with%20Kalmar&b_cid=SPFBSPA_PreviewArticle_article",
+          "site": "香港賽馬會",
+          "date": null,
+          "authority": 3,
+          "score": 1.610553741455078,
+          "summary": "## Orgryte to win in relegation clash with Kalmar\n\nRecommendation: Home/Away/Draw – Home\n\nRecommendation: First team to score - Home\n\nTEAM NEWS\n\nOrgryte midfielder Benjamin Laturnus missed the game against Vasteras SK before the international break. Laturnus has been a key player during the season playing 26 league games so far.\n\nKalmar midfielder Melker Hallberg and defender Aboubacar Keita are both doubts for this game.\n...\nSuspended: None\n\nDoubtful: William Svensson (unknown), Benjamin Laturnus (unknown)\n\nInjured/unavailable: Aydarus Abukar (knee)\n...\nDoubtful: Aboubacar Keita (unknown), Melker Hallberg (unknown)\n\nInjured/unavailable: Elion Imeri (unknown)\n\nMATCH PREVIEW\n\nOrgryte drew 0-0 with Vasteras SK in their most recent game. They have not won in their last four and have just one win in their last 13 league games. With two games remaining they are in the relegation zone but with just goal difference separating them from Degerfors in the playdown spot.\n\nVisitors Kalmar are six points ahead and has a better goal difference. They are practically safe from relegation but a point here would definitely secure their top-flight status for next year. They beat Sirius in their latest game and have four points from their last two. Away from home they have taken just six points (one win) in 14 league games.\n\nOrgryte can take a huge step towards the lifeline that is the playdown-spot by winning here. With them playing Degerfors in the last game of the season they have their own faith in their hands. They should be able to take a rare win against a Kalmar side that have struggled away from home all year.\n\nHEAD TO HEAD:\n\nKalmar won 3-0 at home earlier this season. A Swedish cup game in March ended 2-2. Last year in the second division both teams won their respective away game.",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Preview: Kalmar vs Orgryte - Atrás",
+          "url": "https://lite.apex-football.com/es-CL/news/3d1d501260703en_gb#1",
+          "site": "Apex Football",
+          "date": null,
+          "authority": 3,
+          "score": 1.6028677225112915,
+          "summary": "Preview: Kalmar vs Orgryte - prediction, team news, lineups\n\nKalmar and Orgryte will resume their Swedish Allsvenskan campaigns with a contest at Guldfageln Arena on Sunday afternoon.\n\nThe home side are currently 13th in the Swedish Allsvenskan table, picking up 10 points from 10 matches this term, while Orgryte sit at the bottom of the division on six points.\n\n## Match preview\n\nKalmar have a record of three wins, one draw and six defeats from their 10 league matches this season, with 10 points leaving them down in 13th spot in the division.\n\nToni Koskela's side won their last home league game, beating Degerfors 2-1, but they entered the season break off the back of a 3-0 defeat to GAIS.\n\nKalmar have since played two friendlies, recording a 2-0 victory over AIK Stockholm on June 22 before beating Brommapojkarna 2-0 five days later.\n\nThe 2008 Swedish champions actually have the sixth-best home record in the division this season, picking up 10 points from five matches, with their struggles this season coming on their travels rather than at Guldfageln Arena.\n\nKalmar have faced Orgryte on 18 occasions throughout history and actually lead the head-to-head eight wins to five, while there have also been five draws between the two sides.\n\nThe last league meeting between Kalmar and Orgryte took place in November 2025, with the former recording a 2-0 victory.\n\nOrgryte are actually 12-time Swedish champions, while they have won the Allsvenskan on two previous occasions, with their last success coming in 1927-28.\n\nAndreas Holmberg's team secured a return to the top flight for the 2026 campaign courtesy of their playoff success in the Superettan last term.\n\nHowever, it has been a struggle for Orgryte this season, boasting a record of one win, three draws and six defeats from their 10 matches to collect six points, which has left them at the bottom of the division heading into the next set of fixtures.\n\nOIS drew 2-2 with Elfsborg in their last league match on May 29, while their last game was a 4-1 defeat to Tromso in a friendly at the end of June.\n\nKalmar Swedish Allsvenskan form:\n\nWLWLWL\n\nKalmar form (all competitions):\n\nWLWLWW\n\nOrgryte Swedish Allsvenskan form:\n\nDLLLLD\n\nOrgryte form (all competitions):\n\nLLLLDL\n\n## Team News\n\nKalmar will be without the services of Aboubacar Keita through injury, but the home side are otherwise in strong shape when it comes to their squad.\n\nCharlie Rosenqvist has been in strong form this season, scoring six times in 14 appearances, and the 19-year-old will continue in the final third of the field.\n\nMeanwhile, there are expected to be starts for both Charles Sagoe Jr and Marius Soderback, who have four goals between them during the current campaign.\n\nRony Jansson will also be a notable starter for the hosts at the back.\n\nOrgryte have not reported any injury problems ahead of this match, so there are not expected to be any major surprises when it comes to their team selection.\n\nAnton Andreasson is actually the team's leading goalscorer this season with three, and the 32-year-old will again feature in the middle of the away side's midfield.\n\nMeanwhile, there should be a spot in the final third of the field for the experienced Tobias Sana, who has one goal in 12 appearances during the 2026 season.\n\nKalmar possible starting lineup:\n\nBrolin; Jansson, Saetra, Hallberg, Larsson; Gojani, Gustafsson; Rosenqvist, Chourak, Sagoe Jr;\n...\nOrgryte possible starting lineup:\n\nGustafsson; Svensson, Lagerlund, Dyrestam, Styffe, Andreasson; Paulson, Vindehall, Parker-Price; Christoffersson, Sana\n\n## We say: Kalmar 2-1 Orgryte\n\nOrgryte are capable of making this a tough match for Kalmar despite their struggles this season, but home advantage should allow Kalmar to secure all three points here.",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": [
+            "2 比 1"
+          ]
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 1,
+        "draw": 0,
+        "goals": 1,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 4,
+        "zh": 2,
+        "home_mentions": 1,
+        "away_mentions": 2
+      },
+      "scores": [
+        "2 比 1"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周一002",
+      "league": "瑞超",
+      "home": "哈马比",
+      "away": "哥德堡",
+      "home_en": "哈马比",
+      "away_en": "哥德堡",
+      "queries": [
+        "\"哈马比 vs 哥德堡\" preview prediction lang:en",
+        "哈马比 哥德堡 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "瑞典足球频道：哈马比防守稳固，看好哥德堡IFK零进球",
+          "url": "http://pc.dongqiudi.com/articles/6668668.html",
+          "site": "dongqiudi.com",
+          "date": "2026-11-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.289674565648656,
+          "summary": "# 瑞典足球频道：哈马比防守稳固，看好哥德堡IFK零进球\n\n哈马比 - 哥德堡IFK\n\n当哈马比正在冲击瑞典超级联赛冠军时，我难道还要保守吗？难道不应该把所有赌注都押在深盘上，希望哈马比能横扫哥德堡IFK吗？也许吧，但绿白军团大胜的赔率至少可以说被压得很低。\n\n相反，我对哈马比的防守盘口很感兴趣。自从吕德斯特伦接手以来，广大球迷已经清楚地看到哈马比是瑞典超级联赛中最好的球队。从基础数据来看，这一点已经很明显了。去年就是如此，只是一个磕了药的米亚尔比阻碍了绿白军团夺得瑞典超级联赛冠军。本赛季，哈马比至少和去年一样出色，甚至可能更好，正在冲击伦纳特-约翰逊奖杯。他们拥有瑞典超级联赛最好的xGD、xPTS、xG和xGA数据。\n\n吕德斯特伦的球队在比赛中占据绝对优势，我看不出哥德堡IFK如何在3Arena制造足够多的威胁。当然，你可以选择赔率稍低一些的让球盘，但我最终认为哥德堡IFK不会进球。哥德堡IFK进球数低于0.5球的赔率为2.02。我认为这个赔率应该低于两倍。",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "大球"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "哈馬比搶分爭「登」頂",
+          "url": "https://news.7m.com.cn/mobi/news/20261122/747116.shtml",
+          "site": "7M足球新闻",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.9525180765456096,
+          "summary": "哈馬比搶分爭「登」頂\n\n来源：都市日报 2026-11-22\n\n軍情\n\n哈馬比翼鋒奧利華哈根自九月底對迪加科斯受傷後，經已確認提早「收咧」，無緣今季餘下的關鍵賽事。\n\n哥登堡陣容面臨嚴重打擊，進攻主力海恩斯以及中堅莊拿斯比加均累積夠黃牌，今場齊齊坐「波監」。\n...\n停賽：／\n\n上陣成疑：／\n\n受傷／缺陣：艾文保迪（膝傷）、奧利華哈根（不詳）\n...\n停賽： 莊拿斯比加、海恩斯\n\n上陣成疑：艾寧麥克（足傷）、韋貝治（不詳）、梅古利（膝傷）、森拿臣（不詳）\n\n受傷／缺陣：阿歷山大佐奴（不詳）、雷蒙隆特基斯（私人理由）\n\n榜首雄師哈馬比在國際賽週前以4比1大破艾夫斯堡，強勢斬獲聯賽五連勝，若計近8場聯賽更贏足7場。這股勢如破竹的勁道，助他們成功追上並反壓天狼星，目前正高踞積分榜首位。只要在最後兩輪聯賽全取6分，便很大機會打破長達25年的錦標荒，重奪自2001年以來的首個聯賽冠軍。他們今季的主場威力更是無人能敵，14次主場戰中共豪取11勝。\n\n客軍哥登堡在最近一場聯賽則與馬模打和0比0，已連續5場聯賽未嘗一勝（4和1負）。他們的客場戰力亦相當有限，近3場聯賽客戰一勝難求，聯賽至今作客也僅贏過4仗。更致命的是球隊今仗有防線大將莊拿斯比加及進攻核心海恩斯雙雙停賽，再加上傷兵滿營，實力大打折扣。\n\n哈馬比無疑是當前全瑞超狀態最火熱、表現最出色的球隊，距離重奪闊別25年的聯賽錦標僅一步之遙，全隊上下必在主場傾力搏殺。面對陣容殘缺且無欲無求的哥登堡，主勝上盤值搏率甚高。\n\n對賽\n\n哈馬比在近3次聯賽面對哥登堡錄得全勝，最近一次碰頭為今年五月，當時哈馬比作客小勝1比0。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "哈马比 vs 哥德堡比分预测：模型看好哈马比，最可能2-0",
+          "url": "https://m.dongqiudi.com/xinwen/212273",
+          "site": "懂球帝",
+          "date": "2026-11-20T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.8663855608641744,
+          "summary": "# 哈马比 vs 哥德堡比分预测：模型看好哈马比，最可能2-0\n...\n比分预测瑞典超 哈马比 vs 哥德堡\n...\n## 30 秒看懂\n\n- 三模型平均：哈马比胜69%、平19%、哥德堡胜12%\n- 综合最可能比分2-0（9.4%），预计合计进3.4球\n- 泊松模型给哈马比胜90%，最可能3-0\n\n北京时间2026年11月24日 02:00 周二，瑞典超第29轮，哈马比（主）对哥德堡（客）开球，本场是竞彩周一002、北单26117期315的比赛。懂球帝数据模型按开球前的历史比赛数据算出综合预测：哈马比胜69%、平局19%、哥德堡胜12%，最可能的比分是2-0（9.4%）、1-1（8.5%）、1-0（8.2%），预计两队合计进3.4球左右，两队都进球的概率51%。\n\n泊松进球模型按本赛季瑞典超的场均进球算出两队在主客场的进攻和防守强度，相乘得到进球期望，再按泊松分布算每个比分的概率，并对0-0、1-1这类低比分做Dixon-Coles修正。本赛季瑞典超截至赛前已赛227场，场均主队进1.54球、客队进1.27球；哈马比本赛季14个主场场均进2.86球、失0.57球，进攻强度1.75、防守0.52；哥德堡本赛季14个客场场均进1.36球、失2.29球，进攻强度1.06、防守1.43；进球期望哈马比3.84、哥德堡0.70。结果：哈马比胜90%、平7%、哥德堡胜3%，最可能的比分3-0（10.1%）、4-0（9.7%）、2-0（7.9%）。\n\n近况加权模型只看两队各项赛事最近10场，越近的比赛权重越大，每往前一场权重乘0.85，用加权后的场均进球和对手的场均失球算进球期望，主场按赛事主客场进球比例加成。哈马比近10场加权场均进2.05球、失0.67球；哥德堡近10场加权场均进0.96球、失0.71球；主场加成1.10；进球期望哈马比1.46、哥德堡0.82。结果：哈马比胜51%、平29%、哥德堡胜20%，最可能的比分1-0（13.7%）、1-1（13.5%）、0-0（11.5%）。\n\nElo等级分模型按懂球帝收录的全部正式比赛，从1500分起给每支球队算等级分，赢球加分、输球扣分，对手越强、赢得越多，变动越大。赛前等级分哈马比1813（已算371场）、哥德堡1666（已算533场），主场优势按60分算；哈马比的胜率期望0.77；进球期望哈马比2.39、哥德堡1.02。结果：哈马比胜67%、平19%、哥德堡胜14%，最可能的比分2-1（9.6%）、2-0（9.5%）、1-1（8.9%）。三个模型都看好哈马比，但分歧不小：泊松模型给出90%的胜面、最可能3-0，近况加权模型只有51%、最可能1-0，Elo等级分模型居中，最可能2-1。\n\n模型近30天在瑞典超的战绩（按赛前数据回算完场比赛）：泊松进球模型35场猜中胜平负17场（49%）、比分猜中3场；近况加权模型...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": [
+            "2 比 0",
+            "0 比 0",
+            "3 比 0"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "哈马比主场对阵哥德堡：伤停情报与赛前态势梳理",
+          "url": "https://www.163.com/dy/article/LCC0HJL70556QOPH.html?f=post2020_dy_recommends",
+          "site": "网易",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.849158978626436,
+          "summary": "# 哈马比主场对阵哥德堡：伤停情报与赛前态势梳理\n\n2026-11-22 18:17:50 来源: 爱旅行的小刘啊 浙江 举报\n...\n瑞超第29轮，哈马比坐镇3Arena迎战哥德堡。28轮过后，哈马比与天狼星同积58分，仅凭净胜球优势领跑，联赛只剩两轮，榜首位置的容错空间几乎为零。哥德堡积39分排名第10，保级已经完成，但主帅比约克隆德赛前明确表示球队仍有第八名可以争取，最后两轮的目标是尽可能多拿积分。积分语境不同，但两队的比赛动机都不存在真空。\n\n哈马比的主场数据是本赛季瑞超最突出的单项之一：14个主场11胜1平2负，打进40球仅失8球，攻防两端在3Arena的产出都处在联赛顶端。哥德堡客场14场4胜4平6负，失32球，客场防守效率处于中下游。单从主客场基础数据看，哈马比在主场形成的持续压迫能力，与哥德堡在客场承受压力的能力之间，存在一条清晰的落差线。\n\n伤停层面，两队的变量集中在不同区域。哈马比的中场核心奥斯卡·约翰松因小腿问题出战成疑，周四只在场边慢跑，主帅吕德斯特伦表示“有点不确定”，“希望他能进入名单”。约翰松不是进球最多的球员，但他是中场向前衔接的关键节点。此外，阿明·布德里和奥利弗·乔丹-哈根继续因伤缺阵，哈马比的中场轮换深度进一步收窄。\n\n哥德堡的减员则集中在防线。海因茨和巴格均因累积黄牌停赛，巴格的中卫位置将在埃尔索伊和法斯特之间选择，海因茨的替代者则没有明确对应人选，比约克隆德仅提到队内有一名多位置球员可供调整。拉尔森和芬格缺席了周四训练，但比约克隆德表示两人“有很大机会在周一出场”，埃尔林马克则不在复出之列。哥德堡中卫组合与由守转攻第一出球点需要同时重组，而拉尔森即便赶上，备战节奏也并非完整。\n\n历史交锋方面，哈马比近两次面对哥德堡均取得胜利，包括本赛季首回合客场1比0，2025年3月主场4比0。比约克隆德赛前对哈马比的评价是“大概是瑞典目前最好的球队”，同时强调哥德堡“很难被击败”。\n\n哈马比的主场产出与哥德堡防线重组的现实形成直接对位，但约翰松的出战状态和哥德堡可能采取的低位防守姿态，会共同决定这场比赛的实际开放程度与节奏走向。伤停名单上几个名字的最终确认，比积分榜上的数字更直接地勾勒出这场比赛的形态边界。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "哈马比 vs 哥德堡进球数预测：模型预计3.4球，最可能2球",
+          "url": "https://m.dongqiudi.com/xinwen/212271",
+          "site": "懂球帝",
+          "date": "2026-11-20T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.849158978626436,
+          "summary": "# 哈马比 vs 哥德堡进球数预测：模型预计3.4球，最可能2球\n...\n- 北京时间2026年11月24日02:00，瑞典超第29轮，哈马比主场对阵哥德堡。\n- 懂球帝数据模型预计两队合计进3.4球左右，2球和3球概率同为20%并列最高。\n- 近5场哈马比5胜0平0负，哥德堡0胜4平1负。\n...\n懂球帝数据模型综合三个模型的平均结果，预计两队合计进3.4球左右。\n\n总进球各档概率中，2球和3球同为20%，并列最高；3球及以上合计63%，2球及以下合计37%。两队都进球的概率为51%；哈马比零封对手的概率为43%，哥德堡零封对手的概率为12%。\n\n泊松进球模型按本赛季瑞典超场均进球（截至赛前已赛227场，场均主队进1.54球、客队进1.27球）计算两队进攻防守强度，得出进球期望：哈马比3.84球、哥德堡0.70球。\n\n近况加权模型只看两队各项赛事最近10场，越近权重越大，结合主场加成1.10，算出进球期望：哈马比1.46球、哥德堡0.82球。\n\nElo等级分模型按赛前等级分（哈马比1813、哥德堡1666）和主场优势60分换算，得出进球期望：哈马比2.39球、哥德堡1.02球。\n\n近5场，哈马比5胜0平0负（进11失2），哥德堡0胜4平1负（进4失5）。历史交锋23次，哈马比13胜6平4负，哥德堡4胜6平13负。\n\n模型只看历史数据，不知道伤停和临场变化，结果仅供参考。\n\n本文根据懂球帝数据的报道《哈马比vs哥德堡进球数预测（瑞典超）》编译整理。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 2,
+        "away": 0,
+        "draw": 0,
+        "goals": 1,
+        "none": 2,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 1,
+        "zh": 5,
+        "home_mentions": 4,
+        "away_mentions": 4
+      },
+      "scores": [
+        "2 比 0",
+        "0 比 0",
+        "3 比 0"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周一003",
+      "league": "意甲",
+      "home": "蒙扎",
+      "away": "佛罗伦萨",
+      "home_en": "蒙扎",
+      "away_en": "Fiorentina",
+      "queries": [
+        "\"蒙扎 vs Fiorentina\" preview prediction lang:en",
+        "蒙扎 佛罗伦萨 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "PREVIEW | Monza vs Fiorentina: team news, lineups, predictions (Serie A 23/11)",
+          "url": "https://onefootball.com/en/news/preview-monza-vs-fiorentina-team-news-lineups-predictions-serie-a-2311-43817047",
+          "site": "OneFootball",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.164104461669922,
+          "summary": "# PREVIEW | Monza vs Fiorentina: team news, lineups, predictions (Serie A 23/11) | OneFootball\n\nPlaymakerstats\n\n·22 November 2026\n...\nMonza host Fiorentina this Monday at the U-Power Stadium for round 12 of the Serie A. The match will be broadcast live at 19:45 on DAZN.\n\nMonza have won 7 points to date and are placed in 18th position. In their last game, Ivan Juric's team lost 0-1 against Atalanta (Serie A 2026/27).\n...\nFiorentina have picked up 9 points and currently lie in 15th position. In their last fixture, Paolo Vanoli's team shared the spoils 2-2 with Juventus (Serie A 2026/27).\n\nThe last meeting between the two teams ended with Monza winning 2-1.\n\n### Predicted lineups\n...\n### Fiorentina\n\n- Marin Pongracic - Hamstring Muscle Injury\n- Alieu Njie - Thigh Problems\n...\n### MANAGERS\n\n- Ivan Juric has faced Paolo Vanoli on one occasion, recording one win.\n- Paolo Vanoli has faced Monza on two occasions, recording one win and one draw.\n- Ivan Juric has faced Fiorentina on 14 occasions, recording four wins, five draws and five defeats.\n\n### TEAMS\n\n- Away from home, Fiorentina are on a run of four consecutive matches scoring goals.\n- Away from home, Fiorentina are on a run of five consecutive matches conceding goals.\n- Fiorentina currently have one win in their last seven matches.\n- Fiorentina are on a run of ten consecutive matches scoring goals.\n- Fiorentina are on a run of seven consecutive matches conceding goals.\n- Fiorentina are on a run of three consecutive matches without defeat.\n- At home, Monza are on a run of two consecutive matches without a win.\n- At home, Monza are on a run of two consecutive defeats.\n- Monza currently have one draw in their last 13 matches.\n- Monza currently have one win in their last six matches.\n- Monza are on a run of four consecutive matches conceding goals.\n- Monza are on a run of four consecutive matches without a win.\n- Monza are on a run of four consecutive defeats.\n\n### HEAD TO HEAD\n\n- Monza and Fiorentina have already faced each other 16 times, with Fiorentina holding the advantage: nine wins, compared with four Monza victories.\n- At the U-Power Stadium, there is no advantage between Monza and Fiorentina: three wins apiece in seven matches.\n- In Serie A, the two teams have met six times, with two Monza wins, two draws and two Fiorentina wins.",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Monza vs Fiorentina predictions and preview | APWin",
+          "url": "https://www.apwin.com/predictions/monza-vs-fiorentina-prediction-serie-a-23-11-2026/",
+          "site": "APWin",
+          "date": "2026-11-20T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.979282259941101,
+          "summary": "# Monza vs Fiorentina prediction\n\nItaly - Serie A\n\nv.s\n\n23 Nov 2026 11:45\n\nOver 2.5 Goals\n\nMarket: Over 2.5 Goals · @ 1.56\n\n1.56\n\nConfidence\n\n58%\n\n## Why this prediction?\n\nCombined scoring versus the league\n\nThis match projects 4.00 goals per game, against the league 3.11.\n4.00 vs 3.11 gpg\nOver 2.5 rate versus the league\n\nThis match projects Over 2.5 in 90% of outcomes, against the league 60%.\n90% vs 60%\nSecondary prediction\n\nAway Win\n\n51%\n\nLast updated: 18-11-2026\n\n## Monza Form and Insights\n\nMonza hosts Fiorentina at the Stadio Brianteo (U-Power Stadium) for this Serie A fixture. The match will kick off at 19:45 (UK Time) on 23/11/2026.\n\nTheir performance in the Serie A so far:\n\n- Wins: 2\n- Draws: 1\n- Losses: 8\n\nOffensive and defensive statistics:\n\n- Goals scored: 17\n- Average goals per match: 1.55\n- Goals conceded: 25\n- Average goals conceded per match: 2.27\n\n## Fiorentina Form and Insights\n\nFiorentina has played 11 matches in the Serie A so far this season. Here's how the team comes into their match with Monza:\n...\nGoals scored and conceded:\n...\n## Head-to-Head Statistics\n\nMonza and Fiorentina have met 7 times across all competitions.\n\n- Monza wins: 2\n- Fiorentina wins: 3\n...\nLLLLW\n...\nDWDLL\n\nPoints & Results\n\n- 11Played11\n- 2Wins2\n- 1Draws3\n- 8Losses6\n- 0.64PPG0.82\n- 18%Wins18%\n- 36%First to Score27%\n\nGoals Scored & Conceded\n\n- 17Goals Scored17\n- 1.55Scored/game1.55\n- 25Goals Conceded25\n- 2.27Conceded/game2.27\n- 1.51xG1.76\n- 1.54xGA1.66\n\nCorners\n\n- 92Total Corners106\n- 45Corners For54\n- 47Corners Against52\n- 4.09Corners For/game4.91\n- 4.27Corners Against/game4.73\n\nTrends\n\n- 82%Both Score82%\n- 9%Clean Sheet0%\n- 9%Failed to Score18%\n\nAccess all match stats for Monza vs Fiorentina The last match was played on 13/01/2025 in the Serie A, and Monza won the match. The match ended in 2–1. In the table below, you can find the head-to-head results of the last few meetings.\n\n## Players to Watch\n\nThe players most likely to decide the goal-scoring and player-prop markets in this match:\n\n### Monza Top Players\n\n- Andrea Petagna has scored 9 goals so far this season.\n- Paulo Azzi has given 7 assists this season.\n\n### Fiorentina Top Players\n\n- Moise Kean has scored 8 goals so far this season.\n- Albert Gudmundsson has given 4 assists this season.\n\n## Betting Insights for Cards and Corners\n\nIf you prefer betting on over/under markets for corners and cards, you can use the section below to find the statistics for this Monza vs Fiorentina match.\n\n### Monza Cards and Corners\n\n- Average cards per match: 2.09\n- Average cards when playing at home: 2.6\n- Average corners per match: 8.36\n- Average corners when playing at home: 8\n\n### Fiorentina Cards and Corners\n...\n- Average cards when playing away: 2.4\n- Average corners per match: 9.64\n- Average corners when playing away: 6.6\n\n## Match Details\n...\n- Kick-off time: 19:45\n- Competition: Serie A\n- Game week: 12\n...\n## How APWin Makes Its Predictions\n\nOur football predictions are written using a structured analysis of factors that impact match outcomes. We combine long-term performance with the latest team news and real-time market signals to write our predictions.\n\nHere's what we take into account...",
+          "side": "away",
+          "neg": false,
+          "hits": [
+            "away win"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Monza vs Fiorentina: Preview",
+          "url": "https://sports.yahoo.com/articles/monza-vs-fiorentina-preview-182634953.html",
+          "site": "Yahoo Sports",
+          "date": "2026-11-20T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.8729981184005735,
+          "summary": "# Monza vs Fiorentina: Preview\n...\nGuess it's time to get sad about Fiorentina again. The Viola head north to take on the struggling Brianzoli, who've dropped all the way to eighteenth in the table after losing four straight.\n...\nYeah, probably, especially with all the exes in the lineup (Lorenzo Lucchesi, Eddy Kouadio, Andrea Colpani, Michael Folorunsho, Patrick Cutrone). The match will be played Monday, 23 November 2026, at 19:45 GMT/2:45 PM EST, at the Stadio Brianteo in Monza.\n\n## Three things to watch for\n\n#### 1. Sticking the international break dismount\n\nOver the last break, we might have gotten carried away. Fiorentina had shown progress after bringing back Paolo Vanoli, winning a couple games against bad opposition and scrapping for a draw against Napoli. It seemed like the team was trending in the right direction, so naturally Genoa crumpled these guys up like like loose tinfoil and tossed them into the incinerator, kicking off a run of three defeats on the bounce before the mister could lean back on the controls and pull this group out of its nosedive. And hey, here we are again, enjoying some momentum and wondering how it'll go wrong.\n...\nFortunately, Fiorentina isn't as catastrophic after a break as your negativity bias insists. Vanoli won't let his guys get outworked again, especially against Serie A's joint-worst defense. He'll have to deal with a number of key players returning from international duty (i.e. Franco Mastantuono, Christ Inao Oulaï, Radu Drǎguşin, Alieu Njie). Those players won't just be dealing with muscles cramped by air travel and sleep schedules wrecked by time zones. They'll also have missed the tactical sessions in which Vanoli fine-tunes his schemes.\n\nPaulie V isn't the type to rest his starters just because they were on a plane. He'll trot out his XI and trust the players to work their way through any fitness issues. That's a major risk, though: had the Viola thumped Genoa, this whole season might look very different. I'm not sure how the mister will ensure his squad is up for this one (my assumption is that he'll do a lot of yelling) but he'd better ensure that the squad is up for this one because otherwise, Monza's more than capable of springing a surprise.\n\n#### 2. Breaking down a deep block\n\nEven at the Brianteo, Monza (43.6% average possession) will probably drop into a deep block and hand the initiative to Fiorentina. The Viola are designed to hit on the break and haven't demonstrated any ability to regularly generate chances against a set defense so expect this to be a slog at times. Monza will gum up the middle by man-marking to push their visitors to the wings and then pack the box in hopes of minimizing crossing opportunities.\n...\nFiorentina has good wingers but hasn't figured out how to consistently get the best from them. Vanoli's got three solutions to a set defense available to him. The first is distance shooting, which can be tough to forecast on a game-to-game basis. The second is putting the ball into the mixer; Njie and Mastantuono aren't great crossers and neither's consistently threatened at the back post so that leaves Mateo Pellegrino as the only real box presence and lowers the odds of a cross working. The third option is moving the ball really quickly from side to side until the defense deforms and one of the wingers can isolate against a defender.\n\nThe other consideration is what happens when an attack ends and Monza can counter. Cher Ndour and Marco Brescianini are good box crashers but will be needed to prevent the hosts from breaking through the middle unchecked and might be deployed more conservatively. Pedro Gonçalves is a brilliant player but not exactly a physical presence. All in all, I expect the attack to run through him in the hopes that he can create an advantage for the wingers to exploit.\n\n#### 3. Containing the capocannoniere\n\nAll that talk about rest defense may seem silly against the 18th-place team but Monza can score goals, mostly because Gustavo Varela is on an unholy tear. The unheralded striker is your current capocannoniere with nine (9) goals through twelve games, prompting interest from all the usual vultures. They can't swoop until January, though, so Fiorentina will have to figure out how to deal with the 21-year-old.\n...\nVarela's got the speed to play on the break but he's also got the aerial ability to get on...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "蒙扎 vs 佛罗伦萨进球数预测：模型预计4.2球，最可能4球",
+          "url": "https://m.dongqiudi.com/xinwen/212700",
+          "site": "懂球帝",
+          "date": "2026-11-20T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.815358859111411,
+          "summary": "# 蒙扎 vs 佛罗伦萨进球数预测：模型预计4.2球，最可能4球\n...\n进球数预测意甲 蒙扎 vs 佛罗伦萨\n...\n## 30 秒看懂\n\n- 懂球帝数据模型预计蒙扎vs佛罗伦萨合计进4.2球，蒙扎2.0球、佛罗伦萨2.1球\n- 全场总进球正好4球的可能最大（19%），3球及以上概率78%\n- 泊松模型进球期望：蒙扎2.38、佛罗伦萨2.15\n\n北京时间2026年11月24日03:45，意甲第12轮，蒙扎主场对阵佛罗伦萨。懂球帝数据模型综合三个模型平均，预计两队合计进4.2球左右，其中蒙扎2.0球、佛罗伦萨2.1球。\n\n总进球各档概率：0球2%、1球5%、2球14%、3球19%、4球19%、5球及以上40%。全场总进球正好4球的可能最大（19%）。3球及以上概率78%，2球及以下22%。两队都进球的概率77%；蒙扎零封对手的概率12%，佛罗伦萨零封对手的概率14%。\n\n泊松进球模型：本赛季意甲截至赛前已赛113场，场均主队进1.59球、客队进1.46球。蒙扎本赛季5个主场场均进1.80球、失1.80球，进攻强度1.10、防守1.17；佛罗伦萨本赛季5个客场场均进2.00球、失2.40球，进攻强度1.27、防守1.37。该模型进球期望：蒙扎2.38、佛罗伦萨2.15。\n\n近况加权模型：蒙扎近10场加权场均进1.35球、失1.94球；佛罗伦萨近10场加权场均进2.07球、失1.91球；主场加成1.04。该模型进球期望：蒙扎1.78、佛罗伦萨2.02。\n\nElo等级分模型：赛前蒙扎1694分（已算273场）、佛罗伦萨1799分（已算773场），主场优势按60分算；蒙扎的胜率期望（赢算1、平算0.5）0.44。该模型进球期望：蒙扎1.91、佛罗伦萨2.25。\n\n近5场：蒙扎1胜0平4负（进8失10），佛罗伦萨1胜2平2负（进10失11）。本赛季意甲：蒙扎11战2胜1平8负，7分；佛罗伦萨11战2胜3平6负，9分。历史交锋7次：蒙扎2胜2平3负，佛罗伦萨3胜2平2负。\n\n模型只看历史数据，不知道伤停和临场变化，结果仅供参考。\n\n本文根据懂球帝数据的报道《蒙扎vs佛罗伦萨进球数预测（意甲）》编译整理。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "佛罗伦萨客战蒙扎，拉涅利有望首发",
+          "url": "https://m.dongqiudi.com/xinwen/218048",
+          "site": "懂球帝",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.815358859111411,
+          "summary": "# 佛罗伦萨客战蒙扎，拉涅利有望首发\n...\n- 佛罗伦萨客战蒙扎预计改打四后卫\n- 拉涅利在中卫竞争中领先维耶里\n- 庞格拉契奇和帕里西继续单独训练\n\n据《民族报》报道，佛罗伦萨在客场对阵蒙扎的比赛中预计会对后防线做出调整。主教练瓦诺利倾向于在德赫亚身前排出四后卫：希门尼斯在右路，若昂·马里奥在另一侧，中路德拉古辛预计与拉涅利搭档。\n\n拉涅利已经重新进入可用名单，目前在中卫位置的竞争中领先维耶里，后者近期的表现并不完全令人信服。庞格拉契奇和帕里西则继续进行个人化训练。\n\n两名中场球员的贡献同样关键，他们需要保护后防线，尤其是在边后卫前插时。蒙扎在夺回球权后倾向于快速反击，可能利用边路空当。\n\n因此，恩杜尔的状况评估将在瓦诺利的决定中占据重要分量。\n\n本文根据FirenzeViola的报道《Rientro in difesa? Per La Nazione a Monza Ranieri è in vantaggio su Viery》编译整理。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 1,
+        "draw": 0,
+        "goals": 0,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 3,
+        "zh": 2,
+        "home_mentions": 2,
+        "away_mentions": 2
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周一004",
+      "league": "法乙",
+      "home": "索肖",
+      "away": "敦刻尔克",
+      "home_en": "索肖",
+      "away_en": "敦刻尔克",
+      "queries": [
+        "\"索肖 vs 敦刻尔克\" preview prediction lang:en",
+        "索肖 敦刻尔克 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "敦刻尔克两将存疑，韦博：尊重索肖",
+          "url": "https://beta.dongqiudi.com/articles/6682149.html",
+          "site": "懂球帝",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9565070867538452,
+          "summary": "# 敦刻尔克两将存疑，韦博：尊重索肖\n\n法乙第13轮，敦刻尔克将于北京时间11月24日03:45客场挑战索肖（当地时间11月23日晚）。赛前发布会上，敦刻尔克主帅皮埃尔-阿希尔-韦博谈到了球队的伤停情况：尼昂肌肉受伤，检查与跟踪正在与医疗和体能团队进行中；加埃唐-罗拜尔的出场决定将在最后一刻做出。韦博表示，他更倾向于谨慎，而不是冒着让球员缺阵更长时间的风险。因此敦刻尔克将带着进攻端的不确定性前往博纳尔球场。\n\n韦博在发布会上呼吁球队纠正不稳定性。他指出，敦刻尔克面对圣埃蒂安、南特这样的强队以及上一场对阵甘冈（3-0）时能打出亮眼表现，但面对被认为更容易对付的球队时却陷入困境。他说：“这是我们从上赛季起就想改变的态势，因为很多时候，在大场面比赛中，小伙子们都能挺身而出，而那些加引号说更容易的比赛，我们却很吃力。这也来自我们的比赛模式，因为我们是一支经常控球的球队。”\n\n韦博还提到，球队在杯赛中被QRM在转换进攻中打得很苦，并因此被这支法丙球队淘汰，这引发了俱乐部内部的集体反思。“从那以后，小伙子们之间谈了很多，我们做了很多自我批评。”\n\n尽管索肖在联赛中正经历一段艰难时期，且在法国杯上依靠点球大战才淘汰一支大区一级联赛球队，韦博仍表示不会低估对手。他说：“注意，索肖是一支进攻非常好的球队。他们做了很多很棒的事情。他们有一些知道自己该做什么的球员，配合得非常好。也必须尊重这家在法国足球中拥有悠久历史的俱乐部。我们会带着极大的尊重前往那里。只有一个想法：带着三分回来，同时清楚这将是一场非常艰难的比赛，对手非常难以击败。”",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情 - 中国体育彩票服务热线95086",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=&gm=2529649#1",
+          "site": "中国竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.765517234802246,
+          "summary": "排名: Regular Season 第16名\n\n赛季总成绩: 2胜 5平 5负\n\n赛季主场成绩: 2胜 1平 2负\n\n2026/2027 Regular Season 第13轮 2026-11-24 03:45\n\n排名: Regular Season 第10名\n\n赛季总成绩: 4胜 3平 5负\n\n赛季客场成绩: 1胜 1平 3负\n\n特征分析\n\n索肖 (主)\n\n2胜/1平/1负\n\n2胜/0平/0负\n\n2胜/4平/4负\n\n4胜/4平/2负\n\n0.9个\n\n1.3个\n\n近4场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n敦刻尔克 (客)\n\n1胜/1平/2负\n\n0胜/0平/2负\n\n3胜/2平/5负\n\n2胜/1平/7负\n\n1.0个\n\n1.5个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n近4场索肖2胜 (50%) | 1平 (25%) | 1负 (25%)\n\n比赛日期 | 赛制 | \n主队\n\nVS\n\n客队\n | 总进球走势\n...\n2022-01-23 | 法乙\n...\n0:0\n\n（半 0:0）\n...\n2021-08-15 | 法乙\n...\n（半 1:0）\n...\n2021-05-02 | 法乙\n...\n2021-01-06 | 法乙\n...\n积分榜 法乙2026/2027\n\n索肖Regular Season 第16名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 12 | 2/5/5 | 17% | 8/15 | -7 | 11 | 16 \n主 | 5 | 2/1/2 | 40% | 4/7 | -3 | 7 | 14 \n客 | 7 | 0/4/3 | 0% | 4/8 | -4 | 4 | 17 \n\n敦刻尔克Regular Season 第10名 查看更多>\n...\n总 | 12 | 4/3/5 | 33% | 17/17 | 0 | 15 | 10 \n主 | 7 | 3/2/2 | 43% | 11/7 | 4 | 11 | 4 \n客 | 5 | 1/1/3 | 20% | 6/10 | -4 | 4 | 15 \n\n比赛近况\n...\n索肖近10场2胜 (20%) | 4平 (40%) | 4负 (40%)\n\n进9球，失13球，净进-4球\n\n敦刻尔克近10场3胜 (30%) | 2平 (20%) | 5负 (50%)\n\n进10球，失15球，净进-5球\n...\n| 轮次\n...\n2026-12-05 | 法乙 | Regular Season 第14轮 \n2026-12-15 | 法乙 | Regular Season 第15轮 \n2027-01-02 | 法乙 | Regular Season 第16轮 \n2027-01-15 | 法乙 | Regular Season 第17轮 \n\n射手信息 法乙2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n | 进球\n(本队占比)\n | 助攻\n...\n| 场均\n...\n7-B. Gomel(前锋) | 10 (9/1) | 3 (38%) | 0 (0%) | 0.3/0 \n5-S. Baghdadi(前锋) | 11 (5/6) |...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "法乙第13轮索肖主场迎战敦刻尔克",
+          "url": "https://m.dongqiudi.com/xinwen/216963",
+          "site": "懂球帝",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.7032105922698977,
+          "summary": "# 法乙第13轮索肖主场迎战敦刻尔克\n\n索肖vs敦刻尔克专家方案、首发阵容和比分直播，打开懂球帝App去看看\n11月24日 03:45索肖 vs 敦刻尔克法乙看直播\n\n## 30 秒看懂\n\n- 索肖12战11分排第17，敦刻尔克15分排第11\n- 索肖各项赛事近5场0胜1平4负，已连续4场失利\n- 两队近4次交手总进球均未超过2球\n\n法乙2026/27赛季第13轮，索肖将于北京时间2026年11月24日03:45（周二）在主场迎战敦刻尔克。赛前索肖12战2胜5平5负，进8球失15球，积11分排第17位；敦刻尔克12战4胜3平5负，进17球失17球，积15分排第11位。\n\n索肖近况不佳，各项赛事近5场0胜1平4负，进4球失10球，并且已经连续4场失利。最近5场依次是：客场0-1负南锡、客场0-2负兰斯、主场1-3负阿讷西、客场2-3负梅斯、主场1-1平博莱格尼。近10场索肖2胜4平4负，近10个主场4胜4平2负；本赛季法乙主场5战2胜1平2负。\n\n敦刻尔克近5场2胜1平2负，进7球失5球。最近5场依次是：主场3-0胜甘冈、客场0-1负罗德兹、主场1-1平梅斯、客场3-2胜南特、主场0-1负阿讷西。近10场敦刻尔克3胜2平5负，近10个客场2胜1平7负；本赛季法乙客场5战1胜1平3负。\n\n历史交锋方面，懂球帝收录两队自2021年以来的4次交手，索肖2胜1平1负，进2球失1球。最近一次是2022年1月23日法乙敦刻尔克0-0索肖；其余三次为2021年8月15日索肖1-0敦刻尔克、2021年5月2日敦刻尔克1-0索肖、2021年1月6日索肖1-0敦刻尔克。这4次交手的总进球都没有超过2球。\n\n进球数据上，索肖近10场场均进球0.8、场均失球1.2，总进球3球及以上2场（20%），两队都进球5场（50%），零封对手3场，自己没进球3场；敦刻尔克近10场场均进球1.0、场均失球1.2，总进球3球及以上3场（30%），两队都进球4场（40%），零封对手1场，自己没进球5场。索肖近10场只有2场总进球达到3球及以上。\n\n球员方面，索肖本赛季法乙进球最多的是戈梅尔，打进3球；敦刻尔克本赛季法乙进球最多的是伊戈尔-普鲁采夫3球和苏莱曼-凯塔3球，奥桑特打进2球。\n\n本场是竞彩周一004、北单26117期324的比赛。以上排名按赛程比分计算，以官方积分榜为准；数据只统计开球前已经完场的比赛。\n\n本文根据懂球帝数据的报道《索肖vs敦刻尔克赛前数据（法乙）》编译整理。\n...\n104位专家在分析索肖vs敦刻尔克，最高6连红\n\n本场已有 104 位专家在懂球帝发布方案，最高6连红，彩红杰瑞（6连红）、克敌制胜（6连红）、红单哥说球（5连红）。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "周一004 法乙 索肖VS敦刻尔克",
+          "url": "https://www.sohu.com/a/1104939727_122708087?scm=10001.7746_13-119000.0.0-0-0-0-0.0&spm=smpc.channel_354.block3_32_P7Ovbu_1_fd.19.1795358032149joBxOeu_7746",
+          "site": "Sohu",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.5646584033966064,
+          "summary": "# 周一004 法乙 索肖VS敦刻尔克\n...\n2026-11-22 22:32\n...\n北京时间11月24日03:45，蒙贝利亚尔·博纳尔球场，第13轮。十二轮踢完，索肖11分排在第15/16位、脚已经踩进降级区；敦刻尔克15分列第10，往上够得着上半区，往下也甩不开麻烦。四分差距，两队都输不起，但方向完全相反——一个是必须止颓的升班马，一个是想把自己从\"中游混子\"里摘出来的追赶者。\n\n索肖：十二轮八个球，法乙最钝的一把刀。 奥尼翁的球队重返法乙后开局就难：场均进球不到七毛，是全联赛火力最弱的一档，十二轮还有五场平局，其中多场是闷平。4-2-3-1偏保守，控球常年四成出头，靠边路起球、肋部二点和定位球吃饭，能真正把球送进网的只有戈梅尔，他一人包办全队联赛进球的三分之一以上；他一被贴死，索肖就没有第二方案。近况更糟：联赛四连败，先后折在梅斯、阿讷西、兰斯、南锡脚下，上轮客战南锡还多打一人，却在终场前一刻钟被反击捅刀；间歇期的法国杯也只是和一支大区球队踢平、靠点球才勉强过关。唯一的底气是主场——本赛季全部胜利都出自博纳尔，甘冈、南特都是被这里的一球磨死的，五个主场只失七球，主场防守其实不差；而客场七场未尝一胜，心理上他们只认这一个场子。伤停倒不重，右后卫比林德利腿伤是主要减员，主力框架还在，问题是近十个主场只有三场打出大球、七场双方没能同时破门——这球队天生要把比赛拖进泥地。\n\n敦刻尔克：数据漂亮，气质飘忽，客场是软肋。 韦博这支队的标签是\"控球 + 挑对手\"：面对圣埃蒂安、南特、梅斯这种硬骨头打得有声有色，上一轮在主场把甘冈按得毫无脾气，莫雷尔斩获加盟首球，凯塔与阿亚里随后锁死悬念，门将拉莫斯交出首次零封；可一碰纸面上\"更好打\"的对手就掉链子，客场先后折在阿讷西、罗德兹、波城脚下，杯赛还被法丙的奎维利-鲁昂用反击淘汰出局，赛后更衣室开了半天自我批评会。数据印证这种分裂：12轮进17失17，净胜球为零，但拆开看落差极大——主场七场拿走大部分积分，客场五战只有一胜、失球比进球多出四个，场均进不到1.3球；近十个联赛客场零零封，防线出门就松。韦博自己也承认\"我们是支经常控球的球队，越是'容易'的比赛越吃力\"，这句话正好是本场的自白书。人员上有两处悬念：尼昂肌肉伤仍在跟踪观察，罗拜尔要等到最后一刻才定，主帅明说宁可谨慎也不冒复发风险，锋线轮换可能被迫缩水；好在他赛前把姿态放得很低——\"索肖进攻很好，我们带着极大的尊重去\"。\n\n交锋是这组对阵最硬的一条注脚：近四次正式比赛没有一次打出双方进球，也没有一次超过两球半，场均总进球不到一个；索肖两次在主场迎敦刻尔克都磨出了自己的一球小胜，最近那次碰面还是互交白卷。博纳尔历来是这种闷战的温床，两队画风一个\"贫\"、一个\"漏但控\"，撞在一起最容易滑向低分纠缠。\n\n对位看三点：其一，索肖大概率不抢球权、落低位把客队赶向边路再堵禁区，而韦博这套控球打法最不擅长的恰恰是破这种\"不想踢球\"的对手，控...",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "索肖對敦刻爾克 預測及建議 | FootyStats - Loading",
+          "url": "https://footystats.org/zht/france/fc-sochaux-montbeliard-vs-us-du-littoral-de-dunkerque-h2h-stats/predictions#1",
+          "site": "FootyStats",
+          "date": null,
+          "authority": 3,
+          "score": 1.5496634244918823,
+          "summary": "# 索肖對敦刻爾克預測及建議\n\n2.00\n\nLWW\n索肖\n0.33\n...\n## 機率表\n\n索肖 和 敦刻爾克 各市場的發生機率。並與聯賽平均值進行比較，幫助您判斷其發生的可能性是高於還是低於平均水平。這對預測非常有幫助。\n\n市場\n\n歷史機率\n...\n數學優勢\n\n比平常更有可能發生?\n\n1\n\n(3Way Result)\n\n67%\n\n33%\n\n+34%\n\nYes\n...\n17%\n\n37%\n\n-20%\n...\n0%\n\n30%\n\n-30%\n\nNo\n\nOver 0.5\n\n(Over/Under)\n\n100%\n\n89%\n\n+11%\n\nYes\n\nOver 1.5\n...\n68%\n\n-1%\n\nNo\n\nOver 2.5\n...\n46%\n\n-13%\n\nNo\n\nOver 3.5\n...\n28%\n...\nOver 4.5\n...\n14%\n\n+3%\n\nYes\n\nUnder 0.5\n...\n-89%\n\nNo\n\nUnder 1.5\n...\n-34%\n\nNo\n\nUnder 2.5\n...\n+21%\n\nYes\n\nUnder 3.5\n...\n84%\n\n29%\n\n+55%\n\nYes\n\nUnder 4.5\n...\n+70%\n...\n(Over/Under 1st Half)\n\n67%\n\n56%\n...\n32%\n...\nUnder 0.5\n...\n44%\n...\n83%\n\n86%\n\n-3%\n...\n(Goals Over/Under 1st Half)\n...\n(Over/Under 2nd Half)\n\n67%\n\n79%\n\n-12%\n...\n41%\n\n-7%\n...\n22%\n\n-5%\n...\n66%\n\n59%\n...\n78%\n...\n(Both Teams To Score)\n...\n-42%\n...\n+24%\n\nYes\n\nOver 7.5\n\n(Corners Over Under)\n...\nOver 8.5\n...\n50%\n\n59%\n\n-9%\n\nNo\n\nOver 9.5\n...\nOver 10.5\n...\nOver 11.5\n...\n-17%\n...\nUnder 9.5\n...\nUnder 10.5\n...\n+53%\n...\n## 索肖 與 敦刻爾克 的賠率比較",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5",
+            "both teams to score"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 1,
+        "goals": 1,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 3,
+        "zh": 5,
+        "home_mentions": 5,
+        "away_mentions": 4
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周一005",
+      "league": "英超",
+      "home": "布伦特",
+      "away": "埃弗顿",
+      "home_en": "Brentford",
+      "away_en": "Everton",
+      "queries": [
+        "\"Brentford vs Everton\" preview prediction lang:en",
+        "布伦特 埃弗顿 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Brentford vs Everton prediction: Thiago Barry to score again as team news confirmed",
+          "url": "https://onefootball.com.br/en/news/brentford-vs-everton-prediction-thiago-barry-to-score-again-as-team-news-confirmed-43818209",
+          "site": "OneFootball",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.309698281845926,
+          "summary": "# Brentford vs Everton prediction: Thiago Barry to score again as team news confirmed | OneFootball\n\nFootball365\n\n·22 November 2026\n...\nDavid Moyes will set a new record for the most games as Everton manager when he takes charge of their trip to Brentford.\n\nIt will be his 593rd game with the Toffees, and they currently find themselves seventh in the Premier League table after a 3-1 win over Coventry City 3-1 in their last outing.\n...\nBrentford lost 2-0 away at Brighton before the international break and are three places below Everton with 14 points from their opening 10 games.\n\n### Brentford vs Everton kick-off time\n\nBrentford vs Everton kicks off at 8pm GMT on Monday, November 23 at the Gtech Community Stadium\n\n### Brentford vs Everton how to watch\n\nThe game will be shown live in the UK via Sky Sports Premier League and Sky Sports Main Event, with coverage starting from 6.30pm.\n\nTalkSPORT will provide full match commentary.\n\n### Brentford team news\n\nFollowing his red card for violent conduct in the 2-0 defeat at Brighton, Igor Thiago is now set to begin a three-match ban.\n\nCallum Wilson is expected to come in as a direct replacement for the Brazil international and make his first Premier League start for Brentford.\n\nNathan Collins had recently returned from a calf injury, but the centre-back picked up a knee injury while playing for the Republic of Ireland and is now back on the treatment table.\n\nKristoffer Ajer and Sepp van den Berg are expected to continue forming Brentford’s central defensive partnership during his absence.\n\nThe international break also saw Aaron Hickey sustain a hamstring injury in Scotland’s 4-0 defeat to Switzerland, and El Hadji Malick Diouf looks set to replace him at left-back.\n\nRico Henry (hip and quad) and Kaye Furo (metatarsal) remain sidelined, while Antoni Milambo (ACL) and Josh Dasilva (hamstring) will continue their respective returns by featuring for Brentford B against Hull City under-21s.\n\nFabio Carvalho hasn’t played for the first team since scoring in the 3-0 win over Chelsea in September, but is now fit enough to make the matchday squad.\n\n### Everton team news\n\nJack Grealish wasn’t involved in Everton’s last four games in all competitions due to a breach of club discipline, with reports suggesting that he missed training without permission.\n\nBut he played in a behind-closed-doors victory against Derby County during the international break and also posted an apology to the club on social media.\n\nMoyes has confirmed that the on-loan Manchester City midfielder is now available for selection, although Tyler Dibling and Tyrique George are expected to start on the wings.\n\nEverton didn’t suffer any injury setbacks during the international break, and Moyes currently has a fully fit squad at his disposal.\n\n### Brentford vs Everton odds\n\nBrentford go into this game as slight favourites and are 27/20 to secure all three points on Monday night.\n\nEverton are 9/4 to make it four wins in a row in all competitions, while The Draw is 5/2.\n\nIn the outright betting, Brentford are 4/11 to secure a top 10 finish and Everton are 10/11 to do likewise.\n\n### Brentford vs Everton prediction\n\nBrentford have only lost one Premier League game at home this season, and that came against Liverpool when they received two red cards.\n\nEverton drew their first three away games of the season before losing 2-0 against Arsenal at the Emirates and beating Newcastle 1-0 at St James’ Park.\n\nThe last two meetings between these sides at the Gtech Community Stadium have finished all square, with a 1-1 draw in 2024/25 and a 2-2 draw in 2025/26.\n\nThey are two evenly matched teams and only two points separate them in the Premier League table, so we’re backing another score draw at 18/5.\n\nFor the correct score bets, a 1-1 draw is available at 6/1.\n\nThe scores were level at both half-time and full-time in this fixture last season, and that leads us towards Draw-Draw in the Half-Time Full-Time market at 5/1.\n\nThiago scored both of Brentford’s goals in that 2-2 draw, while he also netted a hat-trick in a 4-2 win at the Hill Dickinson Stadium.\n\nHis suspension will be a great relief for the away side, so we’re also looking at Everton +0.5 on the handicaps at 9/5, and that will pay off if Brentford don’t win the game.\n\nBut the Toffees have only scored four goals across their...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "PREVIEW | Brentford vs Everton: team news, lineups, predictions (Premier League 23/11)",
+          "url": "https://sports.yahoo.com/articles/preview-brentford-vs-everton-team-031500755.html?fr=sycsrp_catchall",
+          "site": "Yahoo Sports",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.10851669452971,
+          "summary": "# PREVIEW | Brentford vs Everton: team news, lineups, predictions (Premier League 23/11)\n...\nBrentford and Everton face each other this Monday at the Brentford Community Stadium on Match Day 11 of the Premier League. The match will be broadcast live at 20:00 on Sky Sports Main Event.\n\nBrentford have won 14 points to date and are placed in 8th position. In their last encounter, Keith Andrews's team were beaten 2-0 by Brighton & Hove Albion (Premier League 2026/27).\n...\nEverton currently have 16 points and lie in 6th position. In their last game, David Moyes's team won 3-1 against Coventry City (Premier League 2026/27).\n\nThe last meeting between the two teams ended in a 2-2 draw.\n\n## Predicted lineups\n\nBrentford: Caoimhin Kelleher, Michael Kayode, Kristoffer Ajer, Sepp van den Berg, Aaron Hickey, Vitaly Janelt, Mamadou Sangaré, Dango Ouattara, Kevin Schade, Keane Lewis-Potter, Callum Wilson\n\nEverton: Jordan Pickford, Merlin Rohl, Jarrad Branthwaite, James Tarkowski, Vitaliy Mykolenko, Harrison Armstrong, James Garner, Tyler Dibling, Kiernan Dewsbury-Hall, Tyrique George, Thierno Barry\n...\n## Unavailable\n\n## Brentford\n\nIgor Thiago - Red Card\n\nKaye Furo - Foot surgery\n...\nJack Grealish - Suspended\n\n## Last starting XIs\n\nBrentford ( vs Brighton & Hove Albion 2026-11-08): Caoimhin Kelleher, Michael Kayode, Kristoffer Ajer, Sepp van den Berg, Aaron Hickey, Dango Ouattara, Mamadou Sangaré, Vitaly Janelt, Keane Lewis-Potter, Kevin Schade, Igor Thiago\n...\n## Did you know...by playmaker stats\n\n## MANAGERS\n\nKeith Andrews has faced David Moyes on two occasions, recording one win and one draw\n\nDavid Moyes has faced Brentford on 13 occasions, recording three wins, four draws and six defeats\n\nKeith Andrews has faced Everton on two occasions, recording one win and one draw\n\n## TEAMS\n\nAway from home, Everton are currently on one defeat in their last six matches.\n\nEverton are currently on two defeats in their last 13 matches.\n\nEverton are coming off three consecutive matches in which they have scored.\n\nEverton are on a three-match unbeaten run.\n\nEverton are coming off three consecutive wins.\n\nAt home, Brentford are currently on one defeat in their last five matches.\n\nAt home, Brentford have scored in five consecutive matches.\n\nBrentford are currently on three defeats in their last 13 matches.\n\nBrentford are currently on one win in their last six matches.\n\n## HEAD TO HEAD\n\nBrentford and Everton have already met 28 times, with Everton holding the edge: 11 wins, against ten Brentford wins.\n\nAt Brentford Community Stadium, Brentford have the advantage in their meetings with Everton: six wins in 14 matches. Everton have two wins.\n\nIn the English League, the two teams have played 20 matches, with eight Brentford wins, six draws and six Everton wins.",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Supercomputer predicts 90-year Everton first in Brentford result - Advertisement",
+          "url": "https://uk.sports.yahoo.com/news/supercomputer-predicts-90-everton-first-110000906.html#1",
+          "site": "Yahoo",
+          "date": "2026-11-18T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.0918298315991057,
+          "summary": "# Supercomputer predicts 90-year Everton first in Brentford result\n...\nEverton's upcoming game against Brentford may see a feat achieved for the very first time in over 90 years.\n\nThe Toffees and the Bees have long been opponents, with their very first match-up coming back in 1936.\n...\nOn that occasion, Everton were on the losing side in a 2-1 defeat to the London outfit.\n\nThis season, both David Moyes' side and Keith Andrews' outfit have been flying high.\n\nAfter 10 games, the two Premier League sides are occupying spots within the top half.\n\nAnd only two points separate the Toffees and the Bees, with European ambitions on their agenda.\n\nWhat has the supercomputer predicted for Brentford vs Everton?\n\nEverton and Brentford are fairly equal sides, with slim margins separating them in the league table.\n...\nHowever, the supercomputer's prediction makes for an uncomfortable read for Everton, who will need to produce a strong performance to upset the odds in West London.\n\nAccording to Opta Analyst's supercomputer, Brentford are the favourites to beat Everton, with the Bees having a 44.3 per cent chance of winning.\n\nMoyes' side have been handed 28.8 per cent, with a draw between the two slated at 26.8 per cent.\n\nThe Everton manager will be hoping to defy the odds, particularly as going without a win would see a 90-year first occur between the two.\n...\nOver 27 games throughout a 90-year timeline, Everton have never gone five games without a win against Brentford.\n\nFollowing three draws and a loss in the last two seasons, failing to win on Monday, 23 November would see the Blues go winless in that five-match span.\n\nPremier League panel unanimous on Everton error as explanation shared Everton must rediscover their impressive away form under Moyes\n\nIn contrast to last season, Everton have been stronger at home this season than away.\n...\nThat was not the case in the 2025-26 campaign, where the Toffees struggled to make Hill Dickinson a fortress.\n\nHowever, now Moyes' squad will need to find that magic from the prior season, which actually had them seventh in the away form table.\n\nMoyes will know that picking up points on the road can prove important over the course of a season, especially when facing sides around them in the standings.\n\nSo, ahead of Monday, Moyes may be looking to find the form he managed to get out of his squad in 2025-26.\n\nIf so, European ambitions will be further boosted with a win at the Gtech Community Stadium.",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "蒂亚戈停赛，布伦特福德主场迎战埃弗顿",
+          "url": "https://beta.dongqiudi.com/articles/6681439.html",
+          "site": "懂球帝",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.0800982424911494,
+          "summary": "# 蒂亚戈停赛，布伦特福德主场迎战埃弗顿\n\n英超第11轮最后一场，布伦特福德将于北京时间11月24日04:00（当地时间周一）在Gtech社区球场迎战埃弗顿。布伦特福德前锋伊戈尔-蒂亚戈因对布莱顿一战的红牌停赛，他还将缺席接下来与曼联、阿森纳的比赛。\n\n布伦特福德方面，阿伦-希基（大腿）和内森-科林斯（膝盖）新近加入伤病名单，与里科-亨利（腹股沟）、富罗（脚踝）、米兰博和达席尔瓦（均为体能问题）一同缺阵，后两人预计周末重返U21比赛。法比奥-卡瓦略有望伤愈复出，为进攻线提供选择。\n\n主帅基思-安德鲁斯需要决定由老将威尔逊对位顶替蒂亚戈，还是让沙德居中，由刘易斯-波特、杰登-安东尼和丹戈-瓦塔拉中的两人在身后支援。\n\n埃弗顿方面，莫耶斯确认格拉利什在几周前违反俱乐部纪律后将重返大名单，他在国际比赛日期间的友谊赛中出场，但本场预计先坐替补席，迪布林和泰里克-乔治继续占据边路。莫耶斯还确认球队目前没有伤病，阵容完整。\n\n布伦特福德本赛季14分中有10分来自主场，主场仅丢3球，三场主场胜利均零封对手。埃弗顿上一场击败考文垂，取得各项赛事三连胜，升至积分榜前六，但本赛季五个英超客场仅一胜。埃弗顿在布伦特福德的最近四场英超保持不败，自2022年以来三平一胜。\n\n预计首发——布伦特福德：凯莱赫；卡约德，范登贝尔赫，阿耶，哈吉-迪乌夫；亚尔莫柳克，雅内尔特，马蒂亚斯-延森；沙德，威尔逊，刘易斯-波特。埃弗顿：皮克福德；勒尔，塔尔科夫斯基，布兰斯韦特，米科连科；詹姆斯-加纳，哈里森-阿姆斯特朗；迪布林，迪尤斯伯里-霍尔，泰里克-乔治；蒂尔诺-巴里。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Brentford vs Everton predictions: 11-2 Bet Builder tip, team news and odds",
+          "url": "https://www.racingpost.com/sport/football-tips/premier-league/brentford-vs-everton-predictions-team-news-odds-betting-tips-bet-builder-aahbX3p0D97C/",
+          "site": "Racing Post",
+          "date": "2026-11-20T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.0000520854807826,
+          "summary": "# Brentford vs Everton predictions: 11-2 Bet Builder tip, team news and odds\n\n## Brentford face Everton in the Premier League. Get match details, betting tips, predictions and TV info for the big game at the Gtech Community Stadium.\n...\n## Brentford vs Everton kick-off, date & TV info\n\nDate Monday, November 23\nKick-off 8pm\nVenue Gtech Community Stadium\nCompetition Premier League\nTV Sky Sports Main Event & Sky Sports Football\n\nBrentford's form tailed off between the two international breaks, and they return against an Everton side who are enjoying an excellent season.\n\nDavid Moyes takes charge of the Toffees for a club-record 593rd time, and his team are tipped to claim all three points from Monday's trip to the capital.\n\n## Brentford vs Everton Bet Builder\n\n### Both teams to score\n\nBoth sides have scored in the last three meetings and the pair's two fixtures last season produced ten goals.\n\n### Thierno Barry to have three or more shots\n\nBarry has tallied 36 shots in ten Premier League fixtures.\n\n### Vitaly Janelt to be shown a card\n\nThe German international has received six yellow cards, including two when he was sent off against Liverpool.\n\nPays out at 5.87.1 with Paddy Power\n\n## Brentford vs Everton betting tips & predictions\n\n### Best bet\n...\n1pt 23-10 bet365, BoyleSports, Paddy Power\n\n### Best player bet\n\nThierno Barry to score\n11-5 bet365\n\n## Brentford vs Everton preview\n\nIf we lived in a world where you could pick your football team, then Brentford might be many people's choice.\n\nWell-run and playing an attractive brand of football over several seasons, they have become part of the Premier League furniture.\n\nHowever, their form before the international break was alarming, with only one win in six games. They also head into Monday's visit from Everton without Igor Thiago.\n\nThe Brazilian was sent off in Brentford's last outing against Brighton, where they were undone by Diego Gomez's latest wonder goal and a Pascal Gross penalty to lose 2-0.\n\nThiago's absence is compounded by Aaron Hickey and Nathan Collins also being out after injuries on international duty, and Brentford's situation contrasts sharply with Everton's.\n\nDavid Moyes says he expects to have a full squad to select from, and the Toffees will be confident after winning their last three, beating Newcastle in both the league and EFL Cup before coming from behind in their 3-1 victory over Coventry.\n\nThose results sum up where Everton are. Their two defeats came against Chelsea and Arsenal, while they have been competitive in their other games, winning four and drawing as many.\n\nMoyes will oversee his 593rd match as Everton manager, a club record, and it looks as if his team are facing Brentford at the right time.\n\nCallum Wilson is set to deputise for Thiago and manager Keith Andrews has said he will get \"a decent amount of minutes\" in the coming weeks. Wilson has had an excellent career and, after recovering from several serious injuries in his younger days, deserves praise for still playing at this level.\n...\nHowever, at 34, he may not have the movement to trouble Everton central defenders James Tarkowski and Jarrad Branthwaite. Both will also be happy to take him on physically if Wilson wants to tussle.\n\nIn midfield, Moyes has praised the form of Harrison Armstrong, James Garner and Kiernan Dewsbury-Hall, name-checking all three in his pre-match press duties, and also has Jack Grealish back after his recent club-imposed ban.\n\nIt would be typical of Grealish to produce something special, but most likely off the bench, with Tyrique George now established on the left wing.\n\nA win at Brentford won't come easy. The hosts are unbeaten in the last four meetings and despite their absences, the Bees will buzz around and keep creating chances.\n\nThey look as if they will be fine in the end, maintaining their Premier League place with plenty to spare come May, but on Monday night, the Toffees can take the points.\n\n### Barry bang in form\n\nThierno Barry might not be the most polished centre forward but his ability to get into good positions is making him increasingly effective.\n\nThe Frenchman has registered 36 shots in the Premier League, resulting in a handy haul of six goals while he has ten in all competitions.\n\nThat includes four in Everton's last three matches and he also scored when these teams met at the Hill Dickinson last January.\n\n## Key stats for Brentford vs Everton\n\n♦ Both teams have scored in the last three meetings\n♦ Brentford are unbeaten in the last four head-to-heads\n♦ Thierno Barry has scored six Premier League goals, and netted at home against Brentford last...",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "both teams to score"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 1,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 1,
+        "home_mentions": 1,
+        "away_mentions": 1
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周一006",
+      "league": "西甲",
+      "home": "莱万特",
+      "away": "埃尔切",
+      "home_en": "莱万特",
+      "away_en": "埃尔切",
+      "queries": [
+        "\"莱万特 vs 埃尔切\" preview prediction lang:en",
+        "莱万特 埃尔切 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "莱万特迎战埃尔切，马努-桑切斯伤愈复出",
+          "url": "http://pc.dongqiudi.com/articles/6681480.html",
+          "site": "懂球帝",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.257909626488592,
+          "summary": "# 莱万特迎战埃尔切，马努-桑切斯伤愈复出\n\n莱万特将在北京时间11月24日04:00主场迎战埃尔切。赛前双方更新了伤停情况：莱万特边后卫马努-桑切斯在因腿筋伤势缺席三场后已经恢复，可以出战，预计将出现在四后卫的左侧，与德拉、曼迪和纳乔-佩雷斯组成防线。锋线方面，卡尔-埃永自上月伤愈后，很可能连续第三次在联赛中首发。\n\n埃尔切方面，攻击手阿瓜多因上月与比利亚雷亚尔互交白卷时脚踝受伤，仍然缺阵；博阿亚尔和亚戈-圣地亚哥预计也将缺席，胡阿里因脚踝问题出战成疑。利好的是，勒马尔和布巴-桑加雷已经摆脱身体问题，可供选择，两人此前因此缺席了国际比赛日前输给贝蒂斯的比赛。\n\n莱万特本赛季西甲12战2胜5平5负，积11分排名第18位，其中7分来自主场。两场胜利均在主场取得：8月底5-2战胜皇家贝蒂斯，10月21日布吕吉梅开二度，3-1击败毕尔巴鄂竞技。但此后三场联赛仅拿一分，先后输给皇家社会和马德里竞技，与塞尔塔互交白卷。国际比赛日期间，莱万特在国王杯对阵塔兰孔时第80分钟扳平拖入加时，德拉第124分钟点球绝杀，2-1晋级。\n\n埃尔切目前积10分排名第19位，赛季前六场仅拿两分，随后四场不败（2胜2平），包括客场战胜西班牙人和巴列卡诺。但国际比赛日前连续主场输给瓦伦西亚和皇家贝蒂斯，且未能进球。埃尔切本赛季联赛客场仅失6球，最近两场西甲客场均零封对手，最近六个联赛客场有五次避免失利（2胜3平）。\n\n历史交锋方面，莱万特过去八场正式比赛对阵埃尔切仅输一场（4胜3平），过去11场各项赛事主场交锋赢下八场，包括今年1月3-2取胜。埃尔切上一次客场战胜莱万特还要追溯到1982年5月乙级联赛的6-1。\n\n预计首发：莱万特（瑞安；佩雷斯、曼迪、德拉、桑切斯；奥拉萨加斯蒂、雷克纳；布吕吉、伊万-罗梅罗、蒂亚戈；埃永）；埃尔切（迪图罗；布巴-桑加雷、丘斯特、雷东多、雷维沃；贡萨洛-比利亚尔、莫尔西略；塞佩达、勒马尔、巴莱拉；尼尼奥）。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "西甲第13轮莱万特主场迎战埃尔切",
+          "url": "https://m.dongqiudi.com/xinwen/216968",
+          "site": "懂球帝",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.8506493708236589,
+          "summary": "# 西甲第13轮莱万特主场迎战埃尔切\n\n莱万特vs埃尔切专家方案、首发阵容和比分直播，打开懂球帝App去看看\n11月24日 04:00莱万特 vs 埃尔切西甲看直播\n\n## 30 秒看懂\n\n- 莱万特12战11分排第18，埃尔切12战10分排第19\n- 莱万特近5场1胜2平2负，埃尔切同为1胜2平2负\n- 两队近6次交手莱万特3胜2平1负，上次3-2取胜\n\n西甲2026/27赛季第13轮，莱万特将在北京时间2026年11月24日04:00（周二）主场迎战埃尔切。赛前莱万特12战2胜5平5负，进16球失21球，积11分排第18；埃尔切12战2胜4平6负，进14球失20球，积10分排第19，两队仅相差1分。\n\n两队近期状态接近。各项赛事近5场，莱万特和埃尔切都是1胜2平2负，莱万特进5球失6球，埃尔切进3球失3球。近10场莱万特2胜4平4负，埃尔切2胜3平5负。\n\n莱万特最近5场联赛依次为：客场0-0平塞尔塔、主场0-2负马德里竞技、客场1-2负皇家社会、主场3-1胜毕尔巴鄂竞技、客场1-1平拉科鲁尼亚。埃尔切最近5场为：主场0-2负皇家贝蒂斯、主场0-1负瓦伦西亚、客场3-0胜巴列卡诺、客场0-0平比利亚雷亚尔、主场0-0平塞尔塔。\n\n本赛季主客场数据方面，莱万特主场5战2胜1平2负，埃尔切客场6战2胜3平1负。近10个主场莱万特7胜1平2负，近10个客场埃尔切3胜4平3负。\n\n近10场进球数据，莱万特场均进1.6球、失1.8球，埃尔切场均进1.3球、失1.4球。莱万特有6场总进球达到3球及以上，埃尔切为5场；两队都进球的场次分别为7场和5场；零封对手分别为2场和3场，自己未能进球的场次分别为3场和4场。\n\n历史交锋方面，懂球帝收录两队自2013年以来16次交手，莱万特7胜6平3负，进21球失15球。最近6次交手，莱万特3胜2平1负：2026年1月24日西甲莱万特3-2埃尔切，2025年8月30日西甲埃尔切2-0莱万特，2025年5月11日西乙埃尔切1-3莱万特，2024年11月17日西乙莱万特1-1埃尔切，2024年3月25日西乙莱万特3-2埃尔切，2023年10月1日西乙埃尔切0-0莱万特。\n\n射手方面，莱万特本赛季西甲进球最多的是布吕吉，打进5球，伊万-罗梅罗3球，阿德里安-德拉富恩特2球；埃尔切进球最多的是尼尼奥，打进6球，巴莱拉2球。\n\n本文根据懂球帝数据的报道《莱万特vs埃尔切赛前数据（西甲）》编译整理。\n...\n107位专家在分析莱万特vs埃尔切，最高8连红\n\n本场已有 107 位专家在懂球帝发布方案，最高8连红，美洲狮侃球（8连红）、刺猬说球（近15中12）、河仔说球（近11中9）。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "莱万特主场迎战埃尔切，两队同陷降级区",
+          "url": "https://m.dongqiudi.com/xinwen/213983",
+          "site": "懂球帝",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.799590451902139,
+          "summary": "# 莱万特主场迎战埃尔切，两队同陷降级区\n...\n- 莱万特主场迎战埃尔切，两队同陷降级区，莱万特第18、埃尔切第19。\n- 莱万特近3场联赛仅1分，埃尔切近2个主场连败且未进球。\n- 莱万特近8次正式比赛对埃尔切仅输1场，主场交手11次赢8场。\n\n西甲周一比赛，莱万特将在瓦伦西亚城市球场迎战同大区的对手埃尔切。两队目前都身处降级区，莱万特排名第18，埃尔切以1分之差排在第19位。\n\n莱万特本赛季12轮联赛2胜5平5负，两场胜利都来自主场：8月底5比2大胜皇家贝蒂斯，10月21日罗赫尔·布鲁格梅开二度，帮助路易斯·卡斯特罗的球队3比1击败毕尔巴鄂竞技。但此后三场联赛他们只拿到1分，先后负于皇家社会和马德里竞技，又与塞尔塔互交白卷。国际比赛日期间，莱万特在改期的国王杯中对阵第五级别球队塔兰孔，第80分钟才扳平将比赛拖入加时，最终依靠德拉第124分钟的点球2比1过关。\n\n历史交锋对莱万特有利：近8次正式比赛对阵埃尔切仅输1场（4胜3平），此前11次各项赛事主场交手赢下8场，包括今年1月那场3比2的胜利。\n\n埃尔切赛季前6轮仅得2分，随后打出一波4场不败（2胜2平），客场先后击败西班牙人和巴列卡诺，两场各进3球。但国际比赛日前的两个主场，他们连续输给瓦伦西亚和贝蒂斯，两场均未能取得进球。埃尔切自5月击败赫塔费后尚未在马丁内斯·巴莱罗球场取得联赛胜利，本赛季主场6战仅1分，是西甲主场战绩最差的球队；不过他们近6个联赛客场有5场不败（2胜3平），客场只丢6球，最近两个客场均零封对手。埃尔切上一次客场击败莱万特还是1982年5月，当时在乙级联赛6比1大胜。\n\n人员方面，莱万特的曼努·桑切斯已从腿筋伤势中恢复，此前他缺席了三场比赛，有望出任四后卫体系的左路，与德拉、艾萨·曼迪和纳乔·佩雷斯搭档。锋线上，卡尔·埃塔·埃永上月伤愈后预计连续第三场联赛首发。埃尔切方面，马克·阿瓜多因上月与比利亚雷亚尔0比0一役中的脚踝伤势继续缺阵，阿丹·博阿亚尔和亚戈·圣地亚戈预计也无法出场，阿里·瓦里因脚踝问题存疑；托马斯·勒马尔和布巴·桑加雷已从身体问题中恢复，可以出战。\n\n原文给出的预计首发：莱万特——瑞安；佩雷斯、曼迪、德拉、桑切斯；奥拉萨加斯蒂、雷克纳；布鲁吉、罗梅罗、蒂亚戈；埃塔·埃永。埃尔切——迪图罗；桑加雷、丘斯特、雷东多、雷维沃；比利亚尔、莫尔西略；塞佩达、勒马尔、巴莱拉；尼诺。\n\n原文在结尾对比赛结果作了倾向性判断，认为莱万特将拿到分数但无法全取三分。按照要求，本文不转述这一预测。\n\n本文根据Sports Mole的报道《Levante vs Elche - prediction, team news, lineups》编译整理。",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=2042947&gm=2549476",
+          "site": "竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.7499405145645142,
+          "summary": "排名: Regular Season 第17名\n\n赛季总成绩: 2胜 5平 5负\n\n赛季主场成绩: 2胜 1平 2负\n\n周一006 西甲>\n\n2026/2027 Regular Season 第13轮 2026-11-24 04:00\n\n排名: Regular Season 第18名\n\n赛季总成绩: 2胜 4平 6负\n\n赛季客场成绩: 2胜 3平 1负\n\n特征分析\n\n莱万特 (主)\n\n6胜/3平/1负\n\n5胜/3平/0负\n\n1胜/5平/4负\n\n6胜/1平/3负\n\n1.4个\n\n1.8个\n\n近10场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n埃尔切 (客)\n\n1胜/3平/6负\n\n0胜/3平/5负\n\n3胜/3平/4负\n\n3胜/4平/3负\n...\n1.2个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n积分榜 西甲2026/2027\n\n莱万特Regular Season 第17名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 12 | 2/5/5 | 17% | 16/21 | -5 | 11 | 17 \n主 | 5 | 2/1/2 | 40% | 13/12 | 1 | 7 | 15 \n客 | 7 | 0/4/3 | 0% | 3/9 | -6 | 4 | 14 \n\n埃尔切Regular Season 第18名 查看更多>\n...\n总 | 12 | 2/4/6 | 17% | 14/20 | -6 | 10 | 18 \n主 | 6 | 0/1/5 | 0% | 4/14 | -10 | 1 | 20 \n客 | 6 | 2/3/1 | 33% | 10/6 | 4 | 9 | 5 \n\n比赛近况\n...\n莱万特近10场1胜 (10%) | 5平 (50%) | 4负 (40%)\n\n进14球，失18球，净进-4球\n\n埃尔切近10场3胜 (30%) | 3平 (30%) | 4负 (40%)\n\n进14球，失12球，净进2球\n...\n射手信息 西甲2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n7-Brugui(中场) | 11 (11/0) | 5 (31%) | 1 (13%) | 0.5/0.1 \n9-Iván Romero(前锋) | 12 (10/2) | 3 (19%) | 0 (0%) | 0.3/0 \n4-Adrián De la Fuente(后卫) | 10 (8/2) | 2 (13%) | 0 (0%) | 0.2/0\n...\n14-Fernando Niño(前锋) | 12 (10/2) | 6 (43%) | 0 (0%) | 0.5/0 \n11-Germán Valera(前锋) | 12 (12/0) | 2 (14%) | 0 (0%) | 0.2/0 \n10-F. Buonanotte(中场) | 8 (3/5) | 1 (7%) | 1 (9%) | 0.1/0.1 \n\n伤停一览\n...\n暂无数据\n...\n注：赛事数据统计进行至全场90分钟（含伤停补时...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "周一006 西甲 莱万特VS埃尔切",
+          "url": "https://www.sohu.com/a/1104940606_122707946?scm=10001.7746_13-119000.0.0-0-0-0-0.0&spm=smpc.channel_354.block3_32_P7Ovbu_1_fd.15.1795358245168YmjUVzS_7746",
+          "site": "Sohu",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.7317792518324764,
+          "summary": "# 周一006 西甲 莱万特VS埃尔切\n\n2026-11-22 22:36 来源: 圈乐思美食笔记\n...\n北京时间11月24日04:00，瓦伦西亚市政球场，第13轮收官战，也是一场实打实的大区德比。十二轮踢完，莱万特11分列第18、埃尔切10分挂在19位，一分之差双双泡在降级区里，身后马拉加只差五分——这是本轮西甲最纯粹的六分战。更巧的是两队\"人格\"完全反着长：一个把家当全押在主场，一个出门反倒比在家能踢\n\n。\n\n莱万特：主场是唯一的救命稻草，边路这一回补齐了。 路易斯·卡斯特罗去年12月接手后把球队捏成4-2-3-1，主场高位压、抢二点、定位球套路练得极细，11分里有7分来自市政球场，掀过贝蒂斯、咬下毕尔巴鄂、和塞维利亚打出过一场互爆。可五个主场进十三失十二，攻得开、守不住，上轮还在塞尔塔身上闷出一场白卷，此前连着被马竞、皇家社会敲掉，近两轮联赛一球未进。布吕吉是肋部最活的那颗子（联赛三球一助），伊万·罗梅罗做二点，埃永伤愈后顶在最前做支点，曼迪坐镇后防，瑞安把门且上轮在维戈表现获赞。间歇期最大的好消息是左后卫马努·桑切斯腿筋伤愈回归——他缺阵的那几场，莱万特边路宽度和传中质量肉眼可见地掉档，两场被零封；纳科哈脚踝存疑，中卫位置上曼迪、德拉富恩特、恩杜克韦三人争两个坑，右后卫纳乔·佩雷斯刚踢完U19欧青赛。好消息是卡斯特罗赛前拿到了全员可用的名单，牌多了，选择也多了。\n\n埃尔切：主客分裂到近乎人格障碍，但出门就是另一支队。 安塞尔米夏天接手后账面极魔幻——六个联赛主场一平五负、只进四球失十四球，主场积分全联赛垫底；可六个联赛客场两胜三平一负、只失六球，最近两个西甲客场连续零封，近六个客场五次不败。逻辑很清楚：他们不适合当\"主队\"，却极适合当\"反派\"，4-2-3-1收到中低位，雷东多蹲最底（近期甚至被拉去打中卫），贡萨洛·比利亚尔与莫尔西略控中场，勒马尔在两条线之间穿针，巴莱拉冲肋部，塞佩达拉边，费尔南多·尼尼奥一人扛下六球，是全队唯一的稳定终结点，再没人上过双。问题是间歇期这一轮减员不小：阿瓜多脚踝长期缺阵、博阿亚尔与亚戈·圣地亚哥缺席、胡阿里脚踝存疑，勒马尔大腿伤还没拿到医疗放行，雷维沃小腿不适只做了部分合练，塞佩达最后一天才从智利队归队——安塞尔米的中场覆盖和边路轮换被削薄了一层，极端情况下可能被迫改打五后卫。还有一条暗雷：十二轮32张黄牌，联赛第三多，情绪管理不干净。\n\n交锋是这组对决里最硬的一层注脚：近八次正式比赛莱万特只输过一场（四胜三平），近十一次主场碰埃尔切赢下八次，今年初那场就是主场逆转收尾；而埃尔切上一次在瓦伦西亚带走联赛胜利，要一路翻回上世纪九十年代初的西乙B，此后二十次做客奥里奥尔斯无一胜绩，近十次在这里有七次至少丢两球。心理这层窗户纸，客队三十年没捅破过。\n\n对位看三处：其一，莱万特的定位球与边路传中，正砸向埃尔切...",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 5,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 2,
+        "zh": 5,
+        "home_mentions": 5,
+        "away_mentions": 5
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周一007",
+      "league": "巴甲",
+      "home": "博塔弗戈",
+      "away": "圣保罗",
+      "home_en": "博塔弗戈",
+      "away_en": "圣保罗",
+      "queries": [
+        "\"博塔弗戈 vs 圣保罗\" preview prediction lang:en",
+        "博塔弗戈 圣保罗 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "圣保罗vs博塔弗戈比赛优劣势分析_独家情报-雷速体育",
+          "url": "https://www.leisu.com/guide/swot-4202281",
+          "site": "雷速体育",
+          "date": null,
+          "authority": 3,
+          "score": 1.7733055353164673,
+          "summary": "- 情报对比\n- 走势分析\n\n圣保罗 联赛排名巴西甲5\n\n博塔弗戈 联赛排名巴西甲1\n\n69% 不败\n\n赛果概率\n\n8 胜 7 平 5 负 历史交锋 5 胜 7 平 8 负\n\n40% 25%\n\n6 胜 4 平 5 负 近期战绩 7 胜 5 平 3 负\n\n40% 46.67%\n\n31% 胜\n\n过去3年相似走势共出现81次，其中 | 主胜 42% | 平局 27% | 客胜 31% | 查看数据分析\n...\n有利情报\n\n不利情报\n\n中立情报\n...\n平均让球\n\n42% 59%\n\n0.78 0 1.1\n\n平均胜负\n\n35% 31%\n\n2.54 2.56 2.9\n\n平均进球数\n\n47% 53%\n\n0.88 2 0.98\n\n以上各种走势数据截止时间：04月10日 08时46分，本文由雷速体育独家原创，内容仅供参考。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主胜"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Previews - Gustavo Pulido - Botafogo and Sao Paulo draw in an evenly matched game, both remaining in a poor run of form",
+          "url": "https://football.hkjc.com/en-us/preview-summary/details-page?path=MatchPreview/2026-11/19/FB9342&Expert=BD1_Gustavo%20Pulido&MatchID=FB9342&Title=Botafogo%20and%20Sao%20Paulo%20draw%20in%20an%20evenly%20matched%20game%2C%20both%20remaining%20in%20a%20poor%20run%20of%20form",
+          "site": "香港賽馬會",
+          "date": null,
+          "authority": 3,
+          "score": 1.6720572710037231,
+          "summary": "## Botafogo and Sao Paulo draw in an evenly matched game, both remaining in a poor run of form\n\nRecommendation: Home/Away/Draw – Draw\n...\nFirst Half HAD - Draw\n\nTEAM NEWS:\n\nBotafogo remains without midfielder Danilo—the team's best player this season—who continues his recovery in the club's medical department.\n\nSao Paulo remains without midfielder Marcos Antonio—a key player for manager Dorival Junior’s squad—who continues to be sidelined due to injury.\n...\nSuspended: Huguinho (accumulation of yellow cards)\n\nDoubtful: None\n\nInjured/Unavailable: Danilo (right thigh) and Barrera (left ankle)\n...\nMarcos Antonio (right ankle), Sabino (right knee), Domingos Duarte (right knee), Nicolas (left knee), and Aurelio Buta (right knee)\n\nMATCH PREVIEW\n\nBotafogo lost 4-0 away to Corinthians in the latest round. It was a poor performance; the team—managed by Tite—failed to get going and was easily outplayed by their opponents. This heavy-margin defeat has left the fans concerned as the competition enters its final stretch. Beyond the lackluster displays, Botafogo has yet to fully escape the threat of the relegation zone. Furthermore, in their last four league matches, they have recorded three defeats and one win, scoring two goals while conceding nine.\n\nSao Paulo lost 1-0 at home to Fluminense in the last round. Even playing on their own turf, coach Dorival Júnior’s side delivered a performance well below expectations. Failing to create any significant opportunities, Sao Paulo posed no real threat to the opposition’s goal. Consequently, the team is now on a four-league match winless streak—consisting of two defeats and two draws—and left the pitch to jeers from their own fans in their most recent outing.\n\nThe encounter promises to be tense, with both teams facing pressure from their respective fanbases. Given their recent performances, neither Botafogo nor Sao Paulo enters the match with much confidence, suggesting a closely contested affair. As such, I expect a game with few clear-cut chances, likely ending in a draw.\n\nHEAD TO HEAD\n\nIn the last eight matches between the teams, things have been quite evenly matched. Botafogo managed one win, there were six draws, and Sao Paulo also secured one win.",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "博塔弗戈 vs 圣保罗进球数预测：模型预计2.4球，最可能2球",
+          "url": "https://m.dongqiudi.com/xinwen/213850",
+          "site": "懂球帝",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6566694974899292,
+          "summary": "# 博塔弗戈 vs 圣保罗进球数预测：模型预计2.4球，最可能2球\n...\n进球数预测巴甲 博塔弗戈 vs 圣保罗\n...\n- 预计总进球2.4球，2球概率27%最高\n- 两队都进球概率50%\n- 三模型进球期望：2.56球、2.31球、2.43球\n\n北京时间2026年11月24日07:00周二，巴甲第36轮，博塔弗戈主场迎战圣保罗。懂球帝数据模型综合三个模型的平均结果，预计两队合计进2.4球左右，其中博塔弗戈1.4球、圣保罗1.1球。\n\n总进球各档概率中，2球概率27%为最高，1球19%、3球21%、0球10%、4球13%、5球及以上10%。3球及以上合计44%，2球及以下合计56%。两队都进球的概率50%；博塔弗戈零封对手的概率35%，圣保罗零封对手的概率26%。\n\n泊松进球模型按本赛季巴甲场均数据计算，博塔弗戈进攻强度1.04、防守1.14，圣保罗进攻强度0.76、防守1.00，得到进球期望：博塔弗戈1.59球、圣保罗0.97球，合计2.56球。\n\n近况加权模型只看两队各项赛事最近10场，博塔弗戈加权场均进0.74球、失1.85球，圣保罗加权场均进0.80球、失1.09球，主场加成1.17，算出进球期望：博塔弗戈1.17球、圣保罗1.14球，合计2.31球。\n\nElo等级分模型赛前博塔弗戈1666分、圣保罗1680分，主场优势按60分算，博塔弗戈胜率期望0.57，进球期望：博塔弗戈1.35球、圣保罗1.08球，合计2.43球。\n\n近5场博塔弗戈2胜0平3负（进3失9），圣保罗1胜2平2负（进4失5）。本赛季巴甲博塔弗戈35战11胜9平15负，圣保罗35战12胜8平15负。历史交锋31次，博塔弗戈10胜11平10负，圣保罗10胜11平10负。\n\n模型只看历史数据，不知道伤停和临场变化，结果仅供参考。\n\n本文根据懂球帝数据的报道《博塔弗戈vs圣保罗进球数预测（巴甲）》编译整理。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "博塔弗戈對聖保羅 交手統計數據 | FootyStats - Loading",
+          "url": "https://footystats.org/zht/brazil/botafogo-fr-vs-sao-paulo-fc-h2h-stats#1",
+          "site": "FootyStats",
+          "date": null,
+          "authority": 3,
+          "score": 1.6259256601333618,
+          "summary": "# 博塔弗戈對聖保羅數據、分析及H2H\n\n1.59\n...\n0.59\n...\n## 正面交手統計數據 / 以前的結果 - 博塔弗戈對聖保羅\n\n25\n賽事\n\n24%\n\n40%\n\n36%\n\n6 贏\n\n10 平局(40%)\n\n9 贏\n\n博塔弗戈 vs 聖保羅的交鋒紀錄顯示25, 博塔弗戈 6 次獲勝且 聖保羅 9次獲勝。 博塔弗戈和聖保羅之間有10次交鋒在以和局告終。\n\n60%高於1.5\n\n15 / 25 賽事\n\n44%高於2.5\n\n11 / 25 賽事\n\n28%高於3.5\n\n7 / 25 賽事\n\n48%兩隊都得分\n\n12 / 25 賽事\n\n32%沒有失球\n...\n36%沒有失球\n...\n## 所有分析- 博塔弗戈對聖保羅\n\n50%高於2.5\n\n聯盟平均 : 51%\n\n76%高於1.5\n...\n62%兩隊都得分\n...\n2.62每場賽事進球數\n...\n高於1.5進球，上半場/下半場 ＆ 更多\n\n高於 8.5, 9.5進球 & 更多\n\n*本賽季博塔弗戈和聖保羅之間的平均統計數據\n\n### 博塔弗戈\n巴西 - Serie A\n聯賽位置. 11 / 20\n...\n總體\n...\n客場\n\n贏%\n\n32%\n\n41%\n...\n2.91\n\n2.88\n\n2.94\n...\n1.35\n\n1.59\n\n1.12\n...\n1.56\n\n1.29\n\n1.82\n...\n65%\n...\n18%\n\n29%\n\n6%\n\n第一隊入球\n...\nxG\n\n1.56\n\n1.74\n\n1.38\n\n預計失球數\n\n1.64\n\n1.57\n\n1.71\n\n這些統計數據是什麼?\n...\n### 聖保羅\n...\n10 / 20\n...\n35%\n\n59%\n\n12%\n...\n2.29\n\n2.24\n\n2.35\n...\n1.15\n\n1.47\n\n0.82\n...\n0.76\n\n1.53\n...\n56%\n\n53%\n...\n1.50\n\n1.66\n\n1.34\n...\n1.33\n\n1.17\n\n1.49\n\n## 進球數 誰得分更多？\n\n博塔弗戈 是 +94% 更好 方面 進球\n\n1.59 每場賽事進球數\n\n博塔弗戈 (主場)\n\n0.82 每場賽事進球數\n\n聖保羅 (客場)\n\n全場\n...\n每場平均得分 | Botafogo | São Paulo \n---|---|---\n高於0.5 | 82% | 65% \n高於1.5 | 47% | 18% \n高於2.5 | 24% | 0% \n高於3.5 | 6% | 0% \n未能得分 | 18% | 35% \n\n上半場/下半場 得分 | Botafogo | São Paulo \n---|---|---\n上半場得分 | 47% | 29% \n下半場得分 | 59% | 41% \n上下半場均得分 | 24% | 6% \n上半場平均得分 | 0.59 | 0.35 \n下半場平均得分 | 1.00 | 0.47 \n\n*數據來源於博塔弗戈的主場得分紀錄和 聖保羅 的客場數據。\n\n## 失球數 誰會失球？\n\n博塔弗戈 是 +19% 更好 方面 失球\n\n1.29 每場球賽失球\n...\n1.53 每場球賽失球\n...\n角球 / 比賽 | Botafogo | São Paulo \n---|---|---\n高於0.5 | 71% | 94%\n...\n*數據來源於博塔弗戈...",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "博塔弗戈 vs 圣保罗比分预测：模型看好博塔弗戈，最可能1-1",
+          "url": "https://m.dongqiudi.com/xinwen/213681",
+          "site": "懂球帝",
+          "date": "2026-11-20T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6259256601333618,
+          "summary": "# 博塔弗戈 vs 圣保罗比分预测：模型看好博塔弗戈，最可能1-1\n...\n比分预测巴甲 博塔弗戈 vs 圣保罗\n...\n## 30 秒看懂\n\n- 三模型平均：博塔弗戈胜43%、平29%、圣保罗胜28%\n- 综合最可能比分1-1（13.9%），预计合计2.4球\n- 泊松模型最看好博塔弗戈，胜率50%\n\n北京时间2026年11月24日07:00周二，巴甲第36轮，博塔弗戈主场对圣保罗。懂球帝数据模型按开球前的历史比赛数据算出综合预测：博塔弗戈胜43%、平局29%、圣保罗胜28%，最可能的比分是1-1（13.9%）、1-0（10.7%）、0-0（10.1%），预计两队合计进2.4球左右，两队都进球的概率50%。\n\n泊松进球模型按本赛季巴甲的场均进球，算出两队在主客场的进攻和防守强度，相乘得到进球期望，再按泊松分布算每个比分的概率，并对0-0、1-1这类低比分做Dixon-Coles修正。本赛季巴甲截至赛前已赛351场，场均主队进1.53球、客队进1.12球；博塔弗戈本赛季17个主场场均进1.59球、失1.29球，进攻强度1.04、防守1.14；圣保罗本赛季17个客场场均进0.82球、失1.53球，进攻强度0.76、防守1.00；进球期望博塔弗戈1.59、圣保罗0.97。结果：博塔弗戈胜50%、平28%、圣保罗胜22%，最可能比分1-1（13.1%）、1-0（11.1%）、2-0（9.7%）。\n\n近况加权模型只看两队各项赛事最近10场，越近的比赛权重越大，每往前一场权重乘0.85，用加权后的场均进球和对手的场均失球算进球期望，主场按赛事主客场进球比例加成。博塔弗戈近10场加权场均进0.74球、失1.85球；圣保罗近10场加权场均进0.80球、失1.09球；主场加成1.17；进球期望博塔弗戈1.17、圣保罗1.14。结果：博塔弗戈胜35%、平31%、圣保罗胜34%，最可能比分1-1（14.6%）、0-0（11.3%）、1-0（10.3%）。\n\nElo等级分模型按懂球帝收录的全部正式比赛，从1500分起给每支球队算Elo等级分，赛前两队分差加上主场优势换算成胜率期望，再结合预计总进球换算成各自的进球期望。赛前等级分：博塔弗戈1666（已算721场）、圣保罗1680（已算871场），主场优势按60分算；博塔弗戈的胜率期望0.57；进球期望博塔弗戈1.35、圣保罗1.08。结果：博塔弗戈胜42%、平30%、圣保罗胜28%，最可能比分1-1（14.1%）、1-0（10.6%）、0-0（10.1%）。\n\n三个模型对胜负的看法并不一致：泊松模型给博塔弗戈50%的胜率，Elo等级分模型给42%，近况加权模型只有35%，且近况加权模型认为圣保罗胜34%、平31%，与博塔弗戈胜35%几乎持平，是三家里分歧最大的一家。\n\n模型近30天在巴甲的战绩：泊松进球模型42场猜中...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": [
+            "1 比 1",
+            "0 比 0"
+          ]
+        }
+      ],
+      "tally": {
+        "home": 3,
+        "away": 0,
+        "draw": 1,
+        "goals": 0,
+        "none": 1,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 3,
+        "zh": 4,
+        "home_mentions": 4,
+        "away_mentions": 3
+      },
+      "scores": [
+        "1 比 1",
+        "0 比 0"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周一008",
+      "league": "美职",
+      "home": "圣路易城",
+      "away": "洛杉矶FC",
+      "home_en": "圣路易城",
+      "away_en": "洛杉矶FC",
+      "queries": [
+        "\"圣路易城 vs 洛杉矶FC\" preview prediction lang:en",
+        "圣路易城 洛杉矶FC 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Los Angeles FC visits Saint Louis City SC in first round of MLS Cup Playoffs",
+          "url": "https://apnews.com/article/los-angeles-fc-soccer-mls-soccer-st-louis-mls-cup-77a2e422672f4d5f945ab0fc4661bb58",
+          "site": "AP News",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 4,
+          "score": 2.032424211502075,
+          "summary": "# Los Angeles FC visits Saint Louis City SC in first round of MLS Cup Playoffs\n\nBy THE ASSOCIATED PRESS\n\nLos Angeles FC (12-11-11, seventh in the Western Conference during the regular season) vs. Saint Louis City SC (15-10-9, fourth in the Conference during the regular season)\n\nOld North Saint Louis, St. Louis; Monday, 8 p.m. EST\n\nLINE: Saint Louis +132, LAFC +175; over/under is 2.5 goals\n\nBOTTOM LINE: Los Angeles FC visits Saint Louis City SC in the first round of the MLS Cup Playoffs.\n\nSaint Louis is 12-10-6 against conference opponents. Saint Louis has a 35-9-7 record in games it scores a pair of goals.\n\nLAFC is 9-11-9 in Western Conference games. LAFC ranks third in the MLS allowing 40 goals.\n\nThe teams meet Monday for the second time this season. Saint Louis won the last meeting 2-1.\n\nTOP PERFORMERS: Simon Becher has scored nine goals with four assists for Saint Louis. Rafael Navarro has six goals and three assists over the last 10 games.\n\nDenis Bouanga has scored 18 goals and added five assists for LAFC. Marky Delgado has two assists over the past 10 games.\n\nLAST 10 GAMES: Saint Louis: 17-8-5, averaging 6.3 goals, 16.8 shots on goal and 12.6 corner kicks per game while allowing 4.5 goals per game.\n\nLAFC: 12-8-10, averaging 4.2 goals, 17.4 shots on goal and 21.9 corner kicks per game while allowing 4.8 goals per game.\n\nNOT EXPECTED TO PLAY:\n...\nCelio Pompeu (injured), Carlo Holse (injured), Roman Burki (injured).\n\nLAFC: Thayllon Roberth (injured), Jacob Shaffelburg (injured), Timothy Tillmann (injured), Aaron Long (injured), Tyler Boyd (injured), Hugo Lloris (injured).\n\nThe Associated Press created this story using technology provided by Data Skrive and data from Sportradar.",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "孙兴慜领衔洛杉矶客战圣路易斯城，霍尔斯出战成疑",
+          "url": "http://pc.dongqiudi.com/articles/6680739.html",
+          "site": "懂球帝",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9640988111495972,
+          "summary": "# 孙兴慜领衔洛杉矶客战圣路易斯城，霍尔斯出战成疑\n\n北京时间11月24日09:00，美职联季后赛三局两胜系列赛首场，圣路易斯城将在Energizer公园球场迎战洛杉矶。圣路易斯城常规赛1-0击败休斯顿迪纳摩，以西部第三收官；洛杉矶排名第六，决定日1-2不敌西雅图海湾人。\n\n圣路易斯城方面，中场霍尔斯因膝伤出战成疑，塞利奥-庞佩乌仍在十字韧带撕裂的恢复中，布尔基则希望从脑震荡协议中回归。上一场对阵迪纳摩，卢卡斯-麦克诺顿打入唯一进球，伦特顶替布尔基做出六次扑救完成零封。\n\n洛杉矶方面，沙费尔伯格因肋骨骨折不太可能出场，洛里同样在恢复肋骨伤势，阿龙-朗头部受伤，蒂尔曼因骨盆问题出战成疑。孙兴慜在最近三场季后赛中均有进球，塞古拉在决定日对阵西雅图的失利中打入唯一进球。\n\n这是圣路易斯城自2023年首个赛季以来首次进入季后赛，2026年以54分收官，在达梅带领下比2025年多拿22分。球队今年主场赢下九场常规赛，但目前正经历美职联主场三场不胜，期间仅拿到一分。圣路易斯城此前仅有的两场季后赛均告负，且从未在季后赛中领先过。常规赛主场率先进球的联赛中，他们从未输球。\n\n洛杉矶自塔马里特接替多斯桑托斯以来，联赛仅取得一场胜利，塔马里特仍在寻求首场国内客场胜利。洛杉矶自七月客场3-0战胜洛杉矶银河后，还未在美职联客场赢过球。常规赛他们失球数西部第二少（40球），场均失球1.2球为美职联第三少。队史八次联赛对阵圣路易斯城，洛杉矶七次拿分，包括在Energizer公园球场的两场胜利和三场零封。今年五月，圣路易斯城曾在主场2-1击败洛杉矶。\n\n圣路易斯城可能首发：布尔基；卢卡斯-麦克诺顿、鲍姆加特尔、法卢-法尔；康拉德-瓦勒姆、波尔瓦拉、德金、托特兰；达米恩-唐斯、拉斐尔-纳瓦罗、奥斯特拉克。洛杉矶可能首发：卡布拉尔-卡特；霍林斯黑德、波蒂厄斯、塞古拉、切贝尔科；乔伊涅雷、德尔加多；席布、瓦尔塔、布安加；孙兴慜。",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "韩媒：体育画报看衰洛杉矶，预计季后赛首轮出局",
+          "url": "https://beta.dongqiudi.com/articles/6631944.html",
+          "site": "懂球帝",
+          "date": "2026-11-08T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9337319135665896,
+          "summary": "# 韩媒：体育画报看衰洛杉矶，预计季后赛首轮出局\n\n[体育朝鲜 金大植记者]洛杉矶预计会连争冠都没打出来就被淘汰。\n\n8日（以下均为韩国时间），洛杉矶在美国西雅图鲁门球场进行的2026赛季美国职业足球大联盟（MLS）西部赛区第34轮客场比赛中，以1比2不敌西雅图海湾人。洛杉矶在联赛34场比赛后拿到47分，以西部第6名结束常规赛。\n\n洛杉矶将在MLS杯季后赛首轮对阵西部赛区第3名圣路易斯城。两队将于21日在美国密苏里州的能量饮料公园球场进行MLS杯季后赛首轮较量。首轮采取三场两胜制。\n\n对阵确定后，美国媒体《体育画报》预测洛杉矶会出局。该媒体写道：“洛杉矶最近的走势堪称戏剧性的滑落。”随后又解释：“在持续低迷之后，洛杉矶于去年9月解雇马尔克-多斯-桑托斯，并让萨维-塔马里特接手。”不过换帅也没能带来反弹。媒体称：“洛杉矶随后4场只拿到4分，接连输给明尼苏达联和西雅图海湾人。”\n\n如今，洛杉矶将踏上客场，挑战想要拿到队史首个季后赛系列赛胜利的圣路易斯城。媒体写道：“圣路易斯在队史首座冠军奖杯——美国公开杯到手、并度过历史性不败连胜和激动人心的一夜后，遭遇4连败，状态有所下滑。”随后补充说：“但他们在常规赛最后一轮做客休斯敦迪纳摩时凭借绝杀球取胜，找回了转机。”两队近期状态都不理想，不过圣路易斯城带着最后一场胜利带来的气势迎来这轮系列赛。\n\n媒体表示：“如果洛杉矶没法让进攻核心布安加和孙兴慜彻底找回状态，圣路易斯城看起来更有可能赢球。”媒体还认为：“圣路易斯城在最近与洛杉矶的交锋中也拿到了胜利，因此会带着相当的自信迎战。”换句话说，在换帅之后仍未止住颓势的情况下，洛杉矶能否唤醒锋线，将是这场客战的关键。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=&gm=2646360",
+          "site": "中国竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.7966705560684204,
+          "summary": "排名: Regular Season 第3名\n\n赛季总成绩: 15胜 9平 10负\n\n赛季主场成绩: 9胜 4平 4负\n\n排名: Regular Season 第6名\n\n赛季总成绩: 12胜 11平 11负\n\n赛季客场成绩: 3胜 7平 7负\n\n特征分析\n\n圣路易城 (主)\n\n2胜/2平/5负\n\n2胜/1平/2负\n\n4胜/2平/4负\n\n5胜/3平/2负\n\n1.7个\n\n1.3个\n\n近9场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n洛杉矶FC (客)\n\n5胜/2平/2负\n...\n2胜/4平/4负\n\n1胜/5平/4负\n\n1.4个\n\n1.6个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n积分榜 美职2026\n\n圣路易城Regular Season 第3名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 34 | 15/9/10 | 44% | 59/48 | 11 | 54 | 3 \n主 | 17 | 9/4/4 | 53% | 36/23 | 13 | 31 | 6 \n客 | 17 | 6/5/6 | 35% | 23/25 | -2 | 23 | 4 \n\n洛杉矶FCRegular Season 第6名 查看更多>\n...\n总 | 34 | 12/11/11 | 35% | 52/40 | 12 | 47 | 6 \n主 | 17 | 9/4/4 | 53% | 32/18 | 14 | 31 | 5 \n客 | 17 | 3/7/7 | 18% | 20/22 | -2 | 16 | 10 \n\n比赛近况\n...\n圣路易城近10场4胜 (40%) | 2平 (20%) | 4负 (40%)\n\n进17球，失13球，净进4球\n\n洛杉矶FC近10场2胜 (20%) | 4平 (40%) | 4负 (40%)\n\n进14球，失16球，净进-2球\n...\n射手信息 美职2026\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n9-Rafael Navarro(前锋) | 34 (33/1) | 19 (28%) | 6 (13%) | 0.6/0.2 \n11-S. Becher(前锋) | 34 (25/9) | 9 (13%) | 4 (9%) | 0.3/0.1 \n17-M. Hartel(中场) | 16 (15/1) | 6 (9%) | 3 (7%) | 0.4/0.2\n...\n99-丹尼斯·博安加(前锋) | 32 (31/1) | 18 (37%) | 5 (13%) | 0.6/0.2 \n7-孙兴慜(前锋) | 31 (29/2) | 7 (14%) | 12 (31%) | 0.2/0.4 \n30-D. Martínez(前锋) | 18 (11/7) | 6 (12%) | 0 (0%) | 0.3/0 \n\n伤停一览\n...\n暂无数据\n...\n注：赛事数据统计进行至全场90分钟（含伤停补时阶段）结果。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "百度体育直播 圣路易斯城 vs 洛杉矶FC 05-14 08:30_百度体育",
+          "url": "https://tiyu.baidu.com/al/live/detail?matchId=576O5Zu96IGM5Lia5aSn6IGU55uf6IGU6LWbIzIwMjYtMDUtMTQj5Zyj6Lev5piT5pav5Z%2BOdnPmtJvmnYnnn7ZGQw%3D%3D&tab=%e8%b5%9b%e5%86%b5",
+          "site": "百度体育",
+          "date": null,
+          "authority": 3,
+          "score": 1.7343639135360718,
+          "summary": "3人参与截止时间 05-14 08:30\n...\n历史战绩(近6场)\n\n全部\n\n同主客\n\n以下数据均为主队(圣路易斯城)视角\n\n胜率 17%\n\n赢盘率 33%\n\n大球率 33%\n\n时间/赛事\n\n2026-03-15\n\n美职联\n\n2025-09-28\n...\n2025-04-28\n...\n2024-10-03\n...\n2024-05-16\n...\n2024-02-08\n\n球会友谊\n\n对阵比分\n\n让球\n\n进球数\n\n洛杉矶FC2-0圣路易斯城\n\n1.75\n\n输盘\n\n3.25\n\n小球\n\n圣路易斯城0-3洛杉矶FC\n\n-0.5\n...\n2.5\n...\n洛杉矶FC2-2圣路易斯城\n\n0.75\n...\n2.25\n...\n洛杉矶FC1-0圣路易斯城\n\n1.25\n...\n圣路易斯城0-2洛杉矶FC\n\n0.0\n...\n2.75\n...\n圣路易斯城1-0洛杉矶FC\n\n圣路易斯城近期战绩(近6场)\n...\n赢盘率 67%\n\n大球率 67%\n...\n2026-04-26\n...\n2026-04-19\n...\n2026-04-16\n\n美公开赛\n\n2026-04-12\n...\n2026-04-05\n...\n2026-03-22\n...\n圣路易斯城2-3圣何塞地震\n\n0.25\n...\n西雅图海湾人4-1圣路易斯城\n\n1.0\n...\n3.0\n...\n圣路易斯城4-0塔尔萨钻机工\n...\n达拉斯FC1-1圣路易斯城\n...\n纽约城1-1圣路易斯城\n...\n圣路易斯城3-1新英格兰革命\n...\n洛杉矶FC近期战绩(近6场)\n...\n赢盘率 50%\n\n大球率 33%\n...\n2026-04-23\n...\n2026-04-20\n...\n2026-04-15\n\n美冠杯\n...\n2026-04-08\n...\n明尼苏达联0-1洛杉矶FC\n...\n洛杉矶FC0-0科罗拉多急流\n...\n洛杉矶FC1-4圣何塞地震\n...\n蓝十字1-1洛杉矶FC\n...\n波特兰伐木工2-1洛杉矶FC\n\n-0.75\n...\n走盘\n\n洛杉矶FC3-0蓝十字",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "大球"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 1,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 4,
+        "home_mentions": 1,
+        "away_mentions": 2
+      },
+      "scores": [],
+      "fetched": 0
+    }
+  ]
+}

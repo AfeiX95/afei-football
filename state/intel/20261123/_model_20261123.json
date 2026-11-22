@@ -1,0 +1,366 @@
+{
+ "001": {
+  "match": "瑞超 厄格里特 vs 卡尔马",
+  "kickoff": "02:00",
+  "id": "1362868",
+  "market3": [
+   0.279,
+   0.266,
+   0.455
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": 1.0,
+  "jc_ah_side": "主受让",
+  "jc_ah_water": [
+   0.65,
+   2.85
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 2.89,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "003": {
+  "match": "意甲 蒙扎 vs 佛罗伦萨",
+  "kickoff": "03:45",
+  "id": "1414227",
+  "market3": [
+   0.262,
+   0.241,
+   0.497
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": 1.0,
+  "jc_ah_side": "主受让",
+  "jc_ah_water": [
+   0.77,
+   2.25
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.24,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "004": {
+  "match": "法乙 索肖 vs 敦刻尔克",
+  "kickoff": "03:45",
+  "id": "1416968",
+  "market3": [
+   0.399,
+   0.283,
+   0.318
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   3.7,
+   0.49
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 2.71,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "005": {
+  "match": "英超 布伦特 vs 埃弗顿",
+  "kickoff": "04:00",
+  "id": "1420334",
+  "market3": [
+   0.4505,
+   0.2663,
+   0.2833
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   2.92,
+   0.63
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 2.94,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "006": {
+  "match": "西甲 莱万特 vs 埃尔切",
+  "kickoff": "04:00",
+  "id": "1428227",
+  "market3": [
+   0.445,
+   0.262,
+   0.293
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   2.92,
+   0.62
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.1,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "007": {
+  "match": "巴甲 博塔弗戈 vs 圣保罗",
+  "kickoff": "07:00",
+  "id": "1362568",
+  "market3": [
+   0.418,
+   0.281,
+   0.301
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   3.55,
+   0.55
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 2.73,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "008": {
+  "match": "美职 圣路易城 vs 洛杉矶FC",
+  "kickoff": "09:00",
+  "id": "2190346",
+  "market3": [
+   0.39,
+   0.27,
+   0.34
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   3.95,
+   0.45
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.04,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ }
+}

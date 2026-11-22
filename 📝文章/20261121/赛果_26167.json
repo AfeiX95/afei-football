@@ -1,0 +1,29 @@
+{
+  "issue": "26167",
+  "source": "中国体彩胜负彩26167期官方开奖(13033103300101) + 五大联赛90分钟赛果",
+  "draw_code": "13033103300101",
+  "prize": {
+    "first_count": 102,
+    "first_amount": 185847,
+    "second_count": 2678,
+    "second_amount": 2162,
+    "r9_count": 13530,
+    "r9_amount": 902
+  },
+  "results": {
+    "1": {"result": 1, "score": "0-0"},
+    "2": {"result": 3, "score": "2-0"},
+    "3": {"result": 0, "score": "1-4"},
+    "4": {"result": 3, "score": "3-2"},
+    "5": {"result": 3, "score": "2-0"},
+    "6": {"result": 1, "score": "2-2"},
+    "7": {"result": 0, "score": "0-1"},
+    "8": {"result": 3, "score": "1-0"},
+    "9": {"result": 3, "score": "4-0"},
+    "10": {"result": 0, "score": "0-1"},
+    "11": {"result": 0, "score": "1-5"},
+    "12": {"result": 1, "score": "0-0"},
+    "13": {"result": 0, "score": "1-5"},
+    "14": {"result": 1, "score": "1-1"}
+  }
+}
