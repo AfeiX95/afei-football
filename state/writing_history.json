@@ -441,22 +441,40 @@
       "column": "阿飞看球",
       "path": "📝文章\\20261123\\20261123_周一001+002+007+008_厄格里特VS卡尔马圣路易城VS洛杉矶FC_严寒与零射正_赛事前瞻.md",
       "status": "published"
+    },
+    {
+      "id": "20261124-28",
+      "scheme": "engine-v1",
+      "date": "2026-11-24",
+      "title": "1124 曼城VS那不勒斯，阿森纳VS多特：欧冠8场拆局",
+      "teams": "",
+      "stage": "pre",
+      "style": "A",
+      "structure": "S10",
+      "opening": "反常数据切入",
+      "opening_text": "欧冠联赛阶段第五轮这八场，牌面强弱看似分明，可把伤停、草皮天气和近五场丢球摊开，几支热门其实暗藏卡壳点。阿飞按各场最能左右走势的关键变量，逐场拆开聊。",
+      "ending": "总结观点",
+      "title_pattern": "数字陈述式",
+      "humor": "",
+      "column": "",
+      "path": "📝文章\\20261124\\20261124_周二004+005+006+007+008+009+010+011_曼城VS那不勒斯阿森纳VS多特_欧冠八场拆局_赛事前瞻.md",
+      "status": "published"
     }
   ],
   "note": "写作轮换账本（R62 双层轮换）：scheme=engine-v1 的记录参与新轮换；scheme=R53-v1 为旧十结构池，ID 含义不同，只留档。只记已过 preflight 的稿。",
   "engine": {
     "version": "AFEI-WRITING-ENGINE v1.0",
-    "last_style": "C",
-    "last_ab": "B",
+    "last_style": "A",
+    "last_ab": "A",
     "last_structures": [
-      "S05",
       "S09",
-      "S02"
+      "S02",
+      "S10"
     ],
     "last_openings": [
-      "反常数据切入",
       "陈述切入",
-      "疑问切入"
+      "疑问切入",
+      "反常数据切入"
     ],
     "last_ending": "总结观点",
     "rotation_rule": {
