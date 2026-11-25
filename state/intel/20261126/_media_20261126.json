@@ -1,0 +1,1000 @@
+{
+  "date": "20261126",
+  "fetched_at": "2026-11-26T01:08:41",
+  "calls": 18,
+  "items": [
+    {
+      "no": "周四002",
+      "league": "欧罗巴",
+      "home": "萨迪纳摩",
+      "away": "勒沃库森",
+      "home_en": "萨迪纳摩",
+      "away_en": "Bayer Leverkusen",
+      "queries": [
+        "\"萨迪纳摩 vs Bayer Leverkusen\" preview prediction lang:en",
+        "萨迪纳摩 勒沃库森 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "萨格勒布迪纳摩vs勒沃库森比分预测：模型看好萨格勒布迪纳摩，最可能1-1",
+          "url": "https://m.dongqiudi.com/xinwen/238191",
+          "site": "懂球帝",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.5951817035675049,
+          "summary": "# 萨格勒布迪纳摩vs勒沃库森比分预测：模型看好萨格勒布迪纳摩，最可能1-1\n...\n比分预测欧联 萨格勒布迪纳摩 vs 勒沃库森\n...\n## 30 秒看懂\n\n- 综合预测萨格勒布迪纳摩胜43%、勒沃库森胜36%\n- 综合最可能比分是1-1（7.4%）\n- 三个模型分歧在胜负方向，Elo更看好勒沃库森\n\n北京时间2026年11月27日 01:45，欧联联赛阶段第5轮，萨格勒布迪纳摩主场对勒沃库森。这是懂球帝数据模型按开球前已经完场的比赛算出的预测：三个模型的平均结果是萨格勒布迪纳摩胜43%、平局21%、勒沃库森胜36%，最可能的比分是1-1（7.4%）、2-1（7.3%）、2-2（7.1%），预计两队合计进4.2球左右，两队都进球的概率77%。\n\n泊松进球模型按本赛季欧联的场均进球算出两队主客场进攻和防守强度，相乘得到进球期望，再按泊松分布算每个比分，并对低比分做Dixon-Coles修正。本赛季欧联截至赛前已赛152场，场均主队进1.58球、客队进1.25球；萨格勒布迪纳摩近10个主场场均进2.60球、失1.20球，进攻强度1.54、防守0.97；勒沃库森近10个客场场均进2.30球、失1.60球，进攻强度1.70、防守1.01。进球期望萨格勒布迪纳摩2.46、勒沃库森2.05，结果萨格勒布迪纳摩胜47%、平20%、勒沃库森胜33%，最可能比分2-2（7%）、2-1（6.8%）、1-1（6.1%）。\n\n近况加权模型只看两队各项赛事最近10场，越近权重越大，每往前一场权重乘0.85，用加权后的场均进球和对手场均失球算进球期望，主场按赛事主客场进球比例加成。萨格勒布迪纳摩近10场加权场均进2.26球、失1.33球；勒沃库森近10场加权场均进2.42球、失1.39球；主场加成1.12。进球期望萨格勒布迪纳摩2.10、勒沃库森1.69，结果萨格勒布迪纳摩胜47%、平22%、勒沃库森胜31%，最可能比分1-1（8.8%）、2-1（8.4%）、2-2（7.1%）。\n\nElo等级分模型按懂球帝收录的全部正式比赛从1500分起算分，赢球加分、输球扣分，对手越强、赢得越多，变动越大。赛前等级分萨格勒布迪纳摩1867（已算406场）、勒沃库森1957（已算764场），主场优势按60分算；萨格勒布迪纳摩的胜率期望0.46，进球期望萨格勒布迪纳摩1.97、勒沃库森2.19。结果萨格勒布迪纳摩胜35%、平22%、勒沃库森胜43%，最可能比分1-1（7.4%）、1-2（7.4%）、2-2（7.3%）。三个模型在胜负方向上并不一致：泊松和近况加权都看好萨格勒布迪纳摩，Elo则更看好勒沃库森。\n\n模型近30天在欧联的战绩按赛前数据回算完场比赛：泊松进球模型18场猜中胜平负9场（50%）、比分猜中3场；近况加权模型18场猜中胜平负5场...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": [
+            "1 比 1",
+            "2 比 2"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "周四002 萨格勒布迪纳摩vs勒沃库森进球数预测：模型预计4.2球，最可能4球",
+          "url": "https://m.dongqiudi.com/xinwen/237802",
+          "site": "懂球帝",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.5798097848892212,
+          "summary": "# 周四002 萨格勒布迪纳摩vs勒沃库森进球数预测：模型预计4.2球，最可能4球\n...\n进球数预测欧联 萨格勒布迪纳摩 vs 勒沃库森\n...\n## 30 秒看懂\n\n- 懂球帝数据模型预计萨格勒布迪纳摩vs勒沃库森合计进4.2球\n- 4球和3球概率均为19%并列最高，5球及以上概率为40%\n- 两队都进球概率77%，比赛于北京时间2026年11月27日01:45进行\n\n北京时间2026年11月27日01:45，欧联联赛阶段第5轮，萨格勒布迪纳摩主场对阵勒沃库森。懂球帝数据模型综合三个模型预测，预计两队合计进4.2球左右，其中萨格勒布迪纳摩2.2球、勒沃库森2.0球。\n\n总进球各档概率中，4球和3球均为19%，并列最高；5球及以上概率为40%。3球及以上合计78%，2球及以下合计22%。两队都进球的概率为77%；萨格勒布迪纳摩零封对手的概率为14%，勒沃库森零封对手的概率为12%。\n\n泊松进球模型基于本赛季欧联场均数据（已赛152场，场均主队进1.58球、客队进1.25球），结合两队近10场主客场攻防强度，算出萨格勒布迪纳摩进球期望2.46、勒沃库森2.05。\n\n近况加权模型只取两队各项赛事最近10场，按时间加权（每往前一场权重乘0.85），并计入主场加成1.12，得出萨格勒布迪纳摩进球期望2.10、勒沃库森1.69。\n\nElo等级分模型根据赛前等级分（萨格勒布迪纳摩1867、勒沃库森1957）和主场优势60分，换算胜率期望后得出萨格勒布迪纳摩进球期望1.97、勒沃库森2.19。\n\n近5场，萨格勒布迪纳摩4胜0平1负（进10失5），勒沃库森3胜0平2负（进13失8）。本赛季欧联，萨格勒布迪纳摩4战2胜1平1负，勒沃库森4战3胜0平1负。\n\n模型只看历史数据，不知道伤停和临场变化，结果仅供参考。\n\n本文根据懂球帝数据的报道《周四002 萨格勒布迪纳摩vs勒沃库森进球数预测（欧联）》编译整理。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "欧罗巴 萨格勒布迪纳摩 对 勒沃库森，最新消息分享！",
+          "url": "https://www.sohu.com/a/1106355482_123062972?scm=10001.7746_13-119000.0.0-0-0-0-0.0&spm=smpc.channel_354.block3_32_P7Ovbu_1_fd.44.1795611318832FvGGLPd_7746",
+          "site": "Sohu",
+          "date": "2026-11-24T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.4299780130386353,
+          "summary": "# 欧罗巴 萨格勒布迪纳摩 对 勒沃库森，最新消息分享！\n...\n2026-11-25 20:53\n...\n这场有意思了，勒沃库森纸面实力占优，但眼下这支药厂不是那支见谁碾谁的球队。欧联前3轮全胜且一球没丢，看着挺唬人，可最近一个月联赛连着栽跟头，输霍芬海姆、输斯图加特、欧联又0比1被马赛拿下，稳定性掉了一大截。更麻烦的是伤病名单拉得老长，泰里耶、本·塞盖尔、科法内、杜埃、艾希霍恩全挂着免战牌，前场后场都缺人。\n\n萨格勒布迪纳摩这边反而是气势最盛的一方。临时主帅莱科上任之后带队打出一波连胜，欧联客场干掉了桑德兰，联赛也稳住了，球队上下正处在一个“谁都不怕”的劲头上。主场更是他们的底牌，二月份以来在马克西米尔只输过一场球，主场氛围和场地熟悉度都是加成。\n\n药厂个体能力还是更强，但客场带着一套残阵去碰一支主场硬、状态热的球队，想轻轻松松拿走三分不现实。这场我判断勒沃库森会踢得很别扭，萨格勒布至少能咬住比分。比分预测1比1，各拿一分，谁也别嫌少。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "1 比 1"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "百度体育直播 萨格勒布迪纳摩 vs 勒沃库森 明天 01:45_百度体育",
+          "url": "https://tiyu.baidu.com/al/live/detail?matchId=5qyn6Laz6IGU5qyn5rSy6IGU6LWbIzIwMjYtMDktMTcj6JCo5qC85YuS5biD6L%2Bq57qz5pGpdnPli5LmsoPlupPmo64%3D&tab=%E5%88%86%E6%9E%90",
+          "site": "百度体育",
+          "date": null,
+          "authority": 3,
+          "score": 1.3984447717666626,
+          "summary": "121人参与 截止时间 明天 01:45\n...\n萨格勒布迪纳摩近期战绩 (近6场)\n...\n同主客\n\n胜率 67%\n\n赢盘率 50%\n\n大球率 50%\n\n时间/赛事\n\n2026-11-22\n\n克亚联\n\n2026-11-09\n...\n2026-11-06\n\n欧联\n\n2026-11-01\n...\n2026-10-28\n...\n2026-10-23\n...\n对阵比分\n\n让球\n\n进球数\n\n萨格勒布迪纳摩 3 - 2 伊斯特拉1961\n\n2.0\n\n输盘\n\n3.5\n...\n瓦拉日丁 1 - 3 萨格勒布迪纳摩\n\n-0.75\n...\n2.75\n...\n桑德兰 0 - 2 萨格勒布迪纳摩\n\n1.25\n...\n3.0\n\n小球\n\n鲁达士 1 - 0 萨格勒布迪纳摩\n\n-2.0\n...\n萨格勒布迪纳摩 2 - 1 里耶卡\n...\n走盘\n\n萨格勒布迪纳摩 2 - 4 奈梅亨\n...\n勒沃库森近期战绩 (近6场)\n...\n2026-11-21\n\n德甲\n\n2026-11-08\n...\n2026-10-31\n...\n2026-10-29\n\n德国杯\n\n2026-10-25\n...\n勒沃库森 4 - 0 帕德博恩\n...\n3.75\n...\n科隆 1 - 2 勒沃库森\n...\n3.25\n...\n勒沃库森 0 - 1 马赛\n...\n勒沃库森 2 - 4 斯图加特\n...\n勒沃库森 5 - 2 纽伦堡\n\n2.5\n...\n4.0\n...\n霍芬海姆 3 - 0 勒沃库森\n\n-0.25\n...\n赛前预测\n\n22%\n\n萨格勒布迪纳摩 本场胜率\n\n55%\n\n勒沃库森 本场胜率\n\n过去3年，相似赔率共出现92404次\n\n主场胜利平局客场胜利\n\n21% 24%平局 55%\n\n有利情报\n\n1. 萨格勒布迪纳摩3场比赛连胜，状态极佳。\n\n2. 萨格勒布迪纳摩近10场正赛主场8胜1平1负，表现出色。\n\n1. 勒沃库森近10场正赛7胜0平3负，状态不俗。\n\n2. 勒沃库森近10场正赛主场7胜1平2负，表现出色。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "萨格勒布迪纳摩 vs 勒沃库森 赛事推介",
+          "url": "https://v2.news.7m.com.cn/prediction/data/5178746.shtml",
+          "site": "7M体育",
+          "date": null,
+          "authority": 2,
+          "score": 1.3743371963500977,
+          "summary": "萨格勒布迪纳摩\n\n[胜][胜][负][胜][负][胜]\n\nVS\n\n勒沃库森\n...\n2026-11-27 01:45 | 往绩分析 | 现场赛事情况\n\n澳门推介： 勒沃库森 (★★★★★)\n\n双方实力不在同一档次，萨格勒布戴拿模明显输蚀，加上他们上仗欧洲联主场也以2比4惨遭失利，如此一来，萨格勒布戴拿模是役主场沦陷无可避免。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 2,
+        "away": 0,
+        "draw": 1,
+        "goals": 0,
+        "none": 2,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 1,
+        "zh": 5,
+        "home_mentions": 0,
+        "away_mentions": 5
+      },
+      "scores": [
+        "1 比 1",
+        "2 比 2"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周四003",
+      "league": "欧罗巴",
+      "home": "奥林匹亚",
+      "away": "AC米兰",
+      "home_en": "奥林匹亚",
+      "away_en": "AC Milan",
+      "queries": [
+        "\"奥林匹亚 vs AC Milan\" preview prediction lang:en",
+        "奥林匹亚 AC米兰 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "都体：缺少魔笛的米兰将仰仗拉比奥，跻身欧联前八机会不容再失-企鹅直播",
+          "url": "https://zhibo8-qie.com/zx/2446024.html",
+          "site": "",
+          "date": "2026-11-24T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9757604994945257,
+          "summary": "# 都体：缺少魔笛的米兰将仰仗拉比奥，跻身欧联前八机会不容再失\n\n据《都灵体育报》最新报道，AC米兰将启程奔赴雅典备战欧联杯对阵奥林匹亚科斯的关键战役，球队中场莫德里奇因伤无法随队出战。\n\n克罗地亚老将遭遇右大腿股直肌拉伤，确定缺席本场欧联对决，同时他还有可能错过随后联赛对阵卡利亚里的比赛。莫德里奇的缺阵，让拉比奥在中场的地位变得至关重要。报道指出，此前在莫德里奇身旁，拉比奥就已经展现出极强的影响力，现在他需要在缺少这位巨星搭档的情况下挺身而出，承担更多责任，成为中场领袖。\n\n这场和奥林匹亚科斯的交手，是米兰争取跻身欧联杯前八、避开附加赛的最后机会，对球队赛季欧战走势意义重大。《都灵体育报》点评，锋线方面米兰人员储备充足，中场则要看拉比奥的发挥。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "周四003 奥林匹亚科斯vsAC米兰几点直播：CCTV5不转 爱奇艺播",
+          "url": "https://m.dongqiudi.com/xinwen/241752",
+          "site": "懂球帝",
+          "date": "2026-11-24T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.7157787836852618,
+          "summary": "# 周四003 奥林匹亚科斯vsAC米兰几点直播：CCTV5不转 爱奇艺播\n...\n比分预测欧联 奥林匹亚科斯 vs AC米兰\n...\n42 位专家已发方案，最高6连红\n...\n哈哈姐说球AC米兰推荐6连红\n...\n- 01:45开球，欧联第5轮\n- CCTV5/CCTV5+不转播\n- 奥林匹亚科斯近12场不败\n\n北京时间2026年11月27日（周五）01:45，欧联联赛阶段第5轮将展开一场焦点战，奥林匹亚科斯坐镇主场迎战AC米兰。本场比赛是竞彩周四003、北单26118期078、胜负彩26171期的比赛。转播方面，央视体育频道暂未安排电视转播，CCTV5与CCTV5+均不会现场直播本场较量。\n\n对于想收看比赛的球迷，赛程标注的网络转播平台有爱奇艺（以平台实际播出为准）。\n...\n本赛季欧联截至赛前，奥林匹亚科斯4战3胜1平0负，进4球失1球，保持不败；AC米兰4战1胜0平3负，进4球失7球。各项赛事近5场，奥林匹亚科斯3胜2平0负（进12失5），AC米兰3胜0平2负（进12失9）。奥林匹亚科斯各项赛事近12场不败，状态稳定。\n\n历史交锋方面，懂球帝收录两队自2018年以来2次交手，奥林匹亚科斯1胜0平1负，进4球失4球，双方平分秋色。最近一次交手是2018-12-14欧联，奥林匹亚科斯3-1击败AC米兰。AC米兰本赛季欧联进球最多的是阿尔法乔-西塞，已打入3球，他的表现值得关注。\n\n需要提醒的是，以上转播安排整理自央视网公开节目预告及懂球帝赛程数据，具体播出安排以赛事方及转播机构临场实际为准。\n\n本文根据懂球帝数据的报道《周四003 奥林匹亚科斯vsAC米兰几点直播（欧联）》编译整理。\n...\n奥林匹亚科斯vsAC米兰已有42位专家发布方案，在懂球帝模型只看数据，专家方案、伤停情报和首发阵容在 App 里",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "周四003 奥林匹亚科斯vsAC米兰比分预测：模型看好奥林匹亚科斯，最可能1-1",
+          "url": "https://m.dongqiudi.com/xinwen/238180",
+          "site": "懂球帝",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.681931172946532,
+          "summary": "# 周四003 奥林匹亚科斯vsAC米兰比分预测：模型看好奥林匹亚科斯，最可能1-1\n...\n## 30 秒看懂\n\n- 综合预测奥林匹亚科斯胜50%、平25%、AC米兰胜25%\n- 综合最可能比分1-1，概率11.5%\n- 三个模型中近况加权模型最看好奥林匹亚科斯，胜率59%\n\n北京时间2026年11月27日01:45，欧联联赛阶段第5轮，奥林匹亚科斯主场迎战AC米兰，本场是竞彩周四003。懂球帝数据模型按开球前已经完场的比赛数据算出综合预测：奥林匹亚科斯胜50%、平局25%、AC米兰胜25%，最可能的比分是1-1（11.5%）、2-1（9.2%）、1-0（7.7%），预计两队合计进3.1球左右，两队都进球的概率60%。\n\n泊松进球模型按本赛季欧联的场均进球算出两队主客场攻防强度，再按泊松分布算比分概率，并对低比分做Dixon-Coles修正。本赛季欧联截至赛前已赛152场，场均主队进1.58球、客队进1.25球；奥林匹亚科斯近10个主场场均进2.00球、失0.70球，进攻强度1.22、防守0.63；AC米兰近10个客场场均进1.60球、失1.20球，进攻强度1.23、防守0.80；进球期望奥林匹亚科斯1.55、AC米兰0.98。该模型给出奥林匹亚科斯胜49%、平28%、AC米兰胜23%，最可能比分1-1（13.3%）、1-0（11.2%）、2-0（9.6%）。\n\n近况加权模型只看两队各项赛事最近10场，越近的比赛权重越大，每往前一场权重乘0.85，主场按赛事主客场进球比例加成。奥林匹亚科斯近10场加权场均进2.52球、失0.76球，AC米兰近10场加权场均进2.38球、失1.49球，主场加成1.12，进球期望奥林匹亚科斯2.29、AC米兰1.30。该模型给出奥林匹亚科斯胜59%、平21%、AC米兰胜20%，最可能比分2-1（9.4%）、1-1（9%）、2-0（7.2%），是三个模型中最看好奥林匹亚科斯的一个。\n\nElo等级分模型按懂球帝收录的全部正式比赛从1500分起算分，赢球加分、输球扣分，对手越强、赢得越多，变动越大。赛前奥林匹亚科斯1894分（已算736场）、AC米兰1928分（已算786场），主场优势按60分算，奥林匹亚科斯的胜率期望0.54，进球期望奥林匹亚科斯1.62、AC米兰1.44。该模型给出奥林匹亚科斯胜41%、平26%、AC米兰胜33%，最可能比分1-1（12%）、2-1（8.8%）、1-2（7.9%）。三个模型的分歧在于：近况加权模型把奥林匹亚科斯的胜率给到59%，Elo模型只有41%，且Elo模型给AC米兰的33%明显高于另外两个模型。\n\n模型近30天在欧联的战绩（按赛前数据回算完场比赛）：泊松进球模型18场猜中胜平负9场（50%）、比分猜中3场；近况加权模型18场猜中胜平负5场（28%）、比分猜中1场；Elo等级分模型18场...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": [
+            "1 比 1",
+            "2 比 1"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "意媒：米兰欧联客战奥林匹亚科斯必须拿分，但对手已12场不败",
+          "url": "https://www.zzmmsw.com/news/zuqiu/yijia/97469.html",
+          "site": "24直播网",
+          "date": "2026-11-24T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.6650754714217118,
+          "summary": "# 意媒：米兰欧联客战奥林匹亚科斯必须拿分，但对手已12场不败\n\n2026-11-25 11:54:40三由啊\n\n据米兰新闻网报道，AC米兰在意甲联赛中重振旗鼓，取得了三连胜。但在欧联杯赛场情况却截然不同，在输给费伦茨瓦罗斯的那场惨败之后，球队的容错空间已经归零。此番做客比雷埃夫斯对阵奥林匹亚科斯，他们必须拿分，才有望至少进入附加赛。这是一场艰难的客场之旅，而且2018年的那次交锋还留有一笔“复仇”的账。米兰能否重新振作起来？",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "周四003 奥林匹亚科斯 vs AC米兰怎么买：竞彩推荐主胜，比分1-1",
+          "url": "https://m.dongqiudi.com/xinwen/241117",
+          "site": "懂球帝",
+          "date": "2026-11-24T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6650754714217118,
+          "summary": "# 周四003 奥林匹亚科斯 vs AC米兰怎么买：竞彩推荐主胜，比分1-1\n\n奥林匹亚科斯vsAC米兰专家方案、首发阵容和比分直播，打开懂球帝App去看看\n\n怎么买欧联 奥林匹亚科斯 vs AC米兰\n...\n看每个模型的胜平负概率和比分预测\n\n12 位专家已发方案，最高6连红\n...\n魏鹏评球AC米兰推荐5连红\n\n## 30 秒看懂\n\n- 胜平负推荐主胜，模型概率49.6%，SP 2.49\n- 让球推荐奥林匹亚科斯受让1球让胜，SP 1.42\n- 比分推荐1-1、2-1、1-0，总进球2球、3球\n\n北京时间2026年11月27日 01:45，欧联联赛阶段第5轮，奥林匹亚科斯主场对阵AC米兰。本场是竞彩周四003，也是北单26118期078、胜负彩26171期的比赛。数据模型给出的主推是胜平负主胜，推荐信心为中。\n\n胜平负推荐主胜，竞彩官方 SP 为主胜2.49、平3.25、客胜2.33；按模型概率算，每投1元的期望回报：主胜1.24、平0.82、客胜0.59。推荐理由：主胜49.6%是模型概率最高的一项；按 SP 算期望回报大于1的是主胜（1.24）。本场胜平负不开单关，要和其他场次串关，至少2串1。\n\n让球胜平负：奥林匹亚科斯受让1球（+1），推荐让胜。竞彩官方 SP：让胜1.42、让平4.10、让负5.25；按模型概率算的期望回报：让胜1.06、让平0.59、让负0.57。推荐理由：让胜74.7%是模型概率最高的一项；按 SP 算期望回报大于1的是让胜（1.06）。\n\n比分推荐模型最可能的3个：1-1（模型概率11.5%，SP 6.00）、2-1（模型概率9.2%，SP 8.50）、1-0（模型概率7.7%，SP 9.00）。推荐理由：这3个是模型算出概率最高的比分。总进球推荐2球（模型概率22.8%，SP 3.55）、3球（模型概率21.7%，SP 3.40），推荐理由：这两档是模型算出概率最高的总进球数。\n\n模型怎么看：数据模型给出奥林匹亚科斯胜49.6%、平局25.1%、AC米兰胜25.3%，预计两队合计进3.1球左右。泊松进球模型结果：奥林匹亚科斯胜49%、平28%、AC米兰胜23%，最可能的比分1-1、1-0、2-0。近况加权模型结果：奥林匹亚科斯胜59%、平21%、AC米兰胜20%，最可能的比分2-1、1-1、2-0。Elo等级分模型赛前等级分奥林匹亚科斯1894、AC米兰1928，结果：奥林匹亚科斯胜41%、平26%、AC米兰胜33%，最可能的比分1-1、2-1、1-2。\n\n两队近况和交锋：奥林匹亚科斯近5场3胜2平0负（进12失5），AC米兰近5场3胜0平2负（进12失9）。本赛季欧联奥林匹亚科斯4战3胜1平0负，AC米兰4战1胜0平3负。历史交锋2次，奥林匹亚科斯1胜0平1负，AC米兰1胜0平1负。\n\n购买方式：到中国体育彩票实体店购买（国家不允许互联网销售彩票），停售时间和开售玩法以体彩官方为准。理性购彩，量力而行，未成年人不得...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主胜"
+          ],
+          "scores": [
+            "1 比 1",
+            "2 比 1"
+          ]
+        }
+      ],
+      "tally": {
+        "home": 2,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 2,
+        "zh": 5,
+        "home_mentions": 5,
+        "away_mentions": 5
+      },
+      "scores": [
+        "1 比 1",
+        "2 比 1"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周四004",
+      "league": "欧罗巴",
+      "home": "比尔森",
+      "away": "本菲卡",
+      "home_en": "比尔森",
+      "away_en": "本菲卡",
+      "queries": [
+        "\"比尔森 vs 本菲卡\" preview prediction lang:en",
+        "比尔森 本菲卡 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "周四004 比尔森胜利vs本菲卡比分预测：模型看好本菲卡，最可能1-1",
+          "url": "https://m.dongqiudi.com/xinwen/238189",
+          "site": "懂球帝",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6720572710037231,
+          "summary": "# 周四004 比尔森胜利vs本菲卡比分预测：模型看好本菲卡，最可能1-1\n...\n比分预测欧联 比尔森胜利 vs 本菲卡\n...\n## 30 秒看懂\n\n- 综合预测：本菲卡胜57%，最可能比分1-1（8.9%）\n- 泊松模型最看好本菲卡，Elo模型本菲卡胜71%\n- 近况加权模型分歧最大，比尔森胜利胜39%\n\n北京时间2026年11月27日01:45（周五），欧联联赛阶段第5轮，比尔森胜利主场对本菲卡。懂球帝数据模型按开球前已完场比赛的历史数据算出综合预测：比尔森胜利胜23%、平局20%、本菲卡胜57%，最可能的比分是1-1（8.9%）、1-2（8.7%）、0-2（6.9%），预计两队合计进3.6球左右，两队都进球的概率64%。\n\n泊松进球模型按本赛季欧联场均进球算出两队主客场攻防强度，相乘得到进球期望，再按泊松分布算比分概率，并对0-0、1-1这类低比分做Dixon-Coles修正。本赛季欧联截至赛前已赛152场，场均主队进1.58球、客队进1.25球；比尔森胜利3个主场场均进2.00球、失2.00球，进攻强度1.16、防守1.36；本菲卡5个客场场均进2.20球、失1.00球，进攻强度1.54、防守0.74；进球期望比尔森胜利1.35、本菲卡2.62。结果：比尔森胜利胜17%、平19%、本菲卡胜64%，最可能比分1-2（8.7%）、1-3（7.6%）、1-1（7.3%）。\n\n近况加权模型只看两队各项赛事最近10场，越近的比赛权重越大（每往前一场权重乘0.85），用加权后的场均进球和对手场均失球算进球期望，主场按赛事主客场进球比例加成。比尔森胜利近10场加权场均进1.77球、失1.05球；本菲卡近10场加权场均进2.55球、失1.05球；主场加成1.12；进球期望比尔森胜利1.65、本菲卡1.56。结果：比尔森胜利胜39%、平26%、本菲卡胜35%，最可能比分1-1（11.4%）、2-1（8.6%）、1-2（8.1%）。\n\nElo等级分模型按懂球帝收录的全部正式比赛，从1500分起给每队算等级分，赢球加分、输球扣分，对手越强、赢得越多变动越大；赛前两队分差加上主场优势换算成胜率期望，再结合预计总进球换算成进球期望。赛前等级分：比尔森胜利1740（已算455场）、本菲卡2041（已算761场），主场优势按60分算；比尔森胜利胜率期望0.20；进球期望比尔森胜利0.99、本菲卡2.60。结果：比尔森胜利胜11%、平18%、本菲卡胜71%，最可能比分0-2（9.3%）、1-2（9.2%）、0-3（8.1%）。\n\n三个模型分歧明显：泊松进球模型和Elo等级分模型都看好本菲卡，Elo给出的本菲卡胜率最高，为71%；近况加权模型则更偏向比尔森胜利，给出比尔森胜利胜39%、本菲卡胜35%。模型近30天在欧联的战绩（按赛前数据回算完场比赛）：泊松进球模型18场猜中胜平负9场（50%）、...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": [
+            "1 比 1",
+            "0 比 0",
+            "1 比 2"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "周四004 欧联第5轮比尔森胜利主场迎战本菲卡",
+          "url": "https://m.dongqiudi.com/xinwen/240806",
+          "site": "懂球帝",
+          "date": "2026-11-24T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6643555164337158,
+          "summary": "# 周四004 欧联第5轮比尔森胜利主场迎战本菲卡\n\n比尔森胜利vs本菲卡专家方案、首发阵容和比分直播，打开懂球帝App去看看\n\n## 30 秒看懂\n\n- 欧联第5轮比尔森胜利主场对本菲卡，11月27日01:45开球\n- 比尔森胜利欧联6战2胜0平4负，进8球失11球\n- 本菲卡欧联10战8胜1平1负，各项赛事近7场全胜\n\n北京时间2026年11月27日01:45（周五），欧联2026/27赛季联赛阶段第5轮，比尔森胜利坐镇主场迎战本菲卡。本场是竞彩周四004、北单26118期080、胜负彩26171期的比赛。懂球帝收录的比赛记录中，两队此前没有交手记录。\n\n本赛季欧联截至赛前，比尔森胜利6战2胜0平4负，进8球失11球；本菲卡10战8胜1平1负，进32球失9球。主客场方面，比尔森胜利本赛季欧联主场3战1胜0平2负，本菲卡客场5战3胜1平1负。\n\n近况上，比尔森胜利各项赛事近5场3胜1平1负，进9球失4球；近10场5胜1平4负，近10个主场3胜3平4负。本菲卡各项赛事近5场5胜0平0负，进13球失5球；近10场9胜0平1负，近10个客场8胜1平1负。\n\n数据看点方面，比尔森胜利连续10场比赛都有进球，近10场有8场总进球3球及以上；本菲卡各项赛事近7场全胜，并已连续34场比赛都有进球。近10场场均进球比尔森胜利1.8、本菲卡2.5，场均失球分别为1.2和1.0；两队近10场总进球3球及以上的场次分别为8场和7场，两队都进球的场次均为7场，零封对手均为3场，自己没进球的场次均为0场。\n\n比尔森胜利最近5场：11月22日捷甲客场2比1胜波希米亚人1905；11月9日捷甲主场1比1平布拉格斯巴达；11月6日欧联客场1比0胜利勒斯特罗姆；11月1日捷甲客场4比0胜俄斯特拉发矿工；10月26日捷甲主场1比2负帕尔杜比斯。\n\n本菲卡最近5场：11月9日葡超客场3比2胜阿马多拉之星；11月6日欧联主场3比1胜波兹南莱赫；11月3日葡超主场1比0胜阿维卡；10月27日葡超客场2比1胜圣克拉拉；10月23日欧联客场4比1胜尼科西亚团结。本菲卡本赛季欧联进球中，帕夫利季斯2球、杜兰2球、普雷斯蒂安尼2球。\n\n以上数据来自懂球帝赛程、战报和官方射手榜，只统计开球前已经完场的比赛。\n\n本文根据懂球帝数据的报道《周四004 比尔森胜利vs本菲卡赛前数据（欧联）》编译整理。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "周四004 比尔森胜利vs本菲卡几点直播：CCTV5不转播，爱奇艺网络直播",
+          "url": "https://m.dongqiudi.com/xinwen/241751",
+          "site": "懂球帝",
+          "date": "2026-11-24T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6412975788116455,
+          "summary": "# 周四004 比尔森胜利vs本菲卡几点直播：CCTV5不转播，爱奇艺网络直播\n...\n比分预测欧联 比尔森胜利 vs 本菲卡\n...\n32 位专家已发方案，最高6连红\n...\n预言帝保罗6连红\n\n伤停观察员6连红\n...\n- 北京时间11月27日01:45开球\n- 央视体育频道暂未安排电视转播\n- 两队此前无交手记录，本菲卡近7场全胜\n\n北京时间2026年11月27日（周五）01:45，欧联联赛阶段第5轮，比尔森胜利主场迎战本菲卡。本场是竞彩周四004、北单26118期080、胜负彩26171期的比赛。央视体育频道暂未安排电视转播，CCTV5与CCTV5+均无本场直播安排。\n\n收看渠道方面，赛程标注的网络转播平台有爱奇艺（以平台实际播出为准）。\n...\n本赛季欧联截至赛前，比尔森胜利6战2胜0平4负，进8球失11球；本菲卡10战8胜1平1负，进32球失9球。各项赛事近5场，比尔森胜利3胜1平1负（进9失4），本菲卡5胜0平0负（进13失5）。\n\n历史交锋方面，懂球帝收录的比赛里，两队此前没有交手记录，本场将是双方首次碰面。看点方面，比尔森胜利连续10场比赛都有进球，近10场有8场总进球3球及以上；本菲卡各项赛事近7场全胜，并连续34场比赛都有进球。本菲卡本赛季主要射手为帕夫利季斯2球、杜兰2球、普雷斯蒂安尼2球。\n\n转播安排与节目单整理自央视网公开节目预告及懂球帝赛程数据，具体播出安排以赛事方及转播机构临场实际为准，比赛数据仅统计开球前已完场场次。\n\n本文根据懂球帝数据的报道《周四004 比尔森胜利vs本菲卡几点直播（欧联）》编译整理。\n...\n比尔森胜利vs本菲卡已有32位专家发布方案，在懂球帝模型只看数据，专家方案、伤停情报和首发阵容在 App 里\n\n- 32位专家的本场方案和近期战绩\n- 比尔森胜利、本菲卡伤停、预计首发和赛前情报",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "比尔森胜利对本菲卡 预测及建议 | FootyStats - Loading",
+          "url": "https://footystats.org/cn/europe/fc-viktoria-plzen-vs-sl-benfica-h2h-stats/predictions#1",
+          "site": "FootyStats",
+          "date": null,
+          "authority": 3,
+          "score": 1.5646584033966064,
+          "summary": "# 比尔森胜利对本菲卡预测及建议\n\n1.30\n...\n2.60\n...\n因为这是一场杯赛，所以显示最近10次的统计数据。\n...\n## 机率表\n\n比尔森胜利 和 本菲卡 各市场的发生机率。并与联赛平均值进行比较，帮助您判断其发生的可能性是高于还是低于平均水平。这对预测非常有帮助。\n\n市场\n\n历史机率\n...\n数学优势\n\n比平常更有可能发生?\n\n1\n\n(3Way Result)\n\n30%\n\n53%\n\n-23%\n...\n21%\n\n+9%\n\nYes\n...\n80%\n\n26%\n\n+54%\n\nYes\n\nOver 0.5\n\n(Over/Under)\n\n95%\n\n90%\n\n+5%\n\nYes\n\nOver 1.5\n...\n70%\n\n+25%\n\nYes\n\nOver 2.5\n...\n75%\n\n54%\n\n+21%\n\nYes\n\nOver 3.5\n...\n55%\n\n28%\n\n+27%\n\nYes\n\nOver 4.5\n...\n16%\n...\nUnder 0.5\n...\n-85%\n\nNo\n\nUnder 1.5\n...\n-65%\n\nNo\n\nUnder 2.5\n...\n-29%\n\nNo\n\nUnder 3.5\n...\n45%\n\n28%\n\n+17%\n\nYes\n\nUnder 4.5\n...\n+59%\n...\n(Over/Under 1st Half)\n...\n+15%\n...\n40%\n\n37%\n\n+3%\n...\n12%\n\n+13%\n...\n-15%\n...\n60%\n\n63%\n\n-3%\n...\n88%\n\n-13%\n...\n(Goals Over/Under 1st Half)\n...\n(Over/Under 2nd Half)\n\n85%\n\n78%\n\n+7%\n...\n38%\n\n+37%\n...\n35%\n\n20%\n...\n22%\n...\n62%\n\n-37%\n...\n(Both Teams To Score)\n\n65%\n\n42%\n...\nOver 7.5\n\n(Corners Over Under)\n\n70%\n\n79%\n...\nOver 8.5\n...\n+2%\n\nYes\n\nOver 9.5\n...\nOver 10.5\n...\nOver 11.5\n...\n+14%\n\nYes\n\nUnder 9.5\n...\n+34%\n\nYes\n\nUnder 10.5\n...\n+39%\n...\n+54%\n\nYes\n\n## 比尔森胜利 与 本菲卡 的赔率比较",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5",
+            "both teams to score"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "百度体育直播 比尔森胜利 vs 本菲卡 明天 01:45_百度体育",
+          "url": "https://tiyu.baidu.com/al/live/detail?matchId=5qyn6Laz6IGU5qyn5rSy6IGU6LWbIzIwMjYtMDktMTcj5q%2BU5bCU5qOu6IOc5YipdnPmnKzoj7LljaE%3D&tab=%E5%88%86%E6%9E%90",
+          "site": "百度体育",
+          "date": null,
+          "authority": 3,
+          "score": 1.5646584033966064,
+          "summary": "114人参与 截止时间 明天 01:45\n...\n比尔森胜利近期战绩 (近6场)\n...\n同主客\n\n胜率 67%\n\n赢盘率 67%\n\n大球率 50%\n\n时间/赛事\n\n2026-11-22\n\n捷甲\n\n2026-11-09\n...\n2026-11-06\n\n欧联\n\n2026-11-01\n...\n2026-10-28\n\n捷克杯\n\n2026-10-26\n...\n对阵比分\n\n让球\n\n进球数\n\n波希米亚1905 1 - 2 比尔森胜利\n\n-0.5\n...\n2.75\n...\n比尔森胜利 1 - 1 布拉格斯巴达\n\n0.0\n\n走盘\n\n3.0\n\n小球\n\n利勒斯特罗姆 0 - 1 比尔森胜利\n\n-0.25\n...\n俄斯特拉发 0 - 4 比尔森胜利\n...\n伊赫拉瓦 1 - 6 比尔森胜利\n\n-1.0\n...\n比尔森胜利 1 - 2 帕尔杜比斯\n\n1.0\n\n输盘\n...\n本菲卡近期战绩 (近6场)\n...\n胜率 100%\n\n赢盘率 17%\n\n大球率 83%\n...\n2026-11-23\n\n葡杯\n...\n葡超\n...\n2026-11-03\n...\n2026-10-30\n\n葡联杯\n\n2026-10-27\n...\n杜连斯 1 - 3 本菲卡\n\n-2.25\n...\n3.5\n...\n阿马多拉之星 2 - 3 本菲卡\n\n-2.0\n...\n3.25\n...\n本菲卡 3 - 1 波兹南莱赫\n...\n本菲卡 1 - 0 艾华卡\n...\n本菲卡 4 - 1 吉尔维森特\n\n1.25\n...\n圣克拉拉 1 - 2 本菲卡\n\n-1.25\n...\n2.5\n...\n赛前预测\n\n18%\n\n比尔森胜利 本场胜率\n\n62%\n\n本菲卡 本场胜率\n\n过去3年，相似赔率共出现50357次\n\n主场胜利平局客场胜利\n\n16% 21%平局 63%\n\n有利情报 不利情报\n\n1. 比尔森6场比赛4胜1平，状态出色。\n\n2. 比尔森近5场正赛连续进球，且场均进球达2.8球。\n\n1. 本菲卡9场比赛连胜，状态极佳。\n\n2. 本菲卡近10场正赛主场9胜1平0负，表现出色。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 0,
+        "draw": 1,
+        "goals": 1,
+        "none": 2,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 2,
+        "zh": 5,
+        "home_mentions": 5,
+        "away_mentions": 5
+      },
+      "scores": [
+        "1 比 1",
+        "0 比 0",
+        "1 比 2"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周四005",
+      "league": "欧罗巴",
+      "home": "塞尔塔",
+      "away": "伯恩茅斯",
+      "home_en": "Celta Vigo",
+      "away_en": "Bournemouth",
+      "queries": [
+        "\"Celta Vigo vs Bournemouth\" preview prediction lang:en",
+        "塞尔塔 伯恩茅斯 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Celta Vigo vs Bournemouth predictions: 5-1 Bet Builder tip, team news and odds",
+          "url": "https://www.racingpost.com/sport/football-tips/europa-league/celta-vigo-vs-bournemouth-predictions-team-news-odds-betting-tips-bet-builder-aP6Hm3V9uhnY/",
+          "site": "Racing Post",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.0654102158133196,
+          "summary": "Europa League\n\n# Celta Vigo vs Bournemouth predictions: 5-1 Bet Builder tip, team news and odds\n\n## Celta Vigo face Bournemouth in the Europa League. Get match details, betting tips, predictions and TV info for the big game at Balaidos.\n...\n## Celta Vigo vs Bournemouth kick-off, date & TV info\n\nDate Thursday, November 26\nKick-off 5.45pm\nVenue Balaidos, Vigo\nCompetition Europa League\nTV TNT Sports 1\n\nBournemouth are a perfect four wins from four in the Europa League and they will be confident of maintaining that unblemished record when they head to Celta Vigo.\n\nThe Cherries made it a record nine straight victories over the weekend and look set to outclass their Spanish hosts at Balaidos.\n\n## Celta Vigo vs Bournemouth Bet Builder\n\n### Over 2.5 goals\n\nAll seven of Bournemouth's away matches have featured at least three goals and Marco Rose's front-foot style leads to plenty of excitement.\n\n### Yoel Lago to commit two or more fouls\n\nThe Celta centre-back is averaging 2.5 fouls per 90 minutes in this season's Europa League.\n\n### Evanilson to have two or more shots on target\n\nBournemouth's brilliant Brazilian has five goals in as many appearances and is averaging 2.31 shots on target per 90 minutes in Europe.\n\nPays out at 5-1 with Paddy Power\n\n## Celta Vigo vs Bournemouth betting tips & predictions\n\n### Best bet\n...\n3pts Evs general\n\n### Best player bet\n\nYoel Lago to be carded\n2-1 bet365\n\n## Celta Vigo vs Bournemouth preview\n\nIt has been more than two years since social media personality the United Strand started his policy of not cutting his hair until Manchester United win five games in a row.\n\nIf he was a Bournemouth fan, it is very likely he would be able to book a second haircut in as many months come Friday morning.\n\nThe Cherries made it nine wins in a row when they beat a resurgent Nottingham Forest 2-0 on Saturday. That run also included victories over Manchester United, Milan and Aston Villa, so it is hard to see out-of-sorts Celta Vigo coping with Marco Rose's men.\n\nReplacing Andoni Iraola was billed as a near-impossible task, so it is testament to Rose that he has come in and had such an impact.\n\nHis European pedigree made him an exciting appointment before a ball was kicked and he has certainly lived up to the hype, leading Bournemouth to four wins from four in their maiden continental campaign.\n\nA talented attack makes them a handful while a strong backline has kept seven clean sheets during their win streak, spelling trouble for Celta.\n\nClaudio Giraldez's hosts battled well enough against Real Madrid on Saturday, holding on to their early 1-0 lead for an hour. They were pegged back and then dealt a sucker-punch late on, however, and that will do nothing for their already low confidence.\n\nCelta have nine fewer points than Bournemouth in the Europa League and their only win in six matches came against fourth-tier Salamanca. It is difficult to see them denying the Cherries a tenth successive victory.\n\n### Lago's luck likely to run out\n\nRose does rotate in Europe but he named a strong team against Milan and may do so again as his Bournemouth side take on another well-established outfit.\n\nThat could mean Evanilson, Rayan and Justin Kluivert feature for the Cherries and that is terrible news for Celta centre-back Yoel Lago, who has committed five fouls in two Europa League appearances and is a decent price to pick up a sixth yellow card of the season.\n\n## Key stats for Celta Vigo vs Bournemouth\n\n♦ Bournemouth have won nine consecutive games\n♦ Celta Vigo have managed only one win in six matches\n♦ All seven of the Cherries' away games have featured at least three goals\n♦ Celta have enjoyed only two wins in nine home matches\n\n## Celta Vigo vs Bournemouth betting odds\n\nHere are the latest odds from Hills:\n\nMarket | Odds \n---|---\nCelta Vigo | 5-2 \nBournemouth | Evs \nDraw | 23-10 \n\nOdds correct at time of publishing\n...\n## Celta Vigo vs Bournemouth team news and predicted line-ups\n\n### Celta Vigo\n\nBorja Iglesias, Carl Starfelt and Miguel Roman must be assessed.\n\nPredicted line-up (3-4-2-1): Radu; Rodriguez, Yago, Alonso; Rueda, Burcio, Febas, Carreira; Alvarez, Swedberg; Duran.\nSubs: Caceres, Galan, Moriba, Nunez, Driouech, Aspas, Jutgla.\n\n### Bournemouth\n\nAlex Toth, Julian Araujo and Juanlu Sanchez are...",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "周四005 塞尔塔 vs 伯恩茅斯比分预测：模型看好伯恩茅斯，最可能1-1",
+          "url": "https://m.dongqiudi.com/xinwen/238174",
+          "site": "懂球帝",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.79195281316822,
+          "summary": "# 周四005 塞尔塔 vs 伯恩茅斯比分预测：模型看好伯恩茅斯，最可能1-1\n...\n比分预测欧联 塞尔塔 vs 伯恩茅斯\n...\n## 30 秒看懂\n\n- 三模型平均：塞尔塔胜21%、平27%、伯恩茅斯胜52%\n- 综合最可能比分1-1（12.8%），预计合计进2.5球\n- Elo模型最看好伯恩茅斯，胜率60%\n\n北京时间2026年11月27日 01:45，欧联联赛阶段第5轮，塞尔塔主场对阵伯恩茅斯，本场是竞彩周四005。懂球帝数据模型按开球前的历史比赛数据算出，三个模型的平均预测为塞尔塔胜21%、平局27%、伯恩茅斯胜52%，最可能的比分是1-1（12.8%）、0-1（11.5%）、0-2（10.3%），预计两队合计进2.5球左右，两队都进球的概率49%。\n\n泊松进球模型按本赛季欧联场均进球算出两队主客场攻防强度，再按泊松分布算比分概率，并对0-0、1-1这类低比分做Dixon-Coles修正。本赛季欧联截至赛前已赛152场，场均主队进1.58球、客队进1.25球；塞尔塔近10个主场场均进1.20球、失1.00球，进攻强度0.80、防守0.83；伯恩茅斯近10个客场场均进1.80球、失1.40球，进攻强度1.37、防守0.91；进球期望塞尔塔1.15、伯恩茅斯1.42。该模型给出塞尔塔胜29%、平29%、伯恩茅斯胜42%，最可能比分1-1（13.7%）、0-1（9.7%）、0-0（8.9%）。\n\n近况加权模型只看两队各项赛事最近10场，越近的比赛权重越大，每往前一场权重乘0.85，主场按赛事主客场进球比例加成。塞尔塔近10场加权场均进0.90球、失1.26球；伯恩茅斯近10场加权场均进2.39球、失0.51球；主场加成1.12；进球期望塞尔塔0.88、伯恩茅斯1.64。该模型给出塞尔塔胜19%、平27%、伯恩茅斯胜54%，最可能比分1-1（12.8%）、0-1（12%）、0-2（10.8%）。\n\nElo等级分模型从1500分起按全部正式比赛给每队算分，赢球加分、输球扣分，对手越强、赢得越多，变动越大。赛前塞尔塔1807分（已算719场）、伯恩茅斯2033分（已算618场），主场优势按60分算；塞尔塔的胜率期望0.28；进球期望塞尔塔0.78、伯恩茅斯1.76。该模型给出塞尔塔胜15%、平25%、伯恩茅斯胜60%，最可能比分0-1（12.8%）、0-2（12.2%）、1-1（11.9%）。三个模型在胜面上都偏向伯恩茅斯，但泊松模型的平局概率与伯恩茅斯胜率持平，Elo模型则把伯恩茅斯胜率给到60%，分歧主要在平局和客胜的比例上。\n\n模型近30天在欧联的战绩：泊松进球模型18场猜中胜平负9场（50%）、比分猜中3场；近况加权模型18场猜中胜平负5场（28%）、比分猜中1场；Elo等级分模型18场猜中胜平负7场（...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": [
+            "1 比 1",
+            "0 比 0",
+            "0 比 1"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "周四005 塞尔塔vs伯恩茅斯几点直播：CCTV5不转播",
+          "url": "https://m.dongqiudi.com/xinwen/241759",
+          "site": "懂球帝",
+          "date": "2026-11-24T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.7749307651240287,
+          "summary": "# 周四005 塞尔塔vs伯恩茅斯几点直播：CCTV5不转播\n...\n比分预测欧联 塞尔塔 vs 伯恩茅斯\n...\n预言帝保罗6连红\n...\n- 北京时间11月27日01:45开球，欧联第5轮\n- 央视体育频道暂未安排电视转播\n- 两队此前无交手记录，伯恩茅斯近9场全胜\n\n北京时间2026年11月27日（周五）01:45，欧联联赛阶段第5轮一场焦点战开球，塞尔塔坐镇主场迎战伯恩茅斯，本场竞彩编号为周四005，同时是北单26118期084、胜负彩26171期的比赛。转播方面需要说明的是，央视体育频道暂未安排电视转播，CCTV5与CCTV5+均无本场直播计划。\n...\n本赛季欧联截至赛前，塞尔塔4战1胜0平3负，进4球失6球；伯恩茅斯4战4胜0平0负，进11球失2球，是联赛阶段表现最抢眼的球队之一。各项赛事近5场，塞尔塔0胜2平3负（进2失7），伯恩茅斯5胜0平0负（进12失2），两队状态差距明显。\n\n射手层面，塞尔塔本赛季主要射手是哈维-罗德里格斯，已有2球入账；伯恩茅斯方面，拉扬打进3球，是球队本赛季欧联进球最多的球员，尤斯廷-克鲁伊维特与埃万尼尔松各入2球，进攻点较为分散。历史交锋上，懂球帝收录的比赛里两队此前没有交手记录，本场将是双方首次碰面。\n\n看点方面，塞尔塔各项赛事已经5场不胜，急需一场提振士气的比赛；伯恩茅斯则各项赛事近9场全胜，且连续10场比赛都有进球，攻防两端都保持高水准。两队首次交手会擦出怎样的火花，值得关注。\n\n最后提醒，节目单与转播信息整理自央视网公开节目预告及懂球帝赛程数据，具体播出安排以赛事方及转播机构临场实际为准；比赛数据仅统计开球前已完场场次。\n\n本文根据懂球帝数据的报道《周四005 塞尔塔vs伯恩茅斯几点直播（欧联）》编译整理。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "周四005 欧联第5轮塞尔塔主场迎伯恩茅斯",
+          "url": "https://m.dongqiudi.com/xinwen/240799",
+          "site": "懂球帝",
+          "date": "2026-11-24T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.7664196750989083,
+          "summary": "# 周四005 欧联第5轮塞尔塔主场迎伯恩茅斯\n\n塞尔塔vs伯恩茅斯专家方案、首发阵容和比分直播，打开懂球帝App去看看\n\n## 30 秒看懂\n\n- 欧联第5轮塞尔塔主场对伯恩茅斯，11月27日01:45开球\n- 塞尔塔欧联4战1胜3负，各项赛事已5场不胜\n- 伯恩茅斯欧联4战全胜，各项赛事近9场全胜\n\n欧联2026/27赛季联赛阶段第5轮，塞尔塔主场对阵伯恩茅斯，比赛将于北京时间2026年11月27日01:45开球。这是竞彩周四005、北单26118期084、胜负彩26171期的比赛。懂球帝收录的比赛记录中，两队此前没有交手记录。\n\n本赛季欧联截至赛前，塞尔塔4战1胜0平3负，进4球失6球；伯恩茅斯4战4胜0平0负，进11球失2球。主场和客场方面，塞尔塔本赛季欧联主场2战0胜2负，伯恩茅斯客场2战2胜。\n\n近况上，塞尔塔各项赛事近5场0胜2平3负，进2球失7球，已经5场不胜；近10场3胜3平4负。伯恩茅斯各项赛事近5场5胜0平0负，进12球失2球，近9场全胜，连续10场比赛都有进球；近10场9胜0平1负。\n\n塞尔塔最近5场：11月22日西甲客场1比2负皇家马德里，11月9日西甲主场0比0平莱万特，11月6日欧联主场1比2负圣吉罗斯联合，10月31日西甲客场0比3负巴列卡诺，10月25日西甲主场0比0平皇家贝蒂斯。伯恩茅斯最近5场：11月21日英超主场2比0胜诺丁汉森林，11月8日英超客场2比1胜伊普斯维奇，11月6日欧联客场3比1胜布拉格斯巴达，10月31日英超主场2比0胜利兹联，10月29日英联杯主场3比0胜阿斯顿维拉。\n\n近10场进球数据对比：塞尔塔场均进球1.2、场均失球1.1，伯恩茅斯场均进球2.4、场均失球0.7；总进球3球及以上的比赛两队各7场（70%）；两队都进球的场次塞尔塔5场（50%）、伯恩茅斯3场（30%）；零封对手塞尔塔4场、伯恩茅斯7场；自己没进球的场次塞尔塔4场、伯恩茅斯0场。\n\n射手方面，塞尔塔本赛季欧联进球的是哈维-罗德里格斯，2球。伯恩茅斯本赛季欧联进球最多的是拉扬，3球，尤斯廷-克鲁伊维特和埃万尼尔松各2球。以上数据只统计开球前已经完场的比赛。\n\n本文根据懂球帝数据的报道《周四005 塞尔塔vs伯恩茅斯赛前数据（欧联）》编译整理。\n...\n懂球帝App里有专家在分析塞尔塔vs伯恩茅斯\n\n本场已有 2 位专家在懂球帝发布方案，宋唯山（近12中9）。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Preview: Celta Vigo vs Bournemouth - prediction, team news, lineups - Sports Mole",
+          "url": "https://www.sportsmole.co.uk/football/celta-vigo/europa-league/preview/celta-vigo-vs-bournemouth-prediction-team-news-lineups_609734.html",
+          "site": "Sports Mole",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.722825597394648,
+          "summary": "Europa League Gameweek 5\n\nNov 26, 2026 5.45pm\n\n# Preview: Celta Vigo vs Bournemouth - prediction, team news, lineups\n\nA club-record 10th consecutive victory in all competitions is in sight for Bournemouth when they travel to Estadio de Balaidos to face Celta Vigo in the Europa League on Thursday night.\n\nThese two teams sit at opposite ends of the League Phase table at the halfway stage, with the Cherries flying high in second and the Sky Blues sitting down in 27th place.\n\n## Match preview\n\nSince being put to the sword 5-1 by Chelsea on October 10, Bournemouth have put together an exceptional nine-game winning streak across three different competitions, scoring 23 goals and conceding only twice (seven clean sheets).\n\nThe Cherries picked up from where they left off after the international break and ran out 2-0 winners at home to Nottingham Forest in the Premier League last Saturday, climbing up to fifth in the table and to within three points of second-placed Brighton whom they face in a week’s time.\n\nMarco Rose’s men are one of only three teams out of 36 who boast a 100% record after their first four Europa League fixtures this term, beating Real Sociedad, Sturm Graz, AC Milan and Sparta Prague by an aggregate score of 11-2 – an impressive feat for a club competing in European competition for the very first time.\n\nGoals from Tyler Adams, Evanilson and Rayan helped Bournemouth secure a 3-1 away win over Sparta Prague on matchday four. With a five-point buffer now separating them from eighth place and below, one or two more wins should be enough to guarantee a top-eight finish and a direct ticket to the round of 16.\n\nThe Cherries are now aiming to become the first English team in history to win their first five games in a major European competition, and their impressive winning run – including a 2-1 success on Spanish soil against Real Sociedad in September – should give them a massive confidence boost heading into Thursday’s contest.\n\nAfter reaching the quarter-finals of last season’s Europa League, Celta Vigo have found the going much tougher in the League Phase this term, accumulating just three points from their opening four matches (W1 L3).\n\nFollowing back-to-back losses to Omonia (1-0) and Juventus (2-1), a morale-boosting 2-1 away victory over Celtic opened their account. However, the Sky Blues were then beaten by the same scoreline at home by Belgian side Union SG on matchday four.\n\nClaudio Giraldez’s men now face an uphill battle to secure at least a knockout round playoff spot, as they currently sit one point behind the top 24 and four points adrift of the top eight heading into their final four League Phase matches – three of which are against teams below them in the standings.\n\nCelta Vigo’s toughest remaining fixture is against Bournemouth, though, and they head into Thursday’s contest having failed to win any of their previous five encounters with English opposition (D1 L4) since a 4-1 aggregate victory over Liverpool in the last 16 of the 1998-99 UEFA Cup.\n\nThe Sky Blues have only won two of their nine home matches across all tournaments this season (D3 L4), while they most recently suffered a 2-1 away defeat to Real Madrid in La Liga, leaving them down in 14th place in the table and only two points above the relegation zone after 13 games.\n\nCelta Vigo Europa League form:\n\n- L\n- L\n- W\n- L\n\nCelta Vigo form (all competitions):\n\n- D\n...\nBournemouth Europa League form:\n...\nBournemouth form (all competitions):\n...\n## Team News\n\nCelta Vigo quartet Borja Iglesias (calf), Carl Starfelt, Manuel Sanchez (both hamstring) and Miguel Roman (knee) are all doubtful with injuries and will be assessed ahead of kickoff.\n\nFerran Jutgla and Iago Aspas are both contenders to earn recalls in attack, with the former set to battle with Pablo Duran for the centre-forward spot and the latter to rival Hugo Alvarez for a place on the right side of a front three.\n\nFormer Chelsea and Barcelona defender Marcos Alonso, 35, is expected to continue on the left side of a three-man defence next to Yoel Lago and Javi Rodriguez, while Javi Rueda and Sergio Carreira could both start as wing-backs with Ilaix Moriba and Aleix Febas linking arms in midfield.\n\nAs for Bournemouth, they will be without Alex Toth, Julian Araujo (both thigh) and Juanlu Sanchez (ankle) as they continue to recover from injuries.\n\nAlthough Bafode Diakite is just one game away from a Europa League suspension, the centre-back is a strong contender to...",
+          "side": "away",
+          "neg": true,
+          "hits": [
+            "away win"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 1,
+        "draw": 0,
+        "goals": 1,
+        "none": 2,
+        "neg": 1
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 1,
+        "zh": 3,
+        "home_mentions": 3,
+        "away_mentions": 3
+      },
+      "scores": [
+        "1 比 1",
+        "0 比 0",
+        "0 比 1"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周四006",
+      "league": "欧罗巴",
+      "home": "布斯巴达",
+      "away": "阿尔克马",
+      "home_en": "布斯巴达",
+      "away_en": "阿尔克马",
+      "queries": [
+        "\"布斯巴达 vs 阿尔克马\" preview prediction lang:en",
+        "布斯巴达 阿尔克马 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "彩经前瞻：斯巴达门将伤缺，阿尔克马尔盯上反击机会",
+          "url": "https://m.ahradio.com.cn/sports/596809.html",
+          "site": "ahradio.com.cn",
+          "date": "2026-11-21T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.034810738360974,
+          "summary": "北京时间11月22日21点30分，荷甲第13轮，鹿特丹斯巴达坐镇斯巴达城堡体育场迎战阿尔克马尔。\n\n斯巴达上一轮追平海牙后，又因防守失误失去主动。本场门将和后腰位置还要调整。客队已经盯上了他们丢掉球权后的机会。不过，阿尔克马尔刚完成4比3逆转，自己的防线也不让人放心。\n\n斯巴达能进球，失误却让好局溜走\n\n斯巴达近四场联赛打进8球，丢了9球。赢威廉二世和格罗宁根都是3比2，上一轮却以1比3输给海牙。\n\n海牙一役，后卫巴斯-凯珀斯在下半场开局扳平比分。可比赛接近一小时，球队又送给对方第二球。此后海牙拿回主动权，斯巴达没能再追上。\n\n人员又添了麻烦。门将布鲁维尔伤缺。上轮踢后腰的后卫泰奥-金特罗也无法出场。门将贝德纳雷克上轮第78分钟替补登场。本场他有望把门。\n\n中场托斯特拉是后腰位置的一个选择。他在海牙一役之前的两轮联赛都踢过首发。换了人之后，禁区前的保护也得重新安排。\n\n阿尔克马尔逆转赢球，防线仍留隐患\n\n阿尔克马尔上一轮从1比3追成4比3。前锋梅尔丁克贡献2球1助攻，并在补时阶段绝杀格罗宁根。不过，此前对特温特和阿贾克斯的两场联赛，他们都输球且没有进球。进攻刚有起色，后场却又丢了三球。客队还没到可以放心对攻的时候。\n\n主教练埃赫特尔德在当地时间11月20日说，斯巴达能创造不少机会。他特别提到了左侧的中场巴巴迪，但也看到了对手失去球权后留下的机会。\n\n后卫沃特-胡斯与中场比斯科夫本场都可以出场。阿尔克马尔有条件沿用上轮的前场组合。前锋韦斯利-帕塔蒂和霍恩坎普仍缺席。\n\n双方首发参考\n\n核心对位观察\n\n先看巴巴迪这一侧。他上轮完成5次成功过人，送出6次关键传球。斯巴达输球，并不意味着他这一侧没有威胁。\n\n巴巴迪若继续踢左路，对面的右后卫戴克斯特拉就要同时应付他的突破和传球。阿尔克马尔想抓住斯巴达丢掉球权后的机会，也得先防住这一侧的进攻。\n\n另一边，梅尔丁克上轮还在第61分钟助攻前锋阿尤布-乌弗基尔追回一球。如果哈滕布尔与托斯特拉搭档后腰，就不能只盯着梅尔丁克射门。梅尔丁克上轮那次助攻说明，主队还得留意他给队友做球。\n\n比赛走势分析\n\n上半场，斯巴达仍可以从巴巴迪这一侧争取主动。但主队门将和后腰都要调整，丢掉球权后的防守更让人担心。埃赫特尔德赛前点出的，正是这个机会。\n\n下半场若比分仍接近，梅尔丁克上轮的传射表现，是看好客队争胜的依据。不过，上轮的扳平球来自后卫马特奥-查韦斯。梅尔丁克的绝杀又等到了补时。阿尔克马尔赢得很险，这场也未必能轻松过关。\n\n斯巴达近四轮每场至少丢两球。本场又要调整门将和后腰。这是倾向客胜的原因。不过，阿尔克马尔上轮也丢了三球，主队仍有破门机会。\n\n最终结果分析\n\n胜负分析：客胜\n\n比分倾向：1-2或1-3\n\n进球数分析：3至4球",
+          "side": "away",
+          "neg": true,
+          "hits": [
+            "看好客队",
+            "客胜"
+          ],
+          "scores": [
+            "1 比 2"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "欧联杯布拉格斯巴达迎战阿尔克马尔，古达尔停赛",
+          "url": "https://m.dongqiudi.com/xinwen/235376",
+          "site": "懂球帝",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.761553165595406,
+          "summary": "# 欧联杯布拉格斯巴达迎战阿尔克马尔，古达尔停赛\n...\n11月27日 04:00布拉格斯巴达 vs 阿尔克马尔欧联看直播\n\n## 30 秒看懂\n\n- 布拉格斯巴达欧联主场未胜，各项赛事五场不胜\n- 古达尔累计黄牌停赛，斯巴达多人伤缺\n- 阿尔克马尔近两场打入九球，力争欧联三连胜\n\n欧联杯联赛阶段第五轮，布拉格斯巴达将于周四在莱特纳球场迎战阿尔克马尔。主队本赛季欧联主场尚未取胜，若本轮全取三分即可反超埃赫特尔德的球队，但这需要他们终结在这项赛事中的三场不胜。\n\n斯巴达目前以4分排在联赛阶段第22位，仍在附加赛区内，但仅靠净胜球优势领先第25位的采列和第26位的萨尔茨堡红牛。塞尔塔、AC米兰、雅盖隆尼亚、比尔森胜利、马赛和凯尔特人六队同积6分。斯巴达首轮曾在亚美尼亚4比1击败阿拉拉特，此后三轮仅拿到1分。\n\n普里斯克麾下的球队各项赛事已五场不胜，最近三场中有两场未能破门，另有一场只进一球。上周联赛负于利贝雷茨的比赛中，古达尔表现不俗，但这位24岁球员因上一场欧联对伯恩茅斯吃到第二张黄牌而停赛；他包办了斯巴达本赛季欧联6球中的2球，其余4球由不同球员打进。\n\n斯巴达伤停情况不少：恩内梅和雨果·苏舒雷克因病出战成疑，乌切纳（腹股沟）、里内斯（脚踝）、彭克萨（膝盖）和卡拉贝茨（脚踝）预计缺阵。\n\n阿尔克马尔方面同样有多人缺阵，帕塔蒂、凯斯·斯米特（腹股沟）、刘易斯·斯豪滕、雷斯尼克和霍恩坎普均无法出场。帕塔蒂在欧联已入两球，梅尔丁克则贡献了球队7个欧联进球中的3个。\n\n阿尔克马尔本月早些时候在AFAS球场1比2不敌尤文图斯，遭遇三连败，也是四场欧战中的第二场失利。此后他们先后以4比3击败格罗宁根、5比1大胜鹿特丹斯巴达，两场共打入9球；梅尔丁克对格罗宁根两球一助，达尔在鹿特丹一球两助。目前排名第14位的阿尔克马尔若再取客场胜利，有望跻身前八，第七位的勒沃库森领先3分，第八位的贝西克塔斯仅高出1分。\n\n原文给出的预计首发：斯巴达为苏罗夫奇克；胡弗、卡德拉贝克、姆贝·索、苏霍梅尔；维德拉、曼斯维克、欧文；辛加特、布鲁内斯、阿尔科塞尔。阿尔克马尔为德布塞尔；迈库马、戈斯、胡特、查韦斯；库普梅纳斯、夸克曼、比斯科夫；斯滕斯、梅尔丁克、达尔。\n\n本文根据Sports Mole的报道《Sparta Prague vs. AZ Alkmaar - prediction, team news, lineups》编译整理。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "周四006 布拉格斯巴达vs阿尔克马尔进球数预测：模型预计3.5球，最可能3球",
+          "url": "https://m.dongqiudi.com/xinwen/239085",
+          "site": "懂球帝",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.744578013518093,
+          "summary": "# 周四006 布拉格斯巴达vs阿尔克马尔进球数预测：模型预计3.5球，最可能3球\n...\n进球数预测欧联 布拉格斯巴达 vs 阿尔克马尔\n...\n## 30 秒看懂\n\n- 模型综合预计总进球3.5球左右\n- 总进球3球档概率最高，为22%\n- 两队都进球概率69%\n\n北京时间2026年11月27日04:00周五开球，欧联联赛阶段第5轮，布拉格斯巴达（主）对阿尔克马尔（客）。懂球帝数据模型综合三个模型的平均结果，预计两队合计进3.5球左右，其中布拉格斯巴达1.6球、阿尔克马尔1.9球，全场总进球正好3球的可能最大，概率22%。\n\n总进球各档的概率分布为：0球4%、1球9%、2球19%、3球22%、4球19%、5球及以上28%；3球及以上合计68%，2球及以下合计32%。两队都进球的概率是69%；布拉格斯巴达零封对手的概率15%，阿尔克马尔零封对手的概率20%。\n\n泊松进球模型按本赛季欧联场均进球算出两队主客场攻防强度，再按泊松分布算比分概率并对低比分做Dixon-Coles修正。本赛季欧联截至赛前已赛152场，场均主队进1.58球、客队进1.25球；布拉格斯巴达近10个主场场均进2.10球、失1.40球，进攻强度1.28、防守1.10；阿尔克马尔近10个客场场均进2.10球、失1.10球，进攻强度1.57、防守0.75。该模型进球期望为布拉格斯巴达1.51、阿尔克马尔2.15。\n\n近况加权模型只看两队各项赛事最近10场，越近权重越大，每往前一场权重乘0.85，主场按赛事主客场进球比例加成1.12。布拉格斯巴达近10场加权场均进1.26球、失1.36球；阿尔克马尔近10场加权场均进2.34球、失1.55球。该模型进球期望为布拉格斯巴达1.68、阿尔克马尔1.68。\n\nElo等级分模型按懂球帝收录的全部正式比赛计算等级分，赛前布拉格斯巴达1745（已算430场）、阿尔克马尔1835（已算761场），主场优势按60分算，布拉格斯巴达的胜率期望为0.46。该模型进球期望为布拉格斯巴达1.65、阿尔克马尔1.86。\n\n近5场布拉格斯巴达1胜2平2负（进8失8），阿尔克马尔2胜0平3负（进10失9）；本赛季欧联布拉格斯巴达4战1胜1平2负，阿尔克马尔4战2胜0平2负；历史交锋2次，布拉格斯巴达0胜0平2负，阿尔克马尔2胜0平0负。模型只看历史数据，不知道伤停和临场变化，结果仅供参考。\n\n本文根据懂球帝数据的报道《周四006 布拉格斯巴达vs阿尔克马尔进球数预测（欧联）》编译整理。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "周四006 欧联第5轮布拉格斯巴达主场迎战阿尔克马尔",
+          "url": "https://m.dongqiudi.com/xinwen/241251",
+          "site": "懂球帝",
+          "date": "2026-11-24T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.727846399826832,
+          "summary": "# 周四006 欧联第5轮布拉格斯巴达主场迎战阿尔克马尔\n\n布拉格斯巴达vs阿尔克马尔专家方案、首发阵容和比分直播，打开懂球帝App去看看\n\n## 30 秒看懂\n\n- 布拉格斯巴达欧联4战1胜1平2负，进6失6\n- 阿尔克马尔欧联4战2胜2负，梅尔丁克进3球\n- 两队近2次交手布拉格斯巴达全负，曾0-4落败\n\n欧联2026/27赛季联赛阶段第5轮，布拉格斯巴达将在北京时间2026年11月27日04:00（周五）主场迎战阿尔克马尔。\n\n本赛季欧联截至赛前，布拉格斯巴达4战1胜1平2负，进6球失6球；阿尔克马尔4战2胜0平2负，进7球失4球。主场方面，布拉格斯巴达本赛季欧联2个主场0胜1平1负；阿尔克马尔2个客场1胜0平1负。\n\n各项赛事近5场，布拉格斯巴达1胜2平2负（进8失8），阿尔克马尔2胜0平3负（进10失9）。布拉格斯巴达最近5场为：11月23日捷甲主场1-3负利贝雷茨、11月9日捷甲客场1-1平比尔森胜利、11月6日欧联主场1-3负伯恩茅斯、11月2日捷甲客场0-0平波希米亚人1905、10月25日捷甲主场5-1胜斯洛瓦茨科。阿尔克马尔最近5场为：11月22日荷甲客场5-1胜鹿特丹斯巴达、11月8日荷甲主场4-3胜格罗宁根、11月6日欧联主场1-2负尤文图斯、11月1日荷甲客场0-1负阿贾克斯、10月26日荷甲主场0-2负特温特。\n\n历史交锋方面，懂球帝收录两队自2026年以来2次交手，布拉格斯巴达0胜0平2负，进1球失6球。最近一次是2026年3月20日欧协联，布拉格斯巴达主场0-4负于阿尔克马尔；2026年3月13日欧协联，阿尔克马尔主场2-1取胜。\n\n数据看点：布拉格斯巴达各项赛事已经4场不胜。阿尔克马尔本赛季欧联进球最多的是梅尔丁克，已打入3球；韦斯利-帕塔蒂有2球。布拉格斯巴达本赛季欧联进球由居达尔打入2球。\n\n近10场数据对比：布拉格斯巴达3胜4平3负，阿尔克马尔5胜1平4负；近10个主场布拉格斯巴达6胜1平3负，近10个客场阿尔克马尔5胜2平3负。近10场场均进球布拉格斯巴达1.4、阿尔克马尔1.9，场均失球分别为1.0和1.4；总进球3球及以上分别为4场（40%）和6场（60%），两队都进球各为5场（50%），零封对手分别为4场和2场，自己没进球各为3场。\n\n本文根据懂球帝数据的报道《周四006 布拉格斯巴达vs阿尔克马尔赛前数据（欧联）》编译整理。\n...\n41位专家在分析布拉格斯巴达vs阿尔克马尔，最高5连红\n\n本场已有 41 位专家在懂球帝发布方案，最高5连红，杰哥讲盘（5连红）、皇家看彩（5连红）、克罗地亚中场簿（欧联5连红）。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "荷甲：鹿特丹斯巴达vs阿尔克马尔预测分析 主场困局待解",
+          "url": "https://www.cqjbnews.cn/qmw-article-2047511338172.html",
+          "site": "24直播网",
+          "date": "2026-11-20T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.678169703124671,
+          "summary": "# 荷甲：鹿特丹斯巴达vs阿尔克马尔预测分析 主场困局待解\n\n11月22日，荷甲联赛进入第13轮，鹿特丹斯巴达坐镇主场迎战阿尔克马尔，这是2026-2027赛季一场对话。12轮踢完，鹿特丹斯巴达拿到3胜3平6负、12个积分，排在第12，21个进球与29个失球；阿尔克马尔是7胜2平3负、23分，排第5，进球24个、失球16个。\n\n做客海牙，鹿特丹斯巴达一度在第50分钟由库伊帕斯在桑尼维特助攻下追平，但之后连续丢掉2球，最终1-3落败。那场比赛鹿特丹斯巴达控球51%，角球9比5领先，射正6次。联赛打完12轮，鹿特丹斯巴达场均进球1.8个、失球2.4个；主场6次出战只拿到1胜2平3负，9个进球、14个失球。最近6场各项赛事是2胜2平2负，13个进球、14个失球。桑尼维特个人已经收获7球，32次射门中有13次打在门框范围内，库伊帕斯贡献3次助攻。门将迈克尔·布鲁威尔在11月8日遭遇未知伤，这让鹿特丹斯巴达门将选择存在变数；上一场球队使用4-2-3-1，中场保护力度需要更紧。\n\n阿尔克马尔在主场以4-3拿下格罗宁根，梅尔丁克先在第9分钟接到达尔助攻追平，随后在第61分钟为奥夫基尔做球，查韦斯第76分钟再度扳平，梅尔丁克又在最后阶段完成本队第4球。那场球阿尔克马尔控球58%，角球7比0，也有1个点球未能罚进。联赛至今阿尔克马尔场均进2.0球、丢1.3球，客场6战3胜1平2负，11个进球、8个失球；最近6场荷甲客场是3胜1平2负，11个进球、8个失球。梅尔丁克在联赛已有6球，37次射门中16次射正；M.查韦斯送出3次助攻。刘易斯·斯考顿在11月7日遭遇未知伤，斯蒂耶·雷辛克在3月2日遭遇膝关节受伤，吉兹·霍恩坎普在9月21日遭遇受伤，杰罗恩·佐特停赛，阿尔克马尔后场轮换被压缩。\n\n近6次相遇，鹿特丹斯巴达只取得1胜1平4负，2026年2月22日曾以1-3输给阿尔克马尔，2025年11月2日坐镇主场也以0-1落败。联赛至今鹿特丹斯巴达场均控球44%，阿尔克马尔为58%。两队上一场都摆出4-2-3-1，本场沿用这一结构可能性较高；鹿特丹斯巴达可以借助主场角球和桑尼维特射门找机会，阿尔克马尔更可能用中场控制把球送到梅尔丁克与达尔脚下。如果鹿特丹斯巴达门将位置出现调整，阿尔克马尔射正压力会被放大；客队后场伤停与停赛，也可能让比赛进入僵局。\n\n鹿特丹斯巴达联赛已失29球，阿尔克马尔丢16球。主队需要先减少主场失球，客队要处理后场不整下控制。桑尼维特与梅尔丁克，谁会先打破僵局？鹿特丹斯巴达主场困局能否解开，阿尔克马尔又能否从客场拿到3分？\n\n## 鹿特丹斯巴达vs阿尔克马尔胜平负预测\n\n球迷屋对本场比赛给出胜平负预测：鹿特丹斯巴达胜率22.22%，平率44.44%，阿尔克马尔胜率33.33%。\n\n阅读说明： 赛前信息根据公开赛程...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 1,
+        "draw": 0,
+        "goals": 0,
+        "none": 3,
+        "neg": 1
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 2,
+        "zh": 5,
+        "home_mentions": 0,
+        "away_mentions": 5
+      },
+      "scores": [
+        "1 比 2"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周四007",
+      "league": "欧罗巴",
+      "home": "水晶宫",
+      "away": "皇家社会",
+      "home_en": "水晶宫",
+      "away_en": "Real Sociedad",
+      "queries": [
+        "\"水晶宫 vs Real Sociedad\" preview prediction lang:en",
+        "水晶宫 皇家社会 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "PREVIEW | Crystal Palace vs Real Sociedad: team news, lineups, predictions (Europa League 26/11)",
+          "url": "https://onefootball.com/en/news/preview-crystal-palace-vs-real-sociedad-team-news-lineups-predictions-europa-league-2611-43833562",
+          "site": "OneFootball",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.8881815671920776,
+          "summary": "# PREVIEW | Crystal Palace vs Real Sociedad: team news, lineups, predictions (Europa League 26/11) | OneFootball\n\nPlaymakerstats\n\n·24 November 2026\n\n## PREVIEW | Crystal Palace vs Real Sociedad:\n...\nCrystal Palace and Real Sociedad face off this Thursday at the Selhurst Park in UEFA Europa League. The match will be broadcast live at 20:00 on TNT Sports 1.\n\nIn their last fixture, Crystal Palace suffered a 3-2 reverse against Coventry City (Premier League 2026/27). In their last game, Real Sociedad lost 3-2 against Racing Santander (La Liga 2026/27).\n...\n### MANAGERS\n\n- They have faced Real Sociedad on two occasions, recording only draws.\n\n### TEAMS\n\n- Away from home, Real Sociedad have scored in eight consecutive matches.\n- Away from home, Real Sociedad are on a run of two consecutive matches without a win.\n- Away from home, Real Sociedad come into this game on the back of two consecutive defeats.\n- Real Sociedad currently have two defeats in their last ten matches.\n- Real Sociedad are on a run of 11 consecutive matches scoring goals.\n- At home, Crystal Palace have conceded in four consecutive matches.\n- At home, Crystal Palace are on a run of three consecutive matches without a win.\n- Crystal Palace currently have one win in their last nine matches.\n- Crystal Palace have scored in three consecutive matches.\n- Crystal Palace have conceded in four consecutive matches.\n- Crystal Palace are on a run of four consecutive matches without a win.\n- Crystal Palace come into this game on the back of two consecutive defeats.\n\n### HEAD TO HEAD\n\n- Crystal Palace and Real Sociedad have met zero times, there is no advantage between Crystal Palace and Real Sociedad: zero wins for each team in zero matches.\n- In the Europa League, the two teams meet for the first time",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "水晶宫迎战皇家社会，奥德里奥索拉与巴雷内切亚伤缺",
+          "url": "http://pc.dongqiudi.com/articles/6692844.html",
+          "site": "懂球帝",
+          "date": "2026-11-24T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.827447772026062,
+          "summary": "# 水晶宫迎战皇家社会，奥德里奥索拉与巴雷内切亚伤缺\n\n欧联杯联赛阶段第五轮，水晶宫将在伦敦塞尔赫斯特公园球场迎战皇家社会，开球时间为北京时间11月27日04:00（当地时间11月26日）。皇家社会方面，奥德里奥索拉和巴雷内切亚均因伤缺阵。\n\n两队目前战绩完全相同，均为1胜2平1负积5分。水晶宫以5分排在第21位，皇家社会以5分排在第20位，都处在附加赛资格线附近。\n\n水晶宫近期状态不佳。上周末英超，球队在丹麦教练托马斯-弗兰克的首秀中2-3不敌考文垂，第85分钟出现乌龙球，继续排名英超垫底。弗兰克于11月16日周一上任，接替被解雇的皮埃尔-萨热，当时水晶宫十轮仅积7分排名垫底。\n\n欧战方面水晶宫表现稍好，联赛阶段4场打入9球、失6球，场均射门12.3次、射正4.5次，有1场零封。耶雷米-皮诺在本届欧联杯已入3球，镰田大地2球，恩凯蒂亚1球。\n\n皇家社会同样需要拿分。欧足联在本轮前瞻中将其列为寻求在积分榜上攀升的球队之一，并特别提到边后卫塞尔希奥-戈麦斯，他在本届欧联杯已打入3球，甚至曾以边锋身份出场；卢卡-苏契奇和奥斯卡松各有2球。\n\n皇家社会联赛阶段4场进9球、失4球，场均失球1.00个。两队此前在本届赛事中数据接近，这场比赛对双方的排名走势都很关键。\n\n水晶宫方面，达里奥-奥索里奥在英超此前4次出场全部是替补，总计71分钟；对阵考文垂一战他直到第89分钟才登场，是弗兰克的第五个也是最后一个换人。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Crystal Palace vs Real Sociedad predictions and preview | APWin",
+          "url": "https://www.apwin.com/predictions/crystal-palace-vs-real-sociedad-prediction-uefa-europa-league-26-11-2026/",
+          "site": "APWin",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.7888821363449097,
+          "summary": "# Crystal Palace vs Real Sociedad prediction\n\nEurope - Europa League\n\nv.s\n\n26 Nov 2026 14:00\n\nOver 2.5 Goals\n\nMarket: Over 2.5 Goals · bcgame @ 1.58\n\n1.58\n1.58Bet Over 2.5 Goals\n...\n59%\n\n## Why this prediction?\n\nCrystal Palace, last 3: Under 9.5 Corners\n\nCrystal Palace's Last 3 Matches Ended with Under 9.5 Corners\n3 matches\n...\nNo Wins\n\nCrystal Palace hasn't Won in 3 Matches\n...\nSecondary prediction\n...\nHome Win\n\n46%\n\nLast updated: 21-11-2026\n\nThe kick off for the match between Crystal Palace and Real Sociedad will take place at 20:00 (UK time) - Thursday, 11/26 - at the Selhurst Park. This clash of the 2026/27 Europa League looks very promising!\n\nBefore placing your bets on this match, check out the full analysis, including predictions for Crystal Palace F.C. vs Real Sociedad de Fútbol, S.A.D.. We also highlight the most interesting odds and markets with a high chance of winning. Providing today’s best free tip to help you make informed and profitable betting decisions.\n\n## Crystal Palace Preview\n\nCrystal Palace has played 4 matches in the Europa League so far, with 1 wins, 2 draws, and 1 losses. This results in an average of 1.25 points per match.\n\nIn the 2026/27 season, the team has recorded 27 wins, 22 draws, and 28 losses. Crystal Palace's attack has scored 101 goals, 9 of them in the league, which gives an average of 2.25 goals per league match and 1.31 goals per match across the entire season.\n\nJean-Philippe Mateta is the team’s top scorer with 12 goals, while Adam Wharton leads the team in assists with 5. Defensively, Palace has conceded 6 goals in the league (an average of 1.5) and 102 goals throughout the entire season (an average of 1.32 over 77 matches).\n\n## Real Sociedad preview\n\nIn 4 Europa League matches, Real Sociedad has recorded 1 wins, 2 draws, and 1 losses, with an average of 1.25 points per game.\n\nIn the 2026/27 season, the team has 25 wins in 63 matches. The team has scored 107 goals, 9 of them in the Europa League (an average of 2.25 goals per match), with Mikel Oyarzabal being the team's top scorer with 15 goals and Sergio Gómez providing 6 assists.\n\nDefensively, Txuri-urdin has conceded 4 goals in the league and 95 in the 2026/27 season overall, resulting in an average of 1.51 goals conceded per match.\n\n## Head to head:\n...\nReview the head-to-head record between the teams, featuring key data to support your match prediction.\n...\nDDLW\n...\nAway\n\nDWDL\n\nPoints & Results\n\n- 4Played4\n- 1Wins1\n- 2Draws2\n- 1Losses1\n- 1.25PPG1.25\n- 25%Wins25%\n- 25%First to Score75%\n\nGoals Scored & Conceded\n\n- 9Goals Scored9\n- 2.25Scored/game2.25\n- 6Goals Conceded4\n- 1.50Conceded/game1.00\n- 1.45xG1.42\n- 1.37xGA1.39\n...\n- 33Total Corners36\n- 17Corners For20\n- 16Corners Against16\n- 4.25Corners For/game5.00\n- 4.00Corners Against/game4.00\n\nTrends\n\n- 75%Both Score75%\n- 25%Clean Sheet25%\n- 0%Failed to Score0%\n\n## Where to watch Palace vs Txuri-urdin live?\n\nCheck out the live stream of Crystal Palace vs Real Sociedad below and follow the match in real time.\n\nEuropa League14:00\n\nCrystal PalacevsReal Sociedad\n\n- 1121.28\n- 21st Half Over 0.5 Goals1.2...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "home win"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "周四007 水晶宫 vs 皇家社会比分预测：模型看好皇家社会，最可能1-1",
+          "url": "https://m.dongqiudi.com/xinwen/238953",
+          "site": "懂球帝",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6182396411895752,
+          "summary": "# 周四007 水晶宫 vs 皇家社会比分预测：模型看好皇家社会，最可能1-1\n...\n比分预测欧联 水晶宫 vs 皇家社会\n...\n## 30 秒看懂\n\n- 三模型平均：水晶宫胜34%、平21%、皇家社会胜45%\n- 综合最可能比分1-1（7.8%），预计合计4.0球\n- 三模型分歧：Elo看好水晶宫，另两个看好皇家社会\n\n北京时间2026年11月27日04:00周五开球，欧联联赛阶段第5轮，水晶宫主场对皇家社会，本场是竞彩周四007。懂球帝数据模型按开球前的历史比赛数据算出综合预测：三个模型平均下来，水晶宫胜34%、平局21%、皇家社会胜45%，最可能的比分是1-1（7.8%）、1-2（7.6%）、2-2（6.9%），预计两队合计进4.0球左右，两队都进球的概率75%。\n\n泊松进球模型按本赛季欧联的场均进球算出两队主客场进攻和防守强度，相乘得到进球期望，再按泊松分布算每个比分概率，并对低比分做Dixon-Coles修正。本赛季欧联截至赛前已赛152场，场均主队进1.58球、客队进1.25球；水晶宫近10个主场场均进1.70球、失1.60球，进攻强度1.07、防守1.23；皇家社会近10个客场场均进2.30球、失1.80球，进攻强度1.70、防守1.12；进球期望水晶宫1.88、皇家社会2.62。结果：水晶宫胜27%、平19%、皇家社会胜54%，最可能1-2（7.2%）、2-2（6.7%）、1-3（6.3%）。\n\n近况加权模型只看两队各项赛事最近10场，越近权重越大，每往前一场权重乘0.85，用加权后的场均进球和对手场均失球算进球期望，主场按赛事主客场进球比例加成。水晶宫近10场加权场均进1.14球、失2.20球；皇家社会加权场均进2.17球、失1.41球；主场加成1.12；进球期望水晶宫1.54、皇家社会2.04。结果：水晶宫胜28%、平23%、皇家社会胜49%，最可能1-1（9.7%）、1-2（8.9%）、2-2（6.9%）。\n\nElo等级分模型按懂球帝收录的全部正式比赛，从1500分起算分，赢球加分、输球扣分，对手越强、赢得越多变动越大，赛前两队分差加主场优势换算成胜率期望，再结合预计总进球换算进球期望。赛前等级分水晶宫1850（已算748场）、皇家社会1860（已算764场），主场优势按60分算；水晶宫胜率期望0.57；进球期望水晶宫2.20、皇家社会1.83。结果：水晶宫胜46%、平22%、皇家社会胜32%，最可能2-1（7.9%）、1-1（7.9%）、2-2（7.2%）。三个模型分歧明显，泊松和近况加权都看好皇家社会，Elo则看好水晶宫。\n\n模型近30天在欧联的战绩：泊松进球模型18场猜中胜平负9场（50%）、比分猜中3场；近况加权模型18场猜中胜平负5场（28%）、比分猜中1场；Elo等级分模型18场猜中胜平负7场（39%）、比分猜中4场。\n\n近5场水晶宫1胜1平3负（进5失9），皇家社会2胜1平2负（进7失7）。本赛季欧联两队都是4...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": [
+            "1 比 1"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "周四007 欧联第5轮水晶宫主场迎战皇家社会",
+          "url": "https://m.dongqiudi.com/xinwen/241248",
+          "site": "懂球帝",
+          "date": "2026-11-24T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.610553741455078,
+          "summary": "# 周四007 欧联第5轮水晶宫主场迎战皇家社会\n\n水晶宫vs皇家社会专家方案、首发阵容和比分直播，打开懂球帝App去看看\n\n## 30 秒看懂\n\n- 欧联第5轮水晶宫主场对皇家社会，11月27日04:00开球\n- 两队前4轮同为1胜2平1负，水晶宫进9失6、皇家社会进9失4\n- 水晶宫各项赛事4场不胜，皇家社会连续11场进球\n\n北京时间2026年11月27日04:00（周五凌晨），欧联2026/27赛季联赛阶段第5轮，水晶宫坐镇主场迎战皇家社会。这是竞彩周四007、北单26118期095、胜负彩26171期的比赛。懂球帝收录的比赛记录中，两队此前没有交手记录。\n\n本赛季欧联截至赛前，两队战绩完全相同，均为4战1胜2平1负。水晶宫进9球失6球，皇家社会进9球失4球。主客场方面，水晶宫主场2战1胜1平0负，皇家社会客场同样是2战1胜1平0负。\n\n近况上，水晶宫各项赛事近5场1胜1平3负，进5球失9球，已经连续4场不胜；皇家社会近5场2胜1平2负，进7球失7球，并且连续11场比赛都有进球。近10场数据，水晶宫2胜2平6负，皇家社会6胜2平2负；近10个主场水晶宫4胜1平5负，近10个客场皇家社会4胜2平4负。\n\n进球数据方面（近10场），水晶宫场均进1.2球、失2.2球，皇家社会场均进2.5球、失1.4球。总进球3球及以上的场次，水晶宫为6场（60%），皇家社会为7场（70%）；两队都进球的场次分别为6场（60%）和8场（80%）；零封对手分别为1场和2场；自己未能进球的场次分别为3场和0场。\n\n水晶宫最近5场：11月21日英超客场2-3负于考文垂，11月8日英超主场1-3负于利物浦，11月6日欧联主场1-1平霍芬海姆，11月1日英超客场0-2负于托特纳姆热刺，10月29日英联杯客场1-0胜富勒姆。皇家社会最近5场：11月22日西甲客场2-3负于桑坦德竞技，11月8日西甲主场1-0胜巴列卡诺，11月6日欧联主场1-1平里昂，11月2日西甲客场1-2负于毕尔巴鄂竞技，10月26日西甲主场2-1胜莱万特。\n\n射手方面，水晶宫本赛季欧联进球最多的是耶雷米-皮诺，打进3球，镰田大地打进2球；皇家社会方面，塞尔希奥-戈麦斯打进3球，卢卡-苏契奇和奥斯卡松各进2球。\n\n本文根据懂球帝数据的报道《周四007 水晶宫vs皇家社会赛前数据（欧联）》编译整理。\n...\n36位专家在分析水晶宫vs皇家社会，最高5连红\n\n本场已有 36 位专家在懂球帝发布方案，最高5连红，克敌制胜（5连红）、炸雷说球（4连红）、老霖荐彩（4连红）。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 2,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 3,
+        "zh": 3,
+        "home_mentions": 3,
+        "away_mentions": 3
+      },
+      "scores": [
+        "1 比 1"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周四008",
+      "league": "欧罗巴",
+      "home": "桑德兰",
+      "away": "比亚韦",
+      "home_en": "Sunderland",
+      "away_en": "比亚韦",
+      "queries": [
+        "\"Sunderland vs 比亚韦\" preview prediction lang:en",
+        "桑德兰 比亚韦 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "桑德兰 vs 比亚韦斯托克 赛事推介",
+          "url": "https://v2.news.7m.com.cn/prediction/data/5178760.shtml",
+          "site": "7M体育",
+          "date": null,
+          "authority": 2,
+          "score": 1.4896944761276243,
+          "summary": "桑德兰\n\n[和][胜][负][负][胜][和]\n\nVS\n\n比亚韦斯托克\n...\n2026-11-27 04:00 | 往绩分析 | 现场赛事情况\n\n澳门推介： 和局 (★★★★★)\n\n积基朗尼亚近期赢多输少，不过此前4仗欧洲联球队仅得1胜，面对英超球队新特兰，积基朗尼亚此行能够带走1分已算心满意足。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "桑德兰欧联战雅盖隆，勒布里需解决锋线问题",
+          "url": "https://m.dongqiudi.com/xinwen/229707",
+          "site": "懂球帝",
+          "date": "2026-11-22T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.4145163297653198,
+          "summary": "# 桑德兰欧联战雅盖隆，勒布里需解决锋线问题\n...\n- 桑德兰周四欧联杯对阵雅盖隆比亚韦斯托克。\n- 勒布里需为周日对热刺轮换阵容。\n- 福法纳和圖捷罗夫对维拉未出场，有望首发。\n\n桑德兰将在周四的欧联杯比赛中对阵雅盖隆比亚韦斯托克，主帅雷吉斯·勒布里面临一个明确的进攻选择。球队需要在周日英超对阵热刺之前轮换阵容，同时也需要前锋们贡献更多进球。\n\n马利克·福法纳和蒂穆尔·圖捷罗夫在对阵阿斯顿维拉的比赛中均未获得出场机会，尽管两人本赛季早些时候在桑德兰3比2战胜布伦特福德的英格兰联赛杯比赛中都有进球。两人都需要比赛时间，而桑德兰又苦于进球不足，这让勒布里面临一个有趣的选择。\n\n桑德兰本赛季进球乏力，球队仅有两场比赛单场打进三球。一场是3比5负于曼城，布莱恩·布罗贝上演帽子戏法；另一场是联赛杯3比2战胜布伦特福德。\n\n福法纳和圖捷罗夫在那场杯赛中都有进球，乔斯林·塔比贡献两次助攻。塔比没有注册欧联杯，因此无法在对阵雅盖隆的比赛中出场，但福法纳和圖捷罗夫有望在勒布里的进攻线上重聚。\n\n圖捷罗夫已经在欧洲赛场留下印象，他在对阵波兹南莱赫的比赛中进球，两次欧联杯出场打入一球。他还在唯一一次联赛杯首发对阵布伦特福德时进球，但他的机会通常仅限于替补出场。\n\n福法纳在欧联杯中出场更为稳定，首发了桑德兰全部四场欧联杯比赛。他还首发了全部两场联赛杯比赛，并在英超出场五次。\n\n两名攻击手在对阵维拉时都未出场，这给了勒布里在周四奖励他们首发的机会。由于热刺将在周日来访，轮换是必要的，但桑德兰也需要找到更稳定的进攻表现。给福法纳和圖捷罗夫一起出场的机会，可能有助于解决这两个问题。\n\n本文根据Sunderland AFC News的报道《Sunderland boss Regis Le Bris has an obvious attacking decision to make against Jagiellonia》编译整理。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "桑德兰欧联杯主场迎战雅盖隆，多人伤缺",
+          "url": "https://m.dongqiudi.com/xinwen/238909",
+          "site": "懂球帝",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.320075511932373,
+          "summary": "# 桑德兰欧联杯主场迎战雅盖隆，多人伤缺\n...\n- 桑德兰26日欧联杯主场迎战比亚韦斯托克雅盖隆\n- 桑德兰穆恩德尔、迪亚拉、扎卡等多人伤缺\n- 桑德兰队内进球最多的是勒费，共3球\n\n桑德兰与比亚韦斯托克雅盖隆将于2026年11月26日23:00在光明球场进行欧联杯比赛。\n\n桑德兰近4场欧联杯取得2胜1平1负，进4球失4球；英超近5场1胜2平2负，进2球失5球，联赛积9分排名第18位。比亚韦斯托克雅盖隆近5场欧联杯2胜3负，进6球失8球；波兰超级联赛近5场3胜2负，进6球失5球。\n\n桑德兰方面，穆恩德尔（半月板问题）、迪亚拉（腿筋受伤）、巴拉德（腿筋受伤）、扎卡（小腿受伤）、布罗贝伊（肌肉伤病）因伤缺阵；安古洛、塔比、塔尔比、埃尔堡、布朗未进入比赛名单。\n\n比亚韦斯托克雅盖隆方面，扎莱夫斯基、德拉哈尔、波拉克未进入比赛名单，西拉出战存疑。\n\n桑德兰队内进球最多的球员是勒费，共打入3球。\n\n本文根据Mynet的报道《Sunderland》编译整理。",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "桑德兰 VS 比亚韦斯托克 - 比赛分析、数据统计 - - 桑德兰 - 以往赛绩参考",
+          "url": "https://www.7m.hk/football/analysis/zh-cn/5178760#1",
+          "site": "7M比分網",
+          "date": "2026-11-20T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.289576292037964,
+          "summary": "- 桑德兰 - 以往赛绩参考\n- 总场数\n...\n最近 场 \n\n赛事 | 时间 | 球队 | 赛果 | 球队 | 全场让步 | 全场大小 | 全场单双 | 半场 | 半场让步 | 半场大小 \n英超 | 26-11-08 | 桑德兰 | 1-0 | 切尔西 | 赢 (受平/半) | 小 (二半) | 单 | 1-0 | 赢 (受平手) | 走 (一球)\n...\n角球数(2)｜角球数(2)\n\n欧罗巴 | 26-11-06 | 桑德兰 | 0-2 | 萨格勒布迪纳摩 | 输 (让一球) | 小 (二半/三) | 双 | 0-2 | 输 (让半球) | 大 (一/半) \n英超 | 26-10-31 | 考文垂 | 3-1 | 桑德兰  | 输 (让平/半) | 大 (二半) | 双 | 2-0 | 输 (让平手) | 大 (一球)\n...\n角球数(4)｜角球数(4)\n\n英联杯 | 26-10-29 | 桑德兰 | 3-2 | 布伦特福德 | 赢 (受一球) | 大 (三球) | 单 | 3-1 | 赢 (受平/半) | 大 (一/半) \n英超 | 26-10-26 | 桑德兰 | 0-0 | 利兹联 | 走 (受平手) | 小 (二/半) | 双 | 0-0 | 走 (受平手) | 小 (一球) \n利兹联先开球\n角球数(4)｜角球数(5)\n\n欧罗巴 | 26-10-23 | 波兹南莱赫 | 1-1 | 桑德兰 | 输 (让半球) | 小 (二半/三) | 双 | 0-1 | 赢 (让平/半) | 小 (一/半) \n英超 | 26-10-18 | 伯恩茅斯 | 2-0 | 桑德兰  | 输 (受半球) | 小 (二/半) | 双 | 1-0 | 输 (受平/半) | 大 (半/一)\n...\n角球数(5)｜角球数(3)\n\n欧罗巴 | 26-10-16 | 托林斯(中) | 1-2 | 桑德兰 | 输 (让球半) | 大 (二半/三) | 单 | 1-0 | 输 (让半/一) | 小 (一/半) \n英超 | 26-10-10 | 桑德兰 | 0-2 | 布莱顿  | 输 (受平/半) | 小 (二半) | 双 | 0-0 | 走 (受平手) | 小 (一球)\n...\n角球数(7)｜角球数(5)\n\n英超 | 26-09-20 | 曼彻斯特城 | 5-3 | 桑德兰 | 输 (受球半) | 大 (二半/三) | 双 | 3-2 | 输 (受半/一) | 大 (一/半)\n...\n角球数(6)｜角球数(5)\n\n欧罗巴 | 26-09-17 | 桑德兰 | 1-0 | 阿尔克马尔 | 走 (让一球) | 小 (二半) | 单 | 0-0 | 输 (让半球) | 小 (一球) \n英超 | 26-09-13 |  桑德兰 | 0-2 | 阿森纳 | 输 (受半/一) | 小 (二/半) | 双 | 0-0 | 赢 (受平/半) | 小 (一球) \n阿森纳先开球\n角球数(4)｜角球数(2)\n\n英联杯 | 26-09-09 | 桑德兰 | 1-0 | 赫尔城 | 赢 (让半/一) | 小 (二半) |...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 4,
+        "auth3": 0,
+        "zh": 4,
+        "home_mentions": 4,
+        "away_mentions": 3
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周四009",
+      "league": "欧罗巴",
+      "home": "霍芬海姆",
+      "away": "格风暴",
+      "home_en": "Hoffenheim",
+      "away_en": "格风暴",
+      "queries": [
+        "\"Hoffenheim vs 格风暴\" preview prediction lang:en",
+        "霍芬海姆 格风暴 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "PREVIEW | TSG Hoffenheim vs Sturm Graz: team news, lineups, predictions (Europa League 26/11)",
+          "url": "https://onefootball.com/en/news/preview-tsg-hoffenheim-vs-sturm-graz-team-news-lineups-predictions-europa-league-2611-43833759",
+          "site": "OneFootball",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.827447772026062,
+          "summary": "# PREVIEW | TSG Hoffenheim vs Sturm Graz: team news, lineups, predictions (Europa League 26/11) | OneFootball\n\nPlaymakerstats\n\n·24 November 2026\n...\nTSG Hoffenheim and Sturm Graz face off this Thursday at the PreZero Arena in UEFA Europa League. The match will be broadcast live at 20:00 on TNT Sports.\n\nIn their last fixture, TSG Hoffenheim suffered a 1-0 reverse against Eintracht Frankfurt (1. Bundesliga 2026/27). In their last encounter, Sturm Graz were beaten 1-0 by SCR Altach (Austrian Bundesliga Grunddurchgang 2026/27).\n...\n### Unavailable\n\n### TSG Hoffenheim\n\n- Robin Hranác - Knee Injury\n- Albian Hajdari - Meniscus Injury\n- Nathan De Cat - Meniscus Injury\n- Valentin Gendrey - Broken Fibula\n\n### Sturm Graz\n\n- Otari Kiteishvili - Calf Injury\n- Daniil Khudyakov - Lower Leg Fracture\n...\n### MANAGERS\n\n- Christian Ilzer has faced Sturm Graz on six occasions, recording three wins, two draws and one defeat\n\n### TEAMS\n\n- Away from home, Sturm Graz currently have one win in their last six matches.\n- Away from home, Sturm Graz are on a run of four consecutive matches conceding goals.\n- Away from home, Sturm Graz are on a run of four consecutive matches without a win.\n- Sturm Graz currently have one win in their last seven matches.\n- Sturm Graz are on a run of six consecutive matches conceding goals.\n- Sturm Graz are on a run of six consecutive matches without a win.\n- Sturm Graz are on a run of three consecutive defeats.\n- At home, TSG Hoffenheim are on a run of seven consecutive matches scoring goals.\n- At home, TSG Hoffenheim are on a run of three consecutive matches without defeat.\n- At home, TSG Hoffenheim are on a run of three consecutive wins.\n- TSG Hoffenheim have conceded in five consecutive matches.\n\n### HEAD TO HEAD\n\n- TSG Hoffenheim and Sturm Graz have faced each other zero times, there is no advantage between TSG Hoffenheim and Sturm Graz: zero wins for each team in zero matches.\n- In the Europa League, the two teams will meet for the first time",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "周四009 霍芬海姆 vs 格拉茨风暴比分预测：模型看好霍芬海姆，最可能1-1",
+          "url": "https://m.dongqiudi.com/xinwen/238956",
+          "site": "懂球帝",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6412975788116455,
+          "summary": "# 周四009 霍芬海姆 vs 格拉茨风暴比分预测：模型看好霍芬海姆，最可能1-1\n...\n比分预测欧联 霍芬海姆 vs 格拉茨风暴\n...\n## 30 秒看懂\n\n- 三模型平均：霍芬海姆胜54%、平24%、格拉茨风暴胜22%\n- 综合最可能比分1-1（11.1%），两队都进球概率60%\n- 三个模型都看好霍芬海姆，但近况加权模型客胜给到26%\n\n北京时间2026年11月27日04:00周五开球，欧联联赛阶段第5轮，霍芬海姆主场对格拉茨风暴，本场是竞彩周四009。懂球帝数据模型按开球前已经完场的比赛数据算出综合预测：3个模型平均下来，霍芬海姆胜54%、平局24%、格拉茨风暴胜22%，最可能的比分是1-1（11.1%）、2-1（9.8%）、2-0（8.2%），预计两队合计进3.1球左右，两队都进球的概率60%。\n\n泊松进球模型按本赛季欧联的场均进球算出两队主客场进攻和防守强度，相乘得到进球期望，再按泊松分布算每个比分的概率，并对0-0、1-1这类低比分做Dixon-Coles修正。本赛季欧联截至赛前已赛152场，场均主队进1.58球、客队进1.25球；霍芬海姆近10个主场场均进2.20球、失1.50球，进攻强度1.33、防守1.17；格拉茨风暴近10个客场场均进0.90球、失1.40球，进攻强度0.77、防守0.91。进球期望霍芬海姆1.90、格拉茨风暴1.12，结果霍芬海姆胜55%、平24%、格拉茨风暴胜21%，最可能比分1-1（11.4%）、2-1（9.9%）、2-0（8.8%）。\n\n近况加权模型只看两队各项赛事最近10场，越近的比赛权重越大，每往前一场权重乘0.85，用加权后的场均进球和对手的场均失球算进球期望，主场按赛事主客场进球比例加成。霍芬海姆近10场加权场均进1.32球、失1.15球；格拉茨风暴近10场加权场均进1.66球、失1.92球；主场加成1.12。进球期望霍芬海姆1.90、格拉茨风暴1.32，结果霍芬海姆胜50%、平24%、格拉茨风暴胜26%，最可能比分1-1（11%）、2-1（9.5%）、2-0（7.2%）。\n\nElo等级分模型按懂球帝收录的全部正式比赛，从1500分起给每支球队算等级分，赢球加分、输球扣分，对手越强、赢得越多，变动越大。赛前等级分霍芬海姆1813（已算632场）、格拉茨风暴1742（已算609场），主场优势按60分算；霍芬海姆的胜率期望0.68，进球期望霍芬海姆1.99、格拉茨风暴1.13。结果霍芬海姆胜56%、平24%、格拉茨风暴胜20%，最可能比分1-1（10.9%）、2-1（9.9%）、2-0（8.7%）。\n\n三个模型方向一致，都看好霍芬海姆，但分歧在客胜：近况加权模型给格拉茨风暴26%，Elo等级分模型只给20%，泊松进球模型给21%；平局三家都在24%上下。模型近30天在欧联的战绩（按赛前数据回算完场比赛）：泊...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": [
+            "1 比 1",
+            "0 比 0"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "周四009 欧联第5轮霍芬海姆主场迎格拉茨风暴",
+          "url": "https://m.dongqiudi.com/xinwen/241236",
+          "site": "懂球帝",
+          "date": "2026-11-24T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6412975788116455,
+          "summary": "# 周四009 欧联第5轮霍芬海姆主场迎格拉茨风暴\n\n霍芬海姆vs格拉茨风暴专家方案、首发阵容和比分直播，打开懂球帝App去看看\n11月27日 04:00霍芬海姆 vs 格拉茨风暴欧联看直播\n\n## 30 秒看懂\n\n- 霍芬海姆主场对阵格拉茨风暴，两队欧联战绩相同\n- 格拉茨风暴各项赛事已连续3场失利\n- 奥马尔-迪亚基特以3球领跑格拉茨风暴欧联射手榜\n\n北京时间2026年11月27日04:00（周五），欧联2026/27赛季联赛阶段第5轮，霍芬海姆主场迎战格拉茨风暴。本场是竞彩周四009、北单26118期097、胜负彩26171期的比赛。\n\n两队本赛季欧联前4轮战绩完全相同，均为1胜1平2负。霍芬海姆进6球失6球，格拉茨风暴进3球失6球。主场方面，霍芬海姆本赛季欧联2个主场1胜0平1负；格拉茨风暴本赛季欧联客场只踢过1场，0胜0平1负。\n\n各项赛事近5场，霍芬海姆1胜2平2负，进4球失6球；格拉茨风暴0胜2平3负，进8球失11球，并且已经连续3场失利。近10场霍芬海姆4胜2平4负，格拉茨风暴3胜2平5负。近10个主场霍芬海姆6胜1平3负，近10个客场格拉茨风暴3胜2平5负。\n\n霍芬海姆最近5场：11月21日德甲客场0比1负法兰克福，11月9日德甲主场2比1胜沙尔克04，11月6日欧联客场1比1平水晶宫，10月31日德甲客场0比2负云达不莱梅，10月29日德国杯客场1比1平荷尔斯泰因基尔。\n\n格拉茨风暴最近5场：11月22日奥超客场0比1负阿尔特阿赫，11月9日奥超主场3比4负萨尔茨堡红牛，11月6日欧联主场2比3负采列，11月1日奥超客场1比1平沃尔夫斯贝格，10月25日奥超主场2比2平里德。\n\n近10场进球数据方面，霍芬海姆场均进1.6球、失1.3球，格拉茨风暴场均进1.7球、失1.8球。两队近10场总进球3球及以上的比赛均为6场（60%），两队都进球的场次分别为6场（60%）和5场（50%），零封对手均为2场，自己没进球的场次分别为2场和3场。\n\n格拉茨风暴本赛季欧联进球最多的是奥马尔-迪亚基特，共打进3球。历史交锋方面，懂球帝收录的比赛中两队此前没有交手记录。以上数据只统计开球前已经完场的比赛。\n\n本文根据懂球帝数据的报道《周四009 霍芬海姆vs格拉茨风暴赛前数据（欧联）》编译整理。\n...\n29位专家在分析霍芬海姆vs格拉茨风暴，最高5连红\n\n本场已有 29 位专家在懂球帝发布方案，最高5连红，天暗星（5连红）、阿根廷随笔（近14中12）、盆仔吃球（3连红）。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "TSG Hoffenheim vs. Sturm Graz preview: Team news and predicted lineups",
+          "url": "https://sports.yahoo.com/soccer/articles/tsg-hoffenheim-vs-sturm-graz-075900008.html",
+          "site": "Yahoo Sports",
+          "date": "2026-11-24T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.6259256601333618,
+          "summary": "# TSG Hoffenheim vs. Sturm Graz preview: Team news and predicted lineups\n...\nTSG Hoffenheim and Sturm Graz will hope to make huge strides in the Europa League when they meet at SNP Arena on Thursday. Both teams only have four points each after the first four rounds of actions in the competition.\n\nChristian Ilzer's men recorded their points in the last two matchdays as their stunning 3-0 victory over Lyon followed by conceding a late equalizer to Conference League champions Crystal Palace in London. Sturm Graz lost to Celje at home on matchday four.\n...\nThe visitors also had a tough start to the Austrian Bundesliga season as they trail surprise league leaders SK Rapid by a staggering 15 points after only 13 rounds. Sturm Graz won the title in back-to-back seasons before LASK Linz earned the crown last term in one of the most competitive leagues in Europe after the end of RB Salzburg's decade-long dominance.\n\nIt'll be a special game for Illzer as he guided Sturm Graz to their first league triumph in over a decade before taking the helm at Hoffenheim. After a difficult first campaign, the Austrian coach was able to even compete for a Champions League spot last season with the Sinsheim club.\n\nHoffenheim have been inconsistent in Bundesliga this term as they stay in the bottom half of the table after a narrow defeat at Eintracht Frankfurt on Saturday in a game both sides missed first-half penalty-kicks. However, they won each of their last three games at SNP Arena in all competitions.\n\nThis will be the first occasion Hoffenheim clash a club from Austria in a competitive fixture, while Sturm Graz will face a German Bundesliga opponent for the first time since their games against RB Leipzig (1-0 win) and Borussia Dortmund (1-0 loss) in the league phase of the 2024/25 Champions League.\n...\nIt'll be the first time two Austrian coaches lock horns in the Europa League, although Fabio Ingolitsch is under pressure after his side's winless run extended to six games with Sunday's defeat to Altach.\n...\nNathan De Cat, Valentin Gendrey, Albian Hajdari and Robin Hranac remain on sidelines for the hosts. Similar to his coach, central midfielder Alexander Prass is preparing to face the club he won three trophies with during his time in Graz.\n\nGermany U21 international Joshua Quarshie is a regular fixture in Sturm Graz's defense. Leon Grgic, Daniil Khudyakov, Otar Kiteishvili and Filip Rozga will not be in the traveling squad due to long-serving injuries.\n...\n## Predicted lineups:\n\nHoffenheim: Baumann ©; Rots, Machida, Kabak, Coufal; Prass, Avdullahu; Daghim, Kramaric, Lemperle; Asllani\n\nSturm Graz: Helac; Petrovic, Quarshie, Malic; Balbo, Stankovic ©, Weinhandl, Heil; Matoshi, Seidl; Diakite",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "周四009 霍芬海姆vs格拉茨风暴几点直播：CCTV5不转，爱奇艺播",
+          "url": "https://m.dongqiudi.com/xinwen/242457",
+          "site": "懂球帝",
+          "date": "2026-11-24T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.610553741455078,
+          "summary": "# 周四009 霍芬海姆vs格拉茨风暴几点直播：CCTV5不转，爱奇艺播\n...\n比分预测欧联 霍芬海姆 vs 格拉茨风暴\n...\n- 北京时间11月27日04:00开球\n- 央视体育频道暂未安排电视转播\n- 两队此前无交锋，欧联战绩同为1胜1平2负\n\n北京时间2026年11月27日（周五）04:00，欧联联赛阶段第5轮，霍芬海姆坐镇主场迎战格拉茨风暴。本场是竞彩周四009、北单26118期097、胜负彩26171期的比赛。央视体育频道暂未安排电视转播，CCTV5与CCTV5+均无本场直播计划。\n\n收看渠道方面，赛程标注的网络转播平台有爱奇艺，具体以平台实际播出为准。\n...\n本赛季欧联截至赛前，霍芬海姆4战1胜1平2负，进6球失6球；格拉茨风暴4战1胜1平2负，进3球失6球，两队积分与战绩完全一致。各项赛事近5场，霍芬海姆1胜2平2负（进4失6），格拉茨风暴0胜2平3负（进8失11），后者状态更为低迷。\n\n历史交锋方面，懂球帝收录的比赛里两队此前没有交手记录，本场将是双方首次碰面。看点集中在格拉茨风暴一边：他们各项赛事已连续3场失利，急需止住颓势；本赛季欧联进球最多的是奥马尔-迪亚基特，已打入3球，是格拉茨风暴最主要的得分点。\n\n需要提醒的是，节目单与转播信息整理自央视网公开节目预告及懂球帝赛程数据，转播安排以赛事方及转播机构临场实际播出为准，比赛数据仅统计开球前已完场场次。\n\n本文根据懂球帝数据的报道《周四009 霍芬海姆vs格拉茨风暴几点直播（欧联）》编译整理。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 2,
+        "zh": 3,
+        "home_mentions": 3,
+        "away_mentions": 0
+      },
+      "scores": [
+        "1 比 1",
+        "0 比 0"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周四010",
+      "league": "欧罗巴",
+      "home": "奈梅亨",
+      "away": "雷恩",
+      "home_en": "奈梅亨",
+      "away_en": "雷恩",
+      "queries": [
+        "\"奈梅亨 vs 雷恩\" preview prediction lang:en",
+        "奈梅亨 雷恩 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "NEC Nijmegen-Rennes - Europa League 2026/2027 Statistical Preview",
+          "url": "https://www.whoscored.com/matches/2029628/preview/europe-europa-league-2026-2027-nec-nijmegen-rennes",
+          "site": "WhoScored.com",
+          "date": null,
+          "authority": 3,
+          "score": 1.6720572710037231,
+          "summary": "## Predicted Lineups\n\n4-1-4-1\n\n## Probable Lineups Statistical Comparison\n\n(8) 6 Goals 3 (4)\n\n(5) 4 Assists 1 (1)\n\n(6.5) 6.9 Average Ratings 6.9 (6.8)\n\n27.4 Average Age 25.7\n\n181.5 Average Height (cm) 182.1\n\n(1.3) 1.8 Shots pg 1.1 (1.4)\n\n(56%) 53% Aerial Duel Success 60% (58%)\n\n(0.9) 1 Dribbles pg 1.1 (1.4)\n\n(1.6) 1.4 Tackles pg 1.3 (1.3)\n\n* Values in brackets (x) are overall player statistics in Europa League.\n\n## Missing Players\n\nNEC Nijmegen\n\nRennes\n\nPlayer | Reason | Status | Rating\n...\nValentin Rongier  | Out | 6.59 \nEliezer Mayenda  | Out | 6.2 \nPrzemyslaw Frankowski  | Out | 7.55 \n\n## Team News\n...\n- Dick Schreuder faces several selection problems, with Bram Nuytinck, Perr Schuurs, Emre Mor, Philippe Sandler and Yassin Moslih unavailable through injury. Dennis Geiger has also recently been sidelined, while NEC have scored 13 goals and conceded 12 across their last six competitive matches.\n- Gonzalo Crettaz should retain his place behind Gabriel Brás, Ahmetcan Kaplan and Deveron Fonville. NEC have conceded eight first-half goals across their last six competitive fixtures, highlighting their defensive vulnerabilities, although their ability to recover from losing positions has been a defining feature of their European campaign.\n- Kevin Kers, Darko Nejašmić, Noé Lebreton and Mitchel Bakker are set to operate across midfield. Clement Bischoff offers an alternative at wing-back or in attacking roles, while NEC’s improved European form has seen them score seven goals in their last two victories.\n- Tjaronn Chery and Dušan Tadić should support Bryan Linssen in attack. Linssen has scored four Europa League goals this season, the joint-highest tally in the competition, while Chery has contributed three. The latter is also among the most prolific players aged 38 or older in a single Europa League campaign.\n\n- Franck Haise will be without Eliezer Mayenda, Valentin Rongier and Przemysław Frankowski through injury. Rennes have won just once in their last six competitive matches (D3, L2), scoring nine goals and conceding ten, although they remain unbeaten in this season’s Europa League.\n- Brice Samba is poised to start behind Bryan Reynolds, Anthony Rouault, Charlie Cresswell and Gonçalo Oliveira. Rennes have conceded 16 goals across their last five competitive away fixtures, despite avoiding defeat in all four Europa League matches this season.\n- Djaoui Cissé should replace the injured Rongier in the holding role, with Musa Al-Taamari, Sebastian Szymański, Mahdi Camara and Mahamadou Nagida operating further up the pitch. Adrien Thomasson is another midfield option, and his recent domestic red card does not affect his Europa League eligibility.\n- Boulaye Dia is likely to lead the attack, although Estéban Lepaul could challenge for a starting place after returning from an ankle injury. Rennes have scored just four goals in four Europa League matches, with four different players contributing once each, and have failed to score in two fixtures.\n\n### Head to Head Stats\n\nR | Team | W | D | L | Pts \n---|---|---|---|---|---\n12  | N. Nijmegen  | 2 | 1 | 1 | 7 \n17  | Rennes  | 1 | 3 | 0 | 6 \n\n## Prediction\n\n- NEC Nijmegen will look to strengthen their position in the UEFA Europa League knockout places when they welcome unbeaten Rennes on Thursday evening. The Dutch hosts occupy 12th place with seven points from four matches, while their French opponents sit 17th with six points, leaving both sides firmly in contention for progression.\n- NEC secured an impressive 3-1 comeback victory over Omonia Nicosia on matchday four, with Bryan Linssen scoring twice. Dick Schreuder’s side have now won consecutive Europa League matches, scoring seven goals across those victories, although all seven of their competition points this season have come from losing positions.\n- Home form remains inconsistent, with NEC winning just once in their last eight competitive matches at the Goffertstadion (D5, L2). However, they remain unbeaten in their two Europa League home fixtures this season (W1...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "奈梅亨主场迎战雷恩，两队攻强守弱欧战对决",
+          "url": "https://m.dongqiudi.com/xinwen/237815",
+          "site": "懂球帝",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6720572710037231,
+          "summary": "# 奈梅亨主场迎战雷恩，两队攻强守弱欧战对决\n...\n- 奈梅亨周四晚主场迎战雷恩\n- 雷恩法甲进攻顶尖但防守漏洞多\n- 两队战术冒险，预计不会0比0\n\n奈梅亨与雷恩将于周四晚间交手。赛前分析指出，这场比赛出现大量进攻场面的可能性很大，因为两支球队都擅长进攻，但本赛季很少证明自己能够限制住进攻强劲的对手。\n\n雷恩主帅弗兰克·艾斯此前曾带领朗斯凭借稳健的反击足球成长为法甲上游球队。分析认为，他的战术思路或许不如奈梅亨主帅迪克·施罗德那样极端，但这支雷恩的数据特征与施罗德球队过去踢的“迪基塔卡”颇为相似。\n\n雷恩目前在法甲进攻端属于精英级别，但防守端送出的机会多得引人注目。即便多安排一名后卫，这支球队依然主要寻找向前的路线。\n\n分析因此判断，奈梅亨与雷恩打出令人昏昏欲睡的0比0的可能性很小，因为雷恩在战术上跟奈梅亨一样冒了太多风险。\n\n本文根据Voetbal International的报道《Dit kan NEC verwachten van Stade Rennes》编译整理。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": [
+            "0 比 0"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "周四010 奈梅亨 vs 雷恩进球数预测：模型预计4.2球，最可能4球",
+          "url": "https://m.dongqiudi.com/xinwen/239088",
+          "site": "懂球帝",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6336115598678589,
+          "summary": "# 周四010 奈梅亨 vs 雷恩进球数预测：模型预计4.2球，最可能4球\n...\n进球数预测欧联 奈梅亨 vs 雷恩\n...\n## 30 秒看懂\n\n- 懂球帝数据模型预计奈梅亨对雷恩合计进4.2球左右\n- 全场总进球正好4球概率19%为最高，3球及以上79%\n- 赛前等级分奈梅亨1756、雷恩1829，主场优势按60分算\n\n北京时间2026年11月27日 04:00 周五开球，欧联联赛阶段第5轮，奈梅亨（主）对雷恩（客）。懂球帝数据模型综合3个模型的平均结果，预计两队合计进4.2球左右，其中奈梅亨2.2球、雷恩2.0球。\n\n总进球各档的概率为：0球2%、1球5%、2球14%、3球18%、4球19%、5球及以上41%；3球及以上79%，2球及以下21%。全场总进球正好4球的可能最大，概率19%。两队都进球的概率77%；奈梅亨零封对手的概率14%，雷恩零封对手的概率11%。\n\n泊松进球模型按本赛季欧联的场均进球算出两队主客场进攻和防守强度，再按泊松分布算每个比分的概率，并对0-0、1-1这类低比分做Dixon-Coles修正。本赛季欧联截至赛前已赛152场，场均主队进1.58球、客队进1.25球；奈梅亨近10个主场场均进1.60球、失2.00球，进攻强度1.01、防守1.50；雷恩近10个客场场均进1.60球、失2.40球，进攻强度1.23、防守1.44；该模型进球期望为奈梅亨2.29、雷恩2.31。\n\n近况加权模型只看两队各项赛事最近10场，越近的比赛权重越大，每往前一场权重乘0.85，用加权后的场均进球和对手的场均失球算进球期望，主场按赛事主客场进球比例加成。奈梅亨近10场加权场均进1.89球、失1.97球；雷恩近10场加权场均进1.57球、失1.81球；主场加成1.12；该模型进球期望为奈梅亨2.19、雷恩1.65。\n\nElo等级分模型按懂球帝收录的全部正式比赛，从1500分起给每支球队算Elo等级分，赛前两队的分差加上主场优势换算成胜率期望，再结合两队预计总进球换算成各自的进球期望。赛前等级分奈梅亨1756（已算573场）、雷恩1829（已算680场），主场优势按60分算；奈梅亨的胜率期望0.48；该模型进球期望为奈梅亨2.06、雷恩2.16。\n\n近5场奈梅亨2胜1平2负（进9失10），雷恩1胜2平2负（进7失8）。本赛季欧联奈梅亨4战2胜1平1负，雷恩4战1胜3平0负。\n\n模型只看历史数据，不知道伤停和临场变化，结果仅供参考。\n\n本文根据懂球帝数据的报道《周四010 奈梅亨vs雷恩进球数预测（欧联）》编译整理。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": [
+            "0 比 0"
+          ]
+        },
+        {
+          "kind": "zh",
+          "title": "周四010 奈梅亨vs雷恩怎么买：竞彩推荐主胜，比分1-1",
+          "url": "https://m.dongqiudi.com/xinwen/241126",
+          "site": "懂球帝",
+          "date": "2026-11-24T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.6336115598678589,
+          "summary": "# 周四010 奈梅亨vs雷恩怎么买：竞彩推荐主胜，比分1-1\n\n奈梅亨vs雷恩专家方案、首发阵容和比分直播，打开懂球帝App去看看\n\n怎么买欧联 奈梅亨 vs 雷恩\n...\n## 30 秒看懂\n\n- 胜平负推荐主胜，SP2.84，不开单关需串关\n- 让球推荐让胜，SP1.61\n- 比分看1-1、2-2、2-1，总进球看3球、4球\n\n北京时间2026年11月27日04:00，欧联联赛阶段第5轮，奈梅亨主场对雷恩。本场是竞彩周四010、北单26118期099、胜负彩26171期的比赛。主推胜平负主胜，推荐信心低，建议小注或双选。\n\n胜平负推荐主胜，竞彩官方SP主胜2.84、平3.65、客胜1.95；按模型概率算，每投1元的期望回报：主胜1.20、平0.77、客胜0.71。推荐理由：主胜42.1%是模型概率最高的一项；按SP算期望回报大于1的是主胜（1.20）。本场胜平负不开单关，要和其他场次串关（至少2串1）。\n\n让球胜平负：奈梅亨受让1球（+1），推荐让胜，竞彩官方SP让胜1.61、让平4.00、让负3.72；按模型概率算的期望回报：让胜1.02、让平0.64、让负0.77。推荐理由：让胜63.4%是模型概率最高的一项；按SP算期望回报大于1的是让胜（1.02）。\n\n比分推荐（模型最可能的3个）：1-1（模型概率7.2%，SP 7.00）、2-2（模型概率7.1%，SP 10.00）、2-1（模型概率7.1%，SP 9.00）。推荐理由：这3个是模型算出概率最高的比分。总进球推荐：3球（模型概率18.3%，SP 3.45）、4球（模型概率19.2%，SP 4.50）。推荐理由：这两档是模型算出概率最高的总进球数。\n\n模型怎么看：数据模型给出奈梅亨胜42.1%、平局21.2%、雷恩胜36.6%，预计两队合计进4.2球左右。泊松进球模型算出奈梅亨胜40%、平20%、雷恩胜40%，最可能的比分2-2、1-2、2-1；近况加权模型算出奈梅亨胜49%、平22%、雷恩胜29%，最可能的比分1-1、2-1、2-2；Elo等级分模型算出奈梅亨胜38%、平21%、雷恩胜41%，最可能的比分2-2、1-1、1-2。\n\n两队近况和交锋：奈梅亨近5场2胜1平2负（进9失10），雷恩近5场1胜2平2负（进7失8）。本赛季欧联，奈梅亨4战2胜1平1负，雷恩4战1胜3平0负。\n\n购买方式：到中国体育彩票实体店购买（国家不允许互联网销售彩票），停售时间和开售玩法以体彩官方为准。理性购彩，量力而行，未成年人不得购买彩票。模型只看历史数据，不知道伤停、轮换和临场变化，推荐仅供参考。\n\n本文根据懂球帝数据的报道《周四010 奈梅亨vs雷恩怎么买（欧联）》编译整理。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主胜"
+          ],
+          "scores": [
+            "1 比 1",
+            "2 比 2"
+          ]
+        },
+        {
+          "kind": "preview",
+          "title": "NEC vs Rennes predictions and preview | APWin",
+          "url": "https://www.apwin.com/predictions/nec-vs-rennes-prediction-uefa-europa-league-26-11-2026/",
+          "site": "APWin",
+          "date": "2026-11-23T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.610553741455078,
+          "summary": "# NEC vs Rennes prediction\n\nEurope - Europa League\n\nv.s\n\n26 Nov 2026 12:00\n\nUnder 3.5 Goals\n\nMarket: Under 3.5 Goals · @ 1.68\n\n1.68\n\nConfidence\n\n60%\n\n## Why this prediction?\n\nNEC, last 4: Under 9.5 Corners\n\nNEC's Last 4 Matches Ended with Under 9.5 Corners\n4 matches\nNEC, last 3: No Losses\n\nNEC hasn't Lost in 3 Matches\n3 matches\nSecondary prediction\n\nAway Win\n\n43%\n\nLast updated: 21-11-2026\n\nNEC and Rennes face each other in an official match of the 2026/27 Europa League season. The game takes place at Goffertstadion on Thursday, 26/11/2026, at 20:00 (UK Time).\n\nOur experts have prepared predictions for Nijmegen Eendracht Combinatie B.V. vs Stade Rennais Football Club, based on a detailed statistical review of both teams. Our goal is to assist bettors in making profitable decisions, which is why we offer the best free prediction for today.\n\n## The Ennecies preview\n\nNEC comes into the match having played 4 games in the Europa League so far. They have recorded 2 wins, 1 draws, and 1 losses, with an average of 1.75 points per game in the tournament.\n\nIn the 2026/27 season across all competitions, the team has achieved 27 wins, 18 draws, and 16 losses.\n\nNEC's attack has scored 122 goals during this period. Out of this total, 8 goals were scored in the Europa League, averaging 2 goals per match. The season's average stands at 2.\n\nThe offence system of NEC is led by Bryan Linssen as the top scorer of the season. The dutch forward has scored 12 goals. He is supported by the season's best assistant, Basar Onal, who has contributed with 7 assists.\n\nOn the defensive side, the team has conceded 9 goals with an average of 2.25 in the league. In all competitions, the current numbers are 105 goals conceded in 61 matches, resulting in an average of 1.72.\n\n## The Red-and-Blacks preview\n\nOn the other hand, Rennes comes into the match having played 4 games in the Europa League so far. They have recorded 1 wins, 3 draws, and 0 losses, with an average of 1.5 points per game in the tournament.\n\nIn the 2026/27 season across all competitions, the team has achieved 25 wins, 13 draws, and 14 losses.\n\nRennes's attack has scored 91 goals during this period. Out of this total, 4 goals were scored in the Europa League, averaging 1 goals per match. The season's average stands at 1.75.\n\nThe offence system of Rennes is led by Breel Embolo as the top scorer of the season. The swiss forward has scored 9 goals. He is supported by the season's best assistant, Moussa Al Tamari, who has contributed with 6 assists.\n\nOn the defensive side, the team has conceded 3 goals with an average of 0.75 in the league. In all competitions, the current numbers are 79 goals conceded in 52 matches, resulting in an average of 1.52.\n\n## Head to head: NEC vs Rennes\n\nReview the head-to-head record between the teams, featuring key data to support your match prediction.\n...\nWWDL\n...\nDDWD\n\nPoints & Results\n\n- 4Played4\n- 2Wins1\n- 1Draws3\n- 1Losses0\n- 1.75PPG1.50\n- 50%Wins25%\n- 25%First to Score0%\n\nGoals Scored & Conceded\n\n- 8Goals Scored4\n- 2.00Scored/game1.00\n- 9Goals Conceded3\n- 2.25Conceded/game0.75\n- 1.86xG1.92\n- 1.25xGA1.16\n...\n- 22Total Corners43\n- 14Corners For25\n- 8Corners Against18\n- 3.50Corners For/game6.25\n- 2.00Corners Against/game4...",
+          "side": "away",
+          "neg": false,
+          "hits": [
+            "away win"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 2,
+        "away": 1,
+        "draw": 0,
+        "goals": 0,
+        "none": 2,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 2,
+        "zh": 3,
+        "home_mentions": 3,
+        "away_mentions": 3
+      },
+      "scores": [
+        "0 比 0",
+        "1 比 1",
+        "2 比 2"
+      ],
+      "fetched": 0
+    }
+  ]
+}

@@ -495,22 +495,40 @@
       "column": "",
       "path": "📝文章\\20261125\\20261125_周三003+004+005+006+007+008+009+010_巴黎VS罗马里尔VS拜仁_欧冠八场拆局_赛事前瞻.md",
       "status": "published"
+    },
+    {
+      "id": "20261126-31",
+      "scheme": "engine-v1",
+      "date": "2026-11-26",
+      "title": "1126 水晶宫VS皇家社会，米兰客战希腊：欧罗巴九场拆局",
+      "teams": "",
+      "stage": "pre",
+      "style": "A",
+      "structure": "S10",
+      "opening": "陈述切入",
+      "opening_text": "欧罗巴联赛阶段来到第五轮，这一夜九场里，前四轮全胜领跑的本菲卡和伯恩茅斯都要出门抢分，AC 米兰跌到第 28 名已没有退路，水晶宫刚换帅又撞上西甲前五的皇家社会。欧罗巴向来是冷门最密的一块赛场，阿飞把各场真正能左右局势的核心矛盾和战术对位拆",
+      "ending": "总结观点",
+      "title_pattern": "数字陈述式",
+      "humor": "",
+      "column": "",
+      "path": "📝文章\\20261126\\20261126_周四002+003+004+005+006+007+008+009+010_水晶宫VS皇家社会奥林匹亚VSAC米兰_欧罗巴九场拆局_赛事前瞻.md",
+      "status": "published"
     }
   ],
   "note": "写作轮换账本（R62 双层轮换）：scheme=engine-v1 的记录参与新轮换；scheme=R53-v1 为旧十结构池，ID 含义不同，只留档。只记已过 preflight 的稿。",
   "engine": {
     "version": "AFEI-WRITING-ENGINE v1.0",
-    "last_style": "B",
-    "last_ab": "B",
+    "last_style": "A",
+    "last_ab": "A",
     "last_structures": [
-      "S10",
       "S06",
+      "S10",
       "S10"
     ],
     "last_openings": [
-      "反常数据切入",
       "陈述切入",
-      "反常数据切入"
+      "反常数据切入",
+      "陈述切入"
     ],
     "last_ending": "总结观点",
     "rotation_rule": {
