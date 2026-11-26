@@ -21,9 +21,11 @@ description: 阿飞说球 v3.2 内部分析报告与双层出稿总控技能。�
 ## 二、A 层内部分析报告执行管线（采→补→算→报→验）
 
 ```bash
+python -X utf8 scripts/sporttery_fetch.py slate                             # 0. 先刷新在售全盘口缓存（防跨日缺场）
 python -X utf8 scripts/prematch_intel.py --date YYYYMMDD --leagues --media  # 1. 竞彩五套盘+积分榜+比赛时刻天气+外媒
 python -X utf8 scripts/books_500.py --date YYYYMMDD                         # 2. 500 百家亚盘/欧赔/大小（初盘→即时）
-python -X utf8 scripts/market_from_intel.py YYYYMMDD                        # 3. 聚合市场结构
+python -X utf8 scripts/market_from_intel.py --date YYYYMMDD                 # 3. 聚合市场结构（500被拦自动走官方五套盘）
+python -X utf8 scripts/build_data_from_official.py YYYYMMDD                 # 3b. 500被拦时一键从官方结果/交锋+维基榜生成 _data_
 python -X utf8 scripts/audit_data.py YYYYMMDD                               # 4. 入模前数据质检（阻断错位/污染）
 python -X utf8 scripts/model_v3.py YYYYMMDD                                 # 5. 跑 v3.1 模型（λ/MC/五状态EV/台账）
 python -X utf8 scripts/build_internal_report.py YYYYMMDD 周N<k>场           # 6. 生成 v3.2 内部分析报告
@@ -55,7 +57,10 @@ python -X utf8 scripts/check_report_consistency.py YYYYMMDD                 # 7.
 
 1. **彻底剥离 A 层专属内容**：零具体赔率小数、零让球行话（受让/平手盘/球半/上盘/走盘）、零机构态度/资金流向编造、零凯利/EV/模型内部术语（泊松/蒙特卡洛/权重/样本量）、零金额注数与押注黑话（押/下注/稳胆/投注）。
 2. **区分赢球概率与赢球可信度**：多场同向时必须按把握层次拉开表达，严禁平行排比与同构结尾；先定单场独立判断再定标题与开场（R61）。
-3. **证据强度与关键变量（R60/R63）**：数据权重 <0.25 只写弱倾向/观察；分歧 <5pp 不用强词；每场落清一个真正能让纸面数字失效的 R63 关键变量。
+3. **证据强度、篇幅分层与细节避坑（R60/R63）**：
+   - 数据权重 <0.25 只写弱倾向/观察；分歧 <5pp 不用强词；每场落清一个真正能让纸面数字失效的 R63 关键变量；`比分推演：X比Y／X比Y／X比Y` 去掉 `首选/次选/防范`（同文两场比分相同时第二场加短尾注防 `check_dup` 撞车）。
+   - **动态字数与深度**：少场精选篇（2–3 场）目标 **1100–1450 字**，写透全季/同主客对称反差、核心矛盾、深度战术对位与多维看点；多场合一篇（8–9+ 场）可放宽至 **1700–1900 字**。
+   - **高频门禁易错替换**：`样本`→`底数/场次`、`打穿`→`突破/击穿`、`刚刚/本月`→`刚/此前`、人名含 `凯利`（如德米凯利斯）改称主帅。
 4. **硬门禁（全绿才交付）**：
    - `python -X utf8 scripts/writing_engine.py --pick --matches N`（R62 风格×结构轮换）
    - `python -X utf8 scripts/preflight.py <文章.md>`（800–1500 字 + 8 项合规 + R55 视角 + 破折号 ≤3 + 句长 sd）
