@@ -589,6 +589,9 @@ def sect_intel_weather(num):
         lines.append("- 不利情报：见上方伤停/停赛及下方状态短板（无额外未核实传闻）")
     if e.get("flags"):
         lines.append(f"- 情报冲突与口径提醒：{'；'.join(e['flags'])}")
+    if e.get("unavailable"):
+        unav = "；".join(e["unavailable"]) if isinstance(e["unavailable"], list) else str(e["unavailable"])
+        lines.append(f"- 显式降级声明（UNAVAILABLE）：{unav}")
     # 伤停与站位冲突预警
     nh = sum(len(str(x).split("、")) for x in (e.get("abs_home") or []))
     na = sum(len(str(x).split("、")) for x in (e.get("abs_away") or []))
@@ -675,9 +678,11 @@ def sect4(num):
 
 
 def sect_core(num):
-    """六、核心矛盾、胜负手与看点（「该赢」vs「真赢得」拆解）"""
+    """六、核心矛盾、胜负手与看点（「该赢」vs「真赢得」拆解 + 控球陷阱预警）"""
     e = EXT.get(num) or {}
     lines = []
+    if e.get("possession_trap"):
+        lines.append(f"- **⚠️ 控球陷阱预警（Possession Trap）**：{e['possession_trap']}")
     if e.get("core_conflict"):
         lines.append(f"- **核心矛盾（「该赢」vs「真赢得」）**：{e['core_conflict']}")
     if e.get("key_factor"):
@@ -717,6 +722,8 @@ def _derive_tier(num):
     res = _derive_resonance(num)
     if "不站" in act or r["w_data"] == 0:
         return "D 证据不足跳过"
+    if e.get("possession_trap"):
+        return "B 赢面在但易卡壳（控球陷阱封顶）"
     if r["w_data"] >= 0.50 and res == "多维共振" and top_p >= 0.55:
         return "S 最敢碰"
     if r["w_data"] >= 0.25 and res in ("多维共振", "同向轻分歧") and top_p >= 0.48:
@@ -913,6 +920,12 @@ def sect_end(num, v):
         + iv_txt + f"；足彩 **{ZQ[num]}**",
         f"- 打破条件：{BREAK[num]}",
     ]
+    e = EXT.get(num) or {}
+    if e.get("alt_script"):
+        lines.append(f"- 逆风第二剧本：{e['alt_script']}")
+    if e.get("risks"):
+        r_txt = "；".join(e["risks"]) if isinstance(e["risks"], list) else str(e["risks"])
+        lines.append(f"- 风险与不确定性清单：{r_txt}")
     return "\n".join(lines)
 
 

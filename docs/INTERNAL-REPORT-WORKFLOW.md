@@ -33,7 +33,11 @@ python -X utf8 scripts/model_v3.py YYYYMMDD                                 # 5.
    - **近况与主客场反差**：全季 vs 同主客 vs 近 5 场（先去重再算），把**创造机会能力**与**临门一脚转化率**分开看。
    - **赛程密度与体能消耗**：国际比赛日后加赛、周中欧战/亚冠、长途飞行、双线/三线轮换深度。
    - **历史交锋心理与风格克制**：识别排名悬殊背后容易被忽视的反常交锋记录。
-3. **全球主流媒体、预测市场与 AI/算法模型**：除 `prematch_intel --media`（DeepSeek）与 `ext_predict.py`（Sports Mole / API-Football）外，重点场次补充核查 Goal、SportsGambler、Forebet、BetBuilders xG、Polymarket 等观点，**只采信可核对口径，标明来源与日期**。
+3. **全球主流媒体、预测市场与 AI/算法模型**：除 `prematch_intel --media`（DeepSeek）与 `ext_predict.py`（Sports Mole / API-Football）外，重点场次可用零依赖多引擎交叉检索 `python -X utf8 scripts/multi_search.py "<主队> vs <客队> preview injury" --preset media --fetch` 补充核查 Goal、SportsMole、Forebet、Polymarket 等观点，**只采信可核对口径，标明来源与日期**；遇缺失核心维度统一执行**显式降级协议（`UNAVAILABLE` + 一句话原因）**，绝不静默跳过或凭印象脑补。
+4. **贝叶斯似然更新与控球陷阱检查（2026-11-27 融合 `football-bayes`）**：
+   - **中轴伤停似然链**：重点盯死**门将 / 主力中卫 / 拦截后腰 / 支点中锋**四处中轴缺阵对基础先验的实质削弱；
+   - **控球陷阱（Possession Trap）**：若强队控球率高（>60%）但禁区渗透/射正转化极低、靠外围倒脚刷场面（且后防零封率低），必须在 `_ext_<date>.json` 标记 `possession_trap`，A 层自动将把握分级封顶在 `B 赢面在但易卡壳`，公开稿严禁写成稳胜；
+   - **双套剧本与风险清单**：除正路主剧本外，必须给出逆风打破剧本（`alt_script`，如弱队先偷定位球后的低位铁桶演进）与不确定性风险点（`risks`）。
 
 ---
 
@@ -140,11 +144,16 @@ python -X utf8 scripts/check_report_consistency.py YYYYMMDD               # 5. A
       {"src": "Goal", "lean": "客不败", "read": "看好客队反击拿分"}
     ],
     "core_conflict": "「该赢」与「真赢得」的核心矛盾拆解",
+    "possession_trap": "控球率>60%但外围无效倒脚、防反易被打身后（触发后把握分级自动封顶B级）",
     "key_factor": "R63 单场关键变量（胜负手）",
     "watchpoints": "比赛核心看点",
+    "alt_script": "逆风第二剧本：若客队前25分钟定位球偷袭得手，比赛将转入半场攻防低比分泥潭",
+    "risks": ["中卫搭档首次首发默契存疑", "周中远征体能下半场70分钟后掉速", "雨战草皮湿滑放大远射偶然性"],
+    "unavailable": ["逐场xG与PPDA未接入公开免费源，改用同主客进失球与射正率降级评估"],
     "tier": "B 赢面在但易卡壳",
     "resonance": "轻度分歧"
   }
 }
 ```
 > 若需自定义 ≤50 元投注方案，可在 `state/intel/<date>/_plan_<date>.json` 写入人工方案（覆盖自动骨架）；否则 `build_internal_report.py` 自动基于把握分级与 λ_C 比分生成符合 ≤50 元预算的参考方案。
+> 周期校准复盘后，可运行 `python -X utf8 scripts/calib_dashboard.py` 生成单文件离线交互看板 `state/cache/calib_dashboard.html`（含模型 vs 市场可靠性曲线、Edge 分桶实证、联赛冷门散点与传足奖金节奏；严格归属 A 层内部留存）。

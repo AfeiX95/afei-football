@@ -33,12 +33,18 @@ except Exception:
 
 SECTION_MIN = 60   # 逐段评分的最小字符数（太短不评）
 
-# ---------------- 特征词典 ----------------
+# ---------------- 特征词典（v1.1 · 融合 humanizer v4.3） ----------------
 AI_PHRASES = [
     "值得注意的是", "总的来说", "不难发现", "需要指出的是", "从某种程度上说",
     "与此同时", "换句话说", "综上所述", "进一步来说", "由此可见", "换言之",
     "总而言之", "归根结底", "众所周知", "值得一提的是", "不可否认", "这一现象",
+    "先说答案", "掰开了揉碎了", "掰开揉碎", "你品一下", "不言而喻", "显而易见", "毋庸置疑",
 ]
+ADVERB_SLOP = ["极其", "极度", "猛地", "死死", "狠狠", "稳稳", "硬生生", "一股脑"]
+SLANG_SLOP = ["咋办", "搁以前", "瞅瞅", "得瑟", "白嫖", "上强度", "打嘴炮", "狂喜"]
+RE_NOT_A_BUT_B = re.compile(r"不是[^，。！？\n]{1,26}[，,]?\s*而是")
+RE_NNY = re.compile(r"不是[^。！？\n]{1,22}[。，]\s*不是[^。！？\n]{1,22}[。，]\s*(?:只是|而是)")
+RE_QA_TEACHER = re.compile(r"(?:这说明什么|这意味着什么|这叫什么|问题出在哪)？\s*(?:说明|意味着|这叫|出在)")
 CONNECTIVES = [
     "然而", "因此", "此外", "同时", "而且", "并且", "总之", "但是", "不过",
     "所以", "因为", "由于", "尽管", "虽然", "即便", "基于", "随着", "通过",
@@ -92,9 +98,15 @@ def analyze(text):
     d_conn = sum(text.count(c) for c in CONNECTIVES) / n_char * 100
     f_conn = clamp((d_conn - 1.0) / 2.0)             # 1.0→0, 3.0→1.0
 
-    # 3) AI 套话短语命中数
+    # 3) AI 套话短语命中数 + Humanizer v4.3 结构病灶检测
     hit_phrases = [p for p in AI_PHRASES if p in text]
-    f_phr = min(len(hit_phrases) / 4.0, 1.0)
+    not_ab_cnt = len(RE_NOT_A_BUT_B.findall(text))
+    nny_cnt = len(RE_NNY.findall(text))
+    qa_cnt = len(RE_QA_TEACHER.findall(text))
+    adv_hits = [w for w in ADVERB_SLOP if text.count(w) >= 2]
+    slang_hits = [w for w in SLANG_SLOP if w in text]
+    extra_slop = (1 if not_ab_cnt >= 3 else 0) + nny_cnt + qa_cnt + (1 if len(adv_hits) >= 2 else 0)
+    f_phr = min((len(hit_phrases) + extra_slop) / 4.0, 1.0)
 
     # 4) 语气词/口语密度（每100字）：人类更高 → AI 分反向
     d_part = sum(text.count(c) for c in PARTICLES) / n_char * 100
@@ -146,12 +158,22 @@ def analyze(text):
     else:
         verdict = "高（AI痕迹重，必须降AI）"
 
-    # 可疑句 TOP（含套话 / 连接词密集 / 与相邻句长几乎相同的句簇）
+    # 可疑句 TOP（含套话 / 连接词密集 / Humanizer 结构病灶）
     suspicious = []
     for s in sents:
         reasons = []
         if any(p in s for p in AI_PHRASES):
-            reasons.append("含AI套话")
+            reasons.append("含AI套话/科普起手式")
+        if RE_NNY.search(s):
+            reasons.append("NNY排比否定(不是X不是Y只是Z)")
+        elif RE_NOT_A_BUT_B.search(s) and not_ab_cnt >= 3:
+            reasons.append("全篇『不是…而是…』过密(≥3次，排查假靶子/同义替换)")
+        if RE_QA_TEACHER.search(s):
+            reasons.append("自问自答老师腔")
+        if sum(s.count(w) for w in ADVERB_SLOP) >= 2:
+            reasons.append("用力过猛堆叠副词")
+        if any(w in s for w in SLANG_SLOP):
+            reasons.append("方言腔/烂梗填充(原则1.6)")
         c_count = sum(s.count(c) for c in CONNECTIVES)
         if c_count >= 2 and len(s) < 60:
             reasons.append("连接词密集")
@@ -167,6 +189,11 @@ def analyze(text):
             "cv_sentlen": round(cv, 3) if cv is not None else None,
             "connective_per100": round(d_conn, 2),
             "ai_phrase_hits": hit_phrases,
+            "not_a_but_b_count": not_ab_cnt,
+            "nny_count": nny_cnt,
+            "qa_teacher_count": qa_cnt,
+            "adverb_slop_hits": adv_hits,
+            "slang_slop_hits": slang_hits,
             "particle_per100": round(d_part, 2),
             "punc_per100": round(d_punc, 2),
             "parallel_ratio": round(r_para, 2),

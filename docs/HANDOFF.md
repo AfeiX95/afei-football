@@ -1003,3 +1003,12 @@ python -X utf8 "📝文章/20261122/_工具/toutiao_check.py"
 1. 周五晨 06:00 后拉取 **11-26 周四欧罗巴 9 场 + 传足 26171 期 14 场** 官方赛果，执行 **Batch #57** 赛后校验。
 2. 周六晨结算 **11-27 周五 11 场 + 传足 26172 期 14 场**（Batch #58）。
 3. 按需清点历史待校验文章池并跟进 C54 / C55 后续批次验证。
+
+
+## 2026-11-27（周五 00:14）· 四项外部技能去芜存菁拆解与工程化融合
+
+**完成事项（合规过滤 + 脚本/规范双落地）**
+1. **`multi-search-engine` → 新增 `scripts/multi_search.py`**：零依赖标准库跨引擎交叉检索（支持 `bing-int(ensearch=1)` 国内直连外媒前瞻、`so360` 解包 `data-mdurl`、`bing` 解包 `ck/a?u=a1`、URL 追踪参数清洗与多引擎命中加权排序）；**严格执行遇 CAPTCHA / 403 / 429 立即熔断停止并退回直达链接**。
+2. **`data-visualization` → 新增 `scripts/calib_dashboard.py`**：剔除重型第三方包与公开稿冲突，定位为 **A 层内部离线单文件交互看板**（`state/cache/calib_dashboard.html`，内联 SVG 展示 `prob_log` 可靠性校准曲线、Edge 5pp 门槛实证表、竞彩各联赛热门兑现 vs 平局率气泡图、传足近 30/100 期五档奖金节奏）。
+3. **`humanizer v4.3` → 升级 `📚知识库/模型脚本/ai_detect.py`（v1.1）+ `📚知识库/写作指南/阿飞人设与文风.md`**：新增「不是A而是B」三毒过密检测、NNY 排比否定、自问自答老师腔、用力过猛堆叠副词、方言腔/烂梗填充词（原则 1.6）与战术机制禁比喻原则（原则 1.7）；明确剔除与头条规范冲突的「全文零冒号/零双引号」条款，复测 `20261127` 公开稿 8/8 门禁零回退。
+4. **`football-bayes` → 升级 `scripts/build_internal_report.py` + `docs/INTERNAL-REPORT-WORKFLOW.md` + `afei-internal-report-v32`（v3.3.0）+ `docs/TOOLBOX.md`**：保留我方客观 `model_v3.py` 经验贝叶斯内核，融入 **控球陷阱（`possession_trap` 触发自动封顶 B 级）**、中轴伤停似然链、逆风第二剧本（`alt_script`）、不确定性风险清单（`risks`）与显式降级协议（`unavailable`）。
