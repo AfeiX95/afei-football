@@ -1,0 +1,574 @@
+{
+ "001": {
+  "match": "澳超 麦克阿瑟 vs 墨尔本城",
+  "kickoff": "16:40",
+  "id": "1450871",
+  "market3": [
+   0.303,
+   0.262,
+   0.435
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": 1.0,
+  "jc_ah_side": "主受让",
+  "jc_ah_water": [
+   0.58,
+   3.2
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 2.99,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "002": {
+  "match": "德乙 海登海姆 vs 纽伦堡",
+  "kickoff": "01:30",
+  "id": "1430592",
+  "market3": [
+   0.4595,
+   0.2272,
+   0.3133
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   2.55,
+   0.64
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.65,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "003": {
+  "match": "荷甲 格罗宁根 vs 威廉二世",
+  "kickoff": "03:00",
+  "id": "1416075",
+  "market3": [
+   0.691,
+   0.176,
+   0.133
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   0.87,
+   1.91
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.6,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "004": {
+  "match": "荷乙 芬洛 vs 瓦尔韦克",
+  "kickoff": "03:00",
+  "id": "1416168",
+  "market3": [
+   0.347,
+   0.243,
+   0.41
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": 1.0,
+  "jc_ah_side": "主受让",
+  "jc_ah_water": [
+   0.5,
+   3.16
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.48,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "005": {
+  "match": "德甲 不来梅 vs 门兴",
+  "kickoff": "03:30",
+  "id": "1428681",
+  "market3": [
+   0.573,
+   0.217,
+   0.21
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   1.57,
+   1.1
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.41,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "006": {
+  "match": "意甲 威尼斯 vs 博洛尼亚",
+  "kickoff": "03:45",
+  "id": "1414321",
+  "market3": [
+   0.2833,
+   0.2773,
+   0.4394
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": 1.0,
+  "jc_ah_side": "主受让",
+  "jc_ah_water": [
+   0.58,
+   3.3
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 2.7,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "007": {
+  "match": "法甲 布雷斯特 vs 巴黎FC",
+  "kickoff": "03:45",
+  "id": "1415179",
+  "market3": [
+   0.273,
+   0.27,
+   0.457
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": 1.0,
+  "jc_ah_side": "主受让",
+  "jc_ah_water": [
+   0.65,
+   2.91
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 2.74,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "008": {
+  "match": "英超 诺丁汉 vs 切尔西",
+  "kickoff": "04:00",
+  "id": "1420413",
+  "market3": [
+   0.366,
+   0.274,
+   0.36
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   4.4,
+   0.41
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 2.86,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "009": {
+  "match": "英冠 南安普敦 vs 米堡",
+  "kickoff": "04:00",
+  "id": "1426068",
+  "market3": [
+   0.2927,
+   0.2547,
+   0.4525
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": 1.0,
+  "jc_ah_side": "主受让",
+  "jc_ah_water": [
+   0.62,
+   2.7
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.28,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "010": {
+  "match": "西甲 莱万特 vs 桑坦德",
+  "kickoff": "04:00",
+  "id": "1428252",
+  "market3": [
+   0.465,
+   0.237,
+   0.298
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": -1.0,
+  "jc_ah_side": "主让",
+  "jc_ah_water": [
+   2.6,
+   0.67
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.39,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ },
+ "011": {
+  "match": "美职 哥伦布 vs 迈国际",
+  "kickoff": "09:00",
+  "id": "2190338",
+  "market3": [
+   0.361,
+   0.234,
+   0.405
+  ],
+  "market_source": "竞彩胜平负去水（_intel had.p 归一化）",
+  "jc_ah_line": 1.0,
+  "jc_ah_side": "主受让",
+  "jc_ah_water": [
+   0.51,
+   3.13
+  ],
+  "ah_line": null,
+  "ah_side": null,
+  "ah_water": [
+   0.0,
+   0.0
+  ],
+  "ah_line_src": "500 即时众数线（先占位，下面用 books 填）",
+  "jc_ah_note": "竞彩让球线与其赔率减 1 的近似水位：只作竞彩口径参考，不参与五状态结算",
+  "ou_line": null,
+  "ou_water": [
+   0.0,
+   0.0
+  ],
+  "ou_note": "竞彩无大小盘线，不折 EV",
+  "ou_implied_total": 3.76,
+  "books_ox": 0,
+  "ox_open": null,
+  "ox_close": null,
+  "ah_open_lines": [],
+  "ah_close_lines": [],
+  "ou_open_lines": [],
+  "ou_close_lines": [],
+  "lam_1x2": [
+   0.0,
+   0.0
+  ],
+  "lam_total": 0.0,
+  "ev_ah_mkt": [
+   null,
+   null
+  ],
+  "ev_ou_mkt": [
+   null,
+   null
+  ]
+ }
+}

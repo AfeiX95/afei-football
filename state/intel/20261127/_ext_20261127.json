@@ -1,0 +1,172 @@
+{
+  "001": {
+    "note": "澳超第6轮（11-27 16:40），麦克阿瑟[5](8分) vs 墨尔本城[7](7分)；坎贝尔敦球场",
+    "pros_home": ["刚2-1力克惠灵顿凤凰，主场下半场进攻效率高", "仅比对手多1分但主场历史交锋不怵"],
+    "cons_home": ["防线零封能力薄弱，历史交手常出大比分"],
+    "pros_away": ["墨尔本城正冲击3连胜，市场客胜2.02给予客队偏热定价"],
+    "cons_away": ["做客防线同样不稳，双方历史曾打出6-2等大比分"],
+    "ai_preds": [
+      {"src": "Betmines/Forebet", "lean": "双方进球/大2.5", "read": "双方进攻开放，下半场进球频发"}
+    ],
+    "core_conflict": "两队只差1分且同处赢球节奏，市场偏客但两队防线都不牢靠，大球与双方进球比胜负方向更清晰",
+    "key_factor": "R63关键变量：麦克阿瑟下半场体能冲击与墨尔本城冲击三连胜的开放对攻节奏",
+    "tier": "C 防平博冷",
+    "resonance": "轻度分歧（偏大球）"
+  },
+  "002": {
+    "note": "德乙 / 传足26172期#5（11-28 01:30），海登海姆[7] vs 纽伦堡[2]",
+    "abs_away": ["Thomas Dahne / Finn Becker / Kristian Mandic / Mohamed Ali Zoma（伤缺）"],
+    "pros_home": ["海登海姆主场排第7但市场仍给主胜1.91低赔支撑，急需止住不胜颓势"],
+    "cons_home": ["近期走势下滑，防线失球偏多"],
+    "pros_away": ["纽伦堡高居德乙第2，反击火力与积分优势显著"],
+    "cons_away": ["客队多名轮换球员伤缺，客战福伊特球场防守压力大"],
+    "ai_preds": [
+      {"src": "DailySportPick/Tips.gg", "lean": "大2.5球(约70%)", "read": "两队防线皆有隐患，大球共振度极高"}
+    ],
+    "core_conflict": "第7让球给第2的倒挂盘，市场明显高看海登海姆主场反弹，但纽伦堡名次更高且不保守",
+    "key_factor": "R63关键变量：第7让第2的强主赔定价 vs 纽伦堡四名伤员对客场厚度的削弱",
+    "tier": "B 赢面在但易卡壳",
+    "resonance": "倒挂分歧（大球共识）"
+  },
+  "003": {
+    "note": "荷甲 / 传足26172期#9（11-28 03:00），格罗宁根[10] vs 威廉二世[18]",
+    "abs_home": ["Malcolm Jeng / Travis Hernes（伤缺）", "Etienne Vaessen & Hans Hateboer（停赛解禁复出！）"],
+    "abs_away": ["Justin Hoogma（膝伤）", "Amine Lachkar（腹股沟伤）", "Nathan Tjoe-A-On（红牌停赛）", "门将 Thomas Didillon（伤缺，替补Delanghe顶上）"],
+    "pros_home": ["迎回门将Vaessen与边卫Hateboer解禁复出，主场面对垫底队急需止颓"],
+    "cons_home": ["近期联赛遭遇连败，心理略有包袱"],
+    "pros_away": ["保级垫底队无退路，客场偶有偷球"],
+    "cons_away": ["荷甲18名至今0胜、已狂丢42+球，中卫Hoogma+门将Didillon+后卫Tjoe-A-On同时缺阵防线彻底真空"],
+    "ai_preds": [
+      {"src": "SportsMole/Futbol24", "lean": "主胜+大2.5", "read": "威廉二世残阵防线42+失球难挡格罗宁根反弹"}
+    ],
+    "core_conflict": "格罗宁根虽有连败阴影，但迎回两主力且威廉二世至今0胜丢42+球还伤停整条防线，主胜反弹窗口最清晰",
+    "key_factor": "R63关键变量：威廉二世防线四人（含门将与主力中卫）同时伤停的真空状态",
+    "tier": "S 最敢碰（稳胆）",
+    "resonance": "极高多维共振"
+  },
+  "004": {
+    "note": "荷乙 / 传足26172期#13（11-28 03:00），芬洛[4] vs 瓦尔韦克[12]",
+    "pros_home": ["芬洛排第4（29分），本季主场抢分能力出色"],
+    "cons_home": ["官方市场反给瓦尔韦克客胜2.14更低赔付，存在盘面异常倒挂"],
+    "pros_away": ["瓦尔韦克虽排第12但班底偏荷甲降班背景，机构客胜定价强势"],
+    "cons_away": ["客场稳定性不足，面对第4名芬洛难保零封"],
+    "ai_preds": [
+      {"src": "Forebet", "lean": "焦灼/防冷", "read": "排名与市场倒挂，易出平局或客胜"}
+    ],
+    "core_conflict": "第4名芬洛主场竟受让于第12名瓦尔韦克（主2.53 vs 客2.14），典型荷乙盘面倒挂陷阱局",
+    "key_factor": "R63关键变量：排名第4却受让的盘面反常信号，防主队近期效率回落",
+    "tier": "D 证据不足跳过",
+    "resonance": "盘模/排名严重倒挂"
+  },
+  "005": {
+    "note": "德甲 / 传足26172期#3（11-28 03:30），云达不来梅[6] vs 门兴[18]",
+    "abs_home": ["Jens Stage（停赛）"],
+    "abs_away": ["Tim Kleindienst（肌肉纤维撕裂缺阵）", "Isac Lidberg（腿筋伤缺）", "Enzo Leopold（伤缺）", "板仓滉 Ko Itakura（停赛复出）"],
+    "pros_home": ["高居德甲第6且上轮4-0横扫汉堡气势如虹"],
+    "cons_home": ["中场Jens Stage停赛"],
+    "pros_away": ["中卫板仓滉停赛复出略有补强"],
+    "cons_away": ["德甲垫底第18且客场战绩惨淡，两大头号射手Kleindienst与Lidberg双双伤缺进攻哑火"],
+    "ai_preds": [
+      {"src": "TheFootballFaithful/FootballPredictions", "lean": "主胜", "read": "不来梅4-0大胜后主场迎战缺双前锋的垫底门兴"}
+    ],
+    "core_conflict": "不来梅少Stage但4-0大胜余威在；门兴垫底又同时伤缺两大主力前锋，客场几乎失去破门支点",
+    "key_factor": "R63关键变量：门兴两大主力射手Kleindienst与Lidberg同时伤缺后的进攻断电",
+    "tier": "S 最敢碰（稳胆）",
+    "resonance": "极高多维共振"
+  },
+  "006": {
+    "note": "意甲 / 传足26172期#6（11-28 03:45），威尼斯[20] vs 博洛尼亚[9]",
+    "abs_home": ["Marin Šverko（髋伤缺阵）"],
+    "abs_away": ["Emil Holm / Juan Miranda / Jay Enem（伤疑/缺阵）"],
+    "pros_home": ["威尼斯本季仅有的2场胜利均在主场彭佐球场拿到"],
+    "cons_home": ["排意甲垫底第20，上轮刚0-4惨败尤文图斯"],
+    "pros_away": ["帕拉迪诺麾下博洛尼亚已豪取各项赛事客场4连胜，状态极热"],
+    "cons_away": ["边后卫Holm与Miranda有伤疑"],
+    "ai_preds": [
+      {"src": "TheFootballFaithful/FootballPredictions", "lean": "客胜", "read": "博洛尼亚客场4连胜硬实力碾压垫底威尼斯"}
+    ],
+    "core_conflict": "博洛尼亚客场4连胜势头正盛，威尼斯虽靠主场拿分但刚0-4惨败防线信心受创",
+    "key_factor": "R63关键变量：博洛尼亚客场4连胜的强势延续 vs 威尼斯0-4惨败后的主场反弹底线",
+    "tier": "A 顺势可跟",
+    "resonance": "高度多维共振"
+  },
+  "007": {
+    "note": "法甲 / 传足26172期#8（11-28 03:45），布雷斯特[6] vs 巴黎FC[2]",
+    "abs_home": ["Kenny Lala（半月板重伤缺阵）", "Brendan Chardonnet / Kamory Doumbia（伤疑）", "Le Guen / Versini / Balde / Diambou（长期伤缺）"],
+    "abs_away": ["Nhoa Sangui（腿筋存疑，其余主力全员健康）"],
+    "pros_home": ["布雷斯特排第6且主场防守硬朗，小2.5球趋势强"],
+    "cons_home": ["遭遇严重伤病潮：主力右卫Lala半月板伤缺+队长Chardonnet与Doumbia存疑+4名长伤号"],
+    "pros_away": ["罗塞尼奥尔执教的巴黎FC高居法甲第2，刚4-0横扫昂热且几乎全员健康"],
+    "cons_away": ["做客布雷斯特魔鬼主场面临低位防守考验"],
+    "ai_preds": [
+      {"src": "SportsGambler", "lean": "客不败/小2.5", "read": "布雷斯特伤病满营难敌状态火热的巴黎FC"}
+    ],
+    "core_conflict": "看似第6打第2强强对话，实则布雷斯特伤停7人防线告急 vs 几乎满血4-0大胜的巴黎FC",
+    "key_factor": "R63关键变量：布雷斯特主力右卫Lala重伤+队长Chardonnet存疑引发的防线减员危机",
+    "tier": "A 顺势可跟",
+    "resonance": "高度共振（客不败/客胜）"
+  },
+  "008": {
+    "note": "英超 / 传足26172期#1（11-28 04:00），诺丁汉森林[17] vs 切尔西[8]",
+    "abs_home": ["Callum Hudson-Odoi / Nicolas Dominguez（长期伤缺，主力核心齐整）"],
+    "abs_away": ["Moisés Caicedo（背部/腿部伤重大出战存疑！）", "Reece James / João Pedro（长期伤缺）"],
+    "pros_home": ["格拉斯纳带队本月刚在城市球场3-1掀翻曼城，主场硬仗反击极强"],
+    "cons_home": ["联赛排第17深陷保级区附近，稳定性一般"],
+    "pros_away": ["切尔西排第8纸面身价高"],
+    "cons_away": ["阿隆索执教正遇连败危机（上轮刚1-4惨败利兹联），中场屏障凯塞多又重大伤疑"],
+    "ai_preds": [
+      {"src": "ToffeeWeb/SportsMole", "lean": "平局/主不败", "read": "切尔西连败+伤病危机，森林主场2.40甚至略低于切尔西2.44"}
+    ],
+    "core_conflict": "切尔西刚1-4惨败利兹联且凯塞多伤疑，机构甚至把第17名诺丁汉主胜2.40压在切尔西2.44之下",
+    "key_factor": "R63关键变量：切尔西中场大闸凯塞多能否出战，直接决定阿隆索能否在城市球场止住连败",
+    "tier": "C 防平博冷",
+    "resonance": "盘口预警（切尔西虚热）"
+  },
+  "009": {
+    "note": "英冠 / 传足26172期#2（11-28 04:00），南安普敦[6] vs 米德尔斯堡[1]",
+    "abs_home": ["Cyle Larin（腿筋伤愈复出）", "Keven Schlotterbeck（伤缺至12月）"],
+    "abs_away": ["Will Lankshear（13球神锋伤愈可首发）", "Neto Borges（脚踝无碍可出战）"],
+    "pros_home": ["圣玛丽球场本季英冠保持不败，且上季附加赛“间谍门”恩怨拉满战意"],
+    "cons_home": ["近期起伏较大，后防缺施洛特贝克"],
+    "pros_away": ["米德尔斯堡高居英冠榜首第1，周中2-1刚胜斯旺西且神锋Lankshear回归"],
+    "cons_away": ["一周双赛客场挑战主场不败的南安普敦消耗极大"],
+    "ai_preds": [
+      {"src": "BetVictor/SportsGambler", "lean": "客不败/平局", "read": "榜首米堡实力略优但圣玛丽球场极难攻克"}
+    ],
+    "core_conflict": "英冠榜首一周双赛客战主场不败的南安普敦，叠加附加赛恩怨，硬仗消耗战平局味浓",
+    "key_factor": "R63关键变量：南安普敦圣玛丽主场不败金身 vs 榜首米堡迎回13球神锋的客场穿透力",
+    "tier": "C 防平博冷",
+    "resonance": "轻度分歧（客不败防平）"
+  },
+  "010": {
+    "note": "西甲 / 传足26172期#7（11-28 04:00），莱万特[15] vs 桑坦德竞技[7]",
+    "abs_home": ["Manu Sánchez（前十字韧带撕裂赛季报销！）", "Jeremy Toljan（肌肉伤缺）"],
+    "abs_away": ["Álvaro Mantilla（膝伤长缺）", "Yassir Zabiri（西甲11球神锋健康领衔）"],
+    "pros_home": ["莱万特主场获1.89较低主赔支持，保级抢分迫切"],
+    "cons_home": ["连轮不胜，刚踢完埃尔切一战双边后卫Manu Sánchez(ACL报销)+Toljan双双倒下！"],
+    "pros_away": ["桑坦德排西甲第7，刚3-2力克皇家社会，摩洛哥射手Zabiri已轰11球"],
+    "cons_away": ["客场防守同样大开大合"],
+    "ai_preds": [
+      {"src": "SportsMole/Futbol24", "lean": "客不败+双方进球(1.40)", "read": "莱万特双边卫同时伤缺，桑坦德反击极具冷门价值"}
+    ],
+    "core_conflict": "第15名莱万特竟主场让球给第7名桑坦德，偏偏莱万特刚折损全部两个主力边后卫，桑坦德客场不败价值极大",
+    "key_factor": "R63关键变量：莱万特左右主力边后卫Sánchez与Toljan双双伤缺后的边路真空",
+    "tier": "C 防平博冷（大热陷阱）",
+    "resonance": "盘口与伤停严重背离"
+  },
+  "011": {
+    "note": "美职联季后赛首轮G2（11-28 09:00），哥伦布机员[7] vs 迈阿密国际[2]（系列赛哥伦布1-0领先，90分钟平直接点球）",
+    "abs_away": ["Gonzalo Luján（首战红牌停赛）"],
+    "pros_home": ["系列赛首战3-0大胜迈阿密手握赛点，主场心态与防反极其从容"],
+    "cons_home": ["迈阿密背水一战必全线压上，防线将承受梅西+苏亚雷斯最强反扑"],
+    "pros_away": ["卫冕冠军输球即淘汰，梅西与苏亚雷斯领衔全力搏命拖入G3"],
+    "cons_away": ["首战0-3惨败且后卫Luján红牌停赛，防线漏洞巨大"],
+    "ai_preds": [
+      {"src": "SportsGambler/MLSSoccer", "lean": "大球/主不败", "read": "迈阿密绝境强攻必留身后空当，哥伦布主场极具反击空间"}
+    ],
+    "core_conflict": "迈阿密0-3落后背水一战（输球即出局）+后卫停赛，必须倾巢出动强攻；哥伦布手握赛点主场稳守反击",
+    "key_factor": "R63关键变量：迈阿密绝境搏命全线压上叠加Luján停赛，比赛极易演变为高比分对攻",
+    "tier": "C 防平博冷",
+    "resonance": "季后赛绝境博弈（防平/大球）"
+  }
+}
