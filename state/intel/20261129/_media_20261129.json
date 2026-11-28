@@ -1,0 +1,925 @@
+{
+  "date": "20261129",
+  "fetched_at": "2026-11-29T00:52:28",
+  "calls": 18,
+  "items": [
+    {
+      "no": "周日002",
+      "league": "韩职",
+      "home": "蔚山现代",
+      "away": "全北现代",
+      "home_en": "蔚山现代",
+      "away_en": "全北现代",
+      "queries": [
+        "\"蔚山现代 vs 全北现代\" preview prediction lang:en",
+        "蔚山现代 全北现代 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "蔚山HD主场迎全北现代汽车，全北本季三战全胜",
+          "url": "https://pc.dongqiudi.com/articles/6705962.html",
+          "site": "懂球帝",
+          "date": "2026-11-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.1155275481896987,
+          "summary": "# 蔚山HD主场迎全北现代汽车，全北本季三战全胜\n\nK联赛1第37轮，排名第2的蔚山HD（积57分）在主场迎战排名第6的全北现代汽车（积49分），比赛将于北京时间11月29日13时在蔚山文殊足球竞技场进行（当地时间14时）。蔚山要守住第2的位置，全北则为争夺亚足联冠军联赛精英赛参赛资格急需3分。两队上一轮第36轮均告负，本场都希望反弹。\n\n蔚山上轮1-2不敌仁川联，四轮不败就此终结。进攻端依然有威胁：联赛射手王亚戈已打进17球并有1次助攻，李东炅贡献13球13助攻，是目前进攻数据最多的球员，蔚山近9场比赛打进16球。但球队近8场比赛连续失球，防守不稳，找回攻守平衡是关键。\n\n全北现代汽车上轮0-1不敌FC首尔，全场18次射门未能破门。退伍归队的全炳关表现积极，送出3次关键传球并有2次射门，为进攻注入活力。本赛季两队三次交手，全北全部取胜，本场将冲击四战全胜，蔚山则希望在主场完成复仇。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "K1第37轮前瞻：蔚山战全北力保第二，仁川江原争第四",
+          "url": "http://pc.dongqiudi.com/articles/6697722.html",
+          "site": "懂球帝",
+          "date": "2026-11-25T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.0905130105338636,
+          "summary": "# K1第37轮前瞻：蔚山战全北力保第二，仁川江原争第四\n\n据韩国媒体《SPORTALKOREA》报道，2026赛季K1联赛争冠组仅剩最后两轮，各队围绕亚军席位、亚冠精英联赛（ACLE）参赛资格以及第四名展开了激烈争夺。\n\n守住第二的蔚山HD对阵追逐亚冠资格的全北现代\n\n第37轮，排名第二的蔚山HD（积57分）与排名第六的全北现代（积49分）将展开交锋。蔚山HD需要3分来稳固第二的位置，全北现代则需要3分以延续亚冠精英联赛资格的希望。两队在上一轮第36轮比赛中分别不敌仁川联和首尔FC，此番谁能取胜备受关注。\n\n主场作战的蔚山HD在第36轮1-2负于仁川联，终结了此前4轮不败（3胜1平）的势头。不过，在联赛射手榜领跑的亚戈（17球1助攻）和联赛参与进球最多的李东炅（13球13助攻）带领下，蔚山HD近9场打入16球，进攻火力稳定，金英权、郑昇炫、埃里克、李镇贤等不同位置的球员也纷纷贡献进球。但蔚山HD近8场连续丢球，防守端存在隐患，若能保持进攻优势并提升防守专注度，将有望守住第二名。\n\n客场作战的全北现代在第36轮0-1不敌首尔FC。该场比赛全北现代轰出18脚射门，但仅有5次射正，最终未能破门。尽管输球，退伍复出首战的全炳关表现亮眼，他与姜尚润、崔宇镇配合默契，贡献了3次关键传球和2次射门。全北现代上一场在进攻终结环节有所欠缺，全炳关能否为球队进攻注入新活力值得期待。全北现代希望通过本轮击败蔚山HD，延续争夺亚冠精英联赛资格的火种。\n\n本赛季两队前三次交手，全北现代分别以2-0、3-1和1-0全部取胜。蔚山HD能否在赛季最后一次交锋中终结连败实现复仇，还是全北现代完成赛季四杀，悬念即将揭晓。两队本赛季最后一次交手将于北京时间11月29日13:00在蔚山文殊足球场进行。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场作战"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Previews - Jo Junghyeon - Ulsan HD aims for first win of 2026 against Jeonbuk Motors",
+          "url": "https://football.hkjc.com/en-us/preview-summary/details-page?path=MatchPreview/2026-11/27/FB9703&Expert=KD1_Jo%20Junghyeon&MatchID=FB9703&Title=Ulsan%20HD%20aims%20for%20first%20win%20of%202026%20against%20Jeonbuk%20Motors&b_cid=SPFBSPA_PreviewArticle_article",
+          "site": "香港賽馬會",
+          "date": null,
+          "authority": 3,
+          "score": 1.8578146696090696,
+          "summary": "## Ulsan HD aims for first win of 2026 against Jeonbuk Motors\n\nRecommendation: Home/Away/Draw – Home\n...\nFirst Team To Score – Home\n\nTEAM NEWS\n\nUlsan HD may still be without backup goalkeeper Moon Jung-in.\n\nJeonbuk Motors returns Kim Jin-kyu from suspension, but is still without Patrick Twumasi.\n...\nSuspended: None\n\nDoubtful: Moon Jung-in (finger)\n\nInjured/unavailable: Jeong Seong-bin (unknown)\n...\nPatrick Twumasi (unknown)\n\nMATCH PREVIEW\n\nUlsan HD's last league match was a 2-1 away loss to Incheon Utd. Ulsan HD was uncreative in the match, conceding two before Kim Young-gwon pulled one back in the 87th minute, but it was not enough. The defeat ended a two-match winning run, which included a 2-1 win away to FC Seoul.\n\nJeonbuk Motors' last league match was a 1-0 home loss to FC Seoul. Jeonbuk Motors had 56 percent possession and outshot its visitors 19 to 10, with an expected goals total of 1.31 to 0.69, but Jeonbuk Motors conceded the eventual winner in the 54th minute. The result followed a 3-2 away loss to Gangwon FC, leaving Jeonbuk Motors winless in four league matches.\n\nUlsan HD has the attacking edge in this match. It has scored nine goals in its last five league matches, and Yago Cariello leads the league with 17 goals, while Lee Dong-gyeong has been one of the league’s most creative players this season. Jeonbuk Motors has also failed to score in two of its last three league matches. Expect Ulsan HD to take all three points at home.\n\nHEAD TO HEAD\n\nJeonbuk Motors has had the better of this series this season with three wins.",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "蔚山HD火力全開拆「車」",
+          "url": "http://v2.news.7m.com.cn/news/20261128/747922.shtml",
+          "site": "7M体育",
+          "date": "2026-11-27T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.836461976571908,
+          "summary": "蔚山HD火力全開拆「車」\n\nwww.7m.com.cn 2026年11月28日 来源：都市日报\n\n軍情\n\n蔚山HD或繼續缺少後備門將文正仁。\n\n全北汽車的金鎮圭停賽期滿復出，但圖馬西仍然缺陣。\n...\n上陣成疑：文正仁（手指）\n\n受傷／缺陣：鄭成彬（不詳）\n...\n蔚山HD上一場作客1比2不敵仁川聯。蔚山HD該仗進攻缺乏創造力，先失兩球，直至87分鐘才由金英權追回一球，但仍不足以扭轉敗局。這場敗仗令蔚山HD的兩連勝走勢告終，其間曾作客2比1擊敗FC首爾。\n\n全北汽車上一場聯賽主場0比1不敵FC首爾。全北汽車錄得56%控球率，射門次數以19比10壓倒對手，預期入球亦以1.31比0.69佔優，但全北汽車於54分鐘失掉全場唯一入球。全北汽車此前作客2比3不敵FC江原，至今已連續4場聯賽不勝。\n\n蔚山HD今場在進攻方面佔優，近5場聯賽共攻入9球，陣中的耶高卡里路以17個入球領先聯賽射手榜，而李東炅亦是今季聯賽最具創造力的球員之一。全北汽車近3場聯賽亦有兩場未能取得入球。預料蔚山HD可在主場全取3分。\n\n對賽\n\n全北汽車今季在雙方交鋒中佔優，3戰全勝。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "韩K联比赛前瞻：蔚山HDvs全北现代预测分析(2026年11月29日)",
+          "url": "https://www.qiumiwu.com/news/2052026296629",
+          "site": "球迷屋",
+          "date": "2026-11-27T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.819561203223864,
+          "summary": "# 韩K联比赛前瞻：蔚山HDvs全北现代预测分析(2026年11月29日)\n\n前锋大风暴 2026-11-28 12:18\n\n【韩K联】蔚山HDvs全北现代，将于北京时间11月29日13点00分进行。下面分享具体的比赛前瞻蔚山HDvs全北现代预测分析：\n\n## 蔚山HDvs全北现代预测分析\n\n蔚山HD情报消息：\n\n近6场赛事取得3胜1平2负，进12球失11球，胜率50%\n[韩K联] 2026-11-21 仁川联（2 : 1）蔚山HD\n[韩K联] 2026-11-08 FC首尔（1 : 2）蔚山HD\n[韩K联] 2026-11-01 蔚山HD（2 : 1）江原FC\n[韩K联] 2026-10-24 蔚山HD（2 : 2）浦项铁人\n[韩K联] 2026-10-17 蔚山HD（2 : 1）富川FC\n[韩K联] 2026-10-11 光州FC（4 : 3）蔚山HD\n\n近6主场取得5胜1平0负，进12球失6球，胜率83%\n...\n[韩K联] 2026-09-12 蔚山HD（2 : 1）仁川联\n[韩K联] 2026-09-08 蔚山HD（1 : 0）FC首尔\n[韩K联] 2026-08-29 蔚山HD（3 : 1）金泉尚武\n\n球队伤病最新报告：\n暂无伤病球员\n\n全北现代情报消息：\n\n近6场赛事取得1胜2平3负，进6球失9球，胜率17%\n[亚精英赛] 2026-11-25 鹿岛鹿角（3 : 0）全北现代\n[韩K联] 2026-11-21 全北现代（0 : 1）FC首尔\n[韩K联] 2026-11-08 江原FC（3 : 2）全北现代\n[亚精英赛] 2026-11-03 全北现代（2 : 0）柔佛新山\n[韩K联] 2026-10-31 全北现代（0 : 0）大田市民\n[亚精英赛] 2026-10-27 北京国安（2 : 2）全北现代\n\n近6客场取得0胜2平4负，进6球失13球，胜率0%\n...\n[韩K联] 2026-10-24 安养FC（1 : 1）全北现代\n[亚精英赛] 2026-10-14 神户胜利船（2 :\n...\n[韩K联] 2026-10-09 大田市民（2 :\n...\n[前锋]朴主英，受伤\n\n双方交战数据：\n\n2026-08-22 全北现代（1 :\n...\n2026-07-11 蔚山HD（1 : 3）全北现代\n2026-04-04 全北现代（2 :\n...\n2025-08-30 蔚山HD（0 :\n...\n2025-05-31 全北现代（3 :\n...\n2025-03-01 蔚山HD（1 :\n...\n## 蔚山HDvs全北现代胜平负预测\n\n球迷屋对本场比赛给出胜平负预测：蔚山HD胜率38%，平率32%，全北现代胜率31%。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 3,
+        "zh": 4,
+        "home_mentions": 0,
+        "away_mentions": 3
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周日005",
+      "league": "荷甲",
+      "home": "海牙",
+      "away": "乌德勒支",
+      "home_en": "海牙",
+      "away_en": "乌德勒支",
+      "queries": [
+        "\"海牙 vs 乌德勒支\" preview prediction lang:en",
+        "海牙 乌德勒支 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "ADO海牙主场迎乌德勒支，胜即可反超对手",
+          "url": "http://pc.dongqiudi.com/articles/6703328.html",
+          "site": "懂球帝",
+          "date": "2026-11-26T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.057315984415475,
+          "summary": "# ADO海牙主场迎乌德勒支，胜即可反超对手\n\n北京时间11月29日19:15（当地时间12:15），ADO海牙将在荷甲主场迎战乌德勒支，比赛在WerkTalent球场进行。乌德勒支目前排名荷甲第十五位，领先ADO海牙三分，ADO海牙若取胜即可在积分榜上反超客队。\n\n两队本赛季都处境艰难。乌德勒支最近三轮接连负于特尔斯达、奈梅亨和坎布尔；ADO海牙在国际比赛日间歇期前曾战胜鹿特丹斯巴达，随后不敌阿贾克斯。\n\n两队上一次交手是2021年4月4日，ADO海牙主场1-4落败；2019年ADO海牙曾主场5-0大胜，当时进球者包括伊默斯、梅耶斯、贝克尔、巴克和内科德。最近五次交手共打入22球，场均4.4球。在双方71次交锋中乌德勒支胜场最多，但ADO海牙曾在2010至2012年和2014至2016年两度连续五场对乌德勒支不败，乌德勒支目前有机会追平连续五场不败。\n\n数据方面，乌德勒支本赛季已打入23球，ADO海牙打入16球；乌德勒支失球数仅次于威廉二世，ADO海牙目前净胜球优于对手。两队本赛季在荷甲都尚未完成零封。乌德勒支的范杜因和斯捷潘诺夫在每出场分钟进球数排行中名列前茅，值得关注。\n\n两队共有大量曾效力双方的球员和教练，包括托恩斯特拉、克拉默、杜普兰、迪克-阿德沃卡特、莫尔斯、埃利亚、格勒嫩代克、德里克、范德古恩、布萨本和弗雷芬等，阿德-曼斯费尔德也曾为乌德勒支出场11次。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "海牙主場醒神除「烏」",
+          "url": "http://v2.news.7m.com.cn/news/20261128/747928.shtml",
+          "site": "7M体育",
+          "date": "2026-11-27T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.9299711869544016,
+          "summary": "海牙主場醒神除「烏」\n\nwww.7m.com.cn 2026年11月28日 来源：都市日报\n\n軍情\n\n海牙上仗聯賽續以「4-2-3-1」陣式出戰，中堅華姆完半場前領紅牌被逐，今場停賽，其位置會由韋希姆取代。前鋒恩歷克伊度亞度，同場因戰術調動被提早收起，今場會續任正選，再力爭入球。球隊該仗超過半場少踢一人，前鋒尼祖湯馬士得到支援不足，發揮一般；但此子計近4場聯賽入3球，把握能力不俗，會是今場爭勝重心。\n\n烏德勒支上仗聯賽改踢「4-2-3-1」陣式，右閘換上賀列文斯擔正，守力卻未見加強；左閘高路斯達保亞表現不濟，防守持續不穩。前鋒史迪彭洛夫重拾射門鞋，打破個人多場聯賽入球荒，但傷癒後狀態仍未完全回復。球隊戰績差勁，上仗賽後宣布辭退主帥安東尼哥利亞，大軍暫由球會青年隊主帥馬克奧頓頂上。\n\n海牙\n\n受傷：利舒爾（中場）\n\n停賽：華姆（後衛）\n...\n受傷：域陀贊臣（中場）、奇雲柏利迪斯（中場）、阿朗素英格雲達（中場）、諾亞奧希奧（前鋒）、莊拿坦斯（前鋒）\n...\n近況\n\n海牙上仗聯賽淨吞阿積士3蛋，近4場聯賽1勝3負，近況平平，本身實力有限；但單計聯賽主場卻是近3戰2勝，包括打敗班霸燕豪芬，今場有地利之助，遇上態沉的烏德勒支，有力再響勝鼓。烏德勒支上仗聯賽以2比3不敵甘堡爾，聯賽3連敗失10球，狀態跌入谷底，並辭退主帥；客場防守同樣不穩，今場繼續看淡，能守住半場已有交代。\n\n往績\n\n雙方近4次交手，烏德勒支3勝1和；上次勝4比1，上次交手角球6個。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "争冠6分大战，曼城客场有望全身而退",
+          "url": "https://epaper.xxsb.com/html/content/2026-11/28/content_800488.html",
+          "site": "信息时报",
+          "date": "2026-11-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9213816403597108,
+          "summary": "2026.11.28 星期六 图片编辑 A07\n...\n周日 005 荷甲 海牙 VS 乌德勒支\n\n赛事信息：近4次交手，乌德勒支胜1平（负）占优。两队近5个赛季没有交手记录。\n\n主队情报：打进马王队近6场比赛胜1平3负，上轮客场0.2不敌阿贾克斯，近4次联赛胜3负，暂时排在积分榜单数第2位；前轮主场胜1平3负，打进10球差了13球，主场成绩排名第9位，上轮主场3+大胜斯特丹斯巴达。\n\n客队情报：客队近6场比赛胜1平\n...\n周日005 荷甲 海牙VS乌德勒支 11-29 19:15\n\n赛事信息：近6次交手，乌得勒支4胜1平1负占优。\n...\n主队情报：升班马主队近6场比赛2胜1平3负，上轮客场0:3不敌阿贾克斯，近4轮联赛1胜3负，暂时排在积分榜倒数第2位；前6轮主场2胜1平3负，打进11球丢了13球，主场成绩排在第9位，上轮主场3:1大胜鹿特丹斯巴达。\n\n客队情报：客队近6场比赛2胜1平3负，上轮主场2:3不敌坎布尔，近3轮联赛连败，暂时排在积分榜第15位，积分领先本场对手3分；前6轮客场2胜1平3负，打进10球丢了16球，客场成绩排在第14位，上轮客场2:4不敌特尔斯达。\n\n本场比赛投注人气超五成落于客胜位置，但胜平两个位置人气都有比较大调节空间。竞猜形势方面，客胜指数走高，主胜指数走低，平局指数在凸出位置振荡。首选主胜看好主队不败，让球盘主胜可博胆。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "看好主队",
+            "主胜"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "荷甲比赛前瞻：海牙vs乌德勒支预测分析(2026年11月29日)",
+          "url": "https://www.qiumiwu.com/news/2052045388009",
+          "site": "球迷屋",
+          "date": "2026-11-27T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.8956130005756384,
+          "summary": "# 荷甲比赛前瞻：海牙vs乌德勒支预测分析(2026年11月29日)\n\n守护神 2026-11-28 12:25\n\n【荷甲】海牙vs乌德勒支，将于北京时间11月29日19点15分进行。赛前排行数据：海牙当前战绩为2胜3平8负，积分9，排在联赛第17名；乌德勒支当前战绩为3胜3平7负，积分12，排在联赛第15名。下面分享具体的比赛前瞻海牙vs乌德勒支预测分析：\n\n## 海牙vs乌德勒支预测分析\n\n海牙情报消息：\n\n近6场赛事取得2胜1平3负，进8球失10球，胜率33%\n[荷甲] 2026-11-22 阿贾克斯（3 : 0）海牙\n[荷甲] 2026-11-08 海牙（3 : 1）鹿特丹斯巴达\n[荷甲] 2026-11-01 兹沃勒（1 :\n...\n[荷兰杯] 2026-10-28 精英31（1 : 1）海牙\n[荷甲] 2026-10-25 海牙（2 : 3）海伦芬\n[荷甲] 2026-10-17 海牙（2 : 1）埃因霍温\n\n近6主场取得2胜1平3负，进11球失13球，胜率33%\n...\n[荷甲] 2026-09-19 海牙（1 : 1）坎布尔\n[荷甲] 2026-09-06 海牙（2 : 3）福图纳锡塔德\n[荷甲] 2026-08-16 海牙（1 : 4）格罗宁根\n\n球队伤病最新报告：\n[中场]卢卡·莱斯切尔，腹股沟受伤，开始日期2026年09月14日\n[后卫]马蒂奥·韦姆，停赛\n\n乌德勒支情报消息：\n\n近6场赛事取得2胜1平3负，进10球失12球，胜率33%\n[荷甲] 2026-11-22 乌德勒支（2 :\n...\n[荷甲] 2026-11-09 乌德勒支（2 : 3）奈梅亨\n[荷甲] 2026-11-01 特尔斯达（4 : 2）乌德勒支\n[荷兰杯] 2026-10-30 高沙根男生（0 : 1）乌德勒支\n[荷甲] 2026-10-24 乌德勒支（1 :\n...\n[荷甲] 2026-10-19 特温特（1 :\n...\n近6客场取得3胜1平2负，进10球失14球，胜率50%\n...\n[荷甲] 2026-09-20 费耶诺德（5 :\n...\n[荷甲] 2026-09-13 SBV精英（1 :\n...\n[荷甲] 2026-08-23 鹿特丹斯巴达（3 : 3）乌德勒支\n...\n[中场]凯文·帕雷德斯，膝关节受伤，开始日期2026年08月29日\n[中场]阿隆佐·恩旺达，腿筋受伤，开始日期2026年05月22日\n[前锋]欧海尔，膝关节受伤，开始日期2026年04月20日\n[前锋]米利亚诺·乔纳森，膝关节受伤，开始日期2026年03月08日\n[中场]维克多·詹森，膝关节受伤，开始日期2026年01月19日\n\n双方交战数据：\n\n2021-04-04 海牙（1 : 4）乌德勒支\n2020-12-06 乌德勒支（1 :\n...\n202...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "荷甲：海牙vs乌德勒支预测分析 倒数两队谁先止跌",
+          "url": "https://www.qiumiwu.com/news/2052392586174",
+          "site": "球迷屋",
+          "date": "2026-11-27T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.878433775912934,
+          "summary": "# 荷甲：海牙vs乌德勒支预测分析 倒数两队谁先止跌\n\n数据拆解师 2026-11-28 20:40\n\n11月29日，2026-2027赛季荷甲第14轮，海牙在主场迎来乌德勒支。13轮过后，海牙2胜3平8负拿到9分，排第17，进16球失28球；乌德勒支3胜3平7负积12分，排第15，进23球失37球。两队只差3分，海牙主场6次取得2胜1平3负，乌德勒支客场6次2胜1平3负，这场球影响积分榜下游站位。\n\n上一场做客阿贾克斯，海牙半场便0-3落后，全场只有1次射正，阿贾克斯11次，控球率21%对79%。第37分钟马蒂奥·韦姆领到红牌，本场因停赛无法出场；卢卡·莱斯切尔在9月14日遭遇腹股沟受伤，海牙在中场和后场选择同时收窄。联赛至今，海牙每场能进1.2球，失球2.2个，场均射门11.7次、射正3.6次，进球转化率10.5%。罗蒂埃完成18次射门，其中7次射正，送出4次助攻；N.托马斯收获4球。上一场排出4-2-3-1，本场预计仍会沿用，韦姆停赛让防线风险上升。\n\n乌德勒支第13轮在主场被坎布尔3-2击败，半场结束0-1落后；斯捷潘诺夫第60分钟追回1球，范杜因第81分钟扳平，第83分钟球队再度失球。乌德勒支联赛场均进球1.8个、失球2.8个，场均射门14.3次、射正4.8次；进球转化率12.4%，快攻转化率16.7%，关键传球142次。斯捷潘诺夫已进6球，卡塞林完成30次射门，德维特射正11次。凯文·帕雷德斯在8月29日遭遇膝关节受伤，阿隆佐·恩旺达在5月22日遭遇腿筋受伤，欧海尔在4月20日遭遇膝关节受伤，乌德勒支中场和锋线轮换余地被压缩。上一场以4-2-3-1出战，本场大概率沿用，中场轮换受限。\n\n海牙6个主场进11球、失13球，乌德勒支6个客场进10球、失16球；海牙场均角球3.8次，乌德勒支4.3次，边路和定位球可能成为破局方式。双方最近6次碰面，海牙只拿到1胜1平4负；2019年主场5-0是唯一胜绩，2021年最近一次交手以1-4落败。海牙若再次早早丢球，比赛会变得被动；乌德勒支最后阶段防守问题在上一场第83分钟已经出现。海牙能否借主场抢下保级关键分，乌德勒支又能否用进攻效率完成反弹？\n\n## 海牙vs乌德勒支胜平负预测\n\n球迷屋对本场比赛给出胜平负预测：海牙胜率35%，平率34%，乌德勒支胜率31%。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 2,
+        "zh": 5,
+        "home_mentions": 5,
+        "away_mentions": 4
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周日006",
+      "league": "意甲",
+      "home": "乌迪内斯",
+      "away": "佛罗伦萨",
+      "home_en": "Udinese",
+      "away_en": "Fiorentina",
+      "queries": [
+        "\"Udinese vs Fiorentina\" preview prediction lang:en",
+        "乌迪内斯 佛罗伦萨 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Udinese vs Fiorentina predictions and preview | APWin",
+          "url": "https://www.apwin.com/predictions/udinese-vs-fiorentina-prediction-serie-a-29-11-2026/",
+          "site": "APWin",
+          "date": "2026-11-26T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.1932158052892703,
+          "summary": "# Udinese vs Fiorentina prediction\n\nItaly - Serie A\n\nv.s\n\n29 Nov 2026 03:30\n\nUnder 2.5 Goals\n\nMarket: Under 2.5 Goals · @ 2.10\n\n2.10\n\nConfidence\n\n51%\n\nSecondary prediction\n\nAway Win\n\n43%\n\nLast updated: 24-11-2026\n\n## Udinese Form and Insights\n\nUdinese hosts Fiorentina at the Bluenergy Stadium (Stadio Friuli) for this Serie A fixture. The match will kick off at 11:30 (UK Time) on 29/11/2026.\n\nTheir performance in the Serie A so far:\n\n- Wins: 1\n- Draws: 3\n- Losses: 8\n\nOffensive and defensive statistics:\n\n- Goals scored: 13\n- Average goals per match: 1.08\n- Goals conceded: 26\n- Average goals conceded per match: 2.17\n\n## Fiorentina Form and Insights\n\nFiorentina has played 12 matches in the Serie A so far this season. Here's how the team comes into their match with Udinese:\n...\nGoals scored and conceded:\n...\n## Head-to-Head Statistics\n\nUdinese and Fiorentina have met 40 times across all competitions.\n\n- Udinese wins: 12\n- Fiorentina wins: 23\n...\nDLLDL\n...\nLDWDL\n\nPoints & Results\n\n- 12Played12\n- 1Wins2\n- 3Draws3\n- 8Losses7\n- 0.50PPG0.75\n- 8%Wins17%\n- 33%First to Score25%\n\nGoals Scored & Conceded\n\n- 13Goals Scored17\n- 1.08Scored/game1.42\n- 26Goals Conceded28\n- 2.17Conceded/game2.33\n- 1.50xG1.79\n- 1.70xGA1.65\n\nCorners\n\n- 118Total Corners116\n- 56Corners For61\n- 62Corners Against55\n- 4.67Corners For/game5.08\n- 5.17Corners Against/game4.58\n\nTrends\n\n- 67%Both Score75%\n- 8%Clean Sheet0%\n- 33%Failed to Score25%\n\nAccess all match stats for Udinese vs Fiorentina The last match was played on 02/03/2026 in the Serie A, and Udinese won the match. The match ended in 3–0. In the table below, you can find the head-to-head results of the last few meetings.\n\n## Players to Watch\n\nThe players most likely to decide the goal-scoring and player-prop markets in this match:\n\n### Udinese Top Players\n\n- Keinan Davis has scored 10 goals so far this season.\n- Nicolò Zaniolo has given 6 assists this season.\n\n### Fiorentina Top Players\n\n- Moise Kean has scored 8 goals so far this season.\n- Albert Gudmundsson has given 4 assists this season.\n\n## Betting Insights for Cards and Corners\n\nIf you prefer betting on over/under markets for corners and cards, you can use the section below to find the statistics for this Udinese vs Fiorentina match.\n\n### Udinese Cards and Corners\n\n- Average cards per match: 1.67\n- Average cards when playing at home: 2.17\n- Average corners per match: 9.84\n- Average corners when playing at home: 10.5\n\n### Fiorentina Cards and Corners\n...\n- Average cards when playing away: 2.17\n- Average corners per match: 9.66\n- Average corners when playing away: 7.17\n\n## Match Details\n...\n- Kick-off time: 11:30\n- Competition: Serie A\n- Game week: 13\n...\n## How APWin Makes Its Predictions\n\nOur football predictions are written using a structured analysis of factors that impact match outcomes. We combine long-term performance with the latest team news and real-time market signals to write our predictions.\n\nHere's what we take into account:\n\n- Historical match data\n- Home and away performance trends\n- Recent form, squad news, and team dynamics\n- Betting market odds and line movement analysis\n\nSerie A03:30\n\nUdinesevsFiorentina\n\n- 1Under 3.51.44\n- 22nd Half Under 2.5...",
+          "side": "away",
+          "neg": false,
+          "hits": [
+            "away win"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Udinese vs Fiorentina: Preview",
+          "url": "https://sports.yahoo.com/soccer/articles/udinese-vs-fiorentina-preview-220119596.html",
+          "site": "Yahoo Sports",
+          "date": "2026-11-26T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.0417946437497037,
+          "summary": "# Udinese vs Fiorentina: Preview\n...\nFiorentina gets a chance to maintain its title as Serie A's biggest crisis club with a trip to take on one of its primary contenders for that undesirable crown. Udinese sits dead last in the league and sacked Kosta Runjaić earlier this month. Paolo Zanetti's taken a point from his two games in charge but the Zebrettini are still winless since August. Feel better about the Viola now? No? Well, that's fair. This is going to be a marmot slap fight of a game and probably decided by who can be less cheeks.\n\nThe match will be played on Sunday, 29 November 2026, at 11:30 GMT/6:30 AM EST at the Stadio Friuli in Udine. Strangely enough for the far northeast, the forecast calls for a relatively clear evening with little rain and temperatures that chilly without being too chilly. Hopefully that keeps Paolo Vanoli's rapidly-warming seat Paolo Vanoli's cool enough to sit on.\n...\n## Three things to watch for\n\n#### 1. Win one for the skipper\n\nIn the past couple days, rumors have emerged that Fiorentina is eying up Vanoli's replacement should his team falter here. I'll write more on that later but it's safe to say that the current mister knows he's under the gun. Despite a brief ritiro after last week's execrable defeat to Monza, his players have the internet. They know what the media and the fans are saying about the club's performances and they've read that their coach's job is hanging by a thread. That puts the ball squarely in their court. Will they dig deep and turn in a real performance to prove that they want Vanoli around?\n\nI'm simplifying the situation, of course, but it often comes down to whether or not the manager's lost the dressing room. Last week's display against Monza was the sort of listless 90 minutes that could mean that Vanoli's message isn't getting through to his players. For the second season running, there've been murmurs about disunity among the squad. The coach's job at this point is less about tactics and more about emotional leadership. If Fiorentina emerges with a unity of purpose, a willingness to run and set aside individual egos, and a coherent game plan, the result should come. If it's the same disjointed, solipsistic slop we saw against Monza, the axe won't be far behind.\n...\nUdinese, of course, is in the same boat. Zanetti hasn't quite produced the new coach bounce yet, losing against Venezia in his first game but holding on for a draw at Bologna last week. The Zebrettini are one of the league's premier cockroaches (complimentary) and have enough talent to survive this season, especially if Zanetti can get the players working together in the way I still hope Vanoli can. If nothing else, there'll be some guys hoping to win a bigger role under a new manager by outworking everyone else.\n\n#### 2. Dealing with physicality\n\nUdinese's recruitment strategy over the past few years has focused on finding the largest humans who play at a professional level and signing them. This isn't just a tall squad. It's a squad full of physically robust players who aren't afraid to throw themselves around. It's part of why nobody enjoys a trip to the Stadio Friuli: it means 90 minutes going against a bunch of fast, strong, and aggressive dudes who want to let you know they're there. Their identity over the past five years or so has been to force opponents to grind out games, to work for every inch of the field they advance over, to make each game as miserable as possible.\n\nThat's an approach that's perfectly suited to demoralize a team like Fiorentina. Despite Fabio Paratici prioritizing physicality in the transfer window, the Viola are still an outfit predicated more on finesse than force. Mateo Pellegrino's battle with Udinese's defense will be demolition derby-levels of fun and Cher Ndour can mash in midfield but I worry that the hosts will overpower their visitors, grab a goal off a set piece, and walk away with all three points.\n...\nIt's a thorny equation for Vanoli and company to solve. In a perfect world, Fiorentina would move the ball really quickly, both back-to-front and side-to-side, and prevent Udinese from getting into its shape. That would also create advantages for the attackers, who may struggle to win individual battles against bigger, quicker defenders. Because Fiorentina is very bad and has an attack that usually operates...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Udinese v Fiorentina | Goal.com",
+          "url": "https://www.goal.com/en/match/udinese-vs-fiorentina/HaXA3Ztd5ezEjfsO4gfew",
+          "site": "Goal.com",
+          "date": "2026-11-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9565070867538452,
+          "summary": "# Udinese vs FiorentinaMatch preview,\n\n## UDI-Form\n\n- Goal Scored (Conceded)\n- 4/10\n- Games over 2.5 goals\n- 2/5\n- Both teams scored\n- 3/5\n\n## FIO-Form\n...\n- 9/11\n...\n- 5/5\n...\n- 4/5\n\n## Head to head\n\nUDI\n\nLast 5 matches\n...\nWins\n\n1\n\nDraw\n...\n### Pick your winner\n\nSerie A - Game Week 13\n\n## Match details\n\nBluenergy Stadium - Stadio Friuli\n...\nPos | Team | P | W | D | L | F | A | +/- | PTS | Form\n...\n- L\n...\n16 | Fiorentina | 12 | 2 | 3 | 7 | 17 | 28 | -11 | 9 |\n...\n20 | Udinese | 12 | 1 | 3 | 8 | 13 | 26 | -13 | 6 |",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Udinese vs. Fiorentina: lunchtime six-pointer | Serie A Enilive | Lega Serie A",
+          "url": "https://en.legaseriea.it/serie-a/news/udinese-vs-fiorentina-lunchtime-six-pointer",
+          "site": "Lega Serie A | Official Website",
+          "date": "2026-11-26T16:00:00+00:00",
+          "authority": 4,
+          "score": 1.9563456825981556,
+          "summary": "# Udinese vs. Fiorentina: lunchtime six-pointer\n\nUdinese and Fiorentina go head-to-head as both sides look to pull clear of the bottom three.\n\nA crucial relegation battle awaits at the Bluenergy Stadium on Matchday 13 of Serie A. Following last weekend's draw with Bologna, Udinese are searching for their first win since Matchday 2 as they look to climb off the bottom of the table. Fiorentina sit three points above them but suffered a defeat in their clash with Monza. The Viola will be determined to bounce back, open up a gap over their opponents and ease the pressure around the club.\n\nHEAD TO HEAD\n\n56 official meetings between the two sides in Udine: 20 Udinese wins (most recent 3‑0, Serie A 2025/26), 18 draws (most recent 0‑0, Serie A 2019/20) and 18 Fiorentina wins (most recent 2‑3, Serie A 2024/25).\n\nNo draws in the last 6 Serie A meetings in Udine: 3 wins each. The last draw was the 0‑0 on 8 March 2020. Udinese’s last 3 home wins against Fiorentina all came in the league, without conceding (3‑0 in 2025/26, 1‑0 in 2022/23 and 1‑0 in 2020/21).\n\nDID YOU KNOW?\n\nUdinese winless in their last 10 matchdays (2 draws and 8 defeats): their only win this season was the 2‑3 at Monza on 29 August, on Matchday 2. Udinese’s worst winless run in Serie A is 14 games, last reached between the end of 2022/23 and the start of 2023/24.\n\nFiorentina have won just 1 of their last 8 games: their last win came on 2 November (Sassuolo‑Fiorentina 2‑4). Fiorentina are on 9 points with a record of 2 wins, 3 draws and 7 defeats, the most recent the 3‑0 loss at Monza.\n\nUdinese and Fiorentina are the only two teams in this Serie A season yet to win at home. The two sides’ three wins have all come away from home.\n\nOnly Sassuolo (31) have conceded more goals than Fiorentina (28) and Udinese (26).\n\nUdinese (8) and Fiorentina (6) are the two teams that concede the most goals in the last 15 minutes of the first half, stoppage time included.\n\nUdinese have scored more goals through defenders (4) than through forwards (3): no team has got fewer goals from its attack.\n\nCOACHES and PLAYERS\n\nPaolo Zanetti and Paolo Vanoli meet for the 4th time in official matches: in the previous 3, the record is perfectly balanced, with one win each and one draw. Zanetti won the most recent meeting (Fiorentina‑Verona 1‑2, 14 December 2025) and has beaten Fiorentina in their last 2 meetings. Vanoli has faced Udinese 4 times (2 wins, 1 draw and 1 defeat).\n\nFiorentina have the same record after 9 games with Vanoli taking over mid‑season, in both 2025/26 and 2026/27: 2 wins, 3 draws and 4 defeats.\n\nFranco Mastantuono, who turned 19 on 14 August, is Fiorentina’s top scorer with 4 goals, level with Mateo Pellegrino. Among Under‑20 players, only Roma’s Rodrigo Mora (5) has done better.\n\nDISCIPLINE\n\nSuspended: none\n\nCautioned: Karlstrom (Udinese)\n\nREFEREES\n\nLA PENNA (TEGONI – YOSHIKAWA) IV: PERRI, VAR: MARINI, AVAR: VOLPI\n\nUPCOMING MATCHES\n\nJuventus-Udinese (6/12, 18.00)\n\nFiorentina-Cagliari (7/12, 20.45)",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "home win"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Udinese vs Fiorentina - live score, predicted lineups and H2H stats",
+          "url": "https://www.fotmob.com/matches/fiorentina-vs-udinese/2few0w",
+          "site": "FotMob",
+          "date": "2026-11-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.8881815671920776,
+          "summary": "# Udinese vs Fiorentina — Sun, November 29, 7:30 PM\n\n## About the match\n\nUdinese faces Fiorentina at Bluenergy Stadium on Sun, Nov 29, 2026, 11:30 UTC.\n...\nThe current predicted lineups are:\n\nUdinese (3-4-2-1): Maduka Okoye - Matteo Palma, Christian Kabasele, Oumar Solet - James Abankwah, Jesper Karlström, Jakub Piotrowski, Hassane Kamara - Sandi Lovrić, Jurgen Ekkelenkamp - Nicolò Zaniolo.\nFiorentina (4-3-3): David de Gea - Álex Jiménez, Radu Drăgușin, Luca Ranieri, João Mário - Cher Ndour, Nicolò Fagioli, Marco Brescianini - Franco Mastantuono, Mateo Pellegrino, Alieu Njie.\n\nUnavailable players for Udinese: Enzo Ebosse (injury), Nicolò Bertola (injury), Idrissa Gueye (injury), Keinan Davis (injury). Unavailable players for Fiorentina: Federico Croci (international duty), Marin Pongračić (injury), Viery (injury), Fabiano Parisi (injury).\n\nTeam form & Head-to-head history: Compare recent results and see how Udinese and Fiorentina have performed against each other. The current head to head record for the teams are Udinese 11 win(s), Fiorentina 20 win(s), and 5 draw(s).\n...\n## Who will win?\n\nBluenergy StadiumUdine, Italy\n\nCapacity25,952\n\nSurfaceGrass\n\nWeather forecast\n\n7°C\n\n## Insights\n\nUdinese are winless in 10 Serie A matches, losing eight of them\n\nUdinese lost their last five home matches, conceding 13 goals\n\nOnly two of Udinese's last 10 home meetings with Fiorentina produced over 2.5 goals\n\nUdinese have scored in each of their last five meetings with Fiorentina\n\nFiorentina haven't kept a clean sheet in eight matches\n\nNine of Fiorentina's last 10 Serie A matches produced over 2.5 goals\n\nFiorentina scored nine but conceded 11 in their last five Serie A matches\n\nFiorentina's two wins in their last five away matches both finished 4-2, at Venezia and Sassuolo\n\n### Top scorers\n...\n7.15FotMob rating6.78\n\n3Goals4\n\n2.06Expected goals (xG)2.34\n\n1Assists0\n\n12Matches played12\n...\nUdinese-vs-Fiorentina_Sun, Nov 29, 2026, 11:30 UTC\n\nUdinesevsFiorentina\n\nSunday, 29 November 2026 - 19:30 | Bluenergy Stadium, Udine | Capacity: 25,952 | Ref: Federico La Penna\n\nWeather: Sunny, 7°C\n\n### Lineups(Predicted)\n\n#### Udinese (3-4-2-1)\n\n40 | Maduka Okoye | - \n---|---|---\n16 | Matteo Palma | - \n27 | Christian Kabasele | - \n28 | Oumar Solet | - \n14 | James Abankwah | - \n8 | Jesper Karlström | - \n24 | Jakub Piotrowski | - \n11 | Hassane Kamara | - \n4 | Sandi Lovrić | - \n32 | Jurgen Ekkelenkamp | - \n10 | Nicolò Zaniolo | - \n\nCoach: Paolo Zanetti\n\n#### Fiorentina (4-3-3)\n\n43 | David de Gea | - \n---|---|---\n20 | Álex Jiménez | - \n3 | Radu Drăgușin | - \n6 | Luca Ranieri | - \n17 | João Mário | - \n27 | Cher Ndour | - \n44 | Nicolò Fagioli | - \n4 | Marco Brescianini | - \n30 | Franco Mastantuono | - \n32 | Mateo Pellegrino | - \n25 | Alieu Njie | - \n\nCoach: Paolo Vanoli\n\n### Unavailable Players\n...\nEnzo Ebosse(injury)\n\nNicolò Bertola(injury)\n\nIdrissa Gueye(injury)\n\nKeinan Davis(injury)\n...\nFederico Croci(internationalDuty)\n\nMarin Pongračić(injury)\n\nViery(injury)\n\nFabiano Parisi(injury)\n\n### Insights\n\n- Udinese are winless in 10 Serie A matches, losing...",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 1,
+        "draw": 0,
+        "goals": 2,
+        "none": 1,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 0,
+        "home_mentions": 0,
+        "away_mentions": 0
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周日007",
+      "league": "英超",
+      "home": "埃弗顿",
+      "away": "利物浦",
+      "home_en": "Everton",
+      "away_en": "Liverpool",
+      "queries": [
+        "\"Everton vs Liverpool\" preview prediction lang:en",
+        "埃弗顿 利物浦 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Everton vs Liverpool Preview, prediction, injury news & lineups | Premier League 2026-27",
+          "url": "https://khelnow.com/football/everton-vs-liverpool-preview-premier-league-202611",
+          "site": "Khel Now",
+          "date": "2026-11-26T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.312675676039823,
+          "summary": "# Everton vs Liverpool Preview, prediction, injury news & lineups | Premier League 2026-27\n...\nPublished at :November 27, 2026 at 2:36 PM (GMT+5:30)\n\nModified at :November 27, 2026 at 2:38 PM (GMT+5:30)\n...\n## The previous Merseyside derby ended in favour of the Reds!\n\nThe Merseyside derby is here. Everton FC are ready to lock horns with Liverpool FC for their 12th matchweek fixture of the English Premier League 2026-27 season. This Merseyside derby will be witnessed at the Hill Dickinson Stadium.\n\nAfter three consecutive wins, Everton hit a roadblock after Brentford outplayed them in their previous league contest. The Toffees suffered a 0-4 defeat in an underwhelming performance. They failed to control the ball and lacked urgency in attack.\n\nThe David Moyes-led team will be at home for their upcoming fixture and it is going to be a perfect opportunity for them to get back to winning ways. However, they will need a much better performance this time around.\n\nLiverpool are on a two-game winning streak in the English Premier League. They secured back-to-back wins against Crystal Palace (3-1) and Manchester United (4-0). The Reds also secured a 3-0 victory against Club Brugge in their recent Champions League outing. They will now be looking to use this momentum and secure a win in the upcoming Merseyside Derby.\n\nDespite being away from home, Andoni Iraola’s men will be full of confidence. It is not going to be an easy outing for them.\n\n### Kick-off:\n\n- Location: Liverpool, England\n- Stadium: Hill Dickinson Stadium\n- Date: Sunday, November 29\n- Kick-off Time: 05:30 pm IST/ 12:00 pm GMT/ 07:00 am ET/ 04:00 am PT\n- Referee: Michael Oliver\n- VAR: In use\n\n### Form:\n\nEverton: L-W-W-W-L\n\nLiverpool: L-L-W-W-W\n\n### Players to Watch\n\n#### Thierno Barry (Everton)\n\nThierno Barry has put in some sharp performances for Everton this season. He has scored six goals and has an assist in 11 Premier League appearances this season.\n\nEven though the 24-year-old failed to engrave his name on the scoresheet against Brentford, the Frenchman will continue to play an important role in the attacking front in the Merseyside Derby.\n\n#### Florian Wirtz (Liverpool)\n\nThe 23-year-old has put in consistent efforts for Liverpool FC this season. He has scored in all of the last three games for his club and will be eager to deliver another top performance.\n\nFlorian Wirtz has six goal contributions in 11 league outings this season. He can control the midfield well and has turned out to be an attacking threat for his opponents.\n\n### Match Facts\n\n- Everton have only managed two wins in their last five Premier League games.\n- Liverpool are on a three-game winning streak.\n- The Toffees have suffered consecutive losses in their last three encounters against the Reds.\n\n### Betting Tips & Odds\n\n- Liverpool to win @4/5 Ladbrokes\n- Alexander Isak to score @5/4 bet365\n- Goals under 3.5 @1/2 William Hill\n\n### Injury and Team News\n\nEverton will be without the services of James Tarkowski. He is suspended.\n\nHugo Ekitike, Cody Gakpo and Ryan Gravenberch are going to sit out for Liverpool due to their injuries. Victor Munoz, Conor Bradley and Giovanni Leoni are not yet confirmed to be part of the squad.\n\n### Head-to-Head\n\nMatches played: 299\n\nEverton (wins): 84\n\nLiverpool (wins): 128\n\nDraws: 87\n\n### Predicted Lineups\n\n#### Everton predicted XI (4-2-3-1)\n\nPickford (GK); O’Brien, Keane, Branthwaite, Mykolenko; Armstrong, Garner; Rohl, Dewsbury-Hall, George; Barry\n\n#### Liverpool predicted XI (4-2-3-1)\n\nAlisson (GK); Araujo, Jacquet, Van Dijk, Kerkez; Mac Allister, Szoboszlai; Barcola, Wirtz, Ngumoha; Isak\n\n### Match Prediction\n\nBeing at home will surely help Everton put up a strong fight against their opponents. Liverpool are on a positive run of form and will not be looking to go down so easily.\n\nThe Reds are likely to come out on top and secure a...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Everton vs Liverpool prediction: Team news makes Reds massive favourites",
+          "url": "https://www.football365.com/match-preview/everton-liverpool-team-news-match-preview",
+          "site": "Football365",
+          "date": "2026-11-25T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.28685647133612,
+          "summary": "# Everton vs Liverpool prediction: Team news makes Reds massive favourites\n...\nHill Dickinson Stadium\n\nEverton fans were ecstatic to thwart their neighbours and snatch a last-gasp 2-2 draw in the final Merseyside derby to be played at Goodison Park. But it also meant plenty to the Liverpool faithful when the Reds put one over the Blues in their first meeting at Everton’s new Hill Dickinson Stadium last season.\n\nThe two lock horns again on the back of contrasting league form. Liverpool pummelled Manchester United 4-0 at Anfield last Sunday before Everton lost by that same scoreline at Brentford a day later.\n\nWith Brighton and Manchester City playing later on Sunday, Liverpool have the chance to jump from fourth to second if they can bank all three points. Note the early kick-off time. Don’t tune in at 2pm as would usually be the case for Sunday’s opening Premier League fixture(s).\n\n## Everton vs Liverpool kick-off time\n\nEverton vs Liverpool kicks off at 12pm GMT on Sunday, November 29 at the Hill Dickinson Stadium.\n\n## Everton vs Liverpool: how to watch\n\nThe game will be shown live in the UK via TNT Sports 1, with coverage starting from 10.30am.\n\nTalkSPORT will provide full match commentary.\n\n## Everton team news\n\nJames Tarkowski’s straight red card at Brentford on Monday night means he’ll be a key loss for David Moyes. This is the first game of the rugged centre-back’s three-match ban.\n\nMichael Keane is the obvious candidate to replace Tarkowski in the heart of the Everton defence.\n\nJack Grealish is available again. He came on at half-time at Brentford after a month out for a breach of club discipline and is expected to push for a start.\n\n## Liverpool team news\n\nThe only downside of Liverpool’s 3-0 win at Club Brugge on Wednesday night was the sight of Victor Munoz limping off after lengthy treatment on his knee. The winger is a major doubt.\n\nCody Gakpo is out with the calf injury he picked up on international duty while fellow Dutchman Ryan Gravenberch remains a doubt.\n\nHugo Ekitike (Achilles) is out until January while defenders Conor Bradley and Giovanni Leoni have returned to parts of training after long-term injuries. Boss Andoni Iraola says both need more work.\n\n## Everton vs Liverpool odds\n\nLiverpool are 4/5 to make it five away wins out of six in the Premier League this season.\n\nEverton have won three of their five home fixtures so far and are 7/2 to take victory. The Draw is 11/4.\n\nLiverpool are rated 6/1 second favourites in the title betting, some way behind 1/3 Arsenal, while Everton trade at 8/1 for a Top 5 finish.\n\n## Everton vs Liverpool prediction\n\nThe head-to-heads make grim reading for Everton. They’ve beaten their rivals just twice in the last 31 Premier League meetings although they did emerge with 14 draws during that run.\n\nThat draw percentage jumps up even further when the Toffees have played host as 10 of the last 14 meetings at Everton have ended in stalemate.\n\nBased on that and probably current standings too (Everton started the weekend in ninth), the sweet spot seems to be somewhere between a draw and a Liverpool win.\n\nBut with key defender Tarkowski missing – he also scored the equaliser in this fixture two seasons ago – the Reds should have the edge.\n\nLiverpool have banked 12 points out of 12 in their last four away games and they’re really starting to click in attack after winning their last three matches in all competitions by an aggregate of 10-1.\n\nAlexander Isak has scored in Liverpool’s last six away games while eight of his 11 goals this season have come on the road. Back Isak to score in a Liverpool win at 2/1.\n\nAdd in a Florian Wirtz goal – he has six in his last five for club and country – and that Bet Builder rises to 12/1. The same bet (Liverpool win, goals for Isak and Wirtz) landed in the 3-0 win at Club Brugge in midweek.\n\nOne other bet springs to mind.\n\nEverton vs Liverpool has had more red cards than any other fixture in Premier League history (25) so back 4/1 for another one on Sunday.\n\nTarkowski is absent but there will be plenty of his Everton teammates who know they’ll have to get stuck in to keep Liverpool’s flourishing attack at bay.\n\nFootball365's match prediction\n\nLiverpool to win with Isak and Wirtz goals\n\n\"Liverpool should have no problems as Everton missing Tarkowski\"",
+          "side": "away",
+          "neg": true,
+          "hits": [
+            "away win"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Everton vs Liverpool Prediction: Premier League Preview | Opta Analyst",
+          "url": "https://theanalyst.com/articles/everton-vs-liverpool-prediction-premier-league-preview-11-2026",
+          "site": "Opta Analyst",
+          "date": "2026-11-26T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.252431000206806,
+          "summary": "# Everton vs Liverpool Prediction: Premier League Preview\n\nWe look ahead to Sunday’s Premier League clash with our Everton vs Liverpool prediction and preview. Can the Reds win a fourth straight Merseyside derby?\n\n## Everton vs Liverpool: The Key Stats\n\n- Everton have a 32% chance of victory according to the Opta supercomputer, while Liverpool have a 42.7% probability of winning the 249th Merseyside derby.\n- The Toffees have won just two of the last 31 league meetings (D14 L15) between the two rivals.\n- Liverpool have only lost once in their last 15 Premier League games at Everton (W4 D10).\n\nAfter coming into form recently with three consecutive wins, Liverpool must try to keep momentum building when they visit local rivals Everton on Sunday.\n\nIt has been a successful return from the international break for the rejuvenated Reds, who celebrated their 700th Premier League game in style by beating old foes Manchester United at Anfield last Sunday.\n\nUp against United’s 10 men, Liverpool created nine big chances, attempted 28 shots and created 4.35 expected goals, ultimately strolling to a 4-0 win.\n\nAfter firming up fourth place – and moving five points clear of Everton – Andoni Iraola’s side then boosted their hopes of a top-eight finish in the UEFA Champions League.\n\nContinuing his recent resurgence, Alexander Isak scored twice in a 3-0 win over Club Brugge on Wednesday, as the Reds bounced back from losing to Fenerbahce in their previous league-phase match.\n\nHeading into this derby, Liverpool have won their last four top-flight away games; they last had a longer run within the same campaign between November 2019 and February 2020 (eight).\n\nOf course, this fixture last season was settled by Virgil van Dijk‘s dramatic late winner. To date, the Reds have scored six 90-minute-plus goals against Everton in the Premier League, which is a competition record for one club versus another.\n\nMeanwhile, Everton have been slow starters this term, recording fewer first-half goals (two) than any other team. In fact, they’ve failed to score before the break in their last six league games.\n\nStill, Everton had produced three wins on the spin across all competitions before visiting Brentford on Monday night, when victory would have sent them up to fifth.\n\nAiming to hit a hat-trick of league victories for the first time in 18 months, they were instead beaten 4-0 by the Bees, as James Tarkowski’s first-half dismissal effectively sealed their fate.\n\nTarkowski’s first red card after 351 top-flight appearances could prove costly for David Moyes’ thin squad, as he’ll be suspended for the fixture with more dismissals than any other in Premier League history (25).\n\nThe loss to Brentford was also Moyes’ biggest league defeat as Everton manager since losing 6-1 at home to Arsenal in 2009, rather spoiling his club-record 593rd match as the Toffees’ boss.\n\nSome fans are growing restless, so a similar failure on Sunday could increase frustration in the stands.\n\nThe hosts’ hopes largely rest on the slim shoulders of French forward Thierno Barry, whose six-goal haul accounts for half of Everton’s league tally this term.\n\nBarry has already scored 10 across all competitions this term, while he has been directly involved in six of Everton’s last seven league goals.\n\nBy contrast, Iraola’s Liverpool side are sharing the burden, and their creative department suddenly seems to have clicked.\n\nDominik Szoboszlai has made more chances from set-pieces than any other player in the Premier League this season (13), and Florian Wirtz has created the most from open play (29).\n\nNot only has Wirtz both scored and assisted in his last two league games, he also scored three times for Germany during the recent international break and netted a fine strike in Bruges on Wednesday night.\n\nFurthermore, only Declan Rice (five) has more Premier League assists than Bradley Barcola, whose four have come from his last five appearances, while Isak is enjoying a rich vein of form up front.\n\nThe latter’s midweek brace took him into double figures for the season, and before heading to Hill Dickinson Stadium he has scored in six consecutive away games.\n\nEverton’s worries won’t end with the prolific Swede. Rising star Rio Ngumoha also merits a mention, having just recorded his third Champions League assist at the tender age of 18 when he set up Wirtz in Bruges.\n\n## Everton vs Liverpool Head-to-Head\n\nThe most recent Merseyside derby was won 2-1 by Liverpool last season, as Van Dijk’s...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Everton vs Liverpool – Match preview and teams news",
+          "url": "https://onefootball.com/en/news/everton-vs-liverpool-match-preview-and-teams-news-43855852",
+          "site": "OneFootball",
+          "date": "2026-11-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.235218197071005,
+          "summary": "# Everton vs Liverpool – Match preview and teams news | OneFootball\n...\n·28 November 2026\n\n## Everton vs Liverpool – Match preview and teams news\n\nEverton host Liverpool in the 249th Merseyside Derby this weekend, with expectations low following midweek struggles.\n\nDavid Moyes’s side were battered 4-0 by Brentford last time out, with James Tarkowski dismissed following a high challenge before the break. The captain’s red card set the Blues up for an uphill battle in the second half, with Everton already behind to Keane Lewis-Potter’s double.,\n...\nOne positive was the return of Jack Grealish into the squad after missing recent games following a disciplinary issue.\n\nHowever, Tarkowski’s suspension creates doubt regarding the defensive decisions Moyes will take, potentially offering Liverpool an opportunity to exploit Everton’s vulnerabilities.\n\nAndoni Iraola’s side have been particularly productive in attack, scoring 10 goals across their last three games. The likes of Florian Wirtz, Bradley Barcola and Rio Ngumoha have all impressed with their attacking contributions.\n\n### EVERTON TEAM NEWS\n\nMoyes faces defensive selection difficulties following Tarkowski’s dismissal, meaning either Jake O’Brien or Michael Keane may play a pivotal role on Sunday. It is time for them to step up.\n\nThe English defender is the only confirmed absentee at the moment.\n\n### EVERTON PREDICTED LINEUP (4-3-2-1)\n\nPickford; Rohl, O’Brien, Branthwaite, Mykolenko; Armstrong, Garner, Dewsbury-Hall; George, Barry, Grealish.",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "超级计算机预测：利物浦客胜埃弗顿概率42.7%",
+          "url": "https://pc.dongqiudi.com/articles/6708757.html",
+          "site": "懂球帝",
+          "date": "2026-11-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.164104461669922,
+          "summary": "# 超级计算机预测：利物浦客胜埃弗顿概率42.7%\n\n英超本轮迎来本赛季首场默西塞德德比，埃弗顿周日坐镇希尔-迪金森球场迎战利物浦。埃弗顿上一轮联赛0比4惨败给布伦特福德，莫耶斯本不希望球队带着这样一场失利进入德比；利物浦则在各项赛事中取得三连胜，目前排在英超第四，若击败埃弗顿，将把对太妃糖的领先优势扩大到八分。\n\nOpta Analyst的超级计算机对这场比赛给出了预测：埃弗顿获胜概率32.0%，利物浦获胜概率42.7%，平局概率25.3%。\n\n埃弗顿本赛季联赛已赢下四场，对手分别是水晶宫、伊普斯维奇、纽卡斯尔和考文垂，本场若取胜将是他们本赛季迄今最有分量的一场胜利。目前埃弗顿在欧战区附近徘徊，德比取胜对球队争夺欧战席位和信心都有帮助。\n\n近年默西塞德德比总体上由利物浦占据上风。埃弗顿上一次战胜利物浦是在2024年4月24日，布兰斯韦特和卡尔弗特-勒温各入一球，帮助球队2比0取胜，那也是埃弗顿自2010年10月以来首次在主场击败利物浦；2010年那场2比0的进球者是阿尔特塔和卡希尔。\n\n自2024年那场胜利之后，埃弗顿在主场对利物浦的两场比赛分别以2比2战平和1比2告负。",
+          "side": "away",
+          "neg": false,
+          "hits": [
+            "客胜"
+          ],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 2,
+        "draw": 0,
+        "goals": 0,
+        "none": 3,
+        "neg": 1
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 1,
+        "home_mentions": 1,
+        "away_mentions": 1
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周日008",
+      "league": "西甲",
+      "home": "巴伦西亚",
+      "away": "奥萨苏纳",
+      "home_en": "Valencia",
+      "away_en": "Osasuna",
+      "queries": [
+        "\"Valencia vs Osasuna\" preview prediction lang:en",
+        "巴伦西亚 奥萨苏纳 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Valencia vs Osasuna predictions and preview | APWin",
+          "url": "https://www.apwin.com/predictions/valencia-vs-osasuna-prediction-la-liga-29-11-2026/",
+          "site": "APWin",
+          "date": "2026-11-26T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9640988111495972,
+          "summary": "# Valencia vs Osasuna prediction\n\nSpain - La Liga\n\nv.s\n\n29 Nov 2026 05:00\n\nUnder 2.5 Goals\n\nMarket: Under 2.5 Goals · @ 1.70\n\n1.70\n\nConfidence\n\n57%\n\n## Why this prediction?\n\nValencia struggle to score at home\n\nValencia fail to score in 71% of home matches.\n71% blanks at home\nAt least one side often blanks\n\nValencia games end without BTTS in 69%, Osasuna in 54%, against the league 44%.\n69% / 54% vs 44% no BTTS\nSecondary prediction\n\nHome Win\n\n44%\n\nLast updated: 25-11-2026\n\n## Valencia Form and Insights\n\nValencia hosts Osasuna at the Estadio de Mestalla for this La Liga fixture. The match will kick off at 13:00 (UK Time) on 29/11/2026.\n\nTheir performance in the La Liga so far:\n\n- Wins: 3\n- Draws: 3\n- Losses: 7\n\nOffensive and defensive statistics:\n\n- Goals scored: 9\n- Average goals per match: 0.69\n- Goals conceded: 20\n- Average goals conceded per match: 1.54\n\n## Osasuna Form and Insights\n\nOsasuna has played 13 matches in the La Liga so far this season. Here's how the team comes into their match with Valencia:\n...\nGoals scored and conceded:\n...\n## Head-to-Head Statistics\n\nValencia and Osasuna have met 28 times across all competitions.\n\n- Valencia wins: 14\n- Osasuna wins: 7\n...\nWLWLD\n...\nWDLLW\n\nPoints & Results\n\n- 13Played13\n- 3Wins4\n- 3Draws3\n- 7Losses6\n- 0.92PPG1.15\n- 23%Wins31%\n- 38%First to Score38%\n\nGoals Scored & Conceded\n\n- 9Goals Scored13\n- 0.69Scored/game1.00\n- 20Goals Conceded23\n- 1.54Conceded/game1.77\n- 1.07xG1.28\n- 1.83xGA1.49\n\nCorners\n\n- 119Total Corners111\n- 51Corners For48\n- 68Corners Against63\n- 3.92Corners For/game3.69\n- 5.23Corners Against/game4.85\n\nTrends\n\n- 31%Both Score46%\n- 38%Clean Sheet31%\n- 46%Failed to Score31%\n\nAccess all match stats for Valencia vs Osasuna The last match was played on 01/03/2026 in the La Liga, and Valencia won the match. The match ended in 1–0. In the table below, you can find the head-to-head results of the last few meetings.\n\n## Players to Watch\n\nThe players most likely to decide the goal-scoring and player-prop markets in this match:\n\n### Valencia Top Players\n\n- Hugo Duro has scored 10 goals so far this season.\n- Luis Rioja has given 6 assists this season.\n\n### Osasuna Top Players\n\n- Ante Budimir has scored 17 goals so far this season.\n- Rubén García has given 5 assists this season.\n\n## Betting Insights for Cards and Corners\n\nIf you prefer betting on over/under markets for corners and cards, you can use the section below to find the statistics for this Valencia vs Osasuna match.\n\n### Valencia Cards and Corners\n\n- Average cards per match: 2.62\n- Average cards when playing at home: 3\n- Average corners per match: 9.15\n- Average corners when playing at home: 8.57\n\n### Osasuna Cards and Corners\n\n- Average cards per match: 2.85\n- Average cards when playing away: 2.67\n- Average corners per match: 8.54\n- Average corners when playing away: 9\n\n## Match Details\n...\n- Kick-off time: 13:00\n- Competition: La Liga\n- Game week: 14\n...\n## How APWin Makes Its Predictions\n\nOur football predictions are written using a structured analysis of factors that impact match outcomes. We combine long-term performance with the latest team news and real-time market signals...",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "home win"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Valencia v Osasuna | Goal.com",
+          "url": "https://www.goal.com/en/match/valencia-vs-osasuna/LPfZ3tcNE5_UxlWrSHa-2",
+          "site": "Goal.com",
+          "date": "2026-11-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9375,
+          "summary": "# Valencia vs OsasunaMatch preview,\n\n## Head to head\n\nVAL\n\nLast 5 matches\n\nOSA\n\n2\n\nWins\n\n2\n\nDraws\n...\nGoals scored\n4\n- Games over 2.5 goals\n- 1/5\n- Both teams scored\n...\nLaLiga - Game Week 14\n\n## Match details\n\nEstadio Mestalla\n...\nPos | Team | P | W | D | L | F | A | +/- | PTS | Form\n...\n- W\n...\n14 | Osasuna | 13 | 4 | 3 | 6 | 13 | 23 | -10 | 15 |\n...\n17 | Valencia | 13 | 3 | 3 | 7 | 9 | 20 | -11 | 12 |\n...\nLast updated 24 minutes ago",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "西甲：瓦伦西亚vs奥萨苏纳预测分析 谁破僵局",
+          "url": "https://www.qiumiwu.com/news/2052412980147",
+          "site": "球迷屋",
+          "date": "2026-11-27T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.8216591895468737,
+          "summary": "# 西甲：瓦伦西亚vs奥萨苏纳预测分析 谁破僵局\n\n懂球数据帝 2026-11-28 21:11\n\n西甲第14轮这场对话安排在11月29日，瓦伦西亚坐镇主场迎来奥萨苏纳。13轮过后，瓦伦西亚拿到12分，排在第17位，战绩为3胜3平7负，进9球、失20球；奥萨苏纳以15分排第13位，4胜3平6负，进13球、失23球。两队积分相差3分。\n\n主场战绩停在0胜2平5负，进3球、丢14球，瓦伦西亚联赛主场还没有第一场胜利。上一场客场对巴列卡诺，第41分钟格拉送出助攻，科佩特头球得分，球队以1比0取胜，全场控球率36%，射正2次。格拉联赛已经送出3次助攻，萨迪克收获2球；丹朱马完成19次射门，其中7次射正。联赛场均0.7个进球，转化率7%，主教练继续用4-4-2，中场控制和临门一脚仍是重点。\n\n客场6战拿到1胜0平5负，进7球、失19球，奥萨苏纳上一场回到主场，靠布迪米尔第20分钟头球1比0拿下马拉加。罗西耶送出助攻，布迪米尔联赛已经打进9球，37次射门有18次射正。主教练习惯排出4-2-3-1，戈麦斯送出2次助攻；联赛场均射门11.2次、射正3.8次，场均失球1.8个。卡特纳上一场补时阶段被罚下，本场停赛，后防需要重新安排。\n\n富尔基耶在11月22日遭遇膝关节伤，罗德里格斯在11月22日遭遇未知伤情；巴斯克斯在11月8日遭遇肌肉挫伤，洛佩斯在5月24日遭遇膝关节伤。奥萨苏纳方面，费尔南德斯在11月8日遭遇小腿伤，耶博阿在11月8日遭遇膝关节伤，布雷托内斯在11月17日遭遇小腿伤。两队阵容结构都受影响，板凳深度要接受考验。\n\n最近6场各项赛事，瓦伦西亚和奥萨苏纳都打出3胜1平2负，瓦伦西亚进9球丢5球，奥萨苏纳进11球丢5球。近6次碰面，双方各拿2胜2平2负，最近一次在瓦伦西亚主场以1比0结束。客场赢球之后，瓦伦西亚能把势头带回主场吗？奥萨苏纳客场失球偏多又遇后防停赛，格拉与布迪米尔谁先改变比分，主队联赛主场不胜局面会不会在这一轮被打破？\n\n## 瓦伦西亚vs奥萨苏纳胜平负预测\n\n球迷屋对本场比赛给出胜平负预测：瓦伦西亚胜率37%，平率30%，奥萨苏纳胜率33%。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "西甲比赛前瞻：瓦伦西亚vs奥萨苏纳预测分析(2026年11月29日)",
+          "url": "https://www.qiumiwu.com/news/2052077933638",
+          "site": "球迷屋",
+          "date": "2026-11-27T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.8216591895468737,
+          "summary": "# 西甲比赛前瞻：瓦伦西亚vs奥萨苏纳预测分析(2026年11月29日)\n\n前锋大风暴 2026-11-28 12:38\n\n【西甲】瓦伦西亚vs奥萨苏纳，将于北京时间11月29日21点00分进行。赛前排行数据：瓦伦西亚当前战绩为3胜3平7负，积分12，排在联赛第17名；奥萨苏纳当前战绩为4胜3平6负，积分15，排在联赛第13名。下面分享具体的比赛前瞻瓦伦西亚vs奥萨苏纳预测分析：\n\n## 瓦伦西亚vs奥萨苏纳预测分析\n\n瓦伦西亚情报消息：\n\n近6场赛事取得3胜1平2负，进9球失5球，胜率50%\n[西甲] 2026-11-21 巴列卡诺（0 : 1）瓦伦西亚\n[国王杯] 2026-11-11 UE塔夫（0 : 6）瓦伦西亚\n[西甲] 2026-11-08 瓦伦西亚（0 : 3）皇马\n[西甲] 2026-11-02 埃尔切（0 :\n...\n[西甲] 2026-10-25 瓦伦西亚（1 : 2）比利亚雷亚尔\n[西甲] 2026-10-18 瓦伦西亚（0 : 0）毕尔巴鄂\n\n近6主场取得0胜1平5负，进3球失14球，胜率0%\n...\n[西甲] 2026-09-21 瓦伦西亚（2 : 3）皇家社会\n[西甲] 2026-09-06 瓦伦西亚（0 : 5）巴萨\n[西甲] 2026-08-26 瓦伦西亚（0 : 1）贝蒂斯\n\n球队伤病最新报告：\n[后卫]迪米特里·富尔基耶，膝关节受伤，开始日期2026年11月22日\n[中场]圭多·罗德里格斯，未知，开始日期2026年11月22日\n[后卫]赫苏斯·巴斯克斯，肌肉挫伤，开始日期2026年11月08日\n[前锋]迭戈·洛佩斯，膝关节受伤，开始日期2026年05月24日\n[前锋]塞尔希·卡诺斯，膝关节受伤，开始日期2026年04月05日\n\n奥萨苏纳情报消息：\n\n近6场赛事取得3胜1平2负，进11球失5球，胜率50%\n[西甲] 2026-11-23 奥萨苏纳（1 : 0）马拉加\n[西甲] 2026-11-08 奥萨苏纳（1 : 1）毕尔巴鄂\n[西甲] 2026-11-03 拉科鲁尼亚（2 : 1）奥萨苏纳\n[国王杯] 2026-10-30 卡拉塔鲁德（0 :\n...\n[西甲] 2026-10-27 塞维利亚（2 : 0）奥萨苏纳\n[西甲] 2026-10-18 奥萨苏纳（2 : 0）桑坦德竞技\n\n近6客场取得1胜0平5负，进11球失18球，胜率17%\n...\n[西甲] 2026-10-12 贝蒂斯（5 : 2）奥萨苏纳\n[西甲] 2026-09-17 马竞（4 :\n...\n[西甲] 2026-09-07 阿拉维斯（5 :\n...\n[后卫]阿韦尔·布雷托内斯，小腿受伤，开始日期2026年11月17日\n[门将]艾托尔·费尔南德斯，小腿受伤，开始日期2026年11月08日\n[后卫]罗克森·耶博阿，膝关节受伤，开始日期20...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "周日008 瓦伦西亚vs奥萨苏纳进球数预测：模型预计2.7球，双方进球概率55%",
+          "url": "https://m.dongqiudi.com/xinwen/260573",
+          "site": "懂球帝",
+          "date": "2026-11-26T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.7875369227711708,
+          "summary": "# 周日008 瓦伦西亚vs奥萨苏纳进球数预测：模型预计2.7球，双方进球概率55%\n...\n进球数预测西甲 瓦伦西亚 vs 奥萨苏纳\n...\n## 30 秒看懂\n\n- 综合模型预计总进球2.7球，瓦伦西亚1.4球、奥萨苏纳1.3球。\n- 总进球正好2球的概率最高，为25%。\n- 两队都进球概率55%，瓦伦西亚零封概率29%。\n\n北京时间2026年11月29日21:00周日，西甲第14轮，瓦伦西亚主场对阵奥萨苏纳，竞彩编号周日008。懂球帝数据模型综合三个模型的平均结果，预计两队合计进2.7球左右，其中瓦伦西亚1.4球、奥萨苏纳1.3球。\n\n总进球各档概率为：0球8%、1球15%、2球25%、3球22%、4球15%、5球及以上14%。全场总进球正好2球的可能最大，为25%；3球及以上合计52%，2球及以下合计48%。两队都进球的概率55%；瓦伦西亚零封对手的概率29%，奥萨苏纳零封对手的概率24%。\n\n泊松进球模型按本赛季西甲场均进球算出两队主客场进攻和防守强度，再按泊松分布算比分概率，并对0-0、1-1这类低比分做Dixon-Coles修正。本赛季西甲截至赛前已赛129场，场均主队进1.58球、客队进1.26球；瓦伦西亚7个主场场均进0.43球、失2.00球，进攻强度0.43、防守1.46；奥萨苏纳6个客场场均进1.17球、失3.17球，进攻强度0.94、防守1.76。该模型进球期望为瓦伦西亚1.20、奥萨苏纳1.73。\n\n近况加权模型只看两队各项赛事最近10场，越近的比赛权重越大，每往前一场权重乘0.85，用加权后的场均进球和对手场均失球算进球期望，主场按赛事主客场进球比例加成。瓦伦西亚近10场加权场均进0.80球、失1.35球；奥萨苏纳近10场加权场均进1.00球、失1.70球；主场加成1.12。该模型进球期望为瓦伦西亚1.43、奥萨苏纳1.13。\n\nElo等级分模型按懂球帝收录的全部正式比赛从1500分起算，赛前瓦伦西亚1812分（已算784场）、奥萨苏纳1760分（已算692场），主场优势按60分算，瓦伦西亚胜率期望0.66，再结合预计总进球换算。该模型进球期望为瓦伦西亚1.72、奥萨苏纳1.02。\n\n近5场，瓦伦西亚2胜1平2负（进3失5），奥萨苏纳2胜1平2负（进5失5）。本赛季西甲，瓦伦西亚13战3胜3平7负积12分，奥萨苏纳13战4胜3平6负积15分。历史交锋26次，瓦伦西亚13胜7平6负，奥萨苏纳6胜7平13负。模型只看历史数据，不知道伤停和临场变化，结果仅供参考。\n\n本文根据懂球帝数据的报道《周日008 瓦伦西亚vs奥萨苏纳进球数预测（西甲）》编译整理。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": [
+            "0 比 0"
+          ]
+        }
+      ],
+      "tally": {
+        "home": 2,
+        "away": 0,
+        "draw": 0,
+        "goals": 1,
+        "none": 2,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 2,
+        "zh": 3,
+        "home_mentions": 0,
+        "away_mentions": 3
+      },
+      "scores": [
+        "0 比 0"
+      ],
+      "fetched": 0
+    },
+    {
+      "no": "周日009",
+      "league": "意甲",
+      "home": "萨索洛",
+      "away": "那不勒斯",
+      "home_en": "萨索洛",
+      "away_en": "Napoli",
+      "queries": [
+        "\"萨索洛 vs Napoli\" preview prediction lang:en",
+        "萨索洛 那不勒斯 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Napoli look to build on recent progress away to Sassuolo | Serie A Enilive | Lega Serie A",
+          "url": "https://en.legaseriea.it/serie-a/news/napoli-look-to-build-on-recent-progress-away-to-sassuolo",
+          "site": "Lega Serie A | Official Website",
+          "date": "2026-11-26T16:00:00+00:00",
+          "authority": 4,
+          "score": 1.986873984336853,
+          "summary": "# Napoli look to build on recent progress away to Sassuolo\n\nSassuolo desperately need points, whilst Napoli aim to build on their recent progress\n\nSassuolo host Napoli at the Mapei Stadium on Matchday 13 of Serie A. The Neroverdi have lost six consecutive league matches and urgently need points to avoid slipping further into trouble. Napoli, however, are equally determined to secure a positive result as they look to record back-to-back league wins for the first time this season.\n\nHEAD TO HEAD\n\n12 official meetings between the two sides at Sassuolo: 1 Sassuolo win (2‑1, Serie A 2015/16), 5 draws (most recent 2‑2, Serie A 2021/22) and 6 Napoli wins (most recent 0‑2, Serie A 2025/26).\n\nNapoli have won their last 3 Serie A away games against Sassuolo (0‑2, 1‑6 and 0‑2), scoring 10 goals and conceding 1.\n...\nSassuolo have lost 6 in a row, from Matchday 7 to Matchday 12: they are one defeat away from the worst run in their Serie A history, 7 consecutive defeats between 19 January and 2 March 2014, in Sassuolo’s first top‑flight season.\n\nSassuolo have lost their last 3 home games (2‑6 against Lazio, 2‑4 against Fiorentina, 0‑2 against Genoa), conceding 12 goals. Their home record is 2 wins, 1 draw and 3 defeats, with 16 goals conceded: no team has conceded more at home.\n\nSassuolo have conceded 31 goals in 12 matchdays: since 2004/05 (20‑team Serie A) it is the worst figure at this stage of the season, equalling Benevento’s in 2017/18. Along with Fiorentina, Sassuolo are also the only teams yet to keep a clean sheet.\n\nNapoli on 18 points (5 wins, 3 draws and 4 defeats) and unbeaten in their last 2 matchdays (1‑1 against Lazio, 1‑0 against Torino). Napoli have not won two games in a row this season.\n\nNapoli have taken 8 points from their last 5 league matchdays: their only defeat in that run was the 0‑2 in Turin against Juventus.\n\nNapoli have lost 3 of their last 5 away games: their away record is 2 wins, 1 draw and 3 defeats, with 9 goals scored and 8 conceded.\n\nCOACHES and PLAYERS\n\nRoberto D’Aversa and Massimiliano Allegri meet for the 7th time in official matches: in the previous 6, Allegri is unbeaten, with 5 wins and a draw. The most recent meeting was Milan‑Torino 3‑2 on 21 March 2026.\n\nD’Aversa has faced Napoli 9 times as a coach in Serie A: 2 wins, both with Parma in 2019/20 (1‑2 in Naples, 2‑1 at home), and 7 defeats. He has lost his last 5 meetings with them, scoring just one goal and conceding 12.\n\nDomenico Berardi has scored 3 goals in 13 Serie A appearances against Napoli, but has not scored against them since 2020/21. He has 2 goals this season.\n\nFor the second season in a row Kevin De Bruyne is Napoli’s top scorer after 12 matchdays, again with 4 goals. From 2008/09 to 2024/25 Napoli’s top scorer had always reached at least 5 goals at this stage of the season.\n...\nSuspended: none\n...\nREFEREES\n\nGUIDA (ALASSIO – BERCIGLI) IV: CALZAVARA, VAR: AURELIANO, AVAR: SANTORO\n\nUPCOMING MATCHES\n\nVenezia-Sassuolo (7/12, 18.30)\n\nNapoli-Lecce (5/12, 20.45)",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Sassuolo vs Napoli predictions and preview | APWin",
+          "url": "https://www.apwin.com/predictions/sassuolo-vs-napoli-prediction-serie-a-29-11-2026/",
+          "site": "APWin",
+          "date": "2026-11-26T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9565070867538452,
+          "summary": "# Sassuolo vs Napoli prediction\n\nItaly - Serie A\n\nv.s\n\n29 Nov 2026 06:00\n\nNapoli Win\n\nMarket: Napoli Win · @ 1.69\n\n1.69\n\nConfidence\n\n59%\n\n## Why this prediction?\n\nSassuolo leak goals at home\n\nSassuolo concede 2.67 goals per home game. They keep a clean sheet in 0% of home matches.\n2.67 conceded at home\nSecondary prediction\n\n2nd Half Away Win\n\n47%\n\nLast updated: 24-11-2026\n\n## Sassuolo Form and Insights\n\nSassuolo hosts Napoli at the Mapei Stadium - Città del Tricolore for this Serie A fixture. The match will kick off at 14:00 (UK Time) on 29/11/2026.\n\nTheir performance in the Serie A so far:\n\n- Wins: 2\n- Draws: 2\n- Losses: 8\n\nOffensive and defensive statistics:\n\n- Goals scored: 16\n- Average goals per match: 1.33\n- Goals conceded: 31\n- Average goals conceded per match: 2.58\n\n## Napoli Form and Insights\n\nNapoli has played 12 matches in the Serie A so far this season. Here's how the team comes into their match with Sassuolo:\n...\nGoals scored and conceded:\n...\n## Head-to-Head Statistics\n\nSassuolo and Napoli have met 25 times across all competitions.\n\n- Sassuolo wins: 2\n- Napoli wins: 16\n...\nLLLLL\n...\nWDLWD\n\nPoints & Results\n\n- 12Played12\n- 2Wins5\n- 2Draws3\n- 8Losses4\n- 0.67PPG1.50\n- 17%Wins42%\n- 33%First to Score67%\n\nGoals Scored & Conceded\n\n- 16Goals Scored19\n- 1.33Scored/game1.58\n- 31Goals Conceded14\n- 2.58Conceded/game1.17\n- 1.50xG1.80\n- 1.83xGA1.63\n\nCorners\n\n- 116Total Corners134\n- 47Corners For67\n- 69Corners Against67\n- 3.92Corners For/game5.58\n- 5.75Corners Against/game5.58\n\nTrends\n\n- 75%Both Score50%\n- 0%Clean Sheet33%\n- 25%Failed to Score17%\n\nAccess all match stats for Sassuolo vs Napoli The last match was played on 17/01/2026 in the Serie A, and Napoli won the match. The match ended in 1–0. In the table below, you can find the head-to-head results of the last few meetings.\n\n## Players to Watch\n\nThe players most likely to decide the goal-scoring and player-prop markets in this match:\n\n### Sassuolo Top Players\n\n- Andrea Pinamonti has scored 9 goals so far this season.\n- Armand Lauriente has given 9 assists this season.\n\n### Napoli Top Players\n\n- Rasmus Højlund has scored 11 goals so far this season.\n- Matteo Politano has given 5 assists this season.\n\n## Betting Insights for Cards and Corners\n\nIf you prefer betting on over/under markets for corners and cards, you can use the section below to find the statistics for this Sassuolo vs Napoli match.\n\n### Sassuolo Cards and Corners\n\n- Average cards per match: 1.42\n- Average cards when playing at home: 2\n- Average corners per match: 9.67\n- Average corners when playing at home: 7.84\n\n### Napoli Cards and Corners\n\n- Average cards per match: 1.25\n- Average cards when playing away: 1\n- Average corners per match: 11.16\n- Average corners when playing away: 11.17\n\n## Match Details\n...\n- Kick-off time: 14:00\n- Competition: Serie A\n- Game week: 13\n...\n## How APWin Makes Its Predictions\n\nOur football predictions are written using a structured analysis of factors that impact match outcomes. We combine long-term performance with the latest team news and real-time market signals to write our predictions.\n\nHere's what we take into account:\n\n- Historical match data\n- Home and away performance trends\n- Recent form, squad...",
+          "side": "away",
+          "neg": false,
+          "hits": [
+            "away win"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "意甲比赛前瞻：萨索洛vs那不勒斯预测分析(2026年11月29日)",
+          "url": "https://www.cqjbnews.cn/qmw-article-2052109143761.html",
+          "site": "cqjbnews.cn",
+          "date": "2026-11-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.9396026964716633,
+          "summary": "# 意甲比赛前瞻：萨索洛vs那不勒斯预测分析(2026年11月29日)\n\n【意甲】萨索洛vs那不勒斯，将于北京时间11月29日22点00分进行。赛前排行数据：萨索洛当前战绩为2胜2平8负，积分8，排在联赛第18名；那不勒斯当前战绩为5胜3平4负，积分18，排在联赛第9名。下面分享具体的比赛前瞻萨索洛vs那不勒斯预测分析：\n\n## 萨索洛vs那不勒斯预测分析\n\n萨索洛情报消息：\n\n近6场赛事取得0胜0平6负，进6球失21球，胜率0%\n[意甲] 2026-11-22 萨索洛（0 : 2）热那亚\n[意甲] 2026-11-08 罗马（3 : 0）萨索洛\n[意甲] 2026-11-03 萨索洛（2 : 4）佛罗伦萨\n[意甲] 2026-10-28 萨索洛（2 : 6）拉齐奥\n[意甲] 2026-10-24 科莫（2 : 0）萨索洛\n[意甲] 2026-10-17 弗罗西诺内（4 : 2）萨索洛\n\n近6主场取得1胜2平3负，进9球失16球，胜率17%\n...\n[意甲] 2026-10-12 萨索洛（1 : 1）AC米兰\n[意甲] 2026-09-14 萨索洛（3 : 2）尤文\n[意杯] 2026-09-02 萨索洛（1 : 1）弗罗西诺内\n\n球队伤病最新报告：\n[中场]达里尔·巴科拉，未知，开始日期2026年11月21日\n[中场]瓦西里耶·阿季奇，膝关节受伤，开始日期2026年11月17日\n[中场]克里斯蒂安·沃尔帕托，肌肉挫伤，开始日期2026年11月02日\n[后卫]费德·莱森，膝关节受伤，开始日期2026年10月12日\n[中场]伊斯梅尔·科内，腿部骨折，开始日期2026年06月20日\n[中场]丹尼尔·波洛卡，肌肉挫伤，开始日期2026年02月09日\n\n那不勒斯情报消息：\n\n近6场赛事取得2胜2平2负，进9球失10球，胜率33%\n[欧冠] 2026-11-25 曼城（2 : 2）那不勒斯\n[意甲] 2026-11-22 那不勒斯（1 : 0）都灵\n[意甲] 2026-11-08 那不勒斯（1 : 1）拉齐奥\n[欧冠] 2026-11-05 波尔图（4 :\n...\n[意甲] 2026-11-02 尤文（2 :\n...\n[意甲] 2026-10-29 蒙扎（1 : 4）那不勒斯\n\n近6客场取得1胜1平4负，进8球失13球，胜率17%\n...\n[意甲] 2026-10-17 威尼斯（1 :\n...\n[欧冠] 2026-10-14 比利亚雷亚尔（3 :\n...\n[中场]凯文·德布劳内，未知，开始日期2026年11月25日\n[中场]安东尼奥·维尔加拉，受伤，开始日期2026年11月22日\n[门将]阿莱克斯·梅雷特，后背受伤，开始日期2026年11月18日\n[后卫]乔瓦尼·迪洛伦佐，肌肉挫伤，开始日期...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Sassuolo v SSC Napoli | Goal.com India",
+          "url": "https://www.goal.com/en-in/match/sassuolo-vs-ssc-napoli/9Yhe3MPfdgcpJAW-Dm1V5",
+          "site": "Goal.com",
+          "date": "2026-11-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.8957732915878296,
+          "summary": "# Sassuolo vs SSC NapoliMatch preview,\n\n## SAS-Form\n\n- Goal Scored (Conceded)\n- 4/17\n- Games over 2.5 goals\n- 3/5\n- Both teams scored\n- 2/5\n\n## NAP-Form\n...\n- 5/9\n...\n## Head to head\n\nSAS\n\nLast 5 matches\n...\nWins\n\n0\n\nDraws\n...\n13\n...\n- 1/5\n...\nSerie A - Game Week 13\n\n## Match details\n\nStadio Mapei - Citta del Tricolore",
+          "side": "goals",
+          "neg": false,
+          "hits": [
+            "over 2.5"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Sassuolo vs Napoli - live score, predicted lineups and H2H stats",
+          "url": "https://www.fotmob.com/matches/sassuolo-vs-napoli/2mirhu",
+          "site": "FotMob",
+          "date": "2026-11-28T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.8881815671920776,
+          "summary": "# Sassuolo vs Napoli — Sun, November 29, 10:00 PM\n\n## About the match\n\nSassuolo faces Napoli at MAPEI Stadium - Città del Tricolore on Sun, Nov 29, 2026, 14:00 UTC. This match is part of the Serie A. You can check the recent head-to-head encounters, as well as full H2H record on this page to see how Sassuolo and Napoli have fared against each other in the past.\n...\nThe current predicted lineups are:\n\nSassuolo (3-4-3): Arijanet Murić - Sebastian Walukiewicz, Duje Ćaleta-Car, Jay Idzes - Ignace Van Der Brempt, Kristian Thorstvedt, Nemanja Matić, Josh Doig - Domenico Berardi, Sebastiano Esposito, Armand Laurienté.\nNapoli (3-5-2): Vanja Milinković-Savić - Sam Beukema, Amir Rrahmani, Rafa Marín - Matteo Politano, Frank Anguissa, Billy Gilmour, Scott McTominay, Mathías Olivera - Rasmus Højlund, Noa Lang.\n\nUnavailable players for Sassuolo: Fedde Leysen (injury), Daniel Boloca (injury), Darryl Bakola (injury), Ismaël Koné (injury), Vasilije Adžić (injury), Cristian Volpato (injury). Unavailable players for Napoli: Giovanni Di Lorenzo (injury), Benoît Badiashile (injury), Alex Meret (injury), Alessandro Buongiorno (injury), Alisson Santos (injury), Antonio Vergara (injury), Stanislav Lobotka (injury).\n\nTeam form & Head-to-head history: Compare recent results and see how Sassuolo and Napoli have performed against each other. The current head to head record for the teams are Sassuolo 2 win(s), Napoli 16 win(s), and 7 draw(s).\n...\nSassuolo-vs-Napoli_Sun, Nov 29, 2026, 14:00 UTC\n...\nSunday, 29 November 2026 - 22:00 | MAPEI Stadium - Città del Tricolore, Reggio Emilia | Capacity: 23,717 | Ref: Marco Guida\n\nWeather: Mostly Cloudy, 9°C\n\n### Lineups(Predicted)\n\n#### Sassuolo (3-4-3)\n\n49 | Arijanet Murić | - \n---|---|---\n6 | Sebastian Walukiewicz | - \n15 | Duje Ćaleta-Car | - \n21 | Jay Idzes | - \n20 | Ignace Van Der Brempt | - \n42 | Kristian Thorstvedt | - \n18 | Nemanja Matić | - \n3 | Josh Doig | - \n10 | Domenico Berardi | - \n94 | Sebastiano Esposito | - \n45 | Armand Laurienté | - \n\nCoach: Roberto D'Aversa\n\n#### Napoli (3-5-2)\n\n32 | Vanja Milinković-Savić | - \n---|---|---\n31 | Sam Beukema | - \n13 | Amir Rrahmani | - \n16 | Rafa Marín | - \n21 | Matteo Politano | - \n99 | Frank Anguissa | - \n6 | Billy Gilmour | - \n8 | Scott McTominay | - \n17 | Mathías Olivera | - \n19 | Rasmus Højlund | - \n70 | Noa Lang | - \n\nCoach: Massimiliano Allegri\n\n### Unavailable Players\n...\nFedde Leysen(injury)\n\nDaniel Boloca(injury)\n\nDarryl Bakola(injury)\n\nIsmaël Koné(injury)\n\nVasilije Adžić(injury)\n\nCristian Volpato(injury)\n...\nGiovanni Di Lorenzo(injury)\n\nBenoît Badiashile(injury)\n\nAlex Meret(injury)\n\nAlessandro Buongiorno(injury)\n\nAlisson Santos(injury)\n\nAntonio Vergara(injury)\n\nStanislav Lobotka(injury)\n\n### Insights\n\n- Sassuolo have conceded 17 goals in their last five Serie A matches, scoring just four\n- Sassuolo haven't kept a clean sheet in 13 matches\n- Sassuolo have lost six straight Serie A matches and are winless in eight\n- Sassuolo lost their last three home league games, conceding 12 goals\n- Napoli haven't kept a clean sheet in their last eight away matches\n- Napoli have scored in each of their last nine meetings with Sassuolo\n- Napoli have scored just five...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 1,
+        "draw": 0,
+        "goals": 1,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 1,
+        "home_mentions": 1,
+        "away_mentions": 1
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周日015",
+      "league": "西甲",
+      "home": "拉科",
+      "away": "巴萨",
+      "home_en": "拉科",
+      "away_en": "Barcelona",
+      "queries": [
+        "\"拉科 vs Barcelona\" preview prediction lang:en",
+        "拉科 巴萨 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "伊达尔戈：巴萨是世上最好的球队之一，但拉科绝不投降",
+          "url": "http://pc.dongqiudi.com/articles/6704449.html",
+          "site": "懂球帝",
+          "date": "2026-11-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.179380616925692,
+          "summary": "# 伊达尔戈：巴萨是世上最好的球队之一，但拉科绝不投降\n\n北京时间11月29日23:15，拉科鲁尼亚将在西甲主场迎战巴塞罗那。赛前，拉科主帅伊达尔戈出席发布会，向媒体传递了两重信息：对巴萨的极大尊重，以及战斗到最后一刻的决心。他希望把这场比赛变成多年后仍被谈论的历史性夜晚。\n\n伊达尔戈对《世界体育报》表示：“毫无疑问，世界上最好的球队之一来到了我们的主场。巴萨本赛季的表现无论从哪个标准衡量都是非凡的。”他补充说，弗里克把巴萨带到了非常高的竞争力水平，球队除对阵皇家马德里和欧冠对阵巴黎圣日耳曼外赢下了所有比赛，并且以场均四球的速率进球。\n\n面对这样的对手，伊达尔戈没有退缩。他强调：“我们知道无球时会非常痛苦，所以必须在防守端极其稳固，在每一次对抗中都以最高水平竞争，并保持全神贯注。”他还表示，球队必须准备好承受痛苦，因为比赛中会有很多不如意的时刻，能在这些时刻稳住阵脚的球队才能扭转结果。\n\n伊达尔戈详细谈到了比赛关键：巴萨无球时的强度，以及丢球瞬间的凶猛逼抢。他解释道：“我们知道巴萨无球时有多具侵略性。他们让我们非常困难，尤其是丢球后的快速拦截。他们还有令人印象深刻的防守回追和短时间内重组防线的出色能力。”\n\n尽管如此，伊达尔戈相信里亚索球场的观众将成为决定性武器。他说：“有球迷的支持，我们肯定会强大得多，这是肯定的。我们总是带着能够竞争的坚定信念进入比赛。我们都是精英球队，球场上一切皆有可能。”他还表示，这将是一场非常紧张的比赛，拉科必须拿出最佳表现。\n\n伊达尔戈还就前锋奥巴梅扬上周四卷入的车祸安抚了球迷，称这只是一起小事故，并未影响球队备战。最后，他谈到自己对巴萨的个人感情：“我来自巴塞罗那，所有家人都在那里。从12岁到21岁，我一直在巴萨青训营。从那以后，作为教练，我一直寻求面对精英球队。”",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "西甲比賽前瞻：拉科魯尼亞vs巴薩預測分析(2026年11月29日)",
+          "url": "https://zht.qiumiwu.com/news/2052133657804",
+          "site": "黃蜂vs魔術簡介",
+          "date": "2026-11-27T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.8207821746877049,
+          "summary": "# 西甲比賽前瞻：拉科魯尼亞vs巴薩預測分析(2026年11月29日)\n\n守護神 2026-11-28 13:04\n\n【西甲】拉科魯尼亞vs巴薩，將於北京時間11月29日23點15分進行。賽前排行數據：拉科魯尼亞當前戰績爲3勝6平4負，積分15，排在聯賽第12名；巴薩當前戰績爲12勝0平1負，積分36，排在聯賽第1名。下面分享具體的比賽前瞻拉科魯尼亞vs巴薩預測分析：\n\n## 拉科魯尼亞vs巴薩預測分析\n\n拉科魯尼亞情報消息：\n\n近6場賽事取得2勝2平2負，進7球失6球，勝率33%\n[西甲] 2026-11-21 阿拉維斯（3 : 1）拉科魯尼亞\n[西甲] 2026-11-07 西班牙人（0 : 0）拉科魯尼亞\n[西甲] 2026-11-03 拉科魯尼亞（2 : 1）奧薩蘇納\n[國王杯] 2026-10-30 奧倫塞（0 : 3）拉科魯尼亞\n[西甲] 2026-10-25 馬競（1 : 0）拉科魯尼亞\n[西甲] 2026-10-17 拉科魯尼亞（1 : 1）萊萬特\n\n近6主場取得2勝2平2負，進8球失8球，勝率33%\n...\n[球會友誼] 2026-10-03 拉科魯尼亞（1 : 3）波爾圖\n[西甲] 2026-09-21 拉科魯尼亞（1 : 1）貝蒂斯\n[西甲] 2026-09-17 拉科魯尼亞（0 : 1）塞維利亞\n[西甲] 2026-08-31 拉科魯尼亞（3 : 1）瓦倫西亞\n\n球隊傷病最新報告：\n[後衛]布萊特·埃德，腿筋受傷，開始日期2026年10月19日\n\n巴薩情報消息：\n\n近6場賽事取得5勝0平1負，進19球失7球，勝率83%\n[歐冠] 2026-11-26 薩巴赫（1 : 4）巴薩\n[西甲] 2026-11-22 巴薩（3 : 2）比利亞雷亞爾\n[西甲] 2026-11-09 馬競（1 : 2）巴薩\n[歐冠] 2026-11-04 巴薩（3 : 0）阿斯頓維拉\n[西甲] 2026-11-01 巴薩（6 : 1）阿拉維斯\n[西甲] 2026-10-26 巴薩（1 : 2）皇馬\n\n近6客場取得5勝0平1負，進20球失10球，勝率83%\n...\n[歐冠] 2026-10-21 巴黎聖日耳曼（4 : 2）巴薩\n[西甲] 2026-10-18 貝蒂斯（2 : 5）巴薩\n[歐冠] 2026-10-14 加拉塔薩雷（1 : 4）巴薩\n[西甲] 2026-09-20 塞維利亞（1 : 3）巴薩\n...\n[後衛]亞歷杭德羅·巴爾德，踝關節扭傷，開始日期2026年11月27日\n[中場]馬克·貝爾納爾，未知，開始日期2026年11月26日\n[後衛]克里斯滕森，肌肉挫傷，開始日期2026年11月20日\n[後衛]哈維·...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "拉科鲁尼亚vs巴塞罗那进球数预测：模型预计3.6球，双方进球概率57%",
+          "url": "https://m.dongqiudi.com/xinwen/261436",
+          "site": "懂球帝",
+          "date": "2026-11-26T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.7518277378523357,
+          "summary": "# 拉科鲁尼亚vs巴塞罗那进球数预测：模型预计3.6球，双方进球概率57%\n...\n进球数预测西甲 拉科鲁尼亚 vs 巴塞罗那\n...\n- 懂球帝数据模型预计拉科鲁尼亚vs巴塞罗那合计进3.6球左右\n- 全场总进球正好3球的可能最大，为21%\n- 两队都进球的概率57%\n\n北京时间2026年11月29日23:15周日，西甲第14轮，拉科鲁尼亚主场对阵巴塞罗那。懂球帝数据模型综合三个模型的平均，预计两队合计进3.6球左右，其中拉科鲁尼亚1.0球、巴塞罗那2.6球。\n\n总进球各档概率：0球3%、1球8%、2球18%、3球21%、4球19%、5球及以上30%；3球及以上70%，2球及以下30%。全场总进球正好3球的可能最大，为21%。两队都进球的概率57%；拉科鲁尼亚零封对手的概率8%，巴塞罗那零封对手的概率38%。\n\n泊松进球模型按本赛季西甲场均进球算出进攻和防守强度，再按泊松分布算比分概率，并对低比分做Dixon-Coles修正。本赛季西甲截至赛前已赛129场，场均主队进1.58球、客队进1.26球；拉科鲁尼亚6个主场场均进1.33球、失1.00球，进攻强度0.88、防守0.84；巴塞罗那6个客场场均进4.00球、失1.00球，进攻强度2.63、防守0.73。该模型进球期望：拉科鲁尼亚1.01、巴塞罗那2.80。\n\n近况加权模型只看两队各项赛事最近10场，越近权重越大（每往前一场权重乘0.85），用加权后的场均进球和对手场均失球算进球期望，主场按赛事主客场进球比例加成。拉科鲁尼亚近10场加权场均进0.97球、失1.42球；巴塞罗那近10场加权场均进3.28球、失1.35球；主场加成1.12。该模型进球期望：拉科鲁尼亚1.40、巴塞罗那2.03。\n\nElo等级分模型按懂球帝收录的全部正式比赛算分，赛前拉科鲁尼亚1741分（已算632场）、巴塞罗那2177分（已算911场），主场优势按60分算；拉科鲁尼亚胜率期望0.10。该模型进球期望：拉科鲁尼亚0.63、巴塞罗那2.99。\n\n近5场，拉科鲁尼亚1胜2平2负（进4失6），巴塞罗那5胜0平0负（进18失5）。本赛季西甲，拉科鲁尼亚13战3胜6平4负，15分；巴塞罗那13战12胜0平1负，36分。历史交锋12次，拉科鲁尼亚1胜3平8负，巴塞罗那8胜3平1负。\n\n模型只看历史数据，不知道伤停和临场变化，结果仅供参考。\n\n本文根据懂球帝数据的报道《周日015 拉科鲁尼亚vs巴塞罗那进球数预测（西甲）》编译整理。",
+          "side": "home",
+          "neg": false,
+          "hits": [
+            "主场优势"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "伊达尔戈：拉科鲁尼亚要踢出完美一战，利用反击惩罚巴萨",
+          "url": "https://m.jlnyxx.com/news/zuqiu/xijia/258360.html",
+          "site": "jlnyxx.com",
+          "date": "2026-11-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.7177606949029784,
+          "summary": "# 伊达尔戈：拉科鲁尼亚要踢出完美一战，利用反击惩罚巴萨\n\n据《每日体育报》报道，时隔八年，拉科鲁尼亚将在本周日再次主场迎战巴塞罗那。球队已经阔别西甲联赛太久，也远离了昔日那些直接对话的较量。过去二十年里，两队之间的差距不断拉大，但“渴望”拿分是球队必须背负的责任。“我们必须在各个方面都踢出非常完美的一天，”主帅伊达尔戈在赛前分析道。他12岁到21岁期间曾在巴萨青训效力，深知即将面对怎样的对手——“世界上最好的球队之一”。毫无疑问，这将是他执教生涯至今面临的最大挑战。\n\n“这是一场不能失去耐心的比赛，”伊达尔戈强调道。面对欧洲足坛最出色、最具侵略性的高位逼抢之一，他的球队在有球和无球状态下都必须始终保持“紧凑”。但所有球队“都有弱点”，拉科鲁尼亚会设法加以利用。“我们清楚他们的侵略性有多强，他们在丢球后的反抢会给你制造极大困难。汉斯（弗里克）把他们带到了一个惊人的高度，”这位主帅补充道。在这场比赛中，夺回球权后的最初几秒将至关重要，随后便是将球送向空当，发挥蓝白军团快马的速度优势：奥巴梅扬、耶雷迈或阿达玛，都是球队在反击中惩罚对手的最佳武器。\n\n这位主教练表示，取胜的关键在于在巴萨最可能感到吃力的时刻“给他们制造伤害”。“有些关键点你必须非常明确，”他解释说。他深知球队将不得不“承受巨大压力”，但在“攻防转换”中可以惩罚对手，这要求球队在持球时“展现出个性”。\n\n这将是一场“需要极度煎熬”的比赛，期间会出现许多令人窒息的阶段，而这是拿分无法回避的过程。“我们必须保持稳固和纪律性，”他重申。他期待球队相比对阵阿拉维斯一役有所改善，当时面对对手的高位逼抢，球队踢得“相当别扭”。“他们场均能进4球，过去12场赢了11场，只输给了皇马。这足以说明我们面前对手的实力。我们必须做好承受这种煎熬的准备，”伊达尔戈提醒道。他表示球队必须在比赛中发挥自身“武器”，并依靠里亚索球场的看台力量：“有我们的球迷在，我们会强大得多。”\n\n被问及是否接受平局时，这位来自卡诺韦莱斯的主帅表示，球队始终抱有“去竞争的信念”，不会提前预设结果：“面对这种级别的球队，你知道比赛有多难。我们要努力拼搏，发挥出最高水平，在此基础上，这将是一场充满张力的比赛。”巴萨方面可能会进行轮换，费尔明因停赛缺阵，且球队周中刚经历了前往巴库的长途旅行，亚马尔当时并未随行，目前他能否出战本场仍存疑，不过预计可以赶上。“我们拭目以待，他们每条线都有世界级球员，”伊达尔戈回应道，他很清楚无论谁上场，都会是球星。\n\n这位蓝白军团主帅还希望将全队的注意力集中在既定目标上。此前他曾抱怨对手利用球队夏窗的投入来转移视线，上周末伊达尔戈就曾对此表示不满。他再次谈及此事，认为重要的是“将期望与现实结合起来”，并明确“首要目标是保级”。球队目前正朝着这个方向“稳步推进”，没有偏离重心。\n\n本场比赛前，球队的伤病情况有所好转。布莱特-埃德还需要再等一等，他的恢复进展“比预期慢一些”，但俱乐部不愿对这位因腿筋伤势缺阵已超过一个月的波兰中卫操之过急。而埃达乔里则会迎来复出：“对他来说这段时间很漫长。因为一次有些离奇的状况，他不得不缺阵了很长时间。手部伤势和肌肉伤病不一样，他已经准备好了。”",
+          "side": "draw",
+          "neg": true,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "西甲比赛前瞻：拉科鲁尼亚vs巴萨预测分析(2026年11月29日)",
+          "url": "https://www.lafrontiers.com/qmw-article-2052133657804.html",
+          "site": "24直播网",
+          "date": "2026-11-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 1.7177606949029784,
+          "summary": "# 西甲比赛前瞻：拉科鲁尼亚vs巴萨预测分析(2026年11月29日)\n\n【西甲】拉科鲁尼亚vs巴萨，将于北京时间11月29日23点15分进行。赛前排行数据：拉科鲁尼亚当前战绩为3胜6平4负，积分15，排在联赛第12名；巴萨当前战绩为12胜0平1负，积分36，排在联赛第1名。下面分享具体的比赛前瞻拉科鲁尼亚vs巴萨预测分析：\n\n## 拉科鲁尼亚vs巴萨预测分析\n\n拉科鲁尼亚情报消息：\n\n近6场赛事取得2胜2平2负，进7球失6球，胜率33%\n[西甲] 2026-11-21 阿拉维斯（3 : 1）拉科鲁尼亚\n[西甲] 2026-11-07 西班牙人（0 : 0）拉科鲁尼亚\n[西甲] 2026-11-03 拉科鲁尼亚（2 : 1）奥萨苏纳\n[国王杯] 2026-10-30 奥伦塞（0 : 3）拉科鲁尼亚\n[西甲] 2026-10-25 马竞（1 : 0）拉科鲁尼亚\n[西甲] 2026-10-17 拉科鲁尼亚（1 : 1）莱万特\n\n近6主场取得2胜2平2负，进8球失8球，胜率33%\n...\n[球会友谊] 2026-10-03 拉科鲁尼亚（1 : 3）波尔图\n[西甲] 2026-09-21 拉科鲁尼亚（1 : 1）贝蒂斯\n[西甲] 2026-09-17 拉科鲁尼亚（0 : 1）塞维利亚\n[西甲] 2026-08-31 拉科鲁尼亚（3 : 1）瓦伦西亚\n\n球队伤病最新报告：\n[后卫]布莱特·埃德，腿筋受伤，开始日期2026年10月19日\n\n巴萨情报消息：\n\n近6场赛事取得5胜0平1负，进19球失7球，胜率83%\n[欧冠] 2026-11-26 萨巴赫（1 : 4）巴萨\n[西甲] 2026-11-22 巴萨（3 : 2）比利亚雷亚尔\n[西甲] 2026-11-09 马竞（1 : 2）巴萨\n[欧冠] 2026-11-04 巴萨（3 : 0）阿斯顿维拉\n[西甲] 2026-11-01 巴萨（6 : 1）阿拉维斯\n[西甲] 2026-10-26 巴萨（1 : 2）皇马\n\n近6客场取得5胜0平1负，进20球失10球，胜率83%\n...\n[欧冠] 2026-10-21 巴黎圣日耳曼（4 : 2）巴萨\n[西甲] 2026-10-18 贝蒂斯（2 : 5）巴萨\n[欧冠] 2026-10-14 加拉塔萨雷（1 : 4）巴萨\n[西甲] 2026-09-20 塞维利亚（1 : 3）巴萨\n...\n[后卫]亚历杭德罗·巴尔德，踝关节扭伤，开始日期2026年11月27日\n[中场]马克·贝尔纳尔，未知，开始日期2026年11月26日\n[后卫]克里斯滕森，肌肉挫伤，开始日期2026年11月20日\n[后卫]哈维·埃斯帕特，踝关节扭伤，开始日期2026年10月26日\n[前锋]鲁尼·巴尔德吉，膝关节受伤，开始日期2026年08月10日\n[中场]费尔明...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 1,
+        "away": 0,
+        "draw": 1,
+        "goals": 0,
+        "none": 3,
+        "neg": 1
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 3,
+        "zh": 5,
+        "home_mentions": 5,
+        "away_mentions": 3
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周日017",
+      "league": "英超",
+      "home": "阿森纳",
+      "away": "曼城",
+      "home_en": "Arsenal",
+      "away_en": "Man City",
+      "queries": [
+        "\"Arsenal vs Man City\" preview prediction lang:en",
+        "阿森纳 曼城 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "preview",
+          "title": "Arsenal vs Man City: Merson makes huge prediction and tells City stars to ‘live today’",
+          "url": "https://onefootball.com/en/news/arsenal-vs-man-city-merson-makes-huge-prediction-and-tells-city-stars-to-live-today-43851588",
+          "site": "OneFootball",
+          "date": "2026-11-26T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.354484041327956,
+          "summary": "# Arsenal vs Man City: Merson makes huge prediction and tells City stars to ‘live today’ | OneFootball\n\nFootball365\n\n·27 November 2026\n...\nPaul Merson has made a prediction ahead of Arsenal against Man City at the weekend with teams no longer fearing the Citizens.\n\nThe Gunners are hosting rivals Man City at the Emirates Stadium in the Premier League on Sunday in a clash that could define the rest of the season.\n...\nArsenal are currently six points ahead of second-placed Brighton and third-placed Man City after 11 Premier League matches.\n\nMan City finished seven points behind Arsenal last term as the Gunners ended their 22-year wait to win a Premier League title – but the Citizens have already lost three matches this term.\n\nAnd now Merson reckons Enzo Maresca’s side have lost their fear factor this season since Pep Guardiola was replaced by the Italian.\n\nMerson said on Sky Sports: “Man City have got to go out and play for the fans, they’re the ones who are paying their money. They’re getting paid £300,000-a-week, the fans are the ones paying to watch them.\n\n“Man City are getting a little bit found out. I have always said, even when they were playing at their best, they give you chances. And you have to make those chances count.\n\n“It used to be: go to the Etihad, get your stomach’s tickled, get out with a 3-0 defeat that you’re more than happy with that, and go back on the coach – because they could win games by six or seven.\n\n“Then all of a sudden, they started winning games but they were also open at the same time. And now, teams don’t fear them.\n\n“Teams know they will get chances if they have a go at them – and enough chances to win football matches, not just one or two chances.\n\n“If you are brave enough – like Fulham were by getting players in the opposition box – you can beat Man City.\n\n“This is the problem for them: they’re too open and there’s not that fear factor anymore. And I also don’t think Erling Haaland gets the service he deserves.\n\n“You would like to think that City’s players aren’t being affected by the charges hanging over them, because no one knows what is going to happen. So you have to play until you know what’s going to happen.\n\n“It’s like life: no one’s going to tell you what’s going to happen tomorrow, so live today.”\n\n### ‘If Arsenal win this game, the league is finished’ – Merson\n\nPreviewing Man City’s trip to Arsenal on Sunday, Merson predicted: “If Arsenal win this game, the league is finished. That would be nine points clear and this league could be over very, very quickly.\n\n“Arsenal were dominant in the first half against Newcastle and if it was a boxing match, then Newcastle would have thrown the towel in.\n\n“They came out the second half a bit lackadaisical and Newcastle were outstanding by playing on the front foot. But then Arsenal switched and decided they weren’t going to lose.\n\n“And then they scored one of the best goals of the season. If the finish from Noni Madueke was good, it would be the goal of the season. But when you see the finish, it’s not great and the goalkeeper should save it. If he whips it into the far corner, it’s goal of the season.\n\n“I think we saw enough with Brighton last weekend against Hull. That’s one of those games where you go: if you can’t win it, don’t lose it.\n\n“You feel sorry for Brighton, because Konstantinos Tzolakis was unreal. He should be playing for the New York Rangers this weekend. He was like an ice hockey goalkeeper.\n...\n“But if you’re experienced team and you’ve been in that situation before, a draw is just a bad day at the office but we’ve played well, the goalkeeper’s had a blinder and you don’t lose a football match away from home. But they lost.”",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Arsenal vs Man City preview – Prediction, kick-off time and line-ups",
+          "url": "https://onefootball.com/en/news/arsenal-vs-man-city-preview-prediction-kick-off-time-and-line-ups-43855573",
+          "site": "OneFootball",
+          "date": "2026-11-27T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.336879835320897,
+          "summary": "# Arsenal vs Man City preview – Prediction, kick-off time and line-ups | OneFootball\n\nFootball Today\n\n·28 November 2026\n\n## Arsenal vs Man City preview – Prediction, kick-off time and line-ups\n\nArsenal host Manchester City at the Emirates Stadium on Sunday in a crucial Premier League showdown between the defending champions and their closest challengers.\n\nThe Gunners are six points clear at the top of the table and could extend their advantage to nine points with a win, while City need to end their winless run and revive their title hopes.\n...\n### Head-to-head record\n\nManchester City have recorded 67 wins, 48 draws and 102 defeats against Arsenal across all competitions.\n\nThe Gunners have become a much tougher opponent in recent seasons and are unbeaten in their last three home league meetings with City.\n\nArsenal also defeated Enzo Maresca’s side 3-0 in the Community Shield in August, giving them another reason to believe they can secure a statement victory.\n\n### Arsenal preview\n\nArsenal remain top of the Premier League after collecting 28 points from their opening 11 matches.\n\nHowever, consecutive draws against Newcastle United and Borussia Dortmund have exposed some concerns.\n\nMikel Arteta’s side have still been formidable at the Emirates, winning all five home league fixtures this season, scoring 10 goals and conceding just twice.\n\nThe Gunners will be keen to rediscover their attacking sharpness after struggling to turn chances into goals in recent outings.\n\nMartin Odegaard and Kai Havertz could prove crucial, particularly given Havertz’s impressive record against City.\n\nDavid Raya is a doubt after suffering a shoulder injury against Newcastle, while Bukayo Saka and Martin Zubimendi are also expected to miss out.\n\nWilliam Saliba is training again but may not be ready to start.\n\nProbable Arsenal line-up: Raya; Timber, Konsa, Gabriel, Calafiori; Guimaraes, Rice; Madueke, Odegaard, Eze; Havertz.\n\n### Man City preview\n\nMan City travel to North London under considerable pressure after collecting just one point from their last four Premier League matches.\n\nEnzo Maresca’s side started the campaign with seven consecutive league victories but have since lost momentum, leaving them six points behind Arsenal.\n\nDespite their recent struggles, City remain dangerous in attack.\n\nThey have scored 22 league goals, with only Brighton & Hove Albion outscoring them, while their tally of 36 big chances created is the highest in the division.\n\nHowever, defensive inconsistency has become a major concern, with the visitors struggling to keep clean sheets and conceding costly goals.\n\nErling Haaland has gone three Premier League matches without scoring and will be desperate to rediscover his form against Arsenal.\n\nRayan Cherki, Jeremy Doku and Iliman Ndiaye could provide the creativity needed to trouble the hosts.\n\nAntoine Semenyo remains sidelined with a knee injury, although Maresca confirmed that the winger will soon return to action.\n\nProbable Manchester City line-up: Donnarumma; Nunes, Guehi, Dias, O’Reilly; Anderson, Fernandez; Ndiaye, Cherki, Doku; Haaland.\n\n### Prediction\n\nArsenal have the home advantage, a stronger defensive record and considerably better recent league form.\n\nCity possess enough attacking quality to cause problems, but their defensive uncertainty could prove costly against a side that has consistently collected maximum points at the Emirates.\n\nWith the opportunity to open up a nine-point gap over their title rivals, Arteta’s men have plenty of motivation to deliver a statement performance.",
+          "side": null,
+          "neg": true,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Arsenal vs Manchester City prediction: Havertz and Haaland to hit net",
+          "url": "https://onefootball.com/en/news/arsenal-vs-manchester-city-prediction-havertz-and-haaland-to-hit-net-43846066",
+          "site": "OneFootball",
+          "date": "2026-11-25T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.3026041499377845,
+          "summary": "# Arsenal vs Manchester City prediction: Havertz and Haaland to hit net | OneFootball\n\nFootball365\n\n·26 November 2026\n\n## Arsenal vs Manchester City prediction:\n...\nArsenal are overwhelming favourites to defend their Premier League title but, as time ticks on this season, that appears to be more based on no-one else being anywhere good enough rather than a ringing endorsement of how great the Gunners are.\n\nAfter starting the season with seven straight Premier League wins, Manchester City seemed the only side who could put pressure on Mikel Arteta’s men. But even that came with a huge caveat given that City had the mass of guilty charges hanging over them and the possibility of a points deduction or demotion down the league ladder.\n...\nEven if City reverse the verdict and avoid punishment, it now seems that they’re just not equipped to maintain a title push. Vulnerabilities have been exposed and the seven wins have been followed by three straight defeats and a draw, dropping them six points behind Arsenal’s lead. It’s definitely silenced the shouts for a major punishment.\n\n### Arsenal vs Man City kick-off time\n\nArsenal vs Man City kicks off at 4.30pm GMT on Sunday, November 29 at the Emirates Stadium.\n\n### Arsenal vs Man City: how to watch\n\nThe game will be shown live in the UK via Sky Sports Main Event and Sky Sports Premier League, with coverage starting from 4pm.\n\n### Arsenal team news\n\nThe big question for Arsenal is in goal where David Raya’s shoulder injury will be assessed. Kepa Arrizabalaga played in the 1-1 draw with Borussia Dortmund on Tuesday, with Arteta commenting: “We fully trust our keepers and if he needs to play against City, he will play.”\n\nBukayo Saka (quad) and Martin Zubimendi (hamstring) are still some way from being available again while William Saliba continues to warm the bench after his lengthy absence with a back injury.\n\nArteta rotated his side for the Dortmund draw and despite crashing home a brilliant opener, Viktor Gyokeres will likely have to make way in attack for Kai Havertz.\n\n### Man City team news\n\nAntoine Semenyo (knee) is City’s only definite absentee. He was hurt against Ipswich on 17 October and isn’t expected back until mid-December.\n\nMatheus Nunes (ankle) is fit again and started at right-back against Napoli. Enzo Maresca made five changes for the 2-2 draw, so Abdukodir Khusanov, Ruben Dias, Iliman Ndiaye, Phil Foden and Jeremy Doku could all return.\n\nNo new knocks were reported from that game, and City have no suspensions.\n\n### Arsenal vs Man City odds\n\nChampions Arsenal are a shade of odds-on at 19/20 to come out on top and stretch their lead over Man City to nine points.\n\nCity trade at 13/5 for the win and The Draw is 11/4.\n\nArsenal are red-hot 1/3 favourites to win the title again while City are now out to 20/1.\n\nBecause of the possible punishments, City are 10/11 co-favourites to be relegated.\n\n### Arsenal vs Man City prediction\n\nAfter losing six consecutive home league games against Manchester City between 2018 and 2023, Arsenal are unbeaten in their last three against them at the Emirates Stadium, winning two of those.\n\nIt reflects a wider shift in power as City have won just one of their last six top-flight meetings with Arsenal.\n\nCurrent form also counts massively against the visitors, with a four-match form table showing City second from bottom having managed just a single point in that time.\n\nArsenal have won all five of their home Premier League games this season so getting a fraction under even money for them in any match at the Emirates is good business. Take the bet.\n\nTwo obvious goalscorer bets jump out.\n\nKai Havertz often pops up with important goals in big games and he’s netted in three of his last four games against City.\n\nErling Haaland, meanwhile, has run off in celebration in each of his last four top-flight meetings with Arsenal so loves this fixture.\n\nA Havertz/Haaland goalscorer double pays 7/1. If we add in an Arsenal win, that three-legged Bet Builder hits 13/1.\n\nIf you’re tuning in for the darker stuff, the simmering feud between Haaland and Gabriel has potential to boil over.\n...\nBoth to be booked is a mouthwatering 15/1 and there’s a chance it could happen in the same dust-up.",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "阿森纳vs曼城前瞻：争议主裁布鲁克斯执法，枪手6分领跑",
+          "url": "https://pc.dongqiudi.com/articles/6699636.html",
+          "site": "懂球帝",
+          "date": "2026-11-25T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.2438468074993367,
+          "summary": "# 阿森纳vs曼城前瞻：争议主裁布鲁克斯执法，枪手6分领跑\n\n本赛季至今最重磅的一场较量将在本周上演，阿森纳将在主场迎战曼城。\n\n11轮过后，阿森纳在积分榜上领先争冠对手曼城6分，马雷斯卡执教的曼城已经在顶级联赛连续四场不胜。\n\n两队上一轮均收获平局，阿森纳在客场对阵纽卡斯尔联的比赛中抢下一分，曼城则在主场被富勒姆逼平。\n\n随着赛程进入密集的圣诞新年阶段，这场交锋可能会再次对争冠形势起到关键作用。\n\n上赛季两队在这场对决中1-1战平，马丁内利在第90分钟破门，帮助阿森纳在夺冠征程中拿到关键一分。\n\n阿尔特塔的球队此前在社区盾杯中击败了马雷斯卡率领的曼城，如果本周末能够再次取胜，将向着卫冕联赛冠军的目标迈出重要一步。\n\n## 阿森纳vs曼城比赛时间\n\n这场英超焦点战将于北京时间11月30日00:30在酋长球场打响。\n\n两队阵容方面，戴维-拉亚在对阵纽卡斯尔联的比赛中肩部受伤，本场能否出战阿森纳存在很大疑问，凯帕已做好顶替出场的准备。\n\n萨卡因大腿伤势预计将缺席至12月下旬，阿森纳将继续缺少这名边锋。\n\n苏比门迪也因腿筋受伤预计无缘本场比赛。\n\n## 马雷斯卡在场边指挥比赛\n\n萨利巴已经恢复健康，有望迎来本赛季的首次首发。\n\n与此同时，曼城方面尚未公布塞门约膝盖伤势的复出时间表。\n\n胡桑诺夫因遭遇轻伤出战成疑，但努内斯有望重回首发阵容。\n\n裁判安排方面，主裁判约翰-布鲁克斯本周末将再次成为焦点，他将首次主哨阿森纳与曼城的比赛。\n\n布鲁克斯曾在2023年两队的社区盾杯比赛中担任第四官员，如今他被委以重任，执法本赛季最重大的比赛之一。\n\n## 阿森纳球员在对阵曼城比赛中庆祝\n\n而就在一周前，布鲁克斯刚刚处于本赛季最大争议事件的中心。\n\n上周日利物浦4-0大胜曼联的比赛中，这位来自梅尔顿莫布雷的36岁裁判担任VAR。\n\n曼联新帅波切蒂诺对布鲁克斯没有介入约罗开场阶段的红牌判罚感到不满，同时也不满利物浦球员在索博斯洛伊主罚任意球破门时对人墙的干扰。\n\n波切蒂诺当时表示：“我们可以接受裁判因为比赛情绪而犯错。有时视线或站位会影响判断，但既然有VAR，他们当时在干什么？”\n\n“现在我们要重赛吗？我们还有机会在11打11的同等条件下比赛吗？”\n\n“我们拥有一辆不可思议的赛车，但我们需要具备相应的驾驶水平；我们需要以最好的方式去驾驭它。是的，我们喜欢这项技术，也接受它的存在，但他们到底在干什么？这不仅仅是一次失误，它影响了一切。”\n\n本场比赛，布鲁克斯的助理裁判将是伊恩-胡辛和李-贝茨，第四官员为琼斯，VAR裁判由达伦-英格兰和尼克-霍普顿担任。",
+          "side": "draw",
+          "neg": false,
+          "hits": [
+            "平局"
+          ],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Arsenal vs Man City: Merson makes huge prediction and tells City stars to 'live today'",
+          "url": "https://www.football365.com/news/arsenal-man-city-merson-prediction-title-race-over",
+          "site": "Football365",
+          "date": "2026-11-26T16:00:00+00:00",
+          "authority": 3,
+          "score": 2.234052913725315,
+          "summary": "# Arsenal vs Man City: Merson makes huge prediction and tells City stars to ‘live today’\n\nPaul Merson has made a prediction ahead of Arsenal against Man City at the weekend with teams no longer fearing the Citizens.\n\nThe Gunners are hosting rivals Man City at the Emirates Stadium in the Premier League on Sunday in a clash that could define the rest of the season.\n\nArsenal are currently six points ahead of second-placed Brighton and third-placed Man City after 11 Premier League matches.\n\nMan City finished seven points behind Arsenal last term as the Gunners ended their 22-year wait to win a Premier League title – but the Citizens have already lost three matches this term.\n\nAnd now Merson reckons Enzo Maresca’s side have lost their fear factor this season since Pep Guardiola was replaced by the Italian.\n\nMerson said on Sky Sports: “Man City have got to go out and play for the fans, they’re the ones who are paying their money. They’re getting paid £300,000-a-week, the fans are the ones paying to watch them.\n\n“Man City are getting a little bit found out. I have always said, even when they were playing at their best, they give you chances. And you have to make those chances count.\n\n“It used to be: go to the Etihad, get your stomach’s tickled, get out with a 3-0 defeat that you’re more than happy with that, and go back on the coach – because they could win games by six or seven.\n\n“Then all of a sudden, they started winning games but they were also open at the same time. And now, teams don’t fear them.\n\n“Teams know they will get chances if they have a go at them – and enough chances to win football matches, not just one or two chances.\n\n“If you are brave enough – like Fulham were by getting players in the opposition box – you can beat Man City.\n\n“This is the problem for them: they’re too open and there’s not that fear factor anymore. And I also don’t think Erling Haaland gets the service he deserves.\n\n“You would like to think that City’s players aren’t being affected by the charges hanging over them, because no one knows what is going to happen. So you have to play until you know what’s going to happen.\n\n“It’s like life: no one’s going to tell you what’s going to happen tomorrow, so live today.”\n\n## ‘If Arsenal win this game, the league is finished’ – Merson\n\nPreviewing Man City’s trip to Arsenal on Sunday, Merson predicted: “If Arsenal win this game, the league is finished. That would be nine points clear and this league could be over very, very quickly.\n\n“Arsenal were dominant in the first half against Newcastle and if it was a boxing match, then Newcastle would have thrown the towel in.\n\n“They came out the second half a bit lackadaisical and Newcastle were outstanding by playing on the front foot. But then Arsenal switched and decided they weren’t going to lose.\n\n“And then they scored one of the best goals of the season. If the finish from Noni Madueke was good, it would be the goal of the season. But when you see the finish, it’s not great and the goalkeeper should save it. If he whips it into the far corner, it’s goal of the season.\n\n“I think we saw enough with Brighton last weekend against Hull. That’s one of those games where you go: if you can’t win it, don’t lose it.\n\n“You feel sorry for Brighton, because Konstantinos Tzolakis was unreal. He should be playing for the New York Rangers this weekend. He was like an ice hockey goalkeeper.\n\n“But if you’re experienced team and you’ve been in that situation before, a draw is just a bad day at the office but we’ve played well, the goalkeeper’s had a blinder and you don’t lose a football match away from home. But they lost.”",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 1,
+        "goals": 0,
+        "none": 4,
+        "neg": 0
+      },
+      "cover": {
+        "n": 5,
+        "auth3": 5,
+        "zh": 1,
+        "home_mentions": 1,
+        "away_mentions": 1
+      },
+      "scores": [],
+      "fetched": 0
+    },
+    {
+      "no": "周日022",
+      "league": "葡超",
+      "home": "波尔图",
+      "away": "里斯本",
+      "home_en": "Porto",
+      "away_en": "里斯本",
+      "queries": [
+        "\"Porto vs 里斯本\" preview prediction lang:en",
+        "波尔图 里斯本 前瞻 预测 lang:zh"
+      ],
+      "sources": [
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/?showType=2&mid=&gm=2556582",
+          "site": "中国竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.7343639135360718,
+          "summary": "排名: Regular Season 第1名\n\n赛季总成绩: 11胜 0平 0负\n\n赛季主场成绩: 5胜 0平 0负\n\n2026/2027 Regular Season 第12轮 2026-11-30 04:30\n...\nRegular Season 第3名\n...\n7胜 3平 1负\n\n赛季客场成绩: 3胜 2平 0负\n\n特征分析\n\n波尔图 (主)\n\n1胜/6平/3负\n\n3胜/7平/0负\n\n8胜/0平/2负\n\n8胜/0平/2负\n\n2.3个\n\n0.9个\n\n近10场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n里斯本 (客)\n\n3胜/6平/1负\n\n0胜/7平/3负\n\n6胜/2平/2负\n\n6胜/4平/0负\n\n1.7个\n\n1.0个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n积分榜 葡超2026/2027\n\n波尔图Regular Season 第1名 查看更多>\n\n场次 | 胜/平/负 | 胜率 | 进球/失球 | 净进球 | 积分 | 排名\n...\n总 | 11 | 11/0/0 | 100% | 27/5 | 22 | 33 | 1 \n主 | 5 | 5/0/0 | 100% | 13/2 | 11 | 15 | 1 \n客 | 6 | 6/0/0 | 100% | 14/3 | 11 | 18 | 1 \n\n里斯本Regular Season 第3名 查看更多>\n...\n总 | 11 | 7/3/1 | 64% | 24/11 | 13 | 24 | 3 \n主 | 6 | 4/1/1 | 67% | 12/7 | 5 | 13 | 3 \n客 | 5 | 3/2/0 | 60% | 12/4 | 8 | 11 | 5 \n\n比赛近况\n...\n波尔图近10场8胜 (80%) | 0平 (0%) | 2负 (20%)\n\n进23球，失9球，净进14球\n\n里斯本近10场6胜 (60%) | 2平 (20%) | 2负 (20%)\n\n进17球，失10球，净进7球\n...\n射手信息 葡超2026/2027\n...\n号码-球员(位置) | 总\n(首/替)\n...\n(本队占比)\n | 助攻\n...\n| 场均\n进球/助攻\n...\n17-博尔哈 塞恩斯(前锋) | 11 (3/8) | 6 (21%) | 1 (5%) | 0.5/0.1 \n10-加布里 维加(中场) | 11 (10/1) | 5 (17%) | 4 (19%) | 0.5/0.4 \n19-André Silva(前锋) | 11 (8/3) | 4 (14%) | 2 (10%) | 0.4/0.2\n...\n97-L. Suárez(前锋) | 11 (8/3) | 9 (41%) | 1 (6%) | 0.8/0.1 \n58-Flávio Gonçalves(前锋) | 10 (7/3) | 3 (14%) | 1 (6%) | 0.3/0.1 \n10-Geny(中场) | 11 (8/3) | 2 (9%) | 4 (22%) | 0.2/0.4 \n\n伤停一览\n...\n暂无数据\n...\n注：赛事数据统计进行至全场90分钟（含伤停补...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "zh",
+          "title": "足球对阵详情",
+          "url": "https://www.sporttery.cn/jc/zqdz/index.html?showType=2&mid=53152",
+          "site": "中国竞彩网",
+          "date": null,
+          "authority": 3,
+          "score": 1.366301417350769,
+          "summary": "特征分析\n\n里斯本 (主)\n\n1胜/3平/5负\n\n1胜/3平/0负\n\n5胜/4平/1负\n\n6胜/4平/0负\n\n1.2个\n\n0.7个\n\n近9场交锋\n\n同主客交锋\n\n近10场战况\n\n同主客战况\n\n场均进球\n\n场均失球\n\n波尔图 (客)\n\n5胜/3平/1负\n\n0胜/3平/1负\n\n6胜/1平/3负\n\n3胜/3平/4负\n\n2.1个\n\n0.9个\n\n历史交锋\n\n全部赛制\n\n相同赛制\n\n不区分主客场\n...\n近20场\n\n积分榜 葡超\n...\n比赛近况\n...\n里斯本近10场5胜 (50%) | 4平 (40%) | 1负 (10%)\n\n进12球，失7球，净进5球\n\n波尔图近10场6胜 (60%) | 1平 (10%) | 3负 (30%)\n\n进21球，失9球，净进12球\n...\n注：赛事数据统计进行至全场90分钟（含伤停补时阶段）结果。",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        },
+        {
+          "kind": "preview",
+          "title": "Preview: Porto vs Sporting Lisbon - prediction, team news, lineups - Sports Mole",
+          "url": "https://www.sportsmole.co.uk/football/porto/preview/porto-vs-sporting-lisbon-prediction-team-news-lineups_610036.html",
+          "site": "Sports Mole",
+          "date": "2026-11-26T16:00:00+00:00",
+          "authority": 2,
+          "score": 1.3048746585845947,
+          "summary": "Primeira Liga Gameweek 12\n\nNov 29, 2026 8.30pm\n\n# Preview: Porto vs Sporting Lisbon - prediction, team news, lineups\n\nPorto will look to maintain their perfect start to the league season when they welcome Sporting Lisbon to Estadio do Dragao for Sunday's matchday 12 headline fixture.\n\nThe Dragons have won all 11 of their league matches to sit top of the Primeira Liga table, five points clear of second-placed Benfica and nine ahead of the third-placed Lions.\n\n## Match preview\n\nFrancesco Farioli has made an impressive start to his second season in charge of Porto after leading the team to the title last term, and the Dragons are now just two victories away from matching their best start to a top-flight campaign, having won their first 13 matches in 1939-40.\n\nThe Blue and Whites, who recorded a league-high 21 clean sheets and conceded just 18 goals in the Primeira Liga last campaign, have maintained their defensive solidity this term, allowing a league-low five goals and registering the joint-most shutouts (six).\n\nPorto's most recent outing in the Portuguese top flight was a hard-fought 2-1 victory over Vitoria de Guimaraes, in an encounter where Martim Fernandes scored an 86th-minute winner to preserve the Dragons' flawless record in the top flight.\n\nFarioli's men have also put their continental campaign back on track, with a 1-0 victory away to Feyenoord in midweek marking their second consecutive Champions League win and lifting the Blue and Whites to 22nd in the 36-team table after they lost their opening three fixtures in the competition.\n\nPorto have now won six of their last seven matches across all competitions in regulation time, with the only exception being a penalty shootout victory over lower-division Paredes to reach the last 16 of the Taca de Portugal, where they will face Leiria on December 17.\n\nLooking to extend their perfect league run, Farioli’s charges can also draw confidence from their impressive home form, having won all five of their Primeira Liga matches at the Dragao this season while scoring at least twice in each, including a 3-1 success over Benfica in September's O Classico.\n\nHowever, Sporting have the opportunity to become the latest major obstacle in that pursuit, with the visitors arriving with renewed confidence following their recent managerial change, which saw Paulo Fonseca replace Rui Borges in early November.\n\nThe 53-year-old previously managed Porto during the 2013-14 campaign, oversaw a 1-0 league victory over Moreirense in his first game in charge of his current club, with Luis Suarez scoring the winner, before guiding the Lions to another victory in the Taca de Portugal against Uniao de Serra.\n\nSporting's most recent outing was a chaotic 2-2 draw with Manchester United on Wednesday, leaving the Lisbon outfit ninth in the Champions League table while extending their unbeaten run to five matches (W4, D1) across all competitions.\n\nThe Lions have also avoided defeat in all five of their league away games this season (W3, D2), but Sunday's derby presents a different challenge, given they have managed just two victories in their last 19 Primeira Liga meetings (D9, L8) with Porto and are winless in their last 10 top-flight visits to the Dragao (D5, L5), drawing each of the most recent three.\n\nPorto Primeira Liga form:\n\n- W\n...\nPorto form (all competitions):\n...\n- D\n- W\n\nSporting Lisbon Primeira Liga form:\n...\n- L\n...\nSporting Lisbon form (all competitions):\n...\n## Team News\n\nPorto will be without Gabriel Mec, Vasco Sousa (broken leg) and former Manchester United defender Chris Smalling (knee) as they continue their respective recoveries from injury.\n\nSantiago Gimenez led the line in the victory over Feyenoord, but Samu Aghehowa could reclaim the number nine spot after starting Porto's last two league matches, although Andre Silva remains in contention after recording the most minutes of the three forwards.\n\nAs for Sporting, Zeno Debast and Nuno Santos returned to training earlier in the week following spells on the sidelines, although this encounter could come too soon for both players\n\nLuis Suarez is expected to lead the line once again, with the Colombian, who won the Golden Boot with 28 league goals last season, having already found the net nine times in the Primeira Liga this term, leaving him two behind Benfica's Vangelis Pavlidis.\n\nPorto possible starting lineup:\n\nD Costa; A Costa, Bednarek, Kiwior, Sanusi; G Veiga, Rosario, Froholdt; Sainz, Samu, Pepe\n\nSporting Lisbon...",
+          "side": null,
+          "neg": false,
+          "hits": [],
+          "scores": []
+        }
+      ],
+      "tally": {
+        "home": 0,
+        "away": 0,
+        "draw": 0,
+        "goals": 0,
+        "none": 3,
+        "neg": 0
+      },
+      "cover": {
+        "n": 3,
+        "auth3": 2,
+        "zh": 2,
+        "home_mentions": 2,
+        "away_mentions": 2
+      },
+      "scores": [],
+      "fetched": 0
+    }
+  ]
+}
